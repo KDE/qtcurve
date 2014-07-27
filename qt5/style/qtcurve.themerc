@@ -1,9 +1,14 @@
 [Misc]
 Name=QtCurve
+Name[nl]=QtCurve
+Name[pt]=QtCurve
+Name[sv]=QtCurve
+Name[x-test]=xxQtCurvexx
 Comment=Highly configurable style
-Comment[zh_CN]=可高度定制的风格
-Comment[zh_HK]=可高度定制的樣式
-Comment[zh_TW]=可高度定制的樣式
+Comment[nl]=Hoog instelbare stijl
+Comment[pt]=Estilo gráfico altamente configurável
+Comment[sv]=Mycket anpassningsbar stil
+Comment[x-test]=xxHighly configurable stylexx
 ConfigPage=kstyle_qtcurve_config
 [KDE]
 WidgetStyle=QtCurve
