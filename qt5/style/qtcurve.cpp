@@ -1609,26 +1609,32 @@ Style::drawLightBevel(QPainter *p, const QRect &r, const QStyleOption *option,
             QString key;
             bool small(circular || (horiz ? r.width() : r.height())<(2*endSize));
             QPixmap pix;
-            QSize pixSize(small ? QSize(r.width(), r.height()) : QSize(horiz ? size : r.width(), horiz ? r.height() : size));
+            const QSize pixSize(small ? QSize(r.width(), r.height()) :
+                                QSize(horiz ? size : r.width(),
+                                      horiz ? r.height() : size));
             uint state(option->state&(State_Raised|State_Sunken|State_On|State_Horizontal|State_HasFocus|State_MouseOver|
                                          (WIDGET_MDI_WINDOW_BUTTON==w ? State_Active : State_None)));
 
             key.sprintf("qtc-%x-%x-%x-%x-%x-%x-%x-%x-%x", w, onToolbar ? 1 : 0,
                         round, (int)realRound, pixSize.width(), pixSize.height(),
-                        state, fill.rgba(), (int)(radius*100));
+                        state, fill.rgba(), (int)(radius * 100));
             if (!m_usePixmapCache || !QPixmapCache::find(key, pix)) {
-                pix = QPixmap(pixSize);
+                const float scale = ((int(pixSize.width() * 1.2) + 1.0) /
+                                     pixSize.width());
+                pix = QPixmap(pixSize * scale);
                 pix.fill(Qt::transparent);
 
                 QPainter pixPainter(&pix);
+                pixPainter.scale(scale, scale);
                 ERound oldRound = opts.round;
                 opts.round = realRound;
-                drawLightBevelReal(&pixPainter, QRect(0, 0, pix.width(),
-                                                      pix.height()), option,
+                drawLightBevelReal(&pixPainter, QRect(0, 0, pixSize.width(),
+                                                      pixSize.height()), option,
                                    widget, round, fill, custom, doBorder, w,
                                    false, realRound, onToolbar);
                 opts.round = oldRound;
                 pixPainter.end();
+                pix = pix.scaled(pixSize);
 
                 if (m_usePixmapCache) {
                     QPixmapCache::insert(key, pix);
@@ -1728,7 +1734,7 @@ Style::drawLightBevelReal(QPainter *p, const QRect &rOrig,
     if (WIDGET_TROUGH == w && !opts.borderSbarGroove)
         doBorder = false;
 
-    // p->setRenderHint(QPainter::Antialiasing, true);
+    p->setRenderHint(QPainter::Antialiasing, true);
 
     if (r.width() > 0 && r.height() > 0) {
         if (w == WIDGET_PROGRESSBAR && opts.stripedProgress != STRIPE_NONE) {
