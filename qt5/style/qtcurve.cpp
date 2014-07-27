@@ -1471,14 +1471,14 @@ Style::drawBevelGradientReal(const QColor &base, QPainter *p, const QRect &r,
                              const QPainterPath &path, bool horiz, bool sel,
                              EAppearance app, EWidget w) const
 {
-    bool topTab = w == WIDGET_TAB_TOP;
-    bool botTab = w == WIDGET_TAB_BOT;
-    bool dwt = qtcIsCustomBgnd(&opts) && w == WIDGET_DOCK_WIDGET_TITLE;
+    bool topTab = (w == WIDGET_TAB_TOP);
+    bool botTab = (w == WIDGET_TAB_BOT);
+    bool dwt = qtcIsCustomBgnd(&opts) && (w == WIDGET_DOCK_WIDGET_TITLE);
     bool titleBar = (opts.windowBorder & WINDOW_BORDER_BLEND_TITLEBAR &&
                      (qtcOneOf(w, WIDGET_MDI_WINDOW, WIDGET_MDI_WINDOW_TITLE) ||
                       (opts.dwtSettings & DWT_COLOR_AS_PER_TITLEBAR &&
                        w == WIDGET_DOCK_WIDGET_TITLE && !dwt)));
-    bool reverse = Qt::RightToLeft == QApplication::layoutDirection();
+    bool reverse = QApplication::layoutDirection() == Qt::RightToLeft;
     const Gradient *grad = qtcGetGradient(app, &opts);
     QLinearGradient g(r.topLeft(), horiz ? r.bottomLeft() : r.topRight());
     GradientStopCont::const_iterator it(grad->stops.begin());
@@ -1678,33 +1678,40 @@ Style::drawLightBevelReal(QPainter *p, const QRect &rOrig,
                           bool doBorder, EWidget w, bool useCache,
                           ERound realRound, bool onToolbar) const
 {
-    EAppearance  app(qtcWidgetApp(onToolbar ? WIDGET_TOOLBAR_BUTTON : w, &opts, option->state&State_Active));
-    QRect        r(rOrig);
-    bool         bevelledButton((WIDGET_BUTTON(w) || WIDGET_NO_ETCH_BTN==w || WIDGET_MENU_BUTTON==w) && APPEARANCE_BEVELLED==app),
-        sunken(option->state &(/*State_Down | */State_On | State_Sunken)),
-        flatWidget( (WIDGET_MDI_WINDOW_BUTTON==w &&
-                     (opts.round==ROUND_MAX || opts.titlebarButtons&TITLEBAR_BUTTON_ROUND)) ||
-                    (WIDGET_PROGRESSBAR==w && !opts.borderProgress)),
-        lightBorder(!flatWidget && DRAW_LIGHT_BORDER(sunken, w, app)),
-        draw3dfull(!flatWidget && !lightBorder && DRAW_3D_FULL_BORDER(sunken, app)),
-        draw3d(!flatWidget && (draw3dfull || (
-                                   !lightBorder && DRAW_3D_BORDER(sunken, app)))),
-        drawShine(DRAW_SHINE(sunken, app)),
-        doColouredMouseOver(doBorder && option->state&State_Enabled &&
-                            WIDGET_MDI_WINDOW_BUTTON!=w &&
-                            WIDGET_SPIN!=w && WIDGET_COMBO_BUTTON!=w && WIDGET_SB_BUTTON!=w &&
-                            (!SLIDER(w) || !opts.colorSliderMouseOver) &&
-                            !(option->state&STATE_KWIN_BUTTON) &&
-                            (opts.coloredTbarMo || !(option->state&STATE_TBAR_BUTTON)) &&
-                            opts.coloredMouseOver && option->state&State_MouseOver &&
-                            WIDGET_PROGRESSBAR!=w &&
-                            (option->state&STATE_TOGGLE_BUTTON || !sunken)),
-        plastikMouseOver(doColouredMouseOver && MO_PLASTIK==opts.coloredMouseOver),
-        colouredMouseOver(doColouredMouseOver && WIDGET_MENU_BUTTON!=w &&
-                          (MO_COLORED==opts.coloredMouseOver ||
-                           MO_COLORED_THICK==opts.coloredMouseOver ||
-                           (MO_GLOW==opts.coloredMouseOver &&
-                            !(opts.buttonEffect != EFFECT_NONE)))),
+    EAppearance app(qtcWidgetApp(onToolbar ? WIDGET_TOOLBAR_BUTTON : w,
+                                  &opts, option->state&State_Active));
+    QRect r(rOrig);
+    bool bevelledButton((WIDGET_BUTTON(w) || WIDGET_NO_ETCH_BTN == w ||
+                         WIDGET_MENU_BUTTON == w) && APPEARANCE_BEVELLED == app);
+    bool sunken(option->state &(/*State_Down | */State_On | State_Sunken));
+    bool flatWidget((WIDGET_MDI_WINDOW_BUTTON==w &&
+                     (opts.round==ROUND_MAX ||
+                      opts.titlebarButtons&TITLEBAR_BUTTON_ROUND)) ||
+                    (WIDGET_PROGRESSBAR==w && !opts.borderProgress));
+    bool lightBorder(!flatWidget && DRAW_LIGHT_BORDER(sunken, w, app));
+    bool draw3dfull(!flatWidget && !lightBorder &&
+                    DRAW_3D_FULL_BORDER(sunken, app));
+    bool draw3d(!flatWidget && (draw3dfull ||
+                                (!lightBorder && DRAW_3D_BORDER(sunken, app))));
+    bool drawShine(DRAW_SHINE(sunken, app));
+    bool doColouredMouseOver(doBorder && option->state&State_Enabled &&
+                             WIDGET_MDI_WINDOW_BUTTON!=w && WIDGET_SPIN!=w &&
+                             WIDGET_COMBO_BUTTON!=w && WIDGET_SB_BUTTON!=w &&
+                             (!SLIDER(w) || !opts.colorSliderMouseOver) &&
+                             !(option->state&STATE_KWIN_BUTTON) &&
+                             (opts.coloredTbarMo ||
+                              !(option->state&STATE_TBAR_BUTTON)) &&
+                             opts.coloredMouseOver &&
+                             option->state&State_MouseOver &&
+                             WIDGET_PROGRESSBAR!=w &&
+                             (option->state&STATE_TOGGLE_BUTTON || !sunken));
+    bool plastikMouseOver(doColouredMouseOver &&
+                          MO_PLASTIK==opts.coloredMouseOver);
+    bool colouredMouseOver(doColouredMouseOver && WIDGET_MENU_BUTTON!=w &&
+                           (MO_COLORED==opts.coloredMouseOver ||
+                            MO_COLORED_THICK==opts.coloredMouseOver ||
+                            (MO_GLOW==opts.coloredMouseOver &&
+                             !(opts.buttonEffect != EFFECT_NONE)))),
         doEtch(doBorder && ETCH_WIDGET(w) && opts.buttonEffect != EFFECT_NONE),
         glowFocus(doEtch && USE_GLOW_FOCUS(option->state&State_MouseOver) && option->state&State_HasFocus &&
                   option->state&State_Enabled),

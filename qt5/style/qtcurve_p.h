@@ -171,13 +171,13 @@ drawRect(QPainter *p, const QRect &r)
 static inline void
 drawAaLine(QPainter *p, int x1, int y1, int x2, int y2)
 {
-    p->drawLine(QLineF(x1+0.5, y1+0.5, x2+0.5, y2+0.5));
+    p->drawLine(QLineF(x1 + 0.5, y1 + 0.5, x2 + 0.5, y2 + 0.5));
 }
 
 static inline void
 drawAaPoint(QPainter *p, int x, int y)
 {
-    p->drawPoint(QPointF(x+0.5, y+0.5));
+    p->drawPoint(QPointF(x + 0.5, y + 0.5));
 }
 
 static inline void
