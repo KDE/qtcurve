@@ -1,12 +1,19 @@
 [Misc]
 Name=QtCurve
+Name[de]=QtCurve
 Name[nl]=QtCurve
+Name[pl]=QtCurve
 Name[pt]=QtCurve
+Name[pt_BR]=QtCurve
+Name[sk]=QtCurve
 Name[sv]=QtCurve
 Name[x-test]=xxQtCurvexx
 Comment=Highly configurable style
 Comment[nl]=Hoog instelbare stijl
+Comment[pl]=Wysoce ustawialny styl
 Comment[pt]=Estilo gráfico altamente configurável
+Comment[pt_BR]=Estilo altamente configurável
+Comment[sk]=Vysoko konfigurovateľný štýl
 Comment[sv]=Mycket anpassningsbar stil
 Comment[x-test]=xxHighly configurable stylexx
 ConfigPage=kstyle_qtcurve_config
