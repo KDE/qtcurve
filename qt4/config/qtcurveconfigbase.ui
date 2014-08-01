@@ -282,7 +282,7 @@
           <widget class="QComboBox" name="bgndImage">
            <property name="toolTip">
             <string>&lt;p&gt;This adds a background image to the top-right of dialogs and windows.
-            &lt;ul&gt;&lt;li&gt;None - No image.&lt;/li&gt;&lt;li&gt;Bordered rings - 'Air' like rings with borders.&lt;/li&gt;&lt;li&gt;Plain rings - 'Air' like rings, but without any border.&lt;/li&gt;&lt;li&gt;Square rings - 3 simple rounded sqaures.&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;</string>
+            &lt;ul&gt;&lt;li&gt;None - No image.&lt;/li&gt;&lt;li&gt;Bordered rings - 'Air' like rings with borders.&lt;/li&gt;&lt;li&gt;Plain rings - 'Air' like rings, but without any border.&lt;/li&gt;&lt;li&gt;Square rings - 3 simple rounded squares.&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;</string>
            </property>
           </widget>
          </item>
@@ -393,7 +393,7 @@
           <item>
            <widget class="QCheckBox" name="stdSidebarButtons">
             <property name="toolTip">
-             <string>&lt;p&gt;Select this to have the sidebar buttons in konqueror, kate, kaffeine, ktorrent, etc., drawn as per normal buttons - otherwise they will be drawn in a more flat style with the active tab colored with the highlght color.&lt;/p&gt;</string>
+             <string>&lt;p&gt;Select this to have the sidebar buttons in konqueror, kate, kaffeine, ktorrent, etc., drawn as per normal buttons - otherwise they will be drawn in a more flat style with the active tab colored with the highlight color.&lt;/p&gt;</string>
             </property>
             <property name="text">
              <string>Standard buttons for sidebars</string>
@@ -579,7 +579,7 @@
          <item row="0" column="1">
           <widget class="KIntNumInput" name="bgndOpacity">
            <property name="toolTip">
-            <string>&lt;p&gt;Sets the opacity of window backgrounds when using deskop effects.&lt;/p&gt;</string>
+            <string>&lt;p&gt;Sets the opacity of window backgrounds when using desktop effects.&lt;/p&gt;</string>
            </property>
            <property name="suffix">
             <string>%</string>
@@ -596,7 +596,7 @@
          <item row="1" column="1">
           <widget class="KIntNumInput" name="dlgOpacity">
            <property name="toolTip">
-            <string>&lt;p&gt;Sets the opacity of dialog backgrounds when using deskop effects.&lt;/p&gt;</string>
+            <string>&lt;p&gt;Sets the opacity of dialog backgrounds when using desktop effects.&lt;/p&gt;</string>
            </property>
            <property name="suffix">
             <string>%</string>
@@ -613,7 +613,7 @@
          <item row="2" column="1">
           <widget class="KIntNumInput" name="menuBgndOpacity">
            <property name="toolTip">
-            <string>&lt;p&gt;Sets the opacity of popup menus when using deskop effects.&lt;/p&gt;</string>
+            <string>&lt;p&gt;Sets the opacity of popup menus when using desktop effects.&lt;/p&gt;</string>
            </property>
            <property name="suffix">
             <string>%</string>
@@ -882,7 +882,7 @@
        <item row="2" column="1">
         <widget class="KIntNumInput" name="splitterHighlight">
          <property name="toolTip">
-          <string>&lt;p&gt;Defines by how much the theme should brighen (or darken) the background of the splitter when the mouse hovers over.&lt;/p&gt;</string>
+          <string>&lt;p&gt;Defines by how much the theme should brighten (or darken) the background of the splitter when the mouse hovers over.&lt;/p&gt;</string>
          </property>
          <property name="suffix">
           <string>%</string>
@@ -1027,7 +1027,7 @@
         <widget class="QComboBox" name="scrollbarType">
          <property name="toolTip">
           <string>&lt;p&gt;This controls the position, and number, of buttons on a scrollbar.
-            &lt;ul&gt;&lt;li&gt;KDE - 1 button at the top/left, and two at the bottom/right&lt;/li&gt;&lt;li&gt;Windows - 1 botton at each end&lt;/li&gt;&lt;li&gt;Platinum - no buttons at the top/left, two at bottom/right&lt;/li&gt;&lt;li&gt;Next - two buttons at the top/left, none at bottom/right&lt;/li&gt;&lt;li&gt;None - no buttons, only the slider&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;</string>
+            &lt;ul&gt;&lt;li&gt;KDE - 1 button at the top/left, and two at the bottom/right&lt;/li&gt;&lt;li&gt;Windows - 1 button at each end&lt;/li&gt;&lt;li&gt;Platinum - no buttons at the top/left, two at bottom/right&lt;/li&gt;&lt;li&gt;Next - two buttons at the top/left, none at bottom/right&lt;/li&gt;&lt;li&gt;None - no buttons, only the slider&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;</string>
          </property>
         </widget>
        </item>
@@ -1130,7 +1130,7 @@
        <item row="4" column="1">
         <widget class="QCheckBox" name="animatedProgress">
          <property name="toolTip">
-          <string>&lt;p&gt;Determines if the sripes on progressbars should be aninmated, or not.&lt;/p&gt;</string>
+          <string>&lt;p&gt;Determines if the stripes on progressbars should be animated, or not.&lt;/p&gt;</string>
          </property>
          <property name="text">
           <string>Animated</string>
@@ -1784,7 +1784,7 @@
           <item>
            <widget class="QRadioButton" name="invertBotTab">
             <property name="toolTip">
-             <string>&lt;p&gt;If enabled, tabs on the bottom will use the an inverted gradient to tabs on the top. i.e. if the top tabs shades from light to the background color, then  bottom tabs will go from the background color to dark.</string>
+             <string>&lt;p&gt;If enabled, tabs on the bottom will use the an inverted gradient to tabs on the top. i.e. if the top tabs shades from light to the background color, then bottom tabs will go from the background color to dark.</string>
             </property>
             <property name="text">
              <string>Invert</string>
@@ -3265,7 +3265,7 @@
        <item row="9" column="1">
         <widget class="QComboBox" name="menuStripe">
          <property name="toolTip">
-          <string>&lt;p&gt;Defines the coloration of the menu-stripe that will be drawn on the left of poup menus - but only if this option is not set to 'none'.</string>
+          <string>&lt;p&gt;Defines the coloration of the menu-stripe that will be drawn on the left of popup menus - but only if this option is not set to 'none'.</string>
          </property>
         </widget>
        </item>
@@ -3546,7 +3546,7 @@
        <item row="1" column="1">
         <widget class="QCheckBox" name="dwtRoundTopOnly">
          <property name="toolTip">
-          <string>&lt;p&gt;If enabled, only the top (for horizontal dock windows), or left (for vertial dock windows) will be rounded.</string>
+          <string>&lt;p&gt;If enabled, only the top (for horizontal dock windows), or left (for vertical dock windows) will be rounded.</string>
          </property>
          <property name="text">
           <string>Round top/left only</string>
@@ -3637,7 +3637,7 @@
        <item row="0" column="1">
         <widget class="QCheckBox" name="gtkButtonOrder">
          <property name="toolTip">
-          <string>&lt;p&gt;If enabled, dialogs will use the 'Cancel / OK' button order as used in the GNOME ond OSX desktops, otherwise the 'OK / Cancel' order will be used.</string>
+          <string>&lt;p&gt;If enabled, dialogs will use the 'Cancel / OK' button order as used in the GNOME and OSX desktops, otherwise the 'OK / Cancel' order will be used.</string>
          </property>
          <property name="text">
           <string>Use Gtk button order</string>
@@ -3675,7 +3675,7 @@
        <item row="3" column="1">
         <widget class="QCheckBox" name="mapKdeIcons">
          <property name="toolTip">
-          <string>&lt;p&gt;Enable this option so that QtCurve can attempt to map from the KDE icon names to their Gtk equivalant for Gtk applications.</string>
+          <string>&lt;p&gt;Enable this option so that QtCurve can attempt to map from the KDE icon names to their Gtk equivalent for Gtk applications.</string>
          </property>
          <property name="text">
           <string>Use KDE equivalent</string>
@@ -3780,7 +3780,7 @@
          <item row="3" column="1">
           <widget class="KLineEdit" name="noMenuBgndOpacityApps">
            <property name="toolTip">
-            <string>&lt;p&gt;Comma separated list of names of applications which should not use the menu opacity setting.&lt;p&gt;&lt;i&gt;For Gtk2, this option also disables using an allpha-channel to smoothly round tooltips and popup menus.&lt;/i&gt;&lt;/p&gt;&lt;p&gt;Use &lt;i&gt;gtk&lt;/i&gt; to disable for all Gtk2 applications.&lt;/p&gt;</string>
+            <string>&lt;p&gt;Comma separated list of names of applications which should not use the menu opacity setting.&lt;p&gt;&lt;i&gt;For Gtk2, this option also disables using an alpha-channel to smoothly round tooltips and popup menus.&lt;/i&gt;&lt;/p&gt;&lt;p&gt;Use &lt;i&gt;gtk&lt;/i&gt; to disable for all Gtk2 applications.&lt;/p&gt;</string>
            </property>
           </widget>
          </item>
@@ -3983,7 +3983,7 @@
 &lt;li&gt;&lt;i&gt;Light border&lt;/i&gt; - A 'light' line is drawn around all edges.&lt;/li&gt;
 &lt;li&gt;&lt;i&gt;3D border (light only)&lt;/i&gt; - A 'light' line is drawn around the top and left edges.&lt;/li&gt;
 &lt;li&gt;&lt;i&gt;3D border (light only)&lt;/i&gt; - A 'light' line is drawn around the top and left edges, and a darker one around the bottom and right edges.&lt;/li&gt;
-&lt;li&gt;&lt;i&gt;Shine&lt;/i&gt; - A shaine is added the top (or left) when this gradient is drawn on buttons or scrollbars.&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;Shine&lt;/i&gt; - A shine is added the top (or left) when this gradient is drawn on buttons or scrollbars.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;i&gt;Note: This setting is not used when drawing the preview below.&lt;/i&gt;&lt;/p&gt;
 

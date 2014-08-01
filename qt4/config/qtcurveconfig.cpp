@@ -2780,7 +2780,7 @@ void QtCurveConfig::exportPreset()
                                                        "settings?<ul><li><i>QtCurve settings file</i> -"
                                                        " a file to be imported via this config dialog.</li>"
                                                        "<li><i>Standalone theme</i> - a style that user\'s can "
-                                                       " select from the KDE style panel.</li></ul></p>"),
+                                                       "select from the KDE style panel.</li></ul></p>"),
                                             i18n("Export Settings"),
                                             KGuiItem(i18n("QtCurve Settings File")), KGuiItem(i18n("Standalone Theme"))))
     {
