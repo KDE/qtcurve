@@ -1308,7 +1308,7 @@
        <item row="1" column="1">
         <widget class="QSpinBox" name="highlightFactor">
          <property name="toolTip">
-          <string>&lt;p&gt;Defines by how much the theme should brighen (or darken) the color of the active widget under the mouse.&lt;/p&gt;</string>
+          <string>&lt;p&gt;Defines by how much the theme should brighten (or darken) the color of the active widget under the mouse.&lt;/p&gt;</string>
          </property>
          <property name="suffix">
           <string>%</string>
@@ -2054,7 +2054,7 @@
        <item row="5" column="1">
         <widget class="KIntNumInput" name="crHighlight">
          <property name="toolTip">
-          <string>&lt;p&gt;Defines by how much the theme should brighen (or darken) the background of the text associated with a checkbox, or radio button, when the mouse hovers over it.</string>
+          <string>&lt;p&gt;Defines by how much the theme should brighten (or darken) the background of the text associated with a checkbox, or radio button, when the mouse hovers over it.</string>
          </property>
          <property name="suffix">
           <string>%</string>
@@ -2512,7 +2512,7 @@
             </sizepolicy>
            </property>
            <property name="toolTip">
-            <string>&lt;p&gt;Sets the custom color for 'Maximise', and 'Restore, buttons.</string>
+            <string>&lt;p&gt;Sets the custom color for 'Maximize' and 'Restore' buttons.</string>
            </property>
           </widget>
          </item>
@@ -3123,7 +3123,7 @@
        <item row="0" column="1">
         <widget class="QCheckBox" name="borderMenuitems">
          <property name="toolTip">
-          <string>&lt;p&gt;If enabled, selcted menuitems will be drawn with a border around the gradient. This will cause them to have a rounded look if the general round setting is not set to none.</string>
+          <string>&lt;p&gt;If enabled, selected menuitems will be drawn with a border around the gradient. This will cause them to have a rounded look if the general round setting is not set to none.</string>
          </property>
          <property name="text">
           <string>Border</string>

@@ -69,7 +69,7 @@ endmacro()
 #     @function_name: the name of function or macro to be called.
 #
 #     This functionis just like #cmake_utils_call except the macro or function
-#     will be executed in a seperate scope. You can control the allowed
+#     will be executed in a separate scope. You can control the allowed
 #     variables to be passed to the caller scope using @var_names. This function
 #     doesn't support calling functions or macros with arbitrary number of
 #     arguments, use #cmake_utils_call_args_with_var if you need to do that.

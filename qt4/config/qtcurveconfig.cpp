@@ -2875,7 +2875,7 @@ void QtCurveConfig::exportPreset()
             }
         }
         if(!rv)
-            KMessageBox::error(this, i18n("Could not write to file:\n%1").arg(file));
+            KMessageBox::error(this, i18n("Could not write to file:\n%1", file));
         if(zip)
             delete zip;
     }

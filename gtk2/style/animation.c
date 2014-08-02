@@ -95,7 +95,7 @@ qtcAnimationDestroyInfo(AnimationInfo *animation_info)
 }
 
 /* This function does not unref the weak reference, because the object
- * is beeing destroyed currently. */
+ * is being destroyed currently. */
 static void
 qtcAnimationOnWidgetDestruction(void *data, GObject *object)
 {

@@ -92,7 +92,6 @@
 #include <KDE/KIconEffect>
 #include <KDE/KMenu>
 #include <KDE/KAboutApplicationDialog>
-#include <KDE/KIcon>
 #endif
 
 #include <qtcurve-utils/color.h>

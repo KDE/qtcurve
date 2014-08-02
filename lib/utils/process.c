@@ -70,7 +70,7 @@ qtcForkBackground(QtcCallback cb, void *data, QtcCallback fail_cb)
     } else {
         /* parent */
         if (qtcSignalHandlerSet(SIGCHLD)) {
-            // If we create a child process, the signal handler will recieve
+            // If we create a child process, the signal handler will receive
             // the signal anyway (and there is no way to only block SIGCHLD
             // only for our child process). Since the signal handler may
             // hang and should already take care of getting rid of

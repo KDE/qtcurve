@@ -65,7 +65,6 @@
 #include <QPainter>
 #include <QMainWindow>
 #include <QTextStream>
-#include <QFileDialog>
 #include <QToolBox>
 #include <QDBusConnection>
 #include <QDBusInterface>
@@ -113,7 +112,6 @@
 #include <KDE/KIconEffect>
 #include <KDE/KMenu>
 #include <KDE/KAboutApplicationDialog>
-#include <KDE/KIcon>
 #endif // QTC_QT4_ENABLE_KDE
 
 #include <qtcurve-utils/color.h>
@@ -1956,7 +1954,7 @@ Style::polish(QWidget *widget)
         ((QFrame*)widget)->setFrameShape(QFrame::NoFrame);
 
     if (QLayout *layout = widget->layout()) {
-        // explicitely check public layout classes,
+        // explicitly check public layout classes,
         // QMainWindowLayout doesn't work here
         if (qobject_cast<QBoxLayout*>(layout) ||
             qobject_cast<QFormLayout*>(layout) ||

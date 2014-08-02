@@ -44,13 +44,13 @@
 static uint32_t shadow_xpixmaps[8];
 static uint32_t shadow_data_xcb[8 + 4];
 /**
- * Use XCB to set window property recieves BadWindow errors for menus in
+ * Use XCB to set window property receives BadWindow errors for menus in
  * Qt4 kpartsplugin here, probably because of the order of some pending
  * event/requests in Xlib. Calling #XFlush before #xcb_change_property
  * doesn't solve the problem for unknown reason but using #XChangeProperty
  * works.
  * NOTE: #XChangeProperty want `unsigned long` for format 32. So we need
- * two seperate data buffers.
+ * two separate data buffers.
  **/
 static unsigned long shadow_data_xlib[8 + 4];
 

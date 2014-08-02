@@ -94,7 +94,7 @@ void CExportThemeDialog::slotButtonClicked(int button)
             if(rv)
             {
                 QDialog::accept();
-                KMessageBox::information(this, i18n("Succesfully created:\n%1", fileName));
+                KMessageBox::information(this, i18n("Successfully created:\n%1", fileName));
             }
             else
                 KMessageBox::error(this, i18n("Failed to create file: %1", fileName));

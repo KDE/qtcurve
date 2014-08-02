@@ -46,7 +46,7 @@ Style::prePolish(QWidget *widget) const
     // created before entering the main loop and therefore do not have a
     // chance to be polished before creating window id. In this way, we can
     // avoid recreating native window which breaks a lot of applications.
-    // This way should work for all applicaitons except when the applicaiton
+    // This way should work for all applications except when the applicaiton
     // relies on a native RGB window since the children of a RGBA window in
     // Qt are usually also RGBA. The only example of such application I have
     // found so far is kaffeine. See workaround bellow. (NOTE: gl widget works

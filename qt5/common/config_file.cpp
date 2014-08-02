@@ -2130,7 +2130,6 @@ static const char * toStr(ETBarBtn tb)
     }
 }
 
-#include <QTextStream>
 #define CFG config
 
 #define CFG_WRITE_ENTRY(ENTRY) \

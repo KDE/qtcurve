@@ -724,7 +724,7 @@ void Style::polish(QWidget *widget)
     }
 
     if (QLayout *layout = widget->layout()) {
-        // explicitely check public layout classes,
+        // explicitly check public layout classes,
         // QMainWindowLayout doesn't work here
         if (qobject_cast<QBoxLayout*>(layout) ||
             qobject_cast<QFormLayout*>(layout) ||
