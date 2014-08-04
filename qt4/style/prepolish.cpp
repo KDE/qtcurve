@@ -46,7 +46,7 @@ Style::prePolish(QWidget *widget) const
     // created before entering the main loop and therefore do not have a
     // chance to be polished before creating window id. In this way, we can
     // avoid recreating native window which breaks a lot of applications.
-    // This way should work for all applications except when the applicaiton
+    // This way should work for all applications except when the application
     // relies on a native RGB window since the children of a RGBA window in
     // Qt are usually also RGBA. The only example of such application I have
     // found so far is kaffeine. See workaround bellow. (NOTE: gl widget works
@@ -57,7 +57,7 @@ Style::prePolish(QWidget *widget) const
     // report upstream..... :-P).
 
     // TODO:
-    //     use all informations to check if a widget should be transparent.
+    //     use all information to check if a widget should be transparent.
     //     Maybe we can also do sth to their parents' and/or children as well
     if (!widget->testAttribute(Qt::WA_WState_Polished) &&
         !(widget->windowFlags() & Qt::MSWindowsOwnDC) &&

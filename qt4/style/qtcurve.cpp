@@ -12049,7 +12049,7 @@ void Style::drawArrow(QPainter *p, const QRect &rx, PrimitiveElement pe,
     p->setBrush(col);
 #if (QT_VERSION >= QT_VERSION_CHECK(4, 8, 5))
     // Qt >= 4.8.5 has problem drawing polygons correctly. Enabling
-    // antialiasing can work arround the problem although it will also make
+    // antialiasing can work around the problem although it will also make
     // the arrow blurry.
     // QtCurve issue:
     // https://github.com/QtCurve/qtcurve-qt4/issues/3.

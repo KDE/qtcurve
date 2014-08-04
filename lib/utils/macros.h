@@ -47,7 +47,7 @@
 #define __QTC_IS_PAREN_(ret_true, ret_false, arg)                       \
     __QTC_HAS_COMMA1(ret_true, ret_false, __QTC_CONVERT_PAREN arg)
 // Extra layer just to make sure more evaluation (if any) is done than the
-// seperator path.
+// separator path.
 #define __QTC_IS_PAREN(ret_true, ret_false, arg)        \
     __QTC_IS_PAREN_(ret_true, ret_false, arg)
 // Check if arg is not empty and does not start with "("

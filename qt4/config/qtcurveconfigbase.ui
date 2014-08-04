@@ -2227,7 +2227,7 @@
        <item row="8" column="1">
         <widget class="QCheckBox" name="windowBorder_menuColor">
          <property name="toolTip">
-          <string>&lt;p&gt;If enabled, the the configured menubar color will be used for windows that have menubars.</string>
+          <string>&lt;p&gt;If enabled, the configured menubar color will be used for windows that have menubars.</string>
          </property>
          <property name="text">
           <string>Use menubar color</string>
@@ -3657,7 +3657,7 @@
        <item row="2" column="1">
         <widget class="QCheckBox" name="stdBtnSizes">
          <property name="toolTip">
-          <string>&lt;p&gt;Auto-default buttons are buttons that can become 'default' buttons - i.e. will react the the user pressing 'return'.&lt;/p&gt;
+          <string>&lt;p&gt;Auto-default buttons are buttons that can become 'default' buttons - i.e. will react the user pressing 'return'.&lt;/p&gt;
 &lt;p&gt;In Gtk2 applications, most 'auto-default' buttons have a taller appearance than standard buttons. QtCurve attempts to mimic this for KDE4 applications - this may be disabled by enabling this option.&lt;/p&gt;</string>
          </property>
          <property name="text">
