@@ -423,7 +423,7 @@
           <item>
            <widget class="QCheckBox" name="thin_frames">
             <property name="toolTip">
-             <string>&lt;p&gt;Controls whether the internal 3d part of frames, etc, should be drawn.&lt;/p&gt;</string>
+             <string>&lt;p&gt;Controls whether the internal 3d part of frames, etc., should be drawn.&lt;/p&gt;</string>
             </property>
             <property name="text">
              <string>Thinner frames, edit boxes, etc.</string>
@@ -1673,7 +1673,7 @@
           <item>
            <widget class="QRadioButton" name="borderTab">
             <property name="toolTip">
-             <string>&lt;p&gt;If enabled, the tabs and tab widget will have an outer dak border, and a light inner border.</string>
+             <string>&lt;p&gt;If enabled, the tabs and tab widget will have an outer dark border, and a light inner border.</string>
             </property>
             <property name="text">
              <string>Light</string>
@@ -1967,7 +1967,7 @@
           <item>
            <widget class="QRadioButton" name="xCheck_false">
             <property name="toolTip">
-             <string>&lt;p&gt;If enabled, checkboxes with have a 'tick' to indicate that they are selected.</string>
+             <string>&lt;p&gt;If enabled, checkboxes will have a 'tick' to indicate that they are selected.</string>
             </property>
             <property name="text">
              <string>Tick</string>
@@ -1980,7 +1980,7 @@
           <item>
            <widget class="QRadioButton" name="xCheck">
             <property name="toolTip">
-             <string>&lt;p&gt;If enabled, checkboxes with have a 'cross' (or 'X') to indicate that they are selected.</string>
+             <string>&lt;p&gt;If enabled, checkboxes will have a 'cross' (or 'X') to indicate that they are selected.</string>
             </property>
             <property name="text">
              <string>Cross</string>
@@ -2024,7 +2024,7 @@
           <item>
            <widget class="QRadioButton" name="smallRadio_false">
             <property name="toolTip">
-             <string>&lt;p&gt;If enabled, radio buttons with have a large 'dot' to indicate that they are selected.</string>
+             <string>&lt;p&gt;If enabled, radio buttons will have a large 'dot' to indicate that they are selected.</string>
             </property>
             <property name="text">
              <string>Large</string>
@@ -2034,7 +2034,7 @@
           <item>
            <widget class="QRadioButton" name="smallRadio">
             <property name="toolTip">
-             <string>&lt;p&gt;If enabled, radio buttons with have a small 'dot' to indicate that they are selected.</string>
+             <string>&lt;p&gt;If enabled, radio buttons will have a small 'dot' to indicate that they are selected.</string>
             </property>
             <property name="text">
              <string>Small</string>
@@ -2916,7 +2916,7 @@
        <item row="1" column="1">
         <widget class="KPushButton" name="menubarBlend">
          <property name="toolTip">
-          <string>&lt;p&gt;Sets the relevant config items, so that window titlebars and menubars are blended..</string>
+          <string>&lt;p&gt;Sets the relevant config items, so that window titlebars and menubars are blended.</string>
          </property>
          <property name="text">
           <string>Blend with titlebar</string>
@@ -2982,7 +2982,7 @@
           </sizepolicy>
          </property>
          <property name="toolTip">
-          <string>&lt;p&gt;If enabled, then the following to color boxes are used to set the text color to be used for normal and selected menubar items.</string>
+          <string>&lt;p&gt;If enabled, then the following two color boxes are used to set the text color to be used for normal and selected menubar items.</string>
          </property>
          <property name="text">
           <string>Custom colors (normal/selected)</string>
@@ -3048,7 +3048,7 @@
        <item row="10" column="1">
         <widget class="QCheckBox" name="colorMenubarMouseOver">
          <property name="toolTip">
-          <string>&lt;p&gt;If enabled, when the mouse hovers over a menubar item (and 'Enable mouse-over' is enabled) then it will also be colored, otherwise it wll use a shade of the background color.</string>
+          <string>&lt;p&gt;If enabled, when the mouse hovers over a menubar item (and 'Enable mouse-over' is enabled) then it will also be colored, otherwise it will use a shade of the background color.</string>
          </property>
          <property name="text">
           <string>Color on mouse-over</string>
@@ -3977,13 +3977,13 @@
            <item row="2" column="0">
             <widget class="QComboBox" name="gradBorder">
              <property name="toolTip">
-              <string>&lt;p&gt;Defines the inner border used when drawing buttons, etc, with this gradient.&lt;/p&gt;
+              <string>&lt;p&gt;Defines the inner border used when drawing buttons, etc., with this gradient.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;i&gt;No border&lt;/i&gt; - no inner border is drawn, and the gradient will extend to the outer edges.&lt;/li&gt;
 &lt;li&gt;&lt;i&gt;Light border&lt;/i&gt; - A 'light' line is drawn around all edges.&lt;/li&gt;
 &lt;li&gt;&lt;i&gt;3D border (light only)&lt;/i&gt; - A 'light' line is drawn around the top and left edges.&lt;/li&gt;
 &lt;li&gt;&lt;i&gt;3D border (light only)&lt;/i&gt; - A 'light' line is drawn around the top and left edges, and a darker one around the bottom and right edges.&lt;/li&gt;
-&lt;li&gt;&lt;i&gt;Shine&lt;/i&gt; - A shine is added the top (or left) when this gradient is drawn on buttons or scrollbars.&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;Shine&lt;/i&gt; - A shine is added to the top (or left) edge when this gradient is drawn on buttons or scrollbars.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;i&gt;Note: This setting is not used when drawing the preview below.&lt;/i&gt;&lt;/p&gt;
 
