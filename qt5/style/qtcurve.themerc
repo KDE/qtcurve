@@ -2,6 +2,7 @@
 Name=QtCurve
 Name[cs]=QtCurve
 Name[de]=QtCurve
+Name[es]=QtCurve
 Name[fi]=QtCurve
 Name[nl]=QtCurve
 Name[pl]=QtCurve
@@ -14,6 +15,7 @@ Name[uk]=QtCurve
 Name[x-test]=xxQtCurvexx
 Comment=Highly configurable style
 Comment[cs]=Vysoce přizpůsobitelný styl
+Comment[es]=Estilo extremadamente configurable
 Comment[fi]=Erittäin muokattavissa oleva tyyli
 Comment[nl]=Hoog instelbare stijl
 Comment[pl]=Wysoce ustawialny styl
