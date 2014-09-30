@@ -25,6 +25,35 @@
 #include <time.h>
 #include <pthread.h>
 
+#if defined(__APPLE__) || defined(__MACH__)
+
+#include <mach/mach.h>
+#include <mach/mach_time.h>
+#include <mach/mach_init.h>
+#include <sys/sysctl.h>
+
+static mach_timebase_info_data_t sTimebaseInfo;
+static double calibrator= 0;
+
+// #include <stdio.h>
+__attribute__((constructor)) static void init_HRTime()
+{
+    if( !calibrator ){
+        mach_timebase_info(&sTimebaseInfo);
+        /* go from absolute time units to nanoseconds: */
+        calibrator= ((double)sTimebaseInfo.numer / (double)sTimebaseInfo.denom);
+//         fprintf( stderr, "init_HRTime(): calibrator=%g\n", calibrator );
+    }
+}
+
+QTC_EXPORT uint64_t qtcGetTime()
+{
+    return (uint64_t) mach_absolute_time() * calibrator;
+}
+
+#else
+// other = Linux ...
+
 #ifdef CLOCK_THREAD_CPUTIME_ID
 #  define CLOCK_ID CLOCK_THREAD_CPUTIME_ID
 #else
@@ -38,6 +67,7 @@ qtcGetTime()
     clock_gettime(CLOCK_ID, &time_spec);
     return ((uint64_t)time_spec.tv_sec) * 1000000000 + time_spec.tv_nsec;
 }
+#endif // __APPLE__
 
 QTC_EXPORT uint64_t
 qtcGetElapse(uint64_t prev)

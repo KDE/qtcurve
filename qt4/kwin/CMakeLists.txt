@@ -33,7 +33,6 @@ include_directories(
   ${QT_QTCORE_INCLUDE_DIR})
 kde4_add_plugin(kwin3_qtcurve_kde4 ${kwin3_qtcurve_PART_SRCS})
 set_target_properties(kwin3_qtcurve_kde4 PROPERTIES
-  LINK_FLAGS "-Wl,--no-undefined"
   LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
   OUTPUT_NAME "kwin3_qtcurve")
 target_link_libraries(kwin3_qtcurve_kde4 kdecorations

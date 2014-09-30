@@ -72,7 +72,9 @@
 #include "macmenu.h"
 #include "shadowhelper.h"
 #include <sys/time.h>
+#ifdef Q_WS_X11
 #include <qtcurve-utils/x11qtc.h>
+#endif
 
 #include <QDebug>
 
@@ -576,22 +578,32 @@ static const QLatin1String constDwtFloat("qt_dockwidget_floatbutton");
 void
 setOpacityProp(QWidget *w, unsigned short opacity)
 {
+#ifdef Q_WS_X11
     if (WId wid = qtcGetWid(w->window())) {
         qtcX11SetOpacity(wid, opacity);
     }
+#else
+    Q_UNUSED(w);
+    Q_UNUSED(opacity);
+#endif
 }
 
 void
 setBgndProp(QWidget *w, EAppearance app, bool haveBgndImage)
 {
+#ifdef Q_WS_X11
     if (WId wid = qtcGetWid(w->window())) {
         uint32_t prop =
             (((qtcIsFlatBgnd(app) ? (haveBgndImage ? APPEARANCE_RAISED :
                                      APPEARANCE_FLAT) : app) & 0xFF) |
              (w->palette().background().color().rgb() & 0x00FFFFFF) << 8);
-
         qtcX11SetBgnd(wid, prop);
     }
+#else
+    Q_UNUSED(w);
+    Q_UNUSED(app);
+    Q_UNUSED(haveBgndImage);
+#endif
 }
 
 void
@@ -603,7 +615,9 @@ setSbProp(QWidget *w)
 
         if (!prop.isValid() || !prop.toBool()) {
             w->setProperty(constStatusBarProperty, true);
+#ifdef Q_WS_X11
             qtcX11SetStatusBar(wid);
+#endif
         }
     }
 }
@@ -13362,9 +13376,11 @@ void Style::emitMenuSize(QWidget *w, unsigned short size, bool force)
 
         if (oldSize != size) {
             w->setProperty(constMenuSizeProperty, size);
+#ifdef Q_WS_X11
             qtcX11SetMenubarSize(wid, size);
             getKWinDBus()->call(QDBus::NoBlock, "menuBarSize",
                                 (unsigned int)wid, (int)size);
+#endif
         }
     }
 }

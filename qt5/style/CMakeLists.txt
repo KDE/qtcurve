@@ -56,7 +56,6 @@ include_directories(
 qt5_wrap_cpp(qtcurve_MOC_SRCS ${qtcurve_MOC_HDRS})
 add_library(qtcurve-qt5 MODULE ${qtcurve_SRCS} ${qtcurve_MOC_SRCS})
 set_target_properties(qtcurve-qt5 PROPERTIES
-  LINK_FLAGS "-Wl,--no-undefined"
   OUTPUT_NAME "qtcurve"
   LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
   PREFIX "")

@@ -21,7 +21,6 @@ kde4_add_ui_files(kwin_qtcurve_config_PART_SRCS
   ${kwin_qtcurve_config_PART_UIS})
 kde4_add_plugin(kwin_qtcurve_config_kde4 ${kwin_qtcurve_config_PART_SRCS})
 set_target_properties(kwin_qtcurve_config_kde4 PROPERTIES
-  LINK_FLAGS "-Wl,--no-undefined"
   LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
   OUTPUT_NAME "kwin_qtcurve_config")
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")

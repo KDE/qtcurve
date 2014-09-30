@@ -136,11 +136,16 @@ cmake_c_fix_include_path(lib/cairo qtcurve-cairo)
 cmake_c_add_flags(CMAKE_C_FLAGS -Wall -Wextra -std=gnu99)
 # Register storage class is deprecated in C++11 but is still used in Qt.
 # Use compiler option to suppress the warning in clang++.
+if(NOT APPLE)
 # -std=c++0x is deprecated but gcc < 4.7 do not recognise c++11 ....
 cmake_c_add_flags(CMAKE_CXX_FLAGS -Wall -Wextra
   -Wno-deprecated-register -std=c++0x)
 cmake_c_add_flags(CMAKE_SHARED_LINKER_FLAGS -Wl,--as-needed -Wl,--no-undefined)
 cmake_c_add_flags(CMAKE_MODULE_LINKER_FLAGS -Wl,--as-needed -Wl,--no-undefined)
+else()
+cmake_c_add_flags(CMAKE_CXX_FLAGS -Wall -Wextra
+  -Wno-deprecated-register -std=c++11)
+endif(NOT APPLE)
 add_definitions("-D_GNU_SOURCE -pthread")
 
 if(NOT DEFINED LIB_INSTALL_DIR)

@@ -50,7 +50,6 @@ kde4_add_ui_files(kstyle_qtcurve_config_PART_SRCS
 kde4_add_plugin(kstyle_qtcurve_config_kde4
   ${kstyle_qtcurve_config_PART_SRCS})
 set_target_properties(kstyle_qtcurve_config_kde4 PROPERTIES
-  LINK_FLAGS "-Wl,--no-undefined"
   LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
   OUTPUT_NAME "kstyle_qtcurve_config")
 target_link_libraries(kstyle_qtcurve_config_kde4

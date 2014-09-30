@@ -24,7 +24,11 @@
 #define __EXPORT_THEME_DIALOG_H__
 
 #include <kdialog.h>
+#ifdef Q_OS_MAC
+#include "common/common.h"
+#else
 #include "common.h"
+#endif //Q_OS_MAC
 
 class KUrlRequester;
 class QLineEdit;

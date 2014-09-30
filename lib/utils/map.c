@@ -21,6 +21,16 @@
 
 #include "map.h"
 
+#if defined(__MACH__) || defined(__APPLE__)
+qtcStrMapItemCompare(void *_map, const void *_left, const void *_right)
+{
+    const char **left = (const char**)_left;
+    const char **right = (const char**)_right;
+    QtcStrMap *map = (QtcStrMap*)_map;
+    return (map->case_sensitive ? strcmp(*left, *right) :
+                strcasecmp(*left, *right));
+}
+#else
 static int
 qtcStrMapItemCompare(const void *_left, const void *_right, void *_map)
 {
@@ -30,13 +40,19 @@ qtcStrMapItemCompare(const void *_left, const void *_right, void *_map)
     return (map->case_sensitive ? strcmp(*left, *right) :
             strcasecmp(*left, *right));
 }
+#endif
 
 QTC_EXPORT void
 qtcStrMapInit(QtcStrMap *map)
 {
     QTC_RET_IF_FAIL(map && !map->inited && map->items && map->size && map->num);
+#if defined(__MACH__) || defined(__APPLE__)
+    qsort_r(map->items, map->num, map->size,
+            map, qtcStrMapItemCompare);
+#else
     qsort_r(map->items, map->num, map->size,
             qtcStrMapItemCompare, map);
+#endif
     map->inited = true;
 }
 

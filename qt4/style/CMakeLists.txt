@@ -56,7 +56,6 @@ qt4_wrap_cpp(qtcurve_MOC_SRCS ${qtcurve_MOC_HDRS})
 add_library(qtcurve-qt4 MODULE ${qtcurve_SRCS} ${qtcurve_MOC_SRCS})
 add_dependencies(qtcurve-qt4 qtc_qt4_check_on_hdr qtc_qt4_check_x_on_hdr)
 set_target_properties(qtcurve-qt4 PROPERTIES
-  LINK_FLAGS "-Wl,--no-undefined"
   LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
   OUTPUT_NAME "qtcurve"
   PREFIX "")

@@ -72,7 +72,6 @@ set(qtcurve_SRCS ${qtcurve_SRCS} ${qtcurve_style_common_SRCS})
 add_library(qtcurve-gtk2 MODULE ${qtcurve_SRCS})
 
 set_target_properties(qtcurve-gtk2 PROPERTIES
-  LINK_FLAGS "-Wl,--no-undefined"
   LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
   OUTPUT_NAME "qtcurve")
 add_dependencies(qtcurve-gtk2 qtc_gtk2_check_on_hdr qtc_gtk2_check_x_on_hdr

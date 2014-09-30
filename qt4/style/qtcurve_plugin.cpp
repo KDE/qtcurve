@@ -31,9 +31,15 @@
 #  include <QX11Info>
 #endif
 
+#include <QTypeInfo>
+#include <QFileInfo>
+
 namespace QtCurve {
 
 #ifdef QTC_QT4_STYLE_SUPPORT
+
+#include <QDir>
+
 static void
 getStyles(const QString &dir, const char *sub, QSet<QString> &styles)
 {

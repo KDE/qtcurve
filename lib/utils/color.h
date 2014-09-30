@@ -25,6 +25,12 @@
 
 #include "utils.h"
 #include "options.h"
+#ifdef Q_OS_MAC
+#include <math.h>
+#if QT_VERSION >= 0x050000
+#define isnan(x)  std::isnan(x)
+#endif //QT_VERSION
+#endif // Q_OS_MAC
 
 QTC_BEGIN_DECLS
 
