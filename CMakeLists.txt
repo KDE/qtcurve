@@ -133,13 +133,15 @@ configure_file(config.h.in config.h @ONLY)
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 cmake_c_fix_include_path(lib/utils qtcurve-utils)
 cmake_c_fix_include_path(lib/cairo qtcurve-cairo)
-cmake_c_add_flags(CMAKE_C_FLAGS -Wall -Wextra -std=gnu99)
+# glibc 2.20 warns about _BSD_SOURCE if _DEFAULT_SOURCE is not defined.
+cmake_c_add_flags(CMAKE_C_FLAGS -Wall -Wextra -std=gnu99 -D_DEFAULT_SOURCE)
 # Register storage class is deprecated in C++11 but is still used in Qt.
-# Use compiler option to suppress the warning in clang++.
+# Use compiler option (-Wno-deprecated-register) to suppress
+# the warning in clang++.
 if(NOT APPLE)
 # -std=c++0x is deprecated but gcc < 4.7 do not recognise c++11 ....
 cmake_c_add_flags(CMAKE_CXX_FLAGS -Wall -Wextra
-  -Wno-deprecated-register -std=c++0x)
+  -Wno-deprecated-register -std=c++0x -D_DEFAULT_SOURCE)
 cmake_c_add_flags(CMAKE_SHARED_LINKER_FLAGS -Wl,--as-needed -Wl,--no-undefined)
 cmake_c_add_flags(CMAKE_MODULE_LINKER_FLAGS -Wl,--as-needed -Wl,--no-undefined)
 else()
