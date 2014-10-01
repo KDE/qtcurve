@@ -258,7 +258,7 @@ qtcColorTint(const QColor *base, const QColor *col, double amount)
         return *base;
     } else if (amount >= 1.0) {
         return *col;
-    } else if (_isnan(amount)) {
+    } else if (std::isnan(amount)) {
         return *base;
     }
     const QtcColor qtc_base = {base->redF(), base->greenF(), base->blueF()};
@@ -275,7 +275,7 @@ qtcColorMix(const QColor *c1, const QColor *c2, double bias)
         return *c1;
     } else if (bias >= 1.0) {
         return *c2;
-    } else if (_isnan(bias)) {
+    } else if (std::isnan(bias)) {
         return *c1;
     }
     const QtcColor qtc_c1 = {c1->redF(), c1->greenF(), c1->blueF()};
