@@ -13,12 +13,12 @@ set(qtcurve_utils_SRCS
   x11helpers.c
   x11wrap.c)
 if(APPLE)
-set(qtcurve_utils_LINKS
-  ${LIBEXECINFO_LIBRARIES} pthread)
+  set(qtcurve_utils_LINKS
+    ${LIBEXECINFO_LIBRARIES} pthread)
 else()
-set(qtcurve_utils_LINKS
-  m rt dl ${LIBEXECINFO_LIBRARIES} pthread)
-endif(APPLE)
+  set(qtcurve_utils_LINKS
+    m rt dl ${LIBEXECINFO_LIBRARIES} pthread)
+endif()
 
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 

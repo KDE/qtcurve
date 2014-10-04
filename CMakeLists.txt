@@ -110,6 +110,21 @@ else()
   include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/xcb-defs")
 endif()
 
+if(ENABLE_GTK2 AND NOT ENABLE_GTK2_DEFINED)
+  find_package(PkgConfig)
+  if(NOT PKG_CONFIG_FOUND)
+    message(WARNING "pkg-config not found, disable Gtk2 build.")
+    set(ENABLE_GTK2 Off)
+  else()
+    unset(__pkg_config_checked_GTK2 CACHE)
+    pkg_check_modules(GTK2 gtk+-2.0)
+    if(NOT GTK2_FOUND)
+      message(WARNING "gtk+-2.0 not found, disable Gtk2 build.")
+      set(ENABLE_GTK2 Off)
+    endif()
+  endif()
+endif()
+
 if(ENABLE_GTK2)
   find_package(PkgConfig REQUIRED)
   unset(__pkg_config_checked_GTK2 CACHE)
@@ -137,15 +152,15 @@ cmake_c_add_flags(CMAKE_C_FLAGS -Wall -Wextra -std=gnu99 -D_DEFAULT_SOURCE)
 # Use compiler option (-Wno-deprecated-register) to suppress
 # the warning in clang++.
 if(NOT APPLE)
-# -std=c++0x is deprecated but gcc < 4.7 do not recognise c++11 ....
-cmake_c_add_flags(CMAKE_CXX_FLAGS -Wall -Wextra
-  -Wno-deprecated-register -std=c++0x -D_DEFAULT_SOURCE)
-cmake_c_add_flags(CMAKE_SHARED_LINKER_FLAGS -Wl,--as-needed -Wl,--no-undefined)
-cmake_c_add_flags(CMAKE_MODULE_LINKER_FLAGS -Wl,--as-needed -Wl,--no-undefined)
+  # -std=c++0x is deprecated but gcc < 4.7 do not recognise c++11 ....
+  cmake_c_add_flags(CMAKE_CXX_FLAGS -Wall -Wextra
+    -Wno-deprecated-register -std=c++0x -D_DEFAULT_SOURCE)
+  cmake_c_add_flags(CMAKE_SHARED_LINKER_FLAGS -Wl,--as-needed -Wl,--no-undefined)
+  cmake_c_add_flags(CMAKE_MODULE_LINKER_FLAGS -Wl,--as-needed -Wl,--no-undefined)
 else()
-cmake_c_add_flags(CMAKE_CXX_FLAGS -Wall -Wextra
-  -Wno-deprecated-register -std=c++11)
-endif(NOT APPLE)
+  cmake_c_add_flags(CMAKE_CXX_FLAGS -Wall -Wextra
+    -Wno-deprecated-register -std=c++11)
+endif()
 add_definitions("-D_GNU_SOURCE -pthread")
 
 if(NOT DEFINED LIB_INSTALL_DIR)

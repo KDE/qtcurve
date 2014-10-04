@@ -63,9 +63,9 @@ set_target_properties(qtcurve-qt4 PROPERTIES
 if(QTC_QT4_ENABLE_KDE)
   install(FILES qtcurve.themerc DESTINATION ${DATA_INSTALL_DIR}/kstyle/themes)
   set(QTC_KDE_LIBS ${KDE4_KDEUI_LIBS})
-  if (NOT QTC_DISABLE_KDEFILEDIALOG_CALLS)
+  if(NOT QTC_DISABLE_KDEFILEDIALOG_CALLS)
     set(QTC_KFILEDIALOG_LIBS ${KDE4_KIO_LIBS} ${KDE4_KDECORE_LIBS})
-  endif (NOT QTC_DISABLE_KDEFILEDIALOG_CALLS)
+  endif()
 else()
   add_dependencies(qtcurve-qt4 qtc_qt4_dialog_error_hdr
     qtc_qt4_dialog_information_hdr
