@@ -2554,14 +2554,14 @@ void Style::drawControl(ControlElement element, const QStyleOption *option,
                                                      r.width(), 2), true, true);
                     }
 
-                    if (ho->position != QStyleOptionHeader::End &&
-                        QStyleOptionHeader::OnlyOneSection != ho->position) {
-                        drawFadedLine(painter, QRect(r.x() + r.width() - 2,
-                                                     r.y() + 5, 1,
+                    if (qtcNoneOf(ho->position, QStyleOptionHeader::End,
+                                  QStyleOptionHeader::OnlyOneSection)) {
+                        // Draw header separator
+                        int sep_x = reverse ? r.x() : r.x() + r.width() - 2;
+                        drawFadedLine(painter, QRect(sep_x, r.y() + 5, 1,
                                                      r.height() - 10),
                                       use[QTC_STD_BORDER], true, true, false);
-                        drawFadedLine(painter, QRect(r.x() + r.width() - 1,
-                                                     r.y() + 5, 1,
+                        drawFadedLine(painter, QRect(sep_x + 1, r.y() + 5, 1,
                                                      r.height() - 10),
                                       use[0], true, true, false);
                     }
@@ -2576,8 +2576,9 @@ void Style::drawControl(ControlElement element, const QStyleOption *option,
                                    r.y() + r.height() - 1);
                     }
 
-                    if (ho->position != QStyleOptionHeader::End &&
-                        ho->position != QStyleOptionHeader::OnlyOneSection) {
+                    if (qtcNoneOf(ho->position, QStyleOptionHeader::End,
+                                  QStyleOptionHeader::OnlyOneSection)) {
+                        // Draw header separator
                         drawFadedLine(painter, QRect(r.x() + 5,
                                                      r.y() + r.height() - 2,
                                                      r.width() - 10, 1),
