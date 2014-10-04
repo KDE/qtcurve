@@ -2969,8 +2969,8 @@ int Style::pixelMetric(PixelMetric metric, const QStyleOption *option, const QWi
             return TAB_MO_GLOW==opts.tabMouseOver ? 0 : 1;
         case PM_ProgressBarChunkWidth:
             return 4;
-//         case PM_DockWindowHandleExtent:
-//             return 10;
+        // case PM_DockWindowHandleExtent:
+        //     return 10;
         case PM_DockWidgetSeparatorExtent:
         case PM_SplitterWidth:
             return LINE_1DOT==opts.splitters ? 7 : 6;
@@ -5641,83 +5641,124 @@ void Style::drawControl(ControlElement element, const QStyleOption *option, QPai
         }
         case CE_HeaderSection:
             if (auto ho = qtcStyleCast<QStyleOptionHeader>(option)) {
-                const QColor *use(state&State_Enabled && m_sortedLvColors && QStyleOptionHeader::None!=ho->sortIndicator
-                                    ? m_sortedLvColors
-                                    : opts.lvButton ? buttonColors(option) : backgroundColors(option));
+                const QColor *use(state&State_Enabled && m_sortedLvColors &&
+                                  ho->sortIndicator != QStyleOptionHeader::None ?
+                                  m_sortedLvColors : opts.lvButton ?
+                                  buttonColors(option) :
+                                  backgroundColors(option));
 
                 painter->save();
 
-                if(state & (State_Raised | State_Sunken))
-                {
-                    bool         sunken(state &(/*State_Down |*/ /*State_On | */State_Sunken)),
-                                 q3Header(widget && widget->inherits("Q3Header"));
+                if (state & (State_Raised | State_Sunken)) {
+                    /* State_Down | State_On */
+                    bool sunken = (state & State_Sunken);
+                    bool q3Header = widget && widget->inherits("Q3Header");
                     QStyleOption opt(*option);
 
-                    opt.state&=~State_On;
-                    if(q3Header && widget && widget->underMouse() && m_hoverWidget && r.contains(m_pos))
-                        opt.state|=State_MouseOver;
+                    opt.state &= ~State_On;
+                    if (q3Header && widget && widget->underMouse() &&
+                        m_hoverWidget && r.contains(m_pos)) {
+                        opt.state |= State_MouseOver;
+                    }
 
-                    if(-1==ho->section && !(state&State_Enabled) && widget && widget->isEnabled())
-                        opt.state|=State_Enabled;
+                    if (ho->section == -1 && !(state & State_Enabled) &&
+                        widget && widget->isEnabled()) {
+                        opt.state |= State_Enabled;
+                    }
 
-                    drawBevelGradient(getFill(&opt, use), painter, r, Qt::Horizontal==ho->orientation, sunken, opts.lvAppearance, WIDGET_LISTVIEW_HEADER);
+                    drawBevelGradient(getFill(&opt, use), painter, r,
+                                      ho->orientation == Qt::Horizontal,
+                                      sunken, opts.lvAppearance,
+                                      WIDGET_LISTVIEW_HEADER);
 
                     painter->setRenderHint(QPainter::Antialiasing, true);
-                    if(APPEARANCE_RAISED==opts.lvAppearance)
-                    {
+                    if (opts.lvAppearance == APPEARANCE_RAISED) {
                         painter->setPen(use[4]);
-                        if(Qt::Horizontal==ho->orientation)
-                            drawAaLine(painter, r.x(), r.y()+r.height()-2, r.x()+r.width()-1, r.y()+r.height()-2);
-                        else
-                            drawAaLine(painter, r.x()+r.width()-2, r.y(), r.x()+r.width()-2, r.y()+r.height()-1);
-                    }
-
-                    if(Qt::Horizontal==ho->orientation)
-                    {
-                        painter->setPen(use[QTC_STD_BORDER]);
-                        drawAaLine(painter, r.x(), r.y()+r.height()-1, r.x()+r.width()-1, r.y()+r.height()-1);
-                        if(opts.coloredMouseOver && state&State_MouseOver && state&State_Enabled)
-                            drawHighlight(painter, QRect(r.x(), r.y()+r.height()-2, r.width(), 2), true, true);
-
-                        if(q3Header ||
-                           (QStyleOptionHeader::End!=ho->position && QStyleOptionHeader::OnlyOneSection!=ho->position))
-                        {
-                            drawFadedLine(painter, QRect(r.x()+r.width()-2, r.y()+5, 1, r.height()-10), use[QTC_STD_BORDER], true, true, false);
-                            drawFadedLine(painter, QRect(r.x()+r.width()-1, r.y()+5, 1, r.height()-10), use[0], true, true, false);
+                        if (ho->orientation == Qt::Horizontal) {
+                            drawAaLine(painter, r.x(), r.y() + r.height() - 2,
+                                       r.x() + r.width() - 1,
+                                       r.y() + r.height() - 2);
+                        } else {
+                            drawAaLine(painter, r.x() + r.width() - 2, r.y(),
+                                       r.x() + r.width() - 2,
+                                       r.y() + r.height() - 1);
                         }
                     }
-                    else
-                    {
-                        painter->setPen(use[QTC_STD_BORDER]);
-                        if(reverse)
-                            drawAaLine(painter, r.x(), r.y(), r.x(), r.y()+r.height()-1);
-                        else
-                            drawAaLine(painter, r.x()+r.width()-1, r.y(), r.x()+r.width()-1, r.y()+r.height()-1);
 
-                        if(q3Header ||
-                           (QStyleOptionHeader::End!=ho->position && QStyleOptionHeader::OnlyOneSection!=ho->position))
-                        {
-                            drawFadedLine(painter, QRect(r.x()+5, r.y()+r.height()-2, r.width()-10, 1), use[QTC_STD_BORDER], true, true, true);
-                            drawFadedLine(painter, QRect(r.x()+5, r.y()+r.height()-1, r.width()-10, 1), use[0], true, true, true);
+                    if (ho->orientation == Qt::Horizontal) {
+                        painter->setPen(use[QTC_STD_BORDER]);
+                        drawAaLine(painter, r.x(), r.y() + r.height() - 1,
+                                   r.x() + r.width() - 1,
+                                   r.y() + r.height() - 1);
+                        if (opts.coloredMouseOver && state & State_MouseOver &&
+                            state & State_Enabled)
+                            drawHighlight(painter,
+                                          QRect(r.x(), r.y() + r.height() - 2,
+                                                r.width(), 2), true, true);
+
+                        if (q3Header ||
+                            qtcNoneOf(ho->position, QStyleOptionHeader::End,
+                                      QStyleOptionHeader::OnlyOneSection)) {
+                            drawFadedLine(painter,
+                                          QRect(r.x() + r.width() - 2,
+                                                r.y() + 5, 1, r.height() - 10),
+                                          use[QTC_STD_BORDER],
+                                          true, true, false);
+                            drawFadedLine(painter,
+                                          QRect(r.x() + r.width() - 1,
+                                                r.y() + 5, 1, r.height() - 10),
+                                          use[0], true, true, false);
                         }
-                        if(opts.coloredMouseOver && state&State_MouseOver && state&State_Enabled)
-                            drawHighlight(painter, QRect(r.x(), r.y()+r.height()-3, r.width(), 2), true, true);
+                    } else {
+                        painter->setPen(use[QTC_STD_BORDER]);
+                        if (reverse) {
+                            drawAaLine(painter, r.x(), r.y(), r.x(),
+                                       r.y()+r.height()-1);
+                        } else {
+                            drawAaLine(painter, r.x() + r.width() - 1, r.y(),
+                                       r.x() + r.width() - 1,
+                                       r.y() + r.height() - 1);
+                        }
+
+                        if (q3Header ||
+                            qtcNoneOf(ho->position, QStyleOptionHeader::End,
+                                      QStyleOptionHeader::OnlyOneSection)) {
+                            drawFadedLine(painter,
+                                          QRect(r.x() + 5,
+                                                r.y() + r.height() - 2,
+                                                r.width() - 10, 1),
+                                          use[QTC_STD_BORDER], true, true, true);
+                            drawFadedLine(painter,
+                                          QRect(r.x() + 5,
+                                                r.y() + r.height() - 1,
+                                                r.width() - 10, 1),
+                                          use[0], true, true, true);
+                        }
+                        if (opts.coloredMouseOver && state & State_MouseOver &&
+                            state & State_Enabled) {
+                            drawHighlight(painter,
+                                          QRect(r.x(), r.y() + r.height() - 3,
+                                                r.width(), 2), true, true);
+                        }
                     }
                     painter->setRenderHint(QPainter::Antialiasing, false);
-                }
-                else if(!qtcIsFlat(opts.lvAppearance) && !reverse && ((State_Enabled|State_Active)==state || State_Enabled==state))
-                {
-                    QPolygon     top;
+                } else if (!qtcIsFlat(opts.lvAppearance) && !reverse &&
+                           (state == (State_Enabled | State_Active) ||
+                            state == State_Enabled)) {
+                    QPolygon top;
                     const QColor &col(getFill(option, use));
 
-                    top.setPoints(3, r.x(), r.y(), r.x()+r.width(), r.y(), r.x()+r.width(), r.y()+r.height());
+                    top.setPoints(3, r.x(), r.y(), r.x() + r.width(), r.y(),
+                                  r.x() + r.width(), r.y() + r.height());
                     painter->setClipRegion(QRegion(top));
-                    drawBevelGradient(col, painter, r, true, false, opts.lvAppearance, WIDGET_LISTVIEW_HEADER);
+                    drawBevelGradient(col, painter, r, true, false,
+                                      opts.lvAppearance, WIDGET_LISTVIEW_HEADER);
                     painter->setClipRegion(QRegion(r).eor(QRegion(top)));
-                    drawBevelGradient(col, painter, r, false, false, opts.lvAppearance, WIDGET_LISTVIEW_HEADER);
-                }
-                else
+                    drawBevelGradient(col, painter, r, false, false,
+                                      opts.lvAppearance, WIDGET_LISTVIEW_HEADER);
+                } else {
                     painter->fillRect(r, getFill(option, use));
+                }
                 painter->restore();
             }
             break;
@@ -10274,30 +10315,31 @@ void Style::drawHighlight(QPainter *p, const QRect &r, bool horiz, bool inc) con
     drawFadedLine(p, r.adjusted(horiz ? 0 : 1, horiz ? 1 : 0, 0, 0), inc ? m_mouseOverCols[ORIGINAL_SHADE] : col1, true, true, horiz);
 }
 
-void Style::drawFadedLine(QPainter *p, const QRect &r, const QColor &col, bool fadeStart, bool fadeEnd, bool horiz,
-                          double fadeSizeStart, double fadeSizeEnd) const
+void
+Style::drawFadedLine(QPainter *p, const QRect &r, const QColor &col,
+                     bool fadeStart, bool fadeEnd, bool horiz,
+                     double fadeSizeStart, double fadeSizeEnd) const
 {
-    bool            aa(p->testRenderHint(QPainter::Antialiasing));
-    QPointF         start(r.x()+(aa ? 0.5 : 0.0), r.y()+(aa ? 0.5 : 0.0)),
-                    end(r.x()+(horiz ? r.width()-1 : 0)+(aa ? 0.5 : 0.0),
-                        r.y()+(horiz ? 0 : r.height()-1)+(aa ? 0.5 : 0.0));
+    bool aa = p->testRenderHint(QPainter::Antialiasing);
+    QPointF start(r.x() + (aa ? 0.5 : 0.0), r.y() + (aa ? 0.5 : 0.0));
+    QPointF end(r.x() + (horiz ? r.width() - 1 : 0) + (aa ? 0.5 : 0.0),
+                r.y() + (horiz ? 0 : r.height() - 1) + (aa ? 0.5 : 0.0));
 
-    if(opts.fadeLines && (fadeStart || fadeEnd))
-    {
+    if (opts.fadeLines && (fadeStart || fadeEnd)) {
         QLinearGradient grad(start, end);
-        QColor          fade(col);
+        QColor fade(col);
 
         fade.setAlphaF(0.0);
         grad.setColorAt(0, fadeStart && opts.fadeLines ? fade : col);
-        if(fadeSizeStart>=0 && fadeSizeStart<=1.0)
+        if (fadeSizeStart >= 0 && fadeSizeStart <= 1.0)
             grad.setColorAt(fadeSizeStart, col);
-        if(fadeSizeEnd>=0 && fadeSizeEnd<=1.0)
-            grad.setColorAt(1.0-fadeSizeEnd, col);
+        if (fadeSizeEnd >= 0 && fadeSizeEnd <= 1.0)
+            grad.setColorAt(1.0 - fadeSizeEnd, col);
         grad.setColorAt(1, fadeEnd && opts.fadeLines ? fade : col);
         p->setPen(QPen(QBrush(grad), 1));
-    }
-    else
+    } else {
         p->setPen(col);
+    }
     p->drawLine(start, end);
 }
 

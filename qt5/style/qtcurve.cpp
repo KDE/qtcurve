@@ -1178,8 +1178,10 @@ void Style::drawHighlight(QPainter *p, const QRect &r, bool horiz, bool inc) con
     drawFadedLine(p, r.adjusted(horiz ? 0 : 1, horiz ? 1 : 0, 0, 0), inc ? m_mouseOverCols[ORIGINAL_SHADE] : col1, true, true, horiz);
 }
 
-void Style::drawFadedLine(QPainter *p, const QRect &r, const QColor &col, bool fadeStart, bool fadeEnd, bool horiz,
-                          double fadeSizeStart, double fadeSizeEnd) const
+void
+Style::drawFadedLine(QPainter *p, const QRect &r, const QColor &col,
+                     bool fadeStart, bool fadeEnd, bool horiz,
+                     double fadeSizeStart, double fadeSizeEnd) const
 {
     bool            aa(p->testRenderHint(QPainter::Antialiasing));
     QPointF         start(r.x()+(aa ? 0.5 : 0.0), r.y()+(aa ? 0.5 : 0.0)),
