@@ -1,3 +1,13 @@
+if(ENABLE_QT4 AND NOT ENABLE_QT4_DEFINED)
+  # ENABLE_QT4 is not defined on the command line
+  find_package(Qt4 4.6.0)
+  if(NOT Qt4_FOUND)
+    message(WARNING "Qt4 not found.")
+    set(ENABLE_QT4 Off)
+    set(ENABLE_QT4 Off PARENT_SCOPE)
+  endif()
+endif()
+
 if(ENABLE_QT4)
   find_package(Qt4 4.6.0 REQUIRED)
   # search packages used by KDE
