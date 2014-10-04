@@ -31,7 +31,7 @@ if(ENABLE_QT4)
     "${QT_INCLUDE_DIR}")
 
   if(QTC_QT4_ENABLE_KDE)
-    add_definitions(${KDE4_DEFINITIONS})
+    add_definitions(${KDE4_DEFINITIONS} -DQTC_QT4_ENABLE_KDE)
     include_directories(${KDE4_INCLUDES})
   endif()
 endif()

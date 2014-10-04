@@ -33,10 +33,7 @@
 #define QTC_GTK2_THEME_DIR "@GTK2_THEME_DIR@/gtk-2.0"
 #define QTC_GTK2_MOZILLA_DIR "@GTK2_THEME_DIR@/mozilla"
 
-#cmakedefine QTC_QT4_ENABLE_KDE
 #cmakedefine QTC_QT4_STYLE_SUPPORT
-
-/* #undef QTC_QT5_ENABLE_KDE */
 
 #cmakedefine QTC_GTK2_MODIFY_MOZILLA
 #cmakedefine QTC_GTK2_STYLE_SUPPORT
