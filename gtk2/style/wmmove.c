@@ -105,7 +105,7 @@ qtcWMMoveTrigger(GtkWidget *w, int x, int y)
     xcb_window_t wid =
         GDK_WINDOW_XID(gtk_widget_get_window(GTK_WIDGET(topLevel)));
     qtcX11MoveTrigger(wid, x, y);
-    qtcWMMoveDragEnd(w);
+    qtcWMMoveDragEnd();
 }
 
 static gboolean qtcWMMoveWithinWidget(GtkWidget *widget, GdkEventButton *event)

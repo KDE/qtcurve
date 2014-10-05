@@ -23,7 +23,9 @@
 #ifndef __QTC_ANIMATION_H__
 #define __QTC_ANIMATION_H__
 
-void qtcAnimationAddProgressBar();
+#include <gtk/gtk.h>
+
+void qtcAnimationAddProgressBar(GtkWidget *progressbar, gboolean isEntry);
 void qtcAnimationCleanup();
 double qtcAnimationElapsed(void *data);
 
