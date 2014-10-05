@@ -771,7 +771,8 @@ void Style::polish(QWidget *widget)
 #endif
 }
 
-void Style::unpolish(QApplication *app)
+void
+Style::unpolish(QApplication *app)
 {
     if (opts.hideShortcutUnderline)
         app->removeEventFilter(m_shortcutHandler);
@@ -1698,7 +1699,9 @@ Style::pixelMetric(PixelMetric metric, const QStyleOption *option,
     }
 }
 
-int Style::styleHint(StyleHint hint, const QStyleOption *option, const QWidget *widget, QStyleHintReturn *returnData) const
+int
+Style::styleHint(StyleHint hint, const QStyleOption *option,
+                 const QWidget *widget, QStyleHintReturn *returnData) const
 {
     prePolish(widget);
     switch (hint) {
@@ -1729,27 +1732,33 @@ int Style::styleHint(StyleHint hint, const QStyleOption *option, const QWidget *
     case SH_Menu_MouseTracking:
         return true;
     case SH_UnderlineShortcut:
-        return widget && opts.hideShortcutUnderline ? m_shortcutHandler->showShortcut(widget) : true;
+        return ((widget && opts.hideShortcutUnderline) ?
+                m_shortcutHandler->showShortcut(widget) : true);
     case SH_GroupBox_TextLabelVerticalAlignment:
         if (auto frame = qtcStyleCast<QStyleOptionGroupBox>(option)) {
             if (frame->features & QStyleOptionFrame::Flat) {
                 return Qt::AlignVCenter;
             }
         }
-        return opts.gbLabel&GB_LBL_INSIDE
-            ? Qt::AlignBottom
-            : opts.gbLabel&GB_LBL_OUTSIDE
-            ? Qt::AlignTop
-            : Qt::AlignVCenter;
+        if (opts.gbLabel & GB_LBL_INSIDE) {
+            return Qt::AlignBottom;
+        } else if (opts.gbLabel & GB_LBL_OUTSIDE) {
+            return Qt::AlignTop;
+        } else {
+            return Qt::AlignVCenter;
+        }
     case SH_MessageBox_CenterButtons:
     case SH_ProgressDialog_CenterCancelButton:
     case SH_DitherDisabledText:
     case SH_EtchDisabledText:
     case SH_Menu_AllowActiveAndDisabled:
-    case SH_ItemView_ShowDecorationSelected: // Controls whether the highlighting of listview/treeview items highlights whole line.
+    case SH_ItemView_ShowDecorationSelected:
+        // Controls whether the highlighting of listview/treeview
+        // items highlights whole line.
     case SH_MenuBar_AltKeyNavigation:
         return false;
-    case SH_ItemView_ChangeHighlightOnFocus: // gray out selected items when losing focus.
+    case SH_ItemView_ChangeHighlightOnFocus:
+        // gray out selected items when losing focus.
         return false;
     case SH_WizardStyle:
         return QWizard::ClassicStyle;
@@ -1818,17 +1827,18 @@ int Style::styleHint(StyleHint hint, const QStyleOption *option, const QWidget *
     case SH_MainWindow_SpaceBelowMenuBar:
         return 0;
     case SH_DialogButtonLayout:
-        return opts.gtkButtonOrder ? QDialogButtonBox::GnomeLayout :
-        QDialogButtonBox::KdeLayout;
+        if (opts.gtkButtonOrder)
+            return QDialogButtonBox::GnomeLayout;
+        return QDialogButtonBox::KdeLayout;
     case SH_MessageBox_TextInteractionFlags:
         return Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse;
     case SH_LineEdit_PasswordCharacter:
         if (opts.passwordChar) {
-            int chars[4]={opts.passwordChar, 0x25CF, 0x2022, 0};
+            int chars[4] = {opts.passwordChar, 0x25CF, 0x2022, 0};
             const QFontMetrics &fm(option ? option->fontMetrics :
                                    (widget ? widget->fontMetrics() :
                                     QFontMetrics(QFont())));
-            for (int i = 0;chars[i];++i) {
+            for (int i = 0;chars[i];i++) {
                 if (fm.inFont(QChar(chars[i]))) {
                     return chars[i];
                 }
@@ -1843,8 +1853,8 @@ int Style::styleHint(StyleHint hint, const QStyleOption *option, const QWidget *
         return 1; // opts.menubarMouseOver ? 1 : 0;
     case SH_ScrollView_FrameOnlyAroundContents:
         return (widget && widget->isWindow() ? false :
-                opts.gtkScrollViews && !qtcCheckType(widget,
-                                                     "QComboBoxListView"));
+                opts.gtkScrollViews &&
+                !qtcCheckType(widget, "QComboBoxListView"));
     case SH_ComboBox_Popup:
         if (opts.gtkComboMenus) {
             if (auto cmb = qtcStyleCast<QStyleOptionComboBox>(option)) {
@@ -2018,8 +2028,9 @@ Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option,
     painter->restore();
 }
 
-void Style::drawControl(ControlElement element, const QStyleOption *option,
-                        QPainter *painter, const QWidget *widget) const
+void
+Style::drawControl(ControlElement element, const QStyleOption *option,
+                   QPainter *painter, const QWidget *widget) const
 {
     prePolish(widget);
     QRect r = option->rect;
