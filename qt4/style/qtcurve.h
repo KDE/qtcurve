@@ -40,6 +40,7 @@ typedef qulonglong QtcKey;
 #include <QDBusInterface>
 
 #ifdef QTC_QT4_ENABLE_KDE
+#  include <KDE/KStyle>
 #  include <KDE/KComponentData>
 #endif
 
@@ -59,7 +60,9 @@ class BlurHelper;
 class ShortcutHandler;
 class ShadowHelper;
 
-class Style: public QCommonStyle {
+typedef QCommonStyle BaseStyle;
+
+class Style: public BaseStyle {
     Q_OBJECT
     Q_CLASSINFO("X-KDE-CustomElements", "true")
 public:
