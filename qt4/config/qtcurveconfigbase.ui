@@ -3222,7 +3222,7 @@
           <widget class="QComboBox" name="menuBgndImage">
            <property name="toolTip">
             <string>&lt;p&gt;This adds a background image to popup menus.
-            &lt;ul&gt;&lt;li&gt;None - No image.&lt;/li&gt;&lt;li&gt;Bordered rings - 'Air' like rings with borders.&lt;/li&gt;&lt;li&gt;Plain rings - 'Air' like rings, but without any border.&lt;/li&gt;&lt;li&gt;Square rings - 3 simple rounded sqaures.&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;</string>
+            &lt;ul&gt;&lt;li&gt;None - No image.&lt;/li&gt;&lt;li&gt;Bordered rings - 'Air' like rings with borders.&lt;/li&gt;&lt;li&gt;Plain rings - 'Air' like rings, but without any border.&lt;/li&gt;&lt;li&gt;Square rings - 3 simple rounded squares.&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;</string>
            </property>
           </widget>
          </item>
