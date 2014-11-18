@@ -27,6 +27,6 @@ Comment[sk]=Vysoko konfigurovateľný štýl
 Comment[sv]=Mycket anpassningsbar stil
 Comment[uk]=Стиль зі значними можливостями із налаштовування
 Comment[x-test]=xxHighly configurable stylexx
-ConfigPage=kstyle_qtcurve_config
+ConfigPage=kstyle_qtcurve5_config
 [KDE]
 WidgetStyle=QtCurve

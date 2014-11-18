@@ -52,10 +52,28 @@ if(ENABLE_QT5)
     ${QTC_QT5_DEFS})
   include_directories(${QTC_QT5_INCLUDES})
   configure_file(config-qt5.h.in config-qt5.h @ONLY)
+
+  if(QTC_QT5_ENABLE_KDE)
+    find_package(ECM 1.2.0 REQUIRED NO_MODULE)
+    set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+
+    find_package(KF5 REQUIRED COMPONENTS
+        Archive
+        Config
+        ConfigWidgets
+        I18n
+        KDELibs4Support
+        KIO
+        WidgetsAddons
+        XmlGui)
+  endif()
 else()
   set(QTC_QT5_ENABLE_KDE Off)
   set(QTC_QT5_ENABLE_KWIN Off)
 endif()
 
 add_subdirectory(common)
+add_subdirectory(config)
+#add_subdirectory(kwin)
+#add_subdirectory(kwinconfig)
 add_subdirectory(style)

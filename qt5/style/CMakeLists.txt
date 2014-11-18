@@ -64,3 +64,8 @@ add_dependencies(qtcurve-qt5 qtc_qt5_check_on_hdr qtc_qt5_check_x_on_hdr
   qtc_qt5_dialog_warning_hdr)
 target_link_libraries(qtcurve-qt5 ${QTC_QT5_LINK_LIBS} qtcurve-utils)
 install(TARGETS qtcurve-qt5 LIBRARY DESTINATION ${QTCURVE_STYLE_DIR})
+
+if(QTC_QT5_ENABLE_KDE)
+  include(KDEInstallDirs)
+  install(FILES qtcurve.themerc DESTINATION ${DATA_INSTALL_DIR}/kstyle/themes)
+endif()

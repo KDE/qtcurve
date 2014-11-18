@@ -71,6 +71,12 @@
 
     (Default: `${QTC_KDE4_PREFIX}/share/icons`)
 
+10. `QTC_QT5_ENABLE_KDE`:
+
+     Compile QtCurve qt5 style with KDE Frameworks support and dependencies.
+
+     (Default: `On`)
+
 ## Deprecated and temporary options.
 These compile options were used to turn on/off some experimental features or
 work around for certain hardware/software/drivers. It is not guaranteed that

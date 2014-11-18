@@ -36,7 +36,7 @@ option(QTC_ENABLE_X11 "Enable X11" On)
 option(QTC_INSTALL_PO "Install translation files." On)
 
 qtc_option(QTC_QT4_ENABLE_KDE "Building Qt4 style with KDE4 support." On)
-qtc_option(QTC_QT5_ENABLE_KDE "Building Qt5 style with KDE5 support." Off)
+qtc_option(QTC_QT5_ENABLE_KDE "Building Qt5 style with KDE Frameworks 5 support." On)
 
 option(QTC_QT4_STYLE_SUPPORT
   "Qt4 support for creating a style for each QtCurve theme." Off)
@@ -153,8 +153,7 @@ cmake_c_add_flags(CMAKE_C_FLAGS -Wall -Wextra -std=gnu99 -D_DEFAULT_SOURCE)
 # the warning in clang++.
 if(NOT APPLE)
   # -std=c++0x is deprecated but gcc < 4.7 do not recognise c++11 ....
-  cmake_c_add_flags(CMAKE_CXX_FLAGS -Wall -Wextra
-    -Wno-deprecated-register -std=c++0x -D_DEFAULT_SOURCE)
+  cmake_c_add_flags(CMAKE_CXX_FLAGS -Wall -Wextra -std=c++0x -D_DEFAULT_SOURCE)
   cmake_c_add_flags(CMAKE_SHARED_LINKER_FLAGS -Wl,--as-needed -Wl,--no-undefined)
   cmake_c_add_flags(CMAKE_MODULE_LINKER_FLAGS -Wl,--as-needed -Wl,--no-undefined)
 else()
