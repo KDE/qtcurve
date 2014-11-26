@@ -5,7 +5,7 @@ function(translate_add_sources)
 endfunction()
 
 ## Setup
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}"
   "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
