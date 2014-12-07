@@ -90,7 +90,11 @@ namespace QtCurve {
 WindowManager::WindowManager(QObject *parent):
     QObject( parent),
     _enabled(true),
+#ifdef Q_WS_X11
     _useWMMoveResize(qtcX11Enabled()),
+#else
+    _useWMMoveResize(false),
+#endif
     _dragMode(WM_DRAG_NONE),
 #ifdef QTC_QT4_ENABLE_KDE
     _dragDistance(KGlobalSettings::dndEventDelay()),
@@ -631,11 +635,14 @@ WindowManager::startDrag(QWidget *widget, const QPoint &position)
     if (!(enabled() && widget) || QWidget::mouseGrabber()) {
         return;
     }
+#ifdef Q_WS_X11
     // ungrab pointer
     if (useWMMoveResize()) {
         qtcX11MoveTrigger(widget->window()->internalWinId(),
                           position.x(), position.y());
     }
+    // shouldn't there be an 'else' here??
+#endif
     if (!useWMMoveResize()) {
         if (!_cursorOverride) {
             qApp->setOverrideCursor(Qt::SizeAllCursor);

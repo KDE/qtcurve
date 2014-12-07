@@ -138,6 +138,7 @@ ShadowHelper::acceptWidget(QWidget *widget) const
 bool
 ShadowHelper::installX11Shadows(QWidget *widget)
 {
+#ifdef Q_WS_X11
     if (WId wid = qtcGetWid(widget)) {
         if (widget->windowType() == Qt::ToolTip &&
             widget->inherits("QBalloonTip")) {
@@ -152,14 +153,17 @@ ShadowHelper::installX11Shadows(QWidget *widget)
         }
         return true;
     }
+#endif
     return false;
 }
 
 void
 ShadowHelper::uninstallX11Shadows(QWidget *widget) const
 {
+#ifdef Q_WS_X11
     if (WId wid = qtcGetWid(widget)) {
         qtcX11ShadowUninstall(wid);
     }
+#endif
 }
 }

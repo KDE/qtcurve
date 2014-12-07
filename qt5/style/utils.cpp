@@ -22,7 +22,9 @@
 
 #include <qtcurve-utils/log.h>
 #include "utils.h"
+#ifdef Q_WS_X11
 #include <qtcurve-utils/x11utils.h>
+#endif
 #include <qtcurve-utils/qtutils.h>
 #include <QApplication>
 #include <QDesktopWidget>
@@ -40,7 +42,12 @@ bool
 compositingActive()
 {
 #ifndef QTC_QT5_ENABLE_KDE
+#ifdef Q_WS_X11
     return qtcX11CompositingActive();
+#else
+    // this would be the safe bet:
+    return false;
+#endif
 #else
     return KWindowSystem::compositingActive();
 #endif
@@ -78,9 +85,11 @@ hasAlphaChannel(const QWidget *widget)
     if (QWindow *window = findWindowHandle(widget)) {
         return window->format().alphaBufferSize() > 0;
     }
+#ifdef Q_WS_X11
     if (WId wid = findWid(widget)) {
         return qtcX11HasAlpha(wid);
     }
+#endif
     return compositingActive();
 }
 

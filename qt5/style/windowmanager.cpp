@@ -85,14 +85,20 @@
 #  include <KGlobalSettings>
 #endif
 
+#ifdef Q_WS_X11
 #include <qtcurve-utils/x11wmmove.h>
+#endif
 
 namespace QtCurve {
 //_____________________________________________________________
 WindowManager::WindowManager( QObject* parent ):
     QObject( parent ),
     _enabled( true ),
+#ifdef Q_WS_X11
     _useWMMoveResize(qtcX11Enabled()),
+#else
+    _useWMMoveResize(false),
+#endif
     _dragMode( WM_DRAG_NONE ),
 #ifndef QTC_QT5_ENABLE_KDE
     _dragDistance( QApplication::startDragDistance() ),
@@ -627,11 +633,13 @@ void WindowManager::startDrag(QWidget* widget, const QPoint &position)
     if (!(enabled() && widget) || QWidget::mouseGrabber())
         return;
 
+#ifdef Q_WS_X11
     // ungrab pointer
     if (useWMMoveResize()) {
         qtcX11MoveTrigger(widget->window()->internalWinId(),
                           position.x(), position.y());
     }
+#endif
 
     if(!useWMMoveResize()) {
         if (!_cursorOverride) {

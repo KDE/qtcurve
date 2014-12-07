@@ -36,7 +36,9 @@
 // http://stackoverflow.com/questions/735126/are-there-alternate-implementations-of-gnu-getline-interface
 #include <stdio.h>
 #include <stdlib.h>
+#include <AvailabilityMacros.h>
 
+#if __MAC_OS_X_VERSION_MAX_ALLOWED < 1070
 static size_t getline(char **lineptr, size_t *n, FILE *stream) {
     char *bufptr = NULL;
     char *p = bufptr;
@@ -88,6 +90,7 @@ static size_t getline(char **lineptr, size_t *n, FILE *stream) {
 
     return p - bufptr - 1;
 }
+#endif // pre 10.7
 #endif
 
 static const char*

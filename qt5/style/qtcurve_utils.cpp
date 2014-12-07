@@ -55,7 +55,9 @@
 #include <QTextStream>
 
 #include "shadowhelper.h"
+#ifdef Q_WS_X11
 #include <qtcurve-utils/x11qtc.h>
+#endif
 #include <qtcurve-utils/qtutils.h>
 #include <sys/time.h>
 
@@ -101,21 +103,25 @@ bool isNoEtchWidget(const QWidget *widget)
 void
 setOpacityProp(QWidget *w, unsigned short opacity)
 {
+#ifdef Q_WS_X11
     if (WId wid = qtcGetWid(w->window())) {
         qtcX11SetOpacity(wid, opacity);
     }
+#endif
 }
 
 void
 setBgndProp(QWidget *w, EAppearance app, bool haveBgndImage)
 {
     if (WId wid = qtcGetWid(w->window())) {
+#ifdef Q_WS_X11
         uint32_t prop = (((qtcIsFlatBgnd(app) ?
                            (haveBgndImage ? APPEARANCE_RAISED :
                             APPEARANCE_FLAT) : app) & 0xFF) |
                          (w->palette().background().color().rgb() &
                           0x00FFFFFF) << 8);
         qtcX11SetBgnd(wid, prop);
+#endif
     }
 }
 
@@ -127,7 +133,9 @@ void setSbProp(QWidget *w)
 
         if (!prop.isValid() || !prop.toBool()) {
             w->setProperty(constStatusBarProperty, true);
+#ifdef Q_WS_X11
             qtcX11SetStatusBar(wid);
+#endif
         }
     }
 }

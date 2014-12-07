@@ -171,6 +171,7 @@ BlurHelper::trimBlurRegion(QWidget *parent, QWidget *widget,
 void
 BlurHelper::update(QWidget *widget) const
 {
+#ifdef Q_WS_X11
     QTC_RET_IF_FAIL(qtcX11GetConn());
     // Do not create native window if there isn't one yet.
     WId wid = qtcGetWid(widget);
@@ -187,6 +188,7 @@ BlurHelper::update(QWidget *widget) const
         }
         qtcX11BlurTrigger(wid, true, data.size(), data.constData());
     }
+#endif
     // force update
     if (widget->isVisible()) {
         widget->update();
@@ -196,7 +198,9 @@ BlurHelper::update(QWidget *widget) const
 void
 BlurHelper::clear(WId wid) const
 {
+#ifdef Q_WS_X11
     QTC_RET_IF_FAIL(qtcX11GetConn());
     qtcX11BlurTrigger(wid, false, 0, 0);
+#endif
 }
 }

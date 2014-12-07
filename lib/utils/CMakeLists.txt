@@ -8,10 +8,13 @@ set(qtcurve_utils_SRCS
   timer.c
   map.c
   fd_utils.c
-  process.c
-  x11utils.c
-  x11helpers.c
-  x11wrap.c)
+  process.c)
+if(QTC_ENABLE_X11)
+    set(qtcurve_utils_SRCS ${qtcurve_utils_SRCS}
+      x11utils.c
+      x11helpers.c
+      x11wrap.c)
+endif(QTC_ENABLE_X11)
 if(APPLE)
   set(qtcurve_utils_LINKS
     ${LIBEXECINFO_LIBRARIES} pthread)
