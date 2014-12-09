@@ -33,6 +33,7 @@
 #include <QApplication>
 
 #ifdef Qt5X11Extras_FOUND
+#include <qtcurve-utils/x11base.h>
 #  include <QX11Info>
 #endif
 
