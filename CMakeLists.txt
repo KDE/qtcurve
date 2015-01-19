@@ -46,7 +46,7 @@ option(QTC_GTK2_MODIFY_MOZILLA "Modify Mozilla Gtk2 with js and css." Off)
 ## Common settings.
 # support an infix argument to have different qtcurve-utils libraries, e.g. for
 # GTk2, Qt4 and Qt5
-qtc_option(QTC_UTILSLIB_INFIX "an infix argument to have different qtcurve-utils libraries" "")
+set(QTC_UTILSLIB_INFIX "" CACHE STRING "an infix argument to have different qtcurve-utils libraries")
 
 # Only try to figure out what kde prefix is if not specified at command line.
 if(NOT DEFINED QTC_KDE4_PREFIX)
