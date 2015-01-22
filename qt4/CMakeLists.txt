@@ -1,7 +1,7 @@
 if(ENABLE_QT4 AND NOT ENABLE_QT4_DEFINED)
   # ENABLE_QT4 is not defined on the command line
   find_package(Qt4 4.6.0)
-  if(NOT Qt4_FOUND)
+  if(NOT Qt4_FOUND AND NOT QT4_FOUND)
     ## NB: this gets activated on OS X 10.9/MacPorts even when Qt is found,
     ## making it obligatory to define ENABLE_QT4 on the command line
     message(WARNING "Qt4 not found.")
