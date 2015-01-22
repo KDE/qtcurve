@@ -48,8 +48,7 @@ if(ENABLE_QT5)
   include_directories(
     "${CMAKE_CURRENT_SOURCE_DIR}"
     "${CMAKE_CURRENT_BINARY_DIR}")
-  add_definitions(-DQTC_UTILS_QT5 -DQT_DISABLE_DEPRECATED_BEFORE=0x050100
-    ${QTC_QT5_DEFS})
+  add_definitions(-DQTC_UTILS_QT5 ${QTC_QT5_DEFS})
   include_directories(${QTC_QT5_INCLUDES})
   configure_file(config-qt5.h.in config-qt5.h @ONLY)
 
