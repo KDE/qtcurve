@@ -79,7 +79,7 @@ static const struct {
 QTC_EXPORT bool
 qtcX11Enabled()
 {
-    return true;
+    return qtc_xcb_conn != NULL;
 }
 
 QTC_EXPORT xcb_window_t

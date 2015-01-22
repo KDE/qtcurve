@@ -85,31 +85,25 @@
 #  include <KGlobalSettings>
 #endif
 
-#ifdef Q_WS_X11
 #include <qtcurve-utils/x11wmmove.h>
-#endif
 
 namespace QtCurve {
 //_____________________________________________________________
 WindowManager::WindowManager( QObject* parent ):
-    QObject( parent ),
-    _enabled( true ),
-#ifdef Q_WS_X11
+    QObject(parent),
+    _enabled(true),
     _useWMMoveResize(qtcX11Enabled()),
-#else
-    _useWMMoveResize(false),
-#endif
-    _dragMode( WM_DRAG_NONE ),
+    _dragMode(WM_DRAG_NONE),
 #ifndef QTC_QT5_ENABLE_KDE
-    _dragDistance( QApplication::startDragDistance() ),
+    _dragDistance(QApplication::startDragDistance()),
 #else
-    _dragDistance( KGlobalSettings::dndEventDelay() ),
+    _dragDistance(KGlobalSettings::dndEventDelay()),
 #endif
-    _dragDelay( QApplication::startDragTime() ),
-    _dragAboutToStart( false ),
-    _dragInProgress( false ),
-    _locked( false ),
-    _cursorOverride( false )
+    _dragDelay(QApplication::startDragTime()),
+    _dragAboutToStart(false),
+    _dragInProgress(false),
+    _locked(false),
+    _cursorOverride(false)
 {
     // install application wise event filter
     _appEventFilter = new AppEventFilter(this);
@@ -633,13 +627,14 @@ void WindowManager::startDrag(QWidget* widget, const QPoint &position)
     if (!(enabled() && widget) || QWidget::mouseGrabber())
         return;
 
-#ifdef Q_WS_X11
     // ungrab pointer
+    // DO NOT condition compile on QTC_ENABLE_X11.
+    // There's no direct linkage on X11 and the following code will just do
+    // nothing if X11 is not enabled (either at compile time or at run time).
     if (useWMMoveResize()) {
         qtcX11MoveTrigger(widget->window()->internalWinId(),
                           position.x(), position.y());
     }
-#endif
 
     if(!useWMMoveResize()) {
         if (!_cursorOverride) {

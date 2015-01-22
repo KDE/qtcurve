@@ -59,9 +59,7 @@
 #include <QPushButton>
 #include <QToolBar>
 #include <qtcurve-utils/qtutils.h>
-#ifdef Q_WS_X11
 #include <qtcurve-utils/x11blur.h>
-#endif
 
 namespace QtCurve {
 BlurHelper::BlurHelper(QObject *parent):
@@ -173,8 +171,10 @@ BlurHelper::trimBlurRegion(QWidget *parent, QWidget *widget,
 void
 BlurHelper::update(QWidget *widget) const
 {
-#ifdef Q_WS_X11
-    QTC_RET_IF_FAIL(qtcX11GetConn());
+    // DO NOT condition compile on QTC_ENABLE_X11.
+    // There's no direct linkage on X11 and the following code will just do
+    // nothing if X11 is not enabled (either at compile time or at run time).
+    QTC_RET_IF_FAIL(qtcX11Enabled());
     // Do not create native window if there isn't one yet.
     WId wid = qtcGetWid(widget);
     if (!wid) {
@@ -190,8 +190,6 @@ BlurHelper::update(QWidget *widget) const
         }
         qtcX11BlurTrigger(wid, true, data.size(), data.constData());
     }
-#endif
-
     // force update
     if (widget->isVisible()) {
         widget->update();
@@ -201,9 +199,10 @@ BlurHelper::update(QWidget *widget) const
 void
 BlurHelper::clear(WId wid) const
 {
-#ifdef Q_WS_X11
-    QTC_RET_IF_FAIL(qtcX11GetConn());
+    // DO NOT condition compile on QTC_ENABLE_X11.
+    // There's no direct linkage on X11 and the following code will just do
+    // nothing if X11 is not enabled (either at compile time or at run time).
+    QTC_RET_IF_FAIL(qtcX11Enabled());
     qtcX11BlurTrigger(wid, false, 0, 0);
-#endif
 }
 }

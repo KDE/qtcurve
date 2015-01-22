@@ -68,9 +68,7 @@
 #include <QTextStream>
 
 #include "shadowhelper.h"
-#ifdef Q_WS_X11
 #include <qtcurve-utils/x11qtc.h>
-#endif
 #include <sys/time.h>
 
 #ifdef QTC_QT5_ENABLE_KDE
@@ -4338,6 +4336,11 @@ void Style::toggleStatusBar(QMainWindow *window)
 
 void Style::emitMenuSize(QWidget *w, unsigned short size, bool force)
 {
+    // DO NOT condition compile on QTC_ENABLE_X11.
+    // There's no direct linkage on X11 and the following code will just do
+    // nothing if X11 is not enabled (either at compile time or at run time).
+    QTC_RET_IF_FAIL(qtcX11Enabled());
+
     if (WId wid = qtcGetWid(w->window())) {
         static const char *constMenuSizeProperty = "qtcMenuSize";
         unsigned short oldSize = 2000;
@@ -4355,9 +4358,7 @@ void Style::emitMenuSize(QWidget *w, unsigned short size, bool force)
 
         if (oldSize != size) {
             w->setProperty(constMenuSizeProperty, size);
-#ifdef Q_WS_X11
             qtcX11SetMenubarSize(wid, size);
-#endif
             if(!m_dBus)
                 m_dBus = new QDBusInterface("org.kde.kwin", "/QtCurve",
                                              "org.kde.QtCurve");

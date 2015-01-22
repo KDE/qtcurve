@@ -55,9 +55,7 @@
 #include <QTextStream>
 
 #include "shadowhelper.h"
-#ifdef Q_WS_X11
 #include <qtcurve-utils/x11qtc.h>
-#endif
 #include <qtcurve-utils/qtutils.h>
 #include <sys/time.h>
 
@@ -103,39 +101,45 @@ bool isNoEtchWidget(const QWidget *widget)
 void
 setOpacityProp(QWidget *w, unsigned short opacity)
 {
-#ifdef Q_WS_X11
+    // DO NOT condition compile on QTC_ENABLE_X11.
+    // There's no direct linkage on X11 and the following code will just do
+    // nothing if X11 is not enabled (either at compile time or at run time).
+    QTC_RET_IF_FAIL(qtcX11Enabled());
     if (WId wid = qtcGetWid(w->window())) {
         qtcX11SetOpacity(wid, opacity);
     }
-#endif
 }
 
 void
 setBgndProp(QWidget *w, EAppearance app, bool haveBgndImage)
 {
+    // DO NOT condition compile on QTC_ENABLE_X11.
+    // There's no direct linkage on X11 and the following code will just do
+    // nothing if X11 is not enabled (either at compile time or at run time).
+    QTC_RET_IF_FAIL(qtcX11Enabled());
     if (WId wid = qtcGetWid(w->window())) {
-#ifdef Q_WS_X11
         uint32_t prop = (((qtcIsFlatBgnd(app) ?
                            (haveBgndImage ? APPEARANCE_RAISED :
                             APPEARANCE_FLAT) : app) & 0xFF) |
                          (w->palette().background().color().rgb() &
                           0x00FFFFFF) << 8);
         qtcX11SetBgnd(wid, prop);
-#endif
     }
 }
 
 void setSbProp(QWidget *w)
 {
+    // DO NOT condition compile on QTC_ENABLE_X11.
+    // There's no direct linkage on X11 and the following code will just do
+    // nothing if X11 is not enabled (either at compile time or at run time).
+    QTC_RET_IF_FAIL(qtcX11Enabled());
     if (WId wid = qtcGetWid(w->window())) {
         static const char *constStatusBarProperty = "qtcStatusBar";
         QVariant prop(w->property(constStatusBarProperty));
 
         if (!prop.isValid() || !prop.toBool()) {
             w->setProperty(constStatusBarProperty, true);
-#ifdef Q_WS_X11
             qtcX11SetStatusBar(wid);
-#endif
         }
     }
 }

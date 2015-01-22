@@ -84,6 +84,7 @@ StylePlugin::keys() const
 QStyle*
 StylePlugin::create(const QString &key)
 {
+    // init needs to be called before Style is created
     init();
     if (key.toLower() == "qtcurve") {
         return new Style;

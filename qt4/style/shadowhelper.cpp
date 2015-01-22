@@ -138,7 +138,10 @@ ShadowHelper::acceptWidget(QWidget *widget) const
 bool
 ShadowHelper::installX11Shadows(QWidget *widget)
 {
-#ifdef Q_WS_X11
+    // DO NOT condition compile on QTC_ENABLE_X11.
+    // There's no direct linkage on X11 and the following code will just do
+    // nothing if X11 is not enabled (either at compile time or at run time).
+    QTC_RET_IF_FAIL(qtcX11Enabled(), false);
     if (WId wid = qtcGetWid(widget)) {
         if (widget->windowType() == Qt::ToolTip &&
             widget->inherits("QBalloonTip")) {
@@ -153,17 +156,18 @@ ShadowHelper::installX11Shadows(QWidget *widget)
         }
         return true;
     }
-#endif
     return false;
 }
 
 void
 ShadowHelper::uninstallX11Shadows(QWidget *widget) const
 {
-#ifdef Q_WS_X11
+    // DO NOT condition compile on QTC_ENABLE_X11.
+    // There's no direct linkage on X11 and the following code will just do
+    // nothing if X11 is not enabled (either at compile time or at run time).
+    QTC_RET_IF_FAIL(qtcX11Enabled());
     if (WId wid = qtcGetWid(widget)) {
         qtcX11ShadowUninstall(wid);
     }
-#endif
 }
 }

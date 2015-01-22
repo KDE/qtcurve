@@ -25,10 +25,8 @@
 #include "config-qt5.h"
 
 #include <qtcurve-utils/qtprops.h>
-#ifdef Q_WS_X11
 #include <qtcurve-utils/x11shadow.h>
 #include <qtcurve-utils/x11blur.h>
-#endif
 
 #include <QApplication>
 
