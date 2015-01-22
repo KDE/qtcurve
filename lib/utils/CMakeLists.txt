@@ -8,33 +8,30 @@ set(qtcurve_utils_SRCS
   timer.c
   map.c
   fd_utils.c
-  process.c)
-if(QTC_ENABLE_X11)
-    set(qtcurve_utils_SRCS ${qtcurve_utils_SRCS}
-      x11utils.c
-      x11helpers.c
-      x11wrap.c)
-endif(QTC_ENABLE_X11)
-if(APPLE)
-  set(qtcurve_utils_LINKS
-    ${LIBEXECINFO_LIBRARIES} pthread)
-else()
-  set(qtcurve_utils_LINKS
-    m rt dl ${LIBEXECINFO_LIBRARIES} pthread)
+  process.c
+  # DO NOT condition on QTC_ENABLE_X11 !!!
+  # These provides dummy API functions so that x and non-x version are abi
+  # compatible. There's no X11 linkage when QTC_ENABLE_X11 is off even though
+  # these files are compiled
+  x11utils.c
+  x11helpers.c
+  x11wrap.c)
+
+set(qtcurve_utils_LINKS ${LIBEXECINFO_LIBRARIES} pthread)
+
+if(NOT APPLE)
+  set(qtcurve_utils_LINKS ${qtcurve_utils_LINKS} m rt dl)
 endif()
 
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 
 if(QTC_ENABLE_X11)
-  set(qtcurve_utils_LINKS
-    ${qtcurve_utils_LINKS}
-    ${QTC_X11_LIBRARIES})
+  set(qtcurve_utils_LINKS ${qtcurve_utils_LINKS} ${QTC_X11_LIBRARIES})
 endif()
 
 add_definitions("-DQTC_UTILS_INTERNAL -pthread")
 
-add_library(qtcurve-utils SHARED
-  ${qtcurve_utils_SRCS})
+add_library(qtcurve-utils SHARED ${qtcurve_utils_SRCS})
 
 target_link_libraries(qtcurve-utils ${qtcurve_utils_LINKS})
 
