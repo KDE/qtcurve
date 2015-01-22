@@ -102,7 +102,7 @@ macro(cmake_array_foreach varname funcname)
           "${${__cmake_array_foreach_${varname}_${funcname}_argc}}")
       endforeach()
     else()
-      if("${ARGV2}" STREQUAL "ARGV")
+      if("x${ARGV2}" STREQUAL "xARGV")
         foreach(__cmake_array_foreach_${varname}_${funcname}_argc ARGC)
           __cmake_array_foreach_real("${varname}" "${funcname}"
             ARGV 0 "${${__cmake_array_foreach_${varname}_${funcname}_argc}}")

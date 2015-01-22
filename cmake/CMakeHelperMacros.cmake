@@ -187,7 +187,7 @@ function(__cmake_helper_wrap_commands env_fname name
   # envs
   if(NOT "x${env_fname}x" STREQUAL xx)
     if((NOT "x${envs}x" STREQUAL xx) AND DEFINED "${envs}.length"
-        AND "${envs}.length")
+        AND "${${envs}.length}")
       __cmake_helper_escape_envs(envs_string "${envs}")
       file(APPEND "${env_fname}" "${envs_string}")
     endif()
@@ -427,7 +427,8 @@ function(cmake_helper_wrap_helper name command_ret)
   cmake_parse_array_default(WRAP_HELPER 2)
   cmake_utils_to_abs(WRAP_HELPER_WORKING_DIR WRAP_HELPER_INPUT_FILE
     WRAP_HELPER_OUTPUT_FILE WRAP_HELPER_ERROR_FILE)
-  if("${WRAP_HELPER_UNUSED}.length")
+  if(DEFINED "${WRAP_HELPER_UNUSED}.length" AND
+      "${${WRAP_HELPER_UNUSED}.length}")
     cmake_array_append("${WRAP_HELPER_ARGS}" "${WRAP_HELPER_UNUSED}")
   endif()
 
