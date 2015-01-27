@@ -26,7 +26,7 @@
 
 QTC_BEGIN_DECLS
 
-extern QtcXDisplay *qtc_disp;
+extern void *qtc_disp;
 extern xcb_connection_t *qtc_xcb_conn;
 extern int qtc_default_screen_no;
 extern xcb_window_t qtc_root_window;

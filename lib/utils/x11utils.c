@@ -43,7 +43,7 @@ QTC_EXPORT xcb_atom_t qtc_x11_qtc_bgnd;
 // #include <X11/Xutil.h>
 // #include <X11/extensions/Xrender.h>
 
-Display *qtc_disp = NULL;
+void *qtc_disp = NULL;
 xcb_connection_t *qtc_xcb_conn = NULL;
 int qtc_default_screen_no = -1;
 xcb_window_t qtc_root_window = {0};
@@ -168,7 +168,7 @@ qtcX11InitXcb(xcb_connection_t *conn, int screen_no)
 }
 
 QTC_EXPORT void
-qtcX11InitXlib(Display *disp)
+qtcX11InitXlib(void *disp)
 {
     QTC_RET_IF_FAIL(!qtc_xcb_conn && disp);
     qtc_disp = disp;
@@ -181,7 +181,7 @@ qtcX11GetConn()
     return qtc_xcb_conn;
 }
 
-QTC_EXPORT Display*
+QTC_EXPORT void*
 qtcX11GetDisp()
 {
     return qtc_disp;
@@ -312,7 +312,7 @@ qtcX11InitXcb(xcb_connection_t *conn, int screen_no)
 }
 
 QTC_EXPORT void
-qtcX11InitXlib(QtcXDisplay *disp)
+qtcX11InitXlib(void *disp)
 {
     QTC_UNUSED(disp);
 }
@@ -323,7 +323,7 @@ qtcX11GetConn()
     return NULL;
 }
 
-QTC_EXPORT QtcXDisplay*
+QTC_EXPORT void*
 qtcX11GetDisp()
 {
     return NULL;
