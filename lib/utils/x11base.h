@@ -36,13 +36,13 @@ extern xcb_atom_t qtc_x11_qtc_toggle_statusbar;
 extern xcb_atom_t qtc_x11_qtc_opacity;
 extern xcb_atom_t qtc_x11_qtc_bgnd;
 
-typedef struct _XDisplay Display;
+typedef struct _XDisplay QtcXDisplay;
 
 bool qtcX11Enabled();
 void qtcX11InitXcb(xcb_connection_t *conn, int screen_no);
-void qtcX11InitXlib(Display *disp);
+void qtcX11InitXlib(QtcXDisplay *disp);
 xcb_connection_t *qtcX11GetConn();
-Display *qtcX11GetDisp();
+QtcXDisplay *qtcX11GetDisp();
 int qtcX11DefaultScreenNo();
 xcb_screen_t *qtcX11DefaultScreen();
 xcb_screen_t *qtcX11GetScreen(int scrn_no);

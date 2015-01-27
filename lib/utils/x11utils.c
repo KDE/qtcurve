@@ -312,7 +312,7 @@ qtcX11InitXcb(xcb_connection_t *conn, int screen_no)
 }
 
 QTC_EXPORT void
-qtcX11InitXlib(Display *disp)
+qtcX11InitXlib(QtcXDisplay *disp)
 {
     QTC_UNUSED(disp);
 }
@@ -323,7 +323,7 @@ qtcX11GetConn()
     return NULL;
 }
 
-QTC_EXPORT Display*
+QTC_EXPORT QtcXDisplay*
 qtcX11GetDisp()
 {
     return NULL;
