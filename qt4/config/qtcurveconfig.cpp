@@ -109,19 +109,20 @@ static inline QString getFileName(const QString &f)
 
 static QString getThemeFile(const QString &file)
 {
-    if(file.startsWith(THEME_IMAGE_PREFIX BGND_FILE))
-    {
-        QString f(qtcConfDir()+file);
+    if (file.startsWith(THEME_IMAGE_PREFIX BGND_FILE)) {
+        QString f(qtcConfDir() + file);
 
-        if(QFile::exists(f))
+        if (QFile::exists(f)) {
             return f.replace("//", "/");
+        }
     }
-    if(!file.startsWith("/"))
-    {
-        QString f(KGlobal::dirs()->saveLocation("data", "QtCurve/", KStandardDirs::NoDuplicates)+'/'+file);
+    if (!file.startsWith("/")) {
+        QString f(KGlobal::dirs()->saveLocation("data", "QtCurve/") +
+                  '/' + file);
 
-        if(QFile::exists(f))
+        if (QFile::exists(f)) {
             return f.replace("//", "/");
+        }
     }
     return QString(file).replace("//", "/");
 }
@@ -148,7 +149,8 @@ static QString installThemeFile(const QString &src, const QString &dest)
             name(QLatin1String(THEME_IMAGE_PREFIX)+dest+getExt(source)),
             destination(qtcConfDir()+name);
 
-//     printf("INST THM \"%s\" \"%s\"", source.toLatin1().constData(), destination.toLatin1().constData());
+    // printf("INST THM \"%s\" \"%s\"", source.toLatin1().constData(),
+    //        destination.toLatin1().constData());
     if(source!=destination)
         copyFile(source, destination);
 
@@ -158,10 +160,11 @@ static QString installThemeFile(const QString &src, const QString &dest)
 static QString saveThemeFile(const QString &src, const QString &dest, const QString &themeName)
 {
     QString source(getThemeFile(src)),
-            destination(KGlobal::dirs()->saveLocation("data", "QtCurve/", KStandardDirs::NoDuplicates)+
-                        themeName+dest+getExt(source));
+            destination(KGlobal::dirs()->saveLocation("data", "QtCurve/") +
+                        themeName + dest + getExt(source));
 
-//     printf("SAVE THM \"%s\" \"%s\"", source.toLatin1().constData(), destination.toLatin1().constData());
+    // printf("SAVE THM \"%s\" \"%s\"", source.toLatin1().constData(),
+    //        destination.toLatin1().constData());
     if(source!=destination)
         copyFile(source, destination);
 
@@ -177,8 +180,7 @@ static void
 removeThemeImages(const QString &themeFile)
 {
     QString themeName(getFileName(themeFile).remove(EXTENSION).replace(' ', '_'));
-    QDir dir(KGlobal::dirs()->saveLocation("data", "QtCurve/",
-                                           KStandardDirs::NoDuplicates));
+    QDir dir(KGlobal::dirs()->saveLocation("data", "QtCurve/"));
     foreach (const QString &file, dir.entryList()) {
         if (file.startsWith(themeName + BGND_FILE)) {
             QFile::remove(dir.path() + "/" + file);
@@ -2518,7 +2520,7 @@ bool QtCurveConfig::savePreset(const QString &name)
         return false;
 
     QString fname=QString(name).replace(' ', '_');
-    QString dir(KGlobal::dirs()->saveLocation("data", "QtCurve/", KStandardDirs::NoDuplicates));
+    QString dir(KGlobal::dirs()->saveLocation("data", "QtCurve/"));
 
     KConfig cfg(dir+fname+EXTENSION, KConfig::NoGlobals);
     Options opts;
@@ -2710,7 +2712,8 @@ void QtCurveConfig::importPreset()
                     name=getPresetName(i18n("Import Preset"), QString(), name, name);
                     if(!name.isEmpty())
                     {
-                        QString qtcDir(KGlobal::dirs()->saveLocation("data", "QtCurve/", KStandardDirs::NoDuplicates)+'/');
+                        QString qtcDir(KGlobal::dirs()
+                                       ->saveLocation("data", "QtCurve/") + '/');
                         name=name.replace(' ', '_');
 
                         if(compressed && tmpDir)
