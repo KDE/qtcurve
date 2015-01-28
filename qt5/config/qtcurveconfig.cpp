@@ -53,6 +53,8 @@
 #include <QRegExp>
 #include <QRegExpValidator>
 #include <QMenu>
+#include <kiconengine.h>
+#include <kiconloader.h>
 #include <KGuiItem>
 #include <KInputDialog>
 #include <KDE/KGlobalSettings>
@@ -60,7 +62,6 @@
 #include <KDE/KColorButton>
 #include <KDE/KConfig>
 #include <KDE/KFileDialog>
-#include <KDE/KIcon>
 #include <KDE/KMessageBox>
 #include <KDE/KCharSelect>
 #include <KDE/KDialog>
@@ -1204,7 +1205,9 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
     connect(statusbarApps, SIGNAL(editingFinished()), SLOT(updateChanged()));
     connect(noMenuStripeApps, SIGNAL(editingFinished()), SLOT(updateChanged()));
 
-    menubarBlend->setIcon(KIcon("configure"));
+    QIcon config_icon(new KIconEngine("configure", KIconLoader::global()));
+
+    menubarBlend->setIcon(config_icon);
     connect(menubarBlend, SIGNAL(clicked(bool)), SLOT(menubarTitlebarBlend()));
     connect(previewControlButton, SIGNAL(clicked(bool)), SLOT(previewControlPressed()));
 
@@ -1215,16 +1218,16 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
 
     bgndAppearance_btn->setAutoRaise(true);
     bgndAppearance_btn->setVisible(false);
-    bgndAppearance_btn->setIcon(KIcon("configure"));
+    bgndAppearance_btn->setIcon(config_icon);
     bgndImage_btn->setAutoRaise(true);
     bgndImage_btn->setVisible(false);
-    bgndImage_btn->setIcon(KIcon("configure"));
+    bgndImage_btn->setIcon(config_icon);
     menuBgndAppearance_btn->setAutoRaise(true);
     menuBgndAppearance_btn->setVisible(false);
-    menuBgndAppearance_btn->setIcon(KIcon("configure"));
+    menuBgndAppearance_btn->setIcon(config_icon);
     menuBgndImage_btn->setAutoRaise(true);
     menuBgndImage_btn->setVisible(false);
-    menuBgndImage_btn->setIcon(KIcon("configure"));
+    menuBgndImage_btn->setIcon(config_icon);
 
     setupStack();
 
@@ -2263,7 +2266,8 @@ void QtCurveConfig::setupGradientsTab()
 
     gradCombo->setCurrentIndex(APPEARANCE_CUSTOM1);
 
-    copyGradientButton->setIcon(KIcon("edit-copy"));
+    copyGradientButton->setIcon(QIcon(new KIconEngine("edit-copy",
+                                                      KIconLoader::global())));
     copyGradientButton->setToolTip(i18n("Copy settings from another gradient"));
     copyGradientButton->setMenu(menu);
     copyGradientButton->setPopupMode(QToolButton::InstantPopup);
