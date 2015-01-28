@@ -59,29 +59,34 @@ void QtCurveShadowConfiguration::defaults()
 
 void QtCurveShadowConfiguration::setColorType(ColorType ct)
 {
-    m_colorType=ct;
-    switch(m_colorType)
-    {
-        default:
-        case CT_FOCUS:
-            m_color = KColorScheme(m_colorGroup).decoration(KColorScheme::FocusColor).color();
-            break;
-        case CT_HOVER:
-            m_color = KColorScheme(m_colorGroup).decoration(KColorScheme::HoverColor).color();
-            break;
-        case CT_SELECTION:
-            m_color = QApplication::palette().color(m_colorGroup, QPalette::Highlight);
-            break;
-        case CT_TITLEBAR:
-            m_color = QPalette::Active==m_colorGroup
-                        ? KGlobalSettings::activeTitleColor()
-                        : KGlobalSettings::inactiveTitleColor();
-            break;
-        case CT_GRAY:
-            m_color = QColor("#393835");
-            break;
-        case CT_CUSTOM:
-            break;
+    m_colorType = ct;
+    switch (m_colorType) {
+    default:
+    case CT_FOCUS:
+        m_color = KColorScheme(m_colorGroup)
+            .decoration(KColorScheme::FocusColor).color();
+        break;
+    case CT_HOVER:
+        m_color = KColorScheme(m_colorGroup)
+            .decoration(KColorScheme::HoverColor).color();
+        break;
+    case CT_SELECTION:
+        m_color = QApplication::palette().color(m_colorGroup,
+                                                QPalette::Highlight);
+        break;
+    case CT_TITLEBAR: {
+        m_color = KColorScheme(m_colorGroup, KColorScheme::Window)
+            .background(m_colorGroup == QPalette::Active ?
+                        KColorScheme::ActiveBackground :
+                        KColorScheme::NormalBackground)
+            .color();
+        break;
+    }
+    case CT_GRAY:
+        m_color = QColor("#393835");
+        break;
+    case CT_CUSTOM:
+        break;
     }
 }
 
