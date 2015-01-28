@@ -22,8 +22,13 @@
 #ifndef __COMMON_KF5_UTILS_H__
 #define __COMMON_KF5_UTILS_H__
 
+#include <qtcurve-utils/utils.h>
+
 #include <kiconengine.h>
 #include <kiconloader.h>
+
+#include <QStandardPaths>
+#include <QDir>
 
 namespace QtCurve {
 
@@ -31,6 +36,23 @@ static inline QIcon
 loadKIcon(const QString &name)
 {
     return QIcon(new KIconEngine(name, KIconLoader::global()));
+}
+
+// TODO probably merge with utils/dirs
+static inline QString
+saveLocation(QStandardPaths::StandardLocation type, const QString &suffix)
+{
+    QString path = QStandardPaths::writableLocation(type);
+    QTC_RET_IF_FAIL(!path.isEmpty(), path);
+    path += '/' + suffix;
+    QDir().mkpath(path);
+    return path;
+}
+
+static inline QString
+qtcSaveDir()
+{
+    return saveLocation(QStandardPaths::GenericDataLocation, "QtCurve/");
 }
 
 }

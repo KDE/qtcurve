@@ -119,9 +119,7 @@ static QString getThemeFile(const QString &file)
         }
     }
     if (!file.startsWith("/")) {
-        QString f(KGlobal::dirs()->saveLocation("data", "QtCurve/") +
-                  '/' + file);
-
+        QString f(QtCurve::qtcSaveDir() + file);
         if (QFile::exists(f)) {
             return f.replace("//", "/");
         }
@@ -160,9 +158,9 @@ static QString installThemeFile(const QString &src, const QString &dest)
 
 static QString saveThemeFile(const QString &src, const QString &dest, const QString &themeName)
 {
-    QString source(getThemeFile(src)),
-            destination(KGlobal::dirs()->saveLocation("data", "QtCurve/") +
-                        themeName + dest + getExt(source));
+    QString source(getThemeFile(src));
+    QString destination =
+        QtCurve::qtcSaveDir() + themeName + dest + getExt(source);
 
     // printf("SAVE THM \"%s\" \"%s\"", source.toLatin1().constData(),
     //        destination.toLatin1().constData());
@@ -181,7 +179,7 @@ static void
 removeThemeImages(const QString &themeFile)
 {
     QString themeName(getFileName(themeFile).remove(EXTENSION).replace(' ', '_'));
-    QDir dir(KGlobal::dirs()->saveLocation("data", "QtCurve/"));
+    QDir dir(QtCurve::qtcSaveDir());
     foreach (const QString &file, dir.entryList()) {
         if (file.startsWith(themeName + BGND_FILE)) {
             QFile::remove(dir.path() + "/" + file);
@@ -2519,7 +2517,7 @@ bool QtCurveConfig::savePreset(const QString &name)
         return false;
 
     QString fname=QString(name).replace(' ', '_');
-    QString dir(KGlobal::dirs()->saveLocation("data", "QtCurve/"));
+    QString dir(QtCurve::qtcSaveDir());
 
     KConfig cfg(dir+fname+EXTENSION, KConfig::NoGlobals);
     Options opts;
@@ -2710,8 +2708,7 @@ void QtCurveConfig::importPreset()
                 {
                     name=getPresetName(i18n("Import Preset"), QString(), name, name);
                     if (!name.isEmpty()) {
-                        QString qtcDir(KGlobal::dirs()
-                                       ->saveLocation("data", "QtCurve/") + '/');
+                        QString qtcDir(QtCurve::qtcSaveDir());
                         name=name.replace(' ', '_');
 
                         if (compressed && tmpDir) {
