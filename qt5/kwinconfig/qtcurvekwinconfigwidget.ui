@@ -219,7 +219,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="KIntNumInput" name="activeOpacity">
+          <widget class="QSpinBox" name="activeOpacity">
            <property name="whatsThis">
             <string>Controls the opacity of the active window decoration. 0% would cause the decoration to be totally translucent.</string>
            </property>
@@ -248,7 +248,7 @@
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="KIntNumInput" name="inactiveOpacity">
+          <widget class="QSpinBox" name="inactiveOpacity">
            <property name="whatsThis">
             <string>Controls the opacity of the inactive window decoration. 0% would cause the decoration to be totally translucent.</string>
            </property>
@@ -524,11 +524,6 @@
    <class>KColorButton</class>
    <extends>QPushButton</extends>
    <header>kcolorbutton.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KIntNumInput</class>
-   <extends>QWidget</extends>
-   <header>knuminput.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>

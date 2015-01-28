@@ -65,7 +65,6 @@
 #include <KDE/KPushButton>
 #include <KDE/KCharSelect>
 #include <KDE/KDialog>
-#include <KDE/KIntNumInput>
 #include <KDE/KStandardAction>
 #include <KDE/KStatusBar>
 #include <KDE/K4AboutData>
@@ -82,7 +81,7 @@
 #include <style/qtcurve.h>
 #include <common/config_file.h>
 
-#define EXTENSION                  ".qtcurve"
+#define EXTENSION ".qtcurve"
 #define VERSION_WITH_KWIN_SETTINGS qtcMakeVersion(1, 5)
 
 #define THEME_IMAGE_PREFIX "style"
@@ -943,14 +942,18 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
     gbFactor->setRange(MIN_GB_FACTOR, MAX_GB_FACTOR);
     gbFactor->setValue(DEF_GB_FACTOR);
 
-    bgndOpacity->setRange(0, 100, 5);
+    bgndOpacity->setRange(0, 100);
+    bgndOpacity->setSingleStep(5);
     bgndOpacity->setValue(100);
-    dlgOpacity->setRange(0, 100, 5);
+    dlgOpacity->setRange(0, 100);
+    dlgOpacity->setSingleStep(5);
     dlgOpacity->setValue(100);
-    menuBgndOpacity->setRange(0, 100, 5);
+    menuBgndOpacity->setRange(0, 100);
+    menuBgndOpacity->setSingleStep(5);
     menuBgndOpacity->setValue(100);
 
-    sliderWidth->setRange(MIN_SLIDER_WIDTH, MAX_SLIDER_WIDTH, 2);
+    sliderWidth->setRange(MIN_SLIDER_WIDTH, MAX_SLIDER_WIDTH);
+    sliderWidth->setSingleStep(2);
     sliderWidth->setValue(DEFAULT_SLIDER_WIDTH);
     sliderWidth->setSuffix(i18n(" pixels"));
 
@@ -2276,9 +2279,12 @@ void QtCurveConfig::setupGradientsTab()
     removeButton->setGuiItem(KGuiItem(i18n("Remove"), "list-remove"));
     updateButton->setGuiItem(KGuiItem(i18n("Update"), "dialog-ok"));
 
-    stopPosition->setRange(0, 100, 5);
-    stopValue->setRange(0, 200, 5);
-    stopAlpha->setRange(0, 100, 5);
+    stopPosition->setRange(0, 100);
+    stopPosition->setSingleStep(5);
+    stopValue->setRange(0, 200);
+    stopValue->setSingleStep(5);
+    stopAlpha->setRange(0, 100);
+    stopAlpha->setSingleStep(5);
     removeButton->setEnabled(false);
     updateButton->setEnabled(false);
     connect(gradCombo, SIGNAL(currentIndexChanged(int)), SLOT(gradChanged(int)));

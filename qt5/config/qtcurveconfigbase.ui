@@ -577,7 +577,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="KIntNumInput" name="bgndOpacity">
+          <widget class="QSpinBox" name="bgndOpacity">
            <property name="toolTip">
             <string>&lt;p&gt;Sets the opacity of window backgrounds when using desktop effects.&lt;/p&gt;</string>
            </property>
@@ -594,7 +594,7 @@
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="KIntNumInput" name="dlgOpacity">
+          <widget class="QSpinBox" name="dlgOpacity">
            <property name="toolTip">
             <string>&lt;p&gt;Sets the opacity of dialog backgrounds when using desktop effects.&lt;/p&gt;</string>
            </property>
@@ -611,7 +611,7 @@
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="KIntNumInput" name="menuBgndOpacity">
+          <widget class="QSpinBox" name="menuBgndOpacity">
            <property name="toolTip">
             <string>&lt;p&gt;Sets the opacity of popup menus when using desktop effects.&lt;/p&gt;</string>
            </property>
@@ -673,7 +673,7 @@
         <widget class="QComboBox" name="groupBox"/>
        </item>
        <item row="1" column="1">
-        <widget class="KIntNumInput" name="gbFactor">
+        <widget class="QSpinBox" name="gbFactor">
          <property name="toolTip">
           <string>&lt;p&gt;Defines how much a group box's background should be darkened or lightened by.&lt;/p&gt;</string>
          </property>
@@ -880,7 +880,7 @@
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="KIntNumInput" name="splitterHighlight">
+        <widget class="QSpinBox" name="splitterHighlight">
          <property name="toolTip">
           <string>&lt;p&gt;Defines by how much the theme should brighten (or darken) the background of the splitter when the mouse hovers over.&lt;/p&gt;</string>
          </property>
@@ -1077,7 +1077,7 @@
         </widget>
        </item>
        <item row="15" column="1">
-        <widget class="KIntNumInput" name="sliderWidth">
+        <widget class="QSpinBox" name="sliderWidth">
          <property name="toolTip">
           <string>&lt;p&gt;Controls the width of scrollbar sliders, and plain style sliders.&lt;/p&gt;</string>
          </property>
@@ -1509,7 +1509,7 @@
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="KIntNumInput" name="colorSelTab">
+        <widget class="QSpinBox" name="colorSelTab">
          <property name="toolTip">
           <string>&lt;p&gt;Controls the amount of tinting applied to the active tab. The active tab is tinted by blending the 'highlight' color with the background color.</string>
          </property>
@@ -2052,7 +2052,7 @@
         </widget>
        </item>
        <item row="5" column="1">
-        <widget class="KIntNumInput" name="crHighlight">
+        <widget class="QSpinBox" name="crHighlight">
          <property name="toolTip">
           <string>&lt;p&gt;Defines by how much the theme should brighten (or darken) the background of the text associated with a checkbox, or radio button, when the mouse hovers over it.</string>
          </property>
@@ -3151,7 +3151,7 @@
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="KIntNumInput" name="lighterPopupMenuBgnd">
+        <widget class="QSpinBox" name="lighterPopupMenuBgnd">
          <property name="toolTip">
           <string>&lt;p&gt;Defines the amount by which the popup menu background will be lightened (or darkened).</string>
          </property>
@@ -3226,7 +3226,7 @@
         </widget>
        </item>
        <item row="8" column="1">
-        <widget class="KIntNumInput" name="menuDelay">
+        <widget class="QSpinBox" name="menuDelay">
          <property name="toolTip">
           <string>&lt;p&gt;Defines the delay before a sub-menu appears.</string>
          </property>
@@ -3693,7 +3693,7 @@
         </widget>
        </item>
        <item row="5" column="1">
-        <widget class="KIntNumInput" name="expanderHighlight">
+        <widget class="QSpinBox" name="expanderHighlight">
          <property name="toolTip">
           <string>&lt;p&gt;Defines the amount by which the popup menu background will be lightened (or darkened).</string>
          </property>
@@ -4019,7 +4019,7 @@
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="KIntNumInput" name="stopPosition">
+                 <widget class="QSpinBox" name="stopPosition">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -4038,7 +4038,7 @@
                  </widget>
                 </item>
                 <item row="1" column="1">
-                 <widget class="KIntNumInput" name="stopValue">
+                 <widget class="QSpinBox" name="stopValue">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -4057,7 +4057,7 @@
                  </widget>
                 </item>
                 <item row="2" column="1">
-                 <widget class="KIntNumInput" name="stopAlpha">
+                 <widget class="QSpinBox" name="stopAlpha">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -4395,11 +4395,6 @@
    <class>KPushButton</class>
    <extends>QPushButton</extends>
    <header>kpushbutton.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KIntNumInput</class>
-   <extends>QWidget</extends>
-   <header>knuminput.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>
