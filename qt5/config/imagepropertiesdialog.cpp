@@ -109,7 +109,8 @@ void CImagePropertiesDialog::set(const QString &file, int width, int height, int
     if(properties&POS)
         posCombo->setCurrentIndex(pos);
 
-    fileRequester->setUrl(QFile::exists(file) && !QFileInfo(file).isDir() ? KUrl(file) : KUrl());
+    fileRequester->setUrl(QFile::exists(file) && !QFileInfo(file).isDir() ?
+                          QUrl(file) : QUrl());
 }
 
 QSize CImagePropertiesDialog::sizeHint() const

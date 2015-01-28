@@ -2651,7 +2651,7 @@ void QtCurveConfig::deletePreset()
 void QtCurveConfig::importPreset()
 {
     QString file(KFileDialog::getOpenFileName(
-                     KUrl(), i18n("*" EXTENSION "|QtCurve Settings Files\n"
+                     QUrl(), i18n("*" EXTENSION "|QtCurve Settings Files\n"
                                   THEME_PREFIX "*" THEME_SUFFIX
                                   "|QtCurve KDE Theme Files"), this));
 
@@ -2794,7 +2794,7 @@ void QtCurveConfig::exportPreset()
 
     bool    compressed=haveImages();
     QString file(KFileDialog::getSaveFileName(
-                     KUrl(), i18n("*" EXTENSION "|QtCurve Settings Files"),
+                     QUrl(), i18n("*" EXTENSION "|QtCurve Settings Files"),
                      this));
 
     if (!file.isEmpty()) {
