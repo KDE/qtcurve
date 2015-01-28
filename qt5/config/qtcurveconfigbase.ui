@@ -127,28 +127,28 @@
              </spacer>
             </item>
             <item>
-             <widget class="KPushButton" name="saveButton">
+             <widget class="QPushButton" name="saveButton">
               <property name="toolTip">
                <string>&lt;p&gt;Save the current settings to be retrieved later.&lt;/p&gt;</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="KPushButton" name="deleteButton">
+             <widget class="QPushButton" name="deleteButton">
               <property name="toolTip">
                <string>&lt;p&gt;Delete a previously stored setting.&lt;/p&gt;</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="KPushButton" name="importButton">
+             <widget class="QPushButton" name="importButton">
               <property name="toolTip">
                <string>&lt;p&gt;Import a QtCurve settings file - such as one downloaded from www.kde-look.org&lt;/p&gt;</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="KPushButton" name="exportButton">
+             <widget class="QPushButton" name="exportButton">
               <property name="toolTip">
                <string>&lt;p&gt;Export the currently defined settings to a file, so that these may be shared with others.&lt;/p&gt;</string>
               </property>
@@ -2914,7 +2914,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="KPushButton" name="menubarBlend">
+        <widget class="QPushButton" name="menubarBlend">
          <property name="toolTip">
           <string>&lt;p&gt;Sets the relevant config items, so that window titlebars and menubars are blended.</string>
          </property>
@@ -3863,7 +3863,7 @@
      <widget class="QWidget" name="page_25">
       <layout class="QVBoxLayout" name="verticalLayout_16">
        <item>
-        <widget class="KPushButton" name="exportKde3Button">
+        <widget class="QPushButton" name="exportKde3Button">
          <property name="toolTip">
           <string>&lt;p&gt;Exports your current color palette and font settings so that they may be used by KDE3 applications. This creates the relevant entries within the KDE3 kdeglobals file.</string>
          </property>
@@ -3873,7 +3873,7 @@
         </widget>
        </item>
        <item>
-        <widget class="KPushButton" name="exportQt3Button">
+        <widget class="QPushButton" name="exportQt3Button">
          <property name="toolTip">
           <string>&lt;p&gt;Exports your current color palette and font settings so that they may be used by pure-Qt3 applications. This creates the relevant entries within the Qt3 ~/.qt/qtrc file.</string>
          </property>
@@ -4080,7 +4080,7 @@
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout">
                 <item>
-                 <widget class="KPushButton" name="updateButton">
+                 <widget class="QPushButton" name="updateButton">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -4090,7 +4090,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="KPushButton" name="addButton">
+                 <widget class="QPushButton" name="addButton">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -4100,7 +4100,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="KPushButton" name="removeButton">
+                 <widget class="QPushButton" name="removeButton">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -4390,11 +4390,6 @@
    <class>KLineEdit</class>
    <extends>QLineEdit</extends>
    <header>klineedit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>

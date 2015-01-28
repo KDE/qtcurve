@@ -62,7 +62,6 @@
 #include <KDE/KFileDialog>
 #include <KDE/KIcon>
 #include <KDE/KMessageBox>
-#include <KDE/KPushButton>
 #include <KDE/KCharSelect>
 #include <KDE/KDialog>
 #include <KDE/KStandardAction>
@@ -1756,10 +1755,12 @@ void QtCurveConfig::setupPresets(const Options &currentStyle, const Options &def
     QStringList::Iterator it(files.begin()),
                           end(files.end());
 
-    saveButton->setGuiItem(KGuiItem(i18n("Save"), "document-save"));
-    deleteButton->setGuiItem(KGuiItem(i18n("Delete"), "edit-delete"));
-    importButton->setGuiItem(KGuiItem(i18n("Import..."), "document-import"));
-    exportButton->setGuiItem(KGuiItem(i18n("Export..."), "document-export"));
+    KGuiItem::assign(saveButton, KGuiItem(i18n("Save"), "document-save"));
+    KGuiItem::assign(deleteButton, KGuiItem(i18n("Delete"), "edit-delete"));
+    KGuiItem::assign(importButton, KGuiItem(i18n("Import..."),
+                                            "document-import"));
+    KGuiItem::assign(exportButton, KGuiItem(i18n("Export..."),
+                                            "document-export"));
 
     deleteButton->setEnabled(false);
 
@@ -2275,9 +2276,9 @@ void QtCurveConfig::setupGradientsTab()
     previewColor->setColor(col);
     gradPreview->setColor(col);
     gradChanged(APPEARANCE_CUSTOM1);
-    addButton->setGuiItem(KGuiItem(i18n("Add"), "list-add"));
-    removeButton->setGuiItem(KGuiItem(i18n("Remove"), "list-remove"));
-    updateButton->setGuiItem(KGuiItem(i18n("Update"), "dialog-ok"));
+    KGuiItem::assign(addButton, KGuiItem(i18n("Add"), "list-add"));
+    KGuiItem::assign(removeButton, KGuiItem(i18n("Remove"), "list-remove"));
+    KGuiItem::assign(updateButton, KGuiItem(i18n("Update"), "dialog-ok"));
 
     stopPosition->setRange(0, 100);
     stopPosition->setSingleStep(5);
