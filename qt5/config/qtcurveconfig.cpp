@@ -24,6 +24,8 @@
 #include <qtcurve-utils/dirs.h>
 #include <qtcurve-utils/process.h>
 
+#include <common/kf5_utils.h>
+
 #include "qtcurveconfig.h"
 #include <kwinconfig/qtcurvekwinconfig.h>
 #ifdef QTC_QT4_STYLE_SUPPORT
@@ -53,8 +55,6 @@
 #include <QRegExp>
 #include <QRegExpValidator>
 #include <QMenu>
-#include <kiconengine.h>
-#include <kiconloader.h>
 #include <KGuiItem>
 #include <KInputDialog>
 #include <KDE/KGlobalSettings>
@@ -111,12 +111,12 @@ static inline QString getFileName(const QString &f)
 
 static QString getThemeFile(const QString &file)
 {
-    if(file.startsWith(THEME_IMAGE_PREFIX BGND_FILE))
-    {
-        QString f(qtcConfDir()+file);
+    if (file.startsWith(THEME_IMAGE_PREFIX BGND_FILE)) {
+        QString f(qtcConfDir() + file);
 
-        if(QFile::exists(f))
+        if (QFile::exists(f)) {
             return f.replace("//", "/");
+        }
     }
     if (!file.startsWith("/")) {
         QString f(KGlobal::dirs()->saveLocation("data", "QtCurve/") +
@@ -1206,9 +1206,7 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
     connect(statusbarApps, SIGNAL(editingFinished()), SLOT(updateChanged()));
     connect(noMenuStripeApps, SIGNAL(editingFinished()), SLOT(updateChanged()));
 
-    QIcon config_icon(new KIconEngine("configure", KIconLoader::global()));
-
-    menubarBlend->setIcon(config_icon);
+    menubarBlend->setIcon(QtCurve::loadKIcon("configure"));
     connect(menubarBlend, SIGNAL(clicked(bool)), SLOT(menubarTitlebarBlend()));
     connect(previewControlButton, SIGNAL(clicked(bool)), SLOT(previewControlPressed()));
 
@@ -1219,16 +1217,16 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
 
     bgndAppearance_btn->setAutoRaise(true);
     bgndAppearance_btn->setVisible(false);
-    bgndAppearance_btn->setIcon(config_icon);
+    bgndAppearance_btn->setIcon(QtCurve::loadKIcon("configure"));
     bgndImage_btn->setAutoRaise(true);
     bgndImage_btn->setVisible(false);
-    bgndImage_btn->setIcon(config_icon);
+    bgndImage_btn->setIcon(QtCurve::loadKIcon("configure"));
     menuBgndAppearance_btn->setAutoRaise(true);
     menuBgndAppearance_btn->setVisible(false);
-    menuBgndAppearance_btn->setIcon(config_icon);
+    menuBgndAppearance_btn->setIcon(QtCurve::loadKIcon("configure"));
     menuBgndImage_btn->setAutoRaise(true);
     menuBgndImage_btn->setVisible(false);
-    menuBgndImage_btn->setIcon(config_icon);
+    menuBgndImage_btn->setIcon(QtCurve::loadKIcon("configure"));
 
     setupStack();
 
@@ -2267,8 +2265,7 @@ void QtCurveConfig::setupGradientsTab()
 
     gradCombo->setCurrentIndex(APPEARANCE_CUSTOM1);
 
-    copyGradientButton->setIcon(QIcon(new KIconEngine("edit-copy",
-                                                      KIconLoader::global())));
+    copyGradientButton->setIcon(QtCurve::loadKIcon("edit-copy"));
     copyGradientButton->setToolTip(i18n("Copy settings from another gradient"));
     copyGradientButton->setMenu(menu);
     copyGradientButton->setPopupMode(QToolButton::InstantPopup);
