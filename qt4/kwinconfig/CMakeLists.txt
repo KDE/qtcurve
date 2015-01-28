@@ -15,7 +15,6 @@ endif()
 
 include_directories("${CMAKE_CURRENT_BINARY_DIR}"
   ${KDE4WORKSPACE_INCLUDE_DIR})
-link_directories(${KDE4WORKSPACE_LIB_DIR})
 set(kwin_qtcurve_config_PART_SRCS
   ${kwin_qtcurve_config_PART_SRCS}
   ../kwin/qtcurveconfig.cpp
