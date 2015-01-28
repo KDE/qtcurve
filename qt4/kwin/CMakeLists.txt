@@ -30,7 +30,8 @@ endif()
 include_directories(
   "${CMAKE_CURRENT_BINARY_DIR}"
   ${QT_QTGUI_INCLUDE_DIR}
-  ${QT_QTCORE_INCLUDE_DIR})
+  ${QT_QTCORE_INCLUDE_DIR}
+  ${KDE4WORKSPACE_INCLUDE_DIR})
 kde4_add_plugin(kwin3_qtcurve_kde4 ${kwin3_qtcurve_PART_SRCS})
 set_target_properties(kwin3_qtcurve_kde4 PROPERTIES
   LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
