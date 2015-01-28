@@ -56,7 +56,7 @@
 #include <KGuiItem>
 #include <KInputDialog>
 #include <KDE/KGlobalSettings>
-#include <KDE/KLocale>
+#include <klocalizedstring.h>
 #include <KDE/KColorButton>
 #include <KDE/KConfig>
 #include <KDE/KFileDialog>
@@ -88,10 +88,12 @@
 #define IMAGE_FILE "-img"
 #define MENU_FILE  "-menu"
 
-extern "C"
+extern "C" {
+Q_DECL_EXPORT QWidget*
+allocate_kstyle_config(QWidget* parent)
 {
-    Q_DECL_EXPORT QWidget* allocate_kstyle_config(QWidget* parent)
-    { KGlobal::locale()->insertCatalog("qtcurve"); return new QtCurveConfig(parent); }
+    return new QtCurveConfig(parent);
+}
 }
 
 static QString getExt(const QString &file)

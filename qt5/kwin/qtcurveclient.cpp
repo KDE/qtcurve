@@ -32,7 +32,7 @@
 #include <qtcurve-utils/log.h>
 
 #define DRAW_INTO_PIXMAPS
-#include <KDE/KLocale>
+#include <klocalizedstring.h>
 #include <QBitmap>
 #include <QDateTime>
 #include <QFontMetrics>

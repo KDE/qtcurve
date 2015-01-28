@@ -69,8 +69,8 @@ QtCurveKWinConfig::QtCurveKWinConfig(KConfig *config, QWidget *parent)
 {
     Q_UNUSED(config);
 
-    KGlobal::locale()->insertCatalog("qtcurve");
-    KGlobal::locale()->insertCatalog("kwin_clients");
+    // TODO: KF5
+    // KGlobal::locale()->insertCatalog("kwin_clients");
 
     if(!QDBusConnection::sessionBus().registerService(constDBusService))
     {

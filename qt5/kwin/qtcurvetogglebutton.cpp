@@ -29,7 +29,7 @@
 #include <QPixmap>
 #include <QTimer>
 #include <QX11Info>
-#include <KDE/KLocale>
+#include <klocalizedstring.h>
 #include "qtcurveclient.h"
 #include <common/common.h>
 
