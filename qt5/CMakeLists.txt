@@ -59,14 +59,19 @@ if(ENABLE_QT5)
     set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
     find_package(KF5 REQUIRED COMPONENTS
-        Archive
-        Config
-        ConfigWidgets
-        I18n
-        KDELibs4Support
-        KIO
-        WidgetsAddons
-        XmlGui)
+      Archive
+      Config
+      ConfigWidgets
+      I18n
+      KDELibs4Support
+      KIO
+      WidgetsAddons
+      XmlGui)
+
+    # add_definitions(-DQTC_QT5_ENABLE_KDE)
+    include(KDEInstallDirs)
+    include(KDECMakeSettings)
+    include(KDECompilerSettings)
   endif()
 else()
   set(QTC_QT5_ENABLE_KDE Off)

@@ -53,7 +53,11 @@ include_directories(
   "${CMAKE_CURRENT_SOURCE_DIR}"
   "${CMAKE_CURRENT_BINARY_DIR}"
   ${Qt5Widgets_PRIVATE_INCLUDE_DIRS})
-qt5_wrap_cpp(qtcurve_MOC_SRCS ${qtcurve_MOC_HDRS})
+if(NOT QTC_QT5_ENABLE_KDE)
+  qt5_wrap_cpp(qtcurve_MOC_SRCS ${qtcurve_MOC_HDRS})
+else()
+  set(qtcurve_MOC_SRCS)
+endif()
 add_library(qtcurve-qt5 MODULE ${qtcurve_SRCS} ${qtcurve_MOC_SRCS})
 set_target_properties(qtcurve-qt5 PROPERTIES
   OUTPUT_NAME "qtcurve"

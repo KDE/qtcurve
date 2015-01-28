@@ -2,10 +2,6 @@ if(NOT QTC_QT5_ENABLE_KDE)
   return()
 endif()
 
-include(KDEInstallDirs)
-include(KDECMakeSettings)
-include(KDECompilerSettings)
-
 set(kstyle_qtcurve5_config_PART_SRCS
   qtcurveconfig.cpp
   imagepropertiesdialog.cpp

@@ -82,7 +82,7 @@
 #include <QTextDocument>
 
 #ifdef QTC_QT5_ENABLE_KDE
-#  include <KGlobalSettings>
+#  include <KDE/KGlobalSettings>
 #endif
 
 #include <qtcurve-utils/x11wmmove.h>
