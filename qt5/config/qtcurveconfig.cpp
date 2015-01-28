@@ -2309,16 +2309,18 @@ void QtCurveConfig::setupShadesTab()
     connect(customAlphas, SIGNAL(toggled(bool)), SLOT(updateChanged()));
 }
 
-void QtCurveConfig::setupShade(KDoubleNumInput *w, int shade)
+void QtCurveConfig::setupShade(QDoubleSpinBox *w, int shade)
 {
-    w->setRange(0.0, 2.0, 0.05, false);
+    w->setRange(0.0, 2.0);
+    w->setSingleStep(0.05);
     connect(w, SIGNAL(valueChanged(double)), SLOT(updateChanged()));
     shadeVals[shade]=w;
 }
 
-void QtCurveConfig::setupAlpha(KDoubleNumInput *w, int alpha)
+void QtCurveConfig::setupAlpha(QDoubleSpinBox *w, int alpha)
 {
-    w->setRange(0.0, 1.0, 0.05, false);
+    w->setRange(0.0, 1.0);
+    w->setSingleStep(0.05);
     connect(w, SIGNAL(valueChanged(double)), SLOT(updateChanged()));
     alphaVals[alpha]=w;
 }

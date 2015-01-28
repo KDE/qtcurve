@@ -32,7 +32,7 @@
 #include <common/common.h>
 
 class QComboBox;
-class KDoubleNumInput;
+class QDoubleSpinBox;
 #ifdef QTC_QT4_STYLE_SUPPORT
 class CExportThemeDialog;
 #endif
@@ -190,8 +190,8 @@ public:
     void setupPreview();
     void setupGradientsTab();
     void setupShadesTab();
-    void setupShade(KDoubleNumInput *w, int shade);
-    void setupAlpha(KDoubleNumInput *w, int alpha);
+    void setupShade(QDoubleSpinBox *w, int shade);
+    void setupAlpha(QDoubleSpinBox *w, int alpha);
     void populateShades(const Options &opts);
     bool diffShades(const Options &opts);
     bool haveImages();
@@ -224,8 +224,8 @@ private:
 #endif
     CGradientPreview       *gradPreview;
     GradientCont           customGradient;
-    KDoubleNumInput        *shadeVals[QTC_NUM_STD_SHADES],
-                           *alphaVals[NUM_STD_ALPHAS];
+    QDoubleSpinBox *shadeVals[QTC_NUM_STD_SHADES];
+    QDoubleSpinBox *alphaVals[NUM_STD_ALPHAS];
     QString                currentText,
                            defaultText;
     QtCurveKWinConfig      *kwin;

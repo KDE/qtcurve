@@ -4202,7 +4202,7 @@
          </property>
          <layout class="QGridLayout">
           <item row="0" column="0">
-           <widget class="KDoubleNumInput" name="shade0">
+           <widget class="QDoubleSpinBox" name="shade0">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -4233,7 +4233,7 @@
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="KDoubleNumInput" name="shade1">
+           <widget class="QDoubleSpinBox" name="shade1">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -4243,7 +4243,7 @@
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="KDoubleNumInput" name="shade2">
+           <widget class="QDoubleSpinBox" name="shade2">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -4253,7 +4253,7 @@
            </widget>
           </item>
           <item row="3" column="0">
-           <widget class="KDoubleNumInput" name="shade3">
+           <widget class="QDoubleSpinBox" name="shade3">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -4263,7 +4263,7 @@
            </widget>
           </item>
           <item row="4" column="0">
-           <widget class="KDoubleNumInput" name="shade4">
+           <widget class="QDoubleSpinBox" name="shade4">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -4273,7 +4273,7 @@
            </widget>
           </item>
           <item row="5" column="0">
-           <widget class="KDoubleNumInput" name="shade5">
+           <widget class="QDoubleSpinBox" name="shade5">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -4321,7 +4321,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="KDoubleNumInput" name="alpha0">
+           <widget class="QDoubleSpinBox" name="alpha0">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -4360,7 +4360,7 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="KDoubleNumInput" name="alpha1">
+           <widget class="QDoubleSpinBox" name="alpha1">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -4381,11 +4381,6 @@
  <layoutdefault spacing="6" margin="11"/>
  <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
  <customwidgets>
-  <customwidget>
-   <class>KDoubleNumInput</class>
-   <extends>QWidget</extends>
-   <header>knuminput.h</header>
-  </customwidget>
   <customwidget>
    <class>KColorButton</class>
    <extends>QPushButton</extends>
