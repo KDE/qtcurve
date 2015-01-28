@@ -120,7 +120,7 @@
            <item>
             <layout class="QHBoxLayout">
              <item>
-              <widget class="KIntSpinBox" name="SpinBox1">
+              <widget class="QSpinBox" name="SpinBox1">
                <property name="maximum">
                 <number>999999</number>
                </property>
@@ -512,13 +512,6 @@ Come to wash my sins away...</string>
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KIntSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections>
   <connection>

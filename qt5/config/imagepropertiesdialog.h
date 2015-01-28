@@ -24,7 +24,6 @@
 #define __IMAGE_PROPERTIES_DIALOG_H__
 
 #include <KDE/KDialog>
-#include <KDE/KIntSpinBox>
 #include <KDE/KUrlRequester>
 #include <KDE/KUrl>
 #include <QCheckBox>

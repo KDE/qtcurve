@@ -129,7 +129,7 @@
           </widget>
          </item>
          <item row="6" column="1">
-          <widget class="KIntSpinBox" name="titleBarPad">
+          <widget class="QSpinBox" name="titleBarPad">
            <property name="whatsThis">
             <string>Controls the amount of extra padding added to the top and bottom of the titlebar text height. Changing this will affect the height of the titlebar and its buttons. </string>
            </property>
@@ -146,7 +146,7 @@
           </widget>
          </item>
          <item row="7" column="1">
-          <widget class="KIntSpinBox" name="edgePad">
+          <widget class="QSpinBox" name="edgePad">
            <property name="whatsThis">
             <string>Controls the amount of extra padding added to the titlebar border. Changing this will only affect the height of the titlebar, and not the buttons. </string>
            </property>
@@ -373,7 +373,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="KIntSpinBox" name="activeShadowSize"/>
+           <widget class="QSpinBox" name="activeShadowSize"/>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="label_6">
@@ -386,7 +386,7 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="KIntSpinBox" name="activeShadowHOffset"/>
+           <widget class="QSpinBox" name="activeShadowHOffset"/>
           </item>
           <item row="2" column="0">
            <widget class="QLabel" name="label_6b">
@@ -399,7 +399,7 @@
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="KIntSpinBox" name="activeShadowVOffset"/>
+           <widget class="QSpinBox" name="activeShadowVOffset"/>
           </item>
           <item row="3" column="0">
            <widget class="QLabel" name="label_9">
@@ -441,7 +441,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="KIntSpinBox" name="inactiveShadowSize"/>
+           <widget class="QSpinBox" name="inactiveShadowSize"/>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="label_11">
@@ -454,7 +454,7 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="KIntSpinBox" name="inactiveShadowHOffset"/>
+           <widget class="QSpinBox" name="inactiveShadowHOffset"/>
           </item>
           <item row="2" column="0">
            <widget class="QLabel" name="label_11b">
@@ -467,7 +467,7 @@
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="KIntSpinBox" name="inactiveShadowVOffset"/>
+           <widget class="QSpinBox" name="inactiveShadowVOffset"/>
           </item>
           <item row="3" column="0">
            <widget class="QLabel" name="label_12">
@@ -515,11 +515,6 @@
  <layoutdefault spacing="6" margin="11"/>
  <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
  <customwidgets>
-  <customwidget>
-   <class>KIntSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
-  </customwidget>
   <customwidget>
    <class>KComboBox</class>
    <extends>QComboBox</extends>

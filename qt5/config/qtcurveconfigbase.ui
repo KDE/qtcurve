@@ -1557,7 +1557,7 @@
         </widget>
        </item>
        <item row="5" column="1">
-        <widget class="KIntSpinBox" name="tabBgnd">
+        <widget class="QSpinBox" name="tabBgnd">
          <property name="toolTip">
           <string>&lt;p&gt;Lightens, or darkens, the background of the whole tab widget.</string>
          </property>
@@ -4400,11 +4400,6 @@
    <class>KPushButton</class>
    <extends>QPushButton</extends>
    <header>kpushbutton.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KIntSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
   </customwidget>
   <customwidget>
    <class>KIntNumInput</class>

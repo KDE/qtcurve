@@ -35,7 +35,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="KIntSpinBox" name="scaleWidth"/>
+       <widget class="QSpinBox" name="scaleWidth"/>
       </item>
       <item>
        <widget class="QLabel" name="label_2">
@@ -51,7 +51,7 @@
        </widget>
       </item>
       <item>
-       <widget class="KIntSpinBox" name="scaleHeight"/>
+       <widget class="QSpinBox" name="scaleHeight"/>
       </item>
      </layout>
     </widget>
@@ -84,11 +84,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KIntSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
-  </customwidget>
   <customwidget>
    <class>KUrlRequester</class>
    <extends>QFrame</extends>
