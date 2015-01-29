@@ -21,10 +21,11 @@
  *****************************************************************************/
 #include "config.h"
 
+#include <common/kf5_utils.h>
+
 #include <qtcurve-utils/dirs.h>
 #include <qtcurve-utils/process.h>
-
-#include <common/kf5_utils.h>
+#include <qtcurve-utils/qtutils.h>
 
 #include "qtcurveconfig.h"
 #include <kwinconfig/qtcurvekwinconfig.h>
@@ -978,50 +979,88 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
                                                 CImagePropertiesDialog::POS|
                                                 CImagePropertiesDialog::SCALE);
 
-    connect(lighterPopupMenuBgnd, SIGNAL(valueChanged(int)), SLOT(updateChanged()));
-    connect(tabBgnd, SIGNAL(valueChanged(int)), SLOT(updateChanged()));
-    connect(menuDelay, SIGNAL(valueChanged(int)), SLOT(updateChanged()));
-    connect(sliderWidth, SIGNAL(valueChanged(int)), SLOT(sliderWidthChanged()));
-    connect(menuStripe, SIGNAL(currentIndexChanged(int)), SLOT(menuStripeChanged()));
-    connect(customMenuStripeColor, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(menuStripeAppearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(bgndGrad, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(menuBgndGrad, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(round, SIGNAL(currentIndexChanged(int)), SLOT(roundChanged()));
-    connect(toolbarBorders, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(sliderThumbs, SIGNAL(currentIndexChanged(int)), SLOT(sliderThumbChanged()));
-    connect(handles, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(appearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(customMenuTextColor, SIGNAL(toggled(bool)), SLOT(customMenuTextColorChanged()));
-    connect(stripedProgress, SIGNAL(currentIndexChanged(int)), SLOT(stripedProgressChanged()));
-    connect(animatedProgress, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(embolden, SIGNAL(toggled(bool)), SLOT(emboldenToggled()));
-    connect(defBtnIndicator, SIGNAL(currentIndexChanged(int)), SLOT(defBtnIndicatorChanged()));
-    connect(highlightTab, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(menubarAppearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(toolbarAppearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(lvAppearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(sliderAppearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(tabAppearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(activeTabAppearance, SIGNAL(currentIndexChanged(int)), SLOT(activeTabAppearanceChanged()));
-    connect(toolbarSeparators, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(splitters, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(fillSlider, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(stripedSbar, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(sliderStyle, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(roundMbTopOnly, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(menubarHiding_keyboard, SIGNAL(toggled(bool)), SLOT(menubarHidingChanged()));
-    connect(menubarHiding_kwin, SIGNAL(toggled(bool)), SLOT(menubarHidingChanged()));
-    connect(statusbarHiding_keyboard, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(statusbarHiding_kwin, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(glowProgress, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(darkerBorders, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(comboSplitter, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(comboBtn, SIGNAL(currentIndexChanged(int)), SLOT(comboBtnChanged()));
-    connect(sortedLv, SIGNAL(currentIndexChanged(int)), SLOT(sortedLvChanged()));
-    connect(customComboBtnColor, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(customSortedLvColor, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(unifySpinBtns, SIGNAL(toggled(bool)), SLOT(unifySpinBtnsToggled()));
+    connect(qtcSlot(lighterPopupMenuBgnd, valueChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(tabBgnd, valueChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(menuDelay, valueChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(sliderWidth, valueChanged, (int)),
+            qtcSlot(this, sliderWidthChanged));
+    connect(qtcSlot(menuStripe, currentIndexChanged, (int)),
+            qtcSlot(this, menuStripeChanged));
+    connect(qtcSlot(customMenuStripeColor, changed),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(menuStripeAppearance, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(bgndGrad, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(menuBgndGrad, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(round, currentIndexChanged, (int)),
+            qtcSlot(this, roundChanged));
+    connect(qtcSlot(toolbarBorders, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(sliderThumbs, currentIndexChanged, (int)),
+            qtcSlot(this, sliderThumbChanged));
+    connect(qtcSlot(handles, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(appearance, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(customMenuTextColor, toggled),
+            qtcSlot(this, customMenuTextColorChanged));
+    connect(qtcSlot(stripedProgress, currentIndexChanged, (int)),
+            qtcSlot(this, stripedProgressChanged));
+    connect(qtcSlot(animatedProgress, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(embolden, toggled), qtcSlot(this, emboldenToggled));
+    connect(qtcSlot(defBtnIndicator, currentIndexChanged, (int)),
+            qtcSlot(this, defBtnIndicatorChanged));
+    connect(qtcSlot(highlightTab, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(menubarAppearance, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(toolbarAppearance, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(lvAppearance, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(sliderAppearance, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(tabAppearance, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(activeTabAppearance, currentIndexChanged, (int)),
+            qtcSlot(this, activeTabAppearanceChanged));
+    connect(qtcSlot(toolbarSeparators, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(splitters, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(fillSlider, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(stripedSbar, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(sliderStyle, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(roundMbTopOnly, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(menubarHiding_keyboard, toggled),
+            qtcSlot(this, menubarHidingChanged));
+    connect(qtcSlot(menubarHiding_kwin, toggled),
+            qtcSlot(this, menubarHidingChanged));
+    connect(qtcSlot(statusbarHiding_keyboard, toggled),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(statusbarHiding_kwin, toggled),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(glowProgress, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(darkerBorders, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(comboSplitter, toggled),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(comboBtn, currentIndexChanged, (int)),
+            qtcSlot(this, comboBtnChanged));
+    connect(qtcSlot(sortedLv, currentIndexChanged, (int)),
+            qtcSlot(this, sortedLvChanged));
+    connect(qtcSlot(customComboBtnColor, changed),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(customSortedLvColor, changed),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(unifySpinBtns, toggled),
+            qtcSlot(this, unifySpinBtnsToggled));
+    // TODO
     connect(unifySpin, SIGNAL(toggled(bool)), SLOT(unifySpinToggled()));
     connect(unifyCombo, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(vArrows, SIGNAL(toggled(bool)), SLOT(updateChanged()));

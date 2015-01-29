@@ -202,7 +202,17 @@ const char *qtcGetProgName();
 QTC_END_DECLS
 
 #ifdef __cplusplus
+
 #include <utility>
+#include <type_traits>
+
+template<typename T>
+using qtcPtrType = typename std::remove_reference<
+    typename std::remove_cv<
+        typename std::remove_pointer<T>::type>::type>::type;
+
+#define qtcMemPtr(ptr, name) &qtcPtrType<decltype(ptr)>::name
+
 template<typename T, typename First>
 QTC_ALWAYS_INLINE static inline bool
 qtcOneOf(T &&value, First &&first)

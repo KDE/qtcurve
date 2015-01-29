@@ -21,12 +21,15 @@
  *****************************************************************************/
 
 #include "shortcuthandler.h"
+
+#include <qtcurve-utils/utils.h>
+#include <qtcurve-utils/qtutils.h>
+
 #include <QWidget>
 #include <QMenu>
 #include <QMenuBar>
 #include <QEvent>
 #include <QKeyEvent>
-#include <qtcurve-utils/utils.h>
 
 namespace QtCurve {
 
@@ -78,8 +81,8 @@ void ShortcutHandler::updateWidget(QWidget *w)
     if (!m_updated.contains(w)) {
         m_updated.insert(w);
         w->update();
-        connect(w, &QWidget::destroyed,
-                this, &ShortcutHandler::widgetDestroyed);
+        connect(qtcSlot(w, destroyed),
+                qtcSlot(this, widgetDestroyed));
     }
 }
 
@@ -141,8 +144,8 @@ bool ShortcutHandler::eventFilter(QObject *o, QEvent *e)
             m_openMenus.append(widget);
             if(m_altDown && prev)
                 prev->update();
-            connect(widget, &QWidget::destroyed,
-                    this, &ShortcutHandler::widgetDestroyed);
+            connect(qtcSlot(widget, destroyed),
+                    qtcSlot(this, widgetDestroyed));
         }
         break;
     case QEvent::Hide:

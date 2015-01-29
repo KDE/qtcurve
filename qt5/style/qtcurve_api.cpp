@@ -562,10 +562,10 @@ void Style::polish(QWidget *widget)
             if (frame) {
                 frame->installEventFilter(this);
                 m_sViewContainers[frame].insert(widget);
-                connect(widget, &QWidget::destroyed,
-                        this, &Style::widgetDestroyed);
-                connect(frame, &QWidget::destroyed,
-                        this, &Style::widgetDestroyed);
+                connect(qtcSlot(widget, destroyed),
+                        qtcSlot(this, widgetDestroyed));
+                connect(qtcSlot(frame, destroyed),
+                        qtcSlot(this, widgetDestroyed));
             }
         }
     } else if (qobject_cast<QDialog*>(widget) &&

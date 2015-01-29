@@ -96,12 +96,27 @@ private:
 
 class QtCurveConfig : public QWidget, private Ui::QtCurveConfigBase {
     Q_OBJECT
+
 public:
     QtCurveConfig(QWidget *parent);
     virtual ~QtCurveConfig();
 
-    QSize    sizeHint() const;
-    EShading currentShading() const { return (EShading)shading->currentIndex(); }
+    QSize sizeHint() const;
+    EShading currentShading() const {return (EShading)shading->currentIndex();}
+
+private:
+    void activeTabAppearanceChanged();
+    void comboBtnChanged();
+    void customMenuTextColorChanged();
+    void defBtnIndicatorChanged();
+    void emboldenToggled();
+    void menubarHidingChanged();
+    void menuStripeChanged();
+    void sliderThumbChanged();
+    void sliderWidthChanged();
+    void sortedLvChanged();
+    void stripedProgressChanged();
+    void unifySpinBtnsToggled();
 
 Q_SIGNALS:
     void changed(bool);
@@ -122,30 +137,18 @@ private Q_SLOTS:
     void importPreset();
     void exportPreset();
     void exportTheme();
-    void emboldenToggled();
-    void defBtnIndicatorChanged();
     void buttonEffectChanged();
     void coloredMouseOverChanged();
     void shadeSlidersChanged();
     void shadeMenubarsChanged();
     void shadeCheckRadioChanged();
-    void customMenuTextColorChanged();
-    void menuStripeChanged();
     void shadePopupMenuChanged();
     void progressColorChanged();
-    void comboBtnChanged();
-    void sortedLvChanged();
     void crColorChanged();
-    void stripedProgressChanged();
     void shadingChanged();
-    void activeTabAppearanceChanged();
     void tabMoChanged();
     void passwordCharClicked();
-    void unifySpinBtnsToggled();
     void unifySpinToggled();
-    void sliderThumbChanged();
-    void sliderWidthChanged();
-    void menubarHidingChanged();
     void windowBorder_colorTitlebarOnlyChanged();
     void windowBorder_blendChanged();
     void windowBorder_menuColorChanged();

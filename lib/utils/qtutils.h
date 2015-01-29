@@ -27,6 +27,7 @@
 #include <QWidget>
 #include <config.h>
 #include <QStyleOption>
+#include <QObject>
 
 namespace QtCurve {
 
@@ -206,6 +207,17 @@ qtcGetParent(const T *w)
 {
     return qtcGetParent<1>(w);
 }
+
+#define _qtcSlotWithTypes(self, name, types)                    \
+    self, static_cast<void(qtcPtrType<decltype(self)>::*)types> \
+        (qtcMemPtr(self, name))
+
+#define _qtcSlotWithoutTypes(self, name)        \
+    self, qtcMemPtr(self, name)
+
+#define qtcSlot(self, name, types...)                           \
+    QTC_SWITCH(types, _qtcSlotWithTypes, _qtcSlotWithoutTypes)  \
+    (self, name, ##types)
 
 }
 
