@@ -21,29 +21,28 @@
  *****************************************************************************/
 #include "config.h"
 
+#include "qtcurveconfig.h"
+#include "imagepropertiesdialog.h"
+// TODO
+#ifdef QTC_QT4_STYLE_SUPPORT
+#  include "exportthemedialog.h"
+#endif
+
+#include <kwinconfig/qtcurvekwinconfig.h>
+#include <style/qtcurve.h>
+
 #include <common/kf5_utils.h>
+#include <common/config_file.h>
 
 #include <qtcurve-utils/dirs.h>
 #include <qtcurve-utils/process.h>
 #include <qtcurve-utils/qtutils.h>
 
-#include "qtcurveconfig.h"
-#include <kwinconfig/qtcurvekwinconfig.h>
-// TODO
-#ifdef QTC_QT4_STYLE_SUPPORT
-#  include "exportthemedialog.h"
-#endif
-#include "imagepropertiesdialog.h"
 #include <QCheckBox>
 #include <QComboBox>
-#include <QGroupBox>
-#include <QRadioButton>
-#include <QLabel>
 #include <QFrame>
-#include <QTabWidget>
 #include <QFileInfo>
 #include <QBoxLayout>
-#include <QGridLayout>
 #include <QTreeWidget>
 #include <QPainter>
 #include <QSettings>
@@ -59,31 +58,27 @@
 #include <QMenu>
 #include <QTemporaryDir>
 #include <QTemporaryFile>
+#include <QStatusBar>
 
 #include <klocalizedstring.h>
+#include <kactioncollection.h>
+#include <kguiitem.h>
+#include <kinputdialog.h>
+#include <kfiledialog.h>
+#include <kmessagebox.h>
+#include <kcharselect.h>
+#include <kdialog.h>
+#include <kstandardaction.h>
+#include <ktoolbar.h>
+#include <kzip.h>
+#include <kmimetype.h>
 
-#include <KGuiItem>
-#include <KInputDialog>
 #include <KDE/KGlobal>
 #include <KDE/KGlobalSettings>
-#include <KDE/KColorButton>
 #include <KDE/KConfig>
-#include <KDE/KFileDialog>
-#include <KDE/KMessageBox>
-#include <KDE/KCharSelect>
-#include <KDE/KDialog>
-#include <KDE/KStandardAction>
-#include <KDE/KStatusBar>
 #include <KDE/K4AboutData>
 #include <KDE/KComponentData>
-#include <KDE/KActionCollection>
-#include <KDE/KToolBar>
-#include <KDE/KZip>
-#include <KDE/KMimeType>
 #include <KDE/KStandardDirs>
-
-#include <style/qtcurve.h>
-#include <common/config_file.h>
 
 #define EXTENSION ".qtcurve"
 #define VERSION_WITH_KWIN_SETTINGS qtcMakeVersion(1, 5)
