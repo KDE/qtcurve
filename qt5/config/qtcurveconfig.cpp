@@ -73,9 +73,9 @@
 #include <kzip.h>
 #include <kmimetype.h>
 #include <kcolorscheme.h>
+#include "ksharedconfig.h"
 
 #include <KDE/KGlobal>
-#include <KDE/KGlobalSettings>
 #include <KDE/KConfig>
 #include <KDE/K4AboutData>
 #include <KDE/KComponentData>
@@ -1786,7 +1786,9 @@ void QtCurveConfig::setupStack()
     connect(stackList, SIGNAL(itemSelectionChanged()), SLOT(changeStack()));
 }
 
-void QtCurveConfig::setupPresets(const Options &currentStyle, const Options &defaultStyle)
+void
+QtCurveConfig::setupPresets(const Options &currentStyle,
+                            const Options &defaultStyle)
 {
     QStringList files(KGlobal::dirs()->findAllResources("data", "QtCurve/*" EXTENSION, KStandardDirs::NoDuplicates));
 
@@ -1808,14 +1810,12 @@ void QtCurveConfig::setupPresets(const Options &currentStyle, const Options &def
     defaultText=i18n("(Default)");
     presets[currentText]=Preset(currentStyle);
     presets[defaultText]=Preset(defaultStyle);
-    for(; it!=end; ++it)
-    {
+    for (;it != end;++it) {
         QString name(getFileName(*it).remove(EXTENSION).replace('_', ' '));
 
-        if(!name.isEmpty() && name!=currentText && name!=defaultText)
-        {
+        if (!name.isEmpty() && name != currentText && name != defaultText) {
             presetsCombo->insertItem(0, name);
-            presets[name]=Preset(*it);
+            presets[name] = Preset(*it);
         }
     }
 
@@ -1828,11 +1828,13 @@ void QtCurveConfig::setupPresets(const Options &currentStyle, const Options &def
     connect(importButton, SIGNAL(clicked(bool)), SLOT(importPreset()));
     connect(exportButton, SIGNAL(clicked(bool)), SLOT(exportPreset()));
 
-    int index=-1;
+    int index = -1;
 
-    for(int i=0; i<presetsCombo->count() && -1==index; ++i)
-        if(presetsCombo->itemText(i)==currentText)
-            index=i;
+    for (int i = 0;i < presetsCombo->count() && -1 == index;++i) {
+        if (presetsCombo->itemText(i) == currentText) {
+            index = i;
+        }
+    }
 
     presetsCombo->setCurrentIndex(index);
     setPreset();
@@ -2114,10 +2116,9 @@ void QtCurveConfig::exportKDE3()
         general.writeEntry("linkColor", palette().color(QPalette::Active, QPalette::Link));
         general.writeEntry("visitedLinkColor", palette().color(QPalette::Active, QPalette::LinkVisited));
 
-        if(kdeHome(false)!=kde3Home)
-        {
-            KConfigGroup k4General(KGlobal::config(), "General");
-            KConfigGroup k4wm(KGlobal::config(), "WM");
+        if (kdeHome(false)!=kde3Home) {
+            KConfigGroup k4General(KSharedConfig::openConfig(), "General");
+            KConfigGroup k4wm(KSharedConfig::openConfig(), "WM");
 
             // Mainly for K3B...
             wm.writeEntry("activeBackground", k4wm.readEntry("activeBackground",
@@ -2180,7 +2181,7 @@ void QtCurveConfig::exportQt()
             dis << p.color(QPalette::Disabled, roles[i]).name();
         }
 
-        KConfigGroup k4General(KGlobal::config(), "General");
+        KConfigGroup k4General(KSharedConfig::openConfig(), "General");
         gen.writeEntry("font", k4General.readEntry("font", font()));
         gen.writeEntry("font", font());
         pal.writeEntry("active", act.join(sep));
