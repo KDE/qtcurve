@@ -2675,7 +2675,7 @@ void QtCurveConfig::importPreset()
         {
             QString  qtcFile(file);
             KZip     *zip=compressed ? new KZip(file) : 0L;
-            KTempDir *tmpDir=0L;
+            KTempDir *tmpDir = nullptr;
             if (compressed) {
                 qtcFile=QString();
                 if(!zip->open(QIODevice::ReadOnly))
@@ -2808,9 +2808,8 @@ void QtCurveConfig::exportPreset()
         if(zip && !zip->open(QIODevice::WriteOnly))
             rv=false;
 
-        if(rv)
-        {
-            KTemporaryFile *temp(compressed ? new KTemporaryFile() : 0L);
+        if (rv) {
+            KTemporaryFile *temp(compressed ? new KTemporaryFile() : nullptr);
 
             if(temp && !temp->open())
                 rv=false;

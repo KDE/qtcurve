@@ -29,8 +29,9 @@
 
 #include "qtcurveconfig.h"
 #include <kwinconfig/qtcurvekwinconfig.h>
+// TODO
 #ifdef QTC_QT4_STYLE_SUPPORT
-#include "exportthemedialog.h"
+#  include "exportthemedialog.h"
 #endif
 #include "imagepropertiesdialog.h"
 #include <QCheckBox>
@@ -56,10 +57,15 @@
 #include <QRegExp>
 #include <QRegExpValidator>
 #include <QMenu>
+#include <QTemporaryDir>
+#include <QTemporaryFile>
+
+#include <klocalizedstring.h>
+
 #include <KGuiItem>
 #include <KInputDialog>
+#include <KDE/KGlobal>
 #include <KDE/KGlobalSettings>
-#include <klocalizedstring.h>
 #include <KDE/KColorButton>
 #include <KDE/KConfig>
 #include <KDE/KFileDialog>
@@ -72,12 +78,9 @@
 #include <KDE/KComponentData>
 #include <KDE/KActionCollection>
 #include <KDE/KToolBar>
-#include <KDE/KTemporaryFile>
-#include <KDE/KTempDir>
 #include <KDE/KZip>
 #include <KDE/KMimeType>
 #include <KDE/KStandardDirs>
-#include <unistd.h>
 
 #include <style/qtcurve.h>
 #include <common/config_file.h>
@@ -2699,32 +2702,30 @@ void QtCurveConfig::importPreset()
                        name(QString(baseName).replace('_', ' '));
         Options        opts;
 
-        if(name.isEmpty())
+        if (name.isEmpty())
             KMessageBox::error(this, i18n("<p>Sorry, failed to load file.</p><p><i>Empty preset name?</i></p>"));
-        else if(name==currentText || name==defaultText)
+        else if (name == currentText || name == defaultText) {
             KMessageBox::error(this, i18n("<p>Sorry, failed to load file.</p><p><i>Cannot have a preset named "
                                           "\"%1\"</i></p>", name));
-        else
-        {
-            QString  qtcFile(file);
-            KZip     *zip=compressed ? new KZip(file) : 0L;
-            KTempDir *tmpDir=0L;
+        } else {
+            QString qtcFile(file);
+            KZip *zip = compressed ? new KZip(file) : 0L;
+            QTemporaryDir *tmpDir = nullptr;
             if (compressed) {
-                qtcFile=QString();
-                if(!zip->open(QIODevice::ReadOnly))
+                qtcFile = QString();
+                if (!zip->open(QIODevice::ReadOnly))
                     KMessageBox::error(this, i18n("Sorry, failed to open compressed file."));
-                else
-                {
+                else {
                     const KArchiveDirectory *zipDir=zip->directory();
 
-                    if(zipDir)
-                    {
-                        tmpDir=new KTempDir(KStandardDirs::locateLocal("tmp", "qtcurve"));
+                    if (zipDir) {
+                        tmpDir = new QTemporaryDir(
+                            QDir::tempPath() + "/qtcurve");
                         tmpDir->setAutoRemove(false); // true);
-                        zipDir->copyTo(tmpDir->name(), false);
+                        zipDir->copyTo(tmpDir->path(), false);
 
                         // Find settings file...
-                        QDir dir(tmpDir->name());
+                        QDir dir(tmpDir->path());
                         foreach (const QString &file, dir.entryList()) {
                             if (file.endsWith(EXTENSION)) {
                                 qtcFile = dir.path() + "/" + file;
@@ -2738,11 +2739,11 @@ void QtCurveConfig::importPreset()
                 }
             }
 
-            if(!qtcFile.isEmpty())
-            {
-                if (qtcReadConfig(qtcFile, &opts, &presets[defaultText].opts, false))
-                {
-                    name=getPresetName(i18n("Import Preset"), QString(), name, name);
+            if (!qtcFile.isEmpty()) {
+                if (qtcReadConfig(qtcFile, &opts, &presets[defaultText].opts,
+                                  false)) {
+                    name = getPresetName(i18n("Import Preset"), QString(),
+                                         name, name);
                     if (!name.isEmpty()) {
                         QString qtcDir(QtCurve::qtcSaveDir());
                         name=name.replace(' ', '_');
@@ -2750,33 +2751,48 @@ void QtCurveConfig::importPreset()
                         if (compressed && tmpDir) {
                             // printf("IMPORT\n");
                             if (opts.bgndImage.type == IMG_FILE) {
-                                QString fileName(name+BGND_FILE IMAGE_FILE+getExt(opts.bgndImage.pixmap.file));
-                                saveThemeFile(tmpDir->name()+'/'+getFileName(opts.bgndImage.pixmap.file), BGND_FILE IMAGE_FILE, name);
-                                opts.bgndImage.pixmap.file=fileName;
-//                                 printf("BGND:%s\n", opts.bgndImage.pixmap.file.toLatin1().constData());
+                                auto &bgndFile = opts.bgndImage.pixmap.file;
+                                QString fileName(name + BGND_FILE IMAGE_FILE +
+                                                 getExt(bgndFile));
+                                saveThemeFile(tmpDir->path() + '/' +
+                                              getFileName(bgndFile),
+                                              BGND_FILE IMAGE_FILE, name);
+                                bgndFile = fileName;
                             }
-                            if(IMG_FILE==opts.menuBgndImage.type)
-                            {
-                                QString fileName(name+BGND_FILE MENU_FILE IMAGE_FILE+getExt(opts.menuBgndImage.pixmap.file));
-                                saveThemeFile(tmpDir->name()+'/'+getFileName(opts.menuBgndImage.pixmap.file), BGND_FILE MENU_FILE IMAGE_FILE, name);
-                                opts.menuBgndImage.pixmap.file=fileName;
-//                                 printf("MENU:%s\n", opts.menuBgndImage.pixmap.file.toLatin1().constData());
+                            if (opts.menuBgndImage.type == IMG_FILE) {
+                                auto &menuBgndFile =
+                                    opts.menuBgndImage.pixmap.file;
+                                QString fileName(name +
+                                                 BGND_FILE MENU_FILE
+                                                 IMAGE_FILE +
+                                                 getExt(menuBgndFile));
+                                saveThemeFile(tmpDir->path() + '/' +
+                                              getFileName(menuBgndFile),
+                                              BGND_FILE MENU_FILE IMAGE_FILE,
+                                              name);
+                                menuBgndFile = fileName;
                             }
-                            if(APPEARANCE_FILE==opts.bgndAppearance)
-                            {
-                                QString fileName(name+BGND_FILE+getExt(opts.bgndPixmap.file));
-                                opts.bgndPixmap.file=fileName;
-                                saveThemeFile(tmpDir->name()+'/'+getFileName(opts.bgndPixmap.file), BGND_FILE, name);
+                            if (opts.bgndAppearance == APPEARANCE_FILE) {
+                                auto &bgndFile = opts.bgndPixmap.file;
+                                QString fileName(name + BGND_FILE +
+                                                 getExt(bgndFile));
+                                bgndFile = fileName;
+                                saveThemeFile(tmpDir->path() + '/' +
+                                              getFileName(bgndFile), BGND_FILE,
+                                              name);
                             }
-                            if(APPEARANCE_FILE==opts.menuBgndAppearance)
-                            {
-                                QString fileName(name+BGND_FILE MENU_FILE+getExt(opts.menuBgndPixmap.file));
-                                saveThemeFile(tmpDir->name()+'/'+getFileName(opts.menuBgndPixmap.file), BGND_FILE MENU_FILE, name);
-                                opts.menuBgndPixmap.file=fileName;
+                            if (opts.menuBgndAppearance == APPEARANCE_FILE) {
+                                auto &menuBgndFile = opts.menuBgndPixmap.file;
+                                QString fileName(name + BGND_FILE MENU_FILE +
+                                                 getExt(menuBgndFile));
+                                saveThemeFile(tmpDir->path() + '/' +
+                                              getFileName(menuBgndFile),
+                                              BGND_FILE MENU_FILE, name);
+                                menuBgndFile = fileName;
                             }
                         }
 
-                        readyForPreview=false;
+                        readyForPreview = false;
                         setWidgetOptions(opts);
                         savePreset(name);
 
@@ -2837,16 +2853,15 @@ void QtCurveConfig::exportPreset()
         if(zip && !zip->open(QIODevice::WriteOnly))
             rv=false;
 
-        if(rv)
-        {
-            KTemporaryFile *temp(compressed ? new KTemporaryFile() : 0L);
+        if (rv) {
+            QTemporaryFile *temp(compressed ? new QTemporaryFile() : nullptr);
 
-            if(temp && !temp->open())
-                rv=false;
+            if (temp && !temp->open())
+                rv = false;
 
-            if(rv)
-            {
-                KConfig cfg(compressed ? temp->fileName() : file, KConfig::NoGlobals);
+            if (rv) {
+                KConfig cfg(compressed ? temp->fileName() : file,
+                            KConfig::NoGlobals);
                 Options opts;
                 QString bgndImageName, menuBgndImageName, bgndPixmapName, menuBgndPixmapName;
                 QString themeName(getFileName(file).remove(EXTENSION).replace(' ', '_'));
@@ -2900,16 +2915,17 @@ void QtCurveConfig::exportPreset()
                 }
             }
 
-            if(temp)
-            {
+            if (temp) {
                 temp->setAutoRemove(true);
                 delete temp;
             }
         }
-        if(!rv)
+        if (!rv) {
             KMessageBox::error(this, i18n("Could not write to file:\n%1", file));
-        if(zip)
+        }
+        if (zip) {
             delete zip;
+        }
     }
 }
 
