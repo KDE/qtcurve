@@ -72,6 +72,7 @@
 #include <ktoolbar.h>
 #include <kzip.h>
 #include <kmimetype.h>
+#include <kcolorscheme.h>
 
 #include <KDE/KGlobal>
 #include <KDE/KGlobalSettings>
@@ -3507,10 +3508,9 @@ void QtCurveConfig::setWidgetOptions(const Options &opts)
         titlebarButtons_colorMenuInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_MENU, 2));
         titlebarButtons_colorShadeInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_SHADE, 2));
         titlebarButtons_colorAllDesktopsInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_ALL_DESKTOPS, 2));
-    }
-    else
-    {
-        QColor col=KGlobalSettings::activeTextColor();
+    } else {
+        QColor col = KColorScheme(QPalette::Active, KColorScheme::Window)
+            .foreground(KColorScheme::ActiveText).color();
         titlebarButtons_colorCloseIcon->setColor(col);
         titlebarButtons_colorMinIcon->setColor(col);
         titlebarButtons_colorMaxIcon->setColor(col);
@@ -3521,7 +3521,8 @@ void QtCurveConfig::setWidgetOptions(const Options &opts)
         titlebarButtons_colorShadeIcon->setColor(col);
         titlebarButtons_colorAllDesktopsIcon->setColor(col);
 
-        col=KGlobalSettings::inactiveTextColor();
+        col = KColorScheme(QPalette::Inactive, KColorScheme::Window)
+            .foreground().color();
         titlebarButtons_colorCloseInactiveIcon->setColor(col);
         titlebarButtons_colorMinInactiveIcon->setColor(col);
         titlebarButtons_colorMaxInactiveIcon->setColor(col);

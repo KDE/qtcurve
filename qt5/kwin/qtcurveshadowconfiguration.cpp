@@ -23,8 +23,8 @@
 #include <kdeversion.h>
 #if KDE_IS_VERSION(4, 3, 0)
 
-#include <KColorScheme>
-#include <KGlobalSettings>
+#include <kcolorscheme.h>
+
 #include <KConfig>
 #include <KConfigGroup>
 #include <QApplication>
