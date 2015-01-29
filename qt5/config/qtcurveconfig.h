@@ -23,13 +23,16 @@
 #ifndef __QTCURVECONFIG_H__
 #define __QTCURVECONFIG_H__
 
+#include <common/common.h>
+
 #include <ui_qtcurveconfigbase.h>
 #include "ui_stylepreview.h"
+
+#include <kxmlguiwindow.h>
+
 #include <QMap>
 #include <QComboBox>
-#include <KDE/KXmlGuiWindow>
 
-#include <common/common.h>
 
 class QComboBox;
 class QDoubleSpinBox;

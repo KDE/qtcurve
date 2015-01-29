@@ -23,20 +23,18 @@
 #ifndef __IMAGE_PROPERTIES_DIALOG_H__
 #define __IMAGE_PROPERTIES_DIALOG_H__
 
-#include <KDE/KDialog>
-#include <KDE/KUrlRequester>
-#include <KDE/KUrl>
+#include <kdialog.h>
+#include <kurlrequester.h>
+#include <kurl.h>
+
 #include <QCheckBox>
 #include <QComboBox>
 
 #include "ui_imageproperties.h"
 
-class CImagePropertiesDialog : public KDialog,  public Ui::ImageProperties
-{
-    public:
-
-    enum
-    {
+class CImagePropertiesDialog : public KDialog,  public Ui::ImageProperties {
+public:
+    enum {
         BASIC  = 0x00,
         POS    = 0x01,
         SCALE  = 0x02,
