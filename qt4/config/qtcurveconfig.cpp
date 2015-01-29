@@ -80,6 +80,8 @@
 #include <style/qtcurve.h>
 #include <common/config_file.h>
 
+#include <mutex>
+
 #define EXTENSION                  ".qtcurve"
 #define VERSION_WITH_KWIN_SETTINGS qtcMakeVersion(1, 5)
 
@@ -841,8 +843,6 @@ static void insertTBarBtnEntries(QComboBox *combo)
     combo->insertItem(TBTN_JOINED, i18n("Raised and joined"));
 }
 
-static int refCount=0;
-
 QtCurveConfig::QtCurveConfig(QWidget *parent)
              : QWidget(parent),
                workSpace(NULL),
@@ -1253,10 +1253,9 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
     // to 0 it quits! ...running kcmshell4 style does not seem to increase ref
     // count of KGlobal - therefore we do it here - otherwse kcmshell4 would
     // exit immediately after QtCurve's config dialog was closed :-(
-    if (refCount == 0 &&
-        QCoreApplication::applicationName() == QLatin1String("kcmshell")) {
-        refCount++;
-        KGlobal::ref();
+    if (QCoreApplication::applicationName() == QLatin1String("kcmshell")) {
+        static std::once_flag ref_flag;
+        std::call_once(ref_flag, [] { KGlobal::ref(); });
     }
 }
 
