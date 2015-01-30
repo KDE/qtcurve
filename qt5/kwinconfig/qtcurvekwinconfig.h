@@ -49,14 +49,10 @@ public:
     void load(KConfig *config);
     void save(KConfig *config);
     bool ok();
+    void defaults();
 
 Q_SIGNALS:
     void changed();
-
-public Q_SLOTS:
-    void load(const KConfigGroup &);
-    void save(KConfigGroup &);
-    void defaults();
 
 private:
     void activeShadowColorTypeChanged();
@@ -70,8 +66,8 @@ private:
     void sizeChanged();
 
     bool m_ok;
-    KWinQtCurve::QtCurveShadowConfiguration m_activeShadows,
-                                            m_inactiveShadows;
+    KWinQtCurve::QtCurveShadowConfiguration m_activeShadows;
+    KWinQtCurve::QtCurveShadowConfiguration m_inactiveShadows;
 };
 
 inline bool

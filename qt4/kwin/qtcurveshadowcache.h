@@ -60,8 +60,7 @@
 
 class QtCurveHelper;
 
-namespace KWinQtCurve
-{
+namespace KWinQtCurve {
 
 class QtCurveClient;
 

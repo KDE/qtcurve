@@ -30,33 +30,27 @@
 
 class KConfig;
 
-namespace KWinQtCurve
-{
+namespace KWinQtCurve {
 
-class QtCurveShadowConfiguration
-{
-    public:
-
-    enum ColorType
-    {
-        CT_FOCUS     = 0,
-        CT_HOVER     = 1,
+class QtCurveShadowConfiguration {
+public:
+    enum ColorType {
+        CT_FOCUS = 0,
+        CT_HOVER = 1,
         CT_SELECTION = 2,
-        CT_TITLEBAR  = 3,
-        CT_GRAY      = 4,
-        CT_CUSTOM    = 5
+        CT_TITLEBAR = 3,
+        CT_GRAY = 4,
+        CT_CUSTOM = 5
     };
 
-    enum ShadowType
-    {
-        SH_ACTIVE   = 0,
+    enum ShadowType {
+        SH_ACTIVE = 0,
         SH_INACTIVE = 1
     };
 
-    enum Constants
-    {
-        MIN_SIZE   = 10,
-        MAX_SIZE   = 100,
+    enum {
+        MIN_SIZE = 10,
+        MAX_SIZE = 100,
         MIN_OFFSET = 0,
         MAX_OFFSET = 20
     };
@@ -98,8 +92,7 @@ class QtCurveShadowConfiguration
                 m_shadowType == other.m_shadowType;
     }
 
-    private:
-
+private:
     QPalette::ColorGroup m_colorGroup;
     int                  m_size,
                          m_hOffset,

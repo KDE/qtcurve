@@ -30,8 +30,7 @@
 #include <QApplication>
 #include "qtcurveshadowconfiguration.h"
 
-namespace KWinQtCurve
-{
+namespace KWinQtCurve {
 
 QtCurveShadowConfiguration::QtCurveShadowConfiguration(QPalette::ColorGroup colorGroup)
                           : m_colorGroup(colorGroup)

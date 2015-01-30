@@ -164,13 +164,9 @@ QtCurveKWinConfig::QtCurveKWinConfig(KConfig *config, QWidget *parent)
 
 QtCurveKWinConfig::~QtCurveKWinConfig()
 {
-    if(m_ok)
+    if (m_ok) {
         QDBusConnection::sessionBus().unregisterService(constDBusService);
-}
-
-void QtCurveKWinConfig::load(const KConfigGroup &)
-{
-    load(0L);
+    }
 }
 
 void QtCurveKWinConfig::load(KConfig *c)
@@ -189,11 +185,6 @@ void QtCurveKWinConfig::load(KConfig *c)
     setWidgets(config);
     if(!c)
         delete cfg;
-}
-
-void QtCurveKWinConfig::save(KConfigGroup &)
-{
-    save(0L);
 }
 
 void QtCurveKWinConfig::save(KConfig *c)

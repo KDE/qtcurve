@@ -1297,7 +1297,7 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
         Options currentStyle;
         Options defaultStyle;
 
-        kwin->load(0L);
+        kwin->load(nullptr);
         qtcDefaultSettings(&defaultStyle);
         if (!qtcReadConfig(NULL, &currentStyle, &defaultStyle))
             currentStyle = defaultStyle;
@@ -2558,7 +2558,7 @@ void QtCurveConfig::setPreset()
     if(defaultText==presetsCombo->currentText())
         kwin->defaults();
     else if(currentText==presetsCombo->currentText())
-        kwin->load(0);
+        kwin->load(nullptr);
     else if(p.opts.version>=VERSION_WITH_KWIN_SETTINGS)
     {
         KConfig cfg(p.fileName, KConfig::SimpleConfig);

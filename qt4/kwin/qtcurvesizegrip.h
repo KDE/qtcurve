@@ -55,8 +55,7 @@
 #include <QPaintEvent>
 #include <QMouseEvent>
 
-namespace KWinQtCurve
-{
+namespace KWinQtCurve {
 
   class QtCurveClient;
 
