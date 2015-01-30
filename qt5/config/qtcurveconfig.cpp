@@ -1138,21 +1138,28 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
             qtcSlot(this, updateChanged));
     connect(qtcSlot(focus, currentIndexChanged, (int)),
             qtcSlot(this, focusChanged));
+    connect(qtcSlot(lvLines, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(lvButton, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(drawStatusBarFrames, toggled),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(buttonEffect, currentIndexChanged, (int)),
+            qtcSlot(this, buttonEffectChanged));
+    connect(qtcSlot(coloredMouseOver, currentIndexChanged, (int)),
+            qtcSlot(this, coloredMouseOverChanged));
+    connect(qtcSlot(menubarMouseOver, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(shadeMenubarOnlyWhenActive, toggled),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(thin_menuitems, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(thin_buttons, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(thin_frames, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(hideShortcutUnderline, toggled),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(customSlidersColor, changed), qtcSlot(this, updateChanged));
+    connect(qtcSlot(customMenubarsColor, changed),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(customMenuSelTextColor, changed),
+            qtcSlot(this, updateChanged));
     // TODO
-    connect(lvLines, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(lvButton, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(drawStatusBarFrames, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(buttonEffect, SIGNAL(currentIndexChanged(int)), SLOT(buttonEffectChanged()));
-    connect(coloredMouseOver, SIGNAL(currentIndexChanged(int)), SLOT(coloredMouseOverChanged()));
-    connect(menubarMouseOver, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(shadeMenubarOnlyWhenActive, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(thin_menuitems, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(thin_buttons, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(thin_frames, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(hideShortcutUnderline, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(customSlidersColor, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(customMenubarsColor, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(customMenuSelTextColor, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
     connect(customMenuNormTextColor, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
     connect(shadeSliders, SIGNAL(currentIndexChanged(int)), SLOT(shadeSlidersChanged()));
     connect(shadeMenubars, SIGNAL(currentIndexChanged(int)), SLOT(shadeMenubarsChanged()));

@@ -116,8 +116,6 @@ private Q_SLOTS:
     void reorderGtkButtonsChanged();
     void roundChanged();
     void exportTheme();
-    void buttonEffectChanged();
-    void coloredMouseOverChanged();
     void shadeSlidersChanged();
     void shadeMenubarsChanged();
     void crColorChanged();
@@ -178,7 +176,9 @@ private:
     void activeTabAppearanceChanged();
     void addGradStop();
     void borderChanged(int i);
+    void buttonEffectChanged();
     void changeStack();
+    void coloredMouseOverChanged();
     void comboBtnChanged();
     void copyGradient(QAction *act);
     void customMenuTextColorChanged();
