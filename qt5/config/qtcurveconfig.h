@@ -108,20 +108,38 @@ public:
 
 private:
     void activeTabAppearanceChanged();
+    void addGradStop();
+    void borderChanged(int i);
+    void changeStack();
     void comboBtnChanged();
+    void copyGradient(QAction *act);
     void customMenuTextColorChanged();
     void defBtnIndicatorChanged();
+    void deletePreset();
+    void editItem(QTreeWidgetItem *i, int col);
     void emboldenToggled();
+    void exportPreset();
+    void gradChanged(int i);
+    void importPreset();
+    void itemChanged(QTreeWidgetItem *i, int col);
     void menubarHidingChanged();
+    void menuBgndAppearanceChanged();
     void menuStripeChanged();
+    void progressColorChanged();
+    void removeGradStop();
+    void savePreset();
+    bool savePreset(const QString &name);
+    void setPreset();
     void shadePopupMenuChanged();
     void sliderThumbChanged();
     void sliderWidthChanged();
     void sortedLvChanged();
+    void stopSelected();
     void stripedProgressChanged();
     void tabMoChanged();
     void unifySpinBtnsToggled();
     void unifySpinToggled();
+    void updateGradStop();
 
 Q_SIGNALS:
     void changed(bool);
@@ -131,23 +149,17 @@ public Q_SLOTS:
     void defaults();
 
 private Q_SLOTS:
-    void setPreset();
     void updateChanged();
     void gtkButtonOrderChanged();
     void reorderGtkButtonsChanged();
     void focusChanged();
     void roundChanged();
-    void savePreset();
-    void deletePreset();
-    void importPreset();
-    void exportPreset();
     void exportTheme();
     void buttonEffectChanged();
     void coloredMouseOverChanged();
     void shadeSlidersChanged();
     void shadeMenubarsChanged();
     void shadeCheckRadioChanged();
-    void progressColorChanged();
     void crColorChanged();
     void shadingChanged();
     void passwordCharClicked();
@@ -163,31 +175,19 @@ private Q_SLOTS:
     void titlebarButtons_useHoverChanged();
     void bgndAppearanceChanged();
     void bgndImageChanged();
-    void menuBgndAppearanceChanged();
     void menuBgndImageChanged();
     void configureBgndAppearanceFile();
     void configureBgndImageFile();
     void configureMenuBgndAppearanceFile();
     void configureMenuBgndImageFile();
     void groupBoxChanged();
-    void changeStack();
-    void gradChanged(int i);
-    void borderChanged(int i);
-    void editItem(QTreeWidgetItem *i, int col);
-    void itemChanged(QTreeWidgetItem *i, int col);
-    void addGradStop();
-    void removeGradStop();
-    void updateGradStop();
-    void stopSelected();
     void exportKDE3();
     void exportQt();
     void menubarTitlebarBlend();
     void updatePreview();
-    void copyGradient(QAction *act);
     void previewControlPressed();
 
 public:
-    bool savePreset(const QString &name);
     QString getPresetName(const QString &cap, QString label, QString def,
                           QString name=QString());
     void setupStack();

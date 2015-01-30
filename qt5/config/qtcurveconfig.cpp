@@ -19,8 +19,10 @@
  *   License along with this library. If not,                                *
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
+// config
 #include "config.h"
 
+// local
 #include "qtcurveconfig.h"
 #include "imagepropertiesdialog.h"
 // TODO
@@ -28,16 +30,20 @@
 #  include "exportthemedialog.h"
 #endif
 
+// other qt5
 #include <kwinconfig/qtcurvekwinconfig.h>
 #include <style/qtcurve.h>
 
+// common
 #include <common/kf5_utils.h>
 #include <common/config_file.h>
 
+// libs
 #include <qtcurve-utils/dirs.h>
 #include <qtcurve-utils/process.h>
 #include <qtcurve-utils/qtutils.h>
 
+// Qt
 #include <QCheckBox>
 #include <QComboBox>
 #include <QFrame>
@@ -60,6 +66,7 @@
 #include <QTemporaryFile>
 #include <QStatusBar>
 
+// KDE
 #include <klocalizedstring.h>
 #include <kactioncollection.h>
 #include <kguiitem.h>
@@ -73,14 +80,16 @@
 #include <kzip.h>
 #include <kmimetype.h>
 #include <kcolorscheme.h>
-#include "ksharedconfig.h"
+#include <ksharedconfig.h>
+#include <kconfig.h>
 
+// KDE4 support
 #include <KDE/KGlobal>
-#include <KDE/KConfig>
 #include <KDE/K4AboutData>
 #include <KDE/KComponentData>
 #include <KDE/KStandardDirs>
 
+// system
 #include <mutex>
 
 #define EXTENSION ".qtcurve"
@@ -1086,19 +1095,30 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
     connect(qtcSlot(borderMenuitems, toggled), qtcSlot(this, updateChanged));
     connect(qtcSlot(shadePopupMenu, toggled),
             qtcSlot(this, shadePopupMenuChanged));
+    connect(qtcSlot(popupBorder, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(progressAppearance, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(progressColor, currentIndexChanged, (int)),
+            qtcSlot(this, progressColorChanged));
+    connect(qtcSlot(customProgressColor, changed),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(progressGrooveAppearance, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(grooveAppearance, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(sunkenAppearance, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(progressGrooveColor, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(menuitemAppearance, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(menuBgndAppearance, currentIndexChanged, (int)),
+            qtcSlot(this, menuBgndAppearanceChanged));
+    connect(qtcSlot(titlebarAppearance, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(inactiveTitlebarAppearance, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
     // TODO
-    connect(popupBorder, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(progressAppearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(progressColor, SIGNAL(currentIndexChanged(int)), SLOT(progressColorChanged()));
-    connect(customProgressColor, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(progressGrooveAppearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(grooveAppearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(sunkenAppearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(progressGrooveColor, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(menuitemAppearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(menuBgndAppearance, SIGNAL(currentIndexChanged(int)), SLOT(menuBgndAppearanceChanged()));
-    connect(titlebarAppearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(inactiveTitlebarAppearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
     connect(titlebarButtonAppearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
     connect(windowBorder_colorTitlebarOnly, SIGNAL(toggled(bool)), SLOT(windowBorder_colorTitlebarOnlyChanged()));
     connect(windowBorder_blend, SIGNAL(toggled(bool)), SLOT(windowBorder_blendChanged()));
@@ -1766,15 +1786,14 @@ void QtCurveConfig::setupStack()
     new CStackItem(stackList, i18n("Checks and Radios"), i++);
     new CStackItem(stackList, i18n("Windows"), i++);
 
-    kwin=new QtCurveKWinConfig(0L, this);
-    kwinPage=i;
+    kwin = new QtCurveKWinConfig(nullptr, this);
+    kwinPage = i;
 
-    if(kwin->ok())
-    {
+    if (kwin->ok()) {
         kwin->setNote(i18n("<p><b>NOTE:</b><i>The settings here affect the borders drawn around application windows and dialogs - and "
                            "not internal (or MDI) windows. Therefore, these settings will <b>not</b> be reflected in the Preview "
                            "page.</i></p>"));
-        connect(kwin, SIGNAL(changed()), SLOT(updateChanged()));
+        connect(qtcSlot(kwin, changed), qtcSlot(this, updateChanged));
     }
     stack->insertWidget(i, kwin);
     new CStackItem(stackList, i18n("Window Manager"), i++);
@@ -1795,7 +1814,8 @@ void QtCurveConfig::setupStack()
     stackList->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
     stackList->setSelectionMode(QAbstractItemView::SingleSelection);
     first->setSelected(true);
-    connect(stackList, SIGNAL(itemSelectionChanged()), SLOT(changeStack()));
+    connect(qtcSlot(stackList, itemSelectionChanged),
+            qtcSlot(this, changeStack));
 }
 
 void
@@ -1838,11 +1858,12 @@ QtCurveConfig::setupPresets(const Options &currentStyle,
     presetsCombo->insertItem(0, currentText);
     presetsCombo->insertItem(0, defaultText);
     presetsCombo->model()->sort(0);
-    connect(presetsCombo, SIGNAL(currentIndexChanged(int)), SLOT(setPreset()));
-    connect(saveButton, SIGNAL(clicked(bool)), SLOT(savePreset()));
-    connect(deleteButton, SIGNAL(clicked(bool)), SLOT(deletePreset()));
-    connect(importButton, SIGNAL(clicked(bool)), SLOT(importPreset()));
-    connect(exportButton, SIGNAL(clicked(bool)), SLOT(exportPreset()));
+    connect(qtcSlot(presetsCombo, currentIndexChanged, (int)),
+            qtcSlot(this, setPreset));
+    connect(qtcSlot(saveButton, clicked), qtcSlot(this, savePreset, ()));
+    connect(qtcSlot(deleteButton, clicked), qtcSlot(this, deletePreset));
+    connect(qtcSlot(importButton, clicked), qtcSlot(this, importPreset));
+    connect(qtcSlot(exportButton, clicked), qtcSlot(this, exportPreset));
 
     int index = -1;
 
@@ -2302,7 +2323,8 @@ void QtCurveConfig::previewControlPressed()
         mdiWindow->showMaximized();
         previewControlButton->setText(i18n("Detach"));
     }
-    connect(stylePreview, SIGNAL(closePressed()), SLOT(previewControlPressed()));
+    connect(qtcSlot(stylePreview, closePressed),
+            qtcSlot(this, previewControlPressed));
     updatePreview();
 }
 
@@ -2322,7 +2344,7 @@ void QtCurveConfig::setupGradientsTab()
     copyGradientButton->setToolTip(i18n("Copy settings from another gradient"));
     copyGradientButton->setMenu(menu);
     copyGradientButton->setPopupMode(QToolButton::InstantPopup);
-    connect(menu, SIGNAL(triggered(QAction *)), SLOT(copyGradient(QAction *)));
+    connect(qtcSlot(menu, triggered), qtcSlot(this, copyGradient));
 
     gradPreview=new CGradientPreview(this, previewWidgetContainer);
     QBoxLayout *layout=new QBoxLayout(QBoxLayout::TopToBottom, previewWidgetContainer);
@@ -2345,15 +2367,19 @@ void QtCurveConfig::setupGradientsTab()
     stopAlpha->setSingleStep(5);
     removeButton->setEnabled(false);
     updateButton->setEnabled(false);
-    connect(gradCombo, SIGNAL(currentIndexChanged(int)), SLOT(gradChanged(int)));
-    connect(gradBorder, SIGNAL(currentIndexChanged(int)), SLOT(borderChanged(int)));
-    connect(previewColor, SIGNAL(changed(const QColor &)), gradPreview, SLOT(setColor(const QColor &)));
-    connect(gradStops, SIGNAL(itemDoubleClicked(QTreeWidgetItem *, int)), SLOT(editItem(QTreeWidgetItem *, int)));
-    connect(gradStops, SIGNAL(itemChanged(QTreeWidgetItem *, int)), SLOT(itemChanged(QTreeWidgetItem *, int)));
-    connect(addButton, SIGNAL(clicked(bool)), SLOT(addGradStop()));
-    connect(removeButton, SIGNAL(clicked(bool)), SLOT(removeGradStop()));
-    connect(updateButton, SIGNAL(clicked(bool)), SLOT(updateGradStop()));
-    connect(gradStops, SIGNAL(itemSelectionChanged()), SLOT(stopSelected()));
+    connect(qtcSlot(gradCombo, currentIndexChanged, (int)),
+            qtcSlot(this, gradChanged));
+    connect(qtcSlot(gradBorder, currentIndexChanged, (int)),
+            qtcSlot(this, borderChanged));
+    connect(qtcSlot(previewColor, changed),
+            qtcSlot(gradPreview, setColor));
+    connect(qtcSlot(gradStops, itemDoubleClicked), qtcSlot(this, editItem));
+    connect(qtcSlot(gradStops, itemChanged), qtcSlot(this, itemChanged));
+    connect(qtcSlot(addButton, clicked), qtcSlot(this, addGradStop));
+    connect(qtcSlot(removeButton, clicked), qtcSlot(this, removeGradStop));
+    connect(qtcSlot(updateButton, clicked), qtcSlot(this, updateGradStop));
+    connect(qtcSlot(gradStops, itemSelectionChanged),
+            qtcSlot(this, stopSelected));
 }
 
 void QtCurveConfig::setupShadesTab()
@@ -2366,27 +2392,27 @@ void QtCurveConfig::setupShadesTab()
     setupShade(shade3, shade++);
     setupShade(shade4, shade++);
     setupShade(shade5, shade++);
-    connect(customShading, SIGNAL(toggled(bool)), SLOT(updateChanged()));
+    connect(qtcSlot(customShading, toggled), qtcSlot(this, updateChanged));
     shade=0;
     setupAlpha(alpha0, shade++);
     setupAlpha(alpha1, shade++);
-    connect(customAlphas, SIGNAL(toggled(bool)), SLOT(updateChanged()));
+    connect(qtcSlot(customAlphas, toggled), qtcSlot(this, updateChanged));
 }
 
 void QtCurveConfig::setupShade(QDoubleSpinBox *w, int shade)
 {
     w->setRange(0.0, 2.0);
     w->setSingleStep(0.05);
-    connect(w, SIGNAL(valueChanged(double)), SLOT(updateChanged()));
-    shadeVals[shade]=w;
+    connect(qtcSlot(w, valueChanged, (double)), qtcSlot(this, updateChanged));
+    shadeVals[shade] = w;
 }
 
 void QtCurveConfig::setupAlpha(QDoubleSpinBox *w, int alpha)
 {
     w->setRange(0.0, 1.0);
     w->setSingleStep(0.05);
-    connect(w, SIGNAL(valueChanged(double)), SLOT(updateChanged()));
-    alphaVals[alpha]=w;
+    connect(qtcSlot(w, valueChanged, (double)), qtcSlot(this, updateChanged));
+    alphaVals[alpha] = w;
 }
 
 void QtCurveConfig::populateShades(const Options &opts)

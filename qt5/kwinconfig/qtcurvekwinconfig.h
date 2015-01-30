@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2007 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2013 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -36,51 +36,48 @@
 #include "../kwin/qtcurveconfig.h"
 
 class KConfig;
+class KConfigGroup;
 
-class QtCurveKWinConfig : public QWidget, public Ui::QtCurveKWinConfigWidget
-{
+class QtCurveKWinConfig: public QWidget, public Ui::QtCurveKWinConfigWidget {
     Q_OBJECT
 
-    public:
-
+public:
     QtCurveKWinConfig(KConfig *config, QWidget *parent);
     ~QtCurveKWinConfig();
-
-    bool ok() { return m_ok; }
-
-    Q_SIGNALS:
-
-    void changed();
-
-    public Q_SLOTS:
-
-    void load(const KConfigGroup &);
-    void save(KConfigGroup &);
-    void defaults();
-    void outerBorderChanged();
-    void innerBorderChanged();
-    void shadowsChanged();
-    void activeShadowColorTypeChanged();
-    void inactiveShadowColorTypeChanged();
-    void sizeChanged();
-
-    public:
 
     void setNote(const QString &txt);
     void load(KConfig *config);
     void save(KConfig *config);
+    bool ok();
 
-    private:
+Q_SIGNALS:
+    void changed();
 
+public Q_SLOTS:
+    void load(const KConfigGroup &);
+    void save(KConfigGroup &);
+    void defaults();
+
+private:
+    void activeShadowColorTypeChanged();
+    void inactiveShadowColorTypeChanged();
+    void innerBorderChanged();
+    void outerBorderChanged();
     void setShadows();
     void setWidgets(const KWinQtCurve::QtCurveConfig &cfg);
     void setWidgetStates();
+    void shadowsChanged();
+    void sizeChanged();
 
-    private:
-
-    bool                                    m_ok;
+    bool m_ok;
     KWinQtCurve::QtCurveShadowConfiguration m_activeShadows,
                                             m_inactiveShadows;
 };
 
-#endif // KNIFTYCONFIG_H
+inline bool
+QtCurveKWinConfig::ok()
+{
+    return m_ok;
+}
+
+#endif

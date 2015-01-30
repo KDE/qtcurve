@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2007 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2013 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -20,23 +20,35 @@
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
 
-#include <kconfig.h>
-#include <klocale.h>
-#include <kglobal.h>
-#include <kdeversion.h>
-#include <QDBusConnection>
 #include "config.h"
-#include <common/common.h>
+
 #include "qtcurvekwinconfig.h"
 
-static void insertColorEntries(QComboBox *combo)
+#include <common/common.h>
+
+#include <qtcurve-utils/qtutils.h>
+
+#include <kconfig.h>
+#include <klocale.h>
+#include <kdeversion.h>
+
+#include <QDBusConnection>
+
+static void
+insertColorEntries(QComboBox *combo)
 {
-    combo->insertItem(KWinQtCurve::QtCurveShadowConfiguration::CT_FOCUS, i18n("Focus"));
-    combo->insertItem(KWinQtCurve::QtCurveShadowConfiguration::CT_HOVER, i18n("Hover"));
-    combo->insertItem(KWinQtCurve::QtCurveShadowConfiguration::CT_SELECTION, i18n("Selection Background"));
-    combo->insertItem(KWinQtCurve::QtCurveShadowConfiguration::CT_TITLEBAR, i18n("Titlebar"));
-    combo->insertItem(KWinQtCurve::QtCurveShadowConfiguration::CT_GRAY, i18n("Gray"));
-    combo->insertItem(KWinQtCurve::QtCurveShadowConfiguration::CT_CUSTOM, i18n("Custom:"));
+    combo->insertItem(KWinQtCurve::QtCurveShadowConfiguration::CT_FOCUS,
+                      i18n("Focus"));
+    combo->insertItem(KWinQtCurve::QtCurveShadowConfiguration::CT_HOVER,
+                      i18n("Hover"));
+    combo->insertItem(KWinQtCurve::QtCurveShadowConfiguration::CT_SELECTION,
+                      i18n("Selection Background"));
+    combo->insertItem(KWinQtCurve::QtCurveShadowConfiguration::CT_TITLEBAR,
+                      i18n("Titlebar"));
+    combo->insertItem(KWinQtCurve::QtCurveShadowConfiguration::CT_GRAY,
+                      i18n("Gray"));
+    combo->insertItem(KWinQtCurve::QtCurveShadowConfiguration::CT_CUSTOM,
+                      i18n("Custom:"));
 }
 
 static void insertSizeEntries(QComboBox *combo)
@@ -60,7 +72,7 @@ static void insertShadeEntries(QComboBox *combo)
     combo->insertItem(KWinQtCurve::QtCurveConfig::SHADE_SHADOW, i18n("Shadow"));
 }
 
-static const char * constDBusService="org.kde.kcontrol.QtCurve";
+static const char *constDBusService = "org.kde.kcontrol.QtCurve";
 
 QtCurveKWinConfig::QtCurveKWinConfig(KConfig *config, QWidget *parent)
                  : QWidget(parent)
@@ -69,19 +81,15 @@ QtCurveKWinConfig::QtCurveKWinConfig(KConfig *config, QWidget *parent)
 {
     Q_UNUSED(config);
 
-    // TODO: KF5
-    // KGlobal::locale()->insertCatalog("kwin_clients");
-
-    if(!QDBusConnection::sessionBus().registerService(constDBusService))
-    {
-        m_ok=false;
-        QBoxLayout *layout=new QBoxLayout(QBoxLayout::TopToBottom, this);
-        layout->addWidget(new QLabel(i18n("<h3>Already Open</h3><p>Another QtCurve configuration dialog is already open. "
-                                          "Please close the other before proceeding."), this));
-    }
-    else
-    {
-        m_ok=true;
+    if (!QDBusConnection::sessionBus().registerService(constDBusService)) {
+        m_ok = false;
+        QBoxLayout *layout = new QBoxLayout(QBoxLayout::TopToBottom, this);
+        layout->addWidget(new QLabel(i18n("<h3>Already Open</h3><p>Another "
+                                          "QtCurve configuration dialog is "
+                                          "already open. Please close the "
+                                          "other before proceeding."), this));
+    } else {
+        m_ok = true;
 
         setupUi(this);
 
@@ -91,42 +99,55 @@ QtCurveKWinConfig::QtCurveKWinConfig(KConfig *config, QWidget *parent)
         insertShadeEntries(outerBorder);
         insertShadeEntries(innerBorder);
 
-        load(0L);
-        connect(borderSize, SIGNAL(currentIndexChanged(int)), this, SLOT(sizeChanged()));
-        connect(roundBottom, SIGNAL(toggled(bool)), this, SIGNAL(changed()));
-        connect(outerBorder, SIGNAL(currentIndexChanged(int)), this, SLOT(outerBorderChanged()));
-        connect(innerBorder, SIGNAL(currentIndexChanged(int)), this, SLOT(innerBorderChanged()));
-        connect(borderlessMax, SIGNAL(toggled(bool)), this, SIGNAL(changed()));
-        connect(titleBarPad, SIGNAL(valueChanged(int)), this, SIGNAL(changed()));
-        connect(edgePad, SIGNAL(valueChanged(int)), this, SIGNAL(changed()));
+        load(nullptr);
+        connect(qtcSlot(borderSize, currentIndexChanged, (int)),
+                qtcSlot(this, sizeChanged));
+        connect(qtcSlot(roundBottom, toggled), qtcSlot(this, changed));
+        connect(qtcSlot(outerBorder, currentIndexChanged, (int)),
+                qtcSlot(this, outerBorderChanged));
+        connect(qtcSlot(innerBorder, currentIndexChanged, (int)),
+                qtcSlot(this, innerBorderChanged));
+        connect(qtcSlot(borderlessMax, toggled), qtcSlot(this, changed));
+        connect(qtcSlot(titleBarPad, valueChanged, (int)),
+                qtcSlot(this, changed));
+        connect(qtcSlot(edgePad, valueChanged, (int)), qtcSlot(this, changed));
         titleBarPad->setRange(-5, 10);
         edgePad->setRange(0, 10);
-        connect(useShadows, SIGNAL(toggled(bool)), this, SLOT(shadowsChanged()));
-        connect(activeShadowSize, SIGNAL(valueChanged(int)), this, SIGNAL(changed()));
-        connect(activeShadowHOffset, SIGNAL(valueChanged(int)), this, SIGNAL(changed()));
-        connect(activeShadowVOffset, SIGNAL(valueChanged(int)), this, SIGNAL(changed()));
-        connect(activeShadowColorType, SIGNAL(currentIndexChanged(int)), this, SLOT(activeShadowColorTypeChanged()));
-        connect(activeShadowColor, SIGNAL(changed(const QColor &)), this, SIGNAL(changed()));
-        connect(inactiveShadowSize, SIGNAL(valueChanged(int)), this, SIGNAL(changed()));
-        connect(inactiveShadowHOffset, SIGNAL(valueChanged(int)), this, SIGNAL(changed()));
-        connect(inactiveShadowVOffset, SIGNAL(valueChanged(int)), this, SIGNAL(changed()));
-        connect(inactiveShadowColorType, SIGNAL(currentIndexChanged(int)), this, SLOT(inactiveShadowColorTypeChanged()));
-        connect(inactiveShadowColor, SIGNAL(changed(const QColor &)), this, SIGNAL(changed()));
-        connect(inactiveUsesActiveGradients, SIGNAL(toggled(bool)), this, SIGNAL(changed()));
+        connect(qtcSlot(useShadows, toggled), qtcSlot(this, shadowsChanged));
+        connect(qtcSlot(activeShadowSize, valueChanged, (int)),
+                qtcSlot(this, changed));
+        connect(qtcSlot(activeShadowHOffset, valueChanged, (int)),
+                qtcSlot(this, changed));
+        connect(qtcSlot(activeShadowVOffset, valueChanged, (int)),
+                qtcSlot(this, changed));
+        connect(qtcSlot(activeShadowColorType, currentIndexChanged, (int)),
+                qtcSlot(this, activeShadowColorTypeChanged));
+        connect(qtcSlot(activeShadowColor, changed), qtcSlot(this, changed));
+        connect(qtcSlot(inactiveShadowSize, valueChanged, (int)),
+                qtcSlot(this, changed));
+        connect(qtcSlot(inactiveShadowHOffset, valueChanged, (int)),
+                qtcSlot(this, changed));
+        connect(qtcSlot(inactiveShadowVOffset, valueChanged, (int)),
+                qtcSlot(this, changed));
+        connect(qtcSlot(inactiveShadowColorType, currentIndexChanged, (int)),
+                qtcSlot(this, inactiveShadowColorTypeChanged));
+        connect(qtcSlot(inactiveShadowColor, changed), qtcSlot(this, changed));
+        connect(qtcSlot(inactiveUsesActiveGradients, toggled),
+                qtcSlot(this, changed));
         activeShadowColorTypeChanged();
         inactiveShadowColorTypeChanged();
         activeShadowSize->setRange(KWinQtCurve::QtCurveShadowConfiguration::MIN_SIZE,
-                                            KWinQtCurve::QtCurveShadowConfiguration::MAX_SIZE);
+                                   KWinQtCurve::QtCurveShadowConfiguration::MAX_SIZE);
         inactiveShadowSize->setRange(KWinQtCurve::QtCurveShadowConfiguration::MIN_SIZE,
-                                                KWinQtCurve::QtCurveShadowConfiguration::MAX_SIZE);
+                                     KWinQtCurve::QtCurveShadowConfiguration::MAX_SIZE);
         activeShadowHOffset->setRange(KWinQtCurve::QtCurveShadowConfiguration::MIN_OFFSET,
-                                                KWinQtCurve::QtCurveShadowConfiguration::MAX_OFFSET);
+                                      KWinQtCurve::QtCurveShadowConfiguration::MAX_OFFSET);
         inactiveShadowHOffset->setRange(KWinQtCurve::QtCurveShadowConfiguration::MIN_OFFSET,
-                                                KWinQtCurve::QtCurveShadowConfiguration::MAX_OFFSET);
+                                        KWinQtCurve::QtCurveShadowConfiguration::MAX_OFFSET);
         activeShadowVOffset->setRange(KWinQtCurve::QtCurveShadowConfiguration::MIN_OFFSET,
-                                                KWinQtCurve::QtCurveShadowConfiguration::MAX_OFFSET);
+                                      KWinQtCurve::QtCurveShadowConfiguration::MAX_OFFSET);
         inactiveShadowVOffset->setRange(KWinQtCurve::QtCurveShadowConfiguration::MIN_OFFSET,
-                                                KWinQtCurve::QtCurveShadowConfiguration::MAX_OFFSET);
+                                        KWinQtCurve::QtCurveShadowConfiguration::MAX_OFFSET);
         setShadows();
 
 #if KDE_IS_VERSION(4, 8, 80)
