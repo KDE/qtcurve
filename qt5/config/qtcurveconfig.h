@@ -33,7 +33,6 @@
 #include <QMap>
 #include <QComboBox>
 
-
 class QComboBox;
 class QDoubleSpinBox;
 #ifdef QTC_QT4_STYLE_SUPPORT
@@ -115,10 +114,12 @@ private:
     void emboldenToggled();
     void menubarHidingChanged();
     void menuStripeChanged();
+    void shadePopupMenuChanged();
     void sliderThumbChanged();
     void sliderWidthChanged();
     void sortedLvChanged();
     void stripedProgressChanged();
+    void tabMoChanged();
     void unifySpinBtnsToggled();
     void unifySpinToggled();
 
@@ -146,11 +147,9 @@ private Q_SLOTS:
     void shadeSlidersChanged();
     void shadeMenubarsChanged();
     void shadeCheckRadioChanged();
-    void shadePopupMenuChanged();
     void progressColorChanged();
     void crColorChanged();
     void shadingChanged();
-    void tabMoChanged();
     void passwordCharClicked();
     void windowBorder_colorTitlebarOnlyChanged();
     void windowBorder_blendChanged();

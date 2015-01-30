@@ -2568,66 +2568,57 @@ QString QtCurveConfig::getPresetName(const QString &cap, QString label, QString 
     QRegExp          exp("\\w+[^\\0042\\0044\\0045\\0046\\0047\\0052\\0057\\0077\\0137\\0140]*");
     QRegExpValidator validator(exp, this);
 
-    while(true)
-    {
-        if(name.isEmpty())
-            name=KInputDialog::getText(cap, label, def, 0, this, &validator);
+    while (true) {
+        if (name.isEmpty())
+            name = KInputDialog::getText(cap, label, def, 0, this, &validator);
 
-        if(!name.isEmpty())
-        {
-            name=name.replace('\"', ' ')
-                     .replace('$', ' ')
-                     .replace('%', ' ')
-                     .replace('&', ' ')
-                     .replace('\'', ' ')
-                     .replace('*', ' ')
-                     .replace('/', ' ')
-                     .replace('?', ' ')
-                     .replace('_', ' ')
-                     .replace('`', ' ')
-                     .simplified();
+        if (!name.isEmpty()) {
+            name = name.replace('\"', ' ')
+                .replace('$', ' ')
+                .replace('%', ' ')
+                .replace('&', ' ')
+                .replace('\'', ' ')
+                .replace('*', ' ')
+                .replace('/', ' ')
+                .replace('?', ' ')
+                .replace('_', ' ')
+                .replace('`', ' ')
+                .simplified();
 
-            if(name==currentText || name==defaultText)
-            {
-                label=i18n("<p>You cannot use the name \"%1\".</p>"
-                           "<p>Please enter a different name:<p>", name);
-                def=i18n("%1 New", name);
-                name=QString();
-            }
-            else
-            {
-                QMap<QString, Preset>::iterator it(presets.find(name)),
-                                                end(presets.end());
+            if (name == currentText || name == defaultText) {
+                label = i18n("<p>You cannot use the name \"%1\".</p>"
+                             "<p>Please enter a different name:<p>", name);
+                def = i18n("%1 New", name);
+                name = QString();
+            } else {
+                QMap<QString, Preset>::iterator it(presets.find(name));
 
-                if(it!=end)
-                {
-                    if(0!=(*it).fileName.indexOf(QDir::homePath()))
-                    {
-                        label=i18n("<p>A system defined preset named \"%1\" already exists.</p>"
-                                   "<p>Please enter a new name:<p>", name);
-                        def=i18n("%1 New", name);
-                        name=QString();
+                if (it != presets.end()) {
+                    if ((*it).fileName.indexOf(QDir::homePath()) != 0) {
+                        label = i18n("<p>A system defined preset named "
+                                     "\"%1\" already exists.</p>"
+                                     "<p>Please enter a new name:<p>", name);
+                        def = i18n("%1 New", name);
+                        name = QString();
+                    } else if(name == presetsCombo->currentText() ||
+                              KMessageBox::warningYesNo(
+                                  this, i18n("<p>A preset named \"%1\" "
+                                             "already exists.</p><p>Do you "
+                                             "wish to overwrite this?<p>",
+                                             name)) == KMessageBox::Yes) {
+                        return name;
+                    } else {
+                        label = i18n("<p>Please enter a new name:<p>");
+                        def = i18n("%1 New", name);
+                        name = QString();
                     }
-                    else
-                        if(name==presetsCombo->currentText() ||
-                            KMessageBox::Yes==KMessageBox::warningYesNo(this, i18n("<p>A preset named \"%1\" "
-                                                                                   "already exists.</p>"
-                                                                                   "<p>Do you wish to overwrite this?<p>",
-                                                                                   name)))
-                            return name;
-                        else
-                        {
-                            label=i18n("<p>Please enter a new name:<p>");
-                            def=i18n("%1 New", name);
-                            name=QString();
-                        }
-                }
-                else
+                } else {
                     return name;
+                }
             }
-        }
-        else
+        } else {
             return QString();
+        }
     }
 
     return QString();

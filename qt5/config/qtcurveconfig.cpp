@@ -1073,17 +1073,20 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
     connect(qtcSlot(colorSelTab, valueChanged, (int)),
             qtcSlot(this, updateChanged));
     connect(qtcSlot(roundAllTabs, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(borderTab, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(borderInactiveTab, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(invertBotTab, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(doubleGtkComboArrow, toggled),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(tabMouseOver, currentIndexChanged, (int)),
+            qtcSlot(this, tabMoChanged));
+    connect(qtcSlot(stdSidebarButtons, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(toolbarTabs, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(centerTabText, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(borderMenuitems, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(shadePopupMenu, toggled),
+            qtcSlot(this, shadePopupMenuChanged));
     // TODO
-    connect(borderTab, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(borderInactiveTab, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(invertBotTab, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(doubleGtkComboArrow, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(tabMouseOver, SIGNAL(currentIndexChanged(int)), SLOT(tabMoChanged()));
-    connect(stdSidebarButtons, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(toolbarTabs, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(centerTabText, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(borderMenuitems, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(shadePopupMenu, SIGNAL(toggled(bool)), SLOT(shadePopupMenuChanged()));
     connect(popupBorder, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(progressAppearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
     connect(progressColor, SIGNAL(currentIndexChanged(int)), SLOT(progressColorChanged()));
@@ -2645,28 +2648,25 @@ QtCurveConfig::getPresetName(const QString &cap, QString label, QString def,
                 name = QString();
             } else {
                 QMap<QString, Preset>::iterator it(presets.find(name));
-                QMap<QString, Preset>::iterator end(presets.end());
 
-                if (it != end) {
+                if (it != presets.end()) {
                     if ((*it).fileName.indexOf(QDir::homePath()) != 0) {
                         label = i18n("<p>A system defined preset named "
                                      "\"%1\" already exists.</p>"
                                      "<p>Please enter a new name:<p>", name);
                         def = i18n("%1 New", name);
                         name = QString();
+                    } else if (name == presetsCombo->currentText() ||
+                               KMessageBox::warningYesNo(
+                                   this, i18n("<p>A preset named \"%1\" "
+                                              "already exists.</p><p>Do you "
+                                              "wish to overwrite this?<p>",
+                                              name)) == KMessageBox::Yes) {
+                        return name;
                     } else {
-                        if (name == presetsCombo->currentText() ||
-                            KMessageBox::warningYesNo(
-                                this, i18n("<p>A preset named \"%1\" already "
-                                           "exists.</p><p>Do you wish to "
-                                           "overwrite this?<p>", name)) ==
-                            KMessageBox::Yes) {
-                            return name;
-                        } else {
-                            label=i18n("<p>Please enter a new name:<p>");
-                            def=i18n("%1 New", name);
-                            name=QString();
-                        }
+                        label = i18n("<p>Please enter a new name:<p>");
+                        def = i18n("%1 New", name);
+                        name = QString();
                     }
                 } else {
                     return name;
