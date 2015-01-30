@@ -1118,17 +1118,27 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
             qtcSlot(this, updateChanged));
     connect(qtcSlot(inactiveTitlebarAppearance, currentIndexChanged, (int)),
             qtcSlot(this, updateChanged));
+    connect(qtcSlot(titlebarButtonAppearance, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(windowBorder_colorTitlebarOnly, toggled),
+            qtcSlot(this, windowBorder_colorTitlebarOnlyChanged));
+    connect(qtcSlot(windowBorder_blend, toggled),
+            qtcSlot(this, windowBorder_blendChanged));
+    connect(qtcSlot(windowBorder_fill, toggled),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(windowBorder_menuColor, toggled),
+            qtcSlot(this, windowBorder_menuColorChanged));
+    connect(qtcSlot(windowBorder_separator, toggled),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(selectionAppearance, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(shadeCheckRadio, currentIndexChanged, (int)),
+            qtcSlot(this, shadeCheckRadioChanged));
+    connect(qtcSlot(customCheckRadioColor, changed),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(focus, currentIndexChanged, (int)),
+            qtcSlot(this, focusChanged));
     // TODO
-    connect(titlebarButtonAppearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(windowBorder_colorTitlebarOnly, SIGNAL(toggled(bool)), SLOT(windowBorder_colorTitlebarOnlyChanged()));
-    connect(windowBorder_blend, SIGNAL(toggled(bool)), SLOT(windowBorder_blendChanged()));
-    connect(windowBorder_fill, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(windowBorder_menuColor, SIGNAL(toggled(bool)), SLOT(windowBorder_menuColorChanged()));
-    connect(windowBorder_separator, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(selectionAppearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(shadeCheckRadio, SIGNAL(currentIndexChanged(int)), SLOT(shadeCheckRadioChanged()));
-    connect(customCheckRadioColor, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(focus, SIGNAL(currentIndexChanged(int)), SLOT(focusChanged()));
     connect(lvLines, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(lvButton, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(drawStatusBarFrames, SIGNAL(toggled(bool)), SLOT(updateChanged()));

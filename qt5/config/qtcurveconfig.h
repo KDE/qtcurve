@@ -103,44 +103,6 @@ public:
     QtCurveConfig(QWidget *parent);
     ~QtCurveConfig() override;
 
-    QSize sizeHint() const;
-    EShading currentShading() const;
-
-private:
-    void activeTabAppearanceChanged();
-    void addGradStop();
-    void borderChanged(int i);
-    void changeStack();
-    void comboBtnChanged();
-    void copyGradient(QAction *act);
-    void customMenuTextColorChanged();
-    void defBtnIndicatorChanged();
-    void deletePreset();
-    void editItem(QTreeWidgetItem *i, int col);
-    void emboldenToggled();
-    void exportPreset();
-    void gradChanged(int i);
-    void importPreset();
-    void itemChanged(QTreeWidgetItem *i, int col);
-    void menubarHidingChanged();
-    void menuBgndAppearanceChanged();
-    void menuStripeChanged();
-    void progressColorChanged();
-    void removeGradStop();
-    void savePreset();
-    bool savePreset(const QString &name);
-    void setPreset();
-    void shadePopupMenuChanged();
-    void sliderThumbChanged();
-    void sliderWidthChanged();
-    void sortedLvChanged();
-    void stopSelected();
-    void stripedProgressChanged();
-    void tabMoChanged();
-    void unifySpinBtnsToggled();
-    void unifySpinToggled();
-    void updateGradStop();
-
 Q_SIGNALS:
     void changed(bool);
 
@@ -152,20 +114,15 @@ private Q_SLOTS:
     void updateChanged();
     void gtkButtonOrderChanged();
     void reorderGtkButtonsChanged();
-    void focusChanged();
     void roundChanged();
     void exportTheme();
     void buttonEffectChanged();
     void coloredMouseOverChanged();
     void shadeSlidersChanged();
     void shadeMenubarsChanged();
-    void shadeCheckRadioChanged();
     void crColorChanged();
     void shadingChanged();
     void passwordCharClicked();
-    void windowBorder_colorTitlebarOnlyChanged();
-    void windowBorder_blendChanged();
-    void windowBorder_menuColorChanged();
     void thinSbarGrooveChanged();
     void borderSbarGrooveChanged();
     void borderProgressChanged();
@@ -214,7 +171,49 @@ public:
     bool settingsChanged(const Options &opts);
     bool settingsChanged();
 
+    QSize sizeHint() const;
+    EShading currentShading() const;
+
 private:
+    void activeTabAppearanceChanged();
+    void addGradStop();
+    void borderChanged(int i);
+    void changeStack();
+    void comboBtnChanged();
+    void copyGradient(QAction *act);
+    void customMenuTextColorChanged();
+    void defBtnIndicatorChanged();
+    void deletePreset();
+    void editItem(QTreeWidgetItem *i, int col);
+    void emboldenToggled();
+    void exportPreset();
+    void focusChanged();
+    void gradChanged(int i);
+    void importPreset();
+    void itemChanged(QTreeWidgetItem *i, int col);
+    void menubarHidingChanged();
+    void menuBgndAppearanceChanged();
+    void menuStripeChanged();
+    void progressColorChanged();
+    void removeGradStop();
+    void savePreset();
+    bool savePreset(const QString &name);
+    void setPreset();
+    void shadeCheckRadioChanged();
+    void shadePopupMenuChanged();
+    void sliderThumbChanged();
+    void sliderWidthChanged();
+    void sortedLvChanged();
+    void stopSelected();
+    void stripedProgressChanged();
+    void tabMoChanged();
+    void unifySpinBtnsToggled();
+    void unifySpinToggled();
+    void updateGradStop();
+    void windowBorder_blendChanged();
+    void windowBorder_colorTitlebarOnlyChanged();
+    void windowBorder_menuColorChanged();
+
     Options                previewStyle;
     CWorkspace             *workSpace;
     CStylePreview          *stylePreview;
