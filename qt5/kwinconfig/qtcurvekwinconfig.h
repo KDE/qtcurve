@@ -66,8 +66,8 @@ private:
     void sizeChanged();
 
     bool m_ok;
-    KWinQtCurve::QtCurveShadowConfiguration m_activeShadows;
-    KWinQtCurve::QtCurveShadowConfiguration m_inactiveShadows;
+    KWinQtCurve::ShadowConfiguration m_activeShadows;
+    KWinQtCurve::ShadowConfiguration m_inactiveShadows;
 };
 
 inline bool

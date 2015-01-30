@@ -94,22 +94,22 @@ static QColor calcLightColor(const QColor &color)
 }
 
 QtCurveShadowCache::QtCurveShadowCache()
-                  : activeShadowConfiguration_(QtCurveShadowConfiguration(QPalette::Active))
-                  , inactiveShadowConfiguration_(QtCurveShadowConfiguration(QPalette::Inactive))
+                  : activeShadowConfiguration_(ShadowConfiguration(QPalette::Active))
+                  , inactiveShadowConfiguration_(ShadowConfiguration(QPalette::Inactive))
 {
     shadowCache_.setMaxCost(1<<6);
 }
 
-bool QtCurveShadowCache::shadowConfigurationChanged(const QtCurveShadowConfiguration &other) const
+bool QtCurveShadowCache::shadowConfigurationChanged(const ShadowConfiguration &other) const
 {
-    const QtCurveShadowConfiguration &local = (other.colorGroup() == QPalette::Active)
+    const ShadowConfiguration &local = (other.colorGroup() == QPalette::Active)
                 ? activeShadowConfiguration_:inactiveShadowConfiguration_;
     return !(local == other);
 }
 
-void QtCurveShadowCache::setShadowConfiguration(const QtCurveShadowConfiguration &other)
+void QtCurveShadowCache::setShadowConfiguration(const ShadowConfiguration &other)
 {
-    QtCurveShadowConfiguration &local = (other.colorGroup() == QPalette::Active)
+    ShadowConfiguration &local = (other.colorGroup() == QPalette::Active)
             ? activeShadowConfiguration_:inactiveShadowConfiguration_;
     local = other;
 
@@ -144,7 +144,7 @@ QPixmap QtCurveShadowCache::simpleShadowPixmap(const QColor &color, bool active,
 {
     static const qreal fixedSize = 25.5;
 
-    const QtCurveShadowConfiguration &shadowConfiguration(active ? activeShadowConfiguration_ : inactiveShadowConfiguration_);
+    const ShadowConfiguration &shadowConfiguration(active ? activeShadowConfiguration_ : inactiveShadowConfiguration_);
 
     // offsets are scaled with the shadow size
     // so that the ratio Top-shadow/Bottom-shadow is kept constant when shadow size is changed
@@ -159,10 +159,8 @@ QPixmap QtCurveShadowCache::simpleShadowPixmap(const QColor &color, bool active,
     p.setRenderHint(QPainter::Antialiasing);
     p.setPen(Qt::NoPen);
 
-    if(shadowSize)
-    {
-        if(QtCurveShadowConfiguration::SH_ACTIVE==shadowConfiguration.shadowType())
-        {
+    if (shadowSize) {
+        if (ShadowConfiguration::SH_ACTIVE == shadowConfiguration.shadowType()) {
             {
                 // inner (shark) gradient
                 const qreal gradientSize = qMin( shadowSize,(shadowSize+fixedSize)/2 );

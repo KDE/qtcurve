@@ -107,5 +107,3 @@ void CExportThemeDialog::slotButtonClicked(int button)
     else
         QDialog::reject();
 }
-
-#include "exportthemedialog.moc"

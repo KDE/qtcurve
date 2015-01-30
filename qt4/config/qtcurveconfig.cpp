@@ -3818,5 +3818,3 @@ bool QtCurveConfig::settingsChanged(const Options &opts)
 
          diffImages(opts);
 }
-
-#include "qtcurveconfig.moc"

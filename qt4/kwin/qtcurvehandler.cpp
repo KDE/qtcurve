@@ -349,8 +349,8 @@ bool QtCurveHandler::readConfig(bool compositingToggled)
 
     if(customShadows())
     {
-        QtCurveShadowConfiguration actShadow(QPalette::Active),
-                                   inactShadow(QPalette::Inactive);
+        ShadowConfiguration actShadow(QPalette::Active);
+        ShadowConfiguration inactShadow(QPalette::Inactive);
 
         actShadow.load(&configFile);
         inactShadow.load(&configFile);

@@ -33,13 +33,13 @@
 namespace KWinQtCurve
 {
 
-QtCurveShadowConfiguration::QtCurveShadowConfiguration(QPalette::ColorGroup colorGroup)
+ShadowConfiguration::ShadowConfiguration(QPalette::ColorGroup colorGroup)
                           : m_colorGroup(colorGroup)
 {
     defaults();
 }
 
-void QtCurveShadowConfiguration::defaults()
+void ShadowConfiguration::defaults()
 {
     m_hOffset = 0;
     m_vOffset = 5;
@@ -57,7 +57,7 @@ void QtCurveShadowConfiguration::defaults()
     }
 }
 
-void QtCurveShadowConfiguration::setColorType(ColorType ct)
+void ShadowConfiguration::setColorType(ColorType ct)
 {
     m_colorType = ct;
     switch (m_colorType) {
@@ -96,10 +96,10 @@ void QtCurveShadowConfiguration::setColorType(ColorType ct)
         field = group.readEntry(name, def.field);       \
     } while (0)
 
-void QtCurveShadowConfiguration::load(KConfig *cfg)
+void ShadowConfiguration::load(KConfig *cfg)
 {
     KConfigGroup               group(cfg, CFG_GROUP);
-    QtCurveShadowConfiguration def(m_colorGroup);
+    ShadowConfiguration def(m_colorGroup);
 
     READ_ENTRY("Size", m_size);
     READ_ENTRY("HOffset", m_hOffset);
@@ -126,10 +126,10 @@ void QtCurveShadowConfiguration::load(KConfig *cfg)
         }                                       \
     } while (0)
 
-void QtCurveShadowConfiguration::save(KConfig *cfg)
+void ShadowConfiguration::save(KConfig *cfg)
 {
     KConfigGroup               group(cfg, CFG_GROUP);
-    QtCurveShadowConfiguration def(m_colorGroup);
+    ShadowConfiguration def(m_colorGroup);
 
     WRITE_ENTRY("Size", m_size);
     WRITE_ENTRY("HOffset", m_hOffset);

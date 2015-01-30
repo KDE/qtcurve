@@ -79,8 +79,8 @@ class QtCurveKWinConfig : public QWidget, public Ui::QtCurveKWinConfigWidget
     private:
 
     bool                                    m_ok;
-    KWinQtCurve::QtCurveShadowConfiguration m_activeShadows,
-                                            m_inactiveShadows;
+    KWinQtCurve::ShadowConfiguration m_activeShadows,
+        m_inactiveShadows;
 };
 
 #endif // KNIFTYCONFIG_H

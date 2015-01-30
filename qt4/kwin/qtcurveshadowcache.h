@@ -83,17 +83,17 @@ class QtCurveShadowCache
 
     //! returns true if provided shadow configuration changes with respect to stored
     /*!
-    use QtCurveShadowConfiguration::colorRole() to decide whether it should be stored
+    use ShadowConfiguration::colorRole() to decide whether it should be stored
     as active or inactive
     */
-    bool shadowConfigurationChanged(const QtCurveShadowConfiguration &other) const;
+    bool shadowConfigurationChanged(const ShadowConfiguration &other) const;
 
     //! set shadowConfiguration
     /*!
-    use QtCurveShadowConfiguration::colorRole() to decide whether it should be stored
+    use ShadowConfiguration::colorRole() to decide whether it should be stored
     as active or inactive
     */
-    void setShadowConfiguration(const QtCurveShadowConfiguration &other);
+    void setShadowConfiguration(const ShadowConfiguration &other);
 
     //! shadow size
     qreal shadowSize() const
@@ -177,8 +177,8 @@ class QtCurveShadowCache
 
     typedef QCache<int, TileSet> TileSetCache;
 
-    QtCurveShadowConfiguration activeShadowConfiguration_,
-                               inactiveShadowConfiguration_;
+    ShadowConfiguration activeShadowConfiguration_,
+        inactiveShadowConfiguration_;
     TileSetCache               shadowCache_;
 };
 }

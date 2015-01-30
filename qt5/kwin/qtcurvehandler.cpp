@@ -347,10 +347,9 @@ bool QtCurveHandler::readConfig(bool compositingToggled)
 #if KDE_IS_VERSION(4, 3, 0)
     bool shadowChanged(false);
 
-    if(customShadows())
-    {
-        QtCurveShadowConfiguration actShadow(QPalette::Active),
-                                   inactShadow(QPalette::Inactive);
+    if (customShadows()) {
+        ShadowConfiguration actShadow(QPalette::Active);
+        ShadowConfiguration inactShadow(QPalette::Inactive);
 
         actShadow.load(&configFile);
         inactShadow.load(&configFile);
