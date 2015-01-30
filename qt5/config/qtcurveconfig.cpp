@@ -1059,17 +1059,21 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
             qtcSlot(this, updateChanged));
     connect(qtcSlot(unifySpinBtns, toggled),
             qtcSlot(this, unifySpinBtnsToggled));
+    connect(qtcSlot(unifySpin, toggled), qtcSlot(this, unifySpinToggled));
+    connect(qtcSlot(unifyCombo, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(vArrows, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(xCheck, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(crHighlight, valueChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(expanderHighlight, valueChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(crButton, toggled), qtcSlot(this, updateChanged));
+    connect(qtcSlot(crSize, currentIndexChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(colorSelTab, valueChanged, (int)),
+            qtcSlot(this, updateChanged));
+    connect(qtcSlot(roundAllTabs, toggled), qtcSlot(this, updateChanged));
     // TODO
-    connect(unifySpin, SIGNAL(toggled(bool)), SLOT(unifySpinToggled()));
-    connect(unifyCombo, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(vArrows, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(xCheck, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(crHighlight, SIGNAL(valueChanged(int)), SLOT(updateChanged()));
-    connect(expanderHighlight, SIGNAL(valueChanged(int)), SLOT(updateChanged()));
-    connect(crButton, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(crSize, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(colorSelTab, SIGNAL(valueChanged(int)), SLOT(updateChanged()));
-    connect(roundAllTabs, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(borderTab, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(borderInactiveTab, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(invertBotTab, SIGNAL(toggled(bool)), SLOT(updateChanged()));

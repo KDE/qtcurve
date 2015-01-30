@@ -97,15 +97,15 @@ private:
     KComponentData *componentData;
 };
 
-class QtCurveConfig : public QWidget, private Ui::QtCurveConfigBase {
+class QtCurveConfig: public QWidget, private Ui::QtCurveConfigBase {
     Q_OBJECT
 
 public:
     QtCurveConfig(QWidget *parent);
-    virtual ~QtCurveConfig();
+    ~QtCurveConfig() override;
 
     QSize sizeHint() const;
-    EShading currentShading() const {return (EShading)shading->currentIndex();}
+    EShading currentShading() const;
 
 private:
     void activeTabAppearanceChanged();
@@ -120,6 +120,7 @@ private:
     void sortedLvChanged();
     void stripedProgressChanged();
     void unifySpinBtnsToggled();
+    void unifySpinToggled();
 
 Q_SIGNALS:
     void changed(bool);
@@ -151,7 +152,6 @@ private Q_SLOTS:
     void shadingChanged();
     void tabMoChanged();
     void passwordCharClicked();
-    void unifySpinToggled();
     void windowBorder_colorTitlebarOnlyChanged();
     void windowBorder_blendChanged();
     void windowBorder_menuColorChanged();
@@ -213,11 +213,7 @@ public:
     int  getThinFlags();
     bool diffTitleBarButtonColors(const Options &opts);
     bool settingsChanged(const Options &opts);
-    bool
-    settingsChanged()
-    {
-        return settingsChanged(presets[currentText].opts);
-    }
+    bool settingsChanged();
 
 private:
     Options                previewStyle;
@@ -242,5 +238,17 @@ private:
                            *bgndImageDlg,
                            *menuBgndImageDlg;
 };
+
+inline EShading
+QtCurveConfig::currentShading() const
+{
+    return (EShading)shading->currentIndex();
+}
+
+inline bool
+QtCurveConfig::settingsChanged()
+{
+    return settingsChanged(presets[currentText].opts);
+}
 
 #endif
