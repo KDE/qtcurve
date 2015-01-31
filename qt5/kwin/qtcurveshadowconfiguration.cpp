@@ -21,7 +21,6 @@
  *****************************************************************************/
 
 #include <kdeversion.h>
-#if KDE_IS_VERSION(4, 3, 0)
 
 #include <kcolorscheme.h>
 
@@ -145,5 +144,3 @@ void ShadowConfiguration::save(KConfig *cfg)
 }
 
 }
-
-#endif

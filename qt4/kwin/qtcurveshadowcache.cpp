@@ -47,9 +47,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #include <kdeversion.h>
-#if KDE_IS_VERSION(4, 3, 0)
 
-#include <cassert>
 #include <KColorUtils>
 #include <KColorScheme>
 #include <QPainter>
@@ -419,5 +417,3 @@ QtCurveShadowCache::Key::Key(const QtCurveClient *client)
 }
 
 }
-
-#endif

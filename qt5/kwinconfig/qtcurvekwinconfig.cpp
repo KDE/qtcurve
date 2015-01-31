@@ -150,12 +150,9 @@ QtCurveKWinConfig::QtCurveKWinConfig(KConfig *config, QWidget *parent)
                                         KWinQtCurve::ShadowConfiguration::MAX_OFFSET);
         setShadows();
 
-#if KDE_IS_VERSION(4, 8, 80)
+        // TODO: remove
         grouping->setVisible(false);
         groupingLabel->setVisible(false);
-#else
-        connect(grouping, SIGNAL(toggled(bool)), this, SIGNAL(changed()));
-#endif
         connect(activeOpacity, SIGNAL(valueChanged(int)), this, SIGNAL(changed()));
         connect(inactiveOpacity, SIGNAL(valueChanged(int)), this, SIGNAL(changed()));
         connect(opaqueBorder, SIGNAL(toggled(bool)), this, SIGNAL(changed()));
@@ -230,9 +227,6 @@ void QtCurveKWinConfig::save(KConfig *c)
     }
     m_activeShadows.save(cfg);
     m_inactiveShadows.save(cfg);
-#if !KDE_IS_VERSION(4, 8, 80)
-    config.setGrouping(grouping->isChecked());
-#endif
     config.setOpacity(activeOpacity->value(), true);
     config.setOpacity(inactiveOpacity->value(), false);
     config.setOpaqueBorder(opaqueBorder->isChecked());
@@ -315,9 +309,6 @@ void QtCurveKWinConfig::setWidgets(const KWinQtCurve::QtCurveConfig &cfg)
     titleBarPad->setValue(cfg.titleBarPad());
     edgePad->setValue(cfg.edgePad());
     useShadows->setChecked(cfg.customShadows());
-#if !KDE_IS_VERSION(4, 8, 80)
-    grouping->setChecked(cfg.grouping());
-#endif
     activeOpacity->setValue(cfg.opacity(true));
     inactiveOpacity->setValue(cfg.opacity(false));
     opaqueBorder->setChecked(cfg.opaqueBorder());

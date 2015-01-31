@@ -223,7 +223,6 @@ QtCurveSizeGrip::updatePosition()
 {
     QPoint position(client().width() - GRIP_SIZE - OFFSET,
                     client().height() - GRIP_SIZE - OFFSET);
-#if KDE_IS_VERSION(4, 3, 0)
     if (client().isPreview()) {
       position -= QPoint(
         client().layoutMetric(QtCurveClient::LM_BorderRight) +
@@ -231,13 +230,10 @@ QtCurveSizeGrip::updatePosition()
         client().layoutMetric(QtCurveClient::LM_OuterPaddingBottom) +
         client().layoutMetric(QtCurveClient::LM_BorderBottom));
     } else {
-#endif
         position -= QPoint(
             client().layoutMetric(QtCurveClient::LM_BorderRight),
             client().layoutMetric(QtCurveClient::LM_BorderBottom));
-#if KDE_IS_VERSION(4, 3, 0)
     }
-#endif
-    move( position );
+    move(position);
 }
 }

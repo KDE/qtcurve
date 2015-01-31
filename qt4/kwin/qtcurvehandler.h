@@ -38,10 +38,7 @@
 #include <kdecorationfactory.h>
 #include "config.h"
 #include "qtcurveconfig.h"
-
-#if KDE_IS_VERSION(4, 3, 0)
 #include "qtcurveshadowcache.h"
-#endif
 
 class QStyle;
 
@@ -49,9 +46,7 @@ namespace KWinQtCurve {
 
 enum ButtonIcon {
     CloseIcon = 0,
-#if KDE_IS_VERSION(4, 3, 85)
     CloseTabIcon,
-#endif
     MaxIcon,
     MaxRestoreIcon,
     MinIcon,
@@ -71,7 +66,7 @@ enum ButtonIcon {
 class QtCurveClient;
 class QtCurveDBus;
 
-#if KDE_IS_VERSION(4, 3, 0) && !KDE_IS_VERSION(4, 11, 0)
+#if !KDE_IS_VERSION(4, 11, 0)
 // KDecorationFactoryUnstable already does nothing before 4.11 and
 // is removed in kde5.
 #define _KDecorationFactoryBase KDecorationFactoryUnstable
@@ -171,7 +166,6 @@ public:
     {
         return m_config.opaqueBorder();
     }
-#if KDE_IS_VERSION(4, 3, 0)
     bool
     customShadows() const
     {
@@ -182,14 +176,11 @@ public:
     {
         return m_shadowCache;
     }
-#endif
-#if KDE_IS_VERSION(4, 3, 85)
     bool
     grouping() const
     {
         return m_config.grouping();
     }
-#endif
     void menuBarSize(unsigned int xid, int size);
     void statusBarState(unsigned int xid, bool state);
     void emitToggleMenuBar(int xid);
@@ -232,9 +223,7 @@ private:
     QList<QtCurveClient*> m_clients;
     QtCurveDBus *m_dBus;
     QColor m_hoverCols[2];
-#if KDE_IS_VERSION(4, 3, 0)
     QtCurveShadowCache m_shadowCache;
-#endif
 };
 QtCurveHandler *Handler();
 }

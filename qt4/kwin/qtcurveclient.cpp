@@ -54,44 +54,14 @@
 #include "qtcurvebutton.h"
 #include "qtcurvetogglebutton.h"
 #include "qtcurvesizegrip.h"
-#include <common/common.h>
-#if KDE_IS_VERSION(4, 3, 0)
 #include "tileset.h"
-#endif
+#include <common/common.h>
 
 #include <style/qtcurve.h>
 
-#if KDE_IS_VERSION(4, 3, 85) && !KDE_IS_VERSION(4, 8, 80)
-#include <KDE/KIconLoader>
-#endif
+namespace KWinQtCurve {
 
-#if KDE_IS_VERSION(4, 3, 0)
-    #define COMPOSITING_ENABLED compositingActive()
-#else
-    #define COMPOSITING_ENABLED KWindowSystem::compositingActive()
-#endif
-
-namespace KWinQtCurve
-{
-
-static const int constTitlePad=4;
-
-#if KDE_IS_VERSION(4, 3, 85) && !KDE_IS_VERSION(4, 8, 80)
-#define TAB_CLOSE_ICON_SIZE tabCloseIconSize(layoutMetric(LM_TitleHeight))
-
-static const int constInvalidTab=-1;
-static const int constAddToEmpty=-2;
-
-static inline int tabCloseIconSize(int titleHeight)
-{
-    int size=titleHeight*0.8;
-
-    if(0==size%2)
-        size++;
-    return size;
-}
-
-#endif
+static const int constTitlePad = 4;
 
 int getMenubarSizeProperty(WId wId)
 {
@@ -205,15 +175,6 @@ static void drawFadedLine(QPainter *painter, const QRect &r, const QColor &col, 
     painter->drawLine(start, end);
 }
 
-#if KDE_IS_VERSION(4, 3, 85) && !KDE_IS_VERSION(4, 8, 80)
-static void paintTabSeparator(QPainter *painter, const QRect &r)
-{
-    drawFadedLine(painter, r, Qt::white);
-    drawFadedLine(painter, r.adjusted(1, 0, 1, 0), Qt::black);
-    drawFadedLine(painter, r.adjusted(2, 0, 2, 0), Qt::white);
-}
-#endif
-
 static void fillBackground(EAppearance app, QPainter &painter, const QColor &col, const QRect &fillRect, const QRect &widgetRect, const QPainterPath path)
 {
     if (!qtcIsFlatBgnd(app) || !widgetRect.isEmpty()) {
@@ -239,23 +200,13 @@ static void fillBackground(EAppearance app, QPainter &painter, const QColor &col
 // }
 
 QtCurveClient::QtCurveClient(KDecorationBridge *bridge, QtCurveHandler *factory)
-#if KDE_IS_VERSION(4, 3, 0)
-             : KCommonDecorationUnstable(bridge, factory)
-#else
-             : KCommonDecoration(bridge, factory)
-#endif
-             , m_resizeGrip(0L)
-             , m_titleFont(QFont())
-             , m_menuBarSize(-1)
-             , m_toggleMenuBarButton(0L)
-             , m_toggleStatusBarButton(0L)
-//              , m_hover(false)
-#if KDE_IS_VERSION(4, 3, 85) && !KDE_IS_VERSION(4, 8, 80)
-             , m_clickInProgress(false)
-             , m_dragInProgress(false)
-             , m_mouseButton(Qt::NoButton)
-             , m_targetTab(constInvalidTab)
-#endif
+    : KCommonDecorationUnstable(bridge, factory),
+      m_resizeGrip(0L),
+      m_titleFont(QFont()),
+      m_menuBarSize(-1),
+      m_toggleMenuBarButton(0L),
+      m_toggleStatusBarButton(0L)
+      // m_hover(false)
 {
     Handler()->addClient(this);
 }
@@ -315,14 +266,12 @@ int QtCurveClient::layoutMetric(LayoutMetric lm, bool respectWindowState,
             return 0;
         case LM_ButtonMarginTop:
             return 0;
-#if KDE_IS_VERSION(4, 3, 0)
         case LM_OuterPaddingLeft:
         case LM_OuterPaddingRight:
         case LM_OuterPaddingTop:
         case LM_OuterPaddingBottom:
             if(Handler()->customShadows())
                 return Handler()->shadowCache().shadowSize();
-#endif
         default:
             return KCommonDecoration::layoutMetric(lm, respectWindowState, btn);
     }
@@ -357,10 +306,6 @@ void QtCurveClient::init()
     widget()->setAutoFillBackground(false);
     widget()->setAttribute(Qt::WA_OpaquePaintEvent, true);
     widget()->setAttribute(Qt::WA_NoSystemBackground);
-
-#if KDE_IS_VERSION(4, 3, 85) && !KDE_IS_VERSION(4, 8, 80)
-    widget()->setAcceptDrops(true);
-#endif
 
     if(Handler()->showResizeGrip())
         createSizeGrip();
@@ -405,19 +350,19 @@ void QtCurveClient::captionChange()
 
 void QtCurveClient::paintEvent(QPaintEvent *e)
 {
-    bool                 compositing=COMPOSITING_ENABLED;
-    QPainter             painter(widget());
-    QRect                r(widget()->rect());
+    bool compositing = compositingActive();
+    QPainter painter(widget());
+    QRect r(widget()->rect());
     QStyleOptionTitleBar opt;
-    int                  windowBorder(Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_WindowBorder, 0L, 0L));
-    bool                 active(isActive()),
-                         colorTitleOnly(windowBorder&WINDOW_BORDER_COLOR_TITLEBAR_ONLY),
-                         roundBottom(Handler()->roundBottom()),
-                         preview(isPreview()),
-                         blend(!preview && Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_BlendMenuAndTitleBar, NULL, NULL)),
-                         menuColor(windowBorder&WINDOW_BORDER_USE_MENUBAR_COLOR_FOR_TITLEBAR),
-                         separator(active && windowBorder&WINDOW_BORDER_SEPARATOR),
-                         maximized(isMaximized());
+    int windowBorder(Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_WindowBorder, 0L, 0L));
+    bool active(isActive());
+    bool colorTitleOnly(windowBorder&WINDOW_BORDER_COLOR_TITLEBAR_ONLY);
+    bool roundBottom(Handler()->roundBottom());
+    bool preview(isPreview());
+    bool blend(!preview && Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_BlendMenuAndTitleBar, NULL, NULL));
+    bool menuColor(windowBorder&WINDOW_BORDER_USE_MENUBAR_COLOR_FOR_TITLEBAR);
+    bool separator(active && windowBorder&WINDOW_BORDER_SEPARATOR);
+    bool maximized(isMaximized());
     QtCurveConfig::Shade outerBorder(Handler()->outerBorder()),
                          innerBorder(Handler()->innerBorder());
     const int            border(Handler()->borderEdgeSize()),
@@ -441,30 +386,20 @@ void QtCurveClient::paintEvent(QPaintEvent *e)
                          fillCol(colorTitleOnly ? windowCol : col);
                          // APPEARANCE_RAISED is used to signal flat background, but have background image!
                          // In which case we still have a custom background to draw.
-    bool                 customBgnd=APPEARANCE_FLAT!=bgndAppearance,
-                         customShadows=
-#if KDE_IS_VERSION(4, 3, 0)
-                            Handler()->customShadows()
-#else
-                            false
-#endif
-                            ;
+    bool customBgnd = bgndAppearance != APPEARANCE_FLAT;
+    bool customShadows = Handler()->customShadows();
 
     painter.setClipRegion(e->region());
 
     if(!preview && compositing && 100==opacity)
         opacity=getOpacityProperty(windowId());
 
-#if KDE_IS_VERSION(4, 3, 0)
-    if(customShadows)
-    {
-        shadowSize=Handler()->shadowCache().shadowSize();
+    if (customShadows) {
+        shadowSize = Handler()->shadowCache().shadowSize();
 
-        if(compositing)
-        {
+        if (compositing) {
             TileSet *tileSet=Handler()->shadowCache().tileSet(this, roundBottom);
-            if(opacity<100)
-            {
+            if (opacity < 100) {
                 painter.save();
                 painter.setClipRegion(QRegion(r).subtract(getMask(round, r.adjusted(shadowSize, shadowSize, -shadowSize, -shadowSize))), Qt::IntersectClip);
             }
@@ -478,7 +413,6 @@ void QtCurveClient::paintEvent(QPaintEvent *e)
         }
         r.adjust(shadowSize, shadowSize, -shadowSize, -shadowSize);
     }
-#endif
 
     int   side(layoutMetric(LM_BorderLeft)),
           bot(layoutMetric(LM_BorderBottom));
@@ -617,17 +551,14 @@ void QtCurveClient::paintEvent(QPaintEvent *e)
     if(compositing && !preview)
         opt.state|=QtC_StateKWinCompositing;
 
-    if(outerBorder)
-    {
-#if KDE_IS_VERSION(4, 3, 0)
-        if(QtCurveConfig::SHADE_SHADOW==outerBorder && customShadows)
-        {
-            opt.version=2+TBAR_BORDER_VERSION_HACK;
+    if (outerBorder) {
+        if (outerBorder == QtCurveConfig::SHADE_SHADOW && customShadows) {
+            opt.version = TBAR_BORDER_VERSION_HACK + 2;
             opt.palette.setColor(QPalette::Shadow, blendColors(Handler()->shadowCache().color(active), windowCol, active ? 0.75 : 0.4));
+        } else {
+            opt.version = (outerBorder == QtCurveConfig::SHADE_LIGHT ? 0 : 1) +
+                TBAR_BORDER_VERSION_HACK;
         }
-        else
-#endif
-            opt.version=(QtCurveConfig::SHADE_LIGHT==outerBorder ? 0 : 1)+TBAR_BORDER_VERSION_HACK;
         painter.save();
         painter.setClipRect(r.adjusted(0, titleBarHeight, 0, 0), Qt::IntersectClip);
 #ifdef DRAW_INTO_PIXMAPS
@@ -701,15 +632,12 @@ void QtCurveClient::paintEvent(QPaintEvent *e)
         QStyleOptionFrame frameOpt;
 
         frameOpt.palette=opt.palette;
-#if KDE_IS_VERSION(4, 3, 0)
-        if(QtCurveConfig::SHADE_SHADOW==innerBorder && customShadows)
-        {
-            frameOpt.version=2+TBAR_BORDER_VERSION_HACK;
+        if (innerBorder == QtCurveConfig::SHADE_SHADOW && customShadows) {
+            frameOpt.version = 2 + TBAR_BORDER_VERSION_HACK;
             frameOpt.palette.setColor(QPalette::Shadow, blendColors(Handler()->shadowCache().color(active), windowCol, active ? 0.75 : 0.4));
+        } else {
+            frameOpt.version = (innerBorder == QtCurveConfig::SHADE_LIGHT ? 0 : 1)+TBAR_BORDER_VERSION_HACK;
         }
-        else
-#endif
-            frameOpt.version=(QtCurveConfig::SHADE_LIGHT==innerBorder ? 0 : 1)+TBAR_BORDER_VERSION_HACK;
         frameOpt.rect=widgetRect.adjusted(-1, -1, 1, 1);
         frameOpt.state=(active ? QStyle::State_Active : QStyle::State_None)|QtC_StateKWin;
         frameOpt.lineWidth=frameOpt.midLineWidth=1;
@@ -738,87 +666,11 @@ void QtCurveClient::paintEvent(QPaintEvent *e)
     bool showIcon=TITLEBAR_ICON_NEXT_TO_TITLE==Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_TitleBarIcon,  0L, 0L);
     int  iconSize=showIcon ? Handler()->wStyle()->pixelMetric(QStyle::PM_SmallIconSize) : 0;
 
-#if KDE_IS_VERSION(4, 3, 85) && !KDE_IS_VERSION(4, 8, 80)
-    QList<ClientGroupItem> tabList  = clientGroupItems();
-    const int              tabCount = tabList.count();
-
-    // Delete unneeded tab close buttons
-    while(tabCount < m_closeButtons.size() || (1==tabCount && m_closeButtons.size() > 0))
-    {
-        QtCurveButton *btn = m_closeButtons.takeFirst();
-        btn->hide();
-        btn->deleteLater();
-    }
-
-    if(tabCount>1)
-    {
-        QRect allTabGeom = titleRect().adjusted(-1, -titleEdgeTop, 1, 0),
-              tabGeom    = allTabGeom;
-        int   activeTab  = visibleClientGroupItem();
-
-        tabGeom.setWidth(tabGeom.width() / tabCount + 1); // Split titlebar evenly
-        for(int i = 0; i < tabCount; ++i)
-        {
-            // Last tab may have a different width due to rounding
-            if(i==tabCount - 1)
-                tabGeom.setWidth(allTabGeom.width() - tabGeom.width() * i + i - 1);
-
-            int iconSize(TAB_CLOSE_ICON_SIZE);
-
-            if(0==i)
-                paintTabSeparator(&painter, tabGeom);
-            paintTitle(&painter, tabGeom.adjusted(showIcon ? constTitlePad : 0, 0,
-                                                  -(iconSize+(showIcon ? constTitlePad : 0)), 0), QRect(), tabList[i].title(),
-                       showIcon ? tabList[i].icon().pixmap(iconSize) : QPixmap(),  0, true, activeTab==i);
-
-            if(i >= m_closeButtons.size())
-                m_closeButtons.append(new QtCurveButton(ItemCloseButton, this));
-            //m_closeButtons[i]->setActive(isActive() && visibleClientGroupItem()==i);
-            m_closeButtons[i]->setFixedSize(iconSize, iconSize);
-            m_closeButtons[i]->move(tabGeom.right() - iconSize,
-                                     tabGeom.top() + titleEdgeTop + ((tabGeom.height()-iconSize)/2));
-            m_closeButtons[i]->installEventFilter(this);
-            m_closeButtons[i]->show();
-
-            QRect br(tabGeom);
-
-            tabGeom.translate(tabGeom.width() - 1, 0);
-            paintTabSeparator(&painter, tabGeom.adjusted(-1, 0, -1, 0));
-
-            if(i!=activeTab)
-            {
-                QColor gray(Qt::black);
-                gray.setAlphaF(0.1);
-                painter.fillRect(br.adjusted(0==i ? 1 : 0, 0, 0, 0), gray);
-            }
-
-            if(m_dragInProgress && m_targetTab>constInvalidTab &&
-                (i==m_targetTab || ((i==tabCount-1) && m_targetTab==tabCount)))
-            {
-                QPixmap arrow(SmallIcon("arrow-down"));
-                painter.drawPixmap(br.x()+(m_targetTab==tabCount ? tabGeom.width() : 0)-(arrow.width()/2), br.y()+2, arrow);
-            }
-        }
-    }
-    else
-    {
-#endif
-        m_captionRect=captionRect(); // also update m_captionRect!
-        paintTitle(&painter, m_captionRect, QRect(rectX+titleEdgeLeft, m_captionRect.y(),
-                                                   rectX2-(titleEdgeRight+rectX+titleEdgeLeft),
-                                                   m_captionRect.height()),
-                   m_caption, showIcon ? icon().pixmap(iconSize) : QPixmap(), shadowSize);
-#if KDE_IS_VERSION(4, 3, 85) && !KDE_IS_VERSION(4, 8, 80)
-
-        if(constAddToEmpty==m_targetTab)
-        {
-            QPixmap arrow(SmallIcon("list-add"));
-            painter.drawPixmap(m_captionRect.x(),
-                               m_captionRect.y()+((m_captionRect.height()-arrow.height())/2),
-                               arrow);
-        }
-    }
-#endif
+    m_captionRect=captionRect(); // also update m_captionRect!
+    paintTitle(&painter, m_captionRect, QRect(rectX+titleEdgeLeft, m_captionRect.y(),
+                                              rectX2-(titleEdgeRight+rectX+titleEdgeLeft),
+                                              m_captionRect.height()),
+               m_caption, showIcon ? icon().pixmap(iconSize) : QPixmap(), shadowSize);
 
     bool hideToggleButtons(true);
     int  toggleButtons(Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_ToggleButtons, NULL, NULL));
@@ -830,14 +682,9 @@ void QtCurveClient::paintEvent(QPaintEvent *e)
         if(!m_toggleStatusBarButton && toggleButtons&0x02 && (Handler()->wasLastStatus(windowId()) || getStatusbarSizeProperty(windowId())>-1))
             m_toggleStatusBarButton=createToggleButton(false);
 
-    //     if(m_hover)
+        // if (m_hover)
         {
-            if(
-#if KDE_IS_VERSION(4, 3, 85) && !KDE_IS_VERSION(4, 8, 80)
-                1==tabCount &&
-#endif
-                active && (m_toggleMenuBarButton||m_toggleStatusBarButton))
-            {
+            if (active && (m_toggleMenuBarButton||m_toggleStatusBarButton)) {
                 if( (buttonsLeftWidth()+buttonsRightWidth()+constTitlePad+
                     (m_toggleMenuBarButton ? m_toggleMenuBarButton->width() : 0) +
                     (m_toggleStatusBarButton ? m_toggleStatusBarButton->width() : 0)) < r.width())
@@ -1041,21 +888,20 @@ QtCurveClient::paintTitle(QPainter *painter, const QRect &capRect,
 
 void QtCurveClient::updateWindowShape()
 {
-    if(isMaximized())
+    if (isMaximized()) {
         clearMask();
-    else
-    {
-        QRect r(
-#if KDE_IS_VERSION(4, 3, 0)
-                Handler()->customShadows()
-                    ? widget()->rect().adjusted(layoutMetric(LM_OuterPaddingLeft), layoutMetric(LM_OuterPaddingTop),
-                                               -layoutMetric(LM_OuterPaddingRight),
-                                                COMPOSITING_ENABLED ? 0 : -layoutMetric(LM_OuterPaddingBottom))
-                    :
-#endif
-                      widget()->rect());
+    } else {
+        QRect r(Handler()->customShadows() ?
+                widget()->rect()
+                .adjusted(layoutMetric(LM_OuterPaddingLeft),
+                          layoutMetric(LM_OuterPaddingTop),
+                          -layoutMetric(LM_OuterPaddingRight),
+                          compositingActive() ? 0 :
+                          -layoutMetric(LM_OuterPaddingBottom)) :
+                widget()->rect());
 
-        setMask(getMask(Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_Round, NULL, NULL), r));
+        setMask(getMask(Handler()->wStyle()->pixelMetric(
+                            (QStyle::PixelMetric)QtC_Round, NULL, NULL), r));
     }
 }
 
@@ -1166,14 +1012,13 @@ QRect QtCurveClient::captionRect() const
                            titleEdgeLeft - layoutMetric(LM_TitleEdgeRight) -
                            buttonsLeftWidth() - buttonsRightWidth() -
                            marginLeft - marginRight);
-#if KDE_IS_VERSION(4, 3, 0)
-    if(Handler()->customShadows())
-    {
-        int shadowSize=Handler()->shadowCache().shadowSize();
-        return QRect(titleLeft+shadowSize, r.top()+titleEdgeTop+shadowSize, titleWidth-(shadowSize*2), titleHeight);
+    if (Handler()->customShadows()) {
+        int shadowSize = Handler()->shadowCache().shadowSize();
+        return QRect(titleLeft + shadowSize,
+                     r.top() + titleEdgeTop + shadowSize,
+                     titleWidth - shadowSize * 2, titleHeight);
     }
-#endif
-    return QRect(titleLeft, r.top()+titleEdgeTop, titleWidth, titleHeight);
+    return QRect(titleLeft, r.top() + titleEdgeTop, titleWidth, titleHeight);
 }
 
 void QtCurveClient::updateCaption()
@@ -1190,293 +1035,32 @@ void QtCurveClient::updateCaption()
 
 bool QtCurveClient::eventFilter(QObject *o, QEvent *e)
 {
-    if(QEvent::StyleChange==e->type())
+    if (e->type() == QEvent::StyleChange) {
         Handler()->setStyle();
-
-//     if(widget()==o)
-//     {
-//         if(m_toggleMenuBarButton || m_toggleStatusBarButton)
-//             switch(e->type())
-//             {
-//                 case QEvent::Enter:
-//                     m_hover=true;
-//                     widget()->update();
-//                     break;
-//                 case QEvent::Leave:
-//                     m_hover=false;
-//                     widget()->update();
-//                 default:
-//                     break;
-//             }
-//         return true;
-//     }
-
-#if KDE_IS_VERSION(4, 3, 85) && !KDE_IS_VERSION(4, 8, 80)
-    if (Handler()->grouping()) {
-        if (QtCurveButton *btn = qobject_cast<QtCurveButton*>(o)) {
-            if(QEvent::MouseButtonPress==e->type())
-                return true; // No-op
-            else if(QEvent::MouseButtonRelease==e->type())
-            {
-                const QMouseEvent *me = static_cast<QMouseEvent *>(e);
-                if(Qt::LeftButton==me->button() && btn->rect().contains(me->pos()))
-                    closeClientGroupItem(m_closeButtons.indexOf(btn));
-                return true;
-            }
-        }
-
-        bool state = false;
-        if(QEvent::MouseButtonPress==e->type())
-            state = mouseButtonPressEvent(static_cast<QMouseEvent *>(e));
-        else if(QEvent::MouseButtonRelease==e->type() && widget()==o)
-            state = mouseButtonReleaseEvent(static_cast<QMouseEvent *>(e));
-        else if(QEvent::MouseMove==e->type())
-            state = mouseMoveEvent(static_cast<QMouseEvent *>(e));
-        else if(QEvent::DragEnter==e->type() && widget()==o)
-            state = dragEnterEvent(static_cast<QDragEnterEvent *>(e));
-        else if(QEvent::DragMove==e->type() && widget()==o)
-            state = dragMoveEvent(static_cast<QDragMoveEvent *>(e));
-        else if(QEvent::DragLeave==e->type() && widget()==o)
-            state = dragLeaveEvent(static_cast<QDragLeaveEvent *>(e));
-        else if(QEvent::Drop==e->type() && widget()==o)
-            state = dropEvent(static_cast<QDropEvent *>(e));
-
-        return state || KCommonDecorationUnstable::eventFilter(o, e);
     }
-#endif
+
+    // if (widget() == o) {
+    //     if (m_toggleMenuBarButton || m_toggleStatusBarButton)
+    //         switch (e->type()) {
+    //         case QEvent::Enter:
+    //             m_hover = true;
+    //             widget()->update();
+    //             break;
+    //         case QEvent::Leave:
+    //             m_hover = false;
+    //             widget()->update();
+    //         default:
+    //             break;
+    //         }
+    //     return true;
+    // }
+
     return KCommonDecoration::eventFilter(o, e);
 }
 
-#if KDE_IS_VERSION(4, 3, 85) && !KDE_IS_VERSION(4, 8, 80)
-bool QtCurveClient::mouseButtonPressEvent(QMouseEvent *e)
-{
-    m_clickPoint = widget()->mapToParent(e->pos());
-
-    int item = itemClicked(m_clickPoint);
-
-    if(OperationsOp==buttonToWindowOperation(e->button()))
-    {
-        displayClientMenu(item, widget()->mapToGlobal(m_clickPoint));
-        return true;
-    }
-    if(item >= 0)
-    {
-        m_clickInProgress = true;
-        m_mouseButton = e->button();
-        return true;
-    }
-    m_clickInProgress = false;
-    return false;
-}
-
-bool QtCurveClient::mouseButtonReleaseEvent(QMouseEvent *e)
-{
-    int item = itemClicked(widget()->mapToParent(e->pos()));
-
-    if(m_clickInProgress && item >= 0)
-    {
-        m_clickInProgress = false;
-        setVisibleClientGroupItem(item);
-        return true;
-    }
-    m_clickInProgress = false;
-    return false;
-}
-
-bool QtCurveClient::mouseMoveEvent(QMouseEvent *e)
-{
-    QPoint c    = e->pos();
-    int    item = itemClicked(c);
-
-    if(item >= 0 && m_clickInProgress && ClientGroupDragOp==buttonToWindowOperation(m_mouseButton) &&
-       (c - m_clickPoint).manhattanLength() >= 4)
-    {
-        m_clickInProgress = false;
-        m_dragInProgress = true;
-
-        QDrag     *drag      = new QDrag(widget());
-        QMimeData *groupData = new QMimeData();
-
-        groupData->setData(clientGroupItemDragMimeType(), QString().setNum(itemId(item)).toAscii());
-        drag->setMimeData(groupData);
-
-        // Create draggable tab pixmap
-        QList<ClientGroupItem> tabList  = clientGroupItems();
-        const int              tabCount = tabList.count();
-        QRect frame(QPoint(0, 0), widget()->frameGeometry().size()),
-              titlebar(frame.topLeft(), QSize(frame.width(),
-                       layoutMetric(LM_TitleEdgeTop) + layoutMetric(LM_TitleHeight) +
-                       layoutMetric(LM_TitleEdgeBottom) - 1 // Titlebar and main frame overlap by 1px
-                       )),
-              geom = titleRect().adjusted(-1, -layoutMetric(LM_TitleEdgeTop), 1, 0);
-
-        geom.setWidth(geom.width() / tabCount + 1); // Split titlebar evenly
-        geom.translate(geom.width() * item - item, 0);
-        QPixmap pix(geom.size());
-        pix.fill(Qt::transparent);
-        QPainter painter(&pix);
-
-        bool  showIcon=TITLEBAR_ICON_NEXT_TO_TITLE==Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_TitleBarIcon,  0L, 0L);
-        int   iconSize=showIcon ? Handler()->wStyle()->pixelMetric(QStyle::PM_SmallIconSize) : 0;
-        QRect r(0, 0, geom.size().width()-(tabList.count() ? (TAB_CLOSE_ICON_SIZE+constTitlePad) : 0), geom.size().height());
-
-        painter.save();
-        painter.setRenderHint(QPainter::Antialiasing, true);
-
-        QStyleOptionTitleBar opt;
-        QColor               col(KDecoration::options()->color(KDecoration::ColorTitleBar, isActive()));
-
-        opt.init(widget());
-        opt.palette.setColor(QPalette::Window, col);
-        opt.palette.setColor(QPalette::Button, col);
-        opt.rect=r;
-        opt.titleBarState=(isActive() ? QStyle::State_Active : QStyle::State_None)|QtC_StateKWin;
-        opt.state|=QtC_StateKWin|QtC_StateKWinNoBorder|QtC_StateKWinTabDrag;
-        Handler()->wStyle()->drawComplexControl(QStyle::CC_TitleBar, &opt, &painter, widget());
-        painter.restore();
-        paintTitle(&painter, r, QRect(), tabList[item].title(), showIcon ? tabList[item].icon().pixmap(iconSize) : QPixmap(), 0,
-                   true, true);
-
-        drag->setPixmap(pix);
-        // If the cursor is on top of the pixmap then it makes the movement jerky on some systems
-        //drag->setHotSpot(QPoint(c.x() - geom.x(), c.y() - geom.y()));
-        drag->setHotSpot(QPoint(c.x() - geom.x(), -1));
-
-        drag->exec(Qt::MoveAction);
-        m_dragInProgress = false;
-        if(drag->target()==0 && tabList.count() > 1)
-        { // Remove window from group and move to where the cursor is located
-            QPoint pos = QCursor::pos();
-            frame.moveTo(pos.x() - c.x(), pos.y() - c.y());
-            removeFromClientGroup(itemClicked(m_clickPoint), frame);
-        }
-        return true;
-    }
-    return false;
-}
-
-bool QtCurveClient::dragEnterEvent(QDragEnterEvent *e)
-{
-    if(e->mimeData()->hasFormat(clientGroupItemDragMimeType()))
-    {
-        m_dragInProgress = true;
-        e->acceptProposedAction();
-        if(1==clientGroupItems().count() && widget()!=e->source())
-            m_targetTab = constAddToEmpty;
-        else
-            m_targetTab = itemClicked(widget()->mapToParent(e->pos()), true, true);
-        widget()->update();
-        return true;
-    }
-    return false;
-}
-
-bool QtCurveClient::dropEvent(QDropEvent *e)
-{
-    QPoint point    = widget()->mapToParent(e->pos());
-    int    tabClick = itemClicked(point, true, true);
-
-    m_dragInProgress = false;
-    if(tabClick >= 0)
-    {
-        const QMimeData *groupData = e->mimeData();
-        if(groupData->hasFormat(clientGroupItemDragMimeType()))
-        {
-            if(widget()==e->source())
-                moveItemInClientGroup(itemClicked(m_clickPoint), itemClicked(point, true, true));
-            else
-                moveItemToClientGroup(QString(groupData->data(clientGroupItemDragMimeType())).toLong(), itemClicked(point, true, true));
-            m_targetTab=constInvalidTab;
-            widget()->update();
-            return true;
-        }
-    }
-    else if(constInvalidTab!=m_targetTab)
-    {
-        m_targetTab=constInvalidTab;
-        widget()->update();
-    }
-    return false;
-}
-
-bool QtCurveClient::dragMoveEvent(QDragMoveEvent *e)
-{
-    if(e->mimeData()->hasFormat(clientGroupItemDragMimeType()))
-    {
-        e->acceptProposedAction();
-        int tt = 1==clientGroupItems().count() && widget()!=e->source()
-                    ? constAddToEmpty
-                    : itemClicked(widget()->mapToParent(e->pos()), true, true);
-        if(m_targetTab!=tt)
-        {
-            m_targetTab=tt;
-            widget()->update();
-        }
-        return true;
-    }
-    return false;
-}
-
-bool QtCurveClient::dragLeaveEvent(QDragLeaveEvent *)
-{
-    m_dragInProgress = false;
-    m_targetTab = constInvalidTab;
-    widget()->update();
-    return false;
-}
-
-int QtCurveClient::itemClicked(const QPoint &point, bool between, bool drag)
-{
-    QRect                  title = titleRect();
-    QList<ClientGroupItem> list = clientGroupItems();
-    int                    tabs = list.count(),
-                           shadowSize = Handler()->customShadows() ? Handler()->shadowCache().shadowSize() : 0,
-                           titleX = title.x()-shadowSize,
-                           frameY = 0,
-                           titleWidth = title.width(),
-                           titleHeight = layoutMetric(LM_TitleEdgeTop) +
-                                         layoutMetric(LM_TitleHeight) +
-                                         layoutMetric(LM_TitleEdgeBottom) + shadowSize,
-                           tabWidth = titleWidth/tabs;
-
-    if(drag)
-    {
-        if(point.x() <= title.left())
-            return 0;
-        else if(point.x() >= titleRect().right())
-            return tabs;
-    }
-
-    if(between) // We are inserting a new tab between two existing ones
-        titleX -= tabWidth / 2;
-
-    int rem  = titleWidth%(tabs+(drag ? 1 : 0)),
-        tabX = titleX;
-
-    for(int i = 0; i < tabs+(drag ? 1 : 0); ++i)
-    {
-        QRect tabRect(tabX, frameY, i<rem?tabWidth+1:tabWidth, titleHeight);
-
-        if(tabRect.contains(point))
-            return i;
-        tabX += tabRect.width();
-    }
-
-    return constInvalidTab;
-}
-#endif
-
 void QtCurveClient::reset(unsigned long changed)
 {
-#if KDE_IS_VERSION(4, 3, 85) && !KDE_IS_VERSION(4, 8, 80)
-    if(changed & SettingCompositing)
-    {
-        updateWindowShape();
-        widget()->update();
-    }
-#endif
-    if (changed&(SettingColors|SettingFont|SettingBorder))
-    {
+    if (changed & (SettingColors | SettingFont | SettingBorder)) {
         // Reset button backgrounds...
         for(int i=0; i<constNumButtonStates; ++i)
            m_buttonBackground[i].pix=QPixmap();

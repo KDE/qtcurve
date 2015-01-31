@@ -145,11 +145,7 @@ bool QtCurveHandler::reset(unsigned long changed)
     m_hoverCols[1]=KColorScheme(QPalette::Active).decoration(KColorScheme::HoverColor).color();
 
     // read in the configuration
-    bool configChanged=readConfig(
-#if KDE_IS_VERSION(4, 3, 85)
-                                  changed & SettingCompositing
-#endif
-                                  );
+    bool configChanged = readConfig(changed & SettingCompositing);
 
     setBorderSize();
 
@@ -245,20 +241,12 @@ bool QtCurveHandler::supports(Ability ability) const
     case AbilityColorTitleFore:
     case AbilityColorFrame:
         return true;
-#if KDE_IS_VERSION(4, 3, 0)
     case AbilityUsesAlphaChannel:
         return true; // !Handler()->outerBorder(); ???
     case AbilityProvidesShadow:
         return customShadows();
-#endif
-#if KDE_IS_VERSION(4, 3, 85) && !KDE_IS_VERSION(4, 8, 80)
-    case AbilityClientGrouping:
-        return grouping();
-#endif
-#if KDE_IS_VERSION(4, 5, 85)
     case AbilityUsesBlurBehind:
         return opacity(true)<100 || opacity(false)<100 || wStyle()->pixelMetric((QStyle::PixelMetric)QtC_CustomBgnd, 0L, 0L);
-#endif
         // TODO's
     default:
         return false;
@@ -290,31 +278,32 @@ bool QtCurveHandler::readConfig(bool compositingToggled)
 
     m_config.load(&configFile);
 
-#if KDE_IS_VERSION(4, 3, 85)
-    static bool borderHack=false;
-    if(borderHack)
-    {
-    m_config.setOuterBorder(KWindowSystem::compositingActive() ? QtCurveConfig::SHADE_NONE :
-                             (m_config.customShadows() ? QtCurveConfig::SHADE_SHADOW : QtCurveConfig::SHADE_DARK));
-        changedBorder=true;
-        borderHack=false;
+    static bool borderHack = false;
+    if (borderHack) {
+    m_config.setOuterBorder(KWindowSystem::compositingActive() ?
+                            QtCurveConfig::SHADE_NONE :
+                            (m_config.customShadows() ?
+                             QtCurveConfig::SHADE_SHADOW :
+                             QtCurveConfig::SHADE_DARK));
+        changedBorder = true;
+        borderHack = false;
+    } else if (compositingToggled && !m_config.outerBorder() &&
+               (m_config.borderSize() < QtCurveConfig::BORDER_TINY ||
+                (wStyle()->pixelMetric((QStyle::PixelMetric)QtC_WindowBorder,
+                                       0L, 0L) &
+                 WINDOW_BORDER_COLOR_TITLEBAR_ONLY))) {
+        QDBusConnection::sessionBus().send(
+            QDBusMessage::createSignal("/KWin", "org.kde.KWin",
+                                       "reloadConfig"));
+        borderHack = true;
     }
-    else if(compositingToggled && !m_config.outerBorder() &&
-           (m_config.borderSize()<QtCurveConfig::BORDER_TINY ||
-            (wStyle()->pixelMetric((QStyle::PixelMetric)QtC_WindowBorder, 0L, 0L)&WINDOW_BORDER_COLOR_TITLEBAR_ONLY)))
-    {
-        QDBusConnection::sessionBus().send(QDBusMessage::createSignal("/KWin", "org.kde.KWin", "reloadConfig"));
-        borderHack=true;
-    }
-#endif
 
-    m_titleHeight+=2*titleBarPad();
+    m_titleHeight += 2 * titleBarPad();
 
     QFile in(xdgConfigFolder() + "/qtcurve/" BORDER_SIZE_FILE);
-    int   prevSize(-1), prevToolSize(-1), prevSide(-1), prevBot(-1);
+    int prevSize(-1), prevToolSize(-1), prevSide(-1), prevBot(-1);
 
-    if(in.open(QIODevice::ReadOnly))
-    {
+    if (in.open(QIODevice::ReadOnly)) {
         QTextStream stream(&in);
         prevSize=in.readLine().toInt();
         prevToolSize=in.readLine().toInt();
@@ -344,11 +333,9 @@ bool QtCurveHandler::readConfig(bool compositingToggled)
             sizeFile.close();
         }
     }
-#if KDE_IS_VERSION(4, 3, 0)
     bool shadowChanged(false);
 
-    if(customShadows())
-    {
+    if (customShadows()) {
         ShadowConfiguration actShadow(QPalette::Active);
         ShadowConfiguration inactShadow(QPalette::Inactive);
 
@@ -364,7 +351,6 @@ bool QtCurveHandler::readConfig(bool compositingToggled)
         if(shadowChanged || oldConfig.roundBottom()!=roundBottom())
             m_shadowCache.reset();
     }
-#endif
 
     if(m_dBus && (borderSizesChanged || changedBorder))
     {
@@ -372,13 +358,9 @@ bool QtCurveHandler::readConfig(bool compositingToggled)
         borderSizeChanged(); // Gtk2 apps...
     }
 
-    return changedBorder ||
-           oldSize!=m_titleHeight ||
-           oldToolSize!=m_titleHeightTool ||
-#if KDE_IS_VERSION(4, 3, 0)
-           shadowChanged ||
-#endif
-           m_config!=oldConfig;
+    return (changedBorder || oldSize != m_titleHeight ||
+            oldToolSize != m_titleHeightTool || shadowChanged ||
+            m_config != oldConfig);
 }
 
 const QBitmap & QtCurveHandler::buttonBitmap(ButtonIcon type, const QSize &size, bool toolWindow)
@@ -469,17 +451,7 @@ void QtCurveHandler::removeClient(QtCurveClient *c)
 
 }
 
-#if KDE_IS_VERSION(4, 9, 0)
 KWIN_DECORATION(KWinQtCurve::QtCurveHandler)
-#else
-extern "C" {
-KDE_EXPORT KDecorationFactory*
-create_factory()
-{
-    return new KWinQtCurve::QtCurveHandler();
-}
-}
-#endif
 
 #include "qtcurvedbus.moc"
 #include "qtcurvehandler.moc"

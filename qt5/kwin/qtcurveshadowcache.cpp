@@ -47,9 +47,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #include <kdeversion.h>
-#if KDE_IS_VERSION(4, 3, 0)
 
-#include <cassert>
 #include <KColorUtils>
 #include <KColorScheme>
 #include <QPainter>
@@ -159,10 +157,8 @@ QPixmap QtCurveShadowCache::simpleShadowPixmap(const QColor &color, bool active,
     p.setRenderHint(QPainter::Antialiasing);
     p.setPen(Qt::NoPen);
 
-    if(shadowSize)
-    {
-        if(ShadowConfiguration::SH_ACTIVE==shadowConfiguration.shadowType())
-        {
+    if (shadowSize) {
+        if (ShadowConfiguration::SH_ACTIVE == shadowConfiguration.shadowType()) {
             {
                 // inner (shark) gradient
                 const qreal gradientSize = qMin( shadowSize,(shadowSize+fixedSize)/2 );
@@ -421,5 +417,3 @@ QtCurveShadowCache::Key::Key(const QtCurveClient *client)
 }
 
 }
-
-#endif

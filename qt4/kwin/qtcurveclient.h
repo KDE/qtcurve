@@ -45,13 +45,7 @@ class QtCurveSizeGrip;
 class QtCurveButton;
 class QtCurveToggleButton;
 
-class QtCurveClient :
-#if KDE_IS_VERSION(4, 3, 0)
-                       public KCommonDecorationUnstable
-#else
-                       public KCommonDecoration
-#endif
-{
+class QtCurveClient : public KCommonDecorationUnstable {
     Q_OBJECT
 public:
     QtCurveClient(KDecorationBridge *bridge, QtCurveHandler *factory);
@@ -92,24 +86,13 @@ public Q_SLOTS:
     void toggleStatusBar();
 
 private:
-#if KDE_IS_VERSION(4, 3, 85) && !KDE_IS_VERSION(4, 8, 80)
-    bool mouseSingleClickEvent(QMouseEvent *e);
-    bool mouseMoveEvent(QMouseEvent *e);
-    bool mouseButtonPressEvent(QMouseEvent *e);
-    bool mouseButtonReleaseEvent(QMouseEvent *e);
-    bool dragMoveEvent(QDragMoveEvent *e);
-    bool dragLeaveEvent(QDragLeaveEvent *e);
-    bool dragEnterEvent(QDragEnterEvent *e);
-    bool dropEvent(QDropEvent *e);
-    int itemClicked(const QPoint &point, bool between=false, bool drag=false);
-#endif
     bool onlyMenuIcon(bool left) const;
     QRect captionRect() const;
     void createSizeGrip();
     void deleteSizeGrip();
     void informAppOfActiveChange();
     const QString &windowClass();
-private:
+
     struct ButtonBgnd {
         QPixmap pix;
         int app;
@@ -128,14 +111,6 @@ private:
     QtCurveToggleButton *m_toggleMenuBarButton;
     QtCurveToggleButton *m_toggleStatusBarButton;
     // bool m_hover;
-#if KDE_IS_VERSION(4, 3, 85) && !KDE_IS_VERSION(4, 8, 80)
-    QList<QtCurveButton*> m_closeButtons;
-    bool m_clickInProgress;
-    bool m_dragInProgress;
-    Qt::MouseButton m_mouseButton;
-    QPoint m_clickPoint;
-    int m_targetTab;
-#endif
 };
 
 }
