@@ -37,7 +37,6 @@ class KDoubleNumInput;
 class CExportThemeDialog;
 #endif
 class QtCurveConfig;
-class QtCurveKWinConfig;
 class QStyle;
 class QMdiSubWindow;
 class CWorkspace;
@@ -45,6 +44,10 @@ class CStylePreview;
 class CImagePropertiesDialog;
 class KAboutData;
 class KComponentData;
+
+namespace QtCurve {
+class KWinConfig;
+}
 
 class CGradientPreview: public QWidget {
     Q_OBJECT
@@ -229,7 +232,7 @@ private:
                            *alphaVals[NUM_STD_ALPHAS];
     QString                currentText,
                            defaultText;
-    QtCurveKWinConfig      *kwin;
+    QtCurve::KWinConfig *kwin;
     int                    kwinPage;
     bool                   readyForPreview;
     CImagePropertiesDialog *bgndPixmapDlg,

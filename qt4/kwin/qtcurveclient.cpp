@@ -179,7 +179,7 @@ static void drawFadedLine(QPainter *painter, const QRect &r, const QColor &col, 
 static void fillBackground(EAppearance app, QPainter &painter, const QColor &col, const QRect &fillRect, const QRect &widgetRect, const QPainterPath path)
 {
     if (!qtcIsFlatBgnd(app) || !widgetRect.isEmpty()) {
-        QtCurve::Style::BgndOption opt;
+        Style::BgndOption opt;
         opt.state|=QtC_StateKWin;
         opt.rect=fillRect;
         opt.widgetRect=widgetRect;

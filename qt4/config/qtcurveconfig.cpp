@@ -1725,8 +1725,8 @@ void QtCurveConfig::setupStack()
     new CStackItem(stackList, i18n("Checks and Radios"), i++);
     new CStackItem(stackList, i18n("Windows"), i++);
 
-    kwin=new QtCurveKWinConfig(0L, this);
-    kwinPage=i;
+    kwin = new QtCurve::KWinConfig(0L, this);
+    kwinPage = i;
 
     if(kwin->ok())
     {

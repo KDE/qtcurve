@@ -1764,10 +1764,10 @@ Style::polish(QWidget *widget)
     } else if (widget->inherits("Q3Header")) {
         widget->setMouseTracking(true);
         widget->installEventFilter(this);
-    } else if(opts.highlightScrollViews && widget->inherits("Q3ScrollView")) {
+    } else if (opts.highlightScrollViews && widget->inherits("Q3ScrollView")) {
         widget->installEventFilter(this);
         widget->setAttribute(Qt::WA_Hover, true);
-    } else if(qobject_cast<QMenuBar*>(widget)) {
+    } else if (qobject_cast<QMenuBar*>(widget)) {
         if (opts.xbar &&
             (!(qtcOneOf(theThemedApp, APP_QTDESIGNER, APP_KDEVELOP) &&
                widget->inherits("QDesignerMenuBar")))) {

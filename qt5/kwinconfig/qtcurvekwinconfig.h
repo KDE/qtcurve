@@ -36,14 +36,14 @@
 #include "../kwin/qtcurveconfig.h"
 
 class KConfig;
-class KConfigGroup;
 
-class QtCurveKWinConfig: public QWidget, public Ui::QtCurveKWinConfigWidget {
+namespace QtCurve {
+
+class KWinConfig: public QWidget, public Ui::QtCurveKWinConfigWidget {
     Q_OBJECT
-
 public:
-    QtCurveKWinConfig(KConfig *config, QWidget *parent);
-    ~QtCurveKWinConfig();
+    KWinConfig(KConfig *config, QWidget *parent);
+    ~KWinConfig();
 
     void setNote(const QString &txt);
     void load(KConfig *config);
@@ -60,20 +60,22 @@ private:
     void innerBorderChanged();
     void outerBorderChanged();
     void setShadows();
-    void setWidgets(const QtCurve::KWin::QtCurveConfig &cfg);
+    void setWidgets(const KWin::QtCurveConfig &cfg);
     void setWidgetStates();
     void shadowsChanged();
     void sizeChanged();
 
     bool m_ok;
-    QtCurve::KWin::ShadowConfig m_activeShadows;
-    QtCurve::KWin::ShadowConfig m_inactiveShadows;
+    KWin::ShadowConfig m_activeShadows;
+    KWin::ShadowConfig m_inactiveShadows;
 };
 
 inline bool
-QtCurveKWinConfig::ok()
+KWinConfig::ok()
 {
     return m_ok;
+}
+
 }
 
 #endif
