@@ -27,14 +27,13 @@
 
 class QStyle;
 
-namespace KWinQtCurve {
+namespace QtCurve {
+namespace KWin {
 
 class QtCurveClient;
 
-class QtCurveToggleButton : public KCommonDecorationButton
-{
-    public:
-
+class QtCurveToggleButton: public KCommonDecorationButton {
+public:
     QtCurveToggleButton(bool menubar, QtCurveClient *parent);
     ~QtCurveToggleButton() { }
 
@@ -59,6 +58,7 @@ class QtCurveToggleButton : public KCommonDecorationButton
                   m_hover;
 };
 
+}
 }
 
 #endif

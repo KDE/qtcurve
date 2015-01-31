@@ -60,14 +60,14 @@ private:
     void innerBorderChanged();
     void outerBorderChanged();
     void setShadows();
-    void setWidgets(const KWinQtCurve::QtCurveConfig &cfg);
+    void setWidgets(const QtCurve::KWin::QtCurveConfig &cfg);
     void setWidgetStates();
     void shadowsChanged();
     void sizeChanged();
 
     bool m_ok;
-    KWinQtCurve::ShadowConfiguration m_activeShadows;
-    KWinQtCurve::ShadowConfiguration m_inactiveShadows;
+    QtCurve::KWin::ShadowConfig m_activeShadows;
+    QtCurve::KWin::ShadowConfig m_inactiveShadows;
 };
 
 inline bool

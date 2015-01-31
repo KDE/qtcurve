@@ -24,8 +24,8 @@
 #include <KDE/KConfig>
 #include <KDE/KConfigGroup>
 
-namespace KWinQtCurve
-{
+namespace QtCurve {
+namespace KWin {
 
 #define GROUP "General"
 
@@ -148,4 +148,5 @@ void QtCurveConfig::save(KConfig *cfg, const char *grp)
     WRITE_ENTRY("EdgePad", m_edgePad);
 }
 
+}
 }

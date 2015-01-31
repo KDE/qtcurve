@@ -25,7 +25,8 @@
 
 class KConfig;
 
-namespace KWinQtCurve {
+namespace QtCurve {
+namespace KWin {
 
 class QtCurveConfig {
 public:
@@ -112,6 +113,7 @@ public:
           m_edgePad;
 };
 
+}
 }
 
 #endif

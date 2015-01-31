@@ -59,7 +59,8 @@
 
 #include <style/qtcurve.h>
 
-namespace KWinQtCurve {
+namespace QtCurve {
+namespace KWin {
 
 static const int constTitlePad = 4;
 
@@ -1253,4 +1254,5 @@ QtCurveClient::createToggleButton(bool menubar)
     return button;
 }
 
+}
 }

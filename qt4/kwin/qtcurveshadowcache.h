@@ -60,45 +60,44 @@
 
 class QtCurveHelper;
 
-namespace KWinQtCurve {
+namespace QtCurve {
+namespace KWin {
 
 class QtCurveClient;
 
-class QtCurveShadowCache
-{
-    public:
-
+class QtCurveShadowCache {
+public:
     QtCurveShadowCache();
     virtual ~QtCurveShadowCache() { }
 
     const QColor & color(bool active)
     {
-        return active ? activeShadowConfiguration_.color() : inactiveShadowConfiguration_.color();
+        return active ? m_activeShadowConfig.color() : m_inactiveShadowConfig.color();
     }
 
     void invalidateCaches()
     {
-        shadowCache_.clear();
+        m_shadowCache.clear();
     }
 
     //! returns true if provided shadow configuration changes with respect to stored
     /*!
-    use ShadowConfiguration::colorRole() to decide whether it should be stored
+    use ShadowConfig::colorRole() to decide whether it should be stored
     as active or inactive
     */
-    bool shadowConfigurationChanged(const ShadowConfiguration &other) const;
+    bool shadowConfigChanged(const ShadowConfig &other) const;
 
     //! set shadowConfiguration
     /*!
-    use ShadowConfiguration::colorRole() to decide whether it should be stored
+    use ShadowConfig::colorRole() to decide whether it should be stored
     as active or inactive
     */
-    void setShadowConfiguration(const ShadowConfiguration &other);
+    void setShadowConfig(const ShadowConfig &other);
 
     //! shadow size
     qreal shadowSize() const
     {
-        qreal size(qMax(activeShadowConfiguration_.shadowSize(), inactiveShadowConfiguration_.shadowSize()));
+        qreal size(qMax(m_activeShadowConfig.shadowSize(), m_inactiveShadowConfig.shadowSize()));
 
         // even if shadows are disabled, you need a minimum size to allow corner rendering
         return qMax(size, qreal(5.0));
@@ -167,7 +166,7 @@ class QtCurveShadowCache
     //! simple pixmap
     QPixmap simpleShadowPixmap(const QColor &color, bool active, bool roundAllCorners) const;
 
-    void reset() { shadowCache_.clear(); }
+    void reset() { m_shadowCache.clear(); }
 
     private:
 
@@ -177,10 +176,12 @@ class QtCurveShadowCache
 
     typedef QCache<int, TileSet> TileSetCache;
 
-    ShadowConfiguration activeShadowConfiguration_,
-        inactiveShadowConfiguration_;
-    TileSetCache               shadowCache_;
+    ShadowConfig m_activeShadowConfig;
+    ShadowConfig m_inactiveShadowConfig;
+    TileSetCache m_shadowCache;
 };
+
+}
 }
 
 #endif

@@ -42,7 +42,8 @@
 
 class QStyle;
 
-namespace KWinQtCurve {
+namespace QtCurve {
+namespace KWin {
 
 enum ButtonIcon {
     CloseIcon = 0,
@@ -226,6 +227,7 @@ private:
     QtCurveShadowCache m_shadowCache;
 };
 QtCurveHandler *Handler();
+}
 }
 
 #endif

@@ -29,15 +29,16 @@
 #include <QApplication>
 #include "qtcurveshadowconfiguration.h"
 
-namespace KWinQtCurve {
+namespace QtCurve {
+namespace KWin {
 
-ShadowConfiguration::ShadowConfiguration(QPalette::ColorGroup colorGroup)
-                          : m_colorGroup(colorGroup)
+ShadowConfig::ShadowConfig(QPalette::ColorGroup colorGroup)
+    : m_colorGroup(colorGroup)
 {
     defaults();
 }
 
-void ShadowConfiguration::defaults()
+void ShadowConfig::defaults()
 {
     m_hOffset = 0;
     m_vOffset = 5;
@@ -55,31 +56,33 @@ void ShadowConfiguration::defaults()
     }
 }
 
-void ShadowConfiguration::setColorType(ColorType ct)
+void ShadowConfig::setColorType(ColorType ct)
 {
-    m_colorType=ct;
-    switch(m_colorType)
-    {
-        default:
-        case CT_FOCUS:
-            m_color = KColorScheme(m_colorGroup).decoration(KColorScheme::FocusColor).color();
-            break;
-        case CT_HOVER:
-            m_color = KColorScheme(m_colorGroup).decoration(KColorScheme::HoverColor).color();
-            break;
-        case CT_SELECTION:
-            m_color = QApplication::palette().color(m_colorGroup, QPalette::Highlight);
-            break;
-        case CT_TITLEBAR:
-            m_color = QPalette::Active==m_colorGroup
-                        ? KGlobalSettings::activeTitleColor()
-                        : KGlobalSettings::inactiveTitleColor();
-            break;
-        case CT_GRAY:
-            m_color = QColor("#393835");
-            break;
-        case CT_CUSTOM:
-            break;
+    m_colorType = ct;
+    switch (m_colorType) {
+    default:
+    case CT_FOCUS:
+        m_color = KColorScheme(m_colorGroup)
+            .decoration(KColorScheme::FocusColor).color();
+        break;
+    case CT_HOVER:
+        m_color = KColorScheme(m_colorGroup)
+            .decoration(KColorScheme::HoverColor).color();
+        break;
+    case CT_SELECTION:
+        m_color = QApplication::palette().color(m_colorGroup,
+                                                QPalette::Highlight);
+        break;
+    case CT_TITLEBAR:
+        m_color = (m_colorGroup == QPalette::Active ?
+                   KGlobalSettings::activeTitleColor() :
+                   KGlobalSettings::inactiveTitleColor());
+        break;
+    case CT_GRAY:
+        m_color = QColor("#393835");
+        break;
+    case CT_CUSTOM:
+        break;
     }
 }
 
@@ -89,10 +92,10 @@ void ShadowConfiguration::setColorType(ColorType ct)
         field = group.readEntry(name, def.field);       \
     } while (0)
 
-void ShadowConfiguration::load(KConfig *cfg)
+void ShadowConfig::load(KConfig *cfg)
 {
-    KConfigGroup               group(cfg, CFG_GROUP);
-    ShadowConfiguration def(m_colorGroup);
+    KConfigGroup group(cfg, CFG_GROUP);
+    ShadowConfig def(m_colorGroup);
 
     READ_ENTRY("Size", m_size);
     READ_ENTRY("HOffset", m_hOffset);
@@ -119,10 +122,10 @@ void ShadowConfiguration::load(KConfig *cfg)
         }                                       \
     } while (0)
 
-void ShadowConfiguration::save(KConfig *cfg)
+void ShadowConfig::save(KConfig *cfg)
 {
-    KConfigGroup               group(cfg, CFG_GROUP);
-    ShadowConfiguration def(m_colorGroup);
+    KConfigGroup group(cfg, CFG_GROUP);
+    ShadowConfig def(m_colorGroup);
 
     WRITE_ENTRY("Size", m_size);
     WRITE_ENTRY("HOffset", m_hOffset);
@@ -137,4 +140,5 @@ void ShadowConfiguration::save(KConfig *cfg)
     }
 }
 
+}
 }

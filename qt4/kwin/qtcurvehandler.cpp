@@ -74,7 +74,8 @@ xdgConfigFolder()
     return xdgDir;
 }
 
-namespace KWinQtCurve {
+namespace QtCurve {
+namespace KWin {
 
 // make the handler accessible to other classes...
 static QtCurveHandler *handler = 0;
@@ -336,17 +337,17 @@ bool QtCurveHandler::readConfig(bool compositingToggled)
     bool shadowChanged(false);
 
     if (customShadows()) {
-        ShadowConfiguration actShadow(QPalette::Active);
-        ShadowConfiguration inactShadow(QPalette::Inactive);
+        ShadowConfig actShadow(QPalette::Active);
+        ShadowConfig inactShadow(QPalette::Inactive);
 
         actShadow.load(&configFile);
         inactShadow.load(&configFile);
 
-        shadowChanged=m_shadowCache.shadowConfigurationChanged(actShadow) ||
-                      m_shadowCache.shadowConfigurationChanged(inactShadow);
+        shadowChanged = (m_shadowCache.shadowConfigChanged(actShadow) ||
+                         m_shadowCache.shadowConfigChanged(inactShadow));
 
-        m_shadowCache.setShadowConfiguration(actShadow);
-        m_shadowCache.setShadowConfiguration(inactShadow);
+        m_shadowCache.setShadowConfig(actShadow);
+        m_shadowCache.setShadowConfig(inactShadow);
 
         if(shadowChanged || oldConfig.roundBottom()!=roundBottom())
             m_shadowCache.reset();
@@ -450,8 +451,9 @@ void QtCurveHandler::removeClient(QtCurveClient *c)
 }
 
 }
+}
 
-KWIN_DECORATION(KWinQtCurve::QtCurveHandler)
+KWIN_DECORATION(QtCurve::KWin::QtCurveHandler)
 
 #include "qtcurvedbus.moc"
 #include "qtcurvehandler.moc"

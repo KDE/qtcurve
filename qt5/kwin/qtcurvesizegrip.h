@@ -55,17 +55,14 @@
 #include <QPaintEvent>
 #include <QMouseEvent>
 
-namespace KWinQtCurve
-{
+namespace QtCurve {
+namespace KWin {
 
-  class QtCurveClient;
+class QtCurveClient;
 
-  //! implements size grip for all widgets
-  class QtCurveSizeGrip: public QWidget
-  {
-
-    public:
-
+//! implements size grip for all widgets
+class QtCurveSizeGrip: public QWidget {
+public:
     //! constructor
     QtCurveSizeGrip( QtCurveClient* );
 
@@ -75,18 +72,15 @@ namespace KWinQtCurve
     //! event filter
     virtual bool eventFilter( QObject*, QEvent* );
 
-    public slots:
-
+public slots:
     //! update background color
     void activeChange( void );
 
-    protected slots:
-
+protected slots:
     //! embed into parent widget
     void embed( void );
 
-    protected:
-
+protected:
     //!@name event handlers
     //@{
 
@@ -105,20 +99,17 @@ namespace KWinQtCurve
     //! update position
     void updatePosition( void );
 
-    private:
-
+private:
     //! grip size
     enum {
-      OFFSET = 0,
-      GRIP_SIZE = 12
+        OFFSET = 0,
+        GRIP_SIZE = 12
     };
-
     // qtcurve client
     QtCurveClient* client_;
+};
 
-  };
-
-
+}
 }
 
 #endif

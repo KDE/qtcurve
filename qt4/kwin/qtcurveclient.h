@@ -39,7 +39,8 @@
 #include <QColor>
 #include "qtcurvehandler.h"
 
-namespace KWinQtCurve {
+namespace QtCurve {
+namespace KWin {
 
 class QtCurveSizeGrip;
 class QtCurveButton;
@@ -113,6 +114,7 @@ private:
     // bool m_hover;
 };
 
+}
 }
 
 #endif

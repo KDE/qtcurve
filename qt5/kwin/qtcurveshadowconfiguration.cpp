@@ -29,16 +29,16 @@
 #include <QApplication>
 #include "qtcurveshadowconfiguration.h"
 
-namespace KWinQtCurve
-{
+namespace QtCurve {
+namespace KWin {
 
-ShadowConfiguration::ShadowConfiguration(QPalette::ColorGroup colorGroup)
-                          : m_colorGroup(colorGroup)
+ShadowConfig::ShadowConfig(QPalette::ColorGroup colorGroup)
+    : m_colorGroup(colorGroup)
 {
     defaults();
 }
 
-void ShadowConfiguration::defaults()
+void ShadowConfig::defaults()
 {
     m_hOffset = 0;
     m_vOffset = 5;
@@ -56,7 +56,7 @@ void ShadowConfiguration::defaults()
     }
 }
 
-void ShadowConfiguration::setColorType(ColorType ct)
+void ShadowConfig::setColorType(ColorType ct)
 {
     m_colorType = ct;
     switch (m_colorType) {
@@ -73,14 +73,13 @@ void ShadowConfiguration::setColorType(ColorType ct)
         m_color = QApplication::palette().color(m_colorGroup,
                                                 QPalette::Highlight);
         break;
-    case CT_TITLEBAR: {
+    case CT_TITLEBAR:
         m_color = KColorScheme(m_colorGroup, KColorScheme::Window)
             .background(m_colorGroup == QPalette::Active ?
                         KColorScheme::ActiveBackground :
                         KColorScheme::NormalBackground)
             .color();
         break;
-    }
     case CT_GRAY:
         m_color = QColor("#393835");
         break;
@@ -95,10 +94,10 @@ void ShadowConfiguration::setColorType(ColorType ct)
         field = group.readEntry(name, def.field);       \
     } while (0)
 
-void ShadowConfiguration::load(KConfig *cfg)
+void ShadowConfig::load(KConfig *cfg)
 {
-    KConfigGroup               group(cfg, CFG_GROUP);
-    ShadowConfiguration def(m_colorGroup);
+    KConfigGroup group(cfg, CFG_GROUP);
+    ShadowConfig def(m_colorGroup);
 
     READ_ENTRY("Size", m_size);
     READ_ENTRY("HOffset", m_hOffset);
@@ -125,10 +124,10 @@ void ShadowConfiguration::load(KConfig *cfg)
         }                                       \
     } while (0)
 
-void ShadowConfiguration::save(KConfig *cfg)
+void ShadowConfig::save(KConfig *cfg)
 {
-    KConfigGroup               group(cfg, CFG_GROUP);
-    ShadowConfiguration def(m_colorGroup);
+    KConfigGroup group(cfg, CFG_GROUP);
+    ShadowConfig def(m_colorGroup);
 
     WRITE_ENTRY("Size", m_size);
     WRITE_ENTRY("HOffset", m_hOffset);
@@ -143,4 +142,5 @@ void ShadowConfiguration::save(KConfig *cfg)
     }
 }
 
+}
 }

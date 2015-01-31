@@ -58,7 +58,8 @@
 #include "qtcurveclient.h"
 #include "qtcurvehandler.h"
 
-namespace KWinQtCurve {
+namespace QtCurve {
+namespace KWin {
 
 static bool lowThreshold(const QColor &color)
 {
@@ -92,40 +93,40 @@ static QColor calcLightColor(const QColor &color)
 }
 
 QtCurveShadowCache::QtCurveShadowCache()
-                  : activeShadowConfiguration_(ShadowConfiguration(QPalette::Active))
-                  , inactiveShadowConfiguration_(ShadowConfiguration(QPalette::Inactive))
+                  : m_activeShadowConfig(ShadowConfig(QPalette::Active))
+                  , m_inactiveShadowConfig(ShadowConfig(QPalette::Inactive))
 {
-    shadowCache_.setMaxCost(1<<6);
+    m_shadowCache.setMaxCost(1<<6);
 }
 
-bool QtCurveShadowCache::shadowConfigurationChanged(const ShadowConfiguration &other) const
+bool QtCurveShadowCache::shadowConfigChanged(const ShadowConfig &other) const
 {
-    const ShadowConfiguration &local = (other.colorGroup() == QPalette::Active)
-                ? activeShadowConfiguration_:inactiveShadowConfiguration_;
+    const auto &local = (other.colorGroup() == QPalette::Active ?
+                         m_activeShadowConfig : m_inactiveShadowConfig);
     return !(local == other);
 }
 
-void QtCurveShadowCache::setShadowConfiguration(const ShadowConfiguration &other)
+void QtCurveShadowCache::setShadowConfig(const ShadowConfig &other)
 {
-    ShadowConfiguration &local = (other.colorGroup() == QPalette::Active)
-            ? activeShadowConfiguration_:inactiveShadowConfiguration_;
+    auto &local = (other.colorGroup() == QPalette::Active ?
+                   m_activeShadowConfig : m_inactiveShadowConfig);
     local = other;
-
     reset();
 }
 
-TileSet * QtCurveShadowCache::tileSet(const QtCurveClient *client, bool roundAllCorners)
+TileSet*
+QtCurveShadowCache::tileSet(const QtCurveClient *client, bool roundAllCorners)
 {
     Key key(client);
     int hash(key.hash());
 
-    if(shadowCache_.contains(hash))
-        return shadowCache_.object(hash);
+    if (m_shadowCache.contains(hash))
+        return m_shadowCache.object(hash);
 
     qreal   size(shadowSize());
     TileSet *tileSet = new TileSet(shadowPixmap(client, key.active, roundAllCorners), size, size, 1, 1);
 
-    shadowCache_.insert(hash, tileSet);
+    m_shadowCache.insert(hash, tileSet);
     return tileSet;
 }
 
@@ -142,7 +143,7 @@ QPixmap QtCurveShadowCache::simpleShadowPixmap(const QColor &color, bool active,
 {
     static const qreal fixedSize = 25.5;
 
-    const ShadowConfiguration &shadowConfiguration(active ? activeShadowConfiguration_ : inactiveShadowConfiguration_);
+    const ShadowConfig &shadowConfiguration(active ? m_activeShadowConfig : m_inactiveShadowConfig);
 
     // offsets are scaled with the shadow size
     // so that the ratio Top-shadow/Bottom-shadow is kept constant when shadow size is changed
@@ -158,7 +159,7 @@ QPixmap QtCurveShadowCache::simpleShadowPixmap(const QColor &color, bool active,
     p.setPen(Qt::NoPen);
 
     if (shadowSize) {
-        if (ShadowConfiguration::SH_ACTIVE == shadowConfiguration.shadowType()) {
+        if (ShadowConfig::SH_ACTIVE == shadowConfiguration.shadowType()) {
             {
                 // inner (shark) gradient
                 const qreal gradientSize = qMin( shadowSize,(shadowSize+fixedSize)/2 );
@@ -416,4 +417,5 @@ QtCurveShadowCache::Key::Key(const QtCurveClient *client)
 {
 }
 
+}
 }

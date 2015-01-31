@@ -30,9 +30,10 @@
 
 class KConfig;
 
-namespace KWinQtCurve {
+namespace QtCurve {
+namespace KWin {
 
-class ShadowConfiguration {
+class ShadowConfig {
 public:
     enum ColorType {
         CT_FOCUS = 0,
@@ -55,9 +56,9 @@ public:
         MAX_OFFSET = 20
     };
 
-    ShadowConfiguration(QPalette::ColorGroup);
+    ShadowConfig(QPalette::ColorGroup);
 
-    virtual ~ShadowConfiguration() { }
+    virtual ~ShadowConfig() { }
 
     void                 defaults();
     void                 load(KConfig *cfg);
@@ -82,7 +83,7 @@ public:
     const QColor &       midColor() const             { return m_color; }
     const QColor &       outerColor() const           { return m_color; }
 
-    bool operator == (const ShadowConfiguration& other) const
+    bool operator == (const ShadowConfig& other) const
     {
         return  m_colorGroup == other.m_colorGroup &&
                 m_size == other.m_size &&
@@ -102,6 +103,7 @@ private:
     QColor               m_color;
 };
 
+}
 }
 
 #endif

@@ -60,7 +60,9 @@
 #include <QPolygon>
 #include <QTimer>
 
-namespace KWinQtCurve {
+namespace QtCurve {
+namespace KWin {
+
 static inline bool
 similar(const QColor &a, const QColor &b)
 {
@@ -235,5 +237,7 @@ QtCurveSizeGrip::updatePosition()
             client().layoutMetric(QtCurveClient::LM_BorderBottom));
     }
     move(position);
+}
+
 }
 }

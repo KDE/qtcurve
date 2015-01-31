@@ -38,7 +38,8 @@
 #include "qtcurveclient.h"
 #include <common/common.h>
 
-namespace KWinQtCurve {
+namespace QtCurve {
+namespace KWin {
 
 QtCurveButton::QtCurveButton(ButtonType type, QtCurveClient *parent)
     : KCommonDecorationButton(type, parent),
@@ -689,4 +690,5 @@ IconEngine::drawObject(QPainter &p, Object object, int x, int y,
     }
 }
 
+}
 }

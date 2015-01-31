@@ -31,33 +31,33 @@
 
 static void insertColorEntries(QComboBox *combo)
 {
-    combo->insertItem(KWinQtCurve::ShadowConfiguration::CT_FOCUS, i18n("Focus"));
-    combo->insertItem(KWinQtCurve::ShadowConfiguration::CT_HOVER, i18n("Hover"));
-    combo->insertItem(KWinQtCurve::ShadowConfiguration::CT_SELECTION, i18n("Selection Background"));
-    combo->insertItem(KWinQtCurve::ShadowConfiguration::CT_TITLEBAR, i18n("Titlebar"));
-    combo->insertItem(KWinQtCurve::ShadowConfiguration::CT_GRAY, i18n("Gray"));
-    combo->insertItem(KWinQtCurve::ShadowConfiguration::CT_CUSTOM, i18n("Custom:"));
+    combo->insertItem(QtCurve::KWin::ShadowConfig::CT_FOCUS, i18n("Focus"));
+    combo->insertItem(QtCurve::KWin::ShadowConfig::CT_HOVER, i18n("Hover"));
+    combo->insertItem(QtCurve::KWin::ShadowConfig::CT_SELECTION, i18n("Selection Background"));
+    combo->insertItem(QtCurve::KWin::ShadowConfig::CT_TITLEBAR, i18n("Titlebar"));
+    combo->insertItem(QtCurve::KWin::ShadowConfig::CT_GRAY, i18n("Gray"));
+    combo->insertItem(QtCurve::KWin::ShadowConfig::CT_CUSTOM, i18n("Custom:"));
 }
 
 static void insertSizeEntries(QComboBox *combo)
 {
-    combo->insertItem(KWinQtCurve::QtCurveConfig::BORDER_NONE, i18n("No Border"));
-    combo->insertItem(KWinQtCurve::QtCurveConfig::BORDER_NO_SIDES, i18n("No Side Border"));
-    combo->insertItem(KWinQtCurve::QtCurveConfig::BORDER_TINY, i18n("Tiny"));
-    combo->insertItem(KWinQtCurve::QtCurveConfig::BORDER_NORMAL, i18n("Normal"));
-    combo->insertItem(KWinQtCurve::QtCurveConfig::BORDER_LARGE, i18n("Large"));
-    combo->insertItem(KWinQtCurve::QtCurveConfig::BORDER_VERY_LARGE, i18n("Very Large"));
-    combo->insertItem(KWinQtCurve::QtCurveConfig::BORDER_HUGE, i18n("Huge"));
-    combo->insertItem(KWinQtCurve::QtCurveConfig::BORDER_VERY_HUGE, i18n("Very Huge"));
-    combo->insertItem(KWinQtCurve::QtCurveConfig::BORDER_OVERSIZED, i18n("Oversized"));
+    combo->insertItem(QtCurve::KWin::QtCurveConfig::BORDER_NONE, i18n("No Border"));
+    combo->insertItem(QtCurve::KWin::QtCurveConfig::BORDER_NO_SIDES, i18n("No Side Border"));
+    combo->insertItem(QtCurve::KWin::QtCurveConfig::BORDER_TINY, i18n("Tiny"));
+    combo->insertItem(QtCurve::KWin::QtCurveConfig::BORDER_NORMAL, i18n("Normal"));
+    combo->insertItem(QtCurve::KWin::QtCurveConfig::BORDER_LARGE, i18n("Large"));
+    combo->insertItem(QtCurve::KWin::QtCurveConfig::BORDER_VERY_LARGE, i18n("Very Large"));
+    combo->insertItem(QtCurve::KWin::QtCurveConfig::BORDER_HUGE, i18n("Huge"));
+    combo->insertItem(QtCurve::KWin::QtCurveConfig::BORDER_VERY_HUGE, i18n("Very Huge"));
+    combo->insertItem(QtCurve::KWin::QtCurveConfig::BORDER_OVERSIZED, i18n("Oversized"));
 }
 
 static void insertShadeEntries(QComboBox *combo)
 {
-    combo->insertItem(KWinQtCurve::QtCurveConfig::SHADE_NONE, i18n("None"));
-    combo->insertItem(KWinQtCurve::QtCurveConfig::SHADE_DARK, i18n("Dark"));
-    combo->insertItem(KWinQtCurve::QtCurveConfig::SHADE_LIGHT, i18n("Light"));
-    combo->insertItem(KWinQtCurve::QtCurveConfig::SHADE_SHADOW, i18n("Shadow"));
+    combo->insertItem(QtCurve::KWin::QtCurveConfig::SHADE_NONE, i18n("None"));
+    combo->insertItem(QtCurve::KWin::QtCurveConfig::SHADE_DARK, i18n("Dark"));
+    combo->insertItem(QtCurve::KWin::QtCurveConfig::SHADE_LIGHT, i18n("Light"));
+    combo->insertItem(QtCurve::KWin::QtCurveConfig::SHADE_SHADOW, i18n("Shadow"));
 }
 
 static const char * constDBusService="org.kde.kcontrol.QtCurve";
@@ -115,18 +115,18 @@ QtCurveKWinConfig::QtCurveKWinConfig(KConfig *config, QWidget *parent)
         connect(inactiveUsesActiveGradients, SIGNAL(toggled(bool)), this, SIGNAL(changed()));
         activeShadowColorTypeChanged();
         inactiveShadowColorTypeChanged();
-        activeShadowSize->setRange(KWinQtCurve::ShadowConfiguration::MIN_SIZE,
-                                   KWinQtCurve::ShadowConfiguration::MAX_SIZE);
-        inactiveShadowSize->setRange(KWinQtCurve::ShadowConfiguration::MIN_SIZE,
-                                     KWinQtCurve::ShadowConfiguration::MAX_SIZE);
-        activeShadowHOffset->setRange(KWinQtCurve::ShadowConfiguration::MIN_OFFSET,
-                                      KWinQtCurve::ShadowConfiguration::MAX_OFFSET);
-        inactiveShadowHOffset->setRange(KWinQtCurve::ShadowConfiguration::MIN_OFFSET,
-                                        KWinQtCurve::ShadowConfiguration::MAX_OFFSET);
-        activeShadowVOffset->setRange(KWinQtCurve::ShadowConfiguration::MIN_OFFSET,
-                                      KWinQtCurve::ShadowConfiguration::MAX_OFFSET);
-        inactiveShadowVOffset->setRange(KWinQtCurve::ShadowConfiguration::MIN_OFFSET,
-                                        KWinQtCurve::ShadowConfiguration::MAX_OFFSET);
+        activeShadowSize->setRange(QtCurve::KWin::ShadowConfig::MIN_SIZE,
+                                   QtCurve::KWin::ShadowConfig::MAX_SIZE);
+        inactiveShadowSize->setRange(QtCurve::KWin::ShadowConfig::MIN_SIZE,
+                                     QtCurve::KWin::ShadowConfig::MAX_SIZE);
+        activeShadowHOffset->setRange(QtCurve::KWin::ShadowConfig::MIN_OFFSET,
+                                      QtCurve::KWin::ShadowConfig::MAX_OFFSET);
+        inactiveShadowHOffset->setRange(QtCurve::KWin::ShadowConfig::MIN_OFFSET,
+                                        QtCurve::KWin::ShadowConfig::MAX_OFFSET);
+        activeShadowVOffset->setRange(QtCurve::KWin::ShadowConfig::MIN_OFFSET,
+                                      QtCurve::KWin::ShadowConfig::MAX_OFFSET);
+        inactiveShadowVOffset->setRange(QtCurve::KWin::ShadowConfig::MIN_OFFSET,
+                                        QtCurve::KWin::ShadowConfig::MAX_OFFSET);
         setShadows();
 
         // TODO: remove
@@ -159,7 +159,7 @@ void QtCurveKWinConfig::load(KConfig *c)
     m_activeShadows.load(cfg);
     m_inactiveShadows.load(cfg);
     setShadows();
-    KWinQtCurve::QtCurveConfig config;
+    QtCurve::KWin::QtCurveConfig config;
 
     config.load(cfg, c ? KWIN_GROUP : 0L);
     setWidgets(config);
@@ -179,12 +179,12 @@ void QtCurveKWinConfig::save(KConfig *c)
 
     KConfig *cfg=c ? c : new KConfig("kwinqtcurverc");
 
-    KWinQtCurve::QtCurveConfig config;
+    QtCurve::KWin::QtCurveConfig config;
 
-    config.setBorderSize((KWinQtCurve::QtCurveConfig::Size)borderSize->currentIndex());
+    config.setBorderSize((QtCurve::KWin::QtCurveConfig::Size)borderSize->currentIndex());
     config.setRoundBottom(roundBottom->isChecked());
-    config.setOuterBorder((KWinQtCurve::QtCurveConfig::Shade)outerBorder->currentIndex());
-    config.setInnerBorder((KWinQtCurve::QtCurveConfig::Shade)innerBorder->currentIndex());
+    config.setOuterBorder((QtCurve::KWin::QtCurveConfig::Shade)outerBorder->currentIndex());
+    config.setInnerBorder((QtCurve::KWin::QtCurveConfig::Shade)innerBorder->currentIndex());
     config.setBorderlessMax(borderlessMax->isChecked());
     config.setTitleBarPad(titleBarPad->value());
     config.setEdgePad(edgePad->value());
@@ -195,17 +195,17 @@ void QtCurveKWinConfig::save(KConfig *c)
         m_activeShadows.setShadowSize(activeShadowSize->value());
         m_activeShadows.setHorizontalOffset(activeShadowHOffset->value());
         m_activeShadows.setVerticalOffset(activeShadowVOffset->value());
-        m_activeShadows.setColorType((KWinQtCurve::ShadowConfiguration::ColorType)activeShadowColorType->currentIndex());
-        if(KWinQtCurve::ShadowConfiguration::CT_CUSTOM==activeShadowColorType->currentIndex())
+        m_activeShadows.setColorType((QtCurve::KWin::ShadowConfig::ColorType)activeShadowColorType->currentIndex());
+        if(QtCurve::KWin::ShadowConfig::CT_CUSTOM==activeShadowColorType->currentIndex())
             m_activeShadows.setColor(activeShadowColor->color());
         m_inactiveShadows.setShadowSize(inactiveShadowSize->value());
         m_inactiveShadows.setHorizontalOffset(inactiveShadowHOffset->value());
         m_inactiveShadows.setVerticalOffset(inactiveShadowVOffset->value());
-        m_inactiveShadows.setColorType((KWinQtCurve::ShadowConfiguration::ColorType)inactiveShadowColorType->currentIndex());
+        m_inactiveShadows.setColorType((QtCurve::KWin::ShadowConfig::ColorType)inactiveShadowColorType->currentIndex());
         m_inactiveShadows.setShadowType(inactiveUsesActiveGradients->isChecked()
-                                            ? KWinQtCurve::ShadowConfiguration::SH_ACTIVE
-                                            : KWinQtCurve::ShadowConfiguration::SH_INACTIVE);
-        if(KWinQtCurve::ShadowConfiguration::CT_CUSTOM==inactiveShadowColorType->currentIndex())
+                                            ? QtCurve::KWin::ShadowConfig::SH_ACTIVE
+                                            : QtCurve::KWin::ShadowConfig::SH_INACTIVE);
+        if(QtCurve::KWin::ShadowConfig::CT_CUSTOM==inactiveShadowColorType->currentIndex())
             m_inactiveShadows.setColor(inactiveShadowColor->color());
     }
     else
@@ -229,7 +229,7 @@ void QtCurveKWinConfig::defaults()
     if(!m_ok)
         return;
 
-    setWidgets(KWinQtCurve::QtCurveConfig());
+    setWidgets(QtCurve::KWin::QtCurveConfig());
     m_activeShadows.defaults();
     m_inactiveShadows.defaults();
     setShadows();
@@ -237,9 +237,9 @@ void QtCurveKWinConfig::defaults()
 
 void QtCurveKWinConfig::outerBorderChanged()
 {
-    if(KWinQtCurve::QtCurveConfig::SHADE_NONE==outerBorder->currentIndex())
-        innerBorder->setCurrentIndex(KWinQtCurve::QtCurveConfig::SHADE_NONE);
-    if(KWinQtCurve::QtCurveConfig::SHADE_SHADOW==outerBorder->currentIndex())
+    if(QtCurve::KWin::QtCurveConfig::SHADE_NONE==outerBorder->currentIndex())
+        innerBorder->setCurrentIndex(QtCurve::KWin::QtCurveConfig::SHADE_NONE);
+    if(QtCurve::KWin::QtCurveConfig::SHADE_SHADOW==outerBorder->currentIndex())
         useShadows->setChecked(true);
     setWidgetStates();
     emit changed();
@@ -247,10 +247,10 @@ void QtCurveKWinConfig::outerBorderChanged()
 
 void QtCurveKWinConfig::innerBorderChanged()
 {
-    if(KWinQtCurve::QtCurveConfig::SHADE_NONE!=innerBorder->currentIndex() &&
-       KWinQtCurve::QtCurveConfig::SHADE_NONE==outerBorder->currentIndex())
+    if(QtCurve::KWin::QtCurveConfig::SHADE_NONE!=innerBorder->currentIndex() &&
+       QtCurve::KWin::QtCurveConfig::SHADE_NONE==outerBorder->currentIndex())
         outerBorder->setCurrentIndex(innerBorder->currentIndex());
-    if(KWinQtCurve::QtCurveConfig::SHADE_SHADOW==outerBorder->currentIndex())
+    if(QtCurve::KWin::QtCurveConfig::SHADE_SHADOW==outerBorder->currentIndex())
         useShadows->setChecked(true);
     emit changed();
 }
@@ -259,24 +259,24 @@ void QtCurveKWinConfig::shadowsChanged()
 {
     if(!useShadows->isChecked())
     {
-        if(KWinQtCurve::QtCurveConfig::SHADE_SHADOW==outerBorder->currentIndex())
-            outerBorder->setCurrentIndex(KWinQtCurve::QtCurveConfig::SHADE_DARK);
-        if(KWinQtCurve::QtCurveConfig::SHADE_SHADOW==innerBorder->currentIndex())
-            innerBorder->setCurrentIndex(KWinQtCurve::QtCurveConfig::SHADE_DARK);
+        if(QtCurve::KWin::QtCurveConfig::SHADE_SHADOW==outerBorder->currentIndex())
+            outerBorder->setCurrentIndex(QtCurve::KWin::QtCurveConfig::SHADE_DARK);
+        if(QtCurve::KWin::QtCurveConfig::SHADE_SHADOW==innerBorder->currentIndex())
+            innerBorder->setCurrentIndex(QtCurve::KWin::QtCurveConfig::SHADE_DARK);
     }
     emit changed();
 }
 
 void QtCurveKWinConfig::activeShadowColorTypeChanged()
 {
-    activeShadowColor->setEnabled(KWinQtCurve::ShadowConfiguration::CT_CUSTOM==activeShadowColorType->currentIndex());
+    activeShadowColor->setEnabled(QtCurve::KWin::ShadowConfig::CT_CUSTOM==activeShadowColorType->currentIndex());
     if(m_activeShadows.colorType()!=activeShadowColorType->currentIndex())
         emit changed();
 }
 
 void QtCurveKWinConfig::inactiveShadowColorTypeChanged()
 {
-    inactiveShadowColor->setEnabled(KWinQtCurve::ShadowConfiguration::CT_CUSTOM==inactiveShadowColorType->currentIndex());
+    inactiveShadowColor->setEnabled(QtCurve::KWin::ShadowConfig::CT_CUSTOM==inactiveShadowColorType->currentIndex());
     if(m_inactiveShadows.colorType()!=inactiveShadowColorType->currentIndex())
         emit changed();
 }
@@ -287,7 +287,7 @@ void QtCurveKWinConfig::sizeChanged()
     emit changed();
 }
 
-void QtCurveKWinConfig::setWidgets(const KWinQtCurve::QtCurveConfig &cfg)
+void QtCurveKWinConfig::setWidgets(const QtCurve::KWin::QtCurveConfig &cfg)
 {
     borderSize->setCurrentIndex(cfg.borderSize());
     roundBottom->setChecked(cfg.roundBottom());
@@ -305,7 +305,7 @@ void QtCurveKWinConfig::setWidgets(const KWinQtCurve::QtCurveConfig &cfg)
 
 void QtCurveKWinConfig::setWidgetStates()
 {
-    if(KWinQtCurve::QtCurveConfig::BORDER_NONE==borderSize->currentIndex())
+    if(QtCurve::KWin::QtCurveConfig::BORDER_NONE==borderSize->currentIndex())
     {
         roundBottom->setEnabled(false);
         roundBottom->setChecked(false);
@@ -313,11 +313,11 @@ void QtCurveKWinConfig::setWidgetStates()
     else
         roundBottom->setEnabled(true);
 
-    if(KWinQtCurve::QtCurveConfig::SHADE_NONE==outerBorder->currentIndex() ||
-       borderSize->currentIndex()<KWinQtCurve::QtCurveConfig::BORDER_TINY)
+    if(QtCurve::KWin::QtCurveConfig::SHADE_NONE==outerBorder->currentIndex() ||
+       borderSize->currentIndex()<QtCurve::KWin::QtCurveConfig::BORDER_TINY)
     {
         innerBorder->setEnabled(false);
-        innerBorder->setCurrentIndex(KWinQtCurve::QtCurveConfig::SHADE_NONE);
+        innerBorder->setCurrentIndex(QtCurve::KWin::QtCurveConfig::SHADE_NONE);
     }
     else
         innerBorder->setEnabled(true);
@@ -340,7 +340,7 @@ void QtCurveKWinConfig::setShadows()
     inactiveShadowVOffset->setValue(m_inactiveShadows.verticalOffset());
     inactiveShadowColor->setColor(m_inactiveShadows.color());
     inactiveShadowColorType->setCurrentIndex(m_inactiveShadows.colorType());
-    inactiveUsesActiveGradients->setChecked(KWinQtCurve::ShadowConfiguration::SH_ACTIVE==m_inactiveShadows.shadowType());
+    inactiveUsesActiveGradients->setChecked(QtCurve::KWin::ShadowConfig::SH_ACTIVE==m_inactiveShadows.shadowType());
 }
 
 extern "C"

@@ -37,7 +37,8 @@
 class QTimer;
 class QStyle;
 
-namespace KWinQtCurve {
+namespace QtCurve {
+namespace KWin {
 
 class QtCurveClient;
 
@@ -93,6 +94,7 @@ private:
                            int length, int lineWidth);
 };
 
+}
 }
 
 #endif

@@ -33,7 +33,8 @@
 #include "qtcurveclient.h"
 #include <common/common.h>
 
-namespace KWinQtCurve {
+namespace QtCurve {
+namespace KWin {
 
 static int
 point2Pixel(double point)
@@ -157,4 +158,5 @@ void QtCurveToggleButton::drawButton(QPainter *painter)
     painter->drawText(r, Qt::AlignVCenter|Qt::AlignHCenter, isMenuBar ? i18n("M") : i18n("S"));
 }
 
+}
 }

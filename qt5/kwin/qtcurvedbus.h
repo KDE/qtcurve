@@ -26,7 +26,8 @@
 #include <QDBusAbstractAdaptor>
 #include "qtcurvehandler.h"
 
-namespace KWinQtCurve {
+namespace QtCurve {
+namespace KWin {
 
 class QtCurveDBus : public QDBusAbstractAdaptor
 {
@@ -53,6 +54,7 @@ class QtCurveDBus : public QDBusAbstractAdaptor
     Q_NOREPLY void statusBarState(unsigned int xid, bool state) { Handler()->statusBarState(xid, state); }
 };
 
+}
 }
 
 #endif
