@@ -989,7 +989,8 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
                                                 CImagePropertiesDialog::SCALE);
 
     for (auto *w: {lighterPopupMenuBgnd, tabBgnd, menuDelay, crHighlight,
-                expanderHighlight, colorSelTab}) {
+                expanderHighlight, colorSelTab, highlightFactor, bgndOpacity,
+                dlgOpacity, menuBgndOpacity, splitterHighlight, gbFactor}) {
         connect(qtcSlot(w, valueChanged, (int)), qtcSlot(this, updateChanged));
     }
 
@@ -1000,7 +1001,12 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
                 glowProgress, crSize, progressAppearance,
                 progressGrooveAppearance, grooveAppearance, sunkenAppearance,
                 progressGrooveColor, menuitemAppearance, titlebarAppearance,
-                inactiveTitlebarAppearance, titlebarButtonAppearance}) {
+                inactiveTitlebarAppearance, titlebarButtonAppearance,
+                selectionAppearance, scrollbarType, windowDrag,
+                sbarBgndAppearance, sliderFill, dwtAppearance,
+                tooltipAppearance, gbLabel_textPos, titlebarAlignment,
+                titlebarEffect, titlebarIcon, tbarBtns, tbarBtnAppearance,
+                tbarBtnEffect}) {
         connect(qtcSlot(w, currentIndexChanged, (int)),
                 qtcSlot(this, updateChanged));
     }
@@ -1011,22 +1017,71 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
                 darkerBorders, comboSplitter, unifyCombo, vArrows, xCheck,
                 crButton, roundAllTabs, borderTab, borderInactiveTab,
                 invertBotTab, doubleGtkComboArrow, stdSidebarButtons,
-                toolbarTabs, centerTabText, borderMenuitems, popupBorder}) {
+                toolbarTabs, centerTabText, borderMenuitems, popupBorder,
+                windowBorder_fill, windowBorder_separator, lvLines, lvButton,
+                drawStatusBarFrames, menubarMouseOver,
+                shadeMenubarOnlyWhenActive, thin_menuitems, thin_buttons,
+                thin_frames, hideShortcutUnderline, gtkScrollViews,
+                highlightScrollViews, etchEntry, flatSbarButtons,
+                colorSliderMouseOver, windowBorder_addLightBorder,
+                dwtBtnAsPerTitleBar, dwtColAsPerTitleBar,
+                dwtIconColAsPerTitleBar, dwtFontAsPerTitleBar,
+                dwtTextAsPerTitleBar, dwtEffectAsPerTitleBar, dwtRoundTopOnly,
+                smallRadio, gtkComboMenus, mapKdeIcons, colorMenubarMouseOver,
+                useHighlightForMenu, gbLabel_bold, gbLabel_centred, fadeLines,
+                menuIcons, stdBtnSizes, forceAlternateLvCols, boldProgress,
+                coloredTbarMo, borderSelection, squareEntry, squareLvSelection,
+                squareScrollViews, squareFrame, squareTabFrame, squareSlider,
+                squareScrollbarSlider, squareWindows, squareTooltips,
+                squarePopupMenus, titlebarButtons_button,
+                titlebarButtons_customIcon, titlebarButtons_noFrame,
+                titlebarButtons_round, titlebarButtons_hoverFrame,
+                titlebarButtons_hoverSymbol, titlebarButtons_hoverSymbolFull,
+                titlebarButtons_sunkenBackground, titlebarButtons_arrowMinMax,
+                titlebarButtons_colorOnMouseOver,
+                titlebarButtons_colorSymbolsOnly, titlebarButtons_colorInactive,
+                titlebarButtons_hideOnInactiveWindow}) {
         connect(qtcSlot(w, toggled), qtcSlot(this, updateChanged));
     }
 
     for (auto *w: {customComboBtnColor, customSortedLvColor,
-                customProgressColor}) {
-        connect(qtcSlot(w, changed),
-                qtcSlot(this, updateChanged));
+                customProgressColor, customMenuStripeColor,
+                customCheckRadioColor, customSlidersColor, customMenubarsColor,
+                customMenuSelTextColor, customMenuNormTextColor,
+                customCrBgndColor, titlebarButtons_colorClose,
+                titlebarButtons_colorMin, titlebarButtons_colorMax,
+                titlebarButtons_colorKeepAbove, titlebarButtons_colorKeepBelow,
+                titlebarButtons_colorHelp, titlebarButtons_colorMenu,
+                titlebarButtons_colorShade, titlebarButtons_colorAllDesktops,
+                titlebarButtons_colorCloseIcon, titlebarButtons_colorMinIcon,
+                titlebarButtons_colorMaxIcon,
+                titlebarButtons_colorKeepAboveIcon,
+                titlebarButtons_colorKeepBelowIcon,
+                titlebarButtons_colorHelpIcon, titlebarButtons_colorMenuIcon,
+                titlebarButtons_colorShadeIcon,
+                titlebarButtons_colorAllDesktopsIcon,
+                titlebarButtons_colorCloseInactiveIcon,
+                titlebarButtons_colorMinInactiveIcon,
+                titlebarButtons_colorMaxInactiveIcon,
+                titlebarButtons_colorKeepAboveInactiveIcon,
+                titlebarButtons_colorKeepBelowInactiveIcon,
+                titlebarButtons_colorHelpInactiveIcon,
+                titlebarButtons_colorMenuInactiveIcon,
+                titlebarButtons_colorShadeInactiveIcon,
+                titlebarButtons_colorAllDesktopsInactiveIcon}) {
+        connect(qtcSlot(w, changed), qtcSlot(this, updateChanged));
+    }
+
+    for (auto *w: {noBgndGradientApps, noBgndOpacityApps,
+                noMenuBgndOpacityApps, noBgndImageApps, useQtFileDialogApps,
+                menubarApps, statusbarApps, noMenuStripeApps}) {
+        connect(qtcSlot(w, editingFinished), qtcSlot(this, updateChanged));
     }
 
     connect(qtcSlot(sliderWidth, valueChanged, (int)),
             qtcSlot(this, sliderWidthChanged));
     connect(qtcSlot(menuStripe, currentIndexChanged, (int)),
             qtcSlot(this, menuStripeChanged));
-    connect(qtcSlot(customMenuStripeColor, changed),
-            qtcSlot(this, updateChanged));
     connect(qtcSlot(round, currentIndexChanged, (int)),
             qtcSlot(this, roundChanged));
     connect(qtcSlot(sliderThumbs, currentIndexChanged, (int)),
@@ -1063,185 +1118,44 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
             qtcSlot(this, windowBorder_colorTitlebarOnlyChanged));
     connect(qtcSlot(windowBorder_blend, toggled),
             qtcSlot(this, windowBorder_blendChanged));
-    connect(qtcSlot(windowBorder_fill, toggled),
-            qtcSlot(this, updateChanged));
     connect(qtcSlot(windowBorder_menuColor, toggled),
             qtcSlot(this, windowBorder_menuColorChanged));
-    connect(qtcSlot(windowBorder_separator, toggled),
-            qtcSlot(this, updateChanged));
-    connect(qtcSlot(selectionAppearance, currentIndexChanged, (int)),
-            qtcSlot(this, updateChanged));
     connect(qtcSlot(shadeCheckRadio, currentIndexChanged, (int)),
             qtcSlot(this, shadeCheckRadioChanged));
-    connect(qtcSlot(customCheckRadioColor, changed),
-            qtcSlot(this, updateChanged));
     connect(qtcSlot(focus, currentIndexChanged, (int)),
             qtcSlot(this, focusChanged));
-    connect(qtcSlot(lvLines, toggled), qtcSlot(this, updateChanged));
-    connect(qtcSlot(lvButton, toggled), qtcSlot(this, updateChanged));
-    connect(qtcSlot(drawStatusBarFrames, toggled),
-            qtcSlot(this, updateChanged));
     connect(qtcSlot(buttonEffect, currentIndexChanged, (int)),
             qtcSlot(this, buttonEffectChanged));
     connect(qtcSlot(coloredMouseOver, currentIndexChanged, (int)),
             qtcSlot(this, coloredMouseOverChanged));
-    connect(qtcSlot(menubarMouseOver, toggled), qtcSlot(this, updateChanged));
-    connect(qtcSlot(shadeMenubarOnlyWhenActive, toggled),
-            qtcSlot(this, updateChanged));
-    connect(qtcSlot(thin_menuitems, toggled), qtcSlot(this, updateChanged));
-    connect(qtcSlot(thin_buttons, toggled), qtcSlot(this, updateChanged));
-    connect(qtcSlot(thin_frames, toggled), qtcSlot(this, updateChanged));
-    connect(qtcSlot(hideShortcutUnderline, toggled),
-            qtcSlot(this, updateChanged));
-    connect(qtcSlot(customSlidersColor, changed), qtcSlot(this, updateChanged));
-    connect(qtcSlot(customMenubarsColor, changed),
-            qtcSlot(this, updateChanged));
-    connect(qtcSlot(customMenuSelTextColor, changed),
-            qtcSlot(this, updateChanged));
-    connect(qtcSlot(customMenuNormTextColor, changed),
-            qtcSlot(this, updateChanged));
     connect(qtcSlot(shadeSliders, currentIndexChanged, (int)),
             qtcSlot(this, shadeSlidersChanged));
     connect(qtcSlot(shadeMenubars, currentIndexChanged, (int)),
             qtcSlot(this, shadeMenubarsChanged));
-    connect(qtcSlot(highlightFactor, valueChanged, (int)),
-            qtcSlot(this, updateChanged));
-    connect(qtcSlot(scrollbarType, currentIndexChanged, (int)),
-            qtcSlot(this, updateChanged));
     connect(qtcSlot(shading, currentIndexChanged, (int)),
             qtcSlot(this, shadingChanged));
-    connect(qtcSlot(gtkScrollViews, toggled), qtcSlot(this, updateChanged));
-    connect(qtcSlot(highlightScrollViews, toggled),
-            qtcSlot(this, updateChanged));
-    connect(qtcSlot(etchEntry, toggled), qtcSlot(this, updateChanged));
-    connect(qtcSlot(flatSbarButtons, toggled),
-            qtcSlot(this, updateChanged));
     connect(qtcSlot(borderSbarGroove, toggled),
             qtcSlot(this, borderSbarGrooveChanged));
     connect(qtcSlot(thinSbarGroove, toggled),
             qtcSlot(this, thinSbarGrooveChanged));
-    connect(qtcSlot(colorSliderMouseOver, toggled),
-            qtcSlot(this, updateChanged));
-    connect(qtcSlot(windowBorder_addLightBorder, toggled),
-            qtcSlot(this, updateChanged));
-    connect(qtcSlot(windowDrag, currentIndexChanged, (int)),
-            qtcSlot(this, updateChanged));
-    connect(qtcSlot(sbarBgndAppearance, currentIndexChanged, (int)),
-            qtcSlot(this, updateChanged));
-    connect(qtcSlot(sliderFill, currentIndexChanged, (int)),
-            qtcSlot(this, updateChanged));
     connect(qtcSlot(bgndAppearance, currentIndexChanged, (int)),
             qtcSlot(this, bgndAppearanceChanged));
     connect(qtcSlot(bgndImage, currentIndexChanged, (int)),
             qtcSlot(this, bgndImageChanged));
-    for (auto *w: {bgndOpacity, dlgOpacity}) {
-        connect(qtcSlot(w, valueChanged, (int)), qtcSlot(this, updateChanged));
-    }
+
     // TODO
     connect(menuBgndImage, SIGNAL(currentIndexChanged(int)), SLOT(menuBgndImageChanged()));
-    connect(menuBgndOpacity, SIGNAL(valueChanged(int)), SLOT(updateChanged()));
-    connect(dwtAppearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(tooltipAppearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(dwtBtnAsPerTitleBar, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(dwtColAsPerTitleBar, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(dwtIconColAsPerTitleBar, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(dwtFontAsPerTitleBar, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(dwtTextAsPerTitleBar, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(dwtEffectAsPerTitleBar, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(dwtRoundTopOnly, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(crColor, SIGNAL(currentIndexChanged(int)), SLOT(crColorChanged()));
-    connect(customCrBgndColor, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(smallRadio, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(splitterHighlight, SIGNAL(valueChanged(int)), SLOT(updateChanged()));
-    connect(gtkComboMenus, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(gtkButtonOrder, SIGNAL(toggled(bool)), SLOT(gtkButtonOrderChanged()));
     connect(reorderGtkButtons, SIGNAL(toggled(bool)), SLOT(reorderGtkButtonsChanged()));
-    connect(mapKdeIcons, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(passwordChar, SIGNAL(clicked()), SLOT(passwordCharClicked()));
     connect(groupBox, SIGNAL(currentIndexChanged(int)), SLOT(groupBoxChanged()));
-    connect(gbFactor, SIGNAL(valueChanged(int)), SLOT(updateChanged()));
-    connect(colorMenubarMouseOver, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(useHighlightForMenu, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(gbLabel_bold, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(gbLabel_textPos, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(gbLabel_centred, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(fadeLines, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(menuIcons, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(stdBtnSizes, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(forceAlternateLvCols, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(titlebarAlignment, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(titlebarEffect, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(titlebarIcon, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(boldProgress, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(coloredTbarMo, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(tbarBtns, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(tbarBtnAppearance, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(tbarBtnEffect, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
-    connect(borderSelection, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(borderProgress, SIGNAL(toggled(bool)), SLOT(borderProgressChanged()));
-    connect(fillProgress, SIGNAL(toggled(bool)), SLOT(fillProgressChanged()));
-    connect(squareEntry, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(squareProgress, SIGNAL(toggled(bool)), SLOT(squareProgressChanged()));
-    connect(squareLvSelection, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(squareScrollViews, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(squareFrame, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(squareTabFrame, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(squareSlider, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(squareScrollbarSlider, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(squareWindows, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(squareTooltips, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(squarePopupMenus, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(titlebarButtons_button, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(titlebarButtons_custom, SIGNAL(toggled(bool)), SLOT(titlebarButtons_customChanged()));
     connect(titlebarButtons_useHover, SIGNAL(toggled(bool)), SLOT(titlebarButtons_useHoverChanged()));
-    connect(titlebarButtons_customIcon, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(titlebarButtons_noFrame, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(titlebarButtons_round, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(titlebarButtons_hoverFrame, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(titlebarButtons_hoverSymbol, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(titlebarButtons_hoverSymbolFull, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(titlebarButtons_sunkenBackground, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(titlebarButtons_arrowMinMax, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorOnMouseOver, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorSymbolsOnly, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorInactive, SIGNAL(toggled(bool)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorClose, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorMin, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorMax, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorKeepAbove, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorKeepBelow, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorHelp, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorMenu, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorShade, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorAllDesktops, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorCloseIcon, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorMinIcon, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorMaxIcon, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorKeepAboveIcon, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorKeepBelowIcon, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorHelpIcon, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorMenuIcon, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorShadeIcon, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorAllDesktopsIcon, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorCloseInactiveIcon, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorMinInactiveIcon, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorMaxInactiveIcon, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorKeepAboveInactiveIcon, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorKeepBelowInactiveIcon, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorHelpInactiveIcon, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorMenuInactiveIcon, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorShadeInactiveIcon, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_colorAllDesktopsInactiveIcon, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
-    connect(titlebarButtons_hideOnInactiveWindow, SIGNAL(toggled(bool)), SLOT(updateChanged()));
 
-    connect(noBgndGradientApps, SIGNAL(editingFinished()), SLOT(updateChanged()));
-    connect(noBgndOpacityApps, SIGNAL(editingFinished()), SLOT(updateChanged()));
-    connect(noMenuBgndOpacityApps, SIGNAL(editingFinished()), SLOT(updateChanged()));
-    connect(noBgndImageApps, SIGNAL(editingFinished()), SLOT(updateChanged()));
-    connect(useQtFileDialogApps, SIGNAL(editingFinished()), SLOT(updateChanged()));
-    connect(menubarApps, SIGNAL(editingFinished()), SLOT(updateChanged()));
-    connect(statusbarApps, SIGNAL(editingFinished()), SLOT(updateChanged()));
-    connect(noMenuStripeApps, SIGNAL(editingFinished()), SLOT(updateChanged()));
+    connect(borderProgress, SIGNAL(toggled(bool)), SLOT(borderProgressChanged()));
+    connect(fillProgress, SIGNAL(toggled(bool)), SLOT(fillProgressChanged()));
+    connect(squareProgress, SIGNAL(toggled(bool)), SLOT(squareProgressChanged()));
 
     menubarBlend->setIcon(QtCurve::loadKIcon("configure"));
     connect(menubarBlend, SIGNAL(clicked(bool)), SLOT(menubarTitlebarBlend()));

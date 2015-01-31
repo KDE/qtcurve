@@ -111,7 +111,6 @@ public Q_SLOTS:
     void defaults();
 
 private Q_SLOTS:
-    void updateChanged();
     void gtkButtonOrderChanged();
     void reorderGtkButtonsChanged();
     void roundChanged();
@@ -209,6 +208,7 @@ private:
     void thinSbarGrooveChanged();
     void unifySpinBtnsToggled();
     void unifySpinToggled();
+    void updateChanged();
     void updateGradStop();
     void windowBorder_blendChanged();
     void windowBorder_colorTitlebarOnlyChanged();
