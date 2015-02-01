@@ -191,7 +191,7 @@ private:
     int _dragDelay;
     // ! wrapper for exception id
     class ExceptionId: public QPair<QString, QString> {
-public:
+    public:
         ExceptionId(const QString &value)
         {
             const QStringList args(value.split("@"));

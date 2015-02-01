@@ -355,14 +355,10 @@ void KWinConfig::setShadows()
 
 }
 
-extern "C" {
-
-QTC_EXPORT QObject*
+extern "C" Q_DECL_EXPORT QObject*
 allocate_config(KConfig *config, QWidget *parent)
 {
     return new QtCurve::KWinConfig(config, parent);
-}
-
 }
 
 #include "qtcurvekwinconfig.moc"

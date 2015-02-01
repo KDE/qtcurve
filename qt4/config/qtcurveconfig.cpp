@@ -90,7 +90,7 @@
 #define IMAGE_FILE "-img"
 #define MENU_FILE  "-menu"
 
-extern "C" KDE_EXPORT QObject*
+extern "C" Q_DECL_EXPORT QObject*
 allocate_kstyle_config(QWidget *parent)
 {
     KGlobal::locale()->insertCatalog("qtcurve");

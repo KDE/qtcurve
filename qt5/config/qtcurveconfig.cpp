@@ -101,12 +101,10 @@
 #define IMAGE_FILE "-img"
 #define MENU_FILE  "-menu"
 
-extern "C" {
-Q_DECL_EXPORT QWidget*
+extern "C" Q_DECL_EXPORT QWidget*
 allocate_kstyle_config(QWidget* parent)
 {
     return new QtCurveConfig(parent);
-}
 }
 
 static QString getExt(const QString &file)
