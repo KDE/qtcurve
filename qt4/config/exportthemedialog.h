@@ -33,27 +33,21 @@
 class KUrlRequester;
 class QLineEdit;
 
-class CExportThemeDialog : public KDialog
-{
+class CExportThemeDialog: public KDialog {
     Q_OBJECT
-
-    public:
-
+public:
     CExportThemeDialog(QWidget *parent);
 
-    void  run(const Options &o);
+    void run(const Options &o);
     QSize sizeHint() const;
 
-    private slots:
-
+private:
     void slotButtonClicked(int button);
 
-    private:
-
-    QLineEdit     *themeName,
-                  *themeComment;
+    QLineEdit *themeName;
+    QLineEdit *themeComment;
     KUrlRequester *themeUrl;
-    Options       opts;
+    Options opts;
 };
 
 #endif

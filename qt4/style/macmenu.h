@@ -52,15 +52,21 @@ public:
     void hover(qlonglong key, int idx, int x, int y);
     void popDown(qlonglong key);
     void raise(qlonglong key);
-public slots:
+
+public Q_SLOTS:
     void activate();
     void deactivate();
+
 protected:
     bool eventFilter(QObject *o, QEvent *ev);
-protected:
-    friend class FullscreenWatcher;
     void deactivate(QWidget *window);
     void activate(QWidget *window);
+    friend class FullscreenWatcher;
+
+private Q_SLOTS:
+    void menuClosed();
+    void _release(QObject*);
+
 private:
     Q_DISABLE_COPY(MacMenu)
     MacMenu();
@@ -74,9 +80,6 @@ private:
     QMap<QMenuBar_p, QList<QAction*> > actions;
     bool usingMacMenu;
     QString service;
-private slots:
-    void menuClosed();
-    void _release(QObject*);
 };
 } // namespace
 

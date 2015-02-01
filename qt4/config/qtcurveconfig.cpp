@@ -332,8 +332,6 @@ public:
         setFlags(flags()|Qt::ItemIsEditable);
     }
 
-    virtual ~CGradItem() { }
-
     bool
     operator<(const QTreeWidgetItem &i) const
     {

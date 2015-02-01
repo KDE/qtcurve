@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2007 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2013 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -51,11 +51,14 @@
 
 //#define NEW_SHADOWS
 
+#include "qtcurveshadowconfiguration.h"
+#include "tileset.h"
+
+#include <qtcurve-utils/number.h>
+
 #include <QCache>
 #include <QRadialGradient>
 
-#include "qtcurveshadowconfiguration.h"
-#include "tileset.h"
 #include <cmath>
 
 class QtCurveHelper;
@@ -68,111 +71,113 @@ class QtCurveClient;
 class QtCurveShadowCache {
 public:
     QtCurveShadowCache();
-    virtual ~QtCurveShadowCache() { }
 
-    const QColor & color(bool active)
+    const QColor&
+    color(bool active)
     {
-        return active ? m_activeShadowConfig.color() : m_inactiveShadowConfig.color();
+        return (active ? m_activeShadowConfig.color() :
+                m_inactiveShadowConfig.color());
     }
 
-    void invalidateCaches()
+    void
+    invalidateCaches()
     {
         m_shadowCache.clear();
     }
 
-    //! returns true if provided shadow configuration changes with respect to stored
+    //! returns true if provided shadow configuration changes with respect to
+    //  stored
     /*!
-    use ShadowConfig::colorRole() to decide whether it should be stored
-    as active or inactive
-    */
+     * use ShadowConfig::colorRole() to decide whether it should be stored
+     * as active or inactive
+     */
     bool shadowConfigChanged(const ShadowConfig &other) const;
 
     //! set shadowConfiguration
     /*!
-    use ShadowConfig::colorRole() to decide whether it should be stored
-    as active or inactive
-    */
+     * use ShadowConfig::colorRole() to decide whether it should be stored
+     * as active or inactive
+     */
     void setShadowConfig(const ShadowConfig &other);
 
     //! shadow size
-    qreal shadowSize() const
+    qreal
+    shadowSize() const
     {
-        qreal size(qMax(m_activeShadowConfig.shadowSize(), m_inactiveShadowConfig.shadowSize()));
+        qreal size(qMax(m_activeShadowConfig.shadowSize(),
+                        m_inactiveShadowConfig.shadowSize()));
 
-        // even if shadows are disabled, you need a minimum size to allow corner rendering
-        return qMax(size, qreal(5.0));
+        // even if shadows are disabled, you need a minimum size to allow
+        // corner rendering
+        return qMax(size, 5.0);
     }
 
-    TileSet * tileSet(const QtCurveClient *client, bool roundAllCorners);
+    TileSet *tileSet(const QtCurveClient *client, bool roundAllCorners);
 
     //! Key class to be used into QCache
     /*! class is entirely inline for optimization */
-    class Key
-    {
-        public:
-
+    class Key {
+    public:
         explicit Key() : active(false), isShade(false) {}
         Key(const QtCurveClient *client);
-        Key(int hash) : active((hash>>1)&1), isShade((hash)&1) {}
+        Key(int hash) : active((hash >> 1) & 1), isShade(hash & 1) {}
 
-        int hash() const { return (active <<1)|(isShade); }
+        int hash() const
+        {
+            return (active << 1) | isShade;
+        }
 
-        bool active,
-             isShade;
+        const bool active;
+        const bool isShade;
     };
 
-    static qreal square(qreal x) { return x*x; }
-
-    class Parabolic
-    {
-        public:
-
+    class Parabolic {
+    public:
         //! constructor
-        Parabolic(qreal amplitude, qreal width): amplitude_( amplitude ), width_( width ) {}
-
-        //! destructor
-        virtual ~Parabolic() {}
-
+        Parabolic(qreal amplitude, qreal width)
+            : m_amplitude(amplitude), m_width(width) {}
         //! value
-        virtual qreal operator() (qreal x)  const { return qMax( 0.0, amplitude_*(1.0 - square(x/width_) ) ); }
-
-        private:
-
-        qreal amplitude_;
-        qreal width_;
-
+        qreal
+        operator() (qreal x) const
+        {
+            return qMax(0.0, m_amplitude * (1.0 - qtcSquare(x / m_width)));
+        }
+    private:
+        const qreal m_amplitude;
+        const qreal m_width;
     };
 
-    class Gaussian
-    {
-        public:
-
-        Gaussian(qreal amplitude, qreal width): amplitude_(amplitude), width_(width) {}
-
-        virtual ~Gaussian() {}
-
+    class Gaussian {
+    public:
+        Gaussian(qreal amplitude, qreal width)
+            : m_amplitude(amplitude), m_width(width) {}
         //! value
-        virtual qreal operator() (qreal x) const { return qMax( 0.0, amplitude_*(std::exp( -square(x/width_) -0.05 ) ) ); }
-
-        private:
-
-        qreal amplitude_,
-              width_;
+        qreal
+        operator() (qreal x) const
+        {
+            return qMax(0.0, m_amplitude *
+                        (std::exp(-qtcSquare(x / m_width) - 0.05)));
+        }
+    private:
+        const qreal m_amplitude;
+        const qreal m_width;
     };
 
     //! complex pixmap (when needed)
-    QPixmap shadowPixmap(const QtCurveClient *client, bool active, bool roundAllCorners) const;
+    QPixmap shadowPixmap(const QtCurveClient *client, bool active,
+                         bool roundAllCorners) const;
 
     //! simple pixmap
-    QPixmap simpleShadowPixmap(const QColor &color, bool active, bool roundAllCorners) const;
+    QPixmap simpleShadowPixmap(const QColor &color, bool active,
+                               bool roundAllCorners) const;
 
     void reset() { m_shadowCache.clear(); }
 
-    private:
-
+private:
     //! draw gradient into rect
     /*! a separate method is used in order to properly account for corners */
-    void renderGradient(QPainter &p, const QRectF &rect, const QRadialGradient &rg, bool hasBorder) const;
+    void renderGradient(QPainter &p, const QRectF &rect,
+                        const QRadialGradient &rg, bool hasBorder) const;
 
     typedef QCache<int, TileSet> TileSetCache;
 

@@ -113,59 +113,55 @@ public:
     Style();
     ~Style();
 
-    virtual void polish(QApplication *app) override;
-    virtual void polish(QPalette &palette) override;
-    virtual void polish(QWidget *widget) override;
-    virtual void unpolish(QApplication *app) override;
-    virtual void unpolish(QWidget *widget) override;
+    void polish(QApplication *app) override;
+    void polish(QPalette &palette) override;
+    void polish(QWidget *widget) override;
+    void unpolish(QApplication *app) override;
+    void unpolish(QWidget *widget) override;
 
-    virtual bool eventFilter(QObject *object, QEvent *event) override;
-    virtual void timerEvent(QTimerEvent *event) override;
+    bool eventFilter(QObject *object, QEvent *event) override;
+    void timerEvent(QTimerEvent *event) override;
 
-    virtual int pixelMetric(PixelMetric metric, const QStyleOption *option=0,
-                            const QWidget *widget=0) const override;
-    virtual int styleHint(StyleHint hint, const QStyleOption *option,
-                          const QWidget *widget,
-                          QStyleHintReturn *returnData=0) const override;
-    virtual QSize sizeFromContents(ContentsType type,
-                                   const QStyleOption *option,
-                                   const QSize &size,
-                                   const QWidget *widget) const override;
-    virtual QPalette standardPalette() const override;
-    virtual QIcon standardIcon(StandardPixmap pix, const QStyleOption *option=0,
-                               const QWidget *widget=0) const override;
-    virtual int layoutSpacing(QSizePolicy::ControlType control1,
-                              QSizePolicy::ControlType control2,
-                              Qt::Orientation orientation,
-                              const QStyleOption *option = 0,
-                              const QWidget *widget = 0) const override;
+    int pixelMetric(PixelMetric metric, const QStyleOption *option=0,
+                    const QWidget *widget=0) const override;
+    int styleHint(StyleHint hint, const QStyleOption *option,
+                  const QWidget *widget,
+                  QStyleHintReturn *returnData=0) const override;
+    QSize sizeFromContents(ContentsType type, const QStyleOption *option,
+                           const QSize &size,
+                           const QWidget *widget) const override;
+    QPalette standardPalette() const override;
+    QIcon standardIcon(StandardPixmap pix, const QStyleOption *option=0,
+                       const QWidget *widget=0) const override;
+    int layoutSpacing(QSizePolicy::ControlType control1,
+                      QSizePolicy::ControlType control2,
+                      Qt::Orientation orientation,
+                      const QStyleOption *option=0,
+                      const QWidget *widget=0) const override;
 
-    virtual void drawPrimitive(PrimitiveElement element,
-                               const QStyleOption *option,
-                               QPainter *painter,
-                               const QWidget *widget) const override;
-    virtual void drawControl(ControlElement control, const QStyleOption *option,
-                             QPainter *painter,
-                             const QWidget *widget) const override;
-    virtual void drawComplexControl(ComplexControl control,
-                                    const QStyleOptionComplex *option,
-                                    QPainter *painter,
-                                    const QWidget *widget) const override;
-    virtual void drawItemText(QPainter *painter, const QRect &rect, int flags,
-                              const QPalette &pal, bool enabled,
-                              const QString &text, QPalette::ColorRole textRole=
-                              QPalette::NoRole) const override;
+    void drawPrimitive(PrimitiveElement element, const QStyleOption *option,
+                       QPainter *painter,
+                       const QWidget *widget) const override;
+    void drawControl(ControlElement control, const QStyleOption *option,
+                     QPainter *painter, const QWidget *widget) const override;
+    void drawComplexControl(ComplexControl control,
+                            const QStyleOptionComplex *option,
+                            QPainter *painter,
+                            const QWidget *widget) const override;
+    void drawItemText(QPainter *painter, const QRect &rect, int flags,
+                      const QPalette &pal, bool enabled, const QString &text,
+                      QPalette::ColorRole=QPalette::NoRole) const override;
 
-    virtual QRect subElementRect(SubElement element, const QStyleOption *option,
-                                 const QWidget *widget) const override;
-    virtual QRect subControlRect(ComplexControl control,
-                                 const QStyleOptionComplex *option,
-                                 SubControl subControl,
-                                 const QWidget *widget) const override;
-    virtual SubControl hitTestComplexControl(ComplexControl control,
-                                             const QStyleOptionComplex *option,
-                                             const QPoint &pos,
-                                             const QWidget *widget) const override;
+    QRect subElementRect(SubElement element, const QStyleOption *option,
+                         const QWidget *widget) const override;
+    QRect subControlRect(ComplexControl control,
+                         const QStyleOptionComplex *option,
+                         SubControl subControl,
+                         const QWidget *widget) const override;
+    SubControl hitTestComplexControl(ComplexControl control,
+                                     const QStyleOptionComplex *option,
+                                     const QPoint &pos,
+                                     const QWidget *widget) const override;
 
     Options&
     options()

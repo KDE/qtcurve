@@ -50,7 +50,7 @@ class QtCurveClient : public KCommonDecorationUnstable {
     Q_OBJECT
 public:
     QtCurveClient(KDecorationBridge *bridge, QtCurveHandler *factory);
-    virtual ~QtCurveClient();
+    ~QtCurveClient() override;
 
     QString visibleName() const;
     bool decorationBehaviour(DecorationBehaviour behaviour) const;

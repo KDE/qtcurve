@@ -35,7 +35,7 @@ class ShortcutHandler: public QObject {
 
 public:
     explicit ShortcutHandler(QObject *parent=0);
-    virtual ~ShortcutHandler();
+    ~ShortcutHandler() override;
 
     bool hasSeenAlt(const QWidget *widget) const;
     bool
@@ -46,16 +46,13 @@ public:
     bool showShortcut(const QWidget *widget) const;
 
 private Q_SLOTS:
-
     void widgetDestroyed(QObject *o);
 
 protected:
-
     void updateWidget(QWidget *w);
     bool eventFilter(QObject *watched, QEvent *event);
 
 private:
-
     bool m_altDown;
     QSet<QWidget*> m_seenAlt;
     QSet<QWidget*> m_updated;

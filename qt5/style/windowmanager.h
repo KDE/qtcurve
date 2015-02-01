@@ -66,7 +66,6 @@ class WindowManager: public QObject {
     Q_OBJECT
 public:
     explicit WindowManager(QObject*);
-    virtual ~WindowManager(void) {}
 
     //! initialize
     /*! read relevant options from OxygenStyleConfigData */
@@ -80,108 +79,125 @@ public:
     void unregisterWidget(QWidget*);
 
     //! event filter [reimplemented]
-    virtual bool eventFilter(QObject*, QEvent*);
+    bool eventFilter(QObject*, QEvent*) override;
 
 protected:
     //! timer event,
     /*! used to start drag if button is pressed for a long enough time */
-    void timerEvent( QTimerEvent* );
-
+    void timerEvent(QTimerEvent*) override;
     //! mouse press event
     bool mousePressEvent( QObject*, QEvent* );
-
     //! mouse move event
     bool mouseMoveEvent( QObject*, QEvent* );
-
     //! mouse release event
     bool mouseReleaseEvent( QObject*, QEvent* );
-
     //!@name configuration
     //@{
+    //! enable state
+    bool
+    enabled() const
+    {
+        return _enabled;
+    }
 
     //! enable state
-    bool enabled( void ) const
-        { return _enabled; }
-
-    //! enable state
-    void setEnabled( bool value )
-        { _enabled = value; }
+    void
+    setEnabled(bool value)
+    {
+        _enabled = value;
+    }
 
     //! returns true if window manager is used for moving
-    bool useWMMoveResize( void ) const
-        { return _useWMMoveResize; }
+    bool
+    useWMMoveResize() const
+    {
+        return _useWMMoveResize;
+    }
 
     //! drag mode
-    int dragMode( void ) const
-        { return _dragMode; }
+    int dragMode() const
+    {
+        return _dragMode;
+    }
 
     //! drag mode
-    void setDragMode( int value )
-        { _dragMode = value; }
+    void setDragMode(int value)
+    {
+        _dragMode = value;
+    }
 
     //! drag distance (pixels)
-    void setDragDistance( int value )
-        { _dragDistance = value; }
+    void setDragDistance(int value)
+    {
+        _dragDistance = value;
+    }
 
     //! drag delay (msec)
-    void setDragDelay( int value )
-        { _dragDelay = value; }
+    void setDragDelay(int value)
+    {
+        _dragDelay = value;
+    }
 
     //! set list of whiteListed widgets
     /*!
       white list is read from options and is used to adjust
       per-app window dragging issues
     */
-    void initializeWhiteList( const QStringList &list );
+    void initializeWhiteList(const QStringList &list);
 
     //! set list of blackListed widgets
     /*!
       black list is read from options and is used to adjust
       per-app window dragging issues
     */
-    void initializeBlackList( const QStringList &list );
+    void initializeBlackList(const QStringList &list);
 
     //@}
 
     //! returns true if widget is dragable
-    bool isDragable( QWidget* );
+    bool isDragable(QWidget*);
 
     //! returns true if widget is dragable
-    bool isBlackListed( QWidget* );
+    bool isBlackListed(QWidget*);
 
     //! returns true if widget is dragable
-    bool isWhiteListed( QWidget* ) const;
+    bool isWhiteListed(QWidget*) const;
 
     //! returns true if drag can be started from current widget
-    bool canDrag( QWidget* );
+    bool canDrag(QWidget*);
 
     //! returns true if drag can be started from current widget and position
     /*! child at given position is passed as second argument */
-    bool canDrag( QWidget*, QWidget*, const QPoint& );
+    bool canDrag(QWidget*, QWidget*, const QPoint&);
 
     //! reset drag
-    void resetDrag( void );
+    void resetDrag();
 
     //! start drag
-    void startDrag( QWidget*, const QPoint& );
+    void startDrag(QWidget*, const QPoint&);
 
     //! utility function
-    bool isDockWidgetTitle( const QWidget* ) const;
+    bool isDockWidgetTitle(const QWidget*) const;
 
     //!@name lock
     //@{
 
-    void setLocked( bool value )
-        { _locked = value; }
+    void
+    setLocked(bool value)
+    {
+        _locked = value;
+    }
 
     //! lock
-    bool isLocked( void ) const
-        { return _locked; }
+    bool
+    isLocked() const
+    {
+        return _locked;
+    }
 
     //@}
 
 private:
-
     //! enability
     bool _enabled;
 
@@ -200,25 +216,31 @@ private:
     int _dragDelay;
 
     //! wrapper for exception id
-    class ExceptionId: public QPair<QString, QString>
-    {
+    class ExceptionId: public QPair<QString, QString> {
     public:
-
         //! constructor
-        ExceptionId( const QString& value )
-            {
-                const QStringList args( value.split( "@" ) );
-                if( args.isEmpty() ) return;
-                second = args[0].trimmed();
-                if( args.size()>1 ) first = args[1].trimmed();
+        ExceptionId(const QString &value)
+        {
+            const QStringList args(value.split("@"));
+            if (args.isEmpty())
+                return;
+            second = args[0].trimmed();
+            if (args.size() > 1) {
+                first = args[1].trimmed();
             }
+        }
 
-        const QString& appName( void ) const
-            { return first; }
+        const QString&
+        appName() const
+        {
+            return first;
+        }
 
-        const QString& className( void ) const
-            { return second; }
-
+        const QString&
+        className() const
+        {
+            return second;
+        }
     };
 
     //! exception set
@@ -268,31 +290,25 @@ private:
       it us used to unlock dragging and make sure event look is properly restored
       after a drag has occurred
     */
-    class AppEventFilter: public QObject
-    {
-
+    class AppEventFilter: public QObject {
     public:
-
         //! constructor
-        AppEventFilter( WindowManager* parent ):
-            QObject( parent ),
-            _parent( parent )
-            {}
+        AppEventFilter(WindowManager* parent):
+            QObject(parent),
+            _parent(parent)
+        {}
 
         //! event filter
-        virtual bool eventFilter( QObject*, QEvent* );
+        bool eventFilter( QObject*, QEvent* ) override;
 
     protected:
-
         //! application-wise event.
         /*! needed to catch end of XMoveResize events */
         bool appMouseEvent( QObject*, QEvent* );
 
     private:
-
         //! parent
         WindowManager* _parent;
-
     };
 
     //! application event filter
@@ -300,7 +316,6 @@ private:
 
     //! allow access of all private members to the app event filter
     friend class AppEventFilter;
-
 };
 
 }

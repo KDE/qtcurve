@@ -64,12 +64,6 @@ public:
     {
     }
 
-    //! destructor
-    virtual
-    ~ShadowHelper()
-    {
-    }
-
     //! register widget
     bool registerWidget(QWidget*, bool force=false);
 
@@ -77,7 +71,7 @@ public:
     void unregisterWidget(QWidget*);
 
     //! event filter
-    virtual bool eventFilter(QObject*, QEvent*) override;
+    bool eventFilter(QObject*, QEvent*) override;
 
 protected:
     //! accept widget

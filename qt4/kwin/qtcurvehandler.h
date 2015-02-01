@@ -81,11 +81,11 @@ public:
     QtCurveHandler();
     ~QtCurveHandler();
     void setStyle();
-    virtual bool reset(unsigned long changed) override;
+    bool reset(unsigned long changed) override;
     void setBorderSize();
 
-    virtual KDecoration *createDecoration(KDecorationBridge*) override;
-    virtual bool supports(Ability ability) const override;
+    KDecoration *createDecoration(KDecorationBridge*) override;
+    bool supports(Ability ability) const override;
 
     const QBitmap &buttonBitmap(ButtonIcon type, const QSize &size,
                                 bool toolWindow);

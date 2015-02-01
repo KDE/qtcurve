@@ -58,8 +58,6 @@ public:
 
     ShadowConfig(QPalette::ColorGroup);
 
-    virtual ~ShadowConfig() { }
-
     void                 defaults();
     void                 load(KConfig *cfg);
     void                 save(KConfig *cfg);

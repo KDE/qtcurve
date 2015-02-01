@@ -25,13 +25,6 @@
 
 #ifdef __cplusplus
 
-#if defined __clang__ || QTC_CHECK_GCC_VERSION(4, 8, 1)
-#  define _QTC_COMP_TYPE(T1, T2)                                \
-    decltype(0 ? std::declval<T1>() : std::declval<T2>())
-#else
-#  define _QTC_COMP_TYPE(T1, T2) decltype(0 ? T1() : T2())
-#endif
-
 template <typename T>
 QTC_ALWAYS_INLINE static inline const T&
 qtcMax(const T &a, const T &b)
@@ -45,14 +38,14 @@ qtcMin(const T &a, const T &b)
     return (a < b) ? a : b;
 }
 template <typename T1, typename T2>
-QTC_ALWAYS_INLINE static inline _QTC_COMP_TYPE(T1, T2)
-qtcMax(const T1 &a, const T2 &b)
+QTC_ALWAYS_INLINE static inline auto
+qtcMax(const T1 &a, const T2 &b) -> decltype((a > b) ? a : b)
 {
     return (a > b) ? a : b;
 }
 template <typename T1, typename T2>
-QTC_ALWAYS_INLINE static inline _QTC_COMP_TYPE(T1, T2)
-qtcMin(const T1 &a, const T2 &b)
+QTC_ALWAYS_INLINE static inline auto
+qtcMin(const T1 &a, const T2 &b) -> decltype((a < b) ? a : b)
 {
     return (a < b) ? a : b;
 }
@@ -61,6 +54,12 @@ QTC_ALWAYS_INLINE static inline T
 qtcAbs(const T &a)
 {
     return (a > 0) ? a : -a;
+}
+template <typename T>
+QTC_ALWAYS_INLINE static inline T
+qtcSquare(const T &a)
+{
+    return a * a;
 }
 #else
 #define qtcMax(a, b)                            \
@@ -79,6 +78,11 @@ qtcAbs(const T &a)
     ({                                          \
         typeof(a) _a = (a);                     \
         (_a > 0) ? _a : -_a;                    \
+    })
+#define qtcSquare(a)                            \
+    ({                                          \
+        typeof(a) _a = (a);                     \
+        _a * _a;                                \
     })
 #endif
 #define qtcBound(a, b, c) qtcMax(a, qtcMin(b, c))

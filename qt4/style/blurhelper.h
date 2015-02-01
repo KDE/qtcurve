@@ -71,11 +71,7 @@ class BlurHelper: public QObject {
 public:
     // ! constructor
     BlurHelper(QObject*);
-    // ! destructor
-    virtual
-    ~BlurHelper()
-    {
-    }
+
     // ! enable state
     void
     setEnabled(bool value)
@@ -93,12 +89,12 @@ public:
     // ! register widget
     void unregisterWidget(QWidget*);
     // ! event filter
-    virtual bool eventFilter(QObject*, QEvent*);
+    bool eventFilter(QObject*, QEvent*) override;
 protected:
     // ! timer event
     /*! used to perform delayed blur region update of pending widgets */
-    virtual void
-    timerEvent(QTimerEvent *event)
+    void
+    timerEvent(QTimerEvent *event) override
     {
         if (event->timerId() == _timer.timerId()) {
             _timer.stop();

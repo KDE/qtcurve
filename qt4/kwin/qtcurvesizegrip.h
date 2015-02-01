@@ -64,40 +64,43 @@ class QtCurveClient;
 class QtCurveSizeGrip: public QWidget {
 public:
     //! constructor
-    QtCurveSizeGrip( QtCurveClient* );
+    QtCurveSizeGrip(QtCurveClient*);
 
     //! constructor
-    virtual ~QtCurveSizeGrip( void );
+    ~QtCurveSizeGrip() override;
 
     //! event filter
-    virtual bool eventFilter( QObject*, QEvent* );
+    bool eventFilter(QObject*, QEvent*) override;
 
-public slots:
+public Q_SLOTS:
     //! update background color
-    void activeChange( void );
+    void activeChange();
 
-protected slots:
+protected Q_SLOTS:
     //! embed into parent widget
-    void embed( void );
+    void embed();
 
 protected:
     //!@name event handlers
     //@{
 
     //! paint
-    virtual void paintEvent( QPaintEvent* );
+    void paintEvent(QPaintEvent*) override;
 
     //! mouse press
-    virtual void mousePressEvent( QMouseEvent* );
+    void mousePressEvent(QMouseEvent*) override;
 
     //@}
 
     //! client
-    QtCurveClient& client( void ) const
-    { return *client_; }
+    QtCurveClient&
+    client() const
+    {
+        return *client_;
+    }
 
     //! update position
-    void updatePosition( void );
+    void updatePosition();
 
 private:
     //! grip size

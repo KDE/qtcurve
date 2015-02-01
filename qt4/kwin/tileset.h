@@ -33,8 +33,7 @@
 tilesets are collections of stretchable pixmaps corresponding to a given widget corners, sides, and center.
 corner pixmaps are never stretched. center pixmaps are
 */
-class TileSet
-{
+class TileSet {
 public:
    /**
     * Create a TileSet from a pixmap. The size of the bottom/right chunks is
@@ -69,10 +68,6 @@ public:
     //! empty constructor
     TileSet();
 
-    //! destructor
-    virtual ~TileSet()
-    {}
-
     /**
      * Flags specifying what sides to draw in ::render. Corners are drawn when
      * the sides forming that corner are drawn, e.g. Top|Left draws the
@@ -101,7 +96,6 @@ public:
     void render(const QRect&, QPainter*, Tiles = Ring) const;
 
 protected:
-
     // initialize pixmap
     void initPixmap( int, const QPixmap&, int w, int h, const QRect &region);
 
@@ -113,7 +107,6 @@ protected:
     int _h1;
     int _w3;
     int _h3;
-
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(TileSet::Tiles)

@@ -29,15 +29,13 @@
 
 class QWidget;
 
-namespace QtCurve
-{
+namespace QtCurve {
 
-class ShortcutHandler : public QObject
-{
+class ShortcutHandler: public QObject {
     Q_OBJECT
 public:
     explicit ShortcutHandler(QObject *parent = 0);
-    virtual ~ShortcutHandler();
+    ~ShortcutHandler() override;
 
     bool hasSeenAlt(const QWidget *widget) const;
     bool isAltDown() const { return m_altDown; }

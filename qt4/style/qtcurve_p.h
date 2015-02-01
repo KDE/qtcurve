@@ -48,8 +48,10 @@ class QtCurveDockWidgetTitleBar : public QWidget {
     Q_OBJECT
 public:
     QtCurveDockWidgetTitleBar(QWidget* parent) : QWidget(parent) { }
-    virtual ~QtCurveDockWidgetTitleBar() { }
-    QSize sizeHint() const { return QSize(0, 0); }
+    QSize sizeHint() const override
+    {
+        return QSize(0, 0);
+    }
 };
 
 }

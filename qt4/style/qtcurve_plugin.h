@@ -27,8 +27,8 @@
 namespace QtCurve {
 class StylePlugin : public QStylePlugin {
 public:
-    virtual QStringList keys() const override;
-    virtual QStyle *create(const QString &key) override;
+    QStringList keys() const override;
+    QStyle *create(const QString &key) override;
 private:
     void init();
 };

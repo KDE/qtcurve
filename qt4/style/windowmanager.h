@@ -66,9 +66,6 @@ class WindowManager: public QObject {
     Q_OBJECT
 public:
     explicit WindowManager(QObject*);
-    virtual ~WindowManager(void)
-    {
-    }
     // ! initialize
     /*! read relevant options from OxygenStyleConfigData */
     void initialize(int windowDrag, const QStringList &whiteList=QStringList(),
@@ -78,11 +75,11 @@ public:
     // ! unregister widget
     void unregisterWidget(QWidget*);
     // ! event filter [reimplemented]
-    virtual bool eventFilter(QObject*, QEvent*);
+    bool eventFilter(QObject*, QEvent*) override;
 protected:
     // ! timer event,
     /*! used to start drag if button is pressed for a long enough time */
-    void timerEvent(QTimerEvent*);
+    void timerEvent(QTimerEvent*) override;
     // ! mouse press event
     bool mousePressEvent(QObject*, QEvent*);
     // ! mouse move event
@@ -256,18 +253,18 @@ public:
       restored after a drag has occurred
     */
     class AppEventFilter: public QObject {
-public:
+    public:
         AppEventFilter(WindowManager *parent):
             QObject(parent),
             _parent(parent)
         {
         }
-        virtual bool eventFilter(QObject*, QEvent*);
-protected:
+        bool eventFilter(QObject*, QEvent*) override;
+    protected:
         // ! application-wise event.
         /*! needed to catch end of XMoveResize events */
         bool appMouseEvent(QObject*, QEvent*);
-private:
+    private:
         // ! parent
         WindowManager *_parent;
     };
