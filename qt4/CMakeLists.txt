@@ -10,6 +10,8 @@ if(ENABLE_QT4 AND NOT ENABLE_QT4_DEFINED)
   endif()
 endif()
 
+add_definitions(-DQTC_UTILS_QT4 -DQTC_UTILS_QT)
+
 if(ENABLE_QT4)
   find_package(Qt4 4.6.0 REQUIRED)
   # search packages used by KDE
@@ -34,7 +36,7 @@ if(ENABLE_QT4)
     set(QTC_QT4_ENABLE_KWIN Off)
     set(QTCURVE_STYLE_DIR "${QT_PLUGINS_DIR}/styles/")
   endif()
-  add_definitions(${QT_DEFINITIONS} -DQTC_UTILS_QT4)
+  add_definitions(${QT_DEFINITIONS})
   include_directories(
     "${CMAKE_CURRENT_BINARY_DIR}"
     "${CMAKE_CURRENT_SOURCE_DIR}"

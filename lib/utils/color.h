@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2009 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -223,8 +223,7 @@ QTC_END_DECLS
 
 #ifndef QTC_UTILS_INTERNAL
 
-// Use __cplusplus to distinguish between gtk and qt for now.
-#if defined QTC_UTILS_QT5 || defined QTC_UTILS_QT4
+#if defined QTC_UTILS_QT
 #include <QColor>
 
 QTC_ALWAYS_INLINE static inline QColor
@@ -320,7 +319,7 @@ qtcCalcRingAlphas(const QColor *bgnd)
 }
 #endif
 
-#if defined QTC_UTILS_GTK2 ||  defined QTC_UTILS_GTK3
+#if defined QTC_UTILS_GTK
 #include <gdk/gdk.h>
 
 QTC_ALWAYS_INLINE static inline GdkColor
