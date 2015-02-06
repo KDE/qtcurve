@@ -1,11 +1,11 @@
 set(qtcurve_SRCS
+  animation.cpp
+  combobox.cpp
   qtcurve.c
   qt_settings.c
   drawing.c
   helpers.c
   pixcache.c
-  animation.cpp
-  combobox.c
   entry.c
   menu.c
   scrollbar.c

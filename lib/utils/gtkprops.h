@@ -155,7 +155,8 @@ qtcWidgetPropsDestroy(void *data)
 QTC_ALWAYS_INLINE static inline _QtcGtkWidgetProps*
 _qtcGetWidgetProps(GObject *obj)
 {
-    _QtcGtkWidgetProps *props = g_object_get_qdata(obj, _qtcWidgetPropName());
+    _QtcGtkWidgetProps *props =
+        (_QtcGtkWidgetProps*)g_object_get_qdata(obj, _qtcWidgetPropName());
     if (!props) {
         props = qtcWidgetPropsNew((GtkWidget*)obj);
         g_object_set_qdata_full(obj, _qtcWidgetPropName(), props,

@@ -234,8 +234,7 @@ animationTimeoutHandler(void*)
 {
     /* enter threads as animationUpdateInfo will use gtk/gdk. */
     gdk_threads_enter();
-    g_hash_table_foreach_remove(animated_widgets,
-                                animationUpdateInfo, nullptr);
+    g_hash_table_foreach_remove(animated_widgets, animationUpdateInfo, nullptr);
     /* leave threads again */
     gdk_threads_leave();
 

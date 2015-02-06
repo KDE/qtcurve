@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -20,8 +20,11 @@
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
 
-#include <qtcurve-utils/gtkprops.h>
 #include "combobox.h"
+
+#include <qtcurve-utils/gtkprops.h>
+
+namespace QtCurve {
 
 /**
  * Setting appears-as-list on a non-editable combo creates a view over the
@@ -29,7 +32,7 @@
  * removes this
  */
 static bool
-qtcComboBoxCellViewHasBgnd(GtkWidget *view)
+comboBoxCellViewHasBgnd(GtkWidget *view)
 {
     gboolean val;
     g_object_get(view, "background-set", &val, NULL);
@@ -37,13 +40,13 @@ qtcComboBoxCellViewHasBgnd(GtkWidget *view)
 }
 
 static void
-qtcComboBoxClearBgndColor(GtkWidget *widget)
+comboBoxClearBgndColor(GtkWidget *widget)
 {
     GList *children = gtk_container_get_children(GTK_CONTAINER(widget));
     for (GList *child = children;child;child = child->next) {
         GtkWidget *boxChild = (GtkWidget*)child->data;
         if (GTK_IS_CELL_VIEW(boxChild) &&
-            qtcComboBoxCellViewHasBgnd(boxChild)) {
+            comboBoxCellViewHasBgnd(boxChild)) {
             gtk_cell_view_set_background_color(GTK_CELL_VIEW(boxChild), 0L);
         }
     }
@@ -52,39 +55,12 @@ qtcComboBoxClearBgndColor(GtkWidget *widget)
     }
 }
 
-static GtkWidget *qtcComboFocus = NULL;
-static GtkWidget *qtcComboHover = NULL;
-
-bool
-qtcComboBoxIsFocusChanged(GtkWidget *widget)
-{
-    if (qtcComboFocus == widget) {
-        if (!gtk_widget_has_focus(widget)) {
-            qtcComboFocus = NULL;
-            return true;
-        }
-    } else if (gtk_widget_has_focus(widget)) {
-        qtcComboFocus = widget;
-        return true;
-    }
-    return false;
-}
-
-bool
-qtcComboBoxHasFocus(GtkWidget *widget, GtkWidget *mapped)
-{
-    return gtk_widget_has_focus(widget) || (mapped && mapped == qtcComboFocus);
-}
-
-bool
-qtcComboBoxIsHovered(GtkWidget *widget)
-{
-    return widget == qtcComboHover;
-}
+static GtkWidget *comboFocus = NULL;
+static GtkWidget *comboHover = NULL;
 
 #if 0
 static bool
-qtcComboAppearsAsList(GtkWidget *widget)
+comboAppearsAsList(GtkWidget *widget)
 {
     gboolean rv;
     gtk_widget_style_get(widget, "appears-as-list", &rv, NULL);
@@ -93,7 +69,7 @@ qtcComboAppearsAsList(GtkWidget *widget)
 #endif
 
 static void
-qtcComboBoxCleanup(GtkWidget *widget)
+comboBoxCleanup(GtkWidget *widget)
 {
     if (!widget) {
         return;
@@ -111,31 +87,31 @@ qtcComboBoxCleanup(GtkWidget *widget)
 }
 
 static gboolean
-qtcComboBoxStyleSet(GtkWidget *widget, GtkStyle *prev_style, void *data)
+comboBoxStyleSet(GtkWidget *widget, GtkStyle *prev_style, void *data)
 {
     QTC_UNUSED(data);
     QTC_UNUSED(prev_style);
-    qtcComboBoxCleanup(widget);
+    comboBoxCleanup(widget);
     return false;
 }
 
 static gboolean
-qtcComboBoxDestroy(GtkWidget *widget, GdkEvent *event, void *data)
+comboBoxDestroy(GtkWidget *widget, GdkEvent *event, void *data)
 {
     QTC_UNUSED(data);
     QTC_UNUSED(event);
-    qtcComboBoxCleanup(widget);
+    comboBoxCleanup(widget);
     return false;
 }
 
 static gboolean
-qtcComboBoxEnter(GtkWidget *widget, GdkEventMotion *event, void *data)
+comboBoxEnter(GtkWidget *widget, GdkEventMotion *event, void *data)
 {
     QTC_UNUSED(event);
     if (GTK_IS_EVENT_BOX(widget)) {
         GtkWidget *widget = (GtkWidget*)data;
-        if (qtcComboHover != widget) {
-            qtcComboHover = widget;
+        if (comboHover != widget) {
+            comboHover = widget;
             gtk_widget_queue_draw(widget);
         }
     }
@@ -143,13 +119,13 @@ qtcComboBoxEnter(GtkWidget *widget, GdkEventMotion *event, void *data)
 }
 
 static gboolean
-qtcComboBoxLeave(GtkWidget *widget, GdkEventMotion *event, void *data)
+comboBoxLeave(GtkWidget *widget, GdkEventMotion *event, void *data)
 {
     QTC_UNUSED(event);
     if (GTK_IS_EVENT_BOX(widget)) {
         GtkWidget *widget = (GtkWidget*)data;
-        if (qtcComboHover == widget) {
-            qtcComboHover = NULL;
+        if (comboHover == widget) {
+            comboHover = NULL;
             gtk_widget_queue_draw(widget);
         }
     }
@@ -157,13 +133,44 @@ qtcComboBoxLeave(GtkWidget *widget, GdkEventMotion *event, void *data)
 }
 
 static void
-qtcComboBoxStateChange(GtkWidget *widget, GdkEventMotion *event, void *data)
+comboBoxStateChange(GtkWidget *widget, GdkEventMotion *event, void *data)
 {
     QTC_UNUSED(data);
     QTC_UNUSED(event);
     if (GTK_IS_CONTAINER(widget)) {
-        qtcComboBoxClearBgndColor(widget);
+        comboBoxClearBgndColor(widget);
     }
+}
+
+}
+
+using namespace QtCurve;
+
+bool
+qtcComboBoxIsFocusChanged(GtkWidget *widget)
+{
+    if (comboFocus == widget) {
+        if (!gtk_widget_has_focus(widget)) {
+            comboFocus = NULL;
+            return true;
+        }
+    } else if (gtk_widget_has_focus(widget)) {
+        comboFocus = widget;
+        return true;
+    }
+    return false;
+}
+
+bool
+qtcComboBoxIsHovered(GtkWidget *widget)
+{
+    return widget == comboHover;
+}
+
+bool
+qtcComboBoxHasFocus(GtkWidget *widget, GtkWidget *mapped)
+{
+    return gtk_widget_has_focus(widget) || (mapped && mapped == comboFocus);
 }
 
 void
@@ -175,9 +182,9 @@ qtcComboBoxSetup(GtkWidget *frame, GtkWidget *combo)
     QTC_DEF_WIDGET_PROPS(props, combo);
     if (!qtcWidgetProps(props)->comboBoxHacked) {
         qtcWidgetProps(props)->comboBoxHacked = true;
-        qtcComboBoxClearBgndColor(combo);
+        comboBoxClearBgndColor(combo);
         qtcConnectToProp(props, comboBoxStateChange, "state-changed",
-                         qtcComboBoxStateChange, NULL);
+                         comboBoxStateChange, NULL);
 
         if (frame) {
             GList *children = gtk_container_get_children(GTK_CONTAINER(frame));
@@ -185,16 +192,16 @@ qtcComboBoxSetup(GtkWidget *frame, GtkWidget *combo)
                 if (GTK_IS_EVENT_BOX(child->data)) {
                     QTC_DEF_WIDGET_PROPS(childProps, child->data);
                     qtcConnectToProp(childProps, comboBoxDestroy,
-                                     "destroy-event", qtcComboBoxDestroy, NULL);
+                                     "destroy-event", comboBoxDestroy, NULL);
                     qtcConnectToProp(childProps, comboBoxUnrealize,
-                                     "unrealize", qtcComboBoxDestroy, NULL);
+                                     "unrealize", comboBoxDestroy, NULL);
                     qtcConnectToProp(childProps, comboBoxStyleSet,
-                                     "style-set", qtcComboBoxStyleSet, NULL);
+                                     "style-set", comboBoxStyleSet, NULL);
                     qtcConnectToProp(childProps, comboBoxEnter,
-                                     "enter-notify-event", qtcComboBoxEnter,
+                                     "enter-notify-event", comboBoxEnter,
                                      combo);
                     qtcConnectToProp(childProps, comboBoxLeave,
-                                     "leave-notify-event", qtcComboBoxLeave,
+                                     "leave-notify-event", comboBoxLeave,
                                      combo);
                 }
             }
