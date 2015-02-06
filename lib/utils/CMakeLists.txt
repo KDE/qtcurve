@@ -31,10 +31,10 @@ endif()
 
 add_definitions("-DQTC_UTILS_INTERNAL -pthread")
 
-configure_file(version.c.in version.c @ONLY)
-
 add_library(qtcurve-utils SHARED ${qtcurve_utils_SRCS}
-  "${CMAKE_CURRENT_BINARY_DIR}/version.c")
+  "${CMAKE_BINARY_DIR}/version.c")
+
+add_dependencies(qtcurve-utils gen-git-ver)
 
 target_link_libraries(qtcurve-utils ${qtcurve_utils_LINKS})
 
