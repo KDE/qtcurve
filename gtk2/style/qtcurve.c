@@ -135,7 +135,7 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
         if (topLevel && GTK_IS_DIALOG(topLevel) &&
             !qtcWidgetProps(topProps)->buttonOrderHacked) {
             // gtk_dialog_set_alternative_button_order will cause errors to be
-            // logged, but dont want these so register ur own error handler,
+            // logged, but dont want these so register our own error handler,
             // and then unregister afterwards...
             unsigned id = g_log_set_handler("Gtk", G_LOG_LEVEL_CRITICAL,
                                             qtcLogHandler, NULL);

@@ -469,20 +469,20 @@ typedef enum
     WIDGET_MENU_ITEM,
     WIDGET_PROGRESSBAR,
     WIDGET_PBAR_TROUGH,
-#ifndef __cplusplus
+#ifndef QTC_UTILS_QT
     WIDGET_ENTRY_PROGRESSBAR,
     WIDGET_TOGGLE_BUTTON,
     WIDGET_SPIN_UP,
     WIDGET_SPIN_DOWN,
     WIDGET_UNCOLOURED_MO_BUTTON,
-#else // __cplusplus
+#else // QTC_UTILS_QT
     WIDGET_CHECKBUTTON,        // Qt4 only
     WIDGET_MDI_WINDOW,         // Qt4 only
     WIDGET_MDI_WINDOW_TITLE,   // Qt4 only
     WIDGET_MDI_WINDOW_BUTTON,  // Qt4 only
     WIDGET_DOCK_WIDGET_TITLE,
     WIDGET_DIAL,
-#endif // __cplusplus
+#endif // QTC_UTILS_QT
     WIDGET_SPIN,
     WIDGET_ENTRY,
     WIDGET_SCROLLVIEW,

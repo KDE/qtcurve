@@ -30,7 +30,7 @@ qtcSetupGradient(Gradient *grad, EGradientBorder border, int numStops, ...)
     int i;
 
     grad->border = border;
-#ifndef __cplusplus
+#ifndef QTC_UTILS_QT
     grad->numStops = numStops;
     grad->stops = qtcNew(GradientStop, numStops);
 #endif
@@ -38,7 +38,7 @@ qtcSetupGradient(Gradient *grad, EGradientBorder border, int numStops, ...)
     for (i = 0;i < numStops;++i) {
         double pos = va_arg(ap, double);
         double val = va_arg(ap, double);
-#ifdef __cplusplus
+#ifdef QTC_UTILS_QT
         grad->stops.insert(GradientStop(pos, val));
 #else
         grad->stops[i].pos = pos;
@@ -53,7 +53,7 @@ const Gradient*
 qtcGetGradient(EAppearance app, const Options *opts)
 {
     if (IS_CUSTOM(app)) {
-#ifdef __cplusplus
+#ifdef QTC_UTILS_QT
         GradientCont::const_iterator grad(opts->customGradient.find(app));
 
         if (grad != opts->customGradient.end()) {
@@ -125,7 +125,7 @@ qtcGetGradient(EAppearance app, const Options *opts)
 }
 
 EAppearance
-#ifdef __cplusplus
+#ifdef QTC_UTILS_QT
 qtcWidgetApp(EWidget w, const Options *opts, bool active)
 #else
 qtcWidgetApp(EWidget w, const Options *opts)
@@ -148,7 +148,7 @@ qtcWidgetApp(EWidget w, const Options *opts)
     case WIDGET_MENU_ITEM:
         return opts->menuitemAppearance;
     case WIDGET_PROGRESSBAR:
-#ifndef __cplusplus
+#ifndef QTC_UTILS_QT
     case WIDGET_ENTRY_PROGRESSBAR:
 #endif
         return opts->progressAppearance;
@@ -156,7 +156,7 @@ qtcWidgetApp(EWidget w, const Options *opts)
         return opts->progressGrooveAppearance;
     case WIDGET_SELECTION:
         return opts->selectionAppearance;
-#ifdef __cplusplus
+#ifdef QTC_UTILS_QT
     case WIDGET_DOCK_WIDGET_TITLE:
         return opts->dwtAppearance;
     case WIDGET_MDI_WINDOW:
@@ -172,7 +172,7 @@ qtcWidgetApp(EWidget w, const Options *opts)
     case WIDGET_TROUGH:
     case WIDGET_SLIDER_TROUGH:
         return opts->grooveAppearance;
-#ifndef __cplusplus
+#ifndef QTC_UTILS_QT
     case WIDGET_SPIN_UP:
     case WIDGET_SPIN_DOWN:
 #endif
@@ -213,14 +213,14 @@ qtcGetWidgetRound(const Options *opts, int w, int h, EWidget widget)
         r = ROUND_SLIGHT;
     }
 
-#ifdef __cplusplus
+#ifdef QTC_UTILS_QT
     if ((widget == WIDGET_MDI_WINDOW_BUTTON &&
          (opts->titlebarButtons & TITLEBAR_BUTTON_ROUND)) ||
         qtcOneOf(widget, WIDGET_RADIO_BUTTON, WIDGET_DIAL)) {
         return ROUND_MAX;
     }
 #endif
-#ifndef __cplusplus
+#ifndef QTC_UTILS_QT
     if (widget == WIDGET_RADIO_BUTTON) {
         return ROUND_MAX;
     }
@@ -268,14 +268,14 @@ qtcGetRadius(const Options *opts, int w, int h, EWidget widget, ERadius rad)
         return 0.0;
     }
 
-#ifdef __cplusplus
+#ifdef QTC_UTILS_QT
     if ((widget == WIDGET_MDI_WINDOW_BUTTON &&
          (opts->titlebarButtons & TITLEBAR_BUTTON_ROUND)) ||
         qtcOneOf(widget, WIDGET_RADIO_BUTTON, WIDGET_DIAL)) {
         return (w > h ? h : w) / 2.0;
     }
 #endif
-#ifndef __cplusplus
+#ifndef QTC_UTILS_QT
     if (widget == WIDGET_RADIO_BUTTON) {
         return (w > h ? h : w) / 2.0;
     }
@@ -288,7 +288,7 @@ qtcGetRadius(const Options *opts, int w, int h, EWidget widget, ERadius rad)
 
     if (rad == RADIUS_EXTERNAL && !opts->fillProgress &&
         (widget == WIDGET_PROGRESSBAR
-#ifndef __cplusplus
+#ifndef QTC_UTILS_QT
          || widget == WIDGET_ENTRY_PROGRESSBAR
 #endif
             )) {
