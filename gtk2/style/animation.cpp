@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -264,7 +264,7 @@ static void
 animationOnConnectedWidgetDestruction(void *data, GObject*)
 {
     connected_widgets = g_slist_remove(connected_widgets, data);
-    g_free(data);
+    free(data);
 }
 
 static void
@@ -279,7 +279,7 @@ animationDisconnect()
         g_object_weak_unref(G_OBJECT(signal_info->widget),
                             animationOnConnectedWidgetDestruction,
                             signal_info);
-        g_free(signal_info);
+        free(signal_info);
 
         item = g_slist_next(item);
     }
@@ -293,11 +293,7 @@ animationDisconnect()
 static int
 animationFindSignalInfo(const void *signal_info, const void *widget)
 {
-    if (((SignalInfo*)signal_info)->widget == widget) {
-        return 0;
-    } else {
-        return 1;
-    }
+    return ((SignalInfo*)signal_info)->widget != widget;
 }
 
 /* hooks up the signals for check and radio buttons */
@@ -319,13 +315,6 @@ animationConnectCheckbox(GtkWidget *widget)
                 signal_info);
         }
     }
-}
-
-/* returns true if the widget is animated, and false otherwise */
-static bool
-animationIsAnimated(GtkWidget *widget)
-{
-    return animationLookupInfo(widget) != nullptr;
 }
 #endif
 
