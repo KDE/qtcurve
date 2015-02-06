@@ -28,6 +28,8 @@
 #include "qt_settings.h"
 #include <qtcurve-cairo/utils.h>
 
+QTC_BEGIN_DECLS
+
 #define DETAIL(xx) ((detail) && (!strcmp(xx, detail)))
 #define DETAILHAS(xx) ((detail) && (strstr(detail, xx)))
 
@@ -197,5 +199,7 @@ bool treeViewCellIsLast(GtkTreeView *treeView, GtkTreePath *path);
 GtkTreePath *treeViewPathParent(GtkTreeView *treeView, GtkTreePath *path);
 void generateColors();
 GdkColor *getCheckRadioCol(GtkStyle *style, GtkStateType state, bool mnu);
+
+QTC_END_DECLS
 
 #endif

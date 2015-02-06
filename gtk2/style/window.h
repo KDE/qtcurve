@@ -22,6 +22,10 @@
 #ifndef __QTC_WINDOW_H__
 #define __QTC_WINDOW_H__
 
+#include <qtcurve-utils/utils.h>
+
+QTC_BEGIN_DECLS
+
 gboolean qtcWindowIsActive(GtkWidget *widget);
 gboolean qtcWindowSetup(GtkWidget *widget, int opacity);
 GtkWidget * qtcWindowGetMenuBar(GtkWidget *parent, int level);
@@ -29,5 +33,7 @@ gboolean qtcWindowSetStatusBarProp(GtkWidget *w);
 GtkWidget * qtcWindowGetStatusBar(GtkWidget *parent, int level);
 void qtcWindowStatusBarDBus(GtkWidget *widget, gboolean state);
 void qtcWindowMenuBarDBus(GtkWidget *widget, int size);
+
+QTC_END_DECLS
 
 #endif

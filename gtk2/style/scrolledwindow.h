@@ -23,9 +23,15 @@
 #ifndef __QTC_SCROLLED_WINDOW_H__
 #define __QTC_SCROLLED_WINDOW_H__
 
+#include <qtcurve-utils/utils.h>
+
+QTC_BEGIN_DECLS
+
 void qtcScrolledWindowRegisterChild(GtkWidget *child);
 void qtcScrolledWindowSetup(GtkWidget *widget);
 gboolean qtcScrolledWindowHasFocus(GtkWidget *widget);
 gboolean qtcScrolledWindowHovered(GtkWidget *widget);
+
+QTC_END_DECLS
 
 #endif

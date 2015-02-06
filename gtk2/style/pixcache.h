@@ -26,6 +26,10 @@
 #include <gdk/gdk.h>
 #include <common/common.h>
 
+QTC_BEGIN_DECLS
+
 GdkPixbuf *getPixbuf(GdkColor *widgetColor, EPixmap p, double shade);
+
+QTC_END_DECLS
 
 #endif

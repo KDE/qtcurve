@@ -23,6 +23,12 @@
 #ifndef __QTC_SHADOW_HELPER_H__
 #define __QTC_SHADOW_HELPER_H__
 
+#include <qtcurve-utils/utils.h>
+
+QTC_BEGIN_DECLS
+
 void qtcShadowInitialize();
+
+QTC_END_DECLS
 
 #endif

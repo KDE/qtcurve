@@ -23,10 +23,16 @@
 #ifndef __QTC_MENU_H__
 #define __QTC_MENU_H__
 
+#include <qtcurve-utils/utils.h>
+
 #include <gtk/gtk.h>
+
+QTC_BEGIN_DECLS
 
 gboolean qtcMenuEmitSize(GtkWidget *w, unsigned int size);
 void qtcMenuShellSetup(GtkWidget *widget);
 gboolean objectIsA(const GObject *object, const char *type_name);
+
+QTC_END_DECLS
 
 #endif

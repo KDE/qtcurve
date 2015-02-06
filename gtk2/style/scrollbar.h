@@ -23,6 +23,12 @@
 #ifndef __QTC_SCROLLBAR_H__
 #define __QTC_SCROLLBAR_H__
 
+#include <qtcurve-utils/utils.h>
+
+QTC_BEGIN_DECLS
+
 void qtcScrollbarSetup(GtkWidget *widget);
+
+QTC_END_DECLS
 
 #endif

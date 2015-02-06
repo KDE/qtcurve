@@ -23,7 +23,13 @@
 #ifndef __QTC_ENTRY_H__
 #define __QTC_ENTRY_H__
 
+#include <qtcurve-utils/utils.h>
+
+QTC_BEGIN_DECLS
+
 gboolean qtcEntryIsLastMo(GtkWidget *widget);
 void qtcEntrySetup(GtkWidget *widget);
+
+QTC_END_DECLS
 
 #endif

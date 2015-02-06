@@ -26,6 +26,8 @@
 #include <common/common.h>
 #include "config.h"
 
+QTC_BEGIN_DECLS
+
 typedef struct _QtCurveStyleClass QtCurveStyleClass;
 
 extern GType qtcurve_type_style;
@@ -70,5 +72,7 @@ typedef struct {
 struct _QtCurveStyleClass {
     GtkStyleClass parent_class;
 };
+
+QTC_END_DECLS
 
 #endif

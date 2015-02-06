@@ -23,6 +23,12 @@
 #ifndef __QTC_WM_MOVE_H__
 #define __QTC_WM_MOVE_H__
 
+#include <qtcurve-utils/utils.h>
+
+QTC_BEGIN_DECLS
+
 void qtcWMMoveSetup(GtkWidget *widget);
+
+QTC_END_DECLS
 
 #endif

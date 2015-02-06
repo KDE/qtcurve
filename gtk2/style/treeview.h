@@ -23,9 +23,15 @@
 #ifndef __QTC_TREE_VIEW_H__
 #define __QTC_TREE_VIEW_H__
 
+#include <qtcurve-utils/utils.h>
+
+QTC_BEGIN_DECLS
+
 void qtcTreeViewGetCell(GtkTreeView *treeView, GtkTreePath **path, GtkTreeViewColumn **column, int x, int y, int width, int height);
 void qtcTreeViewSetup(GtkWidget *widget);
 gboolean qtcTreeViewIsCellHovered(GtkWidget *widget, GtkTreePath *path, GtkTreeViewColumn *column);
 gboolean qtcTreeViewCellIsLeftOfExpanderColumn(GtkTreeView *treeView, GtkTreeViewColumn *column);
+
+QTC_END_DECLS
 
 #endif
