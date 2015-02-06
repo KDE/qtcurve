@@ -47,11 +47,9 @@ qtcStrMapInit(QtcStrMap *map)
 {
     QTC_RET_IF_FAIL(map && !map->inited && map->items && map->size && map->num);
 #if defined(__MACH__) || defined(__APPLE__)
-    qsort_r(map->items, map->num, map->size,
-            map, qtcStrMapItemCompare);
+    qsort_r(map->items, map->num, map->size, map, qtcStrMapItemCompare);
 #else
-    qsort_r(map->items, map->num, map->size,
-            qtcStrMapItemCompare, map);
+    qsort_r(map->items, map->num, map->size, qtcStrMapItemCompare, map);
 #endif
     map->inited = true;
 }

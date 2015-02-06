@@ -5,7 +5,7 @@ set(qtcurve_utils_SRCS
   utils.c
   strs.c
   shadow.c
-  timer.c
+  timer.cpp
   map.c
   fd_utils.c
   process.c
