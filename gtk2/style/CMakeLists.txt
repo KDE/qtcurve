@@ -43,7 +43,7 @@ if(NOT ENABLE_GTK2)
 endif()
 
 set(qtcurve_style_common_SRCS
-  ../common/common.c
+  ../common/common.cpp
   ../common/config_file.c)
 
 include_directories(

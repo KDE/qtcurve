@@ -27,6 +27,8 @@
 
 #define CAIRO_GRAD_END 1.0
 
+QTC_BEGIN_DECLS
+
 void drawBgnd(cairo_t *cr, const GdkColor *col, GtkWidget *widget,
               const QtcRect *area, int x, int y, int width, int height);
 void drawAreaModColor(cairo_t *cr, const QtcRect *area, const GdkColor *orig,
@@ -191,4 +193,7 @@ void drawDefBtnIndicator(cairo_t *cr, GtkStateType state,
                          int width, int height);
 GdkPixbuf *renderIcon(GtkStyle *style, const GtkIconSource *source,
                       GtkStateType state, GtkIconSize size, GtkWidget *widget);
+
+QTC_END_DECLS
+
 #endif

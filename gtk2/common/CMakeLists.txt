@@ -1,5 +1,5 @@
 set(qtc_gtk_common_SRCS
-  common.c
+  common.cpp
   config_file.c)
 set(qtc_gtk_common_HDRS
   common.h

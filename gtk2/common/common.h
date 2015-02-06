@@ -26,6 +26,7 @@
 #include "config.h"
 #include <qtcurve-utils/shade.h>
 #include <qtcurve-utils/options.h>
+#include <qtcurve-utils/color.h>
 
 /*
     The following #define disables the rounding when scrollbar type==none.
@@ -723,6 +724,8 @@ typedef struct {
     Strings          noMenuStripeApps;
 } Options;
 
+QTC_BEGIN_DECLS
+
 void qtcSetupGradient(Gradient *grad, EGradientBorder border, int numStops, ...);
 const Gradient *qtcGetGradient(EAppearance app, const Options *opts);
 
@@ -743,11 +746,10 @@ qtcIsCustomBgnd(const Options *opts)
             opts->bgndOpacity != 100 || opts->dlgOpacity != 100);
 }
 
-#include <qtcurve-utils/color.h>
+EAppearance qtcWidgetApp(EWidget w, const Options *opts);
+
 #define tint(COLA, COLB, FACTOR) qtcColorTint((COLA), (COLB), (FACTOR))
 #define midColor(COLA, COLB) qtcColorMix((COLA), (COLB), 0.5)
-
-EAppearance qtcWidgetApp(EWidget w, const Options *opts);
 
 typedef enum {
     RADIUS_SELECTION,
@@ -787,5 +789,7 @@ typedef enum {
 ERound qtcGetWidgetRound(const Options *opts, int w, int h, EWidget widget);
 double qtcGetRadius(const Options *opts, int w, int h, EWidget widget,
                     ERadius rad);
+
+QTC_END_DECLS
 
 #endif // __COMMON_H__
