@@ -1,6 +1,5 @@
 /*****************************************************************************
- *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2012 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -20,21 +19,10 @@
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
 
-#ifndef __QTC_CONFIG_H__
-#define __QTC_CONFIG_H__
+#include <qtcurve-utils/utils.h>
 
-#define QTC_KDE4_PREFIX "@QTC_KDE4_PREFIX@"
-#define QTC_KDE4_ICONS_PREFIX "@QTC_KDE4_ICONS_PREFIX@"
-#cmakedefine QTC_ENABLE_BACKTRACE
-
-#cmakedefine QTC_ENABLE_X11
-
-#define QTC_GTK2_THEME_DIR "@GTK2_THEME_DIR@/gtk-2.0"
-#define QTC_GTK2_MOZILLA_DIR "@GTK2_THEME_DIR@/mozilla"
-
-#cmakedefine QTC_QT4_STYLE_SUPPORT
-
-#cmakedefine QTC_GTK2_MODIFY_MOZILLA
-#cmakedefine QTC_GTK2_STYLE_SUPPORT
-
-#endif
+QTC_EXPORT const char*
+qtcVersion()
+{
+    return "@QTCURVE_VERSION_FULL@";
+}

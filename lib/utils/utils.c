@@ -1,5 +1,5 @@
 /*****************************************************************************
- *   Copyright 2012 - 2013 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2012 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -126,10 +126,4 @@ qtcGetProgName()
         name = _qtcGetProgName();
     }
     return name;
-}
-
-QTC_EXPORT const char*
-qtcVersion()
-{
-    return QTC_VERSION;
 }
