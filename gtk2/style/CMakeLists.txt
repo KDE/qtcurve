@@ -4,7 +4,7 @@ set(qtcurve_SRCS
   drawing.c
   helpers.c
   pixcache.c
-  animation.c
+  animation.cpp
   combobox.c
   entry.c
   menu.c

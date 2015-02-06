@@ -33,7 +33,6 @@
 /* #define CHECK_ANIMATION_TIME 0.5 */
 
 #include "animation.h"
-#include <qtcurve-utils/utils.h>
 #include <common/common.h>
 
 typedef struct {
@@ -49,8 +48,8 @@ typedef struct {
     unsigned long handler_id;
 } SignalInfo;
 
-static GSList *connected_widgets = NULL;
-static GHashTable *animated_widgets = NULL;
+static GSList *connected_widgets = nullptr;
+static GHashTable *animated_widgets = nullptr;
 static int animation_timer_id = 0;
 
 static gboolean qtcAnimationTimeoutHandler(void *data);
@@ -72,7 +71,7 @@ qtcAnimationStartTimer()
 {
     if (animation_timer_id == 0) {
         animation_timer_id = g_timeout_add(PROGRESS_ANIMATION,
-                                           qtcAnimationTimeoutHandler, NULL);
+                                           qtcAnimationTimeoutHandler, nullptr);
     }
 }
 
@@ -110,7 +109,7 @@ qtcAnimationOnWidgetDestruction(void *data, GObject *object)
 static void
 qtcAnimationDestroyInfoAndWeakUnref(void *data)
 {
-    AnimationInfo *animation_info = data;
+    AnimationInfo *animation_info = (AnimationInfo*)data;
 
     /* force a last redraw. This is so that if the animation is removed,
      * the widget is left in a sane state. */
@@ -126,9 +125,9 @@ static AnimationInfo*
 qtcAnimationLookupInfo(const GtkWidget *widget)
 {
     if (animated_widgets) {
-        return g_hash_table_lookup(animated_widgets, widget);
+        return (AnimationInfo*)g_hash_table_lookup(animated_widgets, widget);
     }
-    return NULL;
+    return nullptr;
 }
 
 /* Create all the relevant information for the animation,
@@ -143,9 +142,9 @@ qtcAnimationAdd(const GtkWidget *widget, double stop_time)
         return;
     }
 
-    if (animated_widgets == NULL) {
+    if (animated_widgets == nullptr) {
         animated_widgets =
-            g_hash_table_new_full(g_direct_hash, g_direct_equal, NULL,
+            g_hash_table_new_full(g_direct_hash, g_direct_equal, nullptr,
                                   qtcAnimationDestroyInfoAndWeakUnref);
     }
 
@@ -165,13 +164,12 @@ qtcAnimationAdd(const GtkWidget *widget, double stop_time)
 /* update the animation information for each widget. This will also queue a redraw
  * and stop the animation if it is done. */
 static gboolean
-qtcAnimationUpdateInfo(void *key, void *value, void *user_data)
+qtcAnimationUpdateInfo(void *key, void *value, void*)
 {
-    QTC_UNUSED(user_data);
-    AnimationInfo *animation_info = value;
-    GtkWidget *widget = key;
+    AnimationInfo *animation_info = (AnimationInfo*)value;
+    GtkWidget *widget = (GtkWidget*)key;
 
-    if ((widget == NULL) || (animation_info == NULL)) {
+    if ((widget == nullptr) || (animation_info == nullptr)) {
         g_assert_not_reached();
     }
 
@@ -201,7 +199,7 @@ qtcAnimationUpdateInfo(void *key, void *value, void *user_data)
     /* stop at stop_time */
     if (animation_info->stop_time != 0 &&
         g_timer_elapsed(animation_info->timer,
-                        NULL) > animation_info->stop_time) {
+                        nullptr) > animation_info->stop_time) {
         return true;
     }
     return false;
@@ -209,12 +207,12 @@ qtcAnimationUpdateInfo(void *key, void *value, void *user_data)
 
 /* This gets called by the glib main loop every once in a while. */
 static gboolean
-qtcAnimationTimeoutHandler(void *data)
+qtcAnimationTimeoutHandler(void*)
 {
-    QTC_UNUSED(data);
     /* enter threads as qtcAnimationUpdateInfo will use gtk/gdk. */
     gdk_threads_enter();
-    g_hash_table_foreach_remove(animated_widgets, qtcAnimationUpdateInfo, NULL);
+    g_hash_table_foreach_remove(animated_widgets,
+                                qtcAnimationUpdateInfo, nullptr);
     /* leave threads again */
     gdk_threads_leave();
 
@@ -231,8 +229,8 @@ on_checkbox_toggle(GtkWidget *widget, void *data)
 {
     AnimationInfo *animation_info = qtcAnimationLookupInfo(widget);
 
-    if (animation_info != NULL) {
-        gfloat elapsed = g_timer_elapsed(animation_info->timer, NULL);
+    if (animation_info != nullptr) {
+        float elapsed = g_timer_elapsed(animation_info->timer, nullptr);
         animation_info->start_modifier = (elapsed -
                                           animation_info->start_modifier);
     } else {
@@ -242,9 +240,8 @@ on_checkbox_toggle(GtkWidget *widget, void *data)
 #endif
 
 static void
-qtcAnimationOnConnectedWidgetDestruction(void *data, GObject *widget)
+qtcAnimationOnConnectedWidgetDestruction(void *data, GObject*)
 {
-    QTC_UNUSED(widget);
     connected_widgets = g_slist_remove(connected_widgets, data);
     g_free(data);
 }
@@ -253,7 +250,7 @@ static void
 qtcAnimationDisconnect()
 {
     GSList *item = connected_widgets;
-    while (item != NULL) {
+    while (item != nullptr) {
         SignalInfo *signal_info = (SignalInfo*)item->data;
 
         g_signal_handler_disconnect(signal_info->widget,
@@ -267,22 +264,7 @@ qtcAnimationDisconnect()
     }
 
     g_slist_free(connected_widgets);
-    connected_widgets = NULL;
-}
-
-/* external interface */
-
-/* adds a progress bar */
-void
-qtcAnimationAddProgressBar(GtkWidget *progressbar, gboolean isEntry)
-{
-    double fraction =
-        (isEntry ? gtk_entry_get_progress_fraction(GTK_ENTRY(progressbar)) :
-         gtk_progress_bar_get_fraction(GTK_PROGRESS_BAR(progressbar)));
-
-    if (fraction < 1.0 && fraction > 0.0) {
-        qtcAnimationAdd((GtkWidget*)progressbar, 0.0);
-    }
+    connected_widgets = nullptr;
 }
 
 #if 0
@@ -309,7 +291,7 @@ qtcAnimationConnectCheckbox(GtkWidget *widget)
             signal_info->widget = widget;
             signal_info->handler_id =
                 g_signal_connect((GObject*)widget, "toggled",
-                                 G_CALLBACK(on_checkbox_toggle), NULL);
+                                 G_CALLBACK(on_checkbox_toggle), nullptr);
             connected_widgets = g_slist_append(connected_widgets, signal_info);
             g_object_weak_ref(
                 G_OBJECT(widget), qtcAnimationOnConnectedWidgetDestruction,
@@ -322,18 +304,33 @@ qtcAnimationConnectCheckbox(GtkWidget *widget)
 static bool
 qtcAnimationIsAnimated(GtkWidget *widget)
 {
-    return qtcAnimationLookupInfo(widget) != NULL;
+    return qtcAnimationLookupInfo(widget) != nullptr;
 }
 #endif
+
+/* external interface */
+
+/* adds a progress bar */
+void
+qtcAnimationAddProgressBar(GtkWidget *progressbar, gboolean isEntry)
+{
+    double fraction =
+        (isEntry ? gtk_entry_get_progress_fraction(GTK_ENTRY(progressbar)) :
+         gtk_progress_bar_get_fraction(GTK_PROGRESS_BAR(progressbar)));
+
+    if (fraction < 1.0 && fraction > 0.0) {
+        qtcAnimationAdd((GtkWidget*)progressbar, 0.0);
+    }
+}
 
 /* returns the elapsed time for the animation */
 double
 qtcAnimationElapsed(void *data)
 {
-    AnimationInfo *animation_info = qtcAnimationLookupInfo(data);
+    AnimationInfo *animation_info = qtcAnimationLookupInfo((GtkWidget*)data);
 
     if (animation_info) {
-        return (g_timer_elapsed(animation_info->timer, NULL) -
+        return (g_timer_elapsed(animation_info->timer, nullptr) -
                 animation_info->start_modifier);
     }
     return 0.0;
@@ -345,9 +342,9 @@ qtcAnimationCleanup()
 {
     qtcAnimationDisconnect();
 
-    if (animated_widgets != NULL) {
+    if (animated_widgets != nullptr) {
         g_hash_table_destroy(animated_widgets);
-        animated_widgets = NULL;
+        animated_widgets = nullptr;
     }
     qtcAnimationStopTimer();
 }
