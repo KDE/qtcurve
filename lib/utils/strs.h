@@ -58,7 +58,7 @@ _qtcCatStrsFill(int n, const char **strs, size_t *lens,
             _qtcCatStrsCalLens(__strs_n, __strs, __strs_lens);          \
         var = _qtcCatStrsFill(__strs_n, __strs, __strs_lens,            \
                               __strs_total_len,                         \
-                              malloc(__strs_total_len + 1));            \
+                              (char*)malloc(__strs_total_len + 1));     \
     } while (0)
 
 #define _qtcFillStrs(var, buff, strs...)                                \
@@ -70,7 +70,7 @@ _qtcCatStrsFill(int n, const char **strs, size_t *lens,
             _qtcCatStrsCalLens(__strs_n, __strs, __strs_lens);          \
         var = _qtcCatStrsFill(__strs_n, __strs, __strs_lens,            \
                               __strs_total_len,                         \
-                              realloc(buff, __strs_total_len + 1));     \
+                              (char*)realloc(buff, __strs_total_len + 1)); \
     } while (0)
 
 // Gcc 4.4.5 produce error when using sizeof array in variadic template

@@ -1690,9 +1690,14 @@ bool qtcReadConfig(const char *file, Options *opts, Options *defOpts)
 
 static const char * getSystemConfigFile()
 {
-    static const char * constFiles[]={ /*"/etc/qt4/"OLD_CONFIG_FILE, "/etc/qt3/"OLD_CONFIG_FILE, "/etc/qt/"OLD_CONFIG_FILE,*/ "/etc/"OLD_CONFIG_FILE, NULL };
+    static const char *constFiles[] = {
+        /* "/etc/qt4/"OLD_CONFIG_FILE,
+           "/etc/qt3/"OLD_CONFIG_FILE,
+           "/etc/qt/"OLD_CONFIG_FILE, */
+        "/etc/" OLD_CONFIG_FILE,
+        nullptr};
 
-    for (int i = 0;constFiles[i];++i) {
+    for (int i = 0;constFiles[i];i++) {
         if (qtcIsRegFile(constFiles[i])) {
             return constFiles[i];
         }
