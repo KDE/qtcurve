@@ -233,7 +233,7 @@ static QSet<QString> toSet(const QString &str)
 CStylePreview::CStylePreview(QWidget *parent)
              : KXmlGuiWindow(parent)
 {
-    aboutData = new KAboutData("QtCurve", 0, ki18n("QtCurve"), QTC_VERSION,
+    aboutData = new KAboutData("QtCurve", 0, ki18n("QtCurve"), qtcVersion(),
                                ki18n("Unified widget style."),
                                KAboutData::License_GPL,
                                ki18n("(C) Craig Drummond, 2003-2011 & Yichao Yu, 2013-2015"),
@@ -854,8 +854,8 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
 {
     setupUi(this);
     setObjectName("QtCurveConfigDialog");
-    titleLabel->setText("QtCurve " QTC_VERSION
-                        " - (C) Craig Drummond, 2003-2010 & Yichao Yu, 2013-2015");
+    titleLabel->setText(QString("QtCurve %1 - (C) Craig Drummond, 2003-2010 & "
+                                "Yichao Yu, 2013-2015").arg(qtcVersion()));
     insertShadeEntries(shadeSliders, SW_SLIDER);
     insertShadeEntries(shadeMenubars, SW_MENUBAR);
     insertShadeEntries(shadeCheckRadio, SW_CHECK_RADIO);

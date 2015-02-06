@@ -1914,14 +1914,14 @@ gboolean qtSettingsInit()
             if(opts.mapKdeIcons && (path = getIconPath()))
             {
                 const char *iconTheme=qtSettings.icons ? qtSettings.icons : "XX";
-                int  versionLen=1+strlen(QTC_VERSION)+1+strlen(iconTheme)+1+2+(6*2)+1;  /* '#' VERSION ' '<kde version> <..nums above..>\0 */
-                char *version=(char *)malloc(versionLen);
+                /* '#' VERSION ' '<kde version> <..nums above..>\0 */
+                int versionLen = (1 + strlen(qtcVersion()) + 1 +
+                                  strlen(iconTheme) + 1 + 2 + 6 * 2 + 1);
+                char *version = (char*)malloc(versionLen);
 
                 getGtk2CfgFile(&tmpStr, "gtk-icons");
                 sprintf(version, "#%s %s %02X%02X%02X%02X%02X%02X%02X",
-                        QTC_VERSION,
-                        iconTheme,
-                        4,
+                        qtcVersion(), iconTheme, 4,
                         qtSettings.iconSizes.smlTbSize,
                         qtSettings.iconSizes.tbSize,
                         qtSettings.iconSizes.dndSize,
@@ -1929,33 +1929,29 @@ gboolean qtSettingsInit()
                         qtSettings.iconSizes.mnuSize,
                         qtSettings.iconSizes.dlgSize);
 
-                if(!checkFileVersion(tmpStr, version, versionLen))
-                {
-                    static const char *constCmdStrFmt="perl "QTC_GTK2_THEME_DIR"/map_kde_icons.pl "QTC_GTK2_THEME_DIR"/icons%d %s %d %d %d %d %d %d %d %s "QTC_VERSION" > %s.%d && mv %s.%d %s";
+                if (!checkFileVersion(tmpStr, version, versionLen)) {
+                    static const char *constCmdStrFmt = "perl "QTC_GTK2_THEME_DIR"/map_kde_icons.pl "QTC_GTK2_THEME_DIR"/icons%d %s %d %d %d %d %d %d %d %s %s > %s.%d && mv %s.%d %s";
 
-                    const char *kdeprefix=kdeIconsPrefix();
-                    int        fileNameLen=strlen(tmpStr);
-                    char       *cmdStr=(char *)malloc(strlen(constCmdStrFmt)
-                                                      +2+(4*6)+2+
-                                                      strlen(iconTheme)+
-                                                      (kdeprefix ? strlen(kdeprefix) : DEFAULT_ICON_PREFIX_LEN)+(fileNameLen*3)+64+1);
+                    const char *kdeprefix = kdeIconsPrefix();
+                    int fileNameLen = strlen(tmpStr);
+                    char *cmdStr = (char*)malloc(strlen(constCmdStrFmt) + 2 +
+                                                 4 * 6 + 2 + strlen(iconTheme) +
+                                                 (kdeprefix ?
+                                                  strlen(kdeprefix) :
+                                                  DEFAULT_ICON_PREFIX_LEN) +
+                                                 fileNameLen * 3 + 64 +
+                                                 strlen(qtcVersion()) + 1);
 
-                    sprintf(cmdStr, constCmdStrFmt,
-                                    4,
-                                    kdeprefix ? kdeprefix : DEFAULT_ICON_PREFIX,
-                                    4,
-                                    qtSettings.iconSizes.smlTbSize,
-                                    qtSettings.iconSizes.tbSize,
-                                    qtSettings.iconSizes.dndSize,
-                                    qtSettings.iconSizes.btnSize,
-                                    qtSettings.iconSizes.mnuSize,
-                                    qtSettings.iconSizes.dlgSize,
-                                    iconTheme,
-                                    tmpStr,
-                                    getpid(),
-                                    tmpStr,
-                                    getpid(),
-                                    tmpStr);
+                    sprintf(cmdStr, constCmdStrFmt, 4,
+                            kdeprefix ? kdeprefix : DEFAULT_ICON_PREFIX, 4,
+                            qtSettings.iconSizes.smlTbSize,
+                            qtSettings.iconSizes.tbSize,
+                            qtSettings.iconSizes.dndSize,
+                            qtSettings.iconSizes.btnSize,
+                            qtSettings.iconSizes.mnuSize,
+                            qtSettings.iconSizes.dlgSize,
+                            iconTheme, qtcVersion(), tmpStr, getpid(),
+                            tmpStr, getpid(), tmpStr);
                     (void)system(cmdStr);
                     free(cmdStr);
                 }

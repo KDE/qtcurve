@@ -21,6 +21,9 @@
 
 #include "utils.h"
 #include "atomic.h"
+
+#include <config.h>
+
 #include <dlfcn.h>
 
 #ifdef __QTC_ATOMIC_USE_SYNC_FETCH
@@ -123,4 +126,10 @@ qtcGetProgName()
         name = _qtcGetProgName();
     }
     return name;
+}
+
+QTC_EXPORT const char*
+qtcVersion()
+{
+    return QTC_VERSION;
 }

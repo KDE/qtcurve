@@ -198,6 +198,7 @@ QTC_BEGIN_DECLS
 void *qtcBSearch(const void *key, const void *base, size_t nmemb, size_t size,
                  int (*compar)(const void*, const void*));
 const char *qtcGetProgName();
+const char *qtcVersion();
 
 QTC_END_DECLS
 
