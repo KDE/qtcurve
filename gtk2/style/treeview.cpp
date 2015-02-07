@@ -20,6 +20,8 @@
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
 
+#include "treeview.h"
+
 #include <qtcurve-utils/gtkprops.h>
 #include <qtcurve-cairo/utils.h>
 
@@ -35,19 +37,18 @@ static QtCTreeView * qtcTreeViewLookupHash(void *hash, gboolean create)
 {
     QtCTreeView *rv=NULL;
 
-    if(!qtcTreeViewTable)
+    if (!qtcTreeViewTable)
         qtcTreeViewTable=g_hash_table_new(g_direct_hash, g_direct_equal);
 
-    rv=(QtCTreeView *)g_hash_table_lookup(qtcTreeViewTable, hash);
+    rv = (QtCTreeView*)g_hash_table_lookup(qtcTreeViewTable, hash);
 
-    if(!rv && create)
-    {
+    if (!rv && create) {
         rv = qtcNew(QtCTreeView);
         rv->path=NULL;
         rv->column=NULL;
         rv->fullWidth=false;
         g_hash_table_insert(qtcTreeViewTable, hash, rv);
-        rv=g_hash_table_lookup(qtcTreeViewTable, hash);
+        rv = (QtCTreeView*)g_hash_table_lookup(qtcTreeViewTable, hash);
     }
 
     return rv;

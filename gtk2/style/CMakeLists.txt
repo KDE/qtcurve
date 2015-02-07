@@ -11,8 +11,8 @@ set(qtcurve_SRCS
   scrollbar.c
   scrolledwindow.c
   tab.c
-  treeview.c
   shadowhelper.c
+  treeview.cpp
   widgetmap.cpp
   window.cpp
   wmmove.cpp)
