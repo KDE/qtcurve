@@ -28,7 +28,7 @@
 
 #define CAIRO_GRAD_END 1.0
 
-QTC_BEGIN_DECLS
+namespace QtCurve {
 
 void drawBgnd(cairo_t *cr, const GdkColor *col, GtkWidget *widget,
               const QtcRect *area, int x, int y, int width, int height);
@@ -180,6 +180,6 @@ void drawDefBtnIndicator(cairo_t *cr, GtkStateType state,
 GdkPixbuf *renderIcon(GtkStyle *style, const GtkIconSource *source,
                       GtkStateType state, GtkIconSize size, GtkWidget *widget);
 
-QTC_END_DECLS
+}
 
 #endif

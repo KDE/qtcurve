@@ -24,7 +24,6 @@
 
 #include "drawing.h"
 
-
 #include "qt_settings.h"
 #include "helpers.h"
 #include "pixcache.h"
@@ -37,6 +36,8 @@
 #include <qtcurve-utils/log.h>
 
 #include <common/config_file.h>
+
+namespace QtCurve {
 
 #if GTK_CHECK_VERSION(2, 90, 0)
 static cairo_region_t*
@@ -1523,11 +1524,10 @@ drawProgress(cairo_t *cr, GtkStyle *style, GtkStateType state,
 #if !GTK_CHECK_VERSION(2, 90, 0) /* Gtk3:TODO !!! */
         if (isEntryProg || !GTK_PROGRESS(widget)->activity_mode)
 #endif
-            QtCurve::Animation::addProgressBar(widget, isEntryProg);
+            Animation::addProgressBar(widget, isEntryProg);
 
         animShift+=(revProg ? -1 : 1)*
-            (((int)(QtCurve::Animation::elapsed(widget) *
-                    PROGRESS_CHUNK_WIDTH)) %
+            (int(Animation::elapsed(widget) * PROGRESS_CHUNK_WIDTH) %
              (PROGRESS_CHUNK_WIDTH * 2));
     }
 
@@ -4159,4 +4159,6 @@ renderIcon(GtkStyle *style, const GtkIconSource *source, GtkStateType state,
         stated = scaled;
     }
     return stated;
+}
+
 }
