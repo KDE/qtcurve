@@ -25,10 +25,9 @@
 
 #include <gtk/gtk.h>
 
-#include <qtcurve-utils/utils.h>
 #include <common/common.h>
 
-QTC_BEGIN_DECLS
+namespace QtCurve {
 
 #define READ_INACTIVE_PAL /* Control whether QtCurve should read the inactive palette as well.. */
 
@@ -174,6 +173,6 @@ extern QtData qtSettings;
 gboolean qtSettingsInit();
 void qtSettingsSetColors(GtkStyle *style, GtkRcStyle *rc_style);
 
-QTC_END_DECLS
+}
 
 #endif

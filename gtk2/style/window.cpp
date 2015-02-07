@@ -35,8 +35,6 @@
 #include "qt_settings.h"
 #include "menu.h"
 
-extern Options opts;
-
 static GtkWidget *qtcCurrentActiveWindow = NULL;
 
 typedef struct {
@@ -90,21 +88,21 @@ qtcWindowCleanup(GtkWidget *widget)
 {
     if (widget) {
         QTC_DEF_WIDGET_PROPS(props, widget);
-        if (!(qtcIsFlatBgnd(opts.bgndAppearance)) ||
-            opts.bgndImage.type != IMG_NONE) {
+        if (!(qtcIsFlatBgnd(QtCurve::opts.bgndAppearance)) ||
+            QtCurve::opts.bgndImage.type != IMG_NONE) {
             qtcWindowRemoveFromHash(widget);
             qtcDisconnectFromProp(props, windowConfigure);
         }
         qtcDisconnectFromProp(props, windowDestroy);
         qtcDisconnectFromProp(props, windowStyleSet);
-        if ((opts.menubarHiding & HIDE_KEYBOARD) ||
-            (opts.statusbarHiding & HIDE_KEYBOARD))
+        if ((QtCurve::opts.menubarHiding & HIDE_KEYBOARD) ||
+            (QtCurve::opts.statusbarHiding & HIDE_KEYBOARD))
             qtcDisconnectFromProp(props, windowKeyRelease);
-        if ((opts.menubarHiding & HIDE_KWIN) ||
-            (opts.statusbarHiding & HIDE_KWIN))
+        if ((QtCurve::opts.menubarHiding & HIDE_KWIN) ||
+            (QtCurve::opts.statusbarHiding & HIDE_KWIN))
             qtcDisconnectFromProp(props, windowMap);
-        if (opts.shadeMenubarOnlyWhenActive || BLEND_TITLEBAR ||
-            opts.menubarHiding || opts.statusbarHiding)
+        if (QtCurve::opts.shadeMenubarOnlyWhenActive || BLEND_TITLEBAR ||
+            QtCurve::opts.menubarHiding || QtCurve::opts.statusbarHiding)
             qtcDisconnectFromProp(props, windowClientEvent);
         qtcWidgetProps(props)->windowHacked = false;
     }
@@ -144,12 +142,12 @@ qtcWindowClientEvent(GtkWidget *widget, GdkEventClient *event, void *data)
         }
     } else if (gdk_x11_atom_to_xatom(event->message_type) ==
                qtc_x11_qtc_toggle_menubar) {
-        if (opts.menubarHiding & HIDE_KWIN && qtcWindowToggleMenuBar(widget)) {
+        if (QtCurve::opts.menubarHiding & HIDE_KWIN && qtcWindowToggleMenuBar(widget)) {
             gtk_widget_queue_draw(widget);
         }
     } else if (gdk_x11_atom_to_xatom(event->message_type) ==
                qtc_x11_qtc_toggle_statusbar) {
-        if (opts.statusbarHiding & HIDE_KWIN &&
+        if (QtCurve::opts.statusbarHiding & HIDE_KWIN &&
             qtcWindowToggleStatusBar(widget)) {
             gtk_widget_queue_draw(widget);
         }
@@ -176,32 +174,32 @@ qtcWindowIsActive(GtkWidget *widget)
 static gboolean
 qtcWindowSizeRequest(GtkWidget *widget)
 {
-    if (widget && (!(qtcIsFlatBgnd(opts.bgndAppearance)) ||
-                   IMG_NONE != opts.bgndImage.type)) {
+    if (widget && (!(qtcIsFlatBgnd(QtCurve::opts.bgndAppearance)) ||
+                   IMG_NONE != QtCurve::opts.bgndImage.type)) {
         QtcRect alloc = qtcWidgetGetAllocation(widget);
         QtcRect rect = {0, 0, 0, 0};
-        if (qtcIsFlat(opts.bgndAppearance) &&
-            IMG_NONE != opts.bgndImage.type) {
-            EPixPos pos = (IMG_FILE == opts.bgndImage.type ?
-                           opts.bgndImage.pos : PP_TR);
-            if (opts.bgndImage.type == IMG_FILE) {
-                qtcLoadBgndImage(&opts.bgndImage);
+        if (qtcIsFlat(QtCurve::opts.bgndAppearance) &&
+            IMG_NONE != QtCurve::opts.bgndImage.type) {
+            EPixPos pos = (IMG_FILE == QtCurve::opts.bgndImage.type ?
+                           QtCurve::opts.bgndImage.pos : PP_TR);
+            if (QtCurve::opts.bgndImage.type == IMG_FILE) {
+                qtcLoadBgndImage(&QtCurve::opts.bgndImage);
             }
             switch (pos) {
             case PP_TL:
-                rect.width  = opts.bgndImage.width + 1;
-                rect.height = opts.bgndImage.height + 1;
+                rect.width  = QtCurve::opts.bgndImage.width + 1;
+                rect.height = QtCurve::opts.bgndImage.height + 1;
                 break;
             case PP_TM:
             case PP_TR:
                 rect.width = alloc.width;
-                rect.height = (opts.bgndImage.type == IMG_FILE ?
-                               opts.bgndImage.height :
-                               RINGS_HEIGHT(opts.bgndImage.type)) + 1;
+                rect.height = (QtCurve::opts.bgndImage.type == IMG_FILE ?
+                               QtCurve::opts.bgndImage.height :
+                               RINGS_HEIGHT(QtCurve::opts.bgndImage.type)) + 1;
                 break;
             case PP_LM:
             case PP_BL:
-                rect.width = opts.bgndImage.width + 1;
+                rect.width = QtCurve::opts.bgndImage.width + 1;
                 rect.height = alloc.height;
                 break;
             case PP_CENTRED:
@@ -277,7 +275,7 @@ qtcWindowConfigure(GtkWidget *widget, GdkEventConfigure *event, void *data)
 static gboolean
 canGetChildren(GtkWidget *widget)
 {
-    return (GTK_APP_GHB != qtSettings.app ||
+    return (QtCurve::qtSettings.app != QtCurve::GTK_APP_GHB ||
             0 != strcmp(g_type_name(G_OBJECT_TYPE(widget)), "GhbCompositor") ||
             gtk_widget_get_realized(widget));
 }
@@ -382,7 +380,8 @@ qtcWindowToggleMenuBar(GtkWidget *widget)
 
     if (menuBar) {
         int size = 0;
-        qtcSetMenuBarHidden(qtSettings.appName, gtk_widget_get_visible(menuBar));
+        qtcSetMenuBarHidden(QtCurve::qtSettings.appName,
+                            gtk_widget_get_visible(menuBar));
         if (gtk_widget_get_visible(menuBar)) {
             gtk_widget_hide(menuBar);
         } else {
@@ -420,7 +419,7 @@ qtcWindowToggleStatusBar(GtkWidget *widget)
 
     if (statusBar) {
         bool state = gtk_widget_get_visible(statusBar);
-        qtcSetStatusBarHidden(qtSettings.appName, state);
+        qtcSetStatusBarHidden(QtCurve::qtSettings.appName, state);
         if (state) {
             gtk_widget_hide(statusBar);
         } else {
@@ -436,13 +435,13 @@ static void
 qtcWindowSetProperties(GtkWidget *w, unsigned short opacity)
 {
     GtkWindow *topLevel = GTK_WINDOW(gtk_widget_get_toplevel(w));
-    unsigned long prop = (qtcIsFlatBgnd(opts.bgndAppearance) ?
-                          (IMG_NONE != opts.bgndImage.type ?
+    unsigned long prop = (qtcIsFlatBgnd(QtCurve::opts.bgndAppearance) ?
+                          (IMG_NONE != QtCurve::opts.bgndImage.type ?
                            APPEARANCE_RAISED : APPEARANCE_FLAT) :
-                          opts.bgndAppearance) & 0xFF;
+                          QtCurve::opts.bgndAppearance) & 0xFF;
     //GtkRcStyle *rcStyle=gtk_widget_get_modifier_style(w);
     GdkColor *bgnd = /* rcStyle ? &rcStyle->bg[GTK_STATE_NORMAL] : */
-        &qtcPalette.background[ORIGINAL_SHADE];
+        &QtCurve::qtcPalette.background[ORIGINAL_SHADE];
     xcb_window_t wid =
         GDK_WINDOW_XID(gtk_widget_get_window(GTK_WIDGET(topLevel)));
 
@@ -465,11 +464,11 @@ qtcWindowKeyRelease(GtkWidget *widget, GdkEventKey *event, void *user_data)
     if (GDK_CONTROL_MASK & event->state && GDK_MOD1_MASK & event->state &&
         !event->is_modifier && 0 == (event->state & 0xFF00)) {
         bool toggled = false;
-        if (opts.menubarHiding & HIDE_KEYBOARD &&
+        if (QtCurve::opts.menubarHiding & HIDE_KEYBOARD &&
             (GDK_KEY_m == event->keyval || GDK_KEY_M == event->keyval)) {
             toggled = qtcWindowToggleMenuBar(widget);
         }
-        if (opts.statusbarHiding & HIDE_KEYBOARD &&
+        if (QtCurve::opts.statusbarHiding & HIDE_KEYBOARD &&
             (GDK_KEY_s == event->keyval || GDK_KEY_S == event->keyval)) {
             toggled = qtcWindowToggleStatusBar(widget);
         }
@@ -488,7 +487,7 @@ qtcWindowMap(GtkWidget *widget, GdkEventKey *event, void *user_data)
     QTC_DEF_WIDGET_PROPS(props, widget);
     qtcWindowSetProperties(widget, qtcWidgetProps(props)->windowOpacity);
 
-    if (opts.menubarHiding & HIDE_KWIN) {
+    if (QtCurve::opts.menubarHiding & HIDE_KWIN) {
         GtkWidget *menuBar = qtcWindowGetMenuBar(widget, 0);
 
         if (menuBar) {
@@ -500,7 +499,7 @@ qtcWindowMap(GtkWidget *widget, GdkEventKey *event, void *user_data)
         }
     }
 
-    if(opts.statusbarHiding&HIDE_KWIN)
+    if(QtCurve::opts.statusbarHiding&HIDE_KWIN)
     {
         GtkWidget *statusBar=qtcWindowGetStatusBar(widget, 0);
 
@@ -516,8 +515,8 @@ qtcWindowSetup(GtkWidget *widget, int opacity)
     QTC_DEF_WIDGET_PROPS(props, widget);
     if (widget && !qtcWidgetProps(props)->windowHacked) {
         qtcWidgetProps(props)->windowHacked = true;
-        if (!qtcIsFlatBgnd(opts.bgndAppearance) ||
-            opts.bgndImage.type != IMG_NONE) {
+        if (!qtcIsFlatBgnd(QtCurve::opts.bgndAppearance) ||
+            QtCurve::opts.bgndImage.type != IMG_NONE) {
             QtCWindow *window = qtcWindowLookupHash(widget, true);
             if (window) {
                 QtcRect alloc = qtcWidgetGetAllocation(widget);
@@ -532,19 +531,19 @@ qtcWindowSetup(GtkWidget *widget, int opacity)
                          qtcWindowDestroy, NULL);
         qtcConnectToProp(props, windowStyleSet, "style-set",
                          qtcWindowStyleSet, NULL);
-        if ((opts.menubarHiding & HIDE_KEYBOARD) ||
-            (opts.statusbarHiding & HIDE_KEYBOARD)) {
+        if ((QtCurve::opts.menubarHiding & HIDE_KEYBOARD) ||
+            (QtCurve::opts.statusbarHiding & HIDE_KEYBOARD)) {
             qtcConnectToProp(props, windowKeyRelease, "key-release-event",
                              qtcWindowKeyRelease, NULL);
         }
         qtcWidgetProps(props)->windowOpacity = (unsigned short)opacity;
         qtcWindowSetProperties(widget, (unsigned short)opacity);
 
-        if ((opts.menubarHiding & HIDE_KWIN) ||
-            (opts.statusbarHiding & HIDE_KWIN) || 100 != opacity)
+        if ((QtCurve::opts.menubarHiding & HIDE_KWIN) ||
+            (QtCurve::opts.statusbarHiding & HIDE_KWIN) || 100 != opacity)
             qtcConnectToProp(props, windowMap, "map-event", qtcWindowMap, NULL);
-        if (opts.shadeMenubarOnlyWhenActive || BLEND_TITLEBAR ||
-            opts.menubarHiding || opts.statusbarHiding)
+        if (QtCurve::opts.shadeMenubarOnlyWhenActive || BLEND_TITLEBAR ||
+            QtCurve::opts.menubarHiding || QtCurve::opts.statusbarHiding)
             qtcConnectToProp(props, windowClientEvent, "client-event",
                              qtcWindowClientEvent, NULL);
         return true;

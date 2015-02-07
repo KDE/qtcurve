@@ -30,8 +30,6 @@
 #include "qt_settings.h"
 #include "tab.h"
 
-extern Options opts;
-
 static int qtcWMMoveLastX = -1;
 static int qtcWMMoveLastY = -1;
 static int qtcWMMoveTimer = 0;
@@ -245,12 +243,13 @@ qtcWWMoveStartDelayedDrag(void*)
 static gboolean
 qtcWMMoveIsWindowDragWidget(GtkWidget *widget, GdkEventButton *event)
 {
-    if(opts.windowDrag && (!event || (qtcWMMoveWithinWidget(widget, event) && qtcWMMoveUseEvent(widget, event))))
+    if(QtCurve::opts.windowDrag && (!event || (qtcWMMoveWithinWidget(widget, event) && qtcWMMoveUseEvent(widget, event))))
     {
         qtcWMMoveStore(widget, event);
         // Start timer
         qtcWMMoveStopTimer();
-        qtcWMMoveTimer=g_timeout_add(qtSettings.startDragTime, (GSourceFunc)qtcWWMoveStartDelayedDrag, NULL);
+        qtcWMMoveTimer=g_timeout_add(QtCurve::qtSettings.startDragTime,
+                                     (GSourceFunc)qtcWWMoveStartDelayedDrag, NULL);
         return true;
     }
     qtcWMMoveLastRejectedEvent=event;
@@ -320,7 +319,7 @@ qtcWMMoveMotion(GtkWidget *widget, GdkEventMotion *event, void*)
         if (distance > 0)
             qtcWMMoveStopTimer();
 
-        /* if (distance < qtSettings.startDragDist) */
+        /* if (distance < QtCurve::qtSettings.startDragDist) */
         /*     return false; */
         qtcWMMoveTrigger(widget, event->x_root, event->y_root);
         return true;

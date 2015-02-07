@@ -22,11 +22,11 @@
 
 #include "scrolledwindow.h"
 
+#include "qt_settings.h"
+
 #include <qtcurve-utils/gtkprops.h>
 #include <qtcurve-cairo/utils.h>
 #include <common/common.h>
-
-extern Options opts;
 
 static void
 qtcScrolledWindowCleanup(GtkWidget *widget)
@@ -36,7 +36,7 @@ qtcScrolledWindowCleanup(GtkWidget *widget)
         qtcDisconnectFromProp(props, scrolledWindowDestroy);
         qtcDisconnectFromProp(props, scrolledWindowUnrealize);
         qtcDisconnectFromProp(props, scrolledWindowStyleSet);
-        if (opts.unifyCombo && opts.unifySpin) {
+        if (QtCurve::opts.unifyCombo && QtCurve::opts.unifySpin) {
             qtcDisconnectFromProp(props, scrolledWindowEnter);
             qtcDisconnectFromProp(props, scrolledWindowLeave);
         }
@@ -133,7 +133,7 @@ qtcScrolledWindowSetupConnections(GtkWidget *widget, GtkWidget *parent)
                          "unrealize", qtcScrolledWindowDestroy, parent);
         qtcConnectToProp(props, scrolledWindowStyleSet,
                          "style-set", qtcScrolledWindowStyleSet, parent);
-        if (opts.unifyCombo && opts.unifySpin) {
+        if (QtCurve::opts.unifyCombo && QtCurve::opts.unifySpin) {
             qtcConnectToProp(props, scrolledWindowEnter, "enter-notify-event",
                              qtcScrolledWindowEnter, parent);
             qtcConnectToProp(props, scrolledWindowLeave, "leave-notify-event",
@@ -143,7 +143,7 @@ qtcScrolledWindowSetupConnections(GtkWidget *widget, GtkWidget *parent)
                          qtcScrolledWindowFocusIn, parent);
         qtcConnectToProp(props, scrolledWindowFocusOut, "focus-out-event",
                          qtcScrolledWindowFocusOut, parent);
-        if (parent && opts.unifyCombo && opts.unifySpin) {
+        if (parent && QtCurve::opts.unifyCombo && QtCurve::opts.unifySpin) {
             int x, y;
             QtcRect alloc = qtcWidgetGetAllocation(parent);
 

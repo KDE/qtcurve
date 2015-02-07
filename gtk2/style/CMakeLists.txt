@@ -76,10 +76,6 @@ set_target_properties(qtcurve-gtk2 PROPERTIES
 add_dependencies(qtcurve-gtk2 qtc_gtk2_check_on_hdr qtc_gtk2_check_x_on_hdr
   qtc_gtk2_blank16x16_hdr)
 
-# The following fixes odd segfaults with evolution under Fedora 14.
-# See https://bugzilla.redhat.com/show_bug.cgi?id=676837
-add_definitions(-Dopts=qtcurve_gtk2_opts)
-
 target_link_libraries(qtcurve-gtk2
   ${GTK2_LDFLAGS}
   ${GTK2_LIBRARIES}

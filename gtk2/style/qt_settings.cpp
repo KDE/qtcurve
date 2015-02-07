@@ -36,6 +36,8 @@
 #include <locale.h>
 #include <gmodule.h>
 
+namespace QtCurve {
+
 QtCPalette qtcPalette;
 Options opts;
 
@@ -2506,4 +2508,6 @@ void qtSettingsSetColors(GtkStyle *style, GtkRcStyle *rc_style)
 //         SET_COLOR(style, rc_style, fg, GTK_RC_FG, GTK_STATE_INSENSITIVE, COLOR_MID)
     SET_COLOR(style, rc_style, fg, GTK_RC_FG, GTK_STATE_ACTIVE, COLOR_WINDOW_TEXT)
     SET_COLOR(style, rc_style, fg, GTK_RC_FG, GTK_STATE_PRELIGHT, COLOR_WINDOW_TEXT)
+}
+
 }
