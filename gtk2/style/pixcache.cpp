@@ -45,7 +45,7 @@ getBlankPixbuf()
 static unsigned
 pixbufCacheHashKey(const void *k)
 {
-    const QtcPixKey *key = k;
+    const QtcPixKey *key = (const QtcPixKey*)k;
     int hash = (((key->col.red >> 8) << 16) + ((key->col.green >> 8) << 8) +
                 (key->col.blue >> 8));
     return g_int_hash(&hash);
@@ -112,7 +112,7 @@ getPixbuf(GdkColor *widgetColor, EPixmap p, double shade)
         .shade = shade
     };
     GHashTable *table = getPixbufTable();
-    GdkPixbuf *pixbuf = g_hash_table_lookup(table, &key);
+    GdkPixbuf *pixbuf = (GdkPixbuf*)g_hash_table_lookup(table, &key);
     if (pixbuf) {
         return pixbuf;
     }

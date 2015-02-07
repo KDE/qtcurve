@@ -5,9 +5,9 @@ set(qtcurve_SRCS
   entry.cpp
   helpers.cpp
   menu.cpp
+  pixcache.cpp
   qtcurve.c
   qt_settings.c
-  pixcache.c
   scrollbar.c
   scrolledwindow.c
   tab.c

@@ -79,9 +79,8 @@ menuIsSelectable(GtkWidget *menu)
 }
 
 static gboolean
-qtcMenuShellButtonPress(GtkWidget *widget, GdkEventButton *event, void *data)
+qtcMenuShellButtonPress(GtkWidget *widget, GdkEventButton *event, void*)
 {
-    QTC_UNUSED(data);
     if (GTK_IS_MENU_BAR(widget)) {
         // QtCurve's menubars have a 2 pixel border ->
         // but want the left/top to be 'active'...
@@ -153,28 +152,22 @@ qtcMenuShellCleanup(GtkWidget *widget)
 }
 
 static gboolean
-qtcMenuShellStyleSet(GtkWidget *widget, GtkStyle *prev_style, void *data)
+qtcMenuShellStyleSet(GtkWidget *widget, GtkStyle*, void*)
 {
-    QTC_UNUSED(data);
-    QTC_UNUSED(prev_style);
     qtcMenuShellCleanup(widget);
     return false;
 }
 
 static gboolean
-qtcMenuShellDestroy(GtkWidget *widget, GdkEvent *event, void *data)
+qtcMenuShellDestroy(GtkWidget *widget, GdkEvent*, void*)
 {
-    QTC_UNUSED(data);
-    QTC_UNUSED(event);
     qtcMenuShellCleanup(widget);
     return false;
 }
 
 static gboolean
-qtcMenuShellMotion(GtkWidget *widget, GdkEventMotion *event, void *data)
+qtcMenuShellMotion(GtkWidget *widget, GdkEventMotion*, void*)
 {
-    QTC_UNUSED(data);
-    QTC_UNUSED(event);
     if (GTK_IS_MENU_SHELL(widget)) {
         int pointer_x, pointer_y;
         GdkModifierType pointer_mask;
@@ -212,10 +205,8 @@ qtcMenuShellMotion(GtkWidget *widget, GdkEventMotion *event, void *data)
 }
 
 static gboolean
-qtcMenuShellLeave(GtkWidget *widget, GdkEventCrossing *event, void *data)
+qtcMenuShellLeave(GtkWidget *widget, GdkEventCrossing*, void*)
 {
-    QTC_UNUSED(data);
-    QTC_UNUSED(event);
     if (GTK_IS_MENU_SHELL(widget) && GTK_IS_CONTAINER(widget)) {
         GList *children = gtk_container_get_children(GTK_CONTAINER(widget));
         for (GList *child = children;child;child = g_list_next(child)) {
