@@ -899,7 +899,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
         if (opts.highlightScrollViews && widget) {
             GtkWidget *parent = gtk_widget_get_parent(widget);
             if (parent && GTK_IS_TREE_VIEW(parent)) {
-                qtcScrolledWindowRegisterChild(parent);
+                ScrolledWindow::registerChild(parent);
             }
         }
         drawListViewHeader(cr, state, btnColors, bgnd, (QtcRect*)area,
@@ -1783,11 +1783,10 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
             }
         }
 
-        if(checkScrollViewState)
-        {
-            qtcScrolledWindowSetup(widget);
-            isHovered=qtcScrolledWindowHovered(widget);
-            hasFocus=!isHovered && qtcScrolledWindowHasFocus(widget);
+        if (checkScrollViewState) {
+            ScrolledWindow::setup(widget);
+            isHovered = ScrolledWindow::hovered(widget);
+            hasFocus = !isHovered && ScrolledWindow::hasFocus(widget);
         }
 
         cols=isHovered ? qtcPalette.mouseover

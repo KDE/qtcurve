@@ -28,15 +28,18 @@
 #include <qtcurve-cairo/utils.h>
 #include <common/common.h>
 
+namespace QtCurve {
+namespace ScrolledWindow {
+
 static void
-qtcScrolledWindowCleanup(GtkWidget *widget)
+cleanup(GtkWidget *widget)
 {
     QTC_DEF_WIDGET_PROPS(props, widget);
     if (widget && qtcWidgetProps(props)->scrolledWindowHacked) {
         qtcDisconnectFromProp(props, scrolledWindowDestroy);
         qtcDisconnectFromProp(props, scrolledWindowUnrealize);
         qtcDisconnectFromProp(props, scrolledWindowStyleSet);
-        if (QtCurve::opts.unifyCombo && QtCurve::opts.unifySpin) {
+        if (opts.unifyCombo && opts.unifySpin) {
             qtcDisconnectFromProp(props, scrolledWindowEnter);
             qtcDisconnectFromProp(props, scrolledWindowLeave);
         }
@@ -47,80 +50,68 @@ qtcScrolledWindowCleanup(GtkWidget *widget)
 }
 
 static gboolean
-qtcScrolledWindowStyleSet(GtkWidget *widget, GtkStyle*, void*)
+styleSet(GtkWidget *widget, GtkStyle*, void*)
 {
-    qtcScrolledWindowCleanup(widget);
+    cleanup(widget);
     return false;
 }
 
 static gboolean
-qtcScrolledWindowDestroy(GtkWidget *widget, GdkEvent*, void*)
+destroy(GtkWidget *widget, GdkEvent*, void*)
 {
-    qtcScrolledWindowCleanup(widget);
+    cleanup(widget);
     return false;
 }
 
-static GtkWidget *qtcScrolledWindowFocus = NULL;
-static GtkWidget *qtcScrolledWindowHover = NULL;
-
-gboolean qtcScrolledWindowHasFocus(GtkWidget *widget)
-{
-    return widget && (gtk_widget_has_focus(widget) ||
-                      widget == qtcScrolledWindowFocus);
-}
-
-gboolean qtcScrolledWindowHovered(GtkWidget *widget)
-{
-    return widget && (gtk_widget_get_state(widget) == GTK_STATE_PRELIGHT ||
-                      widget == qtcScrolledWindowHover);
-}
+static GtkWidget *focusWidget = NULL;
+static GtkWidget *hoverWidget = NULL;
 
 static gboolean
-qtcScrolledWindowEnter(GtkWidget *widget, GdkEventMotion*, void *data)
+enter(GtkWidget *widget, GdkEventMotion*, void *data)
 {
     GtkWidget *w = data ? (GtkWidget*)data : widget;
-    if (GTK_IS_SCROLLED_WINDOW(w) && qtcScrolledWindowHover != w) {
-        qtcScrolledWindowHover = w;
+    if (GTK_IS_SCROLLED_WINDOW(w) && hoverWidget != w) {
+        hoverWidget = w;
         gtk_widget_queue_draw(w);
     }
     return false;
 }
 
 static gboolean
-qtcScrolledWindowLeave(GtkWidget *widget, GdkEventMotion*, void *data)
+leave(GtkWidget *widget, GdkEventMotion*, void *data)
 {
     GtkWidget *w = data ? (GtkWidget*)data : widget;
-    if (GTK_IS_SCROLLED_WINDOW(w) && qtcScrolledWindowHover == w) {
-        qtcScrolledWindowHover = NULL;
+    if (GTK_IS_SCROLLED_WINDOW(w) && hoverWidget == w) {
+        hoverWidget = NULL;
         gtk_widget_queue_draw(w);
     }
     return false;
 }
 
 static gboolean
-qtcScrolledWindowFocusIn(GtkWidget *widget, GdkEventMotion*, void *data)
+focusIn(GtkWidget *widget, GdkEventMotion*, void *data)
 {
     GtkWidget *w = data ? (GtkWidget*)data : widget;
-    if (GTK_IS_SCROLLED_WINDOW(w) && qtcScrolledWindowFocus != w) {
-        qtcScrolledWindowFocus = w;
+    if (GTK_IS_SCROLLED_WINDOW(w) && focusWidget != w) {
+        focusWidget = w;
         gtk_widget_queue_draw(w);
     }
     return false;
 }
 
 static gboolean
-qtcScrolledWindowFocusOut(GtkWidget *widget, GdkEventMotion*, void *data)
+focusOut(GtkWidget *widget, GdkEventMotion*, void *data)
 {
     GtkWidget *w = data ? (GtkWidget*)data : widget;
-    if (GTK_IS_SCROLLED_WINDOW(w) && qtcScrolledWindowFocus == w) {
-        qtcScrolledWindowFocus = NULL;
+    if (GTK_IS_SCROLLED_WINDOW(w) && focusWidget == w) {
+        focusWidget = NULL;
         gtk_widget_queue_draw(w);
     }
     return false;
 }
 
 static void
-qtcScrolledWindowSetupConnections(GtkWidget *widget, GtkWidget *parent)
+setupConnections(GtkWidget *widget, GtkWidget *parent)
 {
     QTC_DEF_WIDGET_PROPS(props, widget);
     if (widget && !qtcWidgetProps(props)->scrolledWindowHacked) {
@@ -128,47 +119,35 @@ qtcScrolledWindowSetupConnections(GtkWidget *widget, GtkWidget *parent)
         gtk_widget_add_events(widget, GDK_LEAVE_NOTIFY_MASK |
                               GDK_ENTER_NOTIFY_MASK | GDK_FOCUS_CHANGE_MASK);
         qtcConnectToProp(props, scrolledWindowDestroy,
-                         "destroy-event", qtcScrolledWindowDestroy, parent);
+                         "destroy-event", destroy, parent);
         qtcConnectToProp(props, scrolledWindowUnrealize,
-                         "unrealize", qtcScrolledWindowDestroy, parent);
+                         "unrealize", destroy, parent);
         qtcConnectToProp(props, scrolledWindowStyleSet,
-                         "style-set", qtcScrolledWindowStyleSet, parent);
-        if (QtCurve::opts.unifyCombo && QtCurve::opts.unifySpin) {
+                         "style-set", styleSet, parent);
+        if (opts.unifyCombo && opts.unifySpin) {
             qtcConnectToProp(props, scrolledWindowEnter, "enter-notify-event",
-                             qtcScrolledWindowEnter, parent);
+                             enter, parent);
             qtcConnectToProp(props, scrolledWindowLeave, "leave-notify-event",
-                             qtcScrolledWindowLeave, parent);
+                             leave, parent);
         }
         qtcConnectToProp(props, scrolledWindowFocusIn, "focus-in-event",
-                         qtcScrolledWindowFocusIn, parent);
+                         focusIn, parent);
         qtcConnectToProp(props, scrolledWindowFocusOut, "focus-out-event",
-                         qtcScrolledWindowFocusOut, parent);
-        if (parent && QtCurve::opts.unifyCombo && QtCurve::opts.unifySpin) {
+                         focusOut, parent);
+        if (parent && opts.unifyCombo && opts.unifySpin) {
             int x, y;
             QtcRect alloc = qtcWidgetGetAllocation(parent);
 
             gdk_window_get_pointer(gtk_widget_get_window(parent), &x, &y, 0L);
             if (x >= 0 && x <alloc.width && y >= 0 && y < alloc.height) {
-                qtcScrolledWindowHover = parent;
+                hoverWidget = parent;
             }
         }
     }
 }
 
 void
-qtcScrolledWindowRegisterChild(GtkWidget *child)
-{
-    GtkWidget *parent = child ? gtk_widget_get_parent(child) : NULL;
-
-    QTC_DEF_WIDGET_PROPS(parentProps, parent);
-    if (parent && GTK_IS_SCROLLED_WINDOW(parent) &&
-        qtcWidgetProps(parentProps)->scrolledWindowHacked) {
-        qtcScrolledWindowSetupConnections(child, parent);
-    }
-}
-
-void
-qtcScrolledWindowSetup(GtkWidget *widget)
+setup(GtkWidget *widget)
 {
     QTC_DEF_WIDGET_PROPS(props, widget);
     if (widget && GTK_IS_SCROLLED_WINDOW(widget) &&
@@ -177,23 +156,51 @@ qtcScrolledWindowSetup(GtkWidget *widget)
         GtkWidget *child;
 
         if ((child = gtk_scrolled_window_get_hscrollbar(scrolledWindow))) {
-            qtcScrolledWindowSetupConnections(child, widget);
+            setupConnections(child, widget);
         }
         if ((child = gtk_scrolled_window_get_vscrollbar(scrolledWindow))) {
-            qtcScrolledWindowSetupConnections(child, widget);
+            setupConnections(child, widget);
         }
         if ((child = gtk_bin_get_child(GTK_BIN(widget)))) {
             if (GTK_IS_TREE_VIEW(child) || GTK_IS_TEXT_VIEW(child) ||
                 GTK_IS_ICON_VIEW(child)) {
-                qtcScrolledWindowSetupConnections(child, widget);
+                setupConnections(child, widget);
             } else {
                 const char *type = g_type_name(G_OBJECT_TYPE(child));
                 if (type && (strcmp(type, "ExoIconView") == 0 ||
                              strcmp(type, "FMIconContainer") == 0)) {
-                    qtcScrolledWindowSetupConnections(child, widget);
+                    setupConnections(child, widget);
                 }
             }
         }
         qtcWidgetProps(props)->scrolledWindowHacked = true;
     }
+}
+
+void
+registerChild(GtkWidget *child)
+{
+    GtkWidget *parent = child ? gtk_widget_get_parent(child) : NULL;
+
+    QTC_DEF_WIDGET_PROPS(parentProps, parent);
+    if (parent && GTK_IS_SCROLLED_WINDOW(parent) &&
+        qtcWidgetProps(parentProps)->scrolledWindowHacked) {
+        setupConnections(child, parent);
+    }
+}
+
+bool
+hasFocus(GtkWidget *widget)
+{
+    return widget && (gtk_widget_has_focus(widget) || widget == focusWidget);
+}
+
+bool
+hovered(GtkWidget *widget)
+{
+    return widget && (gtk_widget_get_state(widget) == GTK_STATE_PRELIGHT ||
+                      widget == hoverWidget);
+}
+
+}
 }
