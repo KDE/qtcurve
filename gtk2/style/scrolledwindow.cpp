@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -19,6 +19,8 @@
  *   License along with this library. If not,                                *
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
+
+#include "scrolledwindow.h"
 
 #include <qtcurve-utils/gtkprops.h>
 #include <qtcurve-cairo/utils.h>
@@ -45,19 +47,15 @@ qtcScrolledWindowCleanup(GtkWidget *widget)
 }
 
 static gboolean
-qtcScrolledWindowStyleSet(GtkWidget *widget, GtkStyle *prev, void *data)
+qtcScrolledWindowStyleSet(GtkWidget *widget, GtkStyle*, void*)
 {
-    QTC_UNUSED(prev);
-    QTC_UNUSED(data);
     qtcScrolledWindowCleanup(widget);
     return false;
 }
 
 static gboolean
-qtcScrolledWindowDestroy(GtkWidget *widget, GdkEvent *event, void *data)
+qtcScrolledWindowDestroy(GtkWidget *widget, GdkEvent*, void*)
 {
-    QTC_UNUSED(event);
-    QTC_UNUSED(data);
     qtcScrolledWindowCleanup(widget);
     return false;
 }
@@ -67,18 +65,19 @@ static GtkWidget *qtcScrolledWindowHover = NULL;
 
 gboolean qtcScrolledWindowHasFocus(GtkWidget *widget)
 {
-    return widget && (gtk_widget_has_focus(widget) || widget==qtcScrolledWindowFocus);
+    return widget && (gtk_widget_has_focus(widget) ||
+                      widget == qtcScrolledWindowFocus);
 }
 
 gboolean qtcScrolledWindowHovered(GtkWidget *widget)
 {
-    return widget && (GTK_STATE_PRELIGHT==gtk_widget_get_state(widget) || widget==qtcScrolledWindowHover);
+    return widget && (gtk_widget_get_state(widget) == GTK_STATE_PRELIGHT ||
+                      widget == qtcScrolledWindowHover);
 }
 
 static gboolean
-qtcScrolledWindowEnter(GtkWidget *widget, GdkEventMotion *event, void *data)
+qtcScrolledWindowEnter(GtkWidget *widget, GdkEventMotion*, void *data)
 {
-    QTC_UNUSED(event);
     GtkWidget *w = data ? (GtkWidget*)data : widget;
     if (GTK_IS_SCROLLED_WINDOW(w) && qtcScrolledWindowHover != w) {
         qtcScrolledWindowHover = w;
@@ -88,9 +87,8 @@ qtcScrolledWindowEnter(GtkWidget *widget, GdkEventMotion *event, void *data)
 }
 
 static gboolean
-qtcScrolledWindowLeave(GtkWidget *widget, GdkEventMotion *event, void *data)
+qtcScrolledWindowLeave(GtkWidget *widget, GdkEventMotion*, void *data)
 {
-    QTC_UNUSED(event);
     GtkWidget *w = data ? (GtkWidget*)data : widget;
     if (GTK_IS_SCROLLED_WINDOW(w) && qtcScrolledWindowHover == w) {
         qtcScrolledWindowHover = NULL;
@@ -100,9 +98,8 @@ qtcScrolledWindowLeave(GtkWidget *widget, GdkEventMotion *event, void *data)
 }
 
 static gboolean
-qtcScrolledWindowFocusIn(GtkWidget *widget, GdkEventMotion *e, void *data)
+qtcScrolledWindowFocusIn(GtkWidget *widget, GdkEventMotion*, void *data)
 {
-    QTC_UNUSED(e);
     GtkWidget *w = data ? (GtkWidget*)data : widget;
     if (GTK_IS_SCROLLED_WINDOW(w) && qtcScrolledWindowFocus != w) {
         qtcScrolledWindowFocus = w;
@@ -112,9 +109,8 @@ qtcScrolledWindowFocusIn(GtkWidget *widget, GdkEventMotion *e, void *data)
 }
 
 static gboolean
-qtcScrolledWindowFocusOut(GtkWidget *widget, GdkEventMotion *e, void *data)
+qtcScrolledWindowFocusOut(GtkWidget *widget, GdkEventMotion*, void *data)
 {
-    QTC_UNUSED(e);
     GtkWidget *w = data ? (GtkWidget*)data : widget;
     if (GTK_IS_SCROLLED_WINDOW(w) && qtcScrolledWindowFocus == w) {
         qtcScrolledWindowFocus = NULL;

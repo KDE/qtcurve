@@ -9,7 +9,7 @@ set(qtcurve_SRCS
   qtcurve.c
   qt_settings.c
   scrollbar.c
-  scrolledwindow.c
+  scrolledwindow.cpp
   shadowhelper.cpp
   tab.cpp
   treeview.cpp
