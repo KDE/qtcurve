@@ -20,6 +20,8 @@
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
 
+#include "shadowhelper.h"
+
 #include <gdk/gdkx.h>
 #include <common/common.h>
 #include "qt_settings.h"
@@ -66,9 +68,8 @@ acceptWidget(GtkWidget* widget)
 }
 
 static gboolean
-shadowDestroy(GtkWidget *widget, void *data)
+shadowDestroy(GtkWidget *widget, void*)
 {
-    QTC_UNUSED(data);
     if (qtSettings.debug == DEBUG_ALL)
         printf(DEBUG_PREFIX "%s %p\n", __FUNCTION__, widget);
 
@@ -107,12 +108,8 @@ registerWidget(GtkWidget* widget)
 }
 
 static gboolean
-realizeHook(GSignalInvocationHint *sih, unsigned x,
-            const GValue *params, void *data)
+realizeHook(GSignalInvocationHint*, unsigned, const GValue *params, void*)
 {
-    QTC_UNUSED(sih);
-    QTC_UNUSED(x);
-    QTC_UNUSED(data);
     GtkWidget *widget = GTK_WIDGET(g_value_get_object(params));
 
     if (DEBUG_ALL == qtSettings.debug)
