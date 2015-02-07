@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2013 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -27,16 +27,18 @@
 
 #include <gtk/gtk.h>
 
-QTC_BEGIN_DECLS
+namespace QtCurve {
+namespace Tab {
 
-gboolean qtcTabCurrentHoveredIndex(GtkWidget *widget);
-void qtcTabSetup(GtkWidget *widget);
-void qtcTabUpdateRect(GtkWidget *widget, int tabIndex, int x, int y,
-                      int width, int height);
-gboolean qtcTabIsLabel(GtkNotebook *notebook, GtkWidget *widget);
-QtcRect qtcTabGetTabbarRect(GtkNotebook *notebook);
-gboolean qtcTabHasVisibleArrows(GtkNotebook *notebook);
+int currentHoveredIndex(GtkWidget *widget);
+void setup(GtkWidget *widget);
+void updateRect(GtkWidget *widget, int tabIndex, int x, int y,
+                int width, int height);
+bool isLabel(GtkNotebook *notebook, GtkWidget *widget);
+QtcRect getTabbarRect(GtkNotebook *notebook);
+bool hasVisibleArrows(GtkNotebook *notebook);
 
-QTC_END_DECLS
+}
+}
 
 #endif

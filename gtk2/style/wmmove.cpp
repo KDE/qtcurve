@@ -124,7 +124,7 @@ static gboolean qtcWMMoveWithinWidget(GtkWidget *widget, GdkEventButton *event)
         // for notebooks, only consider the tabbar rect
         if (GTK_IS_NOTEBOOK(widget)) {
             QtcRect widgetAlloc = qtcWidgetGetAllocation(widget);
-            allocation = qtcTabGetTabbarRect(GTK_NOTEBOOK(widget));
+            allocation = QtCurve::Tab::getTabbarRect(GTK_NOTEBOOK(widget));
             allocation.x += wx - widgetAlloc.x;
             allocation.y += wy - widgetAlloc.y;
         } else {
@@ -188,7 +188,7 @@ qtcWMMoveChildrenUseEvent(GtkWidget *widget, GdkEventButton *event,
 
             // check special cases for which grab should not be enabled
             if((qtcWMMoveIsBlackListed(G_OBJECT(childWidget))) ||
-               (GTK_IS_NOTEBOOK(widget) && qtcTabIsLabel(GTK_NOTEBOOK(widget),
+               (GTK_IS_NOTEBOOK(widget) && QtCurve::Tab::isLabel(GTK_NOTEBOOK(widget),
                                                          childWidget)) ||
                (GTK_IS_BUTTON(childWidget) &&
                 gtk_widget_get_state(childWidget) != GTK_STATE_INSENSITIVE) ||
@@ -223,10 +223,13 @@ static gboolean qtcWMMoveUseEvent(GtkWidget *widget, GdkEventButton *event)
         return true;
 
     // if widget is a notebook, accept if there is no hovered tab
-    if(GTK_IS_NOTEBOOK(widget))
-        return !qtcTabHasVisibleArrows(GTK_NOTEBOOK(widget)) && -1==qtcTabCurrentHoveredIndex(widget) && qtcWMMoveChildrenUseEvent(widget, event, false);
-    else
+    if (GTK_IS_NOTEBOOK(widget)) {
+        return (!QtCurve::Tab::hasVisibleArrows(GTK_NOTEBOOK(widget)) &&
+                QtCurve::Tab::currentHoveredIndex(widget) == -1 &&
+                qtcWMMoveChildrenUseEvent(widget, event, false));
+    } else {
         return qtcWMMoveChildrenUseEvent(widget, event, false);
+    }
 }
 
 static gboolean
@@ -350,7 +353,7 @@ void qtcWMMoveSetup(GtkWidget *widget)
     parent = gtk_widget_get_parent(widget);
 
     // widgets used in tabs also must be ignored (happens, unfortunately)
-    if (GTK_IS_NOTEBOOK(parent) && qtcTabIsLabel(GTK_NOTEBOOK(parent), widget))
+    if (GTK_IS_NOTEBOOK(parent) && QtCurve::Tab::isLabel(GTK_NOTEBOOK(parent), widget))
         return;
 
     /*

@@ -3559,7 +3559,7 @@ drawTab(cairo_t *cr, GtkStateType state, GtkStyle *style, GtkWidget *widget,
     bool highlightingEnabled = notebook && (opts.highlightFactor ||
                                             opts.coloredMouseOver);
     bool highlight = false;
-    int highlightedTabIndex = qtcTabCurrentHoveredIndex(widget);
+    int highlightedTabIndex = Tab::currentHoveredIndex(widget);
     int moOffset = ((opts.round == ROUND_NONE ||
                      opts.tabMouseOver != TAB_MO_TOP) ? 1 : opts.round);
     GtkWidget *parent = widget ? gtk_widget_get_parent(widget) : NULL;
@@ -3654,9 +3654,10 @@ drawTab(cairo_t *cr, GtkStateType state, GtkStyle *style, GtkWidget *widget,
 
     if (!mozTab && qtSettings.app != GTK_APP_JAVA) {
         if (highlightedTabIndex == -1 &&
-            (highlightingEnabled || opts.windowDrag >= WM_DRAG_ALL))
-            qtcTabSetup(widget);
-        qtcTabUpdateRect(widget, tabIndex, x, y, width, height);
+            (highlightingEnabled || opts.windowDrag >= WM_DRAG_ALL)) {
+            Tab::setup(widget);
+        }
+        Tab::updateRect(widget, tabIndex, x, y, width, height);
     }
 
 /*
