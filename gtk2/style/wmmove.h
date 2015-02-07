@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2013 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -23,14 +23,14 @@
 #ifndef __QTC_WM_MOVE_H__
 #define __QTC_WM_MOVE_H__
 
-#include <qtcurve-utils/utils.h>
-
 #include <gtk/gtk.h>
 
-QTC_BEGIN_DECLS
+namespace QtCurve {
+namespace WMMove {
 
-void qtcWMMoveSetup(GtkWidget *widget);
+void setup(GtkWidget *widget);
 
-QTC_END_DECLS
+}
+}
 
 #endif

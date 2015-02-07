@@ -183,8 +183,9 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
     }
 
     if (opts.windowDrag > WM_DRAG_MENU_AND_TOOLBAR &&
-        (DETAIL("base") || DETAIL("eventbox") || DETAIL("viewportbin")))
-        qtcWMMoveSetup(widget);
+        (DETAIL("base") || DETAIL("eventbox") || DETAIL("viewportbin"))) {
+        WMMove::setup(widget);
+    }
 
     if (widget && ((100!=opts.bgndOpacity && GTK_IS_WINDOW(widget)) ||
                    (100!=opts.dlgOpacity && GTK_IS_DIALOG(widget))) &&
@@ -910,7 +911,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                           x, y, width, height, ROUNDED_ALL, false, 1.0, 0);
         }
         if (opts.windowDrag > WM_DRAG_MENU_AND_TOOLBAR) {
-            qtcWMMoveSetup(widget);
+            WMMove::setup(widget);
         }
         if (GTK_IS_TOGGLE_BUTTON(widget)) {
             drawArrow(window, &qtcPalette.background[5], (QtcRect*)area,
@@ -1458,8 +1459,9 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                         fillBackground=menubar && SHADE_NONE!=opts.shadeMenubars;
 
             if ((menubar && opts.windowDrag) ||
-                opts.windowDrag > WM_DRAG_MENUBAR)
-                qtcWMMoveSetup(widget);
+                opts.windowDrag > WM_DRAG_MENUBAR) {
+                WMMove::setup(widget);
+            }
 
             if (menubar && BLEND_TITLEBAR) {
                 menuBarAdjust = qtcGetWindowBorderSize(false).titleHeight;
@@ -2260,8 +2262,9 @@ gtkDrawBoxGap(GtkStyle *style, GdkWindow *window, GtkStateType state,
                width, height, gapSide, gapX, gapWidth,
                opts.borderTab ? BORDER_LIGHT : BORDER_RAISED, true);
 
-    if (opts.windowDrag > WM_DRAG_MENU_AND_TOOLBAR && DETAIL("notebook"))
-        qtcWMMoveSetup(widget);
+    if (opts.windowDrag > WM_DRAG_MENU_AND_TOOLBAR && DETAIL("notebook")) {
+        WMMove::setup(widget);
+    }
 
     if (!isMozilla())
         drawBoxGapFixes(cr, widget, x, y, width, height,
