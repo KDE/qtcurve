@@ -24,6 +24,7 @@
 #define __QTC_ENTRY_H__
 
 #include <qtcurve-utils/utils.h>
+#include <gtk/gtk.h>
 
 QTC_BEGIN_DECLS
 

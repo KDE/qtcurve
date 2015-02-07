@@ -390,15 +390,9 @@ private:
     }
 
     bool
-    drawPrimitiveNone(PrimitiveElement element,
-                      const QStyleOption *option,
-                      QPainter *painter,
-                      const QWidget *widget) const
+    drawPrimitiveNone(PrimitiveElement, const QStyleOption*,
+                      QPainter*, const QWidget*) const
     {
-        QTC_UNUSED(element);
-        QTC_UNUSED(option);
-        QTC_UNUSED(painter);
-        QTC_UNUSED(widget);
         return true;
     }
     bool drawPrimitivePanelMenu(PrimitiveElement element,

@@ -44,13 +44,11 @@
 
 namespace QtCurve {
 bool
-Style::drawPrimitiveIndicatorTabClose(PrimitiveElement element,
-                                      const QStyleOption *option,
+Style::drawPrimitiveIndicatorTabClose(PrimitiveElement,
+                                      const QStyleOption*option,
                                       QPainter *painter,
-                                      const QWidget *widget) const
+                                      const QWidget*) const
 {
-    QTC_UNUSED(element);
-    QTC_UNUSED(widget);
 #ifdef QTC_QT5_ENABLE_KDE
     int size = pixelMetric(QStyle::PM_SmallIconSize);
     State state = option->state;
@@ -73,12 +71,11 @@ Style::drawPrimitiveIndicatorTabClose(PrimitiveElement element,
 }
 
 bool
-Style::drawPrimitiveWidget(PrimitiveElement element,
+Style::drawPrimitiveWidget(PrimitiveElement,
                            const QStyleOption *option,
                            QPainter *painter,
                            const QWidget *widget) const
 {
-    QTC_UNUSED(element);
     bool isDialog = qtcIsDialog(widget);
     bool isSubWindow = (widget && qobject_cast<const QMdiSubWindow*>(widget));
     if (widget && (widget->testAttribute(Qt::WA_NoSystemBackground) ||
@@ -133,12 +130,11 @@ Style::drawPrimitiveWidget(PrimitiveElement element,
 }
 
 bool
-Style::drawPrimitivePanelScrollAreaCorner(PrimitiveElement element,
+Style::drawPrimitivePanelScrollAreaCorner(PrimitiveElement,
                                           const QStyleOption *option,
                                           QPainter *painter,
                                           const QWidget *widget) const
 {
-    QTC_UNUSED(element);
     // disable painting of PE_PanelScrollAreaCorner
     // the default implementation fills the rect with the window background
     // color which does not work for windows that have gradients.
@@ -152,12 +148,11 @@ Style::drawPrimitivePanelScrollAreaCorner(PrimitiveElement element,
 }
 
 bool
-Style::drawPrimitiveIndicatorBranch(PrimitiveElement element,
+Style::drawPrimitiveIndicatorBranch(PrimitiveElement,
                                     const QStyleOption *option,
                                     QPainter *painter,
                                     const QWidget *widget) const
 {
-    QTC_UNUSED(element);
     bool reverse = option->direction == Qt::RightToLeft;
     const QRect &r = option->rect;
     const QPalette &palette = option->palette;
@@ -264,12 +259,11 @@ Style::drawPrimitiveIndicatorBranch(PrimitiveElement element,
 }
 
 bool
-Style::drawPrimitiveIndicatorViewItemCheck(PrimitiveElement element,
+Style::drawPrimitiveIndicatorViewItemCheck(PrimitiveElement,
                                            const QStyleOption *option,
                                            QPainter *painter,
                                            const QWidget *widget) const
 {
-    QTC_UNUSED(element);
     QStyleOption opt = *option;
     opt.state &= ~State_MouseOver;
     opt.state |= STATE_VIEW;
@@ -278,13 +272,11 @@ Style::drawPrimitiveIndicatorViewItemCheck(PrimitiveElement element,
 }
 
 bool
-Style::drawPrimitiveIndicatorHeaderArrow(PrimitiveElement element,
+Style::drawPrimitiveIndicatorHeaderArrow(PrimitiveElement,
                                          const QStyleOption *option,
                                          QPainter *painter,
-                                         const QWidget *widget) const
+                                         const QWidget*) const
 {
-    QTC_UNUSED(element);
-    QTC_UNUSED(widget);
     State state = option->state;
     const QPalette &palette = option->palette;
     if (auto header = qtcStyleCast<QStyleOptionHeader>(option)) {
@@ -382,13 +374,11 @@ Style::drawPrimitiveIndicatorSpin(PrimitiveElement element,
 }
 
 bool
-Style::drawPrimitiveIndicatorToolBarSeparator(PrimitiveElement element,
+Style::drawPrimitiveIndicatorToolBarSeparator(PrimitiveElement,
                                               const QStyleOption *option,
                                               QPainter *painter,
-                                              const QWidget *widget) const
+                                              const QWidget*) const
 {
-    QTC_UNUSED(element);
-    QTC_UNUSED(widget);
     const QRect &r = option->rect;
     State state = option->state;
     switch (opts.toolbarSeparators) {
@@ -433,12 +423,11 @@ Style::drawPrimitiveIndicatorToolBarSeparator(PrimitiveElement element,
 }
 
 bool
-Style::drawPrimitiveFrameGroupBox(PrimitiveElement element,
+Style::drawPrimitiveFrameGroupBox(PrimitiveElement,
                                   const QStyleOption *option,
                                   QPainter *painter,
                                   const QWidget *widget) const
 {
-    QTC_UNUSED(element);
     if (opts.groupBox == FRAME_NONE) {
         return true;
     }
@@ -516,11 +505,10 @@ Style::drawPrimitiveFrameGroupBox(PrimitiveElement element,
 }
 
 bool
-Style::drawPrimitiveFrame(PrimitiveElement element,
+Style::drawPrimitiveFrame(PrimitiveElement,
                           const QStyleOption *option, QPainter *painter,
                           const QWidget *widget) const
 {
-    QTC_UNUSED(element);
     QRect r = option->rect;
     const QPalette &palette(option->palette);
     State state = option->state;
@@ -677,12 +665,11 @@ Style::drawPrimitiveFrame(PrimitiveElement element,
 }
 
 bool
-Style::drawPrimitivePanelMenuBar(PrimitiveElement element,
+Style::drawPrimitivePanelMenuBar(PrimitiveElement,
                                  const QStyleOption *option,
                                  QPainter *painter,
                                  const QWidget *widget) const
 {
-    QTC_UNUSED(element);
     const QRect &r = option->rect;
     if (widget && widget->parentWidget() &&
         qobject_cast<const QMainWindow*>(widget->parentWidget())) {
@@ -714,12 +701,11 @@ Style::drawPrimitivePanelMenuBar(PrimitiveElement element,
 }
 
 bool
-Style::drawPrimitivePanelTipLabel(PrimitiveElement element,
+Style::drawPrimitivePanelTipLabel(PrimitiveElement,
                                   const QStyleOption *option,
                                   QPainter *painter,
                                   const QWidget *widget) const
 {
-    QTC_UNUSED(element);
     const QRect &r = option->rect;
     const QPalette &palette(option->palette);
     bool haveAlpha = Utils::hasAlphaChannel(widget);
@@ -749,13 +735,11 @@ Style::drawPrimitivePanelTipLabel(PrimitiveElement element,
 }
 
 bool
-Style::drawPrimitiveQtcBackground(PrimitiveElement element,
+Style::drawPrimitiveQtcBackground(PrimitiveElement,
                                   const QStyleOption *option,
                                   QPainter *painter,
-                                  const QWidget *widget) const
+                                  const QWidget*) const
 {
-    QTC_UNUSED(element);
-    QTC_UNUSED(widget);
     const QRect &r = option->rect;
     const QPalette &palette(option->palette);
     State state = option->state;
@@ -781,12 +765,11 @@ Style::drawPrimitiveQtcBackground(PrimitiveElement element,
 }
 
 bool
-Style::drawPrimitivePanelItemViewItem(PrimitiveElement element,
+Style::drawPrimitivePanelItemViewItem(PrimitiveElement,
                                       const QStyleOption *option,
                                       QPainter *painter,
                                       const QWidget *widget) const
 {
-    QTC_UNUSED(element);
     auto v4Opt = qtcStyleCast<QStyleOptionViewItemV4>(option);
     auto view = qobject_cast<const QAbstractItemView*>(widget);
     QRect r = option->rect;
@@ -919,12 +902,11 @@ Style::drawPrimitivePanelItemViewItem(PrimitiveElement element,
 }
 
 bool
-Style::drawPrimitiveFrameTabWidget(PrimitiveElement element,
+Style::drawPrimitiveFrameTabWidget(PrimitiveElement,
                                    const QStyleOption *option,
                                    QPainter *painter,
                                    const QWidget *widget) const
 {
-    QTC_UNUSED(element);
     const QRect &r = option->rect;
     bool reverse = option->direction == Qt::RightToLeft;
     int round = opts.square & SQUARE_TAB_FRAME ? ROUNDED_NONE : ROUNDED_ALL;
@@ -1025,13 +1007,11 @@ Style::drawPrimitiveFrameTabWidget(PrimitiveElement element,
 }
 
 bool
-Style::drawPrimitiveFrameWindow(PrimitiveElement element,
+Style::drawPrimitiveFrameWindow(PrimitiveElement,
                                 const QStyleOption *option,
                                 QPainter *painter,
-                                const QWidget *widget) const
+                                const QWidget*) const
 {
-    QTC_UNUSED(element);
-    QTC_UNUSED(widget);
     const QRect &r = option->rect;
     State state = option->state;
     const QPalette &palette(option->palette);
@@ -1270,13 +1250,9 @@ Style::drawPrimitiveButton(PrimitiveElement element, const QStyleOption *option,
 }
 
 bool
-Style::drawPrimitivePanelMenu(PrimitiveElement element,
-                              const QStyleOption *option,
-                              QPainter *painter,
-                              const QWidget *widget) const
+Style::drawPrimitivePanelMenu(PrimitiveElement, const QStyleOption *option,
+                              QPainter *painter, const QWidget*) const
 {
-    QTC_UNUSED(element);
-    QTC_UNUSED(widget);
     const QRect &r = option->rect;
     double radius = opts.round >= ROUND_FULL ? 5.0 : 2.5;
     const QColor *use = popupMenuCols(option);
@@ -1357,12 +1333,10 @@ Style::drawPrimitivePanelMenu(PrimitiveElement element,
 }
 
 bool
-Style::drawPrimitiveFrameFocusRect(PrimitiveElement element,
-                                   const QStyleOption *option,
+Style::drawPrimitiveFrameFocusRect(PrimitiveElement, const QStyleOption *option,
                                    QPainter *painter,
                                    const QWidget *widget) const
 {
-    QTC_UNUSED(element);
     const QRect &r = option->rect;
     State state = option->state;
     const QPalette &palette(option->palette);
@@ -1496,24 +1470,21 @@ Style::drawPrimitiveFrameFocusRect(PrimitiveElement element,
 }
 
 bool
-Style::drawPrimitiveIndicatorToolBarHandle(PrimitiveElement element,
+Style::drawPrimitiveIndicatorToolBarHandle(PrimitiveElement,
                                            const QStyleOption *option,
                                            QPainter *painter,
-                                           const QWidget *widget) const
+                                           const QWidget*) const
 {
-    QTC_UNUSED(element);
-    QTC_UNUSED(widget);
     drawHandleMarkers(painter, option->rect, option, true, opts.handles);
     return true;
 }
 
 bool
-Style::drawPrimitiveIndicatorRadioButton(PrimitiveElement element,
+Style::drawPrimitiveIndicatorRadioButton(PrimitiveElement,
                                          const QStyleOption *option,
                                          QPainter *painter,
                                          const QWidget *widget) const
 {
-    QTC_UNUSED(element);
     const QRect &r = option->rect;
     State state = option->state;
     const QPalette &palette(option->palette);
@@ -1656,7 +1627,6 @@ Style::drawPrimitiveIndicatorCheckBox(PrimitiveElement element,
                                       QPainter *painter,
                                       const QWidget *widget) const
 {
-    QTC_UNUSED(element);
     const QRect &r = option->rect;
     State state = option->state;
     const QPalette &palette(option->palette);
@@ -1795,11 +1765,10 @@ Style::drawPrimitiveIndicatorCheckBox(PrimitiveElement element,
 }
 
 bool
-Style::drawPrimitiveFrameLineEdit(PrimitiveElement element,
-                                  const QStyleOption *option, QPainter *painter,
+Style::drawPrimitiveFrameLineEdit(PrimitiveElement, const QStyleOption *option,
+                                  QPainter *painter,
                                   const QWidget *widget) const
 {
-    QTC_UNUSED(element);
     const QRect &r = option->rect;
     State state = option->state;
     const QPalette &palette(option->palette);
@@ -1867,11 +1836,10 @@ Style::drawPrimitiveFrameLineEdit(PrimitiveElement element,
 }
 
 bool
-Style::drawPrimitivePanelLineEdit(PrimitiveElement element,
+Style::drawPrimitivePanelLineEdit(PrimitiveElement,
                                   const QStyleOption *option, QPainter *painter,
                                   const QWidget *widget) const
 {
-    QTC_UNUSED(element);
     const QRect &r = option->rect;
     const QPalette &palette(option->palette);
     if (auto panel = qtcStyleCast<QStyleOptionFrame>(option)) {
@@ -1894,10 +1862,9 @@ Style::drawPrimitivePanelLineEdit(PrimitiveElement element,
 
 bool
 Style::drawPrimitiveIndicatorDockWidgetResizeHandle(
-    PrimitiveElement element, const QStyleOption *option, QPainter *painter,
+    PrimitiveElement, const QStyleOption *option, QPainter *painter,
     const QWidget *widget) const
 {
-    QTC_UNUSED(element);
     State state = option->state;
     QStyleOption dockWidgetHandle = *option;
     bool horizontal = state & State_Horizontal;
@@ -1945,13 +1912,11 @@ Style::drawPrimitiveButtonTool(PrimitiveElement element,
 }
 
 bool
-Style::drawPrimitiveFrameDockWidget(PrimitiveElement element,
+Style::drawPrimitiveFrameDockWidget(PrimitiveElement,
                                     const QStyleOption *option,
                                     QPainter *painter,
-                                    const QWidget *widget) const
+                                    const QWidget*) const
 {
-    QTC_UNUSED(element);
-    QTC_UNUSED(widget);
     const QRect &r = option->rect;
     const QColor *use = backgroundColors(option);
     painter->setPen(use[0]);
@@ -2012,12 +1977,11 @@ Style::drawPrimitiveFrameStatusBarOrMenu(PrimitiveElement element,
 }
 
 bool
-Style::drawPrimitiveFrameTabBarBase(PrimitiveElement element,
+Style::drawPrimitiveFrameTabBarBase(PrimitiveElement,
                                     const QStyleOption *option,
                                     QPainter *painter,
                                     const QWidget *widget) const
 {
-    QTC_UNUSED(element);
     bool reverse = option->direction == Qt::RightToLeft;
     if (auto tbb = qtcStyleCast<QStyleOptionTabBarBase>(option)) {
         if (qtcNoneOf(tbb->shape, QTabBar::RoundedNorth, QTabBar::RoundedWest,

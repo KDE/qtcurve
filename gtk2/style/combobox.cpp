@@ -87,27 +87,22 @@ comboBoxCleanup(GtkWidget *widget)
 }
 
 static gboolean
-comboBoxStyleSet(GtkWidget *widget, GtkStyle *prev_style, void *data)
+comboBoxStyleSet(GtkWidget *widget, GtkStyle*, void*)
 {
-    QTC_UNUSED(data);
-    QTC_UNUSED(prev_style);
     comboBoxCleanup(widget);
     return false;
 }
 
 static gboolean
-comboBoxDestroy(GtkWidget *widget, GdkEvent *event, void *data)
+comboBoxDestroy(GtkWidget *widget, GdkEvent*, void*)
 {
-    QTC_UNUSED(data);
-    QTC_UNUSED(event);
     comboBoxCleanup(widget);
     return false;
 }
 
 static gboolean
-comboBoxEnter(GtkWidget *widget, GdkEventMotion *event, void *data)
+comboBoxEnter(GtkWidget *widget, GdkEventMotion*, void *data)
 {
-    QTC_UNUSED(event);
     if (GTK_IS_EVENT_BOX(widget)) {
         GtkWidget *widget = (GtkWidget*)data;
         if (comboHover != widget) {
@@ -119,9 +114,8 @@ comboBoxEnter(GtkWidget *widget, GdkEventMotion *event, void *data)
 }
 
 static gboolean
-comboBoxLeave(GtkWidget *widget, GdkEventMotion *event, void *data)
+comboBoxLeave(GtkWidget *widget, GdkEventMotion*, void *data)
 {
-    QTC_UNUSED(event);
     if (GTK_IS_EVENT_BOX(widget)) {
         GtkWidget *widget = (GtkWidget*)data;
         if (comboHover == widget) {
@@ -133,10 +127,8 @@ comboBoxLeave(GtkWidget *widget, GdkEventMotion *event, void *data)
 }
 
 static void
-comboBoxStateChange(GtkWidget *widget, GdkEventMotion *event, void *data)
+comboBoxStateChange(GtkWidget *widget, GdkEventMotion*, void*)
 {
-    QTC_UNUSED(data);
-    QTC_UNUSED(event);
     if (GTK_IS_CONTAINER(widget)) {
         comboBoxClearBgndColor(widget);
     }

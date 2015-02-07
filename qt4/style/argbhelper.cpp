@@ -120,15 +120,13 @@ addAlphaChannel(QWidget *widget)
 }
 #else
 void
-fixVisual(QWidget *widget)
+fixVisual(QWidget*)
 {
-    QTC_UNUSED(widget);
 }
 
 void
-addAlphaChannel(QWidget *widget)
+addAlphaChannel(QWidget*)
 {
-    QTC_UNUSED(widget);
 }
 #endif
 

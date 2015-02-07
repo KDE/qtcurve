@@ -20,6 +20,8 @@
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
 
+#include "entry.h"
+
 #include <qtcurve-utils/gtkprops.h>
 
 static GtkWidget *qtcEntryLastMo = NULL;
@@ -48,28 +50,22 @@ qtcEntryCleanup(GtkWidget *widget)
 }
 
 static gboolean
-qtcEntryStyleSet(GtkWidget *widget, GtkStyle *previous_style, void *data)
+qtcEntryStyleSet(GtkWidget *widget, GtkStyle*, void*)
 {
-    QTC_UNUSED(previous_style);
-    QTC_UNUSED(data);
     qtcEntryCleanup(widget);
     return false;
 }
 
 static gboolean
-qtcEntryDestroy(GtkWidget *widget, GdkEvent *event, void *data)
+qtcEntryDestroy(GtkWidget *widget, GdkEvent*, void*)
 {
-    QTC_UNUSED(event);
-    QTC_UNUSED(data);
     qtcEntryCleanup(widget);
     return false;
 }
 
 static gboolean
-qtcEntryEnter(GtkWidget *widget, GdkEventCrossing *event, void *data)
+qtcEntryEnter(GtkWidget *widget, GdkEventCrossing*, void*)
 {
-    QTC_UNUSED(event);
-    QTC_UNUSED(data);
     if (GTK_IS_ENTRY(widget)) {
         qtcEntryLastMo = widget;
         gtk_widget_queue_draw(widget);
@@ -78,10 +74,8 @@ qtcEntryEnter(GtkWidget *widget, GdkEventCrossing *event, void *data)
 }
 
 static gboolean
-qtcEntryLeave(GtkWidget *widget, GdkEventCrossing *event, void *data)
+qtcEntryLeave(GtkWidget *widget, GdkEventCrossing*, void*)
 {
-    QTC_UNUSED(event);
-    QTC_UNUSED(data);
     if (GTK_IS_ENTRY(widget)) {
         qtcEntryLastMo = NULL;
         gtk_widget_queue_draw(widget);
