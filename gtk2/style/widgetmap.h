@@ -23,15 +23,15 @@
 #ifndef __QTC_WIDGET_MAP_H__
 #define __QTC_WIDGET_MAP_H__
 
-#include <qtcurve-utils/utils.h>
-
 #include <gtk/gtk.h>
 
-QTC_BEGIN_DECLS
+namespace QtCurve {
+namespace WidgetMap {
 
-void qtcWidgetMapSetup(GtkWidget *from, GtkWidget *to, int map);
-GtkWidget *qtcWidgetMapGetWidget(GtkWidget *widget, int map);
+void setup(GtkWidget *from, GtkWidget *to, int map);
+GtkWidget *getWidget(GtkWidget *widget, int map);
 
-QTC_END_DECLS
+}
+}
 
 #endif

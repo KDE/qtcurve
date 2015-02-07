@@ -1122,11 +1122,12 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                     ComboBox::setup(nullptr, parent);
                 } else {
                     changedFocus = ComboBox::isFocusChanged(widget);
-                    mapped=qtcWidgetMapGetWidget(parent, 1);
-                    qtcWidgetMapSetup(parent, widget, 0);
+                    mapped = WidgetMap::getWidget(parent, 1);
+                    WidgetMap::setup(parent, widget, 0);
 
-                    if(parent && ComboBox::isHovered(parent))
-                        state=GTK_STATE_PRELIGHT;
+                    if (parent && ComboBox::isHovered(parent)) {
+                        state = GTK_STATE_PRELIGHT;
+                    }
                 }
 
                 if (draw)
@@ -1167,8 +1168,10 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                                    strcmp(gtk_widget_get_name(parent),
                                           "MozillaGtkWidget") == 0);
 
-                if(!entry && widget && gtk_widget_get_parent(widget))
-                    entry=qtcWidgetMapGetWidget(gtk_widget_get_parent(widget), 1);
+                if (!entry && widget && gtk_widget_get_parent(widget)) {
+                    entry = WidgetMap::getWidget(
+                        gtk_widget_get_parent(widget), 1);
+                }
 
                 if(entry)
                     rev=reverseLayout(entry);
@@ -1183,7 +1186,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 // Unfortunately, when the entry of a GtkComboBoxEntry draws itself, there is no way to
                 // determine the button associated with it. So, we store the mapping here...
                 if(!mozToolbar && parent && QTC_COMBO_ENTRY(parent))
-                    qtcWidgetMapSetup(parent, widget, 0);
+                    WidgetMap::setup(parent, widget, 0);
                 // If the button is disabled, but the entry field is not - then use entry field's state
                 // for the button. This fixes an issue with LinuxDC++ and Gtk 2.18
                 if(GTK_STATE_INSENSITIVE==state && entry && GTK_STATE_INSENSITIVE!=entryState)
@@ -1665,8 +1668,8 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
         int bgnd = getFill(state, false); // TODO!!! btnDown???
         bool sunken = //btnDown || (GTK_IS_BUTTON(widget) && qtcButtonIsDepressed(widget)) ||
             state == GTK_STATE_ACTIVE || qtcOneOf(bgnd, 2, 3);
-        GtkWidget *parent=gtk_widget_get_parent(widget),
-                  *mapped=parent ? qtcWidgetMapGetWidget(parent, 0) : nullptr;
+        GtkWidget *parent = gtk_widget_get_parent(widget);
+        GtkWidget *mapped = parent ? WidgetMap::getWidget(parent, 0) : nullptr;
 
         if(parent && ComboBox::isHovered(parent))
             state=GTK_STATE_PRELIGHT;
@@ -1694,7 +1697,7 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
         if(mapped && GTK_STATE_INSENSITIVE!=gtk_widget_get_state(widget))
             gtk_widget_queue_draw(mapped);
 
-        qtcWidgetMapSetup(parent, widget, 1);
+        WidgetMap::setup(parent, widget, 1);
         ComboBox::setup(widget, parent);
     }
     else if(DETAIL("entry") || DETAIL("text"))
@@ -1731,8 +1734,9 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
             if(GTK_STATE_PRELIGHT!=state && combo && opts.unifyCombo && parent)
             {
                 btn=getComboButton(parent);
-                if(!btn && parent)
-                    btn=qtcWidgetMapGetWidget(parent, 0);
+                if (!btn && parent) {
+                    btn = WidgetMap::getWidget(parent, 0);
+                }
                 if(btn && GTK_STATE_PRELIGHT==gtk_widget_get_state(btn))
                     state=GTK_STATE_PRELIGHT, gtk_widget_set_state(widget, GTK_STATE_PRELIGHT);
             }
@@ -1750,8 +1754,9 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 if(btn && GTK_STATE_INSENSITIVE!=gtk_widget_get_state(widget))
                     gtk_widget_queue_draw(btn);
 
-                if(QTC_COMBO_ENTRY(parent))
-                    qtcWidgetMapSetup(parent, widget, 1);
+                if (QTC_COMBO_ENTRY(parent)) {
+                    WidgetMap::setup(parent, widget, 1);
+                }
             }
         }
     } else {

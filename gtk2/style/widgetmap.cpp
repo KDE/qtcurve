@@ -24,49 +24,55 @@
 
 #include <qtcurve-utils/gtkprops.h>
 
-static GHashTable *qtcWidgetMapHashTable[2] = {nullptr, nullptr};
-#define getMapHacked(props, id)                                         \
-    (qtcWidgetProps(props)->widgetMapHacked & ((id) ? (1 << 1) : (1 << 0)))
-#define setMapHacked(props, id)                                         \
-    (qtcWidgetProps(props)->widgetMapHacked |= (id) ? (1 << 1) : (1 << 0))
+namespace QtCurve {
+namespace WidgetMap {
+
+static GHashTable *hashTable[2] = {nullptr, nullptr};
+
+template<typename Props, typename Id>
+static inline bool
+getMapHacked(Props &props, Id &id)
+{
+    return qtcWidgetProps(props)->widgetMapHacked & (id ? (1 << 1) : (1 << 0));
+}
+
+template<typename Props, typename Id>
+static inline void
+setMapHacked(Props &props, Id &id)
+{
+    qtcWidgetProps(props)->widgetMapHacked |= id ? (1 << 1) : (1 << 0);
+}
 
 static GtkWidget*
-qtcWidgetMapLookupHash(void *hash, void *value, int map)
+lookupHash(void *hash, void *value, int map)
 {
     GtkWidget *rv = nullptr;
 
-    if (!qtcWidgetMapHashTable[map])
-        qtcWidgetMapHashTable[map] =
+    if (!hashTable[map])
+        hashTable[map] =
             g_hash_table_new(g_direct_hash, g_direct_equal);
 
-    rv = (GtkWidget*)g_hash_table_lookup(qtcWidgetMapHashTable[map], hash);
+    rv = (GtkWidget*)g_hash_table_lookup(hashTable[map], hash);
 
     if (!rv && value) {
-        g_hash_table_insert(qtcWidgetMapHashTable[map], hash, value);
+        g_hash_table_insert(hashTable[map], hash, value);
         rv = (GtkWidget*)value;
     }
     return rv;
 }
 
 static void
-qtcWidgetMapRemoveHash(void *hash)
+removeHash(void *hash)
 {
     for (int i = 0;i < 2;++i) {
-        if (qtcWidgetMapHashTable[i]) {
-            g_hash_table_remove(qtcWidgetMapHashTable[i], hash);
+        if (hashTable[i]) {
+            g_hash_table_remove(hashTable[i], hash);
         }
     }
 }
 
-GtkWidget*
-qtcWidgetMapGetWidget(GtkWidget *widget, int map)
-{
-    QTC_DEF_WIDGET_PROPS(props, widget);
-    return (widget && getMapHacked(props, map) ?
-            qtcWidgetMapLookupHash(widget, nullptr, map) : nullptr);
-}
-
-static void qtcWidgetMapCleanup(GtkWidget *widget)
+static void
+cleanup(GtkWidget *widget)
 {
     QTC_DEF_WIDGET_PROPS(props, widget);
     if (qtcWidgetProps(props)->widgetMapHacked) {
@@ -74,37 +80,49 @@ static void qtcWidgetMapCleanup(GtkWidget *widget)
         qtcDisconnectFromProp(props, widgetMapUnrealize);
         qtcDisconnectFromProp(props, widgetMapStyleSet);
         qtcWidgetProps(props)->widgetMapHacked = 0;
-        qtcWidgetMapRemoveHash(widget);
+        removeHash(widget);
     }
 }
 
 static gboolean
-qtcWidgetMapStyleSet(GtkWidget *widget, GtkStyle*, void*)
+styleSet(GtkWidget *widget, GtkStyle*, void*)
 {
-    qtcWidgetMapCleanup(widget);
+    cleanup(widget);
     return false;
 }
 
 static gboolean
-qtcWidgetMapDestroy(GtkWidget *widget, GdkEvent*, void*)
+destroy(GtkWidget *widget, GdkEvent*, void*)
 {
-    qtcWidgetMapCleanup(widget);
+    cleanup(widget);
     return false;
 }
 
-void qtcWidgetMapSetup(GtkWidget *from, GtkWidget *to, int map)
+void
+setup(GtkWidget *from, GtkWidget *to, int map)
 {
     QTC_DEF_WIDGET_PROPS(fromProps, from);
     if (from && to && !getMapHacked(fromProps, map)) {
         if (!qtcWidgetProps(fromProps)->widgetMapHacked) {
             qtcConnectToProp(fromProps, widgetMapDestroy, "destroy-event",
-                             qtcWidgetMapDestroy, nullptr);
+                             destroy, nullptr);
             qtcConnectToProp(fromProps, widgetMapUnrealize, "unrealize",
-                             qtcWidgetMapDestroy, nullptr);
+                             destroy, nullptr);
             qtcConnectToProp(fromProps, widgetMapStyleSet, "style-set",
-                             qtcWidgetMapStyleSet, nullptr);
+                             styleSet, nullptr);
         }
         setMapHacked(fromProps, map);
-        qtcWidgetMapLookupHash(from, to, map);
+        lookupHash(from, to, map);
     }
+}
+
+GtkWidget*
+getWidget(GtkWidget *widget, int map)
+{
+    QTC_DEF_WIDGET_PROPS(props, widget);
+    return (widget && getMapHacked(props, map) ?
+            lookupHash(widget, nullptr, map) : nullptr);
+}
+
+}
 }
