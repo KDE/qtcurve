@@ -23,14 +23,15 @@
 #ifndef __QTC_ENTRY_H__
 #define __QTC_ENTRY_H__
 
-#include <qtcurve-utils/utils.h>
 #include <gtk/gtk.h>
 
-QTC_BEGIN_DECLS
+namespace QtCurve {
+namespace Entry {
 
-gboolean qtcEntryIsLastMo(GtkWidget *widget);
-void qtcEntrySetup(GtkWidget *widget);
+bool isLastMo(GtkWidget *widget);
+void setup(GtkWidget *widget);
 
-QTC_END_DECLS
+}
+}
 
 #endif

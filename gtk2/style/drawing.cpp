@@ -1295,7 +1295,7 @@ drawEntryField(cairo_t *cr, GtkStyle *style, GtkStateType state,
          qtSettings.app != GTK_APP_JAVA && qtcPalette.focus);
     bool mouseOver =
         (opts.unifyCombo && opts.unifySpin && enabled &&
-         (GTK_STATE_PRELIGHT == state || qtcEntryIsLastMo(widget)) &&
+         (GTK_STATE_PRELIGHT == state || Entry::isLastMo(widget)) &&
          qtcPalette.mouseover && GTK_APP_JAVA != qtSettings.app);
     bool highlight = highlightReal || mouseOver;
     bool doEtch = opts.buttonEffect != EFFECT_NONE && opts.etchEntry;
@@ -1304,7 +1304,7 @@ drawEntryField(cairo_t *cr, GtkStyle *style, GtkStateType state,
                               qtcPalette.focus : qtcPalette.background);
 
     if (qtSettings.app != GTK_APP_JAVA) {
-        qtcEntrySetup(widget);
+        Entry::setup(widget);
     }
     if ((doEtch || opts.round != ROUND_NONE) &&
         (!widget || !g_object_get_data(G_OBJECT(widget),

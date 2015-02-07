@@ -24,19 +24,16 @@
 
 #include <qtcurve-utils/gtkprops.h>
 
-static GtkWidget *qtcEntryLastMo = NULL;
+namespace QtCurve {
+namespace Entry {
 
-gboolean
-qtcEntryIsLastMo(GtkWidget *widget)
-{
-    return qtcEntryLastMo && widget == qtcEntryLastMo;
-}
+static GtkWidget *lastMo = NULL;
 
 static void
-qtcEntryCleanup(GtkWidget *widget)
+cleanup(GtkWidget *widget)
 {
-    if (qtcEntryLastMo == widget) {
-        qtcEntryLastMo = NULL;
+    if (lastMo == widget) {
+        lastMo = NULL;
     }
     if (GTK_IS_ENTRY(widget)) {
         QTC_DEF_WIDGET_PROPS(props, widget);
@@ -50,16 +47,16 @@ qtcEntryCleanup(GtkWidget *widget)
 }
 
 static gboolean
-qtcEntryStyleSet(GtkWidget *widget, GtkStyle*, void*)
+styleSet(GtkWidget *widget, GtkStyle*, void*)
 {
-    qtcEntryCleanup(widget);
+    cleanup(widget);
     return false;
 }
 
 static gboolean
-qtcEntryDestroy(GtkWidget *widget, GdkEvent*, void*)
+destroy(GtkWidget *widget, GdkEvent*, void*)
 {
-    qtcEntryCleanup(widget);
+    cleanup(widget);
     return false;
 }
 
@@ -67,24 +64,30 @@ static gboolean
 qtcEntryEnter(GtkWidget *widget, GdkEventCrossing*, void*)
 {
     if (GTK_IS_ENTRY(widget)) {
-        qtcEntryLastMo = widget;
+        lastMo = widget;
         gtk_widget_queue_draw(widget);
     }
     return false;
 }
 
 static gboolean
-qtcEntryLeave(GtkWidget *widget, GdkEventCrossing*, void*)
+leave(GtkWidget *widget, GdkEventCrossing*, void*)
 {
     if (GTK_IS_ENTRY(widget)) {
-        qtcEntryLastMo = NULL;
+        lastMo = NULL;
         gtk_widget_queue_draw(widget);
     }
     return false;
 }
 
+bool
+isLastMo(GtkWidget *widget)
+{
+    return lastMo && widget == lastMo;
+}
+
 void
-qtcEntrySetup(GtkWidget *widget)
+setup(GtkWidget *widget)
 {
     QTC_DEF_WIDGET_PROPS(props, widget);
     if (GTK_IS_ENTRY(widget) && !qtcWidgetProps(props)->entryHacked) {
@@ -92,12 +95,17 @@ qtcEntrySetup(GtkWidget *widget)
         qtcConnectToProp(props, entryEnter, "enter-notify-event",
                          qtcEntryEnter, NULL);
         qtcConnectToProp(props, entryLeave, "leave-notify-event",
-                         qtcEntryLeave, NULL);
+                         leave, NULL);
         qtcConnectToProp(props, entryDestroy, "destroy-event",
-                         qtcEntryDestroy, NULL);
+                         destroy, NULL);
         qtcConnectToProp(props, entryUnrealize, "unrealize",
-                         qtcEntryDestroy, NULL);
+                         destroy, NULL);
         qtcConnectToProp(props, entryStyleSet, "style-set",
-                         qtcEntryStyleSet, NULL);
+                         styleSet, NULL);
     }
 }
+
+}
+}
+
+using namespace QtCurve::Entry;
