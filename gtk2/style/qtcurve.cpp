@@ -245,7 +245,7 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
 
     if (widget && qtcIsCustomBgnd(&opts) &&
         (DETAIL("base") || DETAIL("eventbox"))) {
-        qtcScrollbarSetup(widget);
+        Scrollbar::setup(widget);
     }
 
     if (qtcIsCustomBgnd(&opts) && DETAIL("viewportbin")) {
@@ -254,7 +254,7 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
         if (st && !(st->color_flags[state]&GTK_RC_BG)) {
             drawWindowBgnd(cr, style, (QtcRect*)area, window, widget,
                            x, y, width, height);
-            qtcScrollbarSetup(widget);
+            Scrollbar::setup(widget);
         } else {
             parent_class->draw_flat_box(style, window, state, shadow, area,
                                         widget, _detail, x, y, width, height);

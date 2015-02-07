@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -24,8 +24,11 @@
 
 #include <qtcurve-utils/gtkprops.h>
 
+namespace QtCurve {
+namespace Scrollbar {
+
 static void
-qtcScrollbarCleanup(GtkWidget *widget)
+cleanup(GtkWidget *widget)
 {
     QTC_DEF_WIDGET_PROPS(props, widget);
     if (widget && qtcWidgetProps(props)->scrollBarHacked) {
@@ -38,21 +41,21 @@ qtcScrollbarCleanup(GtkWidget *widget)
 }
 
 static gboolean
-qtcScrollbarStyleSet(GtkWidget *widget, GtkStyle*, void*)
+styleSet(GtkWidget *widget, GtkStyle*, void*)
 {
-    qtcScrollbarCleanup(widget);
+    cleanup(widget);
     return false;
 }
 
 static gboolean
-qtcScrollbarDestroy(GtkWidget *widget, GdkEvent*, void*)
+destroy(GtkWidget *widget, GdkEvent*, void*)
 {
-    qtcScrollbarCleanup(widget);
+    cleanup(widget);
     return false;
 }
 
 static GtkScrolledWindow*
-qtcScrollbarParentScrolledWindow(GtkWidget *widget)
+parentScrolledWindow(GtkWidget *widget)
 {
     GtkWidget *parent = widget;
 
@@ -65,10 +68,10 @@ qtcScrollbarParentScrolledWindow(GtkWidget *widget)
 }
 
 static gboolean
-qtcScrollbarValueChanged(GtkWidget *widget, GdkEventMotion*, void*)
+valueChanged(GtkWidget *widget, GdkEventMotion*, void*)
 {
     if (GTK_IS_SCROLLBAR(widget)) {
-        GtkScrolledWindow *sw = qtcScrollbarParentScrolledWindow(widget);
+        GtkScrolledWindow *sw = parentScrolledWindow(widget);
 
         if (sw) {
             gtk_widget_queue_draw(GTK_WIDGET(sw));
@@ -78,35 +81,38 @@ qtcScrollbarValueChanged(GtkWidget *widget, GdkEventMotion*, void*)
 }
 
 static void
-qtcScrollbarSetupSlider(GtkWidget *widget)
+setupSlider(GtkWidget *widget)
 {
     QTC_DEF_WIDGET_PROPS(props, widget);
     if (widget && !qtcWidgetProps(props)->scrollBarHacked) {
         qtcWidgetProps(props)->scrollBarHacked = true;
         qtcConnectToProp(props, scrollBarDestroy, "destroy-event",
-                         qtcScrollbarDestroy, NULL);
+                         destroy, NULL);
         qtcConnectToProp(props, scrollBarUnrealize, "unrealize",
-                         qtcScrollbarDestroy, NULL);
+                         destroy, NULL);
         qtcConnectToProp(props, scrollBarStyleSet, "style-set",
-                         qtcScrollbarStyleSet, NULL);
+                         styleSet, NULL);
         qtcConnectToProp(props, scrollBarValueChanged, "value-changed",
-                         qtcScrollbarValueChanged, NULL);
+                         valueChanged, NULL);
     }
 }
 
 void
-qtcScrollbarSetup(GtkWidget *widget)
+setup(GtkWidget *widget)
 {
-    GtkScrolledWindow *sw = qtcScrollbarParentScrolledWindow(widget);
+    GtkScrolledWindow *sw = parentScrolledWindow(widget);
 
     if (sw) {
         GtkWidget *slider;
 
         if ((slider = gtk_scrolled_window_get_hscrollbar(sw))) {
-            qtcScrollbarSetupSlider(slider);
+            setupSlider(slider);
         }
         if ((slider = gtk_scrolled_window_get_vscrollbar(sw))) {
-            qtcScrollbarSetupSlider(slider);
+            setupSlider(slider);
         }
     }
+}
+
+}
 }

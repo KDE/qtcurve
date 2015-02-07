@@ -107,5 +107,3 @@ setup(GtkWidget *widget)
 
 }
 }
-
-using namespace QtCurve::Entry;
