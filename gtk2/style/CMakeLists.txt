@@ -8,7 +8,7 @@ set(qtcurve_SRCS
   pixcache.cpp
   qtcurve.c
   qt_settings.c
-  scrollbar.c
+  scrollbar.cpp
   scrolledwindow.cpp
   shadowhelper.cpp
   tab.cpp

@@ -25,6 +25,8 @@
 
 #include <qtcurve-utils/utils.h>
 
+#include <gtk/gtk.h>
+
 QTC_BEGIN_DECLS
 
 void qtcScrollbarSetup(GtkWidget *widget);

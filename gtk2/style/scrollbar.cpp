@@ -20,6 +20,8 @@
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
 
+#include "scrollbar.h"
+
 #include <qtcurve-utils/gtkprops.h>
 
 static void
@@ -36,19 +38,15 @@ qtcScrollbarCleanup(GtkWidget *widget)
 }
 
 static gboolean
-qtcScrollbarStyleSet(GtkWidget *widget, GtkStyle *previous_style, void *data)
+qtcScrollbarStyleSet(GtkWidget *widget, GtkStyle*, void*)
 {
-    QTC_UNUSED(previous_style);
-    QTC_UNUSED(data);
     qtcScrollbarCleanup(widget);
     return false;
 }
 
 static gboolean
-qtcScrollbarDestroy(GtkWidget *widget, GdkEvent *event, void *data)
+qtcScrollbarDestroy(GtkWidget *widget, GdkEvent*, void*)
 {
-    QTC_UNUSED(event);
-    QTC_UNUSED(data);
     qtcScrollbarCleanup(widget);
     return false;
 }
@@ -67,10 +65,8 @@ qtcScrollbarParentScrolledWindow(GtkWidget *widget)
 }
 
 static gboolean
-qtcScrollbarValueChanged(GtkWidget *widget, GdkEventMotion *event, void *data)
+qtcScrollbarValueChanged(GtkWidget *widget, GdkEventMotion*, void*)
 {
-    QTC_UNUSED(event);
-    QTC_UNUSED(data);
     if (GTK_IS_SCROLLBAR(widget)) {
         GtkScrolledWindow *sw = qtcScrollbarParentScrolledWindow(widget);
 
