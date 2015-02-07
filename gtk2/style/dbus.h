@@ -1,6 +1,5 @@
 /*****************************************************************************
- *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2015 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -19,22 +18,63 @@
  *   License along with this library. If not,                                *
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
-#ifndef __QTC_WINDOW_H__
-#define __QTC_WINDOW_H__
 
-#include <gtk/gtk.h>
+#ifndef __QTCURVE_GTK_GDBUS_H__
+#define __QTCURVE_GTK_GDBUS_H__
+
+#include <gio/gio.h>
 #include <stdint.h>
+#include <utility>
 
 namespace QtCurve {
-namespace Window {
+namespace GDBus {
 
-bool isActive(GtkWidget *widget);
-bool setup(GtkWidget *widget, int opacity);
-GtkWidget *getMenuBar(GtkWidget *parent, int level);
-bool setStatusBarProp(GtkWidget *w);
-GtkWidget *getStatusBar(GtkWidget *parent, int level);
-void statusBarDBus(GtkWidget *widget, bool state);
-void menuBarDBus(GtkWidget *widget, int32_t size);
+GDBusConnection *getConnection();
+void _callMethod(const char *bus_name, const char *path, const char *iface,
+                 const char *method, GVariant *params);
+
+#define DEF_GVARIANT_CONVERT(type, gname)       \
+    static inline GVariant*                     \
+    toGVariant(type val)                        \
+    {                                           \
+        return g_variant_new_##gname(val);      \
+    }
+
+DEF_GVARIANT_CONVERT(bool, boolean)
+
+DEF_GVARIANT_CONVERT(signed char, byte)
+DEF_GVARIANT_CONVERT(unsigned char, byte)
+
+DEF_GVARIANT_CONVERT(int16_t, int16)
+DEF_GVARIANT_CONVERT(uint16_t, uint16)
+
+DEF_GVARIANT_CONVERT(int32_t, int32)
+DEF_GVARIANT_CONVERT(uint32_t, uint32)
+
+DEF_GVARIANT_CONVERT(int64_t, int64)
+DEF_GVARIANT_CONVERT(uint64_t, uint64)
+
+DEF_GVARIANT_CONVERT(double, double)
+
+DEF_GVARIANT_CONVERT(const char*, string)
+
+static inline GVariant*
+toGVariant(GVariant *val)
+{
+    return val;
+}
+
+#undef DEF_GVARIANT_CONVERT
+
+template<typename... Args>
+static inline void
+callMethod(const char *bus_name, const char *path, const char *iface,
+           const char *method, Args&&... args)
+{
+    GVariant *g_args[] = {toGVariant(std::forward<Args>(args))...};
+    _callMethod(bus_name, path, iface, method,
+                g_variant_new_tuple(g_args, sizeof...(args)));
+}
 
 }
 }

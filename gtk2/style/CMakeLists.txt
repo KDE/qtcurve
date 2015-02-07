@@ -1,6 +1,7 @@
 set(qtcurve_SRCS
   animation.cpp
   combobox.cpp
+  dbus.cpp
   drawing.cpp
   entry.cpp
   helpers.cpp
@@ -20,6 +21,7 @@ set(qtcurve_HDRS
   animation.h
   combobox.h
   compatability.h
+  dbus.h
   drawing.h
   entry.h
   helpers.h

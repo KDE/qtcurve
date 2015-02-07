@@ -34,6 +34,7 @@
 #include <common/config_file.h>
 #include "qt_settings.h"
 #include "menu.h"
+#include "dbus.h"
 
 namespace QtCurve {
 namespace Window {
@@ -506,24 +507,18 @@ void
 statusBarDBus(GtkWidget *widget, bool state)
 {
     GtkWindow *topLevel = GTK_WINDOW(gtk_widget_get_toplevel(widget));
-    unsigned xid = GDK_WINDOW_XID(gtk_widget_get_window(GTK_WIDGET(topLevel)));
-
-    char cmd[160];
-    sprintf(cmd, "dbus-send --type=method_call --session --dest=org.kde.kwin /QtCurve org.kde.QtCurve.statusBarState uint32:%u boolean:%s",
-            xid, state ? "true" : "false");
-    system(cmd);
+    uint32_t xid = GDK_WINDOW_XID(gtk_widget_get_window(GTK_WIDGET(topLevel)));
+    GDBus::callMethod("org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
+                      "statusBarState", xid, state);
 }
 
 void
-menuBarDBus(GtkWidget *widget, int size)
+menuBarDBus(GtkWidget *widget, int32_t size)
 {
     GtkWindow *topLevel = GTK_WINDOW(gtk_widget_get_toplevel(widget));
-    unsigned xid = GDK_WINDOW_XID(gtk_widget_get_window(GTK_WIDGET(topLevel)));
-
-    char cmd[160];
-    sprintf(cmd, "dbus-send --type=method_call --session --dest=org.kde.kwin /QtCurve org.kde.QtCurve.menuBarSize uint32:%u int32:%d",
-            xid, size);
-    system(cmd);
+    uint32_t xid = GDK_WINDOW_XID(gtk_widget_get_window(GTK_WIDGET(topLevel)));
+    GDBus::callMethod("org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
+                      "menuBarSize", xid, size);
 }
 
 }

@@ -1,6 +1,5 @@
 /*****************************************************************************
- *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2015 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -19,24 +18,28 @@
  *   License along with this library. If not,                                *
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
-#ifndef __QTC_WINDOW_H__
-#define __QTC_WINDOW_H__
 
-#include <gtk/gtk.h>
-#include <stdint.h>
+#include "dbus.h"
 
 namespace QtCurve {
-namespace Window {
+namespace GDBus {
 
-bool isActive(GtkWidget *widget);
-bool setup(GtkWidget *widget, int opacity);
-GtkWidget *getMenuBar(GtkWidget *parent, int level);
-bool setStatusBarProp(GtkWidget *w);
-GtkWidget *getStatusBar(GtkWidget *parent, int level);
-void statusBarDBus(GtkWidget *widget, bool state);
-void menuBarDBus(GtkWidget *widget, int32_t size);
+GDBusConnection*
+getConnection()
+{
+    static GDBusConnection *conn = g_bus_get_sync(G_BUS_TYPE_SESSION,
+                                                  nullptr, nullptr);
+    return conn;
+}
+
+void
+_callMethod(const char *bus_name, const char *path, const char *iface,
+            const char *method, GVariant *params)
+{
+    g_dbus_connection_call(getConnection(), bus_name, path, iface, method,
+                           params, nullptr, G_DBUS_CALL_FLAGS_NONE, -1,
+                           nullptr, nullptr, nullptr);
+}
 
 }
 }
-
-#endif

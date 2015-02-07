@@ -1963,7 +1963,7 @@ qtSettingsInit()
                             qtSettings.iconSizes.dlgSize,
                             iconTheme, qtcVersion(), tmpStr, getpid(),
                             tmpStr, getpid(), tmpStr);
-                    (void)system(cmdStr);
+                    system(cmdStr);
                     free(cmdStr);
                 }
                 free(version);
