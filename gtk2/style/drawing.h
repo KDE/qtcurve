@@ -44,11 +44,7 @@ drawAreaMod(cairo_t *cr, GtkStyle *style, GtkStateType state,
 
 void drawBevelGradient(cairo_t *cr, const QtcRect *area, int x, int y,
                        int width, int height, const GdkColor *base, bool horiz,
-                       bool sel, EAppearance bevApp, EWidget w, double alpha);
-#define drawBevelGradient(cr, area, x, y, width, height, base, horiz, sel, \
-                          bevApp, w, alpha...)                          \
-    drawBevelGradient(cr, area, x, y, width, height, base, horiz, sel,  \
-                      bevApp, w, QTC_DEFAULT(alpha, 1))
+                       bool sel, EAppearance bevApp, EWidget w, double alpha=1);
 
 typedef enum {
     DF_DRAW_INSIDE = 0x001,
@@ -64,18 +60,10 @@ void drawBorder(cairo_t *cr, GtkStyle *style, GtkStateType state,
                 const QtcRect *area, int x, int y, int width, int height,
                 const GdkColor *c_colors, ECornerBits round,
                 EBorder borderProfile, EWidget widget, int flags,
-                int borderVal);
-#define drawBorder(cr, style, state, area, x, y, width, height, c_colors, \
-                   round, borderProfile, widget, flags, borderVal...)   \
-    drawBorder(cr, style, state, area, x, y, width, height, c_colors,   \
-               round, borderProfile, widget, flags,                     \
-               QTC_DEFAULT(borderVal, QTC_STD_BORDER))
-
+                int borderVal=QTC_STD_BORDER);
 void drawGlow(cairo_t *cr, const QtcRect *area, int x, int y, int w, int h,
-              ECornerBits round, EWidget widget, const GdkColor *colors);
-#define drawGlow(cr, area, x, y, w, h, round, widget, colors...)        \
-    drawGlow(cr, area, x, y, w, h, round, widget, QTC_DEFAULT(colors, NULL))
-
+              ECornerBits round, EWidget widget,
+              const GdkColor *colors=nullptr);
 void drawEtch(cairo_t *cr, const QtcRect *area, GtkWidget *widget, int x, int y,
               int w, int h, bool raised, ECornerBits round, EWidget wid);
 void qtcClipPath(cairo_t *cr, int x, int y, int w, int h, EWidget widget,
@@ -85,16 +73,10 @@ void drawLightBevel(cairo_t *cr, GtkStyle *style, GtkStateType state,
                     const GdkColor *base, const GdkColor *colors,
                     ECornerBits round, EWidget widget, EBorder borderProfile,
                     int flags, GtkWidget *wid);
-
 void drawFadedLine(cairo_t *cr, int x, int y, int width, int height,
                    const GdkColor *col, const QtcRect *area,
                    const QtcRect *gap, bool fadeStart, bool fadeEnd,
-                   bool horiz, double alpha);
-#define drawFadedLine(cr, x, y, width, height, col, area, gap, fadeStart, \
-                      fadeEnd, horiz, alpha...)                         \
-    drawFadedLine(cr, x, y, width, height, col, area, gap, fadeStart,   \
-                  fadeEnd, horiz, QTC_DEFAULT(alpha, 1))
-
+                   bool horiz, double alpha=1);
 void drawHighlight(cairo_t *cr, int x, int y, int width, int height,
                    const QtcRect *area, bool horiz, bool inc);
 void setLineCol(cairo_t *cr, cairo_pattern_t *pt, const GdkColor *col);

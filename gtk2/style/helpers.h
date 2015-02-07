@@ -166,9 +166,7 @@ void sanitizeSize(GdkWindow *window, int *width, int *height);
 #endif
 EStepper getStepper(GtkWidget *widget, int x, int y, int width, int height);
 
-int getFill(GtkStateType state, bool set, bool darker);
-#define getFill(state, set, darker...)                  \
-    getFill(state, set, QTC_DEFAULT(darker, false))
+int getFill(GtkStateType state, bool set, bool darker=false);
 bool isSbarDetail(const char *detail);
 bool isHorizontalProgressbar(GtkWidget *widget);
 bool isComboBoxPopupWindow(GtkWidget *widget, int level);
