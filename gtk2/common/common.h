@@ -81,8 +81,8 @@ enum {
 
 #define DEFAULT_CONTRAST 7
 
-#define THIN_SBAR_MOD  ((QtCurve::opts.sliderWidth<DEFAULT_SLIDER_WIDTH ? 3 : QtCurve::opts.sliderWidth>DEFAULT_SLIDER_WIDTH ? (QtCurve::opts.sliderWidth-9)/2 : 4)+(EFFECT_NONE==QtCurve::opts.buttonEffect ? 1 : 0))
-#define SLIDER_SIZE (QtCurve::opts.sliderWidth<DEFAULT_SLIDER_WIDTH ? DEFAULT_SLIDER_WIDTH-2 : QtCurve::opts.sliderWidth)
+#define THIN_SBAR_MOD  ((opts.sliderWidth<DEFAULT_SLIDER_WIDTH ? 3 : opts.sliderWidth>DEFAULT_SLIDER_WIDTH ? (opts.sliderWidth-9)/2 : 4)+(EFFECT_NONE==opts.buttonEffect ? 1 : 0))
+#define SLIDER_SIZE (opts.sliderWidth<DEFAULT_SLIDER_WIDTH ? DEFAULT_SLIDER_WIDTH-2 : opts.sliderWidth)
 #define CIRCULAR_SLIDER_SIZE 15
 #define GLOW_MO           1 /*ORIGINAL_SHADE*/
 #define GLOW_DEFBTN       1
@@ -91,8 +91,8 @@ enum {
 #define ENTRY_INNER_ALPHA 0.4
 #define INACTIVE_SEL_ALPHA 0.5
 
-#define BLEND_TITLEBAR     (QtCurve::opts.menubarAppearance==QtCurve::opts.titlebarAppearance && QtCurve::opts.menubarAppearance==QtCurve::opts.inactiveTitlebarAppearance && \
-                           !(QtCurve::opts.windowBorder&WINDOW_BORDER_BLEND_TITLEBAR) && SHADE_WINDOW_BORDER==QtCurve::opts.shadeMenubars && QtCurve::opts.windowDrag)
+#define BLEND_TITLEBAR     (opts.menubarAppearance==opts.titlebarAppearance && opts.menubarAppearance==opts.inactiveTitlebarAppearance && \
+                           !(opts.windowBorder&WINDOW_BORDER_BLEND_TITLEBAR) && SHADE_WINDOW_BORDER==opts.shadeMenubars && opts.windowDrag)
 
 #define STD_BORDER_BR      2
 #define PBAR_BORDER        4
@@ -102,15 +102,15 @@ enum {
 #define SLIDER_MO_BORDER_VAL 3
 
 #define FRAME_DARK_SHADOW 2
-#define FOCUS_SHADE(SEL)         (FOCUS_GLOW==QtCurve::opts.focus ? GLOW_MO : ((SEL) ? 3 : ORIGINAL_SHADE))
-#define MENU_STRIPE_SHADE (QtCurve::opts.lighterPopupMenuBgnd ? ORIGINAL_SHADE : 2)
-#define MENU_SEP_SHADE    (QtCurve::opts.lighterPopupMenuBgnd ? 4 : 3)
+#define FOCUS_SHADE(SEL)         (FOCUS_GLOW==opts.focus ? GLOW_MO : ((SEL) ? 3 : ORIGINAL_SHADE))
+#define MENU_STRIPE_SHADE (opts.lighterPopupMenuBgnd ? ORIGINAL_SHADE : 2)
+#define MENU_SEP_SHADE    (opts.lighterPopupMenuBgnd ? 4 : 3)
 
 #define BGND_STRIPE_SHADE 0.95
 
 #define INVERT_SHADE(A) (1.0+(1.0-(A)))
 
-#define TOOLBAR_SEP_GAP        (QtCurve::opts.fadeLines ? 5 : 6)
+#define TOOLBAR_SEP_GAP        (opts.fadeLines ? 5 : 6)
 #define FADE_SIZE              0.4
 
 #define IS_GLASS(A) qtcOneOf(A, APPEARANCE_DULL_GLASS, APPEARANCE_SHINY_GLASS)
@@ -157,7 +157,7 @@ enum {
 
 #define SIZE_GRIP_SIZE 12
 
-#define USE_GLOW_FOCUS(mouseOver) (FOCUS_GLOW==QtCurve::opts.focus && (MO_GLOW!=QtCurve::opts.coloredMouseOver || !(mouseOver)))
+#define USE_GLOW_FOCUS(mouseOver) (FOCUS_GLOW==opts.focus && (MO_GLOW!=opts.coloredMouseOver || !(mouseOver)))
 
 #define MENUBAR_GLASS_SELECTED_DARK_FACTOR 0.9
 #define MENUITEM_FADE_SIZE 48
@@ -174,10 +174,10 @@ enum {
               WIDGET_SLIDER_TROUGH, WIDGET_CHECKBOX, WIDGET_RADIO_BUTTON, \
               WIDGET_FILLED_SLIDER_TROUGH, WIDGET_COMBO,                \
               WIDGET_TOOLBAR_BUTTON, WIDGET_UNCOLOURED_MO_BUTTON) ||    \
-     ((w) == WIDGET_SLIDER && QtCurve::opts.coloredMouseOver == MO_GLOW))
+     ((w) == WIDGET_SLIDER && opts.coloredMouseOver == MO_GLOW))
 
 #define SLIDER(w) qtcOneOf(w, WIDGET_SB_SLIDER, WIDGET_SLIDER)
-#define CIRCULAR_SLIDER(w) (WIDGET_SLIDER==(w) && SLIDER_CIRCULAR==QtCurve::opts.sliderStyle)
+#define CIRCULAR_SLIDER(w) (WIDGET_SLIDER==(w) && SLIDER_CIRCULAR==opts.sliderStyle)
 
 #define MODIFY_AGUA_X(A, X) (APPEARANCE_AGUA==(A) ?  (X) : (A))
 #define MODIFY_AGUA(A)      MODIFY_AGUA_X((A), APPEARANCE_AGUA_MOD)
@@ -188,18 +188,18 @@ enum {
 #define PROGRESS_CHUNK_WIDTH 10
 #define STRIPE_WIDTH 10
 #define DRAW_LIGHT_BORDER(SUKEN, WIDGET, APP)                           \
-    (!(SUKEN) && (qtcGetGradient(APP, &QtCurve::opts)->border == GB_LIGHT) &&    \
+    (!(SUKEN) && (qtcGetGradient(APP, &opts)->border == GB_LIGHT) &&    \
      (WIDGET) != WIDGET_MENU_ITEM && !IS_TROUGH(WIDGET) &&              \
-     ((WIDGET) != WIDGET_DEF_BUTTON || QtCurve::opts.defBtnIndicator != IND_COLORED))
+     ((WIDGET) != WIDGET_DEF_BUTTON || opts.defBtnIndicator != IND_COLORED))
 
 #define DRAW_3D_FULL_BORDER(SUNKEN, APP) \
-    (!(SUNKEN) && GB_3D_FULL==qtcGetGradient((APP), &QtCurve::opts)->border)
+    (!(SUNKEN) && GB_3D_FULL==qtcGetGradient((APP), &opts)->border)
 
 #define DRAW_3D_BORDER(SUNKEN, APP) \
-    (!(SUNKEN) && GB_3D==qtcGetGradient((APP), &QtCurve::opts)->border)
+    (!(SUNKEN) && GB_3D==qtcGetGradient((APP), &opts)->border)
 
 #define DRAW_SHINE(SUNKEN, APP) \
-    (!(SUNKEN) && GB_SHINE==qtcGetGradient((APP), &QtCurve::opts)->border)
+    (!(SUNKEN) && GB_SHINE==qtcGetGradient((APP), &opts)->border)
 
 #define LIGHT_BORDER(APP) (APPEARANCE_DULL_GLASS==(APP) ? 1 : 0)
 
@@ -212,26 +212,26 @@ enum {
 #define TAB_APP(A)                                                      \
     (qtcOneOf(A, APPEARANCE_BEVELLED, APPEARANCE_SPLIT_GRADIENT) ?      \
      APPEARANCE_GRADIENT : (A))
-#define NORM_TAB_APP TAB_APP(QtCurve::opts.tabAppearance)
-#define SEL_TAB_APP  TAB_APP(QtCurve::opts.activeTabAppearance)
+#define NORM_TAB_APP TAB_APP(opts.tabAppearance)
+#define SEL_TAB_APP  TAB_APP(opts.activeTabAppearance)
 
-#define SLIDER_MO_SHADE  (SHADE_SELECTED==QtCurve::opts.shadeSliders ? 1 : (SHADE_BLEND_SELECTED==QtCurve::opts.shadeSliders ? 0 : ORIGINAL_SHADE))
-#define SLIDER_MO_PLASTIK_BORDER (SHADE_SELECTED==QtCurve::opts.shadeSliders || SHADE_BLEND_SELECTED==QtCurve::opts.shadeSliders ? 2 : 1)
-#define SLIDER_MO_LEN    (SLIDER_TRIANGULAR==QtCurve::opts.sliderStyle ? 2 : (SHADE_SELECTED==QtCurve::opts.shadeSliders || SHADE_BLEND_SELECTED==QtCurve::opts.shadeSliders ? 4 : 3))
+#define SLIDER_MO_SHADE  (SHADE_SELECTED==opts.shadeSliders ? 1 : (SHADE_BLEND_SELECTED==opts.shadeSliders ? 0 : ORIGINAL_SHADE))
+#define SLIDER_MO_PLASTIK_BORDER (SHADE_SELECTED==opts.shadeSliders || SHADE_BLEND_SELECTED==opts.shadeSliders ? 2 : 1)
+#define SLIDER_MO_LEN    (SLIDER_TRIANGULAR==opts.sliderStyle ? 2 : (SHADE_SELECTED==opts.shadeSliders || SHADE_BLEND_SELECTED==opts.shadeSliders ? 4 : 3))
 #define SB_SLIDER_MO_LEN(A)                                             \
-    ((A) < 22 && !(QtCurve::opts.round >= ROUND_FULL) ? 2 :                      \
-     ((A) < 32 || qtcNoneOf(QtCurve::opts.shadeSliders, SHADE_SELECTED,          \
+    ((A) < 22 && !(opts.round >= ROUND_FULL) ? 2 :                      \
+     ((A) < 32 || qtcNoneOf(opts.shadeSliders, SHADE_SELECTED,          \
                             SHADE_BLEND_SELECTED) ? 4 : 6))
 
 #define CR_MO_FILL          1
 #define MO_DEF_BTN          2
-#define MO_PLASTIK_DARK(W)  (WIDGET_DEF_BUTTON==(W) && IND_COLORED==QtCurve::opts.defBtnIndicator ? 3 : 2) /*? 2 : 1) */
-#define MO_PLASTIK_LIGHT(W) (WIDGET_DEF_BUTTON==(W) && IND_COLORED==QtCurve::opts.defBtnIndicator ? 4 : 1) /*? 2 : 0) */
+#define MO_PLASTIK_DARK(W)  (WIDGET_DEF_BUTTON==(W) && IND_COLORED==opts.defBtnIndicator ? 3 : 2) /*? 2 : 1) */
+#define MO_PLASTIK_LIGHT(W) (WIDGET_DEF_BUTTON==(W) && IND_COLORED==opts.defBtnIndicator ? 4 : 1) /*? 2 : 0) */
 
 #define MO_STD_DARK(W)                                          \
-    (QtCurve::opts.coloredMouseOver == MO_GLOW ? 1 : MO_PLASTIK_DARK(W))
+    (opts.coloredMouseOver == MO_GLOW ? 1 : MO_PLASTIK_DARK(W))
 #define MO_STD_LIGHT(W, S)                                              \
-    (QtCurve::opts.coloredMouseOver == MO_GLOW ? 1 : MO_PLASTIK_LIGHT(W))
+    (opts.coloredMouseOver == MO_GLOW ? 1 : MO_PLASTIK_LIGHT(W))
 
 #define FOCUS_ALPHA              0.08
 #define BORDER_BLEND_ALPHA(W)                                   \
@@ -242,7 +242,7 @@ enum {
 #define ETCH_BOTTOM_ALPHA        0.1
 #define ETCH_RADIO_TOP_ALPHA     0.09
 
-#define RINGS_INNER_ALPHA(T) qtc_ring_alpha[IMG_PLAIN_RINGS==(T) ? 1 : 0] //(IMG_PLAIN_RINGS==QtCurve::opts.bgndImage.type ? 0.25 :  0.125)
+#define RINGS_INNER_ALPHA(T) qtc_ring_alpha[IMG_PLAIN_RINGS==(T) ? 1 : 0] //(IMG_PLAIN_RINGS==opts.bgndImage.type ? 0.25 :  0.125)
 #define RINGS_OUTER_ALPHA    qtc_ring_alpha[2] //0.5
 #define RINGS_WIDTH(T)       (IMG_SQUARE_RINGS==T ? 260 : 450)
 #define RINGS_HEIGHT(T)      (IMG_SQUARE_RINGS==T ? 220 : 360)
