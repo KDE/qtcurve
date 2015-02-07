@@ -44,7 +44,7 @@ GdkEventButton *lastRejectedEvent = NULL;
 static int btnReleaseSignalId = 0;
 static int btnReleaseHookId = 0;
 
-static gboolean dragEnd();
+static bool dragEnd();
 
 static gboolean
 btnReleaseHook(GSignalInvocationHint*, unsigned, const GValue*, void*)
@@ -105,7 +105,8 @@ trigger(GtkWidget *w, int x, int y)
     dragEnd();
 }
 
-static gboolean withinWidget(GtkWidget *widget, GdkEventButton *event)
+static bool
+withinWidget(GtkWidget *widget, GdkEventButton *event)
 {
     // get top level widget
     GtkWidget *topLevel=gtk_widget_get_toplevel(widget);;
@@ -142,7 +143,8 @@ static gboolean withinWidget(GtkWidget *widget, GdkEventButton *event)
     return true;
 }
 
-static gboolean isBlackListed(GObject *object)
+static bool
+isBlackListed(GObject *object)
 {
     static const char *widgets[] = {
         "GtkPizza", "GladeDesignLayout", "MetaFrames", "SPHRuler", "SPVRuler", 0
@@ -215,7 +217,8 @@ childrenUseEvent(GtkWidget *widget, GdkEventButton *event, bool inNoteBook)
     return usable;
 }
 
-static gboolean useEvent(GtkWidget *widget, GdkEventButton *event)
+static bool
+useEvent(GtkWidget *widget, GdkEventButton *event)
 {
     if(lastRejectedEvent && lastRejectedEvent==event)
         return false;
@@ -244,17 +247,16 @@ startDelayedDrag(void*)
     return false;
 }
 
-static gboolean
+static bool
 isWindowDragWidget(GtkWidget *widget, GdkEventButton *event)
 {
-    if(opts.windowDrag && (!event || (withinWidget(widget, event) &&
-                                      useEvent(widget, event))))
-    {
+    if (opts.windowDrag && (!event || (withinWidget(widget, event) &&
+                                       useEvent(widget, event)))) {
         store(widget, event);
         // Start timer
         stopTimer();
-        timer=g_timeout_add(qtSettings.startDragTime,
-                                     (GSourceFunc)startDelayedDrag, NULL);
+        timer = g_timeout_add(qtSettings.startDragTime,
+                              (GSourceFunc)startDelayedDrag, NULL);
         return true;
     }
     lastRejectedEvent=event;
@@ -272,7 +274,8 @@ buttonPress(GtkWidget *widget, GdkEventButton *event, void*)
     return false;
 }
 
-static gboolean dragEnd()
+static bool
+dragEnd()
 {
     if (dragWidget) {
         //gtk_grab_remove(widget);

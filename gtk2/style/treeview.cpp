@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -26,16 +26,17 @@
 #include <qtcurve-cairo/utils.h>
 
 typedef struct {
-    GtkTreePath       *path;
+    GtkTreePath *path;
     GtkTreeViewColumn *column;
-    gboolean          fullWidth;
+    bool fullWidth;
 } QtCTreeView;
 
-static GHashTable *qtcTreeViewTable=NULL;
+static GHashTable *qtcTreeViewTable = nullptr;
 
-static QtCTreeView * qtcTreeViewLookupHash(void *hash, gboolean create)
+static QtCTreeView*
+qtcTreeViewLookupHash(void *hash, bool create)
 {
-    QtCTreeView *rv=NULL;
+    QtCTreeView *rv = nullptr;
 
     if (!qtcTreeViewTable)
         qtcTreeViewTable=g_hash_table_new(g_direct_hash, g_direct_equal);
@@ -44,8 +45,8 @@ static QtCTreeView * qtcTreeViewLookupHash(void *hash, gboolean create)
 
     if (!rv && create) {
         rv = qtcNew(QtCTreeView);
-        rv->path=NULL;
-        rv->column=NULL;
+        rv->path=nullptr;
+        rv->column=nullptr;
         rv->fullWidth=false;
         g_hash_table_insert(qtcTreeViewTable, hash, rv);
         rv = (QtCTreeView*)g_hash_table_lookup(qtcTreeViewTable, hash);
@@ -97,24 +98,21 @@ qtcTreeViewCleanup(GtkWidget *widget)
 }
 
 static gboolean
-qtcTreeViewStyleSet(GtkWidget *widget, GtkStyle *prev_style, void *data)
+qtcTreeViewStyleSet(GtkWidget *widget, GtkStyle*, void*)
 {
-    QTC_UNUSED(prev_style);
-    QTC_UNUSED(data);
     qtcTreeViewCleanup(widget);
     return false;
 }
 
 static gboolean
-qtcTreeViewDestroy(GtkWidget *widget, GdkEvent *event, void *data)
+qtcTreeViewDestroy(GtkWidget *widget, GdkEvent*, void*)
 {
-    QTC_UNUSED(event);
-    QTC_UNUSED(data);
     qtcTreeViewCleanup(widget);
     return false;
 }
 
-static gboolean qtcTreeViewSamePath(GtkTreePath *a, GtkTreePath *b)
+static bool
+qtcTreeViewSamePath(GtkTreePath *a, GtkTreePath *b)
 {
     return a ? (b && !gtk_tree_path_compare(a, b)) : !b;
 }
@@ -126,8 +124,8 @@ qtcTreeViewUpdatePosition(GtkWidget *widget, int x, int y)
         QtCTreeView *tv = qtcTreeViewLookupHash(widget, false);
         if (tv) {
             GtkTreeView *treeView = GTK_TREE_VIEW(widget);
-            GtkTreePath *path = NULL;
-            GtkTreeViewColumn *column = NULL;
+            GtkTreePath *path = nullptr;
+            GtkTreeViewColumn *column = nullptr;
 
             gtk_tree_view_get_path_at_pos(treeView, x, y, &path,
                                           &column, 0L, 0L);
@@ -174,7 +172,7 @@ qtcTreeViewUpdatePosition(GtkWidget *widget, int x, int y)
                 // store new cell info
                 if (tv->path)
                     gtk_tree_path_free(tv->path);
-                tv->path = path ? gtk_tree_path_copy(path) : NULL;
+                tv->path = path ? gtk_tree_path_copy(path) : nullptr;
                 tv->column = column;
 
                 // convert to widget coordinates and schedule redraw
@@ -193,16 +191,18 @@ qtcTreeViewUpdatePosition(GtkWidget *widget, int x, int y)
     }
 }
 
-gboolean qtcTreeViewIsCellHovered(GtkWidget *widget, GtkTreePath *path, GtkTreeViewColumn *column)
+bool
+qtcTreeViewIsCellHovered(GtkWidget *widget, GtkTreePath *path,
+                         GtkTreeViewColumn *column)
 {
     QtCTreeView *tv=qtcTreeViewLookupHash(widget, false);
-    return tv && (tv->fullWidth || tv->column==column) && qtcTreeViewSamePath(path, tv->path);
+    return (tv && (tv->fullWidth || tv->column == column) &&
+            qtcTreeViewSamePath(path, tv->path));
 }
 
 static gboolean
-qtcTreeViewMotion(GtkWidget *widget, GdkEventMotion *event, void *data)
+qtcTreeViewMotion(GtkWidget *widget, GdkEventMotion *event, void*)
 {
-    QTC_UNUSED(data);
     if (event && event->window && GTK_IS_TREE_VIEW(widget) &&
         gtk_tree_view_get_bin_window(GTK_TREE_VIEW(widget)) == event->window) {
         qtcTreeViewUpdatePosition(widget, event->x, event->y);
@@ -211,10 +211,8 @@ qtcTreeViewMotion(GtkWidget *widget, GdkEventMotion *event, void *data)
 }
 
 static gboolean
-qtcTreeViewLeave(GtkWidget *widget, GdkEventMotion *event, void *data)
+qtcTreeViewLeave(GtkWidget *widget, GdkEventMotion*, void*)
 {
-    QTC_UNUSED(event);
-    QTC_UNUSED(data);
     if (GTK_IS_TREE_VIEW(widget)) {
         QtCTreeView *tv = qtcTreeViewLookupHash(widget, false);
         if (tv) {
@@ -233,8 +231,8 @@ qtcTreeViewLeave(GtkWidget *widget, GdkEventMotion *event, void *data)
             if (tv->path) {
                 gtk_tree_path_free(tv->path);
             }
-            tv->path = NULL;
-            tv->column = NULL;
+            tv->path = nullptr;
+            tv->column = nullptr;
 
             gtk_tree_view_convert_bin_window_to_widget_coords(
                 treeView, rect.x, rect.y, &rect.x, &rect.y);
@@ -261,22 +259,22 @@ qtcTreeViewSetup(GtkWidget *widget)
             tv->fullWidth = true;
 #else
             gtk_widget_style_get(widget, "row_ending_details",
-                                 &tv->fullWidth, NULL);
+                                 &tv->fullWidth, nullptr);
 #endif
             gdk_window_get_pointer(gtk_widget_get_window(widget), &x, &y, 0L);
             gtk_tree_view_convert_widget_to_bin_window_coords(treeView, x, y,
                                                               &x, &y);
             qtcTreeViewUpdatePosition(widget, x, y);
             qtcConnectToProp(props, treeViewDestroy, "destroy-event",
-                             qtcTreeViewDestroy, NULL);
+                             qtcTreeViewDestroy, nullptr);
             qtcConnectToProp(props, treeViewUnrealize, "unrealize",
-                             qtcTreeViewDestroy, NULL);
+                             qtcTreeViewDestroy, nullptr);
             qtcConnectToProp(props, treeViewStyleSet, "style-set",
-                             qtcTreeViewStyleSet, NULL);
+                             qtcTreeViewStyleSet, nullptr);
             qtcConnectToProp(props, treeViewMotion, "motion-notify-event",
-                             qtcTreeViewMotion, NULL);
+                             qtcTreeViewMotion, nullptr);
             qtcConnectToProp(props, treeViewLeave, "leave-notify-event",
-                             qtcTreeViewLeave, NULL);
+                             qtcTreeViewLeave, nullptr);
         }
 
         if (!gtk_tree_view_get_show_expanders(treeView))
@@ -293,7 +291,7 @@ qtcTreeViewSetup(GtkWidget *widget)
     }
 }
 
-gboolean
+bool
 qtcTreeViewCellIsLeftOfExpanderColumn(GtkTreeView *treeView,
                                       GtkTreeViewColumn *column)
 {

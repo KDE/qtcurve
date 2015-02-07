@@ -135,15 +135,15 @@ typedef struct {
     const char *appName;
     GtkToolbarStyle toolbarStyle;
     QtIcons         iconSizes;
-    gboolean        buttonIcons,
-                    shadeSortedList;
-    EGtkApp         app;
-    gboolean        qt4,
-                    inactiveChangeSelectionColor,
-                    useAlpha;
-    int             //startDragDist,
-                    startDragTime;
-    QtcDebug        debug;
+    bool buttonIcons;
+    bool shadeSortedList;
+    EGtkApp app;
+    bool qt4;
+    bool inactiveChangeSelectionColor;
+    bool useAlpha;
+    // int startDragDist;
+    int startDragTime;
+    QtcDebug debug;
 } QtData;
 
 typedef struct {
@@ -170,7 +170,7 @@ extern QtCPalette qtcPalette;
 extern Options opts;
 extern QtData qtSettings;
 
-gboolean qtSettingsInit();
+bool qtSettingsInit();
 void qtSettingsSetColors(GtkStyle *style, GtkRcStyle *rc_style);
 
 }

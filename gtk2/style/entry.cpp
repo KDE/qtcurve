@@ -61,7 +61,7 @@ destroy(GtkWidget *widget, GdkEvent*, void*)
 }
 
 static gboolean
-qtcEntryEnter(GtkWidget *widget, GdkEventCrossing*, void*)
+enter(GtkWidget *widget, GdkEventCrossing*, void*)
 {
     if (GTK_IS_ENTRY(widget)) {
         lastMo = widget;
@@ -93,7 +93,7 @@ setup(GtkWidget *widget)
     if (GTK_IS_ENTRY(widget) && !qtcWidgetProps(props)->entryHacked) {
         qtcWidgetProps(props)->entryHacked = true;
         qtcConnectToProp(props, entryEnter, "enter-notify-event",
-                         qtcEntryEnter, NULL);
+                         enter, NULL);
         qtcConnectToProp(props, entryLeave, "leave-notify-event",
                          leave, NULL);
         qtcConnectToProp(props, entryDestroy, "destroy-event",

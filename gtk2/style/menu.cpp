@@ -35,7 +35,7 @@ namespace Menu {
 #define EXTEND_MENUBAR_ITEM_HACK
 
 #ifdef EXTEND_MENUBAR_ITEM_HACK
-static gboolean
+static bool
 isSelectable(GtkWidget *menu)
 {
     return !((!gtk_bin_get_child(GTK_BIN(menu)) &&

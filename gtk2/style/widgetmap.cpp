@@ -79,19 +79,15 @@ static void qtcWidgetMapCleanup(GtkWidget *widget)
 }
 
 static gboolean
-qtcWidgetMapStyleSet(GtkWidget *widget, GtkStyle *prev_style, void *data)
+qtcWidgetMapStyleSet(GtkWidget *widget, GtkStyle*, void*)
 {
-    QTC_UNUSED(prev_style);
-    QTC_UNUSED(data);
     qtcWidgetMapCleanup(widget);
     return false;
 }
 
 static gboolean
-qtcWidgetMapDestroy(GtkWidget *widget, GdkEvent *event, void *user_data)
+qtcWidgetMapDestroy(GtkWidget *widget, GdkEvent*, void*)
 {
-    QTC_UNUSED(event);
-    QTC_UNUSED(user_data);
     qtcWidgetMapCleanup(widget);
     return false;
 }

@@ -28,12 +28,12 @@
 
 QTC_BEGIN_DECLS
 
-gboolean qtcWindowIsActive(GtkWidget *widget);
-gboolean qtcWindowSetup(GtkWidget *widget, int opacity);
+bool qtcWindowIsActive(GtkWidget *widget);
+bool qtcWindowSetup(GtkWidget *widget, int opacity);
 GtkWidget *qtcWindowGetMenuBar(GtkWidget *parent, int level);
-gboolean qtcWindowSetStatusBarProp(GtkWidget *w);
+bool qtcWindowSetStatusBarProp(GtkWidget *w);
 GtkWidget *qtcWindowGetStatusBar(GtkWidget *parent, int level);
-void qtcWindowStatusBarDBus(GtkWidget *widget, gboolean state);
+void qtcWindowStatusBarDBus(GtkWidget *widget, bool state);
 void qtcWindowMenuBarDBus(GtkWidget *widget, int size);
 
 QTC_END_DECLS

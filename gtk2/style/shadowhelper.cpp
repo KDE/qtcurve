@@ -84,7 +84,7 @@ destroy(GtkWidget *widget, void*)
     return false;
 }
 
-static gboolean
+static bool
 registerWidget(GtkWidget* widget)
 {
     if (qtSettings.debug == DEBUG_ALL)

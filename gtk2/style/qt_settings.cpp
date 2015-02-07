@@ -370,13 +370,12 @@ typedef struct
     ColAdjustEffects effect;
 } ColAdjust;
 
-typedef struct
-{
+typedef struct {
     GdkColor  col;
     ColAdjust intensity,
               color,
               contrast;
-    gboolean  enabled;
+    bool enabled;
 } ColorEffect;
 
 typedef enum
@@ -429,7 +428,8 @@ static double readDouble(const char *line, int offset)
     return line[offset]!='\0' ? g_ascii_strtod(&line[offset], NULL) : 0;
 }
 
-static gboolean readBool(const char *line, int offset)
+static bool
+readBool(const char *line, int offset)
 {
     return line[offset]!='\0' ? 0==strncasecmp(&line[offset], "true", 4) : false;
 }
@@ -443,7 +443,7 @@ typedef struct
     char  family[MAX_CONFIG_INPUT_LINE_LEN+1];
 } QtFontDetails;
 
-static void initFont(QtFontDetails *f, gboolean setFamily)
+static void initFont(QtFontDetails *f, bool setFamily)
 {
     f->weight=WEIGHT_NORMAL,
     f->italic=0;
@@ -1066,13 +1066,13 @@ static char *getIconPath()
     char        *kdeHome=getKdeHome();
     const char  *kdePrefix=kdeIconsPrefix(),
                 *defIcons=defaultIcons();
-    gboolean    nonDefIcons=qtSettings.icons && strcmp(qtSettings.icons, defIcons);
+    bool nonDefIcons = qtSettings.icons && strcmp(qtSettings.icons, defIcons);
     unsigned len = strlen("pixmap_path \"");
     unsigned kdeHomeLen = kdeHome ? strlen(kdeHome) : 0;
     unsigned kdeIconPrefixLen = strlen(kdePrefix);
     unsigned iconLen = qtSettings.icons ? strlen(qtSettings.icons) : 0;
     unsigned defIconsLen = strlen(defIcons);
-    gboolean addDefaultPrefix = strcmp(kdePrefix, DEFAULT_ICON_PREFIX);
+    bool addDefaultPrefix = strcmp(kdePrefix, DEFAULT_ICON_PREFIX);
 
     if(nonDefIcons)
     {
@@ -1258,16 +1258,17 @@ static char *getIconPath()
 #define CSS_FILE_STR     "@import url(\"file://" QTC_GTK2_MOZILLA_DIR "/QtCurve.css\"); /* " GUARD_STR " */\n"
 #define BTN_CSS_FILE_STR "@import url(\"file://" QTC_GTK2_MOZILLA_DIR "/QtCurve-KDEButtonOrder.css\"); /* " GUARD_STR " */\n"
 
-static void processUserChromeCss(char *file, gboolean add_btn_css, gboolean add_menu_colors)
+static void
+processUserChromeCss(char *file, bool add_btn_css, bool add_menu_colors)
 {
     FILE        *f=fopen(file, "r");
     char        *contents=NULL,
                 *menu_text_str=NULL;
-    gboolean    remove_menu_colors=false,
-                remove_old_menu_colors=false;
+    bool remove_menu_colors = false;
+    bool remove_old_menu_colors = false;
 #ifdef QTC_GTK2_MODIFY_MOZILLA
-    gboolean    remove_btn_css=false,
-                add_css=true;
+    bool remove_btn_css = false;
+    bool add_css = true;
 #else
     QTC_UNUSED(add_btn_css);
 #endif
@@ -1316,9 +1317,8 @@ static void processUserChromeCss(char *file, gboolean add_btn_css, gboolean add_
                 size_t len=0;
 
                 contents[0]='\0';
-                while(-1!=getline(&line, &len, f))
-                {
-                    gboolean write_line=true;
+                while (getline(&line, &len, f) != -1) {
+                    bool write_line = true;
 
 #ifdef QTC_GTK2_MODIFY_MOZILLA
                     if(0==strcmp(line, BTN_CSS_FILE_STR))
@@ -1430,7 +1430,9 @@ static void processUserChromeCss(char *file, gboolean add_btn_css, gboolean add_
     qtcFree(menu_text_str);
 }
 
-static void processMozillaApp(gboolean add_btn_css, gboolean add_menu_colors, const char *app, gboolean under_moz)
+static void
+processMozillaApp(bool add_btn_css, bool add_menu_colors,
+                  const char *app, bool under_moz)
 {
     const char *home=qtcGetHome();
 
@@ -1456,7 +1458,7 @@ static void processMozillaApp(gboolean add_btn_css, gboolean add_menu_colors, co
                     char        sub[MAX_CSS_HOME];
 #ifdef QTC_GTK2_MODIFY_MOZILLA
                     FILE        *userJs=NULL;
-                    gboolean    alterUserJs=true;
+                    bool alterUserJs = true;
 
                     /* Add custom user.js file */
                     sprintf(sub, "%s%s/user.js", cssHome, dir_ent->d_name);
@@ -1511,31 +1513,32 @@ static void getGtk2CfgFile(char **tmpStr, const char *f)
     sprintf(*tmpStr, "%s%s", qtcConfDir(), f);
 }
 
-static gboolean checkFileVersion(const char *fname, const char *versionStr, int versionStrLen)
+static bool
+checkFileVersion(const char *fname, const char *versionStr, int versionStrLen)
 {
-    FILE     *f=fopen(fname, "r");
-    gboolean diff=true;
+    FILE *f = fopen(fname, "r");
+    bool diff = true;
 
-    if(f)
-    {
-        if(0!=access(fname, W_OK)) /* If file is not writeable, then just pretend no difference */
-            diff=false;
-        else
-        {
-            static const int constVLen=32;
+    if (f) {
+        if (access(fname, W_OK) != 0) {
+            /* If file is not writeable, then just pretend no difference */
+            diff = false;
+        } else {
+            static const int constVLen = 32;
 
-            char line[constVLen+1];
-            int  numChars=qtcMin(constVLen, versionStrLen-1);
+            char line[constVLen + 1];
+            int numChars = qtcMin(constVLen, versionStrLen - 1);
 
-            diff=NULL==fgets(line, numChars+1, f) || memcmp(versionStr, line, numChars);
+            diff = (fgets(line, numChars + 1, f) == nullptr ||
+                    memcmp(versionStr, line, numChars));
         }
         fclose(f);
     }
-
     return !diff;
 }
 
-static gboolean isMozApp(const char *app, const char *check)
+static bool
+isMozApp(const char *app, const char *check)
 {
     if (strcmp(app, check) == 0) {
         return true;
@@ -1557,7 +1560,8 @@ static gboolean isMozApp(const char *app, const char *check)
     return false;
 }
 
-static gboolean excludedApp(Strings config)
+static bool
+excludedApp(Strings config)
 {
     if (qtSettings.appName && config) {
         for (int i = 0;config[i];++i) {
@@ -1588,7 +1592,8 @@ debugLevel()
     return DEBUG_NONE;
 }
 
-gboolean qtSettingsInit()
+bool
+qtSettingsInit()
 {
     if (0 == qt_refs++) {
         static int lastRead = 0;
@@ -1732,7 +1737,7 @@ gboolean qtSettingsInit()
                     GdkColor *menu_col=SHADE_CUSTOM==opts.shadeMenubars
                                         ? &opts.customMenubarsColor
                                         : &qtSettings.colors[PAL_ACTIVE][COLOR_SELECTED];
-                    gboolean add_menu_colors=SHADE_BLEND_SELECTED==opts.shadeMenubars || SHADE_SELECTED==opts.shadeMenubars ||
+                    bool add_menu_colors = SHADE_BLEND_SELECTED==opts.shadeMenubars || SHADE_SELECTED==opts.shadeMenubars ||
                                              SHADE_WINDOW_BORDER==opts.shadeMenubars ||
                                              opts.customMenuTextColor || !opts.useHighlightForMenu ||
                                              (SHADE_CUSTOM==opts.shadeMenubars && TOO_DARK(*menu_col) ),
@@ -2350,7 +2355,7 @@ gboolean qtSettingsInit()
                 gtk_rc_parse_string(tmpStr);
             }
 
-            gboolean customSliderW=DEFAULT_SLIDER_WIDTH!=opts.sliderWidth;
+            bool customSliderW = opts.sliderWidth != DEFAULT_SLIDER_WIDTH;
             int glowSize = (opts.buttonEffect != EFFECT_NONE &&
                             opts.coloredMouseOver == MO_GLOW ? 2 : 0);
             int length = (SLIDER_CIRCULAR==opts.sliderStyle ?

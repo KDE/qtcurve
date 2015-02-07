@@ -36,7 +36,7 @@ typedef struct {
 static GHashTable *hashTable = NULL;
 
 static QtCTab*
-lookupHash(void *hash, gboolean create)
+lookupHash(void *hash, bool create)
 {
     if (!hashTable) {
         hashTable = g_hash_table_new(g_direct_hash, g_direct_equal);
