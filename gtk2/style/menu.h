@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2013 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -23,16 +23,15 @@
 #ifndef __QTC_MENU_H__
 #define __QTC_MENU_H__
 
-#include <qtcurve-utils/utils.h>
-
 #include <gtk/gtk.h>
 
-QTC_BEGIN_DECLS
+namespace QtCurve {
+namespace Menu {
 
-gboolean qtcMenuEmitSize(GtkWidget *w, unsigned int size);
-void qtcMenuShellSetup(GtkWidget *widget);
-gboolean objectIsA(const GObject *object, const char *type_name);
+void shellSetup(GtkWidget *widget);
+bool emitSize(GtkWidget *w, unsigned size);
 
-QTC_END_DECLS
+}
+}
 
 #endif

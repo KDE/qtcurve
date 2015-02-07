@@ -1598,4 +1598,16 @@ getCheckRadioCol(GtkStyle *style, GtkStateType state, bool mnu)
             qtcPalette.check_radio);
 }
 
+bool
+objectIsA(const GObject *object, const char *type_name)
+{
+    if (object) {
+        GType tmp = g_type_from_name(type_name);
+        if (tmp) {
+            return g_type_check_instance_is_a((GTypeInstance*)object, tmp);
+        }
+    }
+    return false;
+}
+
 }

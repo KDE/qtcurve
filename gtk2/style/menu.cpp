@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -29,47 +29,14 @@
 #include <gdk/gdkx.h>
 #include <common/common.h>
 
-gboolean
-qtcMenuEmitSize(GtkWidget *w, unsigned int size)
-{
-    if (w) {
-        QTC_DEF_WIDGET_PROPS(props, w);
-        unsigned oldSize = qtcWidgetProps(props)->menuBarSize;
-
-        if (oldSize != size) {
-            GtkWidget *topLevel = gtk_widget_get_toplevel(w);
-            xcb_window_t wid =
-                GDK_WINDOW_XID(gtk_widget_get_window(GTK_WIDGET(topLevel)));
-
-            if (size == 0xFFFF) {
-                size = 0;
-            }
-            qtcWidgetProps(props)->menuBarSize = size;
-            qtcX11SetMenubarSize(wid, size);
-            return true;
-        }
-    }
-    return false;
-}
-
-gboolean
-objectIsA(const GObject *object, const char *type_name)
-{
-    if (object) {
-        GType tmp = g_type_from_name(type_name);
-        if (tmp) {
-            return g_type_check_instance_is_a((GTypeInstance*)object, tmp);
-        }
-    }
-
-    return false;
-}
+namespace QtCurve {
+namespace Menu {
 
 #define EXTEND_MENUBAR_ITEM_HACK
 
 #ifdef EXTEND_MENUBAR_ITEM_HACK
 static gboolean
-menuIsSelectable(GtkWidget *menu)
+isSelectable(GtkWidget *menu)
 {
     return !((!gtk_bin_get_child(GTK_BIN(menu)) &&
               G_OBJECT_TYPE(menu) == GTK_TYPE_MENU_ITEM) ||
@@ -79,7 +46,7 @@ menuIsSelectable(GtkWidget *menu)
 }
 
 static gboolean
-qtcMenuShellButtonPress(GtkWidget *widget, GdkEventButton *event, void*)
+shellButtonPress(GtkWidget *widget, GdkEventButton *event, void*)
 {
     if (GTK_IS_MENU_BAR(widget)) {
         // QtCurve's menubars have a 2 pixel border ->
@@ -107,7 +74,7 @@ qtcMenuShellButtonPress(GtkWidget *widget, GdkEventButton *event, void*)
                 int ch = alloc.height;
                 if (cx <= event->x_root && cy <= event->y_root &&
                     (cx + cw) > event->x_root && (cy + ch) > event->y_root) {
-                    if (menuIsSelectable(item)) {
+                    if (isSelectable(item)) {
                         if (event->type == GDK_BUTTON_PRESS) {
                             if (item != menuShell->active_menu_item) {
                                 menuShell->active = false;
@@ -135,7 +102,7 @@ qtcMenuShellButtonPress(GtkWidget *widget, GdkEventButton *event, void*)
 #endif
 
 static void
-qtcMenuShellCleanup(GtkWidget *widget)
+shellCleanup(GtkWidget *widget)
 {
     if (GTK_IS_MENU_BAR(widget)) {
         QTC_DEF_WIDGET_PROPS(props, widget);
@@ -152,21 +119,21 @@ qtcMenuShellCleanup(GtkWidget *widget)
 }
 
 static gboolean
-qtcMenuShellStyleSet(GtkWidget *widget, GtkStyle*, void*)
+shellStyleSet(GtkWidget *widget, GtkStyle*, void*)
 {
-    qtcMenuShellCleanup(widget);
+    shellCleanup(widget);
     return false;
 }
 
 static gboolean
-qtcMenuShellDestroy(GtkWidget *widget, GdkEvent*, void*)
+shellDestroy(GtkWidget *widget, GdkEvent*, void*)
 {
-    qtcMenuShellCleanup(widget);
+    shellCleanup(widget);
     return false;
 }
 
 static gboolean
-qtcMenuShellMotion(GtkWidget *widget, GdkEventMotion*, void*)
+shellMotion(GtkWidget *widget, GdkEventMotion*, void*)
 {
     if (GTK_IS_MENU_SHELL(widget)) {
         int pointer_x, pointer_y;
@@ -205,7 +172,7 @@ qtcMenuShellMotion(GtkWidget *widget, GdkEventMotion*, void*)
 }
 
 static gboolean
-qtcMenuShellLeave(GtkWidget *widget, GdkEventCrossing*, void*)
+shellLeave(GtkWidget *widget, GdkEventCrossing*, void*)
 {
     if (GTK_IS_MENU_SHELL(widget) && GTK_IS_CONTAINER(widget)) {
         GList *children = gtk_container_get_children(GTK_CONTAINER(widget));
@@ -237,24 +204,50 @@ qtcMenuShellLeave(GtkWidget *widget, GdkEventCrossing*, void*)
 }
 
 void
-qtcMenuShellSetup(GtkWidget *widget)
+shellSetup(GtkWidget *widget)
 {
     QTC_DEF_WIDGET_PROPS(props, widget);
     if (GTK_IS_MENU_BAR(widget) && !qtcWidgetProps(props)->menuShellHacked) {
         qtcWidgetProps(props)->menuShellHacked = true;
         qtcConnectToProp(props, menuShellMotion, "motion-notify-event",
-                         qtcMenuShellMotion, NULL);
+                         shellMotion, NULL);
         qtcConnectToProp(props, menuShellLeave, "leave-notify-event",
-                         qtcMenuShellLeave, NULL);
+                         shellLeave, NULL);
         qtcConnectToProp(props, menuShellDestroy, "destroy-event",
-                         qtcMenuShellDestroy, NULL);
+                         shellDestroy, NULL);
         qtcConnectToProp(props, menuShellStyleSet, "style-set",
-                         qtcMenuShellStyleSet, NULL);
+                         shellStyleSet, NULL);
 #ifdef EXTEND_MENUBAR_ITEM_HACK
         qtcConnectToProp(props, menuShellButtonPress, "button-press-event",
-                         qtcMenuShellButtonPress, NULL);
+                         shellButtonPress, NULL);
         qtcConnectToProp(props, menuShellButtonRelease, "button-release-event",
-                         qtcMenuShellButtonPress, NULL);
+                         shellButtonPress, NULL);
 #endif
     }
+}
+
+bool
+emitSize(GtkWidget *w, unsigned size)
+{
+    if (w) {
+        QTC_DEF_WIDGET_PROPS(props, w);
+        unsigned oldSize = qtcWidgetProps(props)->menuBarSize;
+
+        if (oldSize != size) {
+            GtkWidget *topLevel = gtk_widget_get_toplevel(w);
+            xcb_window_t wid =
+                GDK_WINDOW_XID(gtk_widget_get_window(GTK_WIDGET(topLevel)));
+
+            if (size == 0xFFFF) {
+                size = 0;
+            }
+            qtcWidgetProps(props)->menuBarSize = size;
+            qtcX11SetMenubarSize(wid, size);
+            return true;
+        }
+    }
+    return false;
+}
+
+}
 }

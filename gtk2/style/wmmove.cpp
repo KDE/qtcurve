@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -28,7 +28,6 @@
 #include <gdk/gdkx.h>
 #include "helpers.h"
 #include "qt_settings.h"
-#include "menu.h"
 #include "tab.h"
 
 extern Options opts;
@@ -149,7 +148,7 @@ static gboolean qtcWMMoveIsBlackListed(GObject *object)
     };
 
     for (int i = 0;widgets[i];i++) {
-        if (objectIsA(object, widgets[i])) {
+        if (QtCurve::objectIsA(object, widgets[i])) {
             return true;
         }
     }

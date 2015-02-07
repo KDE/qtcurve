@@ -211,11 +211,15 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 if (hiddenMenubar)
                     gtk_widget_hide(menuBar);
 
-                if(BLEND_TITLEBAR || opts.menubarHiding&HIDE_KWIN || opts.windowBorder&WINDOW_BORDER_USE_MENUBAR_COLOR_FOR_TITLEBAR)
-                    qtcMenuEmitSize(menuBar, hiddenMenubar ? 0 : alloc.height);
-
-                if(opts.menubarHiding&HIDE_KWIN)
-                    qtcWindowMenuBarDBus(widget, hiddenMenubar ? 0 : alloc.height);
+                if (BLEND_TITLEBAR || opts.menubarHiding & HIDE_KWIN ||
+                    opts.windowBorder &
+                    WINDOW_BORDER_USE_MENUBAR_COLOR_FOR_TITLEBAR) {
+                    Menu::emitSize(menuBar, hiddenMenubar ? 0 : alloc.height);
+                }
+                if (opts.menubarHiding&HIDE_KWIN) {
+                    qtcWindowMenuBarDBus(widget,
+                                         hiddenMenubar ? 0 : alloc.height);
+                }
             }
 
 #if GTK_CHECK_VERSION(2, 90, 0)
@@ -772,8 +776,9 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
         }
     }
 
-    if (opts.menubarMouseOver && GTK_IS_MENU_SHELL(widget) && !isFakeGtk())
-        qtcMenuShellSetup(widget);
+    if (opts.menubarMouseOver && GTK_IS_MENU_SHELL(widget) && !isFakeGtk()) {
+        Menu::shellSetup(widget);
+    }
 
     cairo_t *cr = qtcGdkCreateCairoClip(window, area);
     if (spinUp || spinDown) {
@@ -1456,11 +1461,14 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 opts.windowDrag > WM_DRAG_MENUBAR)
                 qtcWMMoveSetup(widget);
 
-            if(menubar && BLEND_TITLEBAR)
-            {
-                menuBarAdjust=qtcGetWindowBorderSize(false).titleHeight;
-                if(widget && qtcMenuEmitSize(widget, height) && (opts.menubarHiding || opts.windowBorder&WINDOW_BORDER_USE_MENUBAR_COLOR_FOR_TITLEBAR))
+            if (menubar && BLEND_TITLEBAR) {
+                menuBarAdjust = qtcGetWindowBorderSize(false).titleHeight;
+                if (widget && Menu::emitSize(widget, height) &&
+                    (opts.menubarHiding ||
+                     opts.windowBorder &
+                     WINDOW_BORDER_USE_MENUBAR_COLOR_FOR_TITLEBAR)) {
                     qtcWindowMenuBarDBus(widget, height);
+                }
             }
 
             if (widget && (opacity!=100 || qtcIsCustomBgnd(&opts))) {

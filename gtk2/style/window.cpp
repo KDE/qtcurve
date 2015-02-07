@@ -390,7 +390,7 @@ qtcWindowToggleMenuBar(GtkWidget *widget)
             gtk_widget_show(menuBar);
         }
 
-        qtcMenuEmitSize(menuBar, size);
+        QtCurve::Menu::emitSize(menuBar, size);
         qtcWindowMenuBarDBus(widget, size);
         return true;
     }
@@ -495,7 +495,7 @@ qtcWindowMap(GtkWidget *widget, GdkEventKey *event, void *user_data)
             int size = (gtk_widget_get_visible(menuBar) ?
                         qtcWidgetGetAllocation(menuBar).height : 0);
 
-            qtcMenuEmitSize(menuBar, size);
+            QtCurve::Menu::emitSize(menuBar, size);
             qtcWindowMenuBarDBus(widget, size);
         }
     }

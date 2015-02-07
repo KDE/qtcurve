@@ -198,6 +198,7 @@ bool treeViewCellIsLast(GtkTreeView *treeView, GtkTreePath *path);
 GtkTreePath *treeViewPathParent(GtkTreeView *treeView, GtkTreePath *path);
 void generateColors();
 GdkColor *getCheckRadioCol(GtkStyle *style, GtkStateType state, bool mnu);
+bool objectIsA(const GObject *object, const char *type_name);
 
 }
 
