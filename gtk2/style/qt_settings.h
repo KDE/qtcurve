@@ -26,6 +26,7 @@
 #include <gtk/gtk.h>
 
 #include <qtcurve-utils/utils.h>
+#include <common/common.h>
 
 QTC_BEGIN_DECLS
 
@@ -46,8 +47,7 @@ QTC_BEGIN_DECLS
 #define toGtkColor(col) \
     ((col<<8)+col)
 
-typedef struct
-{
+typedef struct {
     int smlTbSize,
         tbSize,
         dndSize,
@@ -56,8 +56,7 @@ typedef struct
         dlgSize;
 } QtIcons;
 
-typedef enum
-{
+typedef enum {
     COLOR_BACKGROUND,
     COLOR_BUTTON,
     COLOR_SELECTED,
@@ -83,8 +82,7 @@ typedef enum
     COLOR_NUMCOLORS_STD = COLOR_NUMCOLORS-2 /* Remove Window border colors */
 } QtColorRoles;
 
-typedef enum
-{
+typedef enum {
     GTK_APP_UNKNOWN,
     GTK_APP_MOZILLA,
     GTK_APP_NEW_MOZILLA, /* For firefox3 */
@@ -97,8 +95,7 @@ typedef enum
     GTK_APP_GHB
 } EGtkApp;
 
-typedef enum
-{
+typedef enum {
     PAL_ACTIVE,
     PAL_DISABLED,
     PAL_INACTIVE
@@ -110,8 +107,7 @@ typedef enum
     PAL_NUMPALS
 } QtPallete;
 
-typedef enum
-{
+typedef enum {
     FONT_GENERAL,
     FONT_MENU,
     FONT_TOOLBAR,
@@ -123,15 +119,13 @@ typedef enum
     FONT_NUM_TOTAL
 } QtFont;
 
-typedef enum
-{
+typedef enum {
     DEBUG_NONE,
     DEBUG_SETTINGS,
     DEBUG_ALL,
 } QtcDebug;
 
-typedef struct
-{
+typedef struct {
     GdkColor        colors[PAL_NUMPALS][COLOR_NUMCOLORS]; /*,
                     inactiveSelectCol;*/
     char *fonts[FONT_NUM_TOTAL];
@@ -153,8 +147,7 @@ typedef struct
     QtcDebug        debug;
 } QtData;
 
-typedef struct
-{
+typedef struct {
     GdkColor background[TOTAL_SHADES+1],
              button[2][TOTAL_SHADES+1],
              *slider,
@@ -175,8 +168,8 @@ typedef struct
 } QtCPalette;
 
 extern QtCPalette qtcPalette;
-extern Options    opts;
-extern QtData     qtSettings;
+extern Options opts;
+extern QtData qtSettings;
 
 gboolean qtSettingsInit();
 void qtSettingsSetColors(GtkStyle *style, GtkRcStyle *rc_style);
