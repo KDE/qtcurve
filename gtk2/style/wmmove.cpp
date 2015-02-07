@@ -368,7 +368,7 @@ void qtcWMMoveSetup(GtkWidget *widget)
         return;
 
     QTC_DEF_WIDGET_PROPS(props, widget);
-    if (!isFakeGtk() && !qtcWidgetProps(props)->wmMoveHacked) {
+    if (!QtCurve::isFakeGtk() && !qtcWidgetProps(props)->wmMoveHacked) {
         qtcWidgetProps(props)->wmMoveHacked = true;
         gtk_widget_add_events(widget, GDK_BUTTON_RELEASE_MASK |
                               GDK_BUTTON_PRESS_MASK | GDK_LEAVE_NOTIFY_MASK |

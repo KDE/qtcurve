@@ -1806,7 +1806,7 @@ drawTriangularSlider(cairo_t *cr, GtkStyle *style, GtkStateType state,
         if (state == GTK_STATE_INSENSITIVE) {
             btnColors = qtcPalette.background;
         } else if (QT_CUSTOM_COLOR_BUTTON(style)) {
-            qtcShadeColors(&style->bg[state], newColors);
+            shadeColors(&style->bg[state], newColors);
             btnColors = newColors;
         } else {
             GtkWidget *widget = NULL; /* Keep SET_BTN_COLS happy */
@@ -3285,7 +3285,7 @@ drawCheckBox(cairo_t *cr, GtkStateType state, GtkShadowType shadow,
     if (opts.crColor && state != GTK_STATE_INSENSITIVE && (on || tri)) {
         btnColors = qtcPalette.selectedcr;
     } else if (!mnu && !list && QT_CUSTOM_COLOR_BUTTON(style)) {
-        qtcShadeColors(&style->bg[state], newColors);
+        shadeColors(&style->bg[state], newColors);
         btnColors = newColors;
     } else {
         btnColors = qtcPalette.button[state == GTK_STATE_INSENSITIVE ?
@@ -3437,7 +3437,7 @@ drawRadioButton(cairo_t *cr, GtkStateType state, GtkShadowType shadow,
         if (opts.crColor && state != GTK_STATE_INSENSITIVE && (on || tri)) {
             btnColors = qtcPalette.selectedcr;
         } else if (!mnu && !list && QT_CUSTOM_COLOR_BUTTON(style)) {
-            qtcShadeColors(&style->bg[state], newColors);
+            shadeColors(&style->bg[state], newColors);
             btnColors = newColors;
         } else {
             btnColors = qtcPalette.button[state == GTK_STATE_INSENSITIVE ?

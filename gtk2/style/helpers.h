@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -23,12 +23,12 @@
 #ifndef __QTC_HELPERS_H__
 #define __QTC_HELPERS_H__
 
-#include <common/common.h>
 #include "config.h"
 #include "qt_settings.h"
+#include <common/common.h>
 #include <qtcurve-cairo/utils.h>
 
-QTC_BEGIN_DECLS
+namespace QtCurve {
 
 #define DETAIL(xx) ((detail) && (!strcmp(xx, detail)))
 #define DETAILHAS(xx) ((detail) && (strstr(detail, xx)))
@@ -106,7 +106,7 @@ isFakeGtk()
 GdkColor *menuColors(bool active);
 EBorder shadowToBorder(GtkShadowType shadow);
 bool useButtonColor(const char *detail);
-void qtcShadeColors(const GdkColor *base, GdkColor *vals);
+void shadeColors(const GdkColor *base, GdkColor *vals);
 bool isSortColumn(GtkWidget *button);
 GdkColor *getCellCol(GdkColor *std, const char *detail);
 bool reverseLayout(GtkWidget *widget);
@@ -199,6 +199,6 @@ GtkTreePath *treeViewPathParent(GtkTreeView *treeView, GtkTreePath *path);
 void generateColors();
 GdkColor *getCheckRadioCol(GtkStyle *style, GtkStateType state, bool mnu);
 
-QTC_END_DECLS
+}
 
 #endif

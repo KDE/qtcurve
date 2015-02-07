@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -1782,7 +1782,7 @@ gboolean qtSettingsInit()
                 opts.sliderStyle=SLIDER_PLAIN;
 
             if (qtcOneOf(qtSettings.app, GTK_APP_JAVA, GTK_APP_JAVA_SWT,
-                         GTK_APP_OPEN_OFFICE) || isMozilla()) {
+                         GTK_APP_OPEN_OFFICE) || QtCurve::isMozilla()) {
                 opts.square |= SQUARE_POPUP_MENUS;
                 opts.bgndAppearance = APPEARANCE_FLAT;
                 opts.bgndImage.type = IMG_NONE;
@@ -1799,7 +1799,7 @@ gboolean qtSettingsInit()
                 opts.bgndImage.type=IMG_NONE;
 
             if (qtcOneOf(qtSettings.app, GTK_APP_OPEN_OFFICE, GTK_APP_JAVA,
-                         GTK_APP_JAVA_SWT) || isMozilla()) {
+                         GTK_APP_JAVA_SWT) || QtCurve::isMozilla()) {
                 opts.bgndOpacity = opts.dlgOpacity = opts.menuBgndOpacity = 100;
                 qtSettings.useAlpha = false;
             }
@@ -2072,7 +2072,7 @@ gboolean qtSettingsInit()
             }
 */
             /* For some reason Firefox 3beta4 goes mad if GtkComboBoxEntry::appears-as-list = 1 !!!! */
-            if(isMozilla())
+            if(QtCurve::isMozilla())
                 gtk_rc_parse_string("style \"" RC_SETTING "Mz\" { GtkComboBoxEntry::appears-as-list = 0 } class \"*\" style \"" RC_SETTING "Mz\"");
             else if(!opts.gtkComboMenus)
             {
@@ -2081,7 +2081,7 @@ gboolean qtSettingsInit()
             }
 
             if (qtcOneOf(qtSettings.app, GTK_APP_MOZILLA, GTK_APP_JAVA) ||
-                (opts.scrollbarType == SCROLLBAR_NONE && isMozilla())) {
+                (opts.scrollbarType == SCROLLBAR_NONE && QtCurve::isMozilla())) {
                 opts.scrollbarType = SCROLLBAR_WINDOWS;
             } else {
                 static const char *constSbStrFormat="style \"" RC_SETTING "SBt\" "
@@ -2170,7 +2170,7 @@ gboolean qtSettingsInit()
             sprintf(tmpStr, constStrFormat, thick, thick, thick, thick);
             gtk_rc_parse_string(tmpStr);
 
-            if (isMozilla()) {
+            if (QtCurve::isMozilla()) {
                 constStrFormat =
                     "style \"" RC_SETTING "EtchEM\" { xthickness = %d "
                     "ythickness = %d } widget_class "
@@ -2268,7 +2268,7 @@ gboolean qtSettingsInit()
                 "\"#%02X%02X%02X\" GtkTreeView::even-row-color = "
                 "\"#%02X%02X%02X\"} widget \"*GtkTreeView*\" style \""
                 RC_SETTING "Tree\"";
-            int alt = haveAlternateListViewCol() ? COLOR_LV : COLOR_BACKGROUND;
+            int alt = QtCurve::haveAlternateListViewCol() ? COLOR_LV : COLOR_BACKGROUND;
 
             tmpStr = (char*)realloc(tmpStr, strlen(constStrFormat) + 1);
             sprintf(tmpStr, constStrFormat,
@@ -2309,7 +2309,7 @@ gboolean qtSettingsInit()
 
             /* Mozilla seems to assume that all scrolledviews are square :-(
                So, set the xthickness and ythickness to 1, and in qtcurve.c draw these as square */
-            if(isMozilla())
+            if(QtCurve::isMozilla())
                 gtk_rc_parse_string("style \"" RC_SETTING "SVm\""
                                     " { xthickness=1 ythickness=1 } "
                                     "widget_class \"GtkWindow.GtkFixed.GtkScrolledWindow\" style \"" RC_SETTING "SVm\"");
@@ -2326,7 +2326,7 @@ gboolean qtSettingsInit()
                     " widget_class \"*Menu*\" style \"" RC_SETTING "OOMnu\" ";
 
 
-                qtcShadeColors(&qtSettings.colors[PAL_ACTIVE][COLOR_WINDOW], qtcPalette.background);
+                QtCurve::shadeColors(&qtSettings.colors[PAL_ACTIVE][COLOR_WINDOW], qtcPalette.background);
                 tmpStr = (char*)realloc(tmpStr, strlen(constStrFormat)+1);
                 sprintf(tmpStr, constStrFormat,
                         toQtColor(qtcPalette.background[4].red),
@@ -2395,7 +2395,7 @@ gboolean qtSettingsInit()
                     &qtSettings.colors[PAL_ACTIVE][COLOR_WINDOW]);
             }
 
-            if(isMozilla())
+            if(QtCurve::isMozilla())
                 opts.crSize=CR_SMALL_SIZE;
 
             if (opts.crSize != CR_LARGE_SIZE) {
@@ -2500,7 +2500,7 @@ void qtSettingsSetColors(GtkStyle *style, GtkRcStyle *rc_style)
 
     SET_COLOR(style, rc_style, fg, GTK_RC_FG, GTK_STATE_NORMAL, COLOR_WINDOW_TEXT)
     SET_COLOR(style, rc_style, fg, GTK_RC_FG, GTK_STATE_SELECTED, COLOR_TEXT_SELECTED)
-//     if(isMozilla())
+//     if (QtCurve::isMozilla())
         SET_COLOR(style, rc_style, fg, GTK_RC_FG, GTK_STATE_INSENSITIVE, COLOR_TEXT)
 //     else
 //         SET_COLOR(style, rc_style, fg, GTK_RC_FG, GTK_STATE_INSENSITIVE, COLOR_MID)

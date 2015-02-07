@@ -751,7 +751,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
         if (slider | hscale | vscale | sbar && state == GTK_STATE_INSENSITIVE) {
             btnColors = qtcPalette.background;
         } else if (QT_CUSTOM_COLOR_BUTTON(style)) {
-            qtcShadeColors(&style->bg[state], new_cols);
+            shadeColors(&style->bg[state], new_cols);
             btnColors = new_cols;
         } else {
             SET_BTN_COLS(slider, hscale | vscale, lvh, state);
@@ -1649,7 +1649,7 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
 
         if(QT_CUSTOM_COLOR_BUTTON(style))
         {
-            qtcShadeColors(&style->bg[state], newColors);
+            shadeColors(&style->bg[state], newColors);
             btnColors=newColors;
         }
         else
@@ -2330,7 +2330,7 @@ gtkDrawSlider(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 btnColors=qtcPalette.background;
             else if(QT_CUSTOM_COLOR_BUTTON(style))
             {
-                qtcShadeColors(&style->bg[state], newColors);
+                shadeColors(&style->bg[state], newColors);
                 btnColors=newColors;
             }
             else
