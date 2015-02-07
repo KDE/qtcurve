@@ -223,7 +223,7 @@ isOnToolbar(GtkWidget *widget, bool *horiz, int level)
 {
     if (widget) {
         if (GTK_IS_TOOLBAR(widget)) {
-            qtcAssign(horiz, qtcWidgetIsHorizontal(widget));
+            qtcAssign(horiz, Widget::isHorizontal(widget));
             return true;
         } else if (level < 4) {
             return isOnToolbar(gtk_widget_get_parent(widget), horiz, level + 1);
@@ -616,8 +616,8 @@ getStepper(GtkWidget *widget, int x, int y, int width, int height)
 {
     if (widget && GTK_IS_RANGE(widget)) {
         const QtcRect stepper = {x, y, width, height};
-        GtkOrientation orientation = qtcWidgetGetOrientation(widget);
-        QtcRect alloc = qtcWidgetGetAllocation(widget);
+        GtkOrientation orientation = Widget::getOrientation(widget);
+        QtcRect alloc = Widget::getAllocation(widget);
         QtcRect check_rectangle = {alloc.x, alloc.y,
                                    stepper.width, stepper.height};
 
@@ -768,7 +768,7 @@ isHorizontalProgressbar(GtkWidget *widget)
     if (!widget || isMozilla() || !GTK_IS_PROGRESS_BAR(widget))
         return true;
 #if GTK_CHECK_VERSION(2, 90, 0)
-    return qtcWidgetIsHorizontal(widget);
+    return Widget::isHorizontal(widget);
 #else
     switch (GTK_PROGRESS_BAR(widget)->orientation) {
     default:

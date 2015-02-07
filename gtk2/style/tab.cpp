@@ -328,7 +328,7 @@ getTabbarRect(GtkNotebook *notebook)
     }
     g_list_free(children);
     // get full rect
-    rect = qtcWidgetGetAllocation(GTK_WIDGET(notebook));
+    rect = Widget::getAllocation(GTK_WIDGET(notebook));
 
     // adjust to account for borderwidth
     borderWidth = gtk_container_get_border_width(GTK_CONTAINER(notebook));
@@ -350,7 +350,7 @@ getTabbarRect(GtkNotebook *notebook)
     }
 
     // removes page allocated size from rect, based on tabwidget orientation
-    pageAllocation = qtcWidgetGetAllocation(page);
+    pageAllocation = Widget::getAllocation(page);
     switch (gtk_notebook_get_tab_pos(notebook)) {
     case GTK_POS_BOTTOM:
         rect.y += pageAllocation.height;

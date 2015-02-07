@@ -125,7 +125,7 @@ updatePosition(GtkWidget *widget, int x, int y)
                 QtcRect oldRect = {0, 0, -1, -1 };
                 QtcRect newRect = {0, 0, -1, -1 };
                 QtcRect updateRect;
-                QtcRect alloc = qtcWidgetGetAllocation(widget);
+                QtcRect alloc = Widget::getAllocation(widget);
 
                 if (tv->path && tv->column) {
                     gtk_tree_view_get_background_area(
@@ -198,7 +198,7 @@ leave(GtkWidget *widget, GdkEventMotion*, void*)
         if (tv) {
             GtkTreeView *treeView = GTK_TREE_VIEW(widget);
             QtcRect rect = {0, 0, -1, -1 };
-            QtcRect alloc = qtcWidgetGetAllocation(widget);
+            QtcRect alloc = Widget::getAllocation(widget);
 
             if (tv->path && tv->column) {
                 gtk_tree_view_get_background_area(

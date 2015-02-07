@@ -1,5 +1,5 @@
 /*****************************************************************************
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -24,9 +24,14 @@
 
 #include "utils.h"
 #include <gtk/gtk.h>
+#include <memory>
+
+namespace QtCurve {
+
+namespace Widget {
 
 static inline cairo_rectangle_int_t
-qtcWidgetGetAllocation(GtkWidget *widget)
+getAllocation(GtkWidget *widget)
 {
     cairo_rectangle_int_t alloc;
     // Binary compatible
@@ -35,7 +40,7 @@ qtcWidgetGetAllocation(GtkWidget *widget)
 }
 
 static inline GtkRequisition
-qtcWidgetGetRequisition(GtkWidget *widget)
+getRequisition(GtkWidget *widget)
 {
     GtkRequisition req;
 #if GTK_CHECK_VERSION(3, 0, 0)
@@ -46,24 +51,26 @@ qtcWidgetGetRequisition(GtkWidget *widget)
     return req;
 }
 
+static inline GtkOrientation
+getOrientation(GtkWidget *widget)
+{
+    return gtk_orientable_get_orientation(GTK_ORIENTABLE(widget));
+}
+
+static inline bool
+isHorizontal(GtkWidget *widget)
+{
+    return getOrientation(widget) == GTK_ORIENTATION_HORIZONTAL;
+}
+
+}
+
 static inline float
 qtcFrameGetLabelYAlign(GtkFrame *f)
 {
     float x, y;
     gtk_frame_get_label_align(f, &x, &y);
     return y;
-}
-
-static inline GtkOrientation
-qtcWidgetGetOrientation(GtkWidget *widget)
-{
-    return gtk_orientable_get_orientation(GTK_ORIENTABLE(widget));
-}
-
-static inline bool
-qtcWidgetIsHorizontal(GtkWidget *widget)
-{
-    return qtcWidgetGetOrientation(widget) == GTK_ORIENTATION_HORIZONTAL;
 }
 
 static inline bool
@@ -81,6 +88,8 @@ qtcIsProgressBar(GtkWidget *w)
     GtkAllocation alloc;
     gtk_widget_get_allocation(w, &alloc);
     return alloc.x != -1 && alloc.y != -1;
+}
+
 }
 
 #endif

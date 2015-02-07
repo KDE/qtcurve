@@ -207,7 +207,7 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 bool hiddenMenubar =
                     (opts.menubarHiding ?
                      qtcMenuBarHidden(qtSettings.appName) : false);
-                QtcRect alloc = qtcWidgetGetAllocation(menuBar);
+                QtcRect alloc = Widget::getAllocation(menuBar);
 
                 if (hiddenMenubar)
                     gtk_widget_hide(menuBar);
@@ -1033,8 +1033,8 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 widget && !isFixedWidget(widget) && /* Don't do for Firefox, etc. */
                 WIDGET_SB_SLIDER==widgetType && GTK_STATE_INSENSITIVE!=state && GTK_IS_RANGE(widget))
             {
-                QtcRect alloc = qtcWidgetGetAllocation(widget);
-                bool horizontal = !qtcWidgetIsHorizontal(widget);
+                QtcRect alloc = Widget::getAllocation(widget);
+                bool horizontal = !Widget::isHorizontal(widget);
                 int sbarTroughLen = (horizontal ? alloc.height : alloc.width) -
                     ((qtcRangeHasStepperA(widget) ? opts.sliderWidth : 0) +
                      (qtcRangeHasStepperB(widget) ? opts.sliderWidth : 0) +
@@ -1054,7 +1054,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 /*&& !(GTK_STATE_PRELIGHT==state && MO_GLOW==opts.coloredMouseOver)*/)
             {
                 GtkAdjustment *adj = gtk_range_get_adjustment(GTK_RANGE(widget));
-                bool horizontal = qtcWidgetIsHorizontal(widget);
+                bool horizontal = Widget::isHorizontal(widget);
 #if GTK_CHECK_VERSION(2, 90, 0)
                 bool hasStartStepper = SCROLLBAR_PLATINUM!=opts.scrollbarType;
                 bool hasEndStepper = SCROLLBAR_NEXT!=opts.scrollbarType;
@@ -1098,7 +1098,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
             if(GTK_APP_OPEN_OFFICE==qtSettings.app && opts.flatSbarButtons && slider &&
                 (SCROLLBAR_KDE==opts.scrollbarType || SCROLLBAR_WINDOWS==opts.scrollbarType) &&
                 widget && GTK_IS_RANGE(widget) && isFixedWidget(widget)) {
-                if (!qtcWidgetIsHorizontal(widget)) {
+                if (!Widget::isHorizontal(widget)) {
                     y++;
                     height--;
                 } else {
@@ -1435,7 +1435,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
         bool pbar = list || GTK_IS_PROGRESS_BAR(widget);
         bool scale = !pbar && GTK_IS_SCALE(widget);
         /* int border = BORDER_VAL(GTK_STATE_INSENSITIVE != state || !scale); */
-        bool horiz = (GTK_IS_RANGE(widget) ? qtcWidgetIsHorizontal(widget) :
+        bool horiz = (GTK_IS_RANGE(widget) ? Widget::isHorizontal(widget) :
                       width > height);
 
         if (scale) {
@@ -1717,7 +1717,7 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
 #if GTK_CHECK_VERSION(2, 16, 0)
 #if !GTK_CHECK_VERSION(2, 90, 0) /* Gtk3:TODO !!! */
             if (isSpin && widget &&
-                width == qtcWidgetGetAllocation(widget).width) {
+                width == Widget::getAllocation(widget).width) {
                 int btnWidth, dummy;
                 gdk_drawable_get_size(GTK_SPIN_BUTTON(widget)->panel, &btnWidth, &dummy);
                 width-=btnWidth;
@@ -1824,8 +1824,8 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
                                     GTK_IS_WINDOW(parent));
 
                 if (windowFrame) {
-                    QtcRect wAlloc = qtcWidgetGetAllocation(widget);
-                    QtcRect pAlloc = qtcWidgetGetAllocation(parent);
+                    QtcRect wAlloc = Widget::getAllocation(widget);
+                    QtcRect pAlloc = Widget::getAllocation(parent);
                     windowFrame = qtcRectEqual(&wAlloc, &pAlloc);
                 }
 
@@ -2092,8 +2092,8 @@ gtkDrawLayout(GtkStyle *style, GdkWindow *window, GtkStateType state,
            - no shift is required 9pt DejaVu Sans requires the shift
         */
         if (but && widget) {
-            GtkRequisition req = qtcWidgetGetRequisition(widget);
-            if (req.height < qtcWidgetGetAllocation(widget).height &&
+            GtkRequisition req = Widget::getRequisition(widget);
+            if (req.height < Widget::getAllocation(widget).height &&
                 req.height % 2) {
                 y++;
             }
@@ -2157,8 +2157,8 @@ gtkDrawLayout(GtkStyle *style, GdkWindow *window, GtkStateType state,
 
         if (parent && GTK_IS_LABEL(widget) && GTK_IS_FRAME(parent) &&
             !isOnStatusBar(widget, 0)) {
-            int diff = (qtcWidgetGetAllocation(widget).x -
-                        qtcWidgetGetAllocation(parent).x);
+            int diff = (Widget::getAllocation(widget).x -
+                        Widget::getAllocation(parent).x);
 
             if (qtcNoFrame(opts.groupBox)) {
                 x -= qtcBound(0, diff, 8);
@@ -2672,7 +2672,7 @@ gtkDrawFocus(GtkStyle *style, GdkWindow *window, GtkStateType state,
     else if (GTK_IS_OPTION_MENU(widget)) {
         if ((!opts.comboSplitter ||
              qtcOneOf(opts.focus, FOCUS_FULL, FOCUS_FILLED)) && widget) {
-            QtcRect alloc = qtcWidgetGetAllocation(widget);
+            QtcRect alloc = Widget::getAllocation(widget);
             if (alloc.width > width) {
                 width = alloc.width - (doEtch ? 8 : 4);
             }

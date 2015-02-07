@@ -127,12 +127,12 @@ withinWidget(GtkWidget *widget, GdkEventButton *event)
         // get widget size.
         // for notebooks, only consider the tabbar rect
         if (GTK_IS_NOTEBOOK(widget)) {
-            QtcRect widgetAlloc = qtcWidgetGetAllocation(widget);
+            QtcRect widgetAlloc = Widget::getAllocation(widget);
             allocation = Tab::getTabbarRect(GTK_NOTEBOOK(widget));
             allocation.x += wx - widgetAlloc.x;
             allocation.y += wy - widgetAlloc.y;
         } else {
-            allocation = qtcWidgetGetAllocation(widget);
+            allocation = Widget::getAllocation(widget);
             allocation.x = wx;
             allocation.y = wy;
         }

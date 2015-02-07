@@ -67,7 +67,7 @@ shellButtonPress(GtkWidget *widget, GdkEventButton *event, void*)
             bool rv = false;
             for (GList *child = children;child;child = child->next) {
                 GtkWidget *item = (GtkWidget*)child->data;
-                QtcRect alloc = qtcWidgetGetAllocation(item);
+                QtcRect alloc = Widget::getAllocation(item);
                 int cx = alloc.x + nx;
                 int cy = alloc.y + ny;
                 int cw = alloc.width;
@@ -149,7 +149,7 @@ shellMotion(GtkWidget *widget, GdkEventMotion*, void*)
                     (gtk_widget_get_state(GTK_WIDGET(child->data)) !=
                      GTK_STATE_INSENSITIVE)) {
                     QtcRect alloc =
-                        qtcWidgetGetAllocation(GTK_WIDGET(child->data));
+                        Widget::getAllocation(GTK_WIDGET(child->data));
 
                     if ((pointer_x >= alloc.x) && (pointer_y >= alloc.y) &&
                         (pointer_x < (alloc.x + alloc.width)) &&

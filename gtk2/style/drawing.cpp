@@ -3615,7 +3615,7 @@ drawTab(cairo_t *cr, GtkStateType state, GtkStyle *style, GtkWidget *widget,
             int diff = -1;
 
             if (tab_label) {
-                QtcRect alloc = qtcWidgetGetAllocation(tab_label);
+                QtcRect alloc = Widget::getAllocation(tab_label);
                 diff = vertical ? alloc.y - y : alloc.x - x;
             }
 

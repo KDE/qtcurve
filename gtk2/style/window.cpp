@@ -168,7 +168,7 @@ sizeRequest(GtkWidget *widget)
 {
     if (widget && (!(qtcIsFlatBgnd(opts.bgndAppearance)) ||
                    IMG_NONE != opts.bgndImage.type)) {
-        QtcRect alloc = qtcWidgetGetAllocation(widget);
+        QtcRect alloc = Widget::getAllocation(widget);
         QtcRect rect = {0, 0, 0, 0};
         if (qtcIsFlat(opts.bgndAppearance) &&
             IMG_NONE != opts.bgndImage.type) {
@@ -283,7 +283,7 @@ toggleMenuBar(GtkWidget *widget)
         if (gtk_widget_get_visible(menuBar)) {
             gtk_widget_hide(menuBar);
         } else {
-            size = qtcWidgetGetAllocation(menuBar).height;
+            size = Widget::getAllocation(menuBar).height;
             gtk_widget_show(menuBar);
         }
 
@@ -371,7 +371,7 @@ mapWindow(GtkWidget *widget, GdkEventKey*, void*)
 
         if (menuBar) {
             int size = (gtk_widget_get_visible(menuBar) ?
-                        qtcWidgetGetAllocation(menuBar).height : 0);
+                        Widget::getAllocation(menuBar).height : 0);
 
             Menu::emitSize(menuBar, size);
             menuBarDBus(widget, size);
@@ -405,7 +405,7 @@ setup(GtkWidget *widget, int opacity)
             opts.bgndImage.type != IMG_NONE) {
             QtCWindow *window = lookupHash(widget, true);
             if (window) {
-                QtcRect alloc = qtcWidgetGetAllocation(widget);
+                QtcRect alloc = Widget::getAllocation(widget);
                 qtcConnectToProp(props, windowConfigure, "configure-event",
                                  configure, window);
                 window->width = alloc.width;
