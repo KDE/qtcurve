@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2013 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -22,20 +22,20 @@
 #ifndef __QTC_WINDOW_H__
 #define __QTC_WINDOW_H__
 
-#include <qtcurve-utils/utils.h>
-
 #include <gtk/gtk.h>
 
-QTC_BEGIN_DECLS
+namespace QtCurve {
+namespace Window {
 
-bool qtcWindowIsActive(GtkWidget *widget);
-bool qtcWindowSetup(GtkWidget *widget, int opacity);
-GtkWidget *qtcWindowGetMenuBar(GtkWidget *parent, int level);
-bool qtcWindowSetStatusBarProp(GtkWidget *w);
-GtkWidget *qtcWindowGetStatusBar(GtkWidget *parent, int level);
-void qtcWindowStatusBarDBus(GtkWidget *widget, bool state);
-void qtcWindowMenuBarDBus(GtkWidget *widget, int size);
+bool isActive(GtkWidget *widget);
+bool setup(GtkWidget *widget, int opacity);
+GtkWidget *getMenuBar(GtkWidget *parent, int level);
+bool setStatusBarProp(GtkWidget *w);
+GtkWidget *getStatusBar(GtkWidget *parent, int level);
+void statusBarDBus(GtkWidget *widget, bool state);
+void menuBarDBus(GtkWidget *widget, int size);
 
-QTC_END_DECLS
+}
+}
 
 #endif

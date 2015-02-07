@@ -197,11 +197,11 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
          opts.windowBorder & WINDOW_BORDER_USE_MENUBAR_COLOR_FOR_TITLEBAR) &&
         widget && GTK_IS_WINDOW(widget) && !isFixedWidget(widget) &&
         !isGimpDockable(widget) && !isMenuOrToolTipWindow) {
-        if (qtcWindowSetup(widget, GTK_IS_DIALOG(widget) ? opts.dlgOpacity :
-                           opts.bgndOpacity)) {
-            GtkWidget *menuBar = qtcWindowGetMenuBar(widget, 0);
-            GtkWidget *statusBar =
-                opts.statusbarHiding ? qtcWindowGetStatusBar(widget, 0) : nullptr;
+        if (Window::setup(widget, GTK_IS_DIALOG(widget) ? opts.dlgOpacity :
+                          opts.bgndOpacity)) {
+            GtkWidget *menuBar = Window::getMenuBar(widget, 0);
+            GtkWidget *statusBar = (opts.statusbarHiding ?
+                                    Window::getStatusBar(widget, 0) : nullptr);
 
             if (menuBar) {
                 bool hiddenMenubar =
@@ -218,8 +218,8 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                     Menu::emitSize(menuBar, hiddenMenubar ? 0 : alloc.height);
                 }
                 if (opts.menubarHiding&HIDE_KWIN) {
-                    qtcWindowMenuBarDBus(widget,
-                                         hiddenMenubar ? 0 : alloc.height);
+                    Window::menuBarDBus(widget,
+                                        hiddenMenubar ? 0 : alloc.height);
                 }
             }
 
@@ -237,8 +237,8 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                     gtk_widget_hide(statusBar);
                 }
                 if (opts.statusbarHiding & HIDE_KWIN) {
-                    qtcWindowStatusBarDBus(widget, !hiddenStatusBar);
-                    qtcWindowSetStatusBarProp(widget);
+                    Window::statusBarDBus(widget, !hiddenStatusBar);
+                    Window::setStatusBarProp(widget);
                 }
             }
         }
@@ -264,8 +264,8 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
              !isMenuOrToolTipWindow &&
              drawWindowBgnd(cr, style, (QtcRect*)area, window, widget,
                             x, y, width, height)) {
-        qtcWindowSetup(widget, GTK_IS_DIALOG(widget) ? opts.dlgOpacity :
-                       opts.bgndOpacity);
+        Window::setup(widget, GTK_IS_DIALOG(widget) ? opts.dlgOpacity :
+                      opts.bgndOpacity);
     } else if(widget && GTK_IS_TREE_VIEW(widget)) {
         bool isCombo = isComboBoxPopupWindow(widget, 0);
         GtkTreeView *treeView = GTK_TREE_VIEW(widget);
@@ -774,7 +774,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 g_signal_connect(G_OBJECT(topLevel), "event",
                                  G_CALLBACK(windowEvent), widget);
             }
-            activeWindow = qtcWindowIsActive(GTK_WIDGET(topLevel));
+            activeWindow = Window::isActive(GTK_WIDGET(topLevel));
         }
     }
 
@@ -1486,7 +1486,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                     (opts.menubarHiding ||
                      opts.windowBorder &
                      WINDOW_BORDER_USE_MENUBAR_COLOR_FOR_TITLEBAR)) {
-                    qtcWindowMenuBarDBus(widget, height);
+                    Window::menuBarDBus(widget, height);
                 }
             }
 
@@ -2120,7 +2120,7 @@ gtkDrawLayout(GtkStyle *style, GdkWindow *window, GtkStateType state,
         } else if (isMenuItem) {
             bool activeWindow =
                 (mb && opts.shadeMenubarOnlyWhenActive && widget ?
-                 qtcWindowIsActive(gtk_widget_get_toplevel(widget)) : true);
+                 Window::isActive(gtk_widget_get_toplevel(widget)) : true);
 
             if ((opts.shadePopupMenu && state == GTK_STATE_PRELIGHT) ||
                 (mb && (activeWindow ||
