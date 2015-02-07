@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -23,17 +23,18 @@
 #ifndef __QTC_COMBOBOX_H__
 #define __QTC_COMBOBOX_H__
 
-#include <qtcurve-utils/utils.h>
 #include <gtk/gtk.h>
 
-QTC_BEGIN_DECLS
+namespace QtCurve {
+namespace ComboBox {
 
-bool qtcComboBoxIsFocusChanged(GtkWidget *widget);
-bool qtcComboBoxIsHovered(GtkWidget *widget);
-bool qtcComboBoxHasFocus(GtkWidget *widget, GtkWidget *mapped);
-void qtcComboBoxSetup(GtkWidget *frame, GtkWidget *combo);
-bool qtcComboHasFrame(GtkWidget *widget);
+bool isFocusChanged(GtkWidget *widget);
+bool isHovered(GtkWidget *widget);
+bool hasFocus(GtkWidget *widget, GtkWidget *mapped);
+void setup(GtkWidget *frame, GtkWidget *combo);
+bool hasFrame(GtkWidget *widget);
 
-QTC_END_DECLS
+}
+}
 
 #endif

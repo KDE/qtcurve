@@ -23,7 +23,6 @@
 #ifndef __QTC_ANIMATION_H__
 #define __QTC_ANIMATION_H__
 
-#include <qtcurve-utils/utils.h>
 #include <gtk/gtk.h>
 
 namespace QtCurve {

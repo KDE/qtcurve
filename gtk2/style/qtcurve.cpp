@@ -569,7 +569,7 @@ gtkDrawArrow(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 if (!opts.gtkComboMenus &&
                     !((parent = gtk_widget_get_parent(widget)) &&
                       (parent = gtk_widget_get_parent(parent)) &&
-                      !qtcComboHasFrame(parent))) {
+                      !ComboBox::hasFrame(parent))) {
                     x += 2;
                 }
                 qtcGtkArrow(cr, arrowColor, area,  GTK_ARROW_DOWN,
@@ -1102,15 +1102,17 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                           draw=true;
                 int       mod=7;
 
-                if(!opts.gtkComboMenus && !qtcComboHasFrame(parent))
-                    mod=0, draw=GTK_STATE_ACTIVE==state || GTK_STATE_PRELIGHT==state, qtcComboBoxSetup(nullptr, parent);
-                else
-                {
-                    changedFocus = qtcComboBoxIsFocusChanged(widget);
+                if (!opts.gtkComboMenus && !ComboBox::hasFrame(parent)) {
+                    mod = 0;
+                    draw = qtcOneOf(state, GTK_STATE_ACTIVE,
+                                    GTK_STATE_PRELIGHT);
+                    ComboBox::setup(nullptr, parent);
+                } else {
+                    changedFocus = ComboBox::isFocusChanged(widget);
                     mapped=qtcWidgetMapGetWidget(parent, 1);
                     qtcWidgetMapSetup(parent, widget, 0);
 
-                    if(parent && qtcComboBoxIsHovered(parent))
+                    if(parent && ComboBox::isHovered(parent))
                         state=GTK_STATE_PRELIGHT;
                 }
 
@@ -1642,7 +1644,7 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
         GtkWidget *parent=gtk_widget_get_parent(widget),
                   *mapped=parent ? qtcWidgetMapGetWidget(parent, 0) : nullptr;
 
-        if(parent && qtcComboBoxIsHovered(parent))
+        if(parent && ComboBox::isHovered(parent))
             state=GTK_STATE_PRELIGHT;
 
         if(QT_CUSTOM_COLOR_BUTTON(style))
@@ -1657,7 +1659,7 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
                        &btnColors[bgnd], btnColors, ROUNDED_LEFT,
                        WIDGET_TOOLBAR_BUTTON, BORDER_FLAT,
                        (sunken ? DF_SUNKEN : 0) | DF_DO_BORDER |
-                       (qtcComboBoxHasFocus(widget, mapped) ? DF_HAS_FOCUS : 0),
+                       (ComboBox::hasFocus(widget, mapped) ? DF_HAS_FOCUS : 0),
                        widget);
 
         if(GTK_STATE_PRELIGHT!=state)
@@ -1669,7 +1671,7 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
             gtk_widget_queue_draw(mapped);
 
         qtcWidgetMapSetup(parent, widget, 1);
-        qtcComboBoxSetup(widget, parent);
+        ComboBox::setup(widget, parent);
     }
     else if(DETAIL("entry") || DETAIL("text"))
     {
