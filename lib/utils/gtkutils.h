@@ -90,6 +90,49 @@ qtcIsProgressBar(GtkWidget *w)
     return alloc.x != -1 && alloc.y != -1;
 }
 
+struct GObjectDeleter {
+    template<typename T>
+    inline void
+    operator()(T *p)
+    {
+        g_object_unref(p);
+    }
+    template<typename T>
+    inline void
+    ref(T *p)
+    {
+        g_object_ref_sink(p);
+    }
+};
+
+template<typename T, typename D>
+class RefPtr : public std::unique_ptr<T, D> {
+public:
+    constexpr
+    RefPtr()
+        : std::unique_ptr<T, D>()
+    {
+    }
+    RefPtr(T *p)
+        : std::unique_ptr<T, D>(p)
+    {
+        this->get_deleter().ref(p);
+    }
+    RefPtr(const RefPtr &other)
+        : RefPtr(other.get())
+    {
+    }
+    RefPtr(RefPtr &&other)
+        : std::unique_ptr<T, D>(std::move(other))
+    {
+    }
+};
+
+class GObjPtr: public RefPtr<GObject, GObjectDeleter> {
+public:
+    using RefPtr<GObject, GObjectDeleter>::RefPtr;
+};
+
 }
 
 #endif
