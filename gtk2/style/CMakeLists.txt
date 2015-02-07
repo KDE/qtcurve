@@ -13,8 +13,8 @@ set(qtcurve_SRCS
   tab.c
   treeview.c
   widgetmap.c
-  window.c
   shadowhelper.c
+  window.cpp
   wmmove.cpp)
 set(qtcurve_HDRS
   animation.h

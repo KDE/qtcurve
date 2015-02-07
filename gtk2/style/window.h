@@ -24,13 +24,15 @@
 
 #include <qtcurve-utils/utils.h>
 
+#include <gtk/gtk.h>
+
 QTC_BEGIN_DECLS
 
 gboolean qtcWindowIsActive(GtkWidget *widget);
 gboolean qtcWindowSetup(GtkWidget *widget, int opacity);
-GtkWidget * qtcWindowGetMenuBar(GtkWidget *parent, int level);
+GtkWidget *qtcWindowGetMenuBar(GtkWidget *parent, int level);
 gboolean qtcWindowSetStatusBarProp(GtkWidget *w);
-GtkWidget * qtcWindowGetStatusBar(GtkWidget *parent, int level);
+GtkWidget *qtcWindowGetStatusBar(GtkWidget *parent, int level);
 void qtcWindowStatusBarDBus(GtkWidget *widget, gboolean state);
 void qtcWindowMenuBarDBus(GtkWidget *widget, int size);
 

@@ -20,6 +20,8 @@
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
 
+#include "window.h"
+
 #include <qtcurve-utils/x11qtc.h>
 #include <qtcurve-utils/x11wrap.h>
 #include <qtcurve-utils/gtkprops.h>
@@ -31,7 +33,6 @@
 #include <common/common.h>
 #include <common/config_file.h>
 #include "qt_settings.h"
-#include "window.h"
 #include "menu.h"
 
 extern Options opts;
@@ -64,7 +65,7 @@ qtcWindowLookupHash(void *hash, gboolean create)
         rv->widget = NULL;
         rv->locked = false;
         g_hash_table_insert(qtcWindowTable, hash, rv);
-        rv = g_hash_table_lookup(qtcWindowTable, hash);
+        rv = (QtCWindow*)g_hash_table_lookup(qtcWindowTable, hash);
     }
     return rv;
 }
