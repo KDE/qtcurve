@@ -20,13 +20,14 @@
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
 
+#include "helpers.h"
+
 #include <qtcurve-utils/gtkprops.h>
 #include <qtcurve-utils/x11blur.h>
 #include <qtcurve-utils/color.h>
 #include <qtcurve-utils/log.h>
 #include <qtcurve-utils/strs.h>
 
-#include "helpers.h"
 #include "qt_settings.h"
 #include <gdk/gdkx.h>
 
@@ -932,9 +933,8 @@ shadeColor(const GdkColor *orig, double mod)
 }
 
 gboolean
-windowEvent(GtkWidget *widget, GdkEvent *event, void *user_data)
+windowEvent(GtkWidget*, GdkEvent *event, void *user_data)
 {
-    QTC_UNUSED(widget);
     if (GDK_FOCUS_CHANGE == event->type)
         gtk_widget_queue_draw((GtkWidget*)user_data);
     return false;
@@ -1199,9 +1199,8 @@ treeViewCellIsLast(GtkTreeView *treeView, GtkTreePath *path)
 }
 
 GtkTreePath*
-treeViewPathParent(GtkTreeView *treeView, GtkTreePath *path)
+treeViewPathParent(GtkTreeView*, GtkTreePath *path)
 {
-    QTC_UNUSED(treeView);
     if (path) {
         GtkTreePath *parent = gtk_tree_path_copy(path);
         if (gtk_tree_path_up(parent)) {
@@ -1419,14 +1418,14 @@ generateColors()
      * default background is drawn :-(  Fix/hack this by making that
      * background the correct color */
     if (opts.lighterPopupMenuBgnd || opts.shadePopupMenu) {
-        static const char *format="style \""RC_SETTING"Mnu\" { "
+        static const char *format="style \"" RC_SETTING "Mnu\" { "
                                     "bg[NORMAL]=\"#%02X%02X%02X\" "
                                     "fg[NORMAL]=\"#%02X%02X%02X\" "
                                     "text[INSENSITIVE]=\"#%02X%02X%02X\" "
-                                    "} class \"GtkMenu\" style \""RC_SETTING"Mnu\" "
-                                    "widget_class \"*Menu.*Label\" style \""RC_SETTING"Mnu\""
-                                    " style  \""RC_SETTING"CView\" = \""RC_SETTING"Mnu\" { text[NORMAL]=\"#%02X%02X%02X\" } "
-                                    " widget_class \"*<GtkMenuItem>*<GtkCellView>\" style \""RC_SETTING"CView\"";
+                                    "} class \"GtkMenu\" style \"" RC_SETTING "Mnu\" "
+                                    "widget_class \"*Menu.*Label\" style \"" RC_SETTING "Mnu\""
+                                    " style  \"" RC_SETTING "CView\" = \"" RC_SETTING "Mnu\" { text[NORMAL]=\"#%02X%02X%02X\" } "
+                                    " widget_class \"*<GtkMenuItem>*<GtkCellView>\" style \"" RC_SETTING "CView\"";
         char *str = (char*)malloc(strlen(format) + 24 + 1);
 
         if (str) {

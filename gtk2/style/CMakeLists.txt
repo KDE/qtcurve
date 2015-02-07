@@ -3,9 +3,9 @@ set(qtcurve_SRCS
   combobox.cpp
   drawing.cpp
   entry.cpp
+  helpers.cpp
   qtcurve.c
   qt_settings.c
-  helpers.c
   pixcache.c
   menu.c
   scrollbar.c
