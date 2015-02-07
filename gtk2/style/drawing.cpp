@@ -363,11 +363,11 @@ drawEtch(cairo_t *cr, const QtcRect *area, GtkWidget *widget, int x, int y,
 }
 
 void
-qtcClipPath(cairo_t *cr, int x, int y, int w, int h, EWidget widget, int rad,
-            ECornerBits round)
+qtcClipPath(cairo_t *cr, int x, int y, int w, int h, EWidget widget,
+            ERadius rad, ECornerBits round)
 {
     qtcCairoClipWhole(cr, x + 0.5, y + 0.5, w - 1, h - 1,
-                      qtcGetRadius(&opts, w, h, widget, (ERadius)rad), round);
+                      qtcGetRadius(&opts, w, h, widget, rad), round);
 }
 
 QTC_ALWAYS_INLINE static inline void
@@ -1497,7 +1497,7 @@ drawProgress(cairo_t *cr, GtkStyle *style, GtkStateType state,
                             GTK_PROGRESS_BOTTOM_TO_TOP);
 #endif
     const bool horiz = isHorizontalProgressbar(widget);
-    int wid = isEntryProg ? WIDGET_ENTRY_PROGRESSBAR : WIDGET_PROGRESSBAR;
+    EWidget wid = isEntryProg ? WIDGET_ENTRY_PROGRESSBAR : WIDGET_PROGRESSBAR;
     int animShift = revProg ? 0 : -PROGRESS_CHUNK_WIDTH;
     int xo = x;
     int yo = y;
@@ -1531,7 +1531,7 @@ drawProgress(cairo_t *cr, GtkStyle *style, GtkStateType state,
     const GdkColor *itemCols = (grayItem ? qtcPalette.background :
                                 qtcPalette.progress ? qtcPalette.progress :
                                 qtcPalette.highlight);
-    int new_state = GTK_STATE_PRELIGHT == state ? GTK_STATE_NORMAL : state;
+    auto new_state = GTK_STATE_PRELIGHT == state ? GTK_STATE_NORMAL : state;
     int fillVal = grayItem ? 4 : ORIGINAL_SHADE;
 
     x++;
@@ -1542,14 +1542,13 @@ drawProgress(cairo_t *cr, GtkStyle *style, GtkStateType state,
     cairo_save(cr);
     if (opts.borderProgress && opts.round > ROUND_SLIGHT &&
         (horiz ? width : height) < 4) {
-        qtcClipPath(cr, x, y, width, height, (EWidget)wid, RADIUS_EXTERNAL,
-                    ROUNDED_ALL);
+        qtcClipPath(cr, x, y, width, height, wid, RADIUS_EXTERNAL, ROUNDED_ALL);
     }
 
     if ((horiz ? width : height) > 1)
-        drawLightBevel(cr, style, (GtkStateType)new_state, area, x, y, width,
+        drawLightBevel(cr, style, new_state, area, x, y, width,
                        height, &itemCols[fillVal], itemCols, ROUNDED_ALL,
-                       (EWidget)wid, BORDER_FLAT, (horiz ? 0 : DF_VERT), widget);
+                       wid, BORDER_FLAT, (horiz ? 0 : DF_VERT), widget);
     if (opts.stripedProgress && width > 4 && height > 4) {
         if (opts.stripedProgress == STRIPE_FADE) {
             int posMod = opts.animatedProgress ? STRIPE_WIDTH - animShift : 0;
@@ -1561,9 +1560,9 @@ drawProgress(cairo_t *cr, GtkStyle *style, GtkStateType state,
             cairo_save(cr);
             qtcSetProgressStripeClipping(cr, area, xo, yo, wo, ho,
                                          animShift, horiz);
-            drawLightBevel(cr, style, (GtkStateType)new_state, NULL, x, y,
+            drawLightBevel(cr, style, new_state, NULL, x, y,
                            width, height, &itemCols[1], qtcPalette.highlight,
-                           ROUNDED_ALL, (EWidget)wid, BORDER_FLAT,
+                           ROUNDED_ALL, wid, BORDER_FLAT,
                            (opts.fillProgress || !opts.borderProgress ? 0 :
                             DF_DO_BORDER) | (horiz ? 0 : DF_VERT), widget);
             cairo_restore(cr);
@@ -1611,7 +1610,7 @@ drawProgress(cairo_t *cr, GtkStyle *style, GtkStateType state,
         cairo_pattern_destroy(pat);
         if (width > 2 && height > 2 && opts.borderProgress)
             drawBorder(cr, style, state, area, x, y, width, height,
-                       itemCols, ROUNDED_ALL, BORDER_FLAT, (EWidget)wid,
+                       itemCols, ROUNDED_ALL, BORDER_FLAT, wid,
                        0, PBAR_BORDER);
 
         if (!opts.borderProgress) {
@@ -2687,7 +2686,7 @@ drawMenuItem(cairo_t *cr, GtkStateType state, GtkStyle *style,
                                     qtcPalette.highlight);
         auto round = (mb ? active_mb && opts.roundMbTopOnly ? ROUNDED_TOP :
                       ROUNDED_ALL : ROUNDED_ALL);
-        int new_state = state == GTK_STATE_PRELIGHT ? GTK_STATE_NORMAL : state;
+        auto new_state = state == GTK_STATE_PRELIGHT ? GTK_STATE_NORMAL : state;
         bool stdColors = (!mb ||
                           qtcNoneOf(opts.shadeMenubars, SHADE_BLEND_SELECTED,
                                     SHADE_SELECTED));
@@ -2761,7 +2760,7 @@ drawMenuItem(cairo_t *cr, GtkStateType state, GtkStyle *style,
                               opts.menuitemAppearance, WIDGET_MENU_ITEM);
             cairo_restore(cr);
         } else if (stdColors && opts.borderMenuitems) {
-            drawLightBevel(cr, style, (GtkStateType)new_state, area, x, y,
+            drawLightBevel(cr, style, new_state, area, x, y,
                            width, height, &itemCols[fillVal], itemCols,
                            round, WIDGET_MENU_ITEM, BORDER_FLAT,
                            DF_DRAW_INSIDE | (stdColors ? DF_DO_BORDER : 0),
@@ -3274,8 +3273,8 @@ drawCheckBox(cairo_t *cr, GtkStateType state, GtkShadowType shadow,
     bool doEtch = opts.buttonEffect != EFFECT_NONE;
     GdkColor newColors[TOTAL_SHADES + 1];
     const GdkColor *btnColors;
-    int ind_state = ((list || (!mnu && state == GTK_STATE_INSENSITIVE)) ?
-                     state : GTK_STATE_NORMAL);
+    auto ind_state = ((list || (!mnu && state == GTK_STATE_INSENSITIVE)) ?
+                      state : GTK_STATE_NORMAL);
     int checkSpace = doEtch ? opts.crSize + 2 : opts.crSize;
 
     if (opts.crColor && state != GTK_STATE_INSENSITIVE && (on || tri)) {
@@ -3382,9 +3381,7 @@ drawCheckBox(cairo_t *cr, GtkStateType state, GtkShadowType shadow,
     }
 
     if (on) {
-        GdkPixbuf *pix = getPixbuf(getCheckRadioCol(style,
-                                                    (GtkStateType)ind_state,
-                                                    mnu),
+        GdkPixbuf *pix = getPixbuf(getCheckRadioCol(style, ind_state, mnu),
                                    PIX_CHECK, 1.0);
         int pw = gdk_pixbuf_get_width(pix);
         int ph = gdk_pixbuf_get_height(pix);
@@ -3395,8 +3392,7 @@ drawCheckBox(cairo_t *cr, GtkStateType state, GtkShadowType shadow,
         cairo_paint(cr);
     } else if (tri) {
         int ty = y + opts.crSize / 2;
-        const GdkColor *col = getCheckRadioCol(style, (GtkStateType)ind_state,
-                                               mnu);
+        const GdkColor *col = getCheckRadioCol(style, ind_state, mnu);
 
         qtcCairoHLine(cr, x + 3, ty, opts.crSize - 6, col);
         qtcCairoHLine(cr, x + 3, ty + 1, opts.crSize - 6, col);
@@ -3426,8 +3422,8 @@ drawRadioButton(cairo_t *cr, GtkStateType state, GtkShadowType shadow,
         bool on = shadow == GTK_SHADOW_IN;
         bool tri = shadow == GTK_SHADOW_ETCHED_IN;
         bool doEtch = opts.buttonEffect != EFFECT_NONE;
-        int ind_state = (state == GTK_STATE_INSENSITIVE ?
-                         state : GTK_STATE_NORMAL);
+        auto ind_state = (state == GTK_STATE_INSENSITIVE ?
+                          state : GTK_STATE_NORMAL);
         int optSpace = doEtch ? opts.crSize + 2 : opts.crSize;
         GdkColor newColors[TOTAL_SHADES + 1];
         const GdkColor *btnColors;
@@ -3530,9 +3526,7 @@ drawRadioButton(cairo_t *cr, GtkStateType state, GtkShadowType shadow,
             }
         }
         if (on) {
-            const GdkColor *col = getCheckRadioCol(style,
-                                                   (GtkStateType)ind_state,
-                                                   mnu);
+            const GdkColor *col = getCheckRadioCol(style, ind_state, mnu);
             double radius = opts.smallRadio ? 2.5 : 3.5;
             double offset = opts.crSize / 2.0 - radius;
 
@@ -3542,9 +3536,7 @@ drawRadioButton(cairo_t *cr, GtkStateType state, GtkShadowType shadow,
             cairo_fill(cr);
         } else if (tri) {
             int ty = y + opts.crSize / 2;
-            const GdkColor *col = getCheckRadioCol(style,
-                                                   (GtkStateType)ind_state,
-                                                   mnu);
+            const GdkColor *col = getCheckRadioCol(style, ind_state, mnu);
 
             qtcCairoHLine(cr, x + 3, ty, opts.crSize - 6, col);
             qtcCairoHLine(cr, x + 3, ty + 1, opts.crSize - 6, col);

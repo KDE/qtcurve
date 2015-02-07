@@ -78,7 +78,7 @@ void drawGlow(cairo_t *cr, const QtcRect *area, int x, int y, int w, int h,
 void drawEtch(cairo_t *cr, const QtcRect *area, GtkWidget *widget, int x, int y,
               int w, int h, bool raised, ECornerBits round, EWidget wid);
 void qtcClipPath(cairo_t *cr, int x, int y, int w, int h, EWidget widget,
-                 int rad, ECornerBits round);
+                 ERadius rad, ECornerBits round);
 void drawLightBevel(cairo_t *cr, GtkStyle *style, GtkStateType state,
                     const QtcRect *area, int x, int y, int width, int height,
                     const GdkColor *base, const GdkColor *colors,
