@@ -20,9 +20,9 @@
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
 
-#include <qtcurve-utils/gtkprops.h>
-
 #include "tab.h"
+
+#include <qtcurve-utils/gtkprops.h>
 
 typedef struct {
     int id;
@@ -49,7 +49,7 @@ qtcTabLookupHash(void *hash, gboolean create)
             rv->rects[p].width = rv->rects[p].height = -1;
         }
         g_hash_table_insert(qtcTabHashTable, hash, rv);
-        rv = g_hash_table_lookup(qtcTabHashTable, hash);
+        rv = (QtCTab*)g_hash_table_lookup(qtcTabHashTable, hash);
     }
     return rv;
 }
@@ -64,7 +64,7 @@ static void
 qtcTabRemoveHash(void *hash)
 {
     if (qtcTabHashTable) {
-        QtCTab *tab = qtcWidgetFindTab(hash);
+        QtCTab *tab = qtcWidgetFindTab((GtkWidget*)hash);
         if (tab) {
             free(tab->rects);
         }
@@ -87,7 +87,8 @@ qtcTabUpdateRect(GtkWidget *widget, int tabIndex, int x, int y,
 
     if (tab && tabIndex >= 0) {
         if (tabIndex >= tab->numRects) {
-            tab->rects = realloc(tab->rects, sizeof(QtcRect) * (tabIndex + 8));
+            tab->rects = (QtcRect*)realloc(tab->rects,
+                                           sizeof(QtcRect) * (tabIndex + 8));
             for (int p = tab->numRects;p < tabIndex + 8;p++) {
                 tab->rects[p].x = tab->rects[p].y = 0;
                 tab->rects[p].width = tab->rects[p].height = -1;

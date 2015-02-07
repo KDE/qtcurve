@@ -25,11 +25,14 @@
 
 #include <qtcurve-cairo/utils.h>
 
+#include <gtk/gtk.h>
+
 QTC_BEGIN_DECLS
 
 gboolean qtcTabCurrentHoveredIndex(GtkWidget *widget);
 void qtcTabSetup(GtkWidget *widget);
-void qtcTabUpdateRect(GtkWidget *widget, int tabIndex, int x, int y, int width, int height);
+void qtcTabUpdateRect(GtkWidget *widget, int tabIndex, int x, int y,
+                      int width, int height);
 gboolean qtcTabIsLabel(GtkNotebook *notebook, GtkWidget *widget);
 QtcRect qtcTabGetTabbarRect(GtkNotebook *notebook);
 gboolean qtcTabHasVisibleArrows(GtkNotebook *notebook);
