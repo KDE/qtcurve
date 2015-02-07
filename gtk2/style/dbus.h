@@ -29,7 +29,6 @@
 namespace QtCurve {
 namespace GDBus {
 
-GDBusConnection *getConnection();
 void _callMethod(const char *bus_name, const char *path, const char *iface,
                  const char *method, GVariant *params);
 

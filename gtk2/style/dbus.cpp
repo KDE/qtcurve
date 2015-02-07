@@ -24,7 +24,7 @@
 namespace QtCurve {
 namespace GDBus {
 
-GDBusConnection*
+static GDBusConnection*
 getConnection()
 {
     static GDBusConnection *conn = g_bus_get_sync(G_BUS_TYPE_SESSION,
@@ -36,9 +36,11 @@ void
 _callMethod(const char *bus_name, const char *path, const char *iface,
             const char *method, GVariant *params)
 {
-    g_dbus_connection_call(getConnection(), bus_name, path, iface, method,
-                           params, nullptr, G_DBUS_CALL_FLAGS_NONE, -1,
-                           nullptr, nullptr, nullptr);
+    if (GDBusConnection *conn = getConnection()) {
+        g_dbus_connection_call(conn, bus_name, path, iface, method, params,
+                               nullptr, G_DBUS_CALL_FLAGS_NONE, -1,
+                               nullptr, nullptr, nullptr);
+    }
 }
 
 }
