@@ -22,6 +22,8 @@
 
 #include "config.h"
 
+#include "qtcurve.h"
+
 #include <qtcurve-utils/color.h>
 #include <qtcurve-utils/strs.h>
 #include <qtcurve-utils/gtkprops.h>
@@ -33,7 +35,6 @@
 #include <gdk/gdkx.h>
 #include <cairo.h>
 #include "compatability.h"
-#include "qtcurve.h"
 #include <common/config_file.h>
 
 #define MO_ARROW(MENU, COL)                             \
@@ -318,9 +319,10 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                     forceCellEnd = true;
                 }
 
-                if((GTK_STATE_SELECTED==state || alpha<1.0) && column==expanderColumn)
-                {
-                    int offset=3 + expanderSize * depth + ( 4 + levelIndent)*(depth-1);
+                if ((state == GTK_STATE_SELECTED || alpha < 1.0) &&
+                    column == expanderColumn) {
+                    int offset = (3 + expanderSize * depth +
+                                  (4 + levelIndent) * (depth - 1));
                     selX += offset;
                     selW -= offset;
                 }
@@ -329,16 +331,21 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                     gtk_tree_path_free(path);
             }
 
-            if (state == GTK_STATE_SELECTED || alpha<1.0) {
-                int round = (opts.round != ROUND_NONE ?
-                             forceCellStart && forceCellEnd : ROUNDED_ALL ?
-                             forceCellStart || strstr(detail, "_start") ?
-                             ROUNDED_LEFT :
-                             forceCellEnd || strstr(detail, "_end") ?
-                             ROUNDED_RIGHT : strstr(detail, "_middle") ?
-                             ROUNDED_NONE : ROUNDED_ALL : ROUNDED_NONE);
-
-                drawSelection(cr, style, state, (QtcRect*)area, widget, selX, y, selW, height, round, true, alpha, factor);
+            if (state == GTK_STATE_SELECTED || alpha < 1.0) {
+                auto round = ROUNDED_NONE;
+                if (opts.round != ROUND_NONE) {
+                    if (forceCellStart && forceCellEnd) {
+                        round = ROUNDED_ALL;
+                    } else if (forceCellStart || strstr(detail, "_start")) {
+                        round = ROUNDED_LEFT;
+                    } else if (forceCellEnd || strstr(detail, "_end")) {
+                        round = ROUNDED_RIGHT;
+                    } else if (!strstr(detail, "_middle")) {
+                        round = ROUNDED_ALL;
+                    }
+                }
+                drawSelection(cr, style, state, (QtcRect*)area, widget, selX,
+                              y, selW, height, round, true, alpha, factor);
             }
         }
     } else if(strcmp(detail, "checkbutton") == 0) {
@@ -473,7 +480,7 @@ gtkDrawHandle(GtkStyle *style, GdkWindow *window, GtkStateType state,
     cairo_destroy(cr);
 }
 
-void
+static void
 drawArrow(GdkWindow *window, const GdkColor *col, const QtcRect *area,
           GtkArrowType arrow_type, int x, int y, bool small, bool fill)
 {
@@ -688,7 +695,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
     GdkColor new_cols[TOTAL_SHADES + 1];
     const GdkColor *btnColors = qtcPalette.background;
     int bgnd = getFill(state, btnDown);
-    int round = getRound(detail, widget, rev);
+    auto round = getRound(detail, widget, rev);
     bool lvh = (isListViewHeader(widget) ||
                 isEvolutionListViewHeader(widget, detail));
     bool sunken = (btnDown || shadow == GTK_SHADOW_IN ||
@@ -2982,11 +2989,12 @@ qtcurve_style_init_from_rc(GtkStyle *style, GtkRcStyle *rc_style)
     parent_class->init_from_rc(style, rc_style);
 }
 
-void qtcurve_style_class_init(QtCurveStyleClass *klass)
+static void
+qtcurve_style_class_init(QtCurveStyleClass *klass)
 {
     GtkStyleClass *style_class = GTK_STYLE_CLASS(klass);
 
-    parent_class = g_type_class_peek_parent(klass);
+    parent_class = (GtkStyleClass*)g_type_class_peek_parent(klass);
 
     style_class->realize = styleRealize;
     style_class->unrealize = styleUnrealize;
@@ -3060,7 +3068,7 @@ static void qtcurve_rc_style_merge(GtkRcStyle *dest, GtkRcStyle *src)
 
     GtkRcStyle  copy;
     const char *typeName=src ? g_type_name(G_TYPE_FROM_INSTANCE(src)) : NULL;
-    bool        destIsQtc=QTCURVE_IS_RC_STYLE(dest),
+    bool destIsQtc = QTCURVE_IS_RC_STYLE(dest),
         srcIsQtc=!src->name || qtcStrStartsWith(src->name, RC_SETTING) ||
         qtcStrStartsWith(src->name, qtcGetProgName()),
         isQtCNoteBook=0!=opts.tabBgnd && src->name && 0==strcmp(src->name, "qtcurve-notebook_bg"),
@@ -3102,9 +3110,10 @@ static void qtcurve_rc_style_merge(GtkRcStyle *dest, GtkRcStyle *src)
 }
 
 /* Create an empty style suitable to this RC style */
-static GtkStyle * qtcurve_rc_style_create_style(GtkRcStyle *rc_style)
+static GtkStyle*
+qtcurve_rc_style_create_style(GtkRcStyle *rc_style)
 {
-    GtkStyle *style=g_object_new(QTCURVE_TYPE_STYLE, NULL);
+    GtkStyle *style = (GtkStyle*)g_object_new(QTCURVE_TYPE_STYLE, NULL);
 
     qtSettingsSetColors(style, rc_style);
     return style;
@@ -3112,13 +3121,13 @@ static GtkStyle * qtcurve_rc_style_create_style(GtkRcStyle *rc_style)
 
 GType qtcurve_type_style = 0;
 
-static void qtcurve_style_init(QtCurveStyle *style)
+static void qtcurve_style_init(QtCurveStyle*)
 {
-    QTC_UNUSED(style);
     qtcShadowInitialize();
 }
 
-void qtcurve_style_register_type(GTypeModule *module)
+static void
+qtcurve_style_register_type(GTypeModule *module)
 {
     static const GTypeInfo object_info = {
         sizeof(QtCurveStyleClass),
@@ -3135,16 +3144,14 @@ void qtcurve_style_register_type(GTypeModule *module)
 
     qtcurve_type_style =
         g_type_module_register_type(module, GTK_TYPE_STYLE,
-                                    "QtCurveStyle", &object_info, 0);
+                                    "QtCurveStyle", &object_info,
+                                    GTypeFlags(0));
 }
 
 static gboolean
-qtcurve_style_set_hook(GSignalInvocationHint *ihint, unsigned argc,
-                       const GValue *argv, void *data)
+qtcurve_style_set_hook(GSignalInvocationHint*, unsigned,
+                       const GValue *argv, void*)
 {
-    QTC_UNUSED(ihint);
-    QTC_UNUSED(argc);
-    QTC_UNUSED(data);
     GtkWidget *widget = GTK_WIDGET(g_value_get_object(argv));
     GdkScreen *screen = gtk_widget_get_screen(widget);
     if (!screen) {
@@ -3210,7 +3217,7 @@ static void qtcurve_rc_style_class_init(QtCurveRcStyleClass *klass)
     GtkRcStyleClass *rc_style_class = GTK_RC_STYLE_CLASS(klass);
     GObjectClass    *object_class = G_OBJECT_CLASS(klass);
 
-    parent_rc_class = g_type_class_peek_parent(klass);
+    parent_rc_class = (GtkRcStyleClass*)g_type_class_peek_parent(klass);
 
     rc_style_class->parse = qtcurve_rc_style_parse;
     rc_style_class->create_style = qtcurve_rc_style_create_style;
@@ -3219,7 +3226,8 @@ static void qtcurve_rc_style_class_init(QtCurveRcStyleClass *klass)
     object_class->finalize = qtcurve_rc_style_finalize;
 }
 
-void qtcurve_rc_style_register_type(GTypeModule *module)
+static void
+qtcurve_rc_style_register_type(GTypeModule *module)
 {
     static const GTypeInfo object_info = {
         sizeof(QtCurveRcStyleClass),
@@ -3236,10 +3244,13 @@ void qtcurve_rc_style_register_type(GTypeModule *module)
 
     qtcurve_type_rc_style =
         g_type_module_register_type(module, GTK_TYPE_RC_STYLE,
-                                    "QtCurveRcStyle", &object_info, 0);
+                                    "QtCurveRcStyle", &object_info,
+                                    GTypeFlags(0));
 }
 
-G_MODULE_EXPORT void
+QTC_BEGIN_DECLS
+
+QTC_EXPORT void
 theme_init(GTypeModule *module)
 {
     qtcX11InitXlib(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()));
@@ -3247,12 +3258,12 @@ theme_init(GTypeModule *module)
     qtcurve_style_register_type(module);
 }
 
-G_MODULE_EXPORT void
+QTC_EXPORT void
 theme_exit()
 {
 }
 
-G_MODULE_EXPORT GtkRcStyle*
+QTC_EXPORT GtkRcStyle*
 theme_create_rc_style()
 {
     return GTK_RC_STYLE(g_object_new(QTCURVE_TYPE_RC_STYLE, NULL));
@@ -3261,10 +3272,11 @@ theme_create_rc_style()
 /* The following function will be called by GTK+ when the module is loaded and
  * checks to see if we are compatible with the version of GTK+ that loads us.
  */
-G_MODULE_EXPORT const char*
-g_module_check_init(GModule *module)
+QTC_EXPORT const char*
+g_module_check_init(GModule*)
 {
-    QTC_UNUSED(module);
     return gtk_check_version(GTK_MAJOR_VERSION, GTK_MINOR_VERSION,
                              GTK_MICRO_VERSION - GTK_INTERFACE_AGE);
 }
+
+QTC_END_DECLS

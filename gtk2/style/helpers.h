@@ -184,7 +184,8 @@ int getOpacity(GtkWidget *widget);
 void setLowerEtchCol(cairo_t *cr, GtkWidget *widget);
 GdkColor shadeColor(const GdkColor *orig, double mod);
 gboolean windowEvent(GtkWidget *widget, GdkEvent *event, void *user_data);
-void adjustToolbarButtons(GtkWidget *widget, int *x, int *y, int *width, int *height, int *round, bool horiz);
+void adjustToolbarButtons(GtkWidget *widget, int *x, int *y, int *width,
+                          int *height, ECornerBits *round, bool horiz);
 void getEntryParentBgCol(GtkWidget *widget, GdkColor *color);
 bool compositingActive(GtkWidget *widget);
 bool isRgbaWidget(GtkWidget *widget);
@@ -192,7 +193,7 @@ void enableBlurBehind(GtkWidget *w, bool enable);
 void getTopLevelSize(GdkWindow *window, int *w, int *h);
 void getTopLevelOrigin(GdkWindow *window, int *x, int *y);
 bool mapToTopLevel(GdkWindow *window, GtkWidget *widget, int *x, int *y, int *w, int *h); //, bool frame)
-int getRound(const char *detail, GtkWidget *widget, bool rev);
+ECornerBits getRound(const char *detail, GtkWidget *widget, bool rev);
 
 bool treeViewCellHasChildren(GtkTreeView *treeView, GtkTreePath *path);
 bool treeViewCellIsLast(GtkTreeView *treeView, GtkTreePath *path);

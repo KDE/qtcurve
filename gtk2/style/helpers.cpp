@@ -715,19 +715,20 @@ isSbarDetail(const char *detail)
                                    qtcStrStartsWith(detail + 1, "scrollbar"));
 }
 
-int
+ECornerBits
 getRound(const char *detail, GtkWidget *widget, bool rev)
 {
-    if(detail)
-    {
-        if(0 == strcmp(detail, "slider"))
-            return
+    if (detail) {
+        if (strcmp(detail, "slider") == 0) {
 #ifndef SIMPLE_SCROLLBARS
-                    !(opts.square&SQUARE_SB_SLIDER) && (SCROLLBAR_NONE == opts.scrollbarType || opts.flatSbarButtons)
-                        ? ROUNDED_ALL :
+            if (!(opts.square & SQUARE_SB_SLIDER) &&
+                (opts.scrollbarType == SCROLLBAR_NONE ||
+                 opts.flatSbarButtons)) {
+                return ROUNDED_ALL;
+            }
 #endif
-                    ROUNDED_NONE;
-        else if(0 == strcmp(detail, "qtc-slider"))
+            return ROUNDED_NONE;
+        } else if (0 == strcmp(detail, "qtc-slider"))
             return opts.square&SQUARE_SLIDER && (SLIDER_PLAIN == opts.sliderStyle || SLIDER_PLAIN_ROTATED == opts.sliderStyle)
                 ? ROUNDED_NONE : ROUNDED_ALL;
         else if(0 == strcmp(detail, "splitter") || 0 == strcmp(detail, "optionmenu")  ||
@@ -941,8 +942,8 @@ windowEvent(GtkWidget*, GdkEvent *event, void *user_data)
 }
 
 void
-adjustToolbarButtons(GtkWidget *widget, int *x, int *y,
-                     int *width, int *height, int *round, bool horiz)
+adjustToolbarButtons(GtkWidget *widget, int *x, int *y, int *width,
+                     int *height, ECornerBits *round, bool horiz)
 {
     GtkToolbar *toolbar = NULL;
     GtkToolItem *toolitem = NULL;

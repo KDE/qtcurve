@@ -32,36 +32,24 @@ typedef struct _QtCurveStyleClass QtCurveStyleClass;
 
 extern GType qtcurve_type_style;
 
-#define QTCURVE_TYPE_STYLE              qtcurve_type_style
-/*#define QTCURVE_STYLE(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), QTCURVE_TYPE_STYLE, QtCurveStyle))*/
-#define QTCURVE_STYLE_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), QTCURVE_TYPE_STYLE, QtCurveStyleClass))
-#define QTCURVE_IS_STYLE(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), QTCURVE_TYPE_STYLE))
-#define QTCURVE_IS_STYLE_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), QTCURVE_TYPE_STYLE))
-#define QTCURVE_STYLE_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), QTCURVE_TYPE_STYLE, QtCurveStyleClass))
+#define QTCURVE_TYPE_STYLE qtcurve_type_style
 
 typedef struct _QtCurveRcStyle QtCurveRcStyle;
 typedef struct _QtCurveRcStyleClass QtCurveRcStyleClass;
 
 extern GType qtcurve_type_rc_style;
 
-#define QTCURVE_TYPE_RC_STYLE              qtcurve_type_rc_style
-#define QTCURVE_RC_STYLE(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), QTCURVE_TYPE_RC_STYLE, QtCurveRcStyle))
-#define QTCURVE_RC_STYLE_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), QTCURVE_TYPE_RC_STYLE, QtCurveRcStyleClass))
-#define QTCURVE_IS_RC_STYLE(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), QTCURVE_TYPE_RC_STYLE))
-#define QTCURVE_IS_RC_STYLE_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), QTCURVE_TYPE_RC_STYLE))
-#define QTCURVE_RC_STYLE_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), QTCURVE_TYPE_RC_STYLE, QtCurveRcStyleClass))
+#define QTCURVE_TYPE_RC_STYLE qtcurve_type_rc_style
+#define QTCURVE_IS_RC_STYLE(object)                                     \
+    (G_TYPE_CHECK_INSTANCE_TYPE((object), QTCURVE_TYPE_RC_STYLE))
 
-struct _QtCurveRcStyle
-{
+struct _QtCurveRcStyle {
     GtkRcStyle parent_instance;
 };
 
-struct _QtCurveRcStyleClass
-{
+struct _QtCurveRcStyleClass {
     GtkRcStyleClass parent_class;
 };
-
-void qtcurve_rc_style_register_type (GTypeModule *module);
 
 typedef struct {
     GtkStyle parent_instance;

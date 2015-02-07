@@ -6,7 +6,7 @@ set(qtcurve_SRCS
   helpers.cpp
   menu.cpp
   pixcache.cpp
-  qtcurve.c
+  qtcurve.cpp
   qt_settings.cpp
   scrollbar.cpp
   scrolledwindow.cpp
