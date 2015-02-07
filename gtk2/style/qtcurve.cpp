@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -58,31 +58,37 @@
 #include "shadowhelper.h"
 #include "config.h"
 
-static GType qtcurve_type_style = 0;
-static GType qtcurve_type_rc_style = 0;
+namespace QtCurve {
 
-struct QtCurveStyleClass {
+static GType style_type = 0;
+static GType rc_style_type = 0;
+
+struct StyleClass {
     GtkStyleClass parent_class;
 };
 
-struct QtCurveStyle {
+struct Style {
     GtkStyle parent_instance;
     GdkColor *button_text[2];
     GdkColor *menutext[2];
 };
 
-struct QtCurveRcStyleClass {
+struct RcStyleClass {
     GtkRcStyleClass parent_class;
 };
 
-struct QtCurveRcStyle {
+struct RcStyle {
     GtkRcStyle parent_instance;
 };
 
-#define QTCURVE_IS_RC_STYLE(object)                                     \
-    (G_TYPE_CHECK_INSTANCE_TYPE((object), qtcurve_type_rc_style))
+template<typename T>
+static inline bool
+isRcStyle(T *object)
+{
+    return G_TYPE_CHECK_INSTANCE_TYPE(object, rc_style_type);
+}
 
-static GtkStyleClass *parent_class = NULL;
+static GtkStyleClass *parent_class = nullptr;
 
 #ifdef INCREASE_SB_SLIDER
 typedef struct {
@@ -106,24 +112,27 @@ typedef struct {
 static QtCSlider lastSlider;
 #endif
 
-#define WIDGET_TYPE_NAME(xx) (widget && !strcmp(g_type_name (G_TYPE_FROM_INSTANCE(widget)), (xx)))
+template<typename Widget>
+static inline bool
+widgetIsType(Widget *widget, const char *name)
+{
+    return widget && !strcmp(g_type_name(G_TYPE_FROM_INSTANCE(widget)), name);
+}
 
-static void gtkDrawBox(GtkStyle *style, GdkWindow *window, GtkStateType state, GtkShadowType shadow, GdkRectangle *area,
-                       GtkWidget *widget, const char *detail, int x, int y, int width, int height);
+static void gtkDrawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
+                       GtkShadowType shadow, GdkRectangle *area,
+                       GtkWidget *widget, const char *detail, int x, int y,
+                       int width, int height);
 
-
-
-static void gtkDrawSlider(GtkStyle *style, GdkWindow *window, GtkStateType state, GtkShadowType shadow, GdkRectangle *area,
-                          GtkWidget *widget, const char *detail, int x, int y, int width, int height, GtkOrientation orientation);
+static void gtkDrawSlider(GtkStyle *style, GdkWindow *window,
+                          GtkStateType state, GtkShadowType shadow,
+                          GdkRectangle *area, GtkWidget *widget,
+                          const char *detail, int x, int y, int width,
+                          int height, GtkOrientation orientation);
 
 static void
-qtcLogHandler(const char *domain, GLogLevelFlags level, const char *msg,
-              void *data)
+gtkLogHandler(const char*, GLogLevelFlags, const char*, void*)
 {
-    QTC_UNUSED(domain);
-    QTC_UNUSED(level);
-    QTC_UNUSED(msg);
-    QTC_UNUSED(data);
 }
 
 static void
@@ -161,7 +170,7 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
             // logged, but dont want these so register our own error handler,
             // and then unregister afterwards...
             unsigned id = g_log_set_handler("Gtk", G_LOG_LEVEL_CRITICAL,
-                                            qtcLogHandler, NULL);
+                                            gtkLogHandler, nullptr);
             qtcWidgetProps(topProps)->buttonOrderHacked = true;
 
             gtk_dialog_set_alternative_button_order(
@@ -177,9 +186,11 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
         (DETAIL("base") || DETAIL("eventbox") || DETAIL("viewportbin")))
         qtcWMMoveSetup(widget);
 
-    if(widget && ((100!=opts.bgndOpacity && GTK_IS_WINDOW(widget)) || (100!=opts.dlgOpacity && GTK_IS_DIALOG(widget))) &&
-       !isFixedWidget(widget) && isRgbaWidget(widget))
+    if (widget && ((100!=opts.bgndOpacity && GTK_IS_WINDOW(widget)) ||
+                   (100!=opts.dlgOpacity && GTK_IS_DIALOG(widget))) &&
+        !isFixedWidget(widget) && isRgbaWidget(widget)) {
         enableBlurBehind(widget, true);
+    }
 
     if ((opts.menubarHiding || opts.statusbarHiding || BLEND_TITLEBAR ||
          opts.windowBorder & WINDOW_BORDER_USE_MENUBAR_COLOR_FOR_TITLEBAR) &&
@@ -189,7 +200,7 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                            opts.bgndOpacity)) {
             GtkWidget *menuBar = qtcWindowGetMenuBar(widget, 0);
             GtkWidget *statusBar =
-                opts.statusbarHiding ? qtcWindowGetStatusBar(widget, 0) : NULL;
+                opts.statusbarHiding ? qtcWindowGetStatusBar(widget, 0) : nullptr;
 
             if (menuBar) {
                 bool hiddenMenubar =
@@ -234,7 +245,7 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
     }
 
     if (qtcIsCustomBgnd(&opts) && DETAIL("viewportbin")) {
-        GtkRcStyle *st = widget ? gtk_widget_get_modifier_style(widget) : NULL;
+        GtkRcStyle *st = widget ? gtk_widget_get_modifier_style(widget) : nullptr;
         // if the app hasn't modified bg, draw background gradient
         if (st && !(st->color_flags[state]&GTK_RC_BG)) {
             drawWindowBgnd(cr, style, (QtcRect*)area, window, widget,
@@ -258,13 +269,13 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
         bool isEven = checkRules && DETAILHAS("cell_even");
 
         if (qtSettings.app == GTK_APP_JAVA_SWT)
-            area = NULL;
+            area = nullptr;
 
         /* SWT seems to draw a 'cell_even', and then 'cell_odd' at the same position. This causes the view painting
          * to be messed up. Try and hack around this... */
         if (qtSettings.app == GTK_APP_JAVA_SWT && state == GTK_STATE_SELECTED &&
             checkRules && !isCombo && widget) {
-            static GtkWidget *lastWidget = NULL;
+            static GtkWidget *lastWidget = nullptr;
             static int lastEven = -1;
 
             if (DETAILHAS("cell_even")) {
@@ -276,7 +287,7 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                         isEven = true;
                     }
                 }
-                lastWidget = NULL;
+                lastWidget = nullptr;
                 lastEven = -1;
             }
         }
@@ -305,8 +316,8 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
             bool forceCellEnd = false;
 
             if (!isFixedWidget(widget)) {
-                GtkTreePath *path = NULL;
-                GtkTreeViewColumn *column = NULL;
+                GtkTreePath *path = nullptr;
+                GtkTreeViewColumn *column = nullptr;
                 GtkTreeViewColumn *expanderColumn =
                     gtk_tree_view_get_expander_column(treeView);
                 int levelIndent = 0;
@@ -326,7 +337,7 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
 
                 if (column == expanderColumn) {
                     gtk_widget_style_get(widget,
-                                         "expander-size", &expanderSize, NULL);
+                                         "expander-size", &expanderSize, nullptr);
                     levelIndent = gtk_tree_view_get_level_indentation(treeView),
                     depth = path ? (int)gtk_tree_path_get_depth(path) : 0;
 
@@ -388,7 +399,7 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                       width, height, ROUNDED_ALL, false, 1.0, 0);
     } else if (state != GTK_STATE_SELECTED &&
                qtcIsCustomBgnd(&opts) && DETAIL("eventbox")) {
-        drawWindowBgnd(cr, style, NULL, window, widget, x, y, width, height);
+        drawWindowBgnd(cr, style, nullptr, window, widget, x, y, width, height);
     } else if (!(qtSettings.app == GTK_APP_JAVA && widget &&
                  GTK_IS_LABEL(widget))) {
         if (state != GTK_STATE_PRELIGHT || opts.crHighlight ||
@@ -425,7 +436,7 @@ gtkDrawHandle(GtkStyle *style, GdkWindow *window, GtkStateType state,
     QTC_RET_IF_FAIL(GDK_IS_WINDOW(window));
     const char *detail = _detail ? _detail : "";
     QtcRect *area = (QtcRect*)_area;
-    bool paf = WIDGET_TYPE_NAME("PanelAppletFrame");
+    bool paf = widgetIsType(widget, "PanelAppletFrame");
     cairo_t *cr = qtcGdkCreateCairoClip(window, area);
 
     if (qtSettings.debug == DEBUG_ALL) {
@@ -554,7 +565,7 @@ gtkDrawArrow(GtkStyle *style, GdkWindow *window, GtkStateType state,
                             y + height / 2 + (LARGE_ARR_HEIGHT - pad),
                             false, true, opts.vArrows);
             } else {
-                GtkWidget *parent = NULL;
+                GtkWidget *parent = nullptr;
                 if (!opts.gtkComboMenus &&
                     !((parent = gtk_widget_get_parent(widget)) &&
                       (parent = gtk_widget_get_parent(parent)) &&
@@ -574,7 +585,7 @@ gtkDrawArrow(GtkStyle *style, GdkWindow *window, GtkStateType state,
 
             const GdkColor *col =
                 (combo || isOnListViewHeader(widget, 0) ||
-                 isOnButton(widget, 0, NULL) ?
+                 isOnButton(widget, 0, nullptr) ?
                  &qtSettings.colors[state == GTK_STATE_INSENSITIVE ?
                                     PAL_DISABLED :
                                     PAL_ACTIVE][COLOR_BUTTON_TEXT] :
@@ -722,7 +733,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 isEvolutionListViewHeader(widget, detail));
     bool sunken = (btnDown || shadow == GTK_SHADOW_IN ||
                    state == GTK_STATE_ACTIVE || bgnd == 2 || bgnd == 3);
-    GtkWidget *parent = NULL;
+    GtkWidget *parent = nullptr;
 
     if (button && GTK_IS_TOGGLE_BUTTON(widget)) {
         button = false;
@@ -872,7 +883,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                            WIDGET_SPIN, BORDER_FLAT,
                            DF_DO_BORDER | (sunken ? DF_SUNKEN : 0), widget);
             drawFadedLine(cr, x + 2, y + height / 2, width - (offset + 4), 1,
-                          &btnColors[QTC_STD_BORDER], (QtcRect*)area, NULL,
+                          &btnColors[QTC_STD_BORDER], (QtcRect*)area, nullptr,
                           true, true, true);
         }
     } else if (!opts.stdSidebarButtons && (button || togglebutton) &&
@@ -974,7 +985,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
 
             if (ROUND_MAX==opts.round &&
                 ((WIDGET_TOGGLE_BUTTON==widgetType && height>(opts.crSize+8) && width<(height+10)) ||
-                    (GTK_APP_GIMP==qtSettings.app && WIDGET_STD_BUTTON==widgetType && WIDGET_TYPE_NAME("GimpViewableButton")) ||
+                 (GTK_APP_GIMP==qtSettings.app && WIDGET_STD_BUTTON==widgetType && widgetIsType(widget, "GimpViewableButton")) ||
                     (opts.stdSidebarButtons && WIDGET_STD_BUTTON==widgetType && widget && isSideBarBtn(widget)) ||
                     (WIDGET_STD_BUTTON==widgetType && GTK_APP_OPEN_OFFICE==qtSettings.app && isFixedWidget(widget) &&
                     height>30 && height<40 && width>16 && width<50) ) )
@@ -1066,7 +1077,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 }
 
                 if(!isMozilla() && widget && lastSlider.widget==widget && !atEnd)
-                    lastSlider.widget=NULL;
+                    lastSlider.widget=nullptr;
             }
 #endif
 
@@ -1086,13 +1097,13 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
             if(WIDGET_COMBO==widgetType && !opts.gtkComboMenus && !isMozilla() &&
                 ((parent=gtk_widget_get_parent(widget)) && GTK_IS_COMBO_BOX(parent) && !QTC_COMBO_ENTRY(parent)))
             {
-                GtkWidget *mapped=NULL;
+                GtkWidget *mapped=nullptr;
                 gboolean  changedFocus=false,
                           draw=true;
                 int       mod=7;
 
                 if(!opts.gtkComboMenus && !qtcComboHasFrame(parent))
-                    mod=0, draw=GTK_STATE_ACTIVE==state || GTK_STATE_PRELIGHT==state, qtcComboBoxSetup(NULL, parent);
+                    mod=0, draw=GTK_STATE_ACTIVE==state || GTK_STATE_PRELIGHT==state, qtcComboBoxSetup(nullptr, parent);
                 else
                 {
                     changedFocus = qtcComboBoxIsFocusChanged(widget);
@@ -1127,8 +1138,8 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
             }
             else if(opts.unifyCombo && WIDGET_COMBO_BUTTON==widgetType)
             {
-                GtkWidget    *parent=widget ? gtk_widget_get_parent(widget) : NULL;
-                GtkWidget    *entry=parent ? getComboEntry(parent) : NULL;
+                GtkWidget    *parent=widget ? gtk_widget_get_parent(widget) : nullptr;
+                GtkWidget    *entry=parent ? getComboEntry(parent) : nullptr;
                 GtkStateType entryState=entry ? gtk_widget_get_state(entry) : GTK_STATE_NORMAL;
                 gboolean     rev=false,
                              mozToolbar=isMozilla() && parent &&
@@ -1219,21 +1230,21 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                     if(xAdjust)
                         drawFadedLine(cr, xo, yo + constSpace, 1,
                                       ho - 2 * constSpace, &btnColors[0],
-                                      (QtcRect*)area, NULL, true, true, false);
+                                      (QtcRect*)area, nullptr, true, true, false);
                     if (yAdjust)
                         drawFadedLine(cr, xo + constSpace, yo,
                                       wo - 2 * constSpace, 1, &btnColors[0],
-                                      (QtcRect*)area, NULL, true, true, true);
+                                      (QtcRect*)area, nullptr, true, true, true);
                     if(wAdjust && ROUNDED_RIGHT!=round)
                         drawFadedLine(cr, xo + wo - 1, yo + constSpace, 1,
                                       ho - 2 * constSpace,
                                       &btnColors[QTC_STD_BORDER],
-                                      (QtcRect*)area, NULL, true, true, false);
+                                      (QtcRect*)area, nullptr, true, true, false);
                     if (hAdjust && ROUNDED_BOTTOM!=round)
                         drawFadedLine(cr, xo + constSpace, yo + ho - 1,
                                       wo - 2 * constSpace, 1,
                                       &btnColors[QTC_STD_BORDER],
-                                      (QtcRect*)area, NULL, true, true, true);
+                                      (QtcRect*)area, nullptr, true, true, true);
                 }
             }
 
@@ -1249,10 +1260,10 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 gtkDrawSlider(lastSlider.style, lastSlider.cr, lastSlider.state, lastSlider.shadow, lastSlider.widget,
                                 lastSlider.detail, lastSlider.x, lastSlider.y, lastSlider.width, lastSlider.height, lastSlider.orientation);
 #else
-                gtkDrawSlider(lastSlider.style, lastSlider.window, lastSlider.state, lastSlider.shadow, NULL, lastSlider.widget,
+                gtkDrawSlider(lastSlider.style, lastSlider.window, lastSlider.state, lastSlider.shadow, nullptr, lastSlider.widget,
                                 lastSlider.detail, lastSlider.x, lastSlider.y, lastSlider.width, lastSlider.height, lastSlider.orientation);
 #endif
-                lastSlider.widget=NULL;
+                lastSlider.widget=nullptr;
             }
 #endif
         }
@@ -1319,7 +1330,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                         cr, cx + (rev ? ind_width + style->xthickness :
                                   cwidth - ind_width - style->xthickness),
                         cy + style->ythickness - 1, 1, cheight - 3,
-                        &btnColors[darkLine], (QtcRect*)area, NULL,
+                        &btnColors[darkLine], (QtcRect*)area, nullptr,
                         true, true, false);
 
                     if (!sunken) {
@@ -1328,7 +1339,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                                           cwidth - ind_width -
                                           style->xthickness),
                             cy + style->ythickness-1, 1, cheight - 3,
-                            &btnColors[0], (QtcRect*)area, NULL,
+                            &btnColors[0], (QtcRect*)area, nullptr,
                             true, true, false);
                     }
                 }
@@ -1383,13 +1394,13 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                         drawFadedLine(cr, vx + (rev ? LARGE_ARR_WIDTH + 4 : 0),
                                       y + 4, 1, height - 8,
                                       &btnColors[darkLine], (QtcRect*)area,
-                                      NULL, true, true, false);
+                                      nullptr, true, true, false);
 
                         if(!sunken)
                             drawFadedLine(cr, vx + 1 +
                                           (rev ? LARGE_ARR_WIDTH + 4 : 0),
                                           y + 4, 1, height - 8, &btnColors[0],
-                                          (QtcRect*)area, NULL,
+                                          (QtcRect*)area, nullptr,
                                           true, true, false);
                     }
                 }
@@ -1424,9 +1435,9 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                            x, y, width, height);
         }
     } else if (widget && ((menubar || strcmp(detail, "toolbar") == 0 ||
-                        strcmp(detail, "handlebox") == 0 ||
-                        strcmp(detail,"handlebox_bin") == 0) ||
-                       WIDGET_TYPE_NAME("PanelAppletFrame"))) {
+                           strcmp(detail, "handlebox") == 0 ||
+                           strcmp(detail,"handlebox_bin") == 0) ||
+                          widgetIsType(widget, "PanelAppletFrame"))) {
         //if(GTK_SHADOW_NONE!=shadow)
         {
             const GdkColor *col = menubar && (GTK_STATE_INSENSITIVE!=state || SHADE_NONE!=opts.shadeMenubars)
@@ -1508,11 +1519,11 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
 
         drawFadedLine(cr, x + 1 + offset, y + height / 2, width - (1 + offset),
                       1, &cols[isMenuItem ? MENU_SEP_SHADE : QTC_STD_BORDER],
-                      (QtcRect*)area, NULL, true, true, true);
+                      (QtcRect*)area, nullptr, true, true, true);
     } else if (DETAIL("vseparator")) {
         drawFadedLine(cr, x + width / 2, y, 1, height,
                       &qtcPalette.background[QTC_STD_BORDER], (QtcRect*)area,
-                      NULL, true, true, false);
+                      nullptr, true, true, false);
     } else {
         EWidget wt = (!_detail && GTK_IS_TREE_VIEW(widget) ?
                       WIDGET_PBAR_TROUGH : WIDGET_FRAME);
@@ -1535,7 +1546,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
             drawProgressGroove(cr, style, state, window, widget, (QtcRect*)area, x, y, width, height, true, true);
         else
             drawBorder(cr, style, state, (QtcRect*)area, x, y, width, height,
-                       NULL, (menuScroll || opts.square & SQUARE_FRAME ?
+                       nullptr, (menuScroll || opts.square & SQUARE_FRAME ?
                               ROUNDED_NONE : ROUNDED_ALL),
                        shadowToBorder(shadow), wt, QTC_STD_BORDER);
     }
@@ -1629,7 +1640,7 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
         gboolean sunken=//btnDown || (GTK_IS_BUTTON(widget) && qtcButtonIsDepressed(widget)) ||
                     GTK_STATE_ACTIVE==state || (2==bgnd || 3==bgnd);
         GtkWidget *parent=gtk_widget_get_parent(widget),
-                  *mapped=parent ? qtcWidgetMapGetWidget(parent, 0) : NULL;
+                  *mapped=parent ? qtcWidgetMapGetWidget(parent, 0) : nullptr;
 
         if(parent && qtcComboBoxIsHovered(parent))
             state=GTK_STATE_PRELIGHT;
@@ -1662,7 +1673,7 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
     }
     else if(DETAIL("entry") || DETAIL("text"))
     {
-        GtkWidget *parent=widget ? gtk_widget_get_parent(widget) : NULL;
+        GtkWidget *parent=widget ? gtk_widget_get_parent(widget) : nullptr;
         if(parent && isList(parent))
         {
             // Dont draw shadow for entries in listviews...
@@ -1673,7 +1684,7 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
             gboolean     combo=isComboBoxEntry(widget),
                          isSpin=!combo && isSpinButton(widget),
                          rev=reverseLayout(widget) || (combo && parent && reverseLayout(parent));
-            GtkWidget    *btn=NULL;
+            GtkWidget    *btn=nullptr;
             /* GtkStateType savedState = state; */
 
 #if GTK_CHECK_VERSION(2, 16, 0)
@@ -1731,7 +1742,7 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
                  checkScrollViewState=opts.highlightScrollViews && widget && GTK_IS_SCROLLED_WINDOW(widget),
                  isHovered=false,
                  hasFocus=false;
-        GdkColor *cols=NULL;
+        GdkColor *cols=nullptr;
 
         if (qtSettings.debug == DEBUG_ALL) {
             printf(DEBUG_PREFIX "%s %d %d %d %d %d %d %s  ", __FUNCTION__,
@@ -1778,7 +1789,7 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
             if(GTK_SHADOW_NONE!=shadow &&
                (!frame || opts.drawStatusBarFrames || !isFakeGtk()))
             {
-                GtkWidget *parent=widget ? gtk_widget_get_parent(widget) : NULL;
+                GtkWidget *parent=widget ? gtk_widget_get_parent(widget) : nullptr;
                 gboolean  doBorder=!viewport && !drawSquare,
                           windowFrame=parent && !isFixedWidget(widget) && GTK_IS_FRAME(widget) && GTK_IS_WINDOW(parent);
 
@@ -1799,7 +1810,7 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
                     {
                         /* Flat style...
                         drawBorder(cr, style, state, area, x, y, width, height,
-                                   NULL, ROUNDED_NONE, BORDER_FLAT, WIDGET_SCROLLVIEW, 0);
+                                   nullptr, ROUNDED_NONE, BORDER_FLAT, WIDGET_SCROLLVIEW, 0);
                         */
                         /* 3d... */
                         qtcCairoSetColor(cr, &cols[QTC_STD_BORDER]);
@@ -1927,8 +1938,8 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
 //
 //     if(widget && GTK_IS_TREE_VIEW(widget))
 //     {
-//         GtkTreePath       *path=NULL;
-//         GtkTreeViewColumn *column=NULL;
+//         GtkTreePath       *path=nullptr;
+//         GtkTreeViewColumn *column=nullptr;
 //
 //         qtcTreeViewSetup(widget);
 //         qtcTreeViewGetCell(GTK_TREE_VIEW(widget), &path, &column, x, y, width, height);
@@ -1993,9 +2004,9 @@ gtkDrawLayout(GtkStyle *style, GdkWindow *window, GtkStateType state,
     if (GTK_IS_PROGRESS(widget) || DETAIL("progressbar")) {
         drawLayout(cr, style, state, use_text, area, x, y, layout);
     } else {
-        QtCurveStyle *qtcurveStyle = (QtCurveStyle*)style;
+        Style *qtc_style = (Style*)style;
         bool isMenuItem = IS_MENU_ITEM(widget);
-        GtkMenuBar *mb = isMenuItem ? isMenubar(widget, 0) : NULL;
+        GtkMenuBar *mb = isMenuItem ? isMenubar(widget, 0) : nullptr;
         bool activeMb = mb ? GTK_MENU_SHELL(mb)->active : false;
         bool selectedText = ((opts.useHighlightForMenu ||
                               opts.customMenuTextColor) && isMenuItem &&
@@ -2007,7 +2018,7 @@ gtkDrawLayout(GtkStyle *style, GdkWindow *window, GtkStateType state,
         bool but = isOnButton(widget, 0, &def_but);
         bool swapColors = false;
         QtcRect area2;
-        GtkWidget *parent = widget ? gtk_widget_get_parent(widget) : NULL;
+        GtkWidget *parent = widget ? gtk_widget_get_parent(widget) : nullptr;
 
         if (!opts.colorMenubarMouseOver && mb && !activeMb &&
             state == GTK_STATE_PRELIGHT)
@@ -2070,8 +2081,8 @@ gtkDrawLayout(GtkStyle *style, GdkWindow *window, GtkStateType state,
             for (int i = 0;i < NUM_GCS;++i) {
                 prevColors[i] = style->text[i];
                 style->text[i] =
-                    *qtcurveStyle->button_text[state == GTK_STATE_INSENSITIVE ?
-                                               PAL_DISABLED : PAL_ACTIVE];
+                    *qtc_style->button_text[state == GTK_STATE_INSENSITIVE ?
+                                            PAL_DISABLED : PAL_ACTIVE];
             }
             if (state == GTK_STATE_INSENSITIVE) {
                 state = GTK_STATE_NORMAL;
@@ -2090,22 +2101,20 @@ gtkDrawLayout(GtkStyle *style, GdkWindow *window, GtkStateType state,
                     }
                     swapColors = true;
                     style->text[GTK_STATE_NORMAL] =
-                        *qtcurveStyle->menutext[activeWindow ? 1 : 0];
+                        *qtc_style->menutext[activeWindow ? 1 : 0];
                     use_text = true;
                 } else if (opts.customMenuTextColor &&
-                           qtcurveStyle->menutext[0]) {
+                           qtc_style->menutext[0]) {
                     for (int i = 0;i < NUM_GCS;i++) {
                         prevColors[i] = style->text[i];
                     }
                     swapColors = true;
-                    style->text[GTK_STATE_NORMAL] = *qtcurveStyle->menutext[0];
-                    style->text[GTK_STATE_ACTIVE] = *qtcurveStyle->menutext[1];
-                    style->text[GTK_STATE_PRELIGHT] =
-                        *qtcurveStyle->menutext[0];
-                    style->text[GTK_STATE_SELECTED] =
-                        *qtcurveStyle->menutext[1];
+                    style->text[GTK_STATE_NORMAL] = *qtc_style->menutext[0];
+                    style->text[GTK_STATE_ACTIVE] = *qtc_style->menutext[1];
+                    style->text[GTK_STATE_PRELIGHT] = *qtc_style->menutext[0];
+                    style->text[GTK_STATE_SELECTED] = *qtc_style->menutext[1];
                     style->text[GTK_STATE_INSENSITIVE] =
-                        *qtcurveStyle->menutext[0];
+                        *qtc_style->menutext[0];
                     use_text = true;
                 } else if (qtcOneOf(opts.shadeMenubars, SHADE_BLEND_SELECTED,
                                     SHADE_SELECTED) ||
@@ -2307,7 +2316,7 @@ gtkDrawSlider(GtkStyle *style, GdkWindow *window, GtkStateType state,
 
 #ifdef INCREASE_SB_SLIDER
         if (scrollbar)
-            lastSlider.widget = NULL;
+            lastSlider.widget = nullptr;
 #endif
         /* Fix Java swing sliders looking pressed */
         if(!scrollbar && GTK_STATE_ACTIVE==state)
@@ -2454,7 +2463,7 @@ gtkDrawHLine(GtkStyle *style, GdkWindow *window, GtkStateType state,
             {
                 drawFadedLine(cr, x1 < x2 ? x1 : x2, y, abs(x2 - x1), 1,
                               &qtcPalette.background[dark], (QtcRect*)area,
-                              NULL, true, true, true);
+                              nullptr, true, true, true);
                 /* qtcCairoHLine(cr, x1 < x2 ? x1 : x2, y, abs(x2 - x1), */
                 /*               &qtcPalette.background[dark]); */
                 if(LINE_SUNKEN==opts.toolbarSeparators)
@@ -2464,7 +2473,7 @@ gtkDrawHLine(GtkStyle *style, GdkWindow *window, GtkStateType state,
                     /*               &qtcPalette.background[light]); */
                     drawFadedLine(cr, x1 < x2 ? x1 : x2, y + 1, abs(x2 - x1), 1,
                                   &qtcPalette.background[light], (QtcRect*)area,
-                                  NULL, true, true, true);
+                                  nullptr, true, true, true);
                 }
             }
         }
@@ -2473,13 +2482,13 @@ gtkDrawHLine(GtkStyle *style, GdkWindow *window, GtkStateType state,
             /* qtcCairoHLine(cr, (x1 < x2 ? x1 : x2) + 1, y + 1, abs(x2 - x1), */
             /*               &qtcPalette.background[light]); */
             drawFadedLine(cr, x1 < x2 ? x1 : x2, y + 1, abs(x2 - x1), 1,
-                          &qtcPalette.background[light], (QtcRect*)area, NULL,
+                          &qtcPalette.background[light], (QtcRect*)area, nullptr,
                           true, true, true);
         }
         /* qtcCairoHLine(cr, x1 < x2 ? x1 : x2, y, abs(x2 - x1), */
         /*               &style->text[state]); */
         drawFadedLine(cr, x1 < x2 ? x1 : x2, y, abs(x2 - x1), 1,
-                      &qtcPalette.background[dark], (QtcRect*)area, NULL,
+                      &qtcPalette.background[dark], (QtcRect*)area, nullptr,
                       true, true, true);
     }
     else if(DETAIL("menuitem") || (widget && DETAIL("hseparator") && IS_MENU_ITEM(widget)))
@@ -2501,12 +2510,12 @@ gtkDrawHLine(GtkStyle *style, GdkWindow *window, GtkStateType state,
         /*               &qtcPalette.background[MENU_SEP_SHADE]); */
         drawFadedLine(cr, offset + (x1 < x2 ? x1 : x2), y + 1,
                       abs(x2 - x1) - offset, 1, &cols[MENU_SEP_SHADE],
-                      (QtcRect*)area, NULL, true, true, true);
+                      (QtcRect*)area, nullptr, true, true, true);
     } else {
         /* qtcCairoHLine(cr, x1 < x2 ? x1 : x2, y, abs(x2 - x1), */
         /*               qtcPalette.background[dark]); */
         drawFadedLine(cr, x1 < x2 ? x1 : x2, y, abs(x2 - x1), 1,
-                      &qtcPalette.background[dark], (QtcRect*)area, NULL,
+                      &qtcPalette.background[dark], (QtcRect*)area, nullptr,
                       true, true, true);
     }
 
@@ -2556,7 +2565,7 @@ gtkDrawVLine(GtkStyle *style, GdkWindow *window, GtkStateType state,
                     /*               &qtcPalette.background[dark]); */
                     drawFadedLine(cr, x, y1 < y2 ? y1 : y2, 1, abs(y2 - y1),
                                   &qtcPalette.background[dark],
-                                  (QtcRect*)area, NULL, true, true, false);
+                                  (QtcRect*)area, nullptr, true, true, false);
                     if(LINE_SUNKEN==opts.toolbarSeparators)
                         /* qtcCairoVLine(cr, x + 1, y1 < y2 ? y1 : y2, */
                         /*               abs(y2 - y1), */
@@ -2564,7 +2573,7 @@ gtkDrawVLine(GtkStyle *style, GdkWindow *window, GtkStateType state,
                         drawFadedLine(cr, x + 1, y1 < y2 ? y1 : y2, 1,
                                       abs(y2 - y1),
                                       &qtcPalette.background[light],
-                                      (QtcRect*)area, NULL, true, true, false);
+                                      (QtcRect*)area, nullptr, true, true, false);
                 }
             }
         } else {
@@ -2572,7 +2581,7 @@ gtkDrawVLine(GtkStyle *style, GdkWindow *window, GtkStateType state,
             /*               &qtcPalette.background[dark]); */
             drawFadedLine(cr, x, y1 < y2 ? y1 : y2, 1, abs(y2 - y1),
                           &qtcPalette.background[dark], (QtcRect*)area,
-                          NULL, true, true, false);
+                          nullptr, true, true, false);
         }
     }
     cairo_destroy(cr);
@@ -2598,7 +2607,7 @@ gtkDrawFocus(GtkStyle *style, GdkWindow *window, GtkStateType state,
                width, height, _detail);
         debugDisplayWidget(widget, 10);
     }
-    GtkWidget *parent = widget ? gtk_widget_get_parent(widget) : NULL;
+    GtkWidget *parent = widget ? gtk_widget_get_parent(widget) : nullptr;
     gboolean doEtch = opts.buttonEffect != EFFECT_NONE;
     gboolean btn = false;
     gboolean comboButton = false;
@@ -2606,7 +2615,7 @@ gtkDrawFocus(GtkStyle *style, GdkWindow *window, GtkStateType state,
     gboolean view = isList(widget);
     gboolean listViewHeader = isListViewHeader(widget);
     gboolean toolbarBtn = (!listViewHeader && !view &&
-                           isButtonOnToolbar(widget, NULL));
+                           isButtonOnToolbar(widget, nullptr));
 
     if (opts.comboSplitter &&
         qtcNoneOf(opts.focus, FOCUS_FULL, FOCUS_FILLED) && isComboBox(widget)) {
@@ -2685,10 +2694,10 @@ gtkDrawFocus(GtkStyle *style, GdkWindow *window, GtkStateType state,
     } else if (GTK_IS_BUTTON(widget)) {
         if (GTK_IS_RADIO_BUTTON(widget) || GTK_IS_CHECK_BUTTON(widget)) {
             // Gimps buttons in its toolbox are
-            const char *text = NULL;
+            const char *text = nullptr;
             toolbarBtn = (qtSettings.app == GTK_APP_GIMP &&
                           ((text =
-                            gtk_button_get_label(GTK_BUTTON(widget))) == NULL ||
+                            gtk_button_get_label(GTK_BUTTON(widget))) == nullptr ||
                            text[0] == '\0'));
 
             if (!toolbarBtn && opts.focus == FOCUS_GLOW && !isMozilla()) {
@@ -2768,8 +2777,8 @@ gtkDrawFocus(GtkStyle *style, GdkWindow *window, GtkStateType state,
         if (qtSettings.app == GTK_APP_JAVA_SWT && view && widget &&
             GTK_IS_TREE_VIEW(widget)) {
             GtkTreeView *treeView = GTK_TREE_VIEW(widget);
-            GtkTreePath *path = NULL;
-            GtkTreeViewColumn *column = NULL;
+            GtkTreePath *path = nullptr;
+            GtkTreeViewColumn *column = nullptr;
             GtkTreeViewColumn *expanderColumn =
                 gtk_tree_view_get_expander_column(treeView);
 
@@ -2777,7 +2786,7 @@ gtkDrawFocus(GtkStyle *style, GdkWindow *window, GtkStateType state,
             if (column == expanderColumn) {
                 int expanderSize = 0;
                 gtk_widget_style_get(widget, "expander-size",
-                                     &expanderSize, NULL);
+                                     &expanderSize, nullptr);
                 if (expanderSize > 0) {
                     int depth = path ? (int)gtk_tree_path_get_depth(path) : 0;
                     int offset =
@@ -2799,7 +2808,7 @@ gtkDrawFocus(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 height -= 2;
             }
             drawFadedLine(cr, x, y + height - 1, width, 1, col,
-                          (QtcRect*)area, NULL, true, true, true);
+                          (QtcRect*)area, nullptr, true, true, true);
         } else {
             /* double alpha = (opts.focus == FOCUS_GLOW ? */
             /*                 FOCUS_GLOW_LINE_ALPHA : 1.0); */
@@ -2976,26 +2985,26 @@ gtkDrawExpander(GtkStyle *style, GdkWindow *window, GtkStateType state,
 static void
 styleRealize(GtkStyle *style)
 {
-    QtCurveStyle *qtcurveStyle = (QtCurveStyle *)style;
+    Style *qtc_style = (Style*)style;
 
     parent_class->realize(style);
 
-    qtcurveStyle->button_text[PAL_ACTIVE] =
+    qtc_style->button_text[PAL_ACTIVE] =
         &qtSettings.colors[PAL_ACTIVE][COLOR_BUTTON_TEXT];
-    qtcurveStyle->button_text[PAL_DISABLED] =
+    qtc_style->button_text[PAL_DISABLED] =
         (qtSettings.qt4 ? &qtSettings.colors[PAL_DISABLED][COLOR_BUTTON_TEXT] :
          &style->text[GTK_STATE_INSENSITIVE]);
 
     if (opts.shadeMenubars == SHADE_WINDOW_BORDER) {
-        qtcurveStyle->menutext[0] =
+        qtc_style->menutext[0] =
             &qtSettings.colors[PAL_INACTIVE][COLOR_WINDOW_BORDER_TEXT];
-        qtcurveStyle->menutext[1] =
+        qtc_style->menutext[1] =
             &qtSettings.colors[PAL_ACTIVE][COLOR_WINDOW_BORDER_TEXT];
     } else if (opts.customMenuTextColor) {
-        qtcurveStyle->menutext[0] = &opts.customMenuNormTextColor;
-        qtcurveStyle->menutext[1] = &opts.customMenuSelTextColor;
+        qtc_style->menutext[0] = &opts.customMenuNormTextColor;
+        qtc_style->menutext[1] = &opts.customMenuSelTextColor;
     } else {
-        qtcurveStyle->menutext[0] = NULL;
+        qtc_style->menutext[0] = nullptr;
     }
 }
 
@@ -3006,13 +3015,13 @@ styleUnrealize(GtkStyle *style)
 }
 
 static void
-qtcurve_style_init_from_rc(GtkStyle *style, GtkRcStyle *rc_style)
+style_init_from_rc(GtkStyle *style, GtkRcStyle *rc_style)
 {
     parent_class->init_from_rc(style, rc_style);
 }
 
 static void
-qtcurve_style_class_init(QtCurveStyleClass *klass)
+style_class_init(StyleClass *klass)
 {
     GtkStyleClass *style_class = GTK_STYLE_CLASS(klass);
 
@@ -3020,7 +3029,7 @@ qtcurve_style_class_init(QtCurveStyleClass *klass)
 
     style_class->realize = styleRealize;
     style_class->unrealize = styleUnrealize;
-    style_class->init_from_rc = qtcurve_style_init_from_rc;
+    style_class->init_from_rc = style_init_from_rc;
     style_class->draw_resize_grip = gtkDrawResizeGrip;
     style_class->draw_expander = gtkDrawExpander;
     style_class->draw_arrow = gtkDrawArrow;
@@ -3045,17 +3054,14 @@ qtcurve_style_class_init(QtCurveStyleClass *klass)
 static GtkRcStyleClass *parent_rc_class;
 
 static unsigned
-qtcurve_rc_style_parse(GtkRcStyle *rc_style, GtkSettings *settings,
-                       GScanner *scanner)
+rc_style_parse(GtkRcStyle*, GtkSettings*, GScanner *scanner)
 {
-    QTC_UNUSED(rc_style);
-    QTC_UNUSED(settings);
     static GQuark scope_id = 0;
     unsigned old_scope;
     unsigned token;
 
     /* Set up a new scope in this scanner. */
-    if(!scope_id)
+    if (!scope_id)
         scope_id = g_quark_from_string("qtcurve_theme_engine");
 
     /* If we bail out due to errors, we *don't* reset the scope, so the error messaging code can make
@@ -3084,17 +3090,18 @@ qtcurve_rc_style_parse(GtkRcStyle *rc_style, GtkSettings *settings,
     return G_TOKEN_NONE;
 }
 
-static void qtcurve_rc_style_merge(GtkRcStyle *dest, GtkRcStyle *src)
+static void
+rc_style_merge(GtkRcStyle *dest, GtkRcStyle *src)
 {
 
-    GtkRcStyle  copy;
-    const char *typeName=src ? g_type_name(G_TYPE_FROM_INSTANCE(src)) : NULL;
-    bool destIsQtc = QTCURVE_IS_RC_STYLE(dest),
+    GtkRcStyle copy;
+    const char *typeName=src ? g_type_name(G_TYPE_FROM_INSTANCE(src)) : nullptr;
+    bool destIsQtc = isRcStyle(dest),
         srcIsQtc=!src->name || qtcStrStartsWith(src->name, RC_SETTING) ||
         qtcStrStartsWith(src->name, qtcGetProgName()),
         isQtCNoteBook=0!=opts.tabBgnd && src->name && 0==strcmp(src->name, "qtcurve-notebook_bg"),
                 dontChangeColors=destIsQtc && !srcIsQtc && !isQtCNoteBook &&
-                                 // Only allow GtkRcStyle and QtCurveRcStyle to change colours
+                                 // Only allow GtkRcStyle and QtCurve::RcStyle to change colours
                                  // ...this should catch most cases whre another themes gtkrc is in the
                                  // GTK2_RC_FILES path
                                 ( (typeName && strcmp(typeName, "GtkRcStyle") && strcmp(typeName, "QtCurveRcStyle")) ||
@@ -3132,44 +3139,42 @@ static void qtcurve_rc_style_merge(GtkRcStyle *dest, GtkRcStyle *src)
 
 /* Create an empty style suitable to this RC style */
 static GtkStyle*
-qtcurve_rc_style_create_style(GtkRcStyle *rc_style)
+rc_style_create_style(GtkRcStyle *rc_style)
 {
-    GtkStyle *style = (GtkStyle*)g_object_new(qtcurve_type_style, NULL);
+    GtkStyle *style = (GtkStyle*)g_object_new(style_type, nullptr);
 
     qtSettingsSetColors(style, rc_style);
     return style;
 }
 
-static void qtcurve_style_init(QtCurveStyle*)
+static void style_init(Style*)
 {
     qtcShadowInitialize();
 }
 
 static void
-qtcurve_style_register_type(GTypeModule *module)
+style_register_type(GTypeModule *module)
 {
     static const GTypeInfo object_info = {
-        sizeof(QtCurveStyleClass),
-        (GBaseInitFunc) NULL,
-        (GBaseFinalizeFunc) NULL,
-        (GClassInitFunc) qtcurve_style_class_init,
-        NULL,            /* class_finalize */
-        NULL,            /* class_data */
-        sizeof(QtCurveStyle),
-        0,                /* n_preallocs */
-        (GInstanceInitFunc) qtcurve_style_init,
-        NULL
+        sizeof(StyleClass),
+        (GBaseInitFunc)nullptr,
+        (GBaseFinalizeFunc)nullptr,
+        (GClassInitFunc)style_class_init,
+        nullptr, /* class_finalize */
+        nullptr, /* class_data */
+        sizeof(Style),
+        0, /* n_preallocs */
+        (GInstanceInitFunc)style_init,
+        nullptr
     };
 
-    qtcurve_type_style =
-        g_type_module_register_type(module, GTK_TYPE_STYLE,
-                                    "QtCurveStyle", &object_info,
-                                    GTypeFlags(0));
+    style_type = g_type_module_register_type(module, GTK_TYPE_STYLE,
+                                             "QtCurveStyle", &object_info,
+                                             GTypeFlags(0));
 }
 
 static gboolean
-qtcurve_style_set_hook(GSignalInvocationHint*, unsigned,
-                       const GValue *argv, void*)
+style_set_hook(GSignalInvocationHint*, unsigned, const GValue *argv, void*)
 {
     GtkWidget *widget = GTK_WIDGET(g_value_get_object(argv));
     GdkScreen *screen = gtk_widget_get_screen(widget);
@@ -3177,7 +3182,7 @@ qtcurve_style_set_hook(GSignalInvocationHint*, unsigned,
         return true;
     }
 #if GTK_CHECK_VERSION(3, 0, 0)
-    GdkVisual *visual = NULL;
+    GdkVisual *visual = nullptr;
     if (gtk_widget_is_toplevel(widget)) {
         visual = gdk_screen_get_rgba_visual(screen);
     } else if (GTK_IS_DRAWING_AREA(widget)) {
@@ -3187,7 +3192,7 @@ qtcurve_style_set_hook(GSignalInvocationHint*, unsigned,
         gtk_widget_set_visual(widget, visual);
     }
 #else
-    GdkColormap *colormap = NULL;
+    GdkColormap *colormap = nullptr;
     if (gtk_widget_is_toplevel(widget)) {
         colormap = gdk_screen_get_rgba_colormap(screen);
     } else if (GTK_IS_DRAWING_AREA(widget)) {
@@ -3205,11 +3210,10 @@ qtcurve_style_set_hook(GSignalInvocationHint*, unsigned,
 }
 
 static void
-qtcurve_rc_style_init(QtCurveRcStyle *qtcurve_rc)
+rc_style_init(RcStyle*)
 {
-    QTC_UNUSED(qtcurve_rc);
 #ifdef INCREASE_SB_SLIDER
-    lastSlider.widget = NULL;
+    lastSlider.widget = nullptr;
 #endif
     if (qtSettingsInit()) {
         generateColors();
@@ -3219,52 +3223,53 @@ qtcurve_rc_style_init(QtCurveRcStyle *qtcurve_rc)
             g_type_class_ref(GTK_TYPE_WIDGET);
             g_signal_add_emission_hook(
                 g_signal_lookup("style-set", GTK_TYPE_WIDGET),
-                0, qtcurve_style_set_hook, NULL, NULL);
+                0, style_set_hook, nullptr, nullptr);
         }
     }
 }
 
 static void
-qtcurve_rc_style_finalize(GObject *object)
+rc_style_finalize(GObject *object)
 {
-    QtCurve::Animation::cleanup();
+    Animation::cleanup();
     qtcCall(G_OBJECT_CLASS(parent_rc_class)->finalize, object);
 }
 
-static void qtcurve_rc_style_class_init(QtCurveRcStyleClass *klass)
+static void
+rc_style_class_init(RcStyleClass *klass)
 {
     GtkRcStyleClass *rc_style_class = GTK_RC_STYLE_CLASS(klass);
-    GObjectClass    *object_class = G_OBJECT_CLASS(klass);
+    GObjectClass *object_class = G_OBJECT_CLASS(klass);
 
     parent_rc_class = (GtkRcStyleClass*)g_type_class_peek_parent(klass);
 
-    rc_style_class->parse = qtcurve_rc_style_parse;
-    rc_style_class->create_style = qtcurve_rc_style_create_style;
-    rc_style_class->merge = qtcurve_rc_style_merge;
+    rc_style_class->parse = rc_style_parse;
+    rc_style_class->create_style = rc_style_create_style;
+    rc_style_class->merge = rc_style_merge;
 
-    object_class->finalize = qtcurve_rc_style_finalize;
+    object_class->finalize = rc_style_finalize;
 }
 
 static void
-qtcurve_rc_style_register_type(GTypeModule *module)
+rc_style_register_type(GTypeModule *module)
 {
     static const GTypeInfo object_info = {
-        sizeof(QtCurveRcStyleClass),
-        NULL,
-        NULL,
-        (GClassInitFunc)qtcurve_rc_style_class_init,
-        NULL, /* class_finalize */
-        NULL, /* class_data */
-        sizeof(QtCurveRcStyle),
+        sizeof(RcStyleClass),
+        nullptr,
+        nullptr,
+        (GClassInitFunc)rc_style_class_init,
+        nullptr, /* class_finalize */
+        nullptr, /* class_data */
+        sizeof(RcStyle),
         0, /* n_preallocs */
-        (GInstanceInitFunc)qtcurve_rc_style_init,
-        NULL
+        (GInstanceInitFunc)rc_style_init,
+        nullptr
     };
 
-    qtcurve_type_rc_style =
-        g_type_module_register_type(module, GTK_TYPE_RC_STYLE,
-                                    "QtCurveRcStyle", &object_info,
-                                    GTypeFlags(0));
+    rc_style_type = g_type_module_register_type(module, GTK_TYPE_RC_STYLE,
+                                                "QtCurveRcStyle", &object_info,
+                                                GTypeFlags(0));
+}
 }
 
 QTC_BEGIN_DECLS
@@ -3273,8 +3278,8 @@ QTC_EXPORT void
 theme_init(GTypeModule *module)
 {
     qtcX11InitXlib(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()));
-    qtcurve_rc_style_register_type(module);
-    qtcurve_style_register_type(module);
+    QtCurve::rc_style_register_type(module);
+    QtCurve::style_register_type(module);
 }
 
 QTC_EXPORT void
@@ -3285,7 +3290,7 @@ theme_exit()
 QTC_EXPORT GtkRcStyle*
 theme_create_rc_style()
 {
-    return GTK_RC_STYLE(g_object_new(qtcurve_type_rc_style, NULL));
+    return GTK_RC_STYLE(g_object_new(QtCurve::rc_style_type, nullptr));
 }
 
 /* The following function will be called by GTK+ when the module is loaded and
