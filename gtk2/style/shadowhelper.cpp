@@ -28,13 +28,16 @@
 #include <qtcurve-utils/x11shadow.h>
 #include <qtcurve-utils/gtkprops.h>
 
+namespace QtCurve {
+namespace Shadow {
+
 static unsigned realizeSignalId = 0;
 static unsigned long realizeHookId = 0;
 
 static void
 installX11Shadows(GtkWidget* widget)
 {
-    if (QtCurve::qtSettings.debug == QtCurve::DEBUG_ALL)
+    if (qtSettings.debug == DEBUG_ALL)
         printf(DEBUG_PREFIX "%s\n", __FUNCTION__);
     GdkWindow *window = gtk_widget_get_window(widget);
     qtcX11ShadowInstall(GDK_WINDOW_XID(window));
@@ -43,16 +46,16 @@ installX11Shadows(GtkWidget* widget)
 static bool
 acceptWidget(GtkWidget* widget)
 {
-    if (QtCurve::qtSettings.debug == QtCurve::DEBUG_ALL)
+    if (qtSettings.debug == DEBUG_ALL)
         printf(DEBUG_PREFIX "%s %p\n", __FUNCTION__, widget);
 
     if (widget && GTK_IS_WINDOW(widget)) {
-        if (QtCurve::qtSettings.app == QtCurve::GTK_APP_OPEN_OFFICE) {
+        if (qtSettings.app == GTK_APP_OPEN_OFFICE) {
             return true;
         } else {
             GdkWindowTypeHint hint =
                 gtk_window_get_type_hint(GTK_WINDOW(widget));
-            if (QtCurve::qtSettings.debug == QtCurve::DEBUG_ALL)
+            if (qtSettings.debug == DEBUG_ALL)
                 printf(DEBUG_PREFIX "%s %d\n", __FUNCTION__, (int)hint);
             return (hint == GDK_WINDOW_TYPE_HINT_MENU ||
                     hint == GDK_WINDOW_TYPE_HINT_DROPDOWN_MENU ||
@@ -68,9 +71,9 @@ acceptWidget(GtkWidget* widget)
 }
 
 static gboolean
-shadowDestroy(GtkWidget *widget, void*)
+destroy(GtkWidget *widget, void*)
 {
-    if (QtCurve::qtSettings.debug == QtCurve::DEBUG_ALL)
+    if (qtSettings.debug == DEBUG_ALL)
         printf(DEBUG_PREFIX "%s %p\n", __FUNCTION__, widget);
 
     QTC_DEF_WIDGET_PROPS(props, widget);
@@ -84,7 +87,7 @@ shadowDestroy(GtkWidget *widget, void*)
 static gboolean
 registerWidget(GtkWidget* widget)
 {
-    if (QtCurve::qtSettings.debug == QtCurve::DEBUG_ALL)
+    if (qtSettings.debug == DEBUG_ALL)
         printf(DEBUG_PREFIX "%s %p\n", __FUNCTION__, widget);
     // check widget
     if (!(widget && GTK_IS_WINDOW(widget)))
@@ -103,7 +106,7 @@ registerWidget(GtkWidget* widget)
     installX11Shadows(widget);
 
     qtcWidgetProps(props)->shadowSet = true;
-    qtcConnectToProp(props, shadowDestroy, "destroy", shadowDestroy, NULL);
+    qtcConnectToProp(props, shadowDestroy, "destroy", destroy, nullptr);
     return true;
 }
 
@@ -112,7 +115,7 @@ realizeHook(GSignalInvocationHint*, unsigned, const GValue *params, void*)
 {
     GtkWidget *widget = GTK_WIDGET(g_value_get_object(params));
 
-    if (QtCurve::qtSettings.debug == QtCurve::DEBUG_ALL)
+    if (qtSettings.debug == DEBUG_ALL)
         printf(DEBUG_PREFIX "%s %p\n", __FUNCTION__, widget);
 
     if (!GTK_IS_WIDGET(widget))
@@ -121,16 +124,19 @@ realizeHook(GSignalInvocationHint*, unsigned, const GValue *params, void*)
     return true;
 }
 
-void qtcShadowInitialize()
+void initialize()
 {
-    if (QtCurve::qtSettings.debug == QtCurve::DEBUG_ALL)
-        printf(DEBUG_PREFIX "%s %d\n", __FUNCTION__, QtCurve::qtSettings.app);
+    if (qtSettings.debug == DEBUG_ALL)
+        printf(DEBUG_PREFIX "%s %d\n", __FUNCTION__, qtSettings.app);
     if (!realizeSignalId) {
         realizeSignalId = g_signal_lookup("realize", GTK_TYPE_WIDGET);
         if (realizeSignalId) {
             realizeHookId = g_signal_add_emission_hook(
-                realizeSignalId, (GQuark)0L, (GSignalEmissionHook)realizeHook,
+                realizeSignalId, (GQuark)0, realizeHook,
                 0, 0L);
         }
     }
+}
+
+}
 }

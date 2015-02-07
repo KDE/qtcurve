@@ -3158,7 +3158,7 @@ rc_style_create_style(GtkRcStyle *rc_style)
 
 static void style_init(Style*)
 {
-    qtcShadowInitialize();
+    Shadow::initialize();
 }
 
 static void
