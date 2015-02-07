@@ -25,6 +25,8 @@
 
 #include <qtcurve-utils/utils.h>
 
+#include <gtk/gtk.h>
+
 QTC_BEGIN_DECLS
 
 void qtcWidgetMapSetup(GtkWidget *from, GtkWidget *to, int map);

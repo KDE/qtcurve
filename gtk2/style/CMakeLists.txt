@@ -12,8 +12,8 @@ set(qtcurve_SRCS
   scrolledwindow.c
   tab.c
   treeview.c
-  widgetmap.c
   shadowhelper.c
+  widgetmap.cpp
   window.cpp
   wmmove.cpp)
 set(qtcurve_HDRS

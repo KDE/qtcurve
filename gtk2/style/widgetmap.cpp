@@ -20,9 +20,11 @@
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
 
+#include "widgetmap.h"
+
 #include <qtcurve-utils/gtkprops.h>
 
-static GHashTable *qtcWidgetMapHashTable[2] = {NULL, NULL};
+static GHashTable *qtcWidgetMapHashTable[2] = {nullptr, nullptr};
 #define getMapHacked(props, id)                                         \
     (qtcWidgetProps(props)->widgetMapHacked & ((id) ? (1 << 1) : (1 << 0)))
 #define setMapHacked(props, id)                                         \
@@ -31,7 +33,7 @@ static GHashTable *qtcWidgetMapHashTable[2] = {NULL, NULL};
 static GtkWidget*
 qtcWidgetMapLookupHash(void *hash, void *value, int map)
 {
-    GtkWidget *rv = NULL;
+    GtkWidget *rv = nullptr;
 
     if (!qtcWidgetMapHashTable[map])
         qtcWidgetMapHashTable[map] =
@@ -41,7 +43,7 @@ qtcWidgetMapLookupHash(void *hash, void *value, int map)
 
     if (!rv && value) {
         g_hash_table_insert(qtcWidgetMapHashTable[map], hash, value);
-        rv = value;
+        rv = (GtkWidget*)value;
     }
     return rv;
 }
@@ -61,7 +63,7 @@ qtcWidgetMapGetWidget(GtkWidget *widget, int map)
 {
     QTC_DEF_WIDGET_PROPS(props, widget);
     return (widget && getMapHacked(props, map) ?
-            qtcWidgetMapLookupHash(widget, NULL, map) : NULL);
+            qtcWidgetMapLookupHash(widget, nullptr, map) : nullptr);
 }
 
 static void qtcWidgetMapCleanup(GtkWidget *widget)
@@ -100,11 +102,11 @@ void qtcWidgetMapSetup(GtkWidget *from, GtkWidget *to, int map)
     if (from && to && !getMapHacked(fromProps, map)) {
         if (!qtcWidgetProps(fromProps)->widgetMapHacked) {
             qtcConnectToProp(fromProps, widgetMapDestroy, "destroy-event",
-                             qtcWidgetMapDestroy, NULL);
+                             qtcWidgetMapDestroy, nullptr);
             qtcConnectToProp(fromProps, widgetMapUnrealize, "unrealize",
-                             qtcWidgetMapDestroy, NULL);
+                             qtcWidgetMapDestroy, nullptr);
             qtcConnectToProp(fromProps, widgetMapStyleSet, "style-set",
-                             qtcWidgetMapStyleSet, NULL);
+                             qtcWidgetMapStyleSet, nullptr);
         }
         setMapHacked(fromProps, map);
         qtcWidgetMapLookupHash(from, to, map);
