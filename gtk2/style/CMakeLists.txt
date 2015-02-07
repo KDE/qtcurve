@@ -4,10 +4,10 @@ set(qtcurve_SRCS
   drawing.cpp
   entry.cpp
   helpers.cpp
+  menu.cpp
   qtcurve.c
   qt_settings.c
   pixcache.c
-  menu.c
   scrollbar.c
   scrolledwindow.c
   tab.c

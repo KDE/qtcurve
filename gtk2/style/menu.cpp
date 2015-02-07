@@ -20,6 +20,8 @@
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
 
+#include "menu.h"
+
 #include <qtcurve-utils/gtkprops.h>
 #include <qtcurve-utils/x11qtc.h>
 #include <qtcurve-cairo/utils.h>
@@ -98,7 +100,7 @@ qtcMenuShellButtonPress(GtkWidget *widget, GdkEventButton *event, void *data)
                 gtk_container_get_children(GTK_CONTAINER(menuShell));
             bool rv = false;
             for (GList *child = children;child;child = child->next) {
-                GtkWidget *item = child->data;
+                GtkWidget *item = (GtkWidget*)child->data;
                 QtcRect alloc = qtcWidgetGetAllocation(item);
                 int cx = alloc.x + nx;
                 int cy = alloc.y + ny;
