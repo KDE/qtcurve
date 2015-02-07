@@ -6663,7 +6663,7 @@ void Style::drawControl(ControlElement element, const QStyleOption *option, QPai
                                      QStyleOptionTab::End : QStyleOptionTab::Beginning)) || oneTab);
                 int          tabBarAlignment(styleHint(SH_TabBar_Alignment, tab, widget)),
                              tabOverlap(oneTab ? 0 : pixelMetric(PM_TabBarTabOverlap, option, widget)),
-                             moOffset(ROUNDED_NONE==opts.round || TAB_MO_TOP!=opts.tabMouseOver ? 1 : opts.round),
+                             moOffset(ROUND_NONE==opts.round || TAB_MO_TOP!=opts.tabMouseOver ? 1 : opts.round),
                              highlightOffset(opts.highlightTab && opts.round>ROUND_SLIGHT ? 2 : 1),
                              highlightBorder(opts.round>ROUND_FULL ? 4 : 3),
                              sizeAdjust(!selected && TAB_MO_GLOW==opts.tabMouseOver ? 1 : 0);

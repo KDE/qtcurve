@@ -1109,7 +1109,8 @@ void Style::drawSideBarButton(QPainter *painter, const QRect &r, const QStyleOpt
     if(opt.state&State_On || opt.state&State_MouseOver)
     {
         r2.adjust(-1, -1, 1, 1);
-        drawLightBevel(painter, r2, &opt, widget, ROUNDED_NONE, getFill(&opt, use), use, false, WIDGET_MENU_ITEM);
+        drawLightBevel(painter, r2, &opt, widget, ROUNDED_NONE,
+                       getFill(&opt, use), use, false, WIDGET_MENU_ITEM);
     }
     else
         painter->fillRect(r2, palette.background().color());

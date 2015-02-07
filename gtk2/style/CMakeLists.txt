@@ -1,9 +1,9 @@
 set(qtcurve_SRCS
   animation.cpp
   combobox.cpp
+  drawing.cpp
   qtcurve.c
   qt_settings.c
-  drawing.c
   helpers.c
   pixcache.c
   entry.c

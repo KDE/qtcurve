@@ -61,8 +61,9 @@ typedef enum {
 
 void drawBorder(cairo_t *cr, GtkStyle *style, GtkStateType state,
                 const QtcRect *area, int x, int y, int width, int height,
-                const GdkColor *c_colors, int round, EBorder borderProfile,
-                EWidget widget, int flags, int borderVal);
+                const GdkColor *c_colors, ECornerBits round,
+                EBorder borderProfile, EWidget widget, int flags,
+                int borderVal);
 #define drawBorder(cr, style, state, area, x, y, width, height, c_colors, \
                    round, borderProfile, widget, flags, borderVal...)   \
     drawBorder(cr, style, state, area, x, y, width, height, c_colors,   \
@@ -70,19 +71,19 @@ void drawBorder(cairo_t *cr, GtkStyle *style, GtkStateType state,
                QTC_DEFAULT(borderVal, QTC_STD_BORDER))
 
 void drawGlow(cairo_t *cr, const QtcRect *area, int x, int y, int w, int h,
-              int round, EWidget widget, const GdkColor *colors);
+              ECornerBits round, EWidget widget, const GdkColor *colors);
 #define drawGlow(cr, area, x, y, w, h, round, widget, colors...)        \
     drawGlow(cr, area, x, y, w, h, round, widget, QTC_DEFAULT(colors, NULL))
 
-void drawEtch(cairo_t *cr, const QtcRect *area, GtkWidget *widget,
-              int x, int y, int w, int h, bool raised, int round, EWidget wid);
+void drawEtch(cairo_t *cr, const QtcRect *area, GtkWidget *widget, int x, int y,
+              int w, int h, bool raised, ECornerBits round, EWidget wid);
 void qtcClipPath(cairo_t *cr, int x, int y, int w, int h, EWidget widget,
-                 int rad, int round);
+                 int rad, ECornerBits round);
 void drawLightBevel(cairo_t *cr, GtkStyle *style, GtkStateType state,
                     const QtcRect *area, int x, int y, int width, int height,
-                    const GdkColor *base, const GdkColor *colors, int round,
-                    EWidget widget, EBorder borderProfile, int flags,
-                    GtkWidget *wid);
+                    const GdkColor *base, const GdkColor *colors,
+                    ECornerBits round, EWidget widget, EBorder borderProfile,
+                    int flags, GtkWidget *wid);
 
 void drawFadedLine(cairo_t *cr, int x, int y, int width, int height,
                    const GdkColor *col, const QtcRect *area,
@@ -113,7 +114,8 @@ bool drawWindowBgnd(cairo_t *cr, GtkStyle *style, const QtcRect *area,
                     int width, int height);
 void drawEntryField(cairo_t *cr, GtkStyle *style, GtkStateType state,
                     GdkWindow *window, GtkWidget *widget, const QtcRect *area,
-                    int x, int y, int width, int height, int round, EWidget w);
+                    int x, int y, int width, int height, ECornerBits round,
+                    EWidget w);
 void drawProgress(cairo_t *cr, GtkStyle *style, GtkStateType state,
                   GtkWidget *widget, const QtcRect *area, int x, int y,
                   int width, int height, bool rev, bool isEntryProg);
@@ -132,11 +134,12 @@ void drawScrollbarGroove(cairo_t *cr, GtkStyle *style, GtkStateType state,
                          GtkWidget *widget, const QtcRect *area, int x, int y,
                          int width, int height, bool horiz);
 void drawSelectionGradient(cairo_t *cr, const QtcRect *area, int x, int y,
-                           int width, int height, int round, bool isLvSelection,
-                           double alpha, const GdkColor *col, bool horiz);
+                           int width, int height, ECornerBits round,
+                           bool isLvSelection, double alpha,
+                           const GdkColor *col, bool horiz);
 void drawSelection(cairo_t *cr, GtkStyle *style, GtkStateType state,
                    const QtcRect *area, GtkWidget *widget, int x, int y,
-                   int width, int height, int round, bool isLvSelection,
+                   int width, int height, ECornerBits round, bool isLvSelection,
                    double alphaMod, int factor);
 void createRoundedMask(GtkWidget *widget, int x, int y, int width, int height,
                        double radius, bool isToolTip);
