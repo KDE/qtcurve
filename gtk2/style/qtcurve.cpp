@@ -329,10 +329,10 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 int expanderSize = 0;
                 int depth = 0;
 
-                qtcTreeViewGetCell(treeView, &path, &column,
-                                   x, y, width, height);
-                qtcTreeViewSetup(widget);
-                if (path && qtcTreeViewIsCellHovered(widget, path, column)) {
+                TreeView::getCell(treeView, &path, &column,
+                                  x, y, width, height);
+                TreeView::setup(widget);
+                if (path && TreeView::isCellHovered(widget, path, column)) {
                     if (state == GTK_STATE_SELECTED) {
                         factor = 10;
                     } else {
@@ -352,8 +352,9 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                                           x, y, height, depth, levelIndent,
                                           expanderSize, treeView, path);
                     }
-                } else if (column && qtcTreeViewCellIsLeftOfExpanderColumn(
-                               treeView, column)) {
+                } else if (column &&
+                           TreeView::cellIsLeftOfExpanderColumn(treeView,
+                                                                column)) {
                     forceCellEnd = true;
                 }
 
@@ -2807,7 +2808,7 @@ gtkDrawFocus(GtkStyle *style, GdkWindow *window, GtkStateType state,
             GtkTreeViewColumn *expanderColumn =
                 gtk_tree_view_get_expander_column(treeView);
 
-            qtcTreeViewGetCell(treeView, &path, &column, x, y, width, height);
+            TreeView::getCell(treeView, &path, &column, x, y, width, height);
             if (column == expanderColumn) {
                 int expanderSize = 0;
                 gtk_widget_style_get(widget, "expander-size",

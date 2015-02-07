@@ -25,13 +25,18 @@
 
 #include <gtk/gtk.h>
 
-void qtcTreeViewGetCell(GtkTreeView *treeView, GtkTreePath **path,
-                        GtkTreeViewColumn **column, int x, int y, int width,
-                        int height);
-void qtcTreeViewSetup(GtkWidget *widget);
-bool qtcTreeViewIsCellHovered(GtkWidget *widget, GtkTreePath *path,
-                              GtkTreeViewColumn *column);
-bool qtcTreeViewCellIsLeftOfExpanderColumn(GtkTreeView *treeView,
-                                           GtkTreeViewColumn *column);
+namespace QtCurve {
+namespace TreeView {
+
+void getCell(GtkTreeView *treeView, GtkTreePath **path,
+             GtkTreeViewColumn **column, int x, int y, int width, int height);
+void setup(GtkWidget *widget);
+bool isCellHovered(GtkWidget *widget, GtkTreePath *path,
+                   GtkTreeViewColumn *column);
+bool cellIsLeftOfExpanderColumn(GtkTreeView *treeView,
+                                GtkTreeViewColumn *column);
+
+}
+}
 
 #endif
