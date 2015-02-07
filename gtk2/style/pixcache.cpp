@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -26,6 +26,8 @@
 #include "blank16x16-png.h"
 #include "qt_settings.h"
 
+namespace QtCurve {
+
 typedef struct {
     GdkColor col;
     double shade;
@@ -33,6 +35,7 @@ typedef struct {
 
 static GHashTable *_pixbufTable = NULL;
 static GdkPixbuf *_blankPixbuf = NULL;
+
 static GdkPixbuf*
 getBlankPixbuf()
 {
@@ -120,4 +123,6 @@ getPixbuf(GdkColor *widgetColor, EPixmap p, double shade)
     pixbuf = pixbufCacheValueNew(&key);
     g_hash_table_insert(table, g_memdup(&key, sizeof(key)), pixbuf);
     return pixbuf;
+}
+
 }
