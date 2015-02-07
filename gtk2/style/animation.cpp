@@ -30,19 +30,20 @@
  * heavily modified by Benjamin Berg <benjamin@sipsolutions.net>.
  */
 
-/* #define CHECK_ANIMATION_TIME 0.5 */
+#define CHECK_ANIMATION_TIME 0.5
 
 #include "animation.h"
 #include <common/common.h>
 
 namespace QtCurve {
+namespace Animation {
 
-class AnimationInfo {
+class Info {
 public:
     GtkWidget *const widget;
 
-    AnimationInfo(const GtkWidget *w, double stop_time);
-    ~AnimationInfo();
+    Info(const GtkWidget *w, double stop_time);
+    ~Info();
     double timer_elapsed() const;
     void timer_reset() const;
     bool need_stop() const;
@@ -58,12 +59,12 @@ struct SignalInfo {
 
 static GSList *connected_widgets = nullptr;
 static GHashTable *animated_widgets = nullptr;
-static int animation_timer_id = 0;
+static int timer_id = 0;
 
-static gboolean animationTimeoutHandler(void *data);
+static gboolean timeoutHandler(void *data);
 
 inline
-AnimationInfo::AnimationInfo(const GtkWidget *w, double stop_time)
+Info::Info(const GtkWidget *w, double stop_time)
     : widget(const_cast<GtkWidget*>(w)),
       m_timer(g_timer_new()),
       m_stop_time(stop_time)
@@ -71,25 +72,25 @@ AnimationInfo::AnimationInfo(const GtkWidget *w, double stop_time)
 }
 
 inline
-AnimationInfo::~AnimationInfo()
+Info::~Info()
 {
     g_timer_destroy(m_timer);
 }
 
 inline double
-AnimationInfo::timer_elapsed() const
+Info::timer_elapsed() const
 {
     return g_timer_elapsed(m_timer, nullptr);
 }
 
 inline bool
-AnimationInfo::need_stop() const
+Info::need_stop() const
 {
     return m_stop_time != 0 && timer_elapsed() > m_stop_time;
 }
 
 inline void
-AnimationInfo::timer_reset() const
+Info::timer_reset() const
 {
     g_timer_start(m_timer);
 }
@@ -107,57 +108,57 @@ force_widget_redraw(GtkWidget *widget)
 
 /* ensures that the timer is running */
 static void
-animationStartTimer()
+startTimer()
 {
-    if (animation_timer_id == 0) {
-        animation_timer_id = g_timeout_add(PROGRESS_ANIMATION,
-                                           animationTimeoutHandler, nullptr);
+    if (timer_id == 0) {
+        timer_id = g_timeout_add(PROGRESS_ANIMATION,
+                                 timeoutHandler, nullptr);
     }
 }
 
 /* ensures that the timer is stopped */
 static void
-animationStopTimer()
+stopTimer()
 {
-    if (animation_timer_id != 0) {
-        g_source_remove(animation_timer_id);
-        animation_timer_id = 0;
+    if (timer_id != 0) {
+        g_source_remove(timer_id);
+        timer_id = 0;
     }
 }
 
 /* This function does not unref the weak reference, because the object
  * is being destroyed currently. */
 static void
-animationOnWidgetDestruction(void *data, GObject *object)
+onWidgetDestruction(void *data, GObject *object)
 {
     /* steal the animation info from the hash table(destroying it would
      * result in the weak reference to be unrefed, which does not work
      * as the widget is already destroyed. */
     g_hash_table_steal(animated_widgets, object);
-    delete (AnimationInfo*)data;
+    delete (Info*)data;
 }
 
 /* This function also needs to unref the weak reference. */
 static void
-animationDestroyInfoAndWeakUnref(void *data)
+destroyInfoAndWeakUnref(void *data)
 {
-    AnimationInfo *animation_info = (AnimationInfo*)data;
+    Info *info = (Info*)data;
 
     /* force a last redraw. This is so that if the animation is removed,
      * the widget is left in a sane state. */
-    force_widget_redraw(animation_info->widget);
+    force_widget_redraw(info->widget);
 
-    g_object_weak_unref(G_OBJECT(animation_info->widget),
-                        animationOnWidgetDestruction, data);
-    delete animation_info;
+    g_object_weak_unref(G_OBJECT(info->widget),
+                        onWidgetDestruction, data);
+    delete info;
 }
 
 /* Find and return a pointer to the data linked to this widget, if it exists */
-static AnimationInfo*
-animationLookupInfo(const GtkWidget *widget)
+static Info*
+lookupInfo(const GtkWidget *widget)
 {
     if (animated_widgets) {
-        return (AnimationInfo*)g_hash_table_lookup(animated_widgets, widget);
+        return (Info*)g_hash_table_lookup(animated_widgets, widget);
     }
     return nullptr;
 }
@@ -165,36 +166,36 @@ animationLookupInfo(const GtkWidget *widget)
 /* Create all the relevant information for the animation,
  * and insert it into the hash table. */
 static void
-animationAdd(const GtkWidget *widget, double stop_time)
+addWidget(const GtkWidget *widget, double stop_time)
 {
     /* object already in the list, do not add it twice */
-    if (animationLookupInfo(widget)) {
+    if (lookupInfo(widget)) {
         return;
     }
 
     if (animated_widgets == nullptr) {
         animated_widgets =
             g_hash_table_new_full(g_direct_hash, g_direct_equal, nullptr,
-                                  animationDestroyInfoAndWeakUnref);
+                                  destroyInfoAndWeakUnref);
     }
 
-    auto *value = new AnimationInfo(widget, stop_time);
+    auto *value = new Info(widget, stop_time);
 
-    g_object_weak_ref(G_OBJECT(widget), animationOnWidgetDestruction, value);
+    g_object_weak_ref(G_OBJECT(widget), onWidgetDestruction, value);
     g_hash_table_insert(animated_widgets, (GtkWidget*)widget, value);
 
-    animationStartTimer();
+    startTimer();
 }
 
 /* update the animation information for each widget. This will also queue a redraw
  * and stop the animation if it is done. */
 static gboolean
-animationUpdateInfo(void *key, void *value, void*)
+updateInfo(void *key, void *value, void*)
 {
-    AnimationInfo *animation_info = (AnimationInfo*)value;
+    Info *info = (Info*)value;
     GtkWidget *widget = (GtkWidget*)key;
 
-    if ((widget == nullptr) || (animation_info == nullptr)) {
+    if ((widget == nullptr) || (info == nullptr)) {
         g_assert_not_reached();
     }
 
@@ -222,7 +223,7 @@ animationUpdateInfo(void *key, void *value, void*)
     force_widget_redraw(widget);
 
     /* stop at stop_time */
-    if (animation_info->need_stop()) {
+    if (info->need_stop()) {
         return true;
     }
     return false;
@@ -230,44 +231,30 @@ animationUpdateInfo(void *key, void *value, void*)
 
 /* This gets called by the glib main loop every once in a while. */
 static gboolean
-animationTimeoutHandler(void*)
+timeoutHandler(void*)
 {
-    /* enter threads as animationUpdateInfo will use gtk/gdk. */
+    /* enter threads as updateInfo will use gtk/gdk. */
     gdk_threads_enter();
-    g_hash_table_foreach_remove(animated_widgets, animationUpdateInfo, nullptr);
+    g_hash_table_foreach_remove(animated_widgets, updateInfo, nullptr);
     /* leave threads again */
     gdk_threads_leave();
 
     if (g_hash_table_size(animated_widgets) == 0) {
-        animationStopTimer();
+        stopTimer();
         return false;
     }
     return true;
 }
 
-#if 0
 static void
-on_checkbox_toggle(GtkWidget *widget, void *data)
-{
-    AnimationInfo *animation_info = animationLookupInfo(widget);
-
-    if (animation_info != nullptr) {
-        animation_info->timer_reset();
-    } else {
-        animationAdd(widget, CHECK_ANIMATION_TIME);
-    }
-}
-#endif
-
-static void
-animationOnConnectedWidgetDestruction(void *data, GObject*)
+onConnectedWidgetDestruction(void *data, GObject*)
 {
     connected_widgets = g_slist_remove(connected_widgets, data);
     free(data);
 }
 
 static void
-animationDisconnect()
+disconnect()
 {
     GSList *item = connected_widgets;
     while (item != nullptr) {
@@ -276,7 +263,7 @@ animationDisconnect()
         g_signal_handler_disconnect(signal_info->widget,
                                     signal_info->handler_id);
         g_object_weak_unref(G_OBJECT(signal_info->widget),
-                            animationOnConnectedWidgetDestruction,
+                            onConnectedWidgetDestruction,
                             signal_info);
         free(signal_info);
 
@@ -288,20 +275,30 @@ animationDisconnect()
 }
 
 #if 0
+static void
+on_checkbox_toggle(GtkWidget *widget, void*)
+{
+    if (Info *info = lookupInfo(widget)) {
+        info->timer_reset();
+    } else {
+        addWidget(widget, CHECK_ANIMATION_TIME);
+    }
+}
+
 /* helper function for animationConnectCheckbox */
 static int
-animationFindSignalInfo(const void *signal_info, const void *widget)
+findSignalInfo(const void *signal_info, const void *widget)
 {
     return ((SignalInfo*)signal_info)->widget != widget;
 }
 
 /* hooks up the signals for check and radio buttons */
 static void
-animationConnectCheckbox(GtkWidget *widget)
+connectCheckbox(GtkWidget *widget)
 {
     if (GTK_IS_CHECK_BUTTON(widget)) {
         if (!g_slist_find_custom(connected_widgets, widget,
-                                 animationFindSignalInfo)) {
+                                 findSignalInfo)) {
             SignalInfo *signal_info = qtcNew(SignalInfo);
 
             signal_info->widget = widget;
@@ -310,53 +307,53 @@ animationConnectCheckbox(GtkWidget *widget)
                                  G_CALLBACK(on_checkbox_toggle), nullptr);
             connected_widgets = g_slist_append(connected_widgets, signal_info);
             g_object_weak_ref(
-                G_OBJECT(widget), animationOnConnectedWidgetDestruction,
+                G_OBJECT(widget), onConnectedWidgetDestruction,
                 signal_info);
         }
     }
 }
 #endif
 
-}
-
-using namespace QtCurve;
-
 /* external interface */
 
 /* adds a progress bar */
 void
-qtcAnimationAddProgressBar(GtkWidget *progressbar, gboolean isEntry)
+addProgressBar(GtkWidget *progressbar, bool isEntry)
 {
     double fraction =
         (isEntry ? gtk_entry_get_progress_fraction(GTK_ENTRY(progressbar)) :
          gtk_progress_bar_get_fraction(GTK_PROGRESS_BAR(progressbar)));
 
     if (fraction < 1.0 && fraction > 0.0) {
-        animationAdd((GtkWidget*)progressbar, 0.0);
+        addWidget((GtkWidget*)progressbar, 0.0);
     }
-}
-
-/* returns the elapsed time for the animation */
-double
-qtcAnimationElapsed(void *data)
-{
-    AnimationInfo *animation_info = animationLookupInfo((GtkWidget*)data);
-
-    if (animation_info) {
-        return animation_info->timer_elapsed();
-    }
-    return 0.0;
 }
 
 /* cleans up all resources of the animation system */
 void
-qtcAnimationCleanup()
+cleanup()
 {
-    animationDisconnect();
+    disconnect();
 
     if (animated_widgets != nullptr) {
         g_hash_table_destroy(animated_widgets);
         animated_widgets = nullptr;
     }
-    animationStopTimer();
+    stopTimer();
+}
+
+/* returns the elapsed time for the animation */
+double
+elapsed(void *data)
+{
+    Info *info = lookupInfo((GtkWidget*)data);
+
+    if (info) {
+        return info->timer_elapsed();
+    }
+    return 0.0;
+}
+
+}
+
 }

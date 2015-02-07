@@ -24,6 +24,7 @@
 #define __QTC_DRAWING_H__
 
 #include <common/common.h>
+#include <qtcurve-cairo/draw.h>
 
 #define CAIRO_GRAD_END 1.0
 

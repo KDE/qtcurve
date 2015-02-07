@@ -22,8 +22,6 @@
 
 #include "config.h"
 
-#include "qtcurve.h"
-
 #include <qtcurve-utils/color.h>
 #include <qtcurve-utils/strs.h>
 #include <qtcurve-utils/gtkprops.h>
@@ -59,6 +57,30 @@
 #include "pixcache.h"
 #include "shadowhelper.h"
 #include "config.h"
+
+static GType qtcurve_type_style = 0;
+static GType qtcurve_type_rc_style = 0;
+
+struct QtCurveStyleClass {
+    GtkStyleClass parent_class;
+};
+
+struct QtCurveStyle {
+    GtkStyle parent_instance;
+    GdkColor *button_text[2];
+    GdkColor *menutext[2];
+};
+
+struct QtCurveRcStyleClass {
+    GtkRcStyleClass parent_class;
+};
+
+struct QtCurveRcStyle {
+    GtkRcStyle parent_instance;
+};
+
+#define QTCURVE_IS_RC_STYLE(object)                                     \
+    (G_TYPE_CHECK_INSTANCE_TYPE((object), qtcurve_type_rc_style))
 
 static GtkStyleClass *parent_class = NULL;
 
@@ -3021,7 +3043,6 @@ qtcurve_style_class_init(QtCurveStyleClass *klass)
 }
 
 static GtkRcStyleClass *parent_rc_class;
-GType qtcurve_type_rc_style = 0;
 
 static unsigned
 qtcurve_rc_style_parse(GtkRcStyle *rc_style, GtkSettings *settings,
@@ -3113,13 +3134,11 @@ static void qtcurve_rc_style_merge(GtkRcStyle *dest, GtkRcStyle *src)
 static GtkStyle*
 qtcurve_rc_style_create_style(GtkRcStyle *rc_style)
 {
-    GtkStyle *style = (GtkStyle*)g_object_new(QTCURVE_TYPE_STYLE, NULL);
+    GtkStyle *style = (GtkStyle*)g_object_new(qtcurve_type_style, NULL);
 
     qtSettingsSetColors(style, rc_style);
     return style;
 }
-
-GType qtcurve_type_style = 0;
 
 static void qtcurve_style_init(QtCurveStyle*)
 {
@@ -3208,7 +3227,7 @@ qtcurve_rc_style_init(QtCurveRcStyle *qtcurve_rc)
 static void
 qtcurve_rc_style_finalize(GObject *object)
 {
-    qtcAnimationCleanup();
+    QtCurve::Animation::cleanup();
     qtcCall(G_OBJECT_CLASS(parent_rc_class)->finalize, object);
 }
 
@@ -3266,7 +3285,7 @@ theme_exit()
 QTC_EXPORT GtkRcStyle*
 theme_create_rc_style()
 {
-    return GTK_RC_STYLE(g_object_new(QTCURVE_TYPE_RC_STYLE, NULL));
+    return GTK_RC_STYLE(g_object_new(qtcurve_type_rc_style, NULL));
 }
 
 /* The following function will be called by GTK+ when the module is loaded and

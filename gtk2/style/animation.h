@@ -26,12 +26,12 @@
 #include <qtcurve-utils/utils.h>
 #include <gtk/gtk.h>
 
-QTC_BEGIN_DECLS
-
-void qtcAnimationAddProgressBar(GtkWidget *progressbar, gboolean isEntry);
-void qtcAnimationCleanup();
-double qtcAnimationElapsed(void *data);
-
-QTC_END_DECLS
+namespace QtCurve {
+namespace Animation {
+void addProgressBar(GtkWidget *progressbar, bool isEntry);
+void cleanup();
+double elapsed(void *data);
+}
+}
 
 #endif

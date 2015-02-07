@@ -25,7 +25,6 @@
 
 #include <qtcurve-utils/utils.h>
 #include <gtk/gtk.h>
-#include <stdbool.h>
 
 QTC_BEGIN_DECLS
 

@@ -20,20 +20,23 @@
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
 
-#include <qtcurve-utils/gtkprops.h>
-#include <qtcurve-utils/color.h>
-#include <qtcurve-utils/log.h>
-#include <qtcurve-cairo/draw.h>
+#include "config.h"
 
 #include "drawing.h"
+
+
 #include "qt_settings.h"
-#include "qtcurve.h"
-#include <common/config_file.h>
 #include "helpers.h"
 #include "pixcache.h"
 #include "entry.h"
 #include "tab.h"
 #include "animation.h"
+
+#include <qtcurve-utils/gtkprops.h>
+#include <qtcurve-utils/color.h>
+#include <qtcurve-utils/log.h>
+
+#include <common/config_file.h>
 
 #if GTK_CHECK_VERSION(2, 90, 0)
 static cairo_region_t*
@@ -1520,10 +1523,12 @@ drawProgress(cairo_t *cr, GtkStyle *style, GtkStateType state,
 #if !GTK_CHECK_VERSION(2, 90, 0) /* Gtk3:TODO !!! */
         if (isEntryProg || !GTK_PROGRESS(widget)->activity_mode)
 #endif
-            qtcAnimationAddProgressBar(widget, isEntryProg);
+            QtCurve::Animation::addProgressBar(widget, isEntryProg);
 
         animShift+=(revProg ? -1 : 1)*
-            (((int)(qtcAnimationElapsed(widget)*PROGRESS_CHUNK_WIDTH))%(PROGRESS_CHUNK_WIDTH*2));
+            (((int)(QtCurve::Animation::elapsed(widget) *
+                    PROGRESS_CHUNK_WIDTH)) %
+             (PROGRESS_CHUNK_WIDTH * 2));
     }
 
     bool grayItem = (state == GTK_STATE_INSENSITIVE &&

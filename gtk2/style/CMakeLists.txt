@@ -26,7 +26,6 @@ set(qtcurve_HDRS
   menu.h
   pixcache.h
   qt_settings.h
-  qtcurve.h
   scrollbar.h
   scrolledwindow.h
   shadowhelper.h
