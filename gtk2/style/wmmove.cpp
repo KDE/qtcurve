@@ -20,6 +20,8 @@
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
 
+#include "wmmove.h"
+
 #include <qtcurve-utils/gtkprops.h>
 #include <qtcurve-utils/x11wmmove.h>
 
@@ -37,7 +39,7 @@ static int qtcWMMoveTimer = 0;
 static GtkWidget *qtcWMMoveDragWidget = NULL;
 //! keep track of the last rejected button event to reject it again if passed to some parent widget
 /*! this spares some time (by not processing the same event twice), and prevents some bugs */
-GdkEventButton *qtcWMMoveLastRejectedEvent=NULL;
+GdkEventButton *qtcWMMoveLastRejectedEvent = NULL;
 
 static int qtcWMMoveBtnReleaseSignalId = 0;
 static int qtcWMMoveBtnReleaseHookId = 0;
@@ -45,13 +47,8 @@ static int qtcWMMoveBtnReleaseHookId = 0;
 static gboolean qtcWMMoveDragEnd();
 
 static gboolean
-qtcWMMoveBtnReleaseHook(GSignalInvocationHint *a, unsigned b,
-                        const GValue *c, void *d)
+qtcWMMoveBtnReleaseHook(GSignalInvocationHint*, unsigned, const GValue*, void*)
 {
-    QTC_UNUSED(a);
-    QTC_UNUSED(b);
-    QTC_UNUSED(c);
-    QTC_UNUSED(d);
     if (qtcWMMoveDragWidget)
         qtcWMMoveDragEnd();
     return true;
@@ -114,8 +111,7 @@ static gboolean qtcWMMoveWithinWidget(GtkWidget *widget, GdkEventButton *event)
     GtkWidget *topLevel=gtk_widget_get_toplevel(widget);;
     GdkWindow *window = topLevel ? gtk_widget_get_window(topLevel) : NULL;
 
-    if(window)
-    {
+    if (window) {
         QtcRect allocation;
         int           wx=0, wy=0, nx=0, ny=0;
 
@@ -237,9 +233,8 @@ static gboolean qtcWMMoveUseEvent(GtkWidget *widget, GdkEventButton *event)
 }
 
 static gboolean
-qtcWWMoveStartDelayedDrag(void *data)
+qtcWWMoveStartDelayedDrag(void*)
 {
-    QTC_UNUSED(data);
     if (qtcWMMoveDragWidget) {
         gdk_threads_enter();
         qtcWMMoveTrigger(qtcWMMoveDragWidget, qtcWMMoveLastX, qtcWMMoveLastY);
@@ -264,9 +259,8 @@ qtcWMMoveIsWindowDragWidget(GtkWidget *widget, GdkEventButton *event)
 }
 
 static gboolean
-qtcWMMoveButtonPress(GtkWidget *widget, GdkEventButton *event, void *data)
+qtcWMMoveButtonPress(GtkWidget *widget, GdkEventButton *event, void*)
 {
-    QTC_UNUSED(data);
     if (GDK_BUTTON_PRESS == event->type && 1 == event->button &&
         qtcWMMoveIsWindowDragWidget(widget, event)) {
         qtcWMMoveDragWidget = widget;
@@ -277,8 +271,7 @@ qtcWMMoveButtonPress(GtkWidget *widget, GdkEventButton *event, void *data)
 
 static gboolean qtcWMMoveDragEnd()
 {
-    if (qtcWMMoveDragWidget)
-    {
+    if (qtcWMMoveDragWidget) {
         //gtk_grab_remove(widget);
         gdk_pointer_ungrab(CurrentTime);
         qtcWMMoveReset();
@@ -304,27 +297,22 @@ static void qtcWMMoveCleanup(GtkWidget *widget)
 }
 
 static gboolean
-qtcWMMoveStyleSet(GtkWidget *widget, GtkStyle *previous_style, void *data)
+qtcWMMoveStyleSet(GtkWidget *widget, GtkStyle*, void*)
 {
-    QTC_UNUSED(previous_style);
-    QTC_UNUSED(data);
     qtcWMMoveCleanup(widget);
     return false;
 }
 
 static gboolean
-qtcWMMoveDestroy(GtkWidget *widget, GdkEvent *event, void *data)
+qtcWMMoveDestroy(GtkWidget *widget, GdkEvent*, void*)
 {
-    QTC_UNUSED(event);
-    QTC_UNUSED(data);
     qtcWMMoveCleanup(widget);
     return false;
 }
 
 static gboolean
-qtcWMMoveMotion(GtkWidget *widget, GdkEventMotion *event, void *data)
+qtcWMMoveMotion(GtkWidget *widget, GdkEventMotion *event, void*)
 {
-    QTC_UNUSED(data);
     if (qtcWMMoveDragWidget == widget) {
         // check displacement with respect to drag start
         const int distance = (qtcAbs(qtcWMMoveLastX - event->x_root) +
@@ -342,11 +330,8 @@ qtcWMMoveMotion(GtkWidget *widget, GdkEventMotion *event, void *data)
 }
 
 static gboolean
-qtcWMMoveLeave(GtkWidget *widget, GdkEventMotion *event, void *data)
+qtcWMMoveLeave(GtkWidget*, GdkEventMotion*, void*)
 {
-    QTC_UNUSED(widget);
-    QTC_UNUSED(event);
-    QTC_UNUSED(data);
     return qtcWMMoveDragEnd();
 }
 

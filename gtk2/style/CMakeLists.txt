@@ -14,8 +14,8 @@ set(qtcurve_SRCS
   treeview.c
   widgetmap.c
   window.c
-  wmmove.c
-  shadowhelper.c)
+  shadowhelper.c
+  wmmove.cpp)
 set(qtcurve_HDRS
   animation.h
   combobox.h
