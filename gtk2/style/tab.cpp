@@ -24,55 +24,50 @@
 
 #include <qtcurve-utils/gtkprops.h>
 
+#include <vector>
+#include <unordered_map>
+#include <utility>
+#include <tuple>
+
 namespace QtCurve {
 namespace Tab {
 
-typedef struct {
+struct Info {
     int id;
-    int numRects;
-    QtcRect *rects;
-} QtCTab;
+    std::vector<QtcRect> rects;
+    Info(GtkWidget *notebook);
+};
 
-static GHashTable *hashTable = NULL;
-
-static QtCTab*
-lookupHash(void *hash, bool create)
+Info::Info(GtkWidget *notebook)
+    : id(-1),
+      rects(gtk_notebook_get_n_pages((GtkNotebook*)notebook),
+            qtcRect(0, 0, -1, -1))
 {
-    if (!hashTable) {
-        hashTable = g_hash_table_new(g_direct_hash, g_direct_equal);
-    }
-
-    QtCTab *rv = (QtCTab*)g_hash_table_lookup(hashTable, hash);
-    if (!rv && create) {
-        rv = qtcNew(QtCTab);
-        rv->numRects = gtk_notebook_get_n_pages(GTK_NOTEBOOK(hash));
-        rv->id = -1;
-        rv->rects = qtcNew(QtcRect, rv->numRects);
-        for (int p = 0;p < rv->numRects;p++) {
-            rv->rects[p].width = rv->rects[p].height = -1;
-        }
-        g_hash_table_insert(hashTable, hash, rv);
-        rv = (QtCTab*)g_hash_table_lookup(hashTable, hash);
-    }
-    return rv;
 }
 
-static QtCTab*
+static std::unordered_map<GtkWidget*, Info> tabMap;
+
+static Info*
+lookupHash(GtkWidget *hash, bool create=false)
+{
+    auto it = tabMap.find(hash);
+    if (it != tabMap.end()) {
+        return &it->second;
+    } else if (!create) {
+        return nullptr;
+    }
+    auto res = tabMap.emplace(std::piecewise_construct,
+                              std::forward_as_tuple(hash),
+                              std::forward_as_tuple(hash));
+    return &(res.first->second);
+}
+
+static Info*
 widgetFindTab(GtkWidget *widget)
 {
-    return GTK_IS_NOTEBOOK(widget) ? lookupHash(widget, false) : NULL;
-}
-
-static void
-removeHash(void *hash)
-{
-    if (hashTable) {
-        QtCTab *tab = widgetFindTab((GtkWidget*)hash);
-        if (tab) {
-            free(tab->rects);
-        }
-        g_hash_table_remove(hashTable, hash);
-    }
+    if (GTK_IS_NOTEBOOK(widget))
+        return lookupHash(widget);
+    return nullptr;
 }
 
 static void
@@ -87,7 +82,7 @@ cleanup(GtkWidget *widget)
         qtcDisconnectFromProp(props, tabLeave);
         qtcDisconnectFromProp(props, tabPageAdded);
         qtcWidgetProps(props)->tabHacked = true;
-        removeHash(widget);
+        tabMap.erase(widget);
     }
 }
 
@@ -106,13 +101,13 @@ destroy(GtkWidget *widget, GdkEvent*, void*)
 }
 
 static void
-setHovered(QtCTab *tab, GtkWidget *widget, int index)
+setHovered(Info *tab, GtkWidget *widget, int index)
 {
     if (tab->id != index) {
         QtcRect updateRect = {0, 0, -1, -1};
         tab->id = index;
-        for (int p = 0;p < tab->numRects;p++) {
-            qtcRectUnion(&tab->rects[p], &updateRect, &updateRect);
+        for (auto &rect: tab->rects) {
+            qtcRectUnion(&rect, &updateRect, &updateRect);
         }
         gtk_widget_queue_draw_area(widget, updateRect.x - 4, updateRect.y - 4,
                                    updateRect.width + 8, updateRect.height + 8);
@@ -122,17 +117,17 @@ setHovered(QtCTab *tab, GtkWidget *widget, int index)
 static gboolean
 motion(GtkWidget *widget, GdkEventMotion*, void*)
 {
-    QtCTab *tab = widgetFindTab(widget);
+    Info *tab = widgetFindTab(widget);
     if (tab) {
         int px;
         int py;
         gdk_window_get_pointer(gtk_widget_get_window(widget), &px, &py, NULL);
 
-        for (int t = 0;t < tab->numRects;t++) {
-            if (tab->rects[t].x <= px && tab->rects[t].y <= py &&
-                tab->rects[t].x + tab->rects[t].width > px &&
-                tab->rects[t].y + tab->rects[t].height > py) {
-                setHovered(tab, widget, t);
+        for (size_t i = 0;i < tab->rects.size();i++) {
+            auto &rect = tab->rects[i];
+            if (rect.x <= px && rect.y <= py && rect.x + rect.width > px &&
+                rect.y + rect.height > py) {
+                setHovered(tab, widget, i);
                 return false;
             }
         }
@@ -144,7 +139,7 @@ motion(GtkWidget *widget, GdkEventMotion*, void*)
 static gboolean
 leave(GtkWidget *widget, GdkEventCrossing*, void*)
 {
-    QtCTab *prevTab = widgetFindTab(widget);
+    Info *prevTab = widgetFindTab(widget);
 
     if (prevTab && prevTab->id >= 0) {
         prevTab->id = -1;
@@ -251,7 +246,7 @@ pageAdded(GtkWidget *widget, GdkEventCrossing*, void*)
 int
 currentHoveredIndex(GtkWidget *widget)
 {
-    QtCTab *tab = widgetFindTab(widget);
+    Info *tab = widgetFindTab(widget);
     return tab ? tab->id : -1;
 }
 
@@ -279,17 +274,11 @@ setup(GtkWidget *widget)
 void
 updateRect(GtkWidget *widget, int tabIndex, int x, int y, int width, int height)
 {
-    QtCTab *tab = widgetFindTab(widget);
+    Info *tab = widgetFindTab(widget);
 
     if (tab && tabIndex >= 0) {
-        if (tabIndex >= tab->numRects) {
-            tab->rects = (QtcRect*)realloc(tab->rects,
-                                           sizeof(QtcRect) * (tabIndex + 8));
-            for (int p = tab->numRects;p < tabIndex + 8;p++) {
-                tab->rects[p].x = tab->rects[p].y = 0;
-                tab->rects[p].width = tab->rects[p].height = -1;
-            }
-            tab->numRects = tabIndex + 8;
+        if (tabIndex >= (int)tab->rects.size()) {
+            tab->rects.resize(tabIndex + 8, qtcRect(0, 0, -1, -1));
         }
         tab->rects[tabIndex].x = x;
         tab->rects[tabIndex].y = y;
