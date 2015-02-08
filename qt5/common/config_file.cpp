@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -2132,11 +2132,12 @@ static const char * toStr(ETBarBtn tb)
 
 #define CFG config
 
-#define CFG_WRITE_ENTRY(ENTRY) \
-    if (!exportingStyle && def.ENTRY==opts.ENTRY) \
-        CFG.deleteEntry(#ENTRY); \
-    else \
-        CFG.writeEntry(#ENTRY, toStr(opts.ENTRY));
+#define CFG_WRITE_ENTRY(ENTRY) do {                     \
+        if (!exportingStyle && def.ENTRY == opts.ENTRY) \
+            CFG.deleteEntry(#ENTRY);                    \
+        else                                            \
+            CFG.writeEntry(#ENTRY, toStr(opts.ENTRY));  \
+    } while (0)
 
 #define CFG_WRITE_APPEARANCE_ENTRY(ENTRY, ALLOW) \
     if (!exportingStyle && def.ENTRY==opts.ENTRY) \
@@ -2222,130 +2223,132 @@ bool qtcWriteConfig(KConfig *cfg, const Options &opts, const Options &def, bool 
     {
         KConfigGroup config(cfg, SETTINGS_GROUP);
         CFG.writeEntry(VERSION_KEY, qtcVersion());
-        CFG_WRITE_ENTRY_NUM(passwordChar)
-        CFG_WRITE_ENTRY_NUM(gbFactor)
-        CFG_WRITE_ENTRY(round)
-        CFG_WRITE_ENTRY_NUM(highlightFactor)
-        CFG_WRITE_ENTRY_NUM(menuDelay)
-        CFG_WRITE_ENTRY_NUM(sliderWidth)
-        CFG_WRITE_ENTRY(toolbarBorders)
-        CFG_WRITE_APPEARANCE_ENTRY(appearance, APP_ALLOW_BASIC)
-        CFG_WRITE_APPEARANCE_ENTRY(tbarBtnAppearance, APP_ALLOW_NONE)
-        CFG_WRITE_ENTRY(tbarBtnEffect)
-        CFG_WRITE_APPEARANCE_ENTRY_PIXMAP(bgndAppearance, APP_ALLOW_STRIPED, bgndPixmap)
-        CFG_WRITE_ENTRY(bgndGrad)
-        CFG_WRITE_ENTRY(menuBgndGrad)
-        CFG_WRITE_APPEARANCE_ENTRY_PIXMAP(menuBgndAppearance, APP_ALLOW_STRIPED, menuBgndPixmap)
-        CFG_WRITE_ENTRY(stripedProgress)
-        CFG_WRITE_ENTRY(sliderStyle)
-        CFG_WRITE_ENTRY(animatedProgress)
-        CFG_WRITE_ENTRY_NUM(lighterPopupMenuBgnd)
-        CFG_WRITE_ENTRY_NUM(tabBgnd)
-        CFG_WRITE_ENTRY(embolden)
-        CFG_WRITE_ENTRY(defBtnIndicator)
-        CFG_WRITE_ENTRY_B(sliderThumbs, false)
-        CFG_WRITE_ENTRY_B(handles, true)
-        CFG_WRITE_ENTRY(highlightTab)
-        CFG_WRITE_ENTRY_NUM(colorSelTab)
-        CFG_WRITE_ENTRY(roundAllTabs)
-        CFG_WRITE_ENTRY(tabMouseOver)
-        CFG_WRITE_APPEARANCE_ENTRY(menubarAppearance, APP_ALLOW_BASIC)
-        CFG_WRITE_APPEARANCE_ENTRY(menuitemAppearance, APP_ALLOW_FADE)
-        CFG_WRITE_APPEARANCE_ENTRY(toolbarAppearance, APP_ALLOW_BASIC)
-        CFG_WRITE_APPEARANCE_ENTRY(selectionAppearance, APP_ALLOW_BASIC)
-        CFG_WRITE_APPEARANCE_ENTRY(dwtAppearance, APP_ALLOW_BASIC)
-        CFG_WRITE_ENTRY(titlebarEffect)
-        CFG_WRITE_APPEARANCE_ENTRY(menuStripeAppearance, APP_ALLOW_BASIC)
-        CFG_WRITE_ENTRY_B(toolbarSeparators, false)
-        CFG_WRITE_ENTRY_B(splitters, true)
-        CFG_WRITE_ENTRY(customMenuTextColor)
-        CFG_WRITE_ENTRY(coloredMouseOver)
-        CFG_WRITE_ENTRY(menubarMouseOver)
-        CFG_WRITE_ENTRY(useHighlightForMenu)
-        CFG_WRITE_ENTRY(shadeMenubarOnlyWhenActive)
-        CFG_WRITE_ENTRY_NUM(thin)
-        CFG_WRITE_SHADE_ENTRY(shadeSliders, customSlidersColor)
-        CFG_WRITE_SHADE_ENTRY(shadeMenubars, customMenubarsColor)
-        CFG_WRITE_SHADE_ENTRY(sortedLv, customSortedLvColor)
-        CFG_WRITE_ENTRY(customMenuSelTextColor)
-        CFG_WRITE_ENTRY(customMenuNormTextColor)
-        CFG_WRITE_SHADE_ENTRY(shadeCheckRadio, customCheckRadioColor)
-        CFG_WRITE_ENTRY(scrollbarType)
-        CFG_WRITE_ENTRY(buttonEffect)
-        CFG_WRITE_APPEARANCE_ENTRY(lvAppearance, APP_ALLOW_BASIC)
-        CFG_WRITE_APPEARANCE_ENTRY(tabAppearance, APP_ALLOW_BASIC)
-        CFG_WRITE_APPEARANCE_ENTRY(activeTabAppearance, APP_ALLOW_BASIC)
-        CFG_WRITE_APPEARANCE_ENTRY(sliderAppearance, APP_ALLOW_BASIC)
-        CFG_WRITE_APPEARANCE_ENTRY(progressAppearance, APP_ALLOW_BASIC)
-        CFG_WRITE_APPEARANCE_ENTRY(progressGrooveAppearance, APP_ALLOW_BASIC)
-        CFG_WRITE_APPEARANCE_ENTRY(grooveAppearance, APP_ALLOW_BASIC)
-        CFG_WRITE_APPEARANCE_ENTRY(sunkenAppearance, APP_ALLOW_BASIC)
-        CFG_WRITE_APPEARANCE_ENTRY(sbarBgndAppearance, APP_ALLOW_BASIC)
-        CFG_WRITE_APPEARANCE_ENTRY(tooltipAppearance, APP_ALLOW_BASIC)
-        CFG_WRITE_ENTRY(sliderFill)
-        CFG_WRITE_ENTRY(progressGrooveColor)
-        CFG_WRITE_ENTRY(focus)
-        CFG_WRITE_ENTRY(lvButton)
-        CFG_WRITE_ENTRY(lvLines)
-        CFG_WRITE_ENTRY(drawStatusBarFrames)
-        CFG_WRITE_ENTRY(fillSlider)
-        CFG_WRITE_ENTRY(roundMbTopOnly)
-        CFG_WRITE_ENTRY(borderMenuitems)
-        CFG_WRITE_ENTRY(darkerBorders)
-        CFG_WRITE_ENTRY(vArrows)
-        CFG_WRITE_ENTRY(xCheck)
-        CFG_WRITE_ENTRY(groupBox)
-        CFG_WRITE_ENTRY_NUM(gbLabel)
-        CFG_WRITE_ENTRY(fadeLines)
-        CFG_WRITE_ENTRY(glowProgress)
-        CFG_WRITE_IMAGE_ENTRY(bgndImage)
-        CFG_WRITE_IMAGE_ENTRY(menuBgndImage)
-        CFG_WRITE_ENTRY(colorMenubarMouseOver)
-        CFG_WRITE_ENTRY_NUM(crHighlight)
-        CFG_WRITE_ENTRY(crButton)
-        CFG_WRITE_SHADE_ENTRY(crColor, customCrBgndColor)
-        CFG_WRITE_SHADE_ENTRY(progressColor, customProgressColor)
-        CFG_WRITE_ENTRY(smallRadio)
-        CFG_WRITE_ENTRY(fillProgress)
-        CFG_WRITE_ENTRY(comboSplitter)
-        CFG_WRITE_ENTRY(highlightScrollViews)
-        CFG_WRITE_ENTRY(etchEntry)
-        CFG_WRITE_ENTRY_NUM(splitterHighlight)
-        CFG_WRITE_ENTRY_NUM(expanderHighlight)
-        CFG_WRITE_ENTRY_NUM(crSize)
-        CFG_WRITE_ENTRY(flatSbarButtons)
-        CFG_WRITE_ENTRY(borderSbarGroove)
-        CFG_WRITE_ENTRY(borderProgress)
-        CFG_WRITE_ENTRY(popupBorder)
-        CFG_WRITE_ENTRY(unifySpinBtns)
-        CFG_WRITE_ENTRY(unifySpin)
-        CFG_WRITE_ENTRY(unifyCombo)
-        CFG_WRITE_ENTRY(borderTab)
-        CFG_WRITE_ENTRY(borderInactiveTab)
-        CFG_WRITE_ENTRY(thinSbarGroove)
-        CFG_WRITE_ENTRY(colorSliderMouseOver)
-        CFG_WRITE_ENTRY(menuIcons)
-        CFG_WRITE_ENTRY(forceAlternateLvCols)
-        CFG_WRITE_ENTRY_NUM(square)
-        CFG_WRITE_ENTRY(invertBotTab)
-        CFG_WRITE_ENTRY_NUM(menubarHiding)
-        CFG_WRITE_ENTRY_NUM(statusbarHiding)
-        CFG_WRITE_ENTRY(boldProgress)
-        CFG_WRITE_ENTRY(coloredTbarMo)
-        CFG_WRITE_ENTRY(borderSelection)
-        CFG_WRITE_ENTRY(stripedSbar)
-        CFG_WRITE_ENTRY_NUM(windowDrag)
-        CFG_WRITE_ENTRY(shadePopupMenu)
-        CFG_WRITE_ENTRY(hideShortcutUnderline)
-        CFG_WRITE_ENTRY_NUM(windowBorder)
-        CFG_WRITE_ENTRY(tbarBtns)
-        CFG_WRITE_ENTRY_NUM(dwtSettings)
-        CFG_WRITE_ENTRY_NUM(bgndOpacity)
-        CFG_WRITE_ENTRY_NUM(menuBgndOpacity)
-        CFG_WRITE_ENTRY_NUM(dlgOpacity)
-        CFG_WRITE_ENTRY(stdBtnSizes)
-        CFG_WRITE_ENTRY_NUM(titlebarButtons)
-        CFG_WRITE_ENTRY(titlebarIcon)
+        CFG_WRITE_ENTRY_NUM(passwordChar);
+        CFG_WRITE_ENTRY_NUM(gbFactor);
+        CFG_WRITE_ENTRY(round);
+        CFG_WRITE_ENTRY_NUM(highlightFactor);
+        CFG_WRITE_ENTRY_NUM(menuDelay);
+        CFG_WRITE_ENTRY_NUM(sliderWidth);
+        CFG_WRITE_ENTRY(toolbarBorders);
+        CFG_WRITE_APPEARANCE_ENTRY(appearance, APP_ALLOW_BASIC);
+        CFG_WRITE_APPEARANCE_ENTRY(tbarBtnAppearance, APP_ALLOW_NONE);
+        CFG_WRITE_ENTRY(tbarBtnEffect);
+        CFG_WRITE_APPEARANCE_ENTRY_PIXMAP(bgndAppearance, APP_ALLOW_STRIPED,
+                                          bgndPixmap);
+        CFG_WRITE_ENTRY(bgndGrad);
+        CFG_WRITE_ENTRY(menuBgndGrad);
+        CFG_WRITE_APPEARANCE_ENTRY_PIXMAP(menuBgndAppearance, APP_ALLOW_STRIPED,
+                                          menuBgndPixmap);
+        CFG_WRITE_ENTRY(stripedProgress);
+        CFG_WRITE_ENTRY(sliderStyle);
+        CFG_WRITE_ENTRY(animatedProgress);
+        CFG_WRITE_ENTRY_NUM(lighterPopupMenuBgnd);
+        CFG_WRITE_ENTRY_NUM(tabBgnd);
+        CFG_WRITE_ENTRY(embolden);
+        CFG_WRITE_ENTRY(defBtnIndicator);
+        CFG_WRITE_ENTRY_B(sliderThumbs, false);
+        CFG_WRITE_ENTRY_B(handles, true);
+        CFG_WRITE_ENTRY(highlightTab);
+        CFG_WRITE_ENTRY_NUM(colorSelTab);
+        CFG_WRITE_ENTRY(roundAllTabs);
+        CFG_WRITE_ENTRY(tabMouseOver);
+        CFG_WRITE_APPEARANCE_ENTRY(menubarAppearance, APP_ALLOW_BASIC);
+        CFG_WRITE_APPEARANCE_ENTRY(menuitemAppearance, APP_ALLOW_FADE);
+        CFG_WRITE_APPEARANCE_ENTRY(toolbarAppearance, APP_ALLOW_BASIC);
+        CFG_WRITE_APPEARANCE_ENTRY(selectionAppearance, APP_ALLOW_BASIC);
+        CFG_WRITE_APPEARANCE_ENTRY(dwtAppearance, APP_ALLOW_BASIC);
+        CFG_WRITE_ENTRY(titlebarEffect);
+        CFG_WRITE_APPEARANCE_ENTRY(menuStripeAppearance, APP_ALLOW_BASIC);
+        CFG_WRITE_ENTRY_B(toolbarSeparators, false);
+        CFG_WRITE_ENTRY_B(splitters, true);
+        CFG_WRITE_ENTRY(customMenuTextColor);
+        CFG_WRITE_ENTRY(coloredMouseOver);
+        CFG_WRITE_ENTRY(menubarMouseOver);
+        CFG_WRITE_ENTRY(useHighlightForMenu);
+        CFG_WRITE_ENTRY(shadeMenubarOnlyWhenActive);
+        CFG_WRITE_ENTRY_NUM(thin);
+        CFG_WRITE_SHADE_ENTRY(shadeSliders, customSlidersColor);
+        CFG_WRITE_SHADE_ENTRY(shadeMenubars, customMenubarsColor);
+        CFG_WRITE_SHADE_ENTRY(sortedLv, customSortedLvColor);
+        CFG_WRITE_ENTRY(customMenuSelTextColor);
+        CFG_WRITE_ENTRY(customMenuNormTextColor);
+        CFG_WRITE_SHADE_ENTRY(shadeCheckRadio, customCheckRadioColor);
+        CFG_WRITE_ENTRY(scrollbarType);
+        CFG_WRITE_ENTRY(buttonEffect);
+        CFG_WRITE_APPEARANCE_ENTRY(lvAppearance, APP_ALLOW_BASIC);
+        CFG_WRITE_APPEARANCE_ENTRY(tabAppearance, APP_ALLOW_BASIC);
+        CFG_WRITE_APPEARANCE_ENTRY(activeTabAppearance, APP_ALLOW_BASIC);
+        CFG_WRITE_APPEARANCE_ENTRY(sliderAppearance, APP_ALLOW_BASIC);
+        CFG_WRITE_APPEARANCE_ENTRY(progressAppearance, APP_ALLOW_BASIC);
+        CFG_WRITE_APPEARANCE_ENTRY(progressGrooveAppearance, APP_ALLOW_BASIC);
+        CFG_WRITE_APPEARANCE_ENTRY(grooveAppearance, APP_ALLOW_BASIC);
+        CFG_WRITE_APPEARANCE_ENTRY(sunkenAppearance, APP_ALLOW_BASIC);
+        CFG_WRITE_APPEARANCE_ENTRY(sbarBgndAppearance, APP_ALLOW_BASIC);
+        CFG_WRITE_APPEARANCE_ENTRY(tooltipAppearance, APP_ALLOW_BASIC);
+        CFG_WRITE_ENTRY(sliderFill);
+        CFG_WRITE_ENTRY(progressGrooveColor);
+        CFG_WRITE_ENTRY(focus);
+        CFG_WRITE_ENTRY(lvButton);
+        CFG_WRITE_ENTRY(lvLines);
+        CFG_WRITE_ENTRY(drawStatusBarFrames);
+        CFG_WRITE_ENTRY(fillSlider);
+        CFG_WRITE_ENTRY(roundMbTopOnly);
+        CFG_WRITE_ENTRY(borderMenuitems);
+        CFG_WRITE_ENTRY(darkerBorders);
+        CFG_WRITE_ENTRY(vArrows);
+        CFG_WRITE_ENTRY(xCheck);
+        CFG_WRITE_ENTRY(groupBox);
+        CFG_WRITE_ENTRY_NUM(gbLabel);
+        CFG_WRITE_ENTRY(fadeLines);
+        CFG_WRITE_ENTRY(glowProgress);
+        CFG_WRITE_IMAGE_ENTRY(bgndImage);
+        CFG_WRITE_IMAGE_ENTRY(menuBgndImage);
+        CFG_WRITE_ENTRY(colorMenubarMouseOver);
+        CFG_WRITE_ENTRY_NUM(crHighlight);
+        CFG_WRITE_ENTRY(crButton);
+        CFG_WRITE_SHADE_ENTRY(crColor, customCrBgndColor);
+        CFG_WRITE_SHADE_ENTRY(progressColor, customProgressColor);
+        CFG_WRITE_ENTRY(smallRadio);
+        CFG_WRITE_ENTRY(fillProgress);
+        CFG_WRITE_ENTRY(comboSplitter);
+        CFG_WRITE_ENTRY(highlightScrollViews);
+        CFG_WRITE_ENTRY(etchEntry);
+        CFG_WRITE_ENTRY_NUM(splitterHighlight);
+        CFG_WRITE_ENTRY_NUM(expanderHighlight);
+        CFG_WRITE_ENTRY_NUM(crSize);
+        CFG_WRITE_ENTRY(flatSbarButtons);
+        CFG_WRITE_ENTRY(borderSbarGroove);
+        CFG_WRITE_ENTRY(borderProgress);
+        CFG_WRITE_ENTRY(popupBorder);
+        CFG_WRITE_ENTRY(unifySpinBtns);
+        CFG_WRITE_ENTRY(unifySpin);
+        CFG_WRITE_ENTRY(unifyCombo);
+        CFG_WRITE_ENTRY(borderTab);
+        CFG_WRITE_ENTRY(borderInactiveTab);
+        CFG_WRITE_ENTRY(thinSbarGroove);
+        CFG_WRITE_ENTRY(colorSliderMouseOver);
+        CFG_WRITE_ENTRY(menuIcons);
+        CFG_WRITE_ENTRY(forceAlternateLvCols);
+        CFG_WRITE_ENTRY_NUM(square);
+        CFG_WRITE_ENTRY(invertBotTab);
+        CFG_WRITE_ENTRY_NUM(menubarHiding);
+        CFG_WRITE_ENTRY_NUM(statusbarHiding);
+        CFG_WRITE_ENTRY(boldProgress);
+        CFG_WRITE_ENTRY(coloredTbarMo);
+        CFG_WRITE_ENTRY(borderSelection);
+        CFG_WRITE_ENTRY(stripedSbar);
+        CFG_WRITE_ENTRY_NUM(windowDrag);
+        CFG_WRITE_ENTRY(shadePopupMenu);
+        CFG_WRITE_ENTRY(hideShortcutUnderline);
+        CFG_WRITE_ENTRY_NUM(windowBorder);
+        CFG_WRITE_ENTRY(tbarBtns);
+        CFG_WRITE_ENTRY_NUM(dwtSettings);
+        CFG_WRITE_ENTRY_NUM(bgndOpacity);
+        CFG_WRITE_ENTRY_NUM(menuBgndOpacity);
+        CFG_WRITE_ENTRY_NUM(dlgOpacity);
+        CFG_WRITE_ENTRY(stdBtnSizes);
+        CFG_WRITE_ENTRY_NUM(titlebarButtons);
+        CFG_WRITE_ENTRY(titlebarIcon);
 
         if((opts.titlebarButtons&TITLEBAR_BUTTON_COLOR || opts.titlebarButtons&TITLEBAR_BUTTON_ICON_COLOR) &&
             opts.titlebarButtonColors.size() && 0==(opts.titlebarButtonColors.size()%NUM_TITLEBAR_BUTTONS))
@@ -2367,32 +2370,32 @@ bool qtcWriteConfig(KConfig *cfg, const Options &opts, const Options &def, bool 
         }
         else
             CFG.deleteEntry("titlebarButtonColors");
-        CFG_WRITE_SHADE_ENTRY(menuStripe, customMenuStripeColor)
-        CFG_WRITE_SHADE_ENTRY(comboBtn, customComboBtnColor)
-        CFG_WRITE_ENTRY(stdSidebarButtons)
-        CFG_WRITE_ENTRY(toolbarTabs)
-        CFG_WRITE_APPEARANCE_ENTRY(titlebarAppearance, APP_ALLOW_NONE)
-        CFG_WRITE_APPEARANCE_ENTRY(inactiveTitlebarAppearance, APP_ALLOW_NONE)
-        CFG_WRITE_APPEARANCE_ENTRY(titlebarButtonAppearance, APP_ALLOW_BASIC)
-        CFG_WRITE_ENTRY(gtkScrollViews)
-        CFG_WRITE_ENTRY(gtkComboMenus)
-        CFG_WRITE_ENTRY(doubleGtkComboArrow)
-        CFG_WRITE_ENTRY(gtkButtonOrder)
+        CFG_WRITE_SHADE_ENTRY(menuStripe, customMenuStripeColor);
+        CFG_WRITE_SHADE_ENTRY(comboBtn, customComboBtnColor);
+        CFG_WRITE_ENTRY(stdSidebarButtons);
+        CFG_WRITE_ENTRY(toolbarTabs);
+        CFG_WRITE_APPEARANCE_ENTRY(titlebarAppearance, APP_ALLOW_NONE);
+        CFG_WRITE_APPEARANCE_ENTRY(inactiveTitlebarAppearance, APP_ALLOW_NONE);
+        CFG_WRITE_APPEARANCE_ENTRY(titlebarButtonAppearance, APP_ALLOW_BASIC);
+        CFG_WRITE_ENTRY(gtkScrollViews);
+        CFG_WRITE_ENTRY(gtkComboMenus);
+        CFG_WRITE_ENTRY(doubleGtkComboArrow);
+        CFG_WRITE_ENTRY(gtkButtonOrder);
 #if defined CONFIG_DIALOG
-        CFG_WRITE_ENTRY(reorderGtkButtons)
+        CFG_WRITE_ENTRY(reorderGtkButtons);
 #endif
-        CFG_WRITE_ENTRY(mapKdeIcons)
-        CFG_WRITE_ENTRY(shading)
-        CFG_WRITE_ENTRY(titlebarAlignment)
-        CFG_WRITE_ENTRY(centerTabText)
-        CFG_WRITE_STRING_LIST_ENTRY(noBgndGradientApps)
-        CFG_WRITE_STRING_LIST_ENTRY(noBgndOpacityApps)
-        CFG_WRITE_STRING_LIST_ENTRY(noMenuBgndOpacityApps)
-        CFG_WRITE_STRING_LIST_ENTRY(noBgndImageApps)
-        CFG_WRITE_STRING_LIST_ENTRY(noMenuStripeApps)
-        CFG_WRITE_STRING_LIST_ENTRY(menubarApps)
-        CFG_WRITE_STRING_LIST_ENTRY(statusbarApps)
-        CFG_WRITE_STRING_LIST_ENTRY(useQtFileDialogApps)
+        CFG_WRITE_ENTRY(mapKdeIcons);
+        CFG_WRITE_ENTRY(shading);
+        CFG_WRITE_ENTRY(titlebarAlignment);
+        CFG_WRITE_ENTRY(centerTabText);
+        CFG_WRITE_STRING_LIST_ENTRY(noBgndGradientApps);
+        CFG_WRITE_STRING_LIST_ENTRY(noBgndOpacityApps);
+        CFG_WRITE_STRING_LIST_ENTRY(noMenuBgndOpacityApps);
+        CFG_WRITE_STRING_LIST_ENTRY(noBgndImageApps);
+        CFG_WRITE_STRING_LIST_ENTRY(noMenuStripeApps);
+        CFG_WRITE_STRING_LIST_ENTRY(menubarApps);
+        CFG_WRITE_STRING_LIST_ENTRY(statusbarApps);
+        CFG_WRITE_STRING_LIST_ENTRY(useQtFileDialogApps);
 
         for(int i=APPEARANCE_CUSTOM1; i<(APPEARANCE_CUSTOM1+NUM_CUSTOM_GRAD); ++i)
         {

@@ -704,13 +704,18 @@ struct GradientStopCont : public std::set<GradientStop>
     }
 };
 struct Gradient {
-    Gradient() : border(GB_3D) { }
-
-    bool operator==(const Gradient &o) const
+    Gradient() :
+        border(GB_3D)
     {
-        return border==o.border && stops==o.stops;
     }
-    EGradientBorder  border;
+
+    bool
+    operator==(const Gradient &o) const
+    {
+        return border == o.border && stops == o.stops;
+    }
+
+    EGradientBorder border;
     GradientStopCont stops;
 };
 

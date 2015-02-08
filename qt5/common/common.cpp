@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -54,10 +54,10 @@ qtcGetGradient(EAppearance app, const Options *opts)
 {
     if (IS_CUSTOM(app)) {
 #ifdef QTC_UTILS_QT
-        GradientCont::const_iterator grad(opts->customGradient.find(app));
+        auto grad = opts->customGradient.find(app);
 
         if (grad != opts->customGradient.end()) {
-            return &((*grad).second);
+            return &grad->second;
         }
 #else
         Gradient *grad = opts->customGradient[app - APPEARANCE_CUSTOM1];
