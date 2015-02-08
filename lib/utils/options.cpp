@@ -28,34 +28,33 @@
 namespace QtCurve {
 namespace Config {
 
-template<>
-QTC_EXPORT Shading
-loadValue<Shading>(const char *str, Shading def)
-{
-    static const StrMap<Shading> map{
-        {"simple", Shading::Simple},
-        {"hsl", Shading::HSL},
-        {"hsv", Shading::HSV},
-        {"hcy", Shading::HCY},
-    };
-    return map.search(str, def);
-}
-template Shading loadValue<Shading>(const char *str, Shading def);
+#define DEF_LOAD_VALUE(type, body...)           \
+    template<>                                  \
+    QTC_EXPORT                                  \
+    _QTC_CONFIG_DEF_LOAD_VALUE(type, str, def)  \
+    {                                           \
+        static const StrMap<type> map{body};    \
+        return map.search(str, def);            \
+    }                                           \
+    QTC_CONFIG_DEF_LOAD_VALUE(type)
 
-template<>
-QTC_EXPORT EScrollbar
-loadValue<EScrollbar>(const char *str, EScrollbar def)
-{
-    static const StrMap<EScrollbar> map{
-        {"kde", SCROLLBAR_KDE},
-        {"windows", SCROLLBAR_WINDOWS},
-        {"platinum", SCROLLBAR_PLATINUM},
-        {"next", SCROLLBAR_NEXT},
-        {"none", SCROLLBAR_NONE},
-    };
-    return map.search(str, def);
-}
-template EScrollbar loadValue<EScrollbar>(const char *str, EScrollbar def);
+DEF_LOAD_VALUE(Shading,
+               {"simple", Shading::Simple},
+               {"hsl", Shading::HSL},
+               {"hsv", Shading::HSV},
+               {"hcy", Shading::HCY});
+DEF_LOAD_VALUE(EScrollbar,
+               {"kde", SCROLLBAR_KDE},
+               {"windows", SCROLLBAR_WINDOWS},
+               {"platinum", SCROLLBAR_PLATINUM},
+               {"next", SCROLLBAR_NEXT},
+               {"none", SCROLLBAR_NONE});
+DEF_LOAD_VALUE(EFrame,
+               {"none", FRAME_NONE},
+               {"plain", FRAME_PLAIN},
+               {"line", FRAME_LINE},
+               {"shaded", FRAME_SHADED},
+               {"faded", FRAME_FADED});
 
 }
 }

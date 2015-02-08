@@ -256,20 +256,7 @@ toScrollbar(const char *str, EScrollbar def)
 static EFrame
 toFrame(const char *str, EFrame def)
 {
-    if (str && str[0]) {
-        if(0==memcmp(str, "none", 4))
-            return FRAME_NONE;
-        if(0==memcmp(str, "plain", 5))
-            return FRAME_PLAIN;
-        if(0==memcmp(str, "line", 4))
-            return FRAME_LINE;
-        if(0==memcmp(str, "shaded", 6))
-            return FRAME_SHADED;
-        if(0==memcmp(str, "faded", 5))
-            return FRAME_FADED;
-    }
-
-    return def;
+    return QtCurve::Config::loadValue<EFrame>(str, def);
 }
 
 static EEffect

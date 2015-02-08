@@ -185,10 +185,16 @@ namespace Config {
 
 template<typename T> T loadValue(const char *str, T def);
 
+#define _QTC_CONFIG_DEF_LOAD_VALUE(type, str, def)              \
+    type loadValue<type>(const char *str, type def)
+
+#define QTC_CONFIG_DEF_LOAD_VALUE(type)                 \
+    template _QTC_CONFIG_DEF_LOAD_VALUE(type, str, def)
+
 #ifndef __QTC_UTILS_OPTIONS_INTERNAL__
-extern template Shading loadValue<Shading>(const char *str, Shading def);
-extern template EScrollbar loadValue<EScrollbar>(const char *str,
-                                                 EScrollbar def);
+extern QTC_CONFIG_DEF_LOAD_VALUE(Shading);
+extern QTC_CONFIG_DEF_LOAD_VALUE(EScrollbar);
+extern QTC_CONFIG_DEF_LOAD_VALUE(EFrame);
 #endif
 
 }
