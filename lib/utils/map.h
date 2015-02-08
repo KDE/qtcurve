@@ -24,75 +24,80 @@
 
 #include "utils.h"
 
-QTC_BEGIN_DECLS
+#include <vector>
+#include <utility>
+#include <algorithm>
+#include <initializer_list>
 
-typedef struct {
-    void *items;
-    const unsigned num;
-    const unsigned size;
-    bool inited: 1;
-    const bool case_sensitive: 1;
-} QtcStrMap;
-void qtcStrMapInit(QtcStrMap *map);
-void *qtcStrMapSearch(const QtcStrMap *map, const char *key);
+namespace QtCurve {
 
-typedef struct {
-    const char *key;
-    unsigned val;
-} QtcEnumItem;
+// C++14 integer sequence
+template<int...>
+struct seq {
+};
 
-#define QTC_DEF_ENUM(map, case_sense, items...)          \
-    static QtcEnumItem __##map##_items[] = {items};      \
-    static QtcStrMap map = {                             \
-        __##map##_items,                                 \
-        sizeof(__##map##_items) / sizeof(QtcEnumItem),   \
-        sizeof(QtcEnumItem),                             \
-        false,                                           \
-        case_sense                                       \
-    };                                                   \
-    if (!map.inited) {                                   \
-        qtcStrMapInit(&map);                             \
+template<int N, int... S>
+struct gens : gens<N - 1, N - 1, S...> {
+};
+
+template<int ...S>
+struct gens<0, S...> {
+    typedef seq<S...> type;
+};
+
+template<int N>
+using gens_t = typename gens<N>::type;
+
+template<typename Val=int, bool case_sens=false>
+class StrMap : std::vector<std::pair<const char*, Val> > {
+    typedef std::pair<const char*, Val> pair_type;
+    static int
+    strcmp_func(const char *a, const char *b)
+    {
+        if (case_sens) {
+            return strcmp(a, b);
+        } else {
+            return strcasecmp(a, b);
+        }
     }
+    template<typename... Ts, int ...S>
+    StrMap(seq<S...>, Ts&&... ts)
+        : StrMap{{ts, Val(S)}...}
+    {
+    }
+public:
+    StrMap(std::initializer_list<pair_type> &&ts)
+        : std::vector<pair_type>(std::move(ts))
+    {
+        std::sort(this->begin(), this->end(),
+                  [] (const pair_type &a, const pair_type &b) {
+                      return strcmp_func(a.first, b.first) < 0;
+                  });
+    }
+    template<typename... Ts>
+    StrMap(Ts&&... ts)
+        : StrMap(gens_t<sizeof...(Ts)>(), std::forward<Ts>(ts)...)
+    {
+    }
+    Val
+    search(const char *key, Val def=Val(-1), bool *is_def=nullptr) const
+    {
+        QTC_RET_IF_FAIL(key, def);
+        auto lower_it = std::lower_bound(
+            this->begin(), this->end(), key, [] (const pair_type &a,
+                                                 const char *key) {
+                return strcmp_func(a.first, key) < 0;
+            });
+        if (lower_it == this->end() ||
+            strcmp_func(lower_it->first, key) != 0) {
+            qtcAssign(is_def, true);
+            return def;
+        }
+        qtcAssign(is_def, false);
+        return lower_it->second;
+    }
+};
 
-static inline void
-_qtcEnumInitKeys(QtcStrMap *map, const char **keys)
-{
-    if (map->inited) {
-        return;
-    }
-    QtcEnumItem *items = (QtcEnumItem*)map->items;
-    for (unsigned i = 0;i < map->num;i++) {
-        items[i].key = keys[i];
-        items[i].val = i;
-    }
-    qtcStrMapInit(map);
 }
-
-#define QTC_DEF_ENUM_AUTO(map, case_sense, keys...)               \
-    static const char *__##map##_keys[] = {keys};                 \
-    static QtcEnumItem __##map##_items[sizeof(__##map##_keys) /   \
-                                       sizeof(const char*)];      \
-    static QtcStrMap map = {                                      \
-        __##map##_items,                                          \
-        sizeof(__##map##_items) / sizeof(QtcEnumItem),            \
-        sizeof(QtcEnumItem),                                      \
-        false,                                                    \
-        case_sense                                                \
-    };                                                            \
-    _qtcEnumInitKeys(&map, __##map##_keys)
-
-QTC_ALWAYS_INLINE static inline unsigned
-qtcEnumSearch(const QtcStrMap *map, const char *key, unsigned def, bool *is_def)
-{
-    QtcEnumItem *item = (QtcEnumItem*)qtcStrMapSearch(map, key);
-    qtcAssign(is_def, !item);
-    return item ? item->val : def;
-}
-#define _qtcEnumSearch(map, key, def, is_def, ...)              \
-    qtcEnumSearch(map, key, (unsigned)(def), (bool*)is_def)
-#define qtcEnumSearch(map, key, def...)         \
-    _qtcEnumSearch(map, key, ##def, 0, 0)
-
-QTC_END_DECLS
 
 #endif

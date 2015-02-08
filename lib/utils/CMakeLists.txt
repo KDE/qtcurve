@@ -1,12 +1,11 @@
 set(qtcurve_utils_SRCS
   color.cpp
   dirs.c
-  log.c
+  log.cpp
   utils.c
   strs.c
   shadow.cpp
   timer.cpp
-  map.c
   fd_utils.c
   process.c
   # DO NOT condition on QTC_ENABLE_X11 !!!

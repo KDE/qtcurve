@@ -41,11 +41,14 @@ _qtcCheckLogLevelReal()
         log_level = QTC_LOG_DEBUG;
         return;
     }
-    QTC_DEF_ENUM(level_map, false, {"debug", QTC_LOG_DEBUG},
-                 {"info", QTC_LOG_INFO}, {"warning", QTC_LOG_WARN},
-                 {"warn", QTC_LOG_WARN}, {"error", QTC_LOG_ERROR});
-    log_level = qtcEnumSearch(&level_map, getenv("QTCURVE_LEVEL"),
-                              QTC_LOG_ERROR);
+    static const QtCurve::StrMap<QtcLogLevel> level_map{
+        {"debug", QTC_LOG_DEBUG},
+        {"info", QTC_LOG_INFO},
+        {"warning", QTC_LOG_WARN},
+        {"warn", QTC_LOG_WARN},
+        {"error", QTC_LOG_ERROR}
+    };
+    log_level = level_map.search(getenv("QTCURVE_LEVEL"), QTC_LOG_ERROR);
     if (qtcStrToBool(env_debug, true) && log_level <= QTC_LOG_DEBUG) {
         log_level = QTC_LOG_INFO;
     }
@@ -114,8 +117,7 @@ _qtcLogV(QtcLogLevel level, const char *fname, int line, const char *func,
         [QTC_LOG_FORCE] = "qtcLog-",
     };
 
-    const char *color_prefix =
-        output_color ? color_prefix = color_codes[(int)level] : "";
+    const char *color_prefix = output_color ? color_codes[(int)level] : "";
     const char *log_prefix = log_prefixes[(int)level];
 
     fprintf(stderr, "%s%s%d (%s:%d) %s ", color_prefix, log_prefix, getpid(),

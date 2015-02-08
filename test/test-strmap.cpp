@@ -1,5 +1,5 @@
 /*****************************************************************************
- *   Copyright 2013 - 2013 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -62,15 +62,15 @@
 static int
 search_map(const char *str)
 {
-    QTC_DEF_ENUM_AUTO(auto_map, true, STRINGS);
-    return qtcEnumSearch(&auto_map, str, -1);
+    static const QtCurve::StrMap<int, true> auto_map(STRINGS);
+    return auto_map.search(str);
 }
 
 static int
 search_case_map(const char *str)
 {
-    QTC_DEF_ENUM_AUTO(auto_map, false, CASE_STRINGS);
-    return qtcEnumSearch(&auto_map, str, -1);
+    static const QtCurve::StrMap<> auto_map(CASE_STRINGS);
+    return auto_map.search(str);
 }
 
 int
