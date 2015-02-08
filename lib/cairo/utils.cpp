@@ -23,67 +23,11 @@
 #include "utils_p.h"
 #include <qtcurve-utils/number.h>
 
-QTC_EXPORT void
-qtcCairoPathPoints(cairo_t *cr, const GdkPoint *pts, int count)
-{
-    // The (0.5, 0.5) offset here is for moving the path to the center of the
-    // pixel.
-    cairo_move_to(cr, pts[0].x + 0.5, pts[0].y + 0.5);
-    for (int i = 1;i < count;i++) {
-        cairo_line_to(cr, pts[i].x + 0.5, pts[i].y + 0.5);
-    }
-}
-
-static void
-qtcCairoPathRegion(cairo_t *cr, const cairo_region_t *region)
-{
-    // Copied from gdk_cairo_region.
-    int n_boxes = cairo_region_num_rectangles(region);
-    QtcRect box;
-    for (int i = 0;i < n_boxes;i++) {
-        cairo_region_get_rectangle(region, i, &box);
-        cairo_rectangle(cr, box.x, box.y, box.width, box.height);
-    }
-}
+namespace QtCurve {
+namespace Rect {
 
 QTC_EXPORT void
-qtcCairoClipRegion(cairo_t *cr, const cairo_region_t *region)
-{
-    cairo_new_path(cr);
-    if (qtcLikely(region)) {
-        qtcCairoPathRegion(cr, region);
-        cairo_clip(cr);
-    }
-}
-
-QTC_EXPORT void
-qtcCairoClipRect(cairo_t *cr, const QtcRect *rect)
-{
-    cairo_new_path(cr);
-    if (qtcLikely(rect)) {
-        cairo_rectangle(cr, rect->x, rect->y, rect->width, rect->height);
-        cairo_clip(cr);
-    }
-}
-
-QTC_EXPORT void
-qtcCairoSetColor(cairo_t *cr, const GdkColor *col, double a)
-{
-    cairo_set_source_rgba(cr, col->red / 65535.0, col->green / 65535.0,
-                          col->blue / 65535.0, a);
-}
-
-QTC_EXPORT void
-qtcCairoPatternAddColorStop(cairo_pattern_t *pt, double offset,
-                            const GdkColor *col, double a)
-{
-    cairo_pattern_add_color_stop_rgba(pt, offset, col->red / 65535.0,
-                                      col->green / 65535.0,
-                                      col->blue / 65535.0, a);
-}
-
-QTC_EXPORT void
-qtcRectUnion(const QtcRect *src1, const QtcRect *src2, QtcRect *dest)
+union_(const QtcRect *src1, const QtcRect *src2, QtcRect *dest)
 {
     // Copied from gdk_rectangle_union
     int dest_x = qtcMin(src1->x, src2->x);
@@ -97,7 +41,7 @@ qtcRectUnion(const QtcRect *src1, const QtcRect *src2, QtcRect *dest)
 }
 
 QTC_EXPORT bool
-qtcRectIntersect(const QtcRect *src1, const QtcRect *src2, QtcRect *dest)
+intersect(const QtcRect *src1, const QtcRect *src2, QtcRect *dest)
 {
     // Copied from gdk_rectangle_intersect
     int dest_x = qtcMax(src1->x, src2->x);
@@ -120,9 +64,72 @@ qtcRectIntersect(const QtcRect *src1, const QtcRect *src2, QtcRect *dest)
     return false;
 }
 
+}
+
+namespace Cairo {
+
 QTC_EXPORT void
-qtcCairoPathTopLeft(cairo_t *cr, double xd, double yd, double width,
-                    double height, double radius, ECornerBits round)
+pathPoints(cairo_t *cr, const GdkPoint *pts, int count)
+{
+    // The (0.5, 0.5) offset here is for moving the path to the center of the
+    // pixel.
+    cairo_move_to(cr, pts[0].x + 0.5, pts[0].y + 0.5);
+    for (int i = 1;i < count;i++) {
+        cairo_line_to(cr, pts[i].x + 0.5, pts[i].y + 0.5);
+    }
+}
+
+static void
+pathRegion(cairo_t *cr, const cairo_region_t *region)
+{
+    // Copied from gdk_cairo_region.
+    int n_boxes = cairo_region_num_rectangles(region);
+    QtcRect box;
+    for (int i = 0;i < n_boxes;i++) {
+        cairo_region_get_rectangle(region, i, &box);
+        cairo_rectangle(cr, box.x, box.y, box.width, box.height);
+    }
+}
+
+QTC_EXPORT void
+clipRegion(cairo_t *cr, const cairo_region_t *region)
+{
+    cairo_new_path(cr);
+    if (qtcLikely(region)) {
+        pathRegion(cr, region);
+        cairo_clip(cr);
+    }
+}
+
+QTC_EXPORT void
+clipRect(cairo_t *cr, const QtcRect *_rect)
+{
+    cairo_new_path(cr);
+    if (qtcLikely(_rect)) {
+        cairo_rectangle(cr, _rect->x, _rect->y, _rect->width, _rect->height);
+        cairo_clip(cr);
+    }
+}
+
+QTC_EXPORT void
+setColor(cairo_t *cr, const GdkColor *col, double a)
+{
+    cairo_set_source_rgba(cr, col->red / 65535.0, col->green / 65535.0,
+                          col->blue / 65535.0, a);
+}
+
+QTC_EXPORT void
+patternAddColorStop(cairo_pattern_t *pt, double offset,
+                    const GdkColor *col, double a)
+{
+    cairo_pattern_add_color_stop_rgba(pt, offset, col->red / 65535.0,
+                                      col->green / 65535.0,
+                                      col->blue / 65535.0, a);
+}
+
+QTC_EXPORT void
+pathTopLeft(cairo_t *cr, double xd, double yd, double width,
+            double height, double radius, ECornerBits round)
 {
     bool rounded = radius > 0.0;
 
@@ -146,8 +153,8 @@ qtcCairoPathTopLeft(cairo_t *cr, double xd, double yd, double width,
 }
 
 QTC_EXPORT void
-qtcCairoPathBottomRight(cairo_t *cr, double xd, double yd, double width,
-                        double height, double radius, ECornerBits round)
+pathBottomRight(cairo_t *cr, double xd, double yd, double width,
+                double height, double radius, ECornerBits round)
 {
     bool rounded = radius > 0.0;
 
@@ -171,8 +178,8 @@ qtcCairoPathBottomRight(cairo_t *cr, double xd, double yd, double width,
 }
 
 QTC_EXPORT void
-qtcCairoPathWhole(cairo_t *cr, double xd, double yd, double width,
-                  double height, double radius, ECornerBits round)
+pathWhole(cairo_t *cr, double xd, double yd, double width,
+          double height, double radius, ECornerBits round)
 {
     bool rounded = radius > 0.0;
 
@@ -204,4 +211,7 @@ qtcCairoPathWhole(cairo_t *cr, double xd, double yd, double width,
     } else {
         cairo_line_to(cr, xd, yd);
     }
+}
+
+}
 }

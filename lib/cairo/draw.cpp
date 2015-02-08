@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -24,12 +24,15 @@
 #include "utils_p.h"
 #include <pango/pangocairo.h>
 
+namespace QtCurve {
+namespace Cairo {
+
 QTC_EXPORT void
-qtcCairoHLine(cairo_t *cr, int x, int y, int w, const GdkColor *col, double a)
+hLine(cairo_t *cr, int x, int y, int w, const GdkColor *col, double a)
 {
     cairo_save(cr);
     cairo_new_path(cr);
-    qtcCairoSetColor(cr, col, a);
+    setColor(cr, col, a);
     cairo_move_to(cr, x, y + 0.5);
     cairo_line_to(cr, x + w, y + 0.5);
     cairo_stroke(cr);
@@ -37,11 +40,11 @@ qtcCairoHLine(cairo_t *cr, int x, int y, int w, const GdkColor *col, double a)
 }
 
 QTC_EXPORT void
-qtcCairoVLine(cairo_t *cr, int x, int y, int h, const GdkColor *col, double a)
+vLine(cairo_t *cr, int x, int y, int h, const GdkColor *col, double a)
 {
     cairo_save(cr);
     cairo_new_path(cr);
-    qtcCairoSetColor(cr, col, a);
+    setColor(cr, col, a);
     cairo_move_to(cr, x + 0.5, y);
     cairo_line_to(cr, x + 0.5, y + h);
     cairo_stroke(cr);
@@ -49,15 +52,15 @@ qtcCairoVLine(cairo_t *cr, int x, int y, int h, const GdkColor *col, double a)
 }
 
 QTC_EXPORT void
-qtcCairoPolygon(cairo_t *cr, const GdkColor *col, const QtcRect *area,
-                const GdkPoint *points, int npoints, bool fill)
+polygon(cairo_t *cr, const GdkColor *col, const QtcRect *area,
+        const GdkPoint *points, int npoints, bool fill)
 {
     cairo_save(cr);
     cairo_set_line_width(cr, 1);
-    qtcCairoClipRect(cr, area);
-    qtcCairoSetColor(cr, col);
+    clipRect(cr, area);
+    setColor(cr, col);
     cairo_set_antialias(cr, CAIRO_ANTIALIAS_NONE);
-    qtcCairoPathPoints(cr, points, npoints);
+    pathPoints(cr, points, npoints);
     cairo_close_path(cr);
     cairo_stroke_preserve(cr);
     if (fill) {
@@ -67,22 +70,22 @@ qtcCairoPolygon(cairo_t *cr, const GdkColor *col, const QtcRect *area,
 }
 
 QTC_EXPORT void
-qtcCairoRect(cairo_t *cr, const QtcRect *area, int x, int y,
-             int width, int height, const GdkColor *col, double alpha)
+rect(cairo_t *cr, const QtcRect *area, int x, int y, int width, int height,
+     const GdkColor *col, double alpha)
 {
     cairo_save(cr);
-    qtcCairoClipRect(cr, area);
+    clipRect(cr, area);
     cairo_rectangle(cr, x, y, width, height);
-    qtcCairoSetColor(cr, col, alpha);
+    setColor(cr, col, alpha);
     cairo_fill(cr);
     cairo_restore(cr);
 }
 
 QTC_EXPORT void
-qtcCairoFadedLine(cairo_t *cr, int x, int y, int width, int height,
-                  const QtcRect *area, const QtcRect *gap, bool fadeStart,
-                  bool fadeEnd, double fadeSize, bool horiz,
-                  const GdkColor *col, double alpha)
+fadedLine(cairo_t *cr, int x, int y, int width, int height,
+          const QtcRect *area, const QtcRect *gap, bool fadeStart,
+          bool fadeEnd, double fadeSize, bool horiz,
+          const GdkColor *col, double alpha)
 {
     double rx = x + 0.5;
     double ry = y + 0.5;
@@ -96,15 +99,15 @@ qtcCairoFadedLine(cairo_t *cr, int x, int y, int width, int height,
         cairo_region_t *region =
             cairo_region_create_rectangle(area ? area : &r);
         cairo_region_xor_rectangle(region, gap);
-        qtcCairoClipRegion(cr, region);
+        clipRegion(cr, region);
         cairo_region_destroy(region);
     } else {
-        qtcCairoClipRect(cr, area);
+        clipRect(cr, area);
     }
-    qtcCairoPatternAddColorStop(pt, 0, col, fadeStart ? 0.0 : alpha);
-    qtcCairoPatternAddColorStop(pt, fadeSize, col, alpha);
-    qtcCairoPatternAddColorStop(pt, 1 - fadeSize, col, alpha);
-    qtcCairoPatternAddColorStop(pt, 1, col, fadeEnd ? 0.0 : alpha);
+    patternAddColorStop(pt, 0, col, fadeStart ? 0.0 : alpha);
+    patternAddColorStop(pt, fadeSize, col, alpha);
+    patternAddColorStop(pt, 1 - fadeSize, col, alpha);
+    patternAddColorStop(pt, 1, col, fadeEnd ? 0.0 : alpha);
     cairo_set_source(cr, pt);
     if (horiz) {
         cairo_move_to(cr, x, ry);
@@ -119,8 +122,8 @@ qtcCairoFadedLine(cairo_t *cr, int x, int y, int width, int height,
 }
 
 QTC_EXPORT void
-qtcCairoStripes(cairo_t *cr, int x, int y, int w, int h,
-                bool horizontal, int stripeWidth)
+stripes(cairo_t *cr, int x, int y, int w, int h,
+        bool horizontal, int stripeWidth)
 {
     int endx = horizontal ? stripeWidth : 0;
     int endy = horizontal ? 0 : stripeWidth;
@@ -140,7 +143,7 @@ qtcCairoStripes(cairo_t *cr, int x, int y, int w, int h,
 }
 
 QTC_EXPORT void
-qtcCairoDot(cairo_t *cr, int x, int y, int w, int h, const GdkColor *col)
+dot(cairo_t *cr, int x, int y, int w, int h, const GdkColor *col)
 {
     double dx = x + (w - 5) / 2;
     double dy = y + (h - 5) / 2;
@@ -148,8 +151,8 @@ qtcCairoDot(cairo_t *cr, int x, int y, int w, int h, const GdkColor *col)
     cairo_pattern_t *p2 = cairo_pattern_create_linear(dx + 2, dy + 2,
                                                       dx + 4, dx + 4);
 
-    qtcCairoPatternAddColorStop(p1, 0, col, 1);
-    qtcCairoPatternAddColorStop(p1, 1, col, 0.4);
+    patternAddColorStop(p1, 0, col, 1);
+    patternAddColorStop(p1, 1, col, 0.4);
     cairo_pattern_add_color_stop_rgba(p2, 1, 1, 1, 1, 0.9);
     cairo_pattern_add_color_stop_rgba(p2, 0, 1, 1, 1, 0.7);
 
@@ -174,9 +177,9 @@ qtcCairoDot(cairo_t *cr, int x, int y, int w, int h, const GdkColor *col)
 }
 
 QTC_EXPORT void
-qtcCairoDots(cairo_t *cr, int rx, int ry, int rwidth, int rheight, bool horiz,
-             int nLines, int offset, const QtcRect *area,
-             int startOffset, const GdkColor *col1, const GdkColor *col2)
+dots(cairo_t *cr, int rx, int ry, int rwidth, int rheight, bool horiz,
+     int nLines, int offset, const QtcRect *area, int startOffset,
+     const GdkColor *col1, const GdkColor *col2)
 {
     int space = nLines * 2 + nLines - 1;
     int x = horiz ? rx : rx + (rwidth - space) / 2;
@@ -184,13 +187,13 @@ qtcCairoDots(cairo_t *cr, int rx, int ry, int rwidth, int rheight, bool horiz,
     int numDots = ((horiz ? rwidth : rheight) - 2 * offset) / 3 + 1;
 
     cairo_save(cr);
-    qtcCairoClipRect(cr, area);
+    clipRect(cr, area);
     if (horiz) {
         if (startOffset && y + startOffset > 0) {
             y += startOffset;
         }
         cairo_new_path(cr);
-        qtcCairoSetColor(cr, col1);
+        setColor(cr, col1);
         for (int i = 0;i < space;i += 3) {
             for (int j = 0;j < numDots;j++) {
                 cairo_rectangle(cr, x + offset + 3 * j, y + i, 1, 1);
@@ -199,7 +202,7 @@ qtcCairoDots(cairo_t *cr, int rx, int ry, int rwidth, int rheight, bool horiz,
         cairo_fill(cr);
 
         cairo_new_path(cr);
-        qtcCairoSetColor(cr, col2);
+        setColor(cr, col2);
         for (int i = 1;i < space;i += 3) {
             for (int j = 0;j < numDots;j++) {
                 cairo_rectangle(cr, x + offset + 1 + 3 * j, y + i, 1, 1);
@@ -211,7 +214,7 @@ qtcCairoDots(cairo_t *cr, int rx, int ry, int rwidth, int rheight, bool horiz,
             x += startOffset;
         }
         cairo_new_path(cr);
-        qtcCairoSetColor(cr, col1);
+        setColor(cr, col1);
         for (int i = 0;i < space;i += 3) {
             for (int j = 0;j < numDots;j++) {
                 cairo_rectangle(cr, x + i, y + offset + 3 * j, 1, 1);
@@ -220,7 +223,7 @@ qtcCairoDots(cairo_t *cr, int rx, int ry, int rwidth, int rheight, bool horiz,
         cairo_fill(cr);
 
         cairo_new_path(cr);
-        qtcCairoSetColor(cr, col2);
+        setColor(cr, col2);
         for (int i = 1;i < space;i += 3) {
             for(int j = 0;j < numDots;j++) {
                 cairo_rectangle(cr, x + i, y + offset + 1 + 3 * j, 1, 1);
@@ -232,22 +235,22 @@ qtcCairoDots(cairo_t *cr, int rx, int ry, int rwidth, int rheight, bool horiz,
 }
 
 static void
-ge_cairo_transform_for_layout(cairo_t *cr, PangoLayout *layout, int x, int y)
+ge_transform_for_layout(cairo_t *cr, PangoLayout *layout, int x, int y)
 {
     const PangoMatrix *matrix =
         pango_context_get_matrix(pango_layout_get_context(layout));
     if (matrix) {
         cairo_matrix_t cairo_matrix;
-        PangoRectangle rect;
+        PangoRectangle _rect;
 
         cairo_matrix_init(&cairo_matrix, matrix->xx, matrix->yx,
                           matrix->xy, matrix->yy, matrix->x0, matrix->y0);
-        pango_layout_get_extents(layout, NULL, &rect);
-        pango_matrix_transform_rectangle(matrix, &rect);
-        pango_extents_to_pixels(&rect, NULL);
+        pango_layout_get_extents(layout, NULL, &_rect);
+        pango_matrix_transform_rectangle(matrix, &_rect);
+        pango_extents_to_pixels(&_rect, NULL);
 
-        cairo_matrix.x0 += x - rect.x;
-        cairo_matrix.y0 += y - rect.y;
+        cairo_matrix.x0 += x - _rect.x;
+        cairo_matrix.y0 += y - _rect.y;
 
         cairo_set_matrix(cr, &cairo_matrix);
     } else {
@@ -256,47 +259,46 @@ ge_cairo_transform_for_layout(cairo_t *cr, PangoLayout *layout, int x, int y)
 }
 
 QTC_EXPORT void
-qtcCairoLayout(cairo_t *cr, const QtcRect *area, int x, int y,
-               PangoLayout *layout, const GdkColor *col)
+layout(cairo_t *cr, const QtcRect *area, int x, int y, PangoLayout *_layout,
+       const GdkColor *col)
 {
     cairo_save(cr);
-    qtcCairoClipRect(cr, area);
+    clipRect(cr, area);
     cairo_set_line_width(cr, 1);
-    qtcCairoSetColor(cr, col);
-    ge_cairo_transform_for_layout(cr, layout, x, y);
-    pango_cairo_show_layout(cr, layout);
+    setColor(cr, col);
+    ge_transform_for_layout(cr, _layout, x, y);
+    pango_cairo_show_layout(cr, _layout);
     cairo_restore(cr);
 }
 
 QTC_EXPORT void
-qtcCairoArrow(cairo_t *cr, const GdkColor *col, const QtcRect *area,
-              QtcArrowType arrow_type, int x, int y, bool small, bool fill,
-              bool varrow)
+arrow(cairo_t *cr, const GdkColor *col, const QtcRect *area,
+      ArrowType arrow_type, int x, int y, bool small, bool fill, bool varrow)
 {
     if (small) {
         switch (arrow_type) {
-        case QTC_ARROW_UP: {
+        case ArrowType::Up: {
             const GdkPoint a[] = {{x + 2, y}, {x, y - 2}, {x - 2, y},
                                   {x - 2, y + 1}, {x, y - 1}, {x + 2, y + 1}};
-            qtcCairoPolygon(cr, col, area, a, varrow ? 6 : 3, fill);
+            polygon(cr, col, area, a, varrow ? 6 : 3, fill);
             break;
         }
-        case QTC_ARROW_DOWN: {
+        case ArrowType::Down: {
             const GdkPoint a[] = {{x + 2, y}, {x, y + 2}, {x - 2, y},
                                   {x - 2, y - 1}, {x, y + 1}, {x + 2, y - 1}};
-            qtcCairoPolygon(cr, col, area, a, varrow ? 6 : 3, fill);
+            polygon(cr, col, area, a, varrow ? 6 : 3, fill);
             break;
         }
-        case QTC_ARROW_RIGHT: {
+        case ArrowType::Right: {
             const GdkPoint a[] = {{x, y - 2}, {x + 2, y}, {x, y + 2},
                                   {x - 1, y + 2}, {x + 1, y}, {x - 1, y - 2}};
-            qtcCairoPolygon(cr, col, area, a, varrow ? 6 : 3, fill);
+            polygon(cr, col, area, a, varrow ? 6 : 3, fill);
             break;
         }
-        case QTC_ARROW_LEFT: {
+        case ArrowType::Left: {
             const GdkPoint a[] = {{x, y - 2}, {x - 2, y}, {x, y + 2},
                                   {x + 1, y + 2}, {x - 1, y}, {x + 1, y - 2}};
-            qtcCairoPolygon(cr, col, area, a, varrow ? 6 : 3, fill);
+            polygon(cr, col, area, a, varrow ? 6 : 3, fill);
             break;
         }
         default:
@@ -305,36 +307,39 @@ qtcCairoArrow(cairo_t *cr, const GdkColor *col, const QtcRect *area,
     } else {
         /* Large arrows... */
         switch (arrow_type) {
-        case QTC_ARROW_UP: {
+        case ArrowType::Up: {
             const GdkPoint a[] = {{x + 3, y + 1}, {x, y - 2}, {x - 3, y + 1},
                                   {x - 3, y + 2}, {x - 2, y + 2}, {x, y},
                                   {x + 2, y + 2}, {x + 3, y + 2}};
-            qtcCairoPolygon(cr, col, area, a, varrow ? 8 : 3, fill);
+            polygon(cr, col, area, a, varrow ? 8 : 3, fill);
             break;
         }
-        case QTC_ARROW_DOWN: {
+        case ArrowType::Down: {
             const GdkPoint a[] = {{x + 3, y - 1}, {x, y + 2}, {x - 3, y - 1},
                                   {x - 3, y - 2}, {x - 2, y - 2}, {x, y},
                                   {x + 2, y - 2}, {x + 3,y - 2}};
-            qtcCairoPolygon(cr, col, area, a, varrow ? 8 : 3, fill);
+            polygon(cr, col, area, a, varrow ? 8 : 3, fill);
             break;
         }
-        case QTC_ARROW_RIGHT: {
+        case ArrowType::Right: {
             const GdkPoint a[] = {{x - 1, y + 3}, {x + 2, y}, {x - 1, y - 3},
                                   {x - 2, y - 3}, {x - 2, y - 2}, {x, y},
                                   {x - 2, y + 2}, {x - 2, y + 3}};
-            qtcCairoPolygon(cr, col, area, a, varrow ? 8 : 3, fill);
+            polygon(cr, col, area, a, varrow ? 8 : 3, fill);
             break;
         }
-        case QTC_ARROW_LEFT: {
+        case ArrowType::Left: {
             const GdkPoint a[] = {{x + 1, y - 3}, {x - 2, y}, {x + 1, y + 3},
                                   {x + 2, y + 3}, {x + 2, y + 2}, {x, y},
                                   {x + 2, y - 2}, {x + 2, y - 3}};
-            qtcCairoPolygon(cr, col, area, a, varrow ? 8 : 3, fill);
+            polygon(cr, col, area, a, varrow ? 8 : 3, fill);
             break;
         }
         default:
             break;
         }
     }
+}
+
+}
 }

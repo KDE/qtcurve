@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -624,7 +624,7 @@ getStepper(GtkWidget *widget, int x, int y, int width, int height)
         if (alloc.x == -1 && alloc.y == -1) {
             return STEPPER_NONE;
         }
-        if (qtcRectIntersect(&stepper, &check_rectangle, NULL)) {
+        if (Rect::intersect(&stepper, &check_rectangle, NULL)) {
             return STEPPER_A;
         }
 
@@ -633,7 +633,7 @@ getStepper(GtkWidget *widget, int x, int y, int width, int height)
         } else {
             check_rectangle.y = alloc.y + stepper.height;
         }
-        if (qtcRectIntersect(&stepper, &check_rectangle, NULL)) {
+        if (Rect::intersect(&stepper, &check_rectangle, NULL)) {
             return STEPPER_B;
         }
 
@@ -642,7 +642,7 @@ getStepper(GtkWidget *widget, int x, int y, int width, int height)
         } else {
             check_rectangle.y = alloc.y + alloc.height - stepper.height * 2;
         }
-        if (qtcRectIntersect(&stepper, &check_rectangle, NULL)) {
+        if (Rect::intersect(&stepper, &check_rectangle, NULL)) {
             return STEPPER_C;
         }
 
@@ -651,7 +651,7 @@ getStepper(GtkWidget *widget, int x, int y, int width, int height)
         } else {
             check_rectangle.y = alloc.y + alloc.height - stepper.height;
         }
-        if (qtcRectIntersect(&stepper, &check_rectangle, NULL)) {
+        if (Rect::intersect(&stepper, &check_rectangle, NULL)) {
             return STEPPER_D;
         }
     }
@@ -915,7 +915,7 @@ void setLowerEtchCol(cairo_t *cr, GtkWidget *widget)
         if (parentBg) {
             GdkColor col;
             qtcShade(parentBg, &col, 1.06, opts.shading);
-            qtcCairoSetColor(cr, &col);
+            Cairo::setColor(cr, &col);
         } else {
             cairo_set_source_rgba(cr, 1.0, 1.0, 1.0, 0.1); // 0.25);
         }

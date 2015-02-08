@@ -143,7 +143,7 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
     QTC_RET_IF_FAIL(GTK_IS_STYLE(style));
     QTC_RET_IF_FAIL(GDK_IS_DRAWABLE(window));
     const char *detail = _detail ? _detail : "";
-    cairo_t *cr = qtcGdkCreateCairoClip(window, area);
+    cairo_t *cr = Cairo::gdkCreateClip(window, area);
 
     bool isMenuOrToolTipWindow =
         (widget && GTK_IS_WINDOW(widget) &&
@@ -298,19 +298,19 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
         }
 
         if (!isCombo || state != GTK_STATE_SELECTED) {
-            qtcCairoRect(cr, (QtcRect*)area, x, y, width, height,
-                         getCellCol(haveAlternateListViewCol() &&
-                                    checkRules && !isEven ?
-                                    &qtSettings.colors[PAL_ACTIVE][COLOR_LV] :
-                                    &style->base[GTK_STATE_NORMAL], detail));
+            Cairo::rect(cr, (QtcRect*)area, x, y, width, height,
+                        getCellCol(haveAlternateListViewCol() &&
+                                   checkRules && !isEven ?
+                                   &qtSettings.colors[PAL_ACTIVE][COLOR_LV] :
+                                   &style->base[GTK_STATE_NORMAL], detail));
         }
         if (isCombo) {
             if (state == GTK_STATE_SELECTED) {
-                qtcCairoRect(cr, (QtcRect*)area, x, y, width, height,
-                             &style->base[widget &&
-                                          gtk_widget_has_focus(widget) ?
-                                          GTK_STATE_SELECTED :
-                                          GTK_STATE_ACTIVE]);
+                Cairo::rect(cr, (QtcRect*)area, x, y, width, height,
+                            &style->base[widget &&
+                                         gtk_widget_has_focus(widget) ?
+                                         GTK_STATE_SELECTED :
+                                         GTK_STATE_ACTIVE]);
             }
         } else {
             double alpha = 1.0;
@@ -421,10 +421,10 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
         if(DO_EFFECT && GTK_STATE_INSENSITIVE!=state && DETAIL("entry_bg") &&
            isSwtComboBoxEntry(widget) && gtk_widget_has_focus(widget))
         {
-            qtcCairoHLine(cr, x, y, width,
-                          &qtcPalette.highlight[FRAME_DARK_SHADOW]);
-            qtcCairoHLine(cr, x, y + height - 1, width,
-                          &qtcPalette.highlight[0]);
+            Cairo::hLine(cr, x, y, width,
+                         &qtcPalette.highlight[FRAME_DARK_SHADOW]);
+            Cairo::hLine(cr, x, y + height - 1, width,
+                         &qtcPalette.highlight[0]);
         }
 */
     }
@@ -443,7 +443,7 @@ gtkDrawHandle(GtkStyle *style, GdkWindow *window, GtkStateType state,
     const char *detail = _detail ? _detail : "";
     QtcRect *area = (QtcRect*)_area;
     bool paf = widgetIsType(widget, "PanelAppletFrame");
-    cairo_t *cr = qtcGdkCreateCairoClip(window, area);
+    cairo_t *cr = Cairo::gdkCreateClip(window, area);
 
     if (qtSettings.debug == DEBUG_ALL) {
         printf(DEBUG_PREFIX "%s %d %d %d %d %s  ", __FUNCTION__, state, shadow,
@@ -488,15 +488,15 @@ gtkDrawHandle(GtkStyle *style, GdkWindow *window, GtkStateType state,
 
         switch (opts.handles) {
         case LINE_1DOT:
-            qtcCairoDot(cr, x, y, width, height,
-                        &qtcPalette.background[QTC_STD_BORDER]);
+            Cairo::dot(cr, x, y, width, height,
+                       &qtcPalette.background[QTC_STD_BORDER]);
             break;
         case LINE_NONE:
             break;
         case LINE_DOTS:
-            qtcCairoDots(cr, x, y, width, height, height < width, 2, 5,
-                         area, 2, &qtcPalette.background[5],
-                         qtcPalette.background);
+            Cairo::dots(cr, x, y, width, height, height < width, 2, 5,
+                        area, 2, &qtcPalette.background[5],
+                        qtcPalette.background);
             break;
         case LINE_DASHES:
             if (height > width) {
@@ -524,7 +524,7 @@ drawArrow(GdkWindow *window, const GdkColor *col, const QtcRect *area,
           GtkArrowType arrow_type, int x, int y, bool small, bool fill)
 {
     cairo_t *cr = gdk_cairo_create(window);
-    qtcGtkArrow(cr, col, area, arrow_type, x, y, small, fill, opts.vArrows);
+    Cairo::arrow(cr, col, area, arrow_type, x, y, small, fill, opts.vArrows);
     cairo_destroy(cr);
 }
 
@@ -563,13 +563,13 @@ gtkDrawArrow(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 x += 2;
             if (opts.doubleGtkComboArrow) {
                 int pad = opts.vArrows ? 0 : 1;
-                qtcGtkArrow(cr, arrowColor, area, GTK_ARROW_UP, x + width / 2,
-                            y + height / 2 - (LARGE_ARR_HEIGHT - pad),
-                            false, true, opts.vArrows);
-                qtcGtkArrow(cr, arrowColor, area,  GTK_ARROW_DOWN,
-                            x + width / 2,
-                            y + height / 2 + (LARGE_ARR_HEIGHT - pad),
-                            false, true, opts.vArrows);
+                Cairo::arrow(cr, arrowColor, area, GTK_ARROW_UP, x + width / 2,
+                             y + height / 2 - (LARGE_ARR_HEIGHT - pad),
+                             false, true, opts.vArrows);
+                Cairo::arrow(cr, arrowColor, area,  GTK_ARROW_DOWN,
+                             x + width / 2,
+                             y + height / 2 + (LARGE_ARR_HEIGHT - pad),
+                             false, true, opts.vArrows);
             } else {
                 GtkWidget *parent = nullptr;
                 if (!opts.gtkComboMenus &&
@@ -578,9 +578,9 @@ gtkDrawArrow(GtkStyle *style, GdkWindow *window, GtkStateType state,
                       !ComboBox::hasFrame(parent))) {
                     x += 2;
                 }
-                qtcGtkArrow(cr, arrowColor, area,  GTK_ARROW_DOWN,
-                            x + width / 2, y + height / 2, false, true,
-                            opts.vArrows);
+                Cairo::arrow(cr, arrowColor, area,  GTK_ARROW_DOWN,
+                             x + width / 2, y + height / 2, false, true,
+                             opts.vArrows);
             }
         } else {
             bool combo = onComboEntry || isOnCombo(widget, 0);
@@ -601,9 +601,9 @@ gtkDrawArrow(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 x--;
                 y--;
             }
-            qtcGtkArrow(cr, MO_ARROW(false, col), area, arrow_type,
-                        x + width / 2, y + height / 2,
-                        false, true, opts.vArrows);
+            Cairo::arrow(cr, MO_ARROW(false, col), area, arrow_type,
+                         x + width / 2, y + height / 2,
+                         false, true, opts.vArrows);
         }
     } else {
         int isSpinButton = DETAIL("spinbutton");
@@ -697,8 +697,8 @@ gtkDrawArrow(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 col = &style->text[GTK_STATE_SELECTED];
             }
         }
-        qtcGtkArrow(cr, MO_ARROW(isMenuItem, col), area, arrow_type, x, y,
-                    smallArrows, true, opts.vArrows);
+        Cairo::arrow(cr, MO_ARROW(isMenuItem, col), area, arrow_type, x, y,
+                     smallArrows, true, opts.vArrows);
     }
     cairo_destroy(cr);
 }
@@ -782,7 +782,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
         Menu::shellSetup(widget);
     }
 
-    cairo_t *cr = qtcGdkCreateCairoClip(window, area);
+    cairo_t *cr = Cairo::gdkCreateClip(window, area);
     if (spinUp || spinDown) {
         if (!opts.unifySpin && (!opts.unifySpinBtns || sunken)) {
             EWidget wid = spinUp ? WIDGET_SPIN_UP : WIDGET_SPIN_DOWN;
@@ -867,7 +867,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
             cairo_save(cr);
             if (moz) {
                 QtcRect a = {x + 2, y, width - 2, height};
-                qtcCairoClipRect(cr, &a);
+                Cairo::clipRect(cr, &a);
             }
             drawEntryField(cr, style, state, window, widget, (QtcRect*)area,
                            x, y, width, height,
@@ -1323,7 +1323,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                     };
                     cairo_save(cr);
                     if (!opts.comboSplitter) {
-                        qtcCairoClipRect(cr, &btn);
+                        Cairo::clipRect(cr, &btn);
                     }
                     if (rev) {
                         btn.width += 3;
@@ -1394,7 +1394,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                         };
                         cairo_save(cr);
                         if (!opts.comboSplitter) {
-                            qtcCairoClipRect(cr, &btn);
+                            Cairo::clipRect(cr, &btn);
                         }
                         if (rev) {
                             btn.width += 3;
@@ -1501,8 +1501,8 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                                    width < height : width > height),
                                   false, MODIFY_AGUA(app), WIDGET_OTHER, alpha);
             } else if (fillBackground) {
-                qtcCairoRect(cr, (QtcRect*)area, x, y, width, height,
-                             col, alpha);
+                Cairo::rect(cr, (QtcRect*)area, x, y, width, height,
+                            col, alpha);
             }
             if (shadow != GTK_SHADOW_NONE && opts.toolbarBorders != TB_NONE) {
                 drawToolbarBorders(cr, state, x, y, width, height,
@@ -1562,8 +1562,8 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
         if (qtcIsFlatBgnd(opts.bgndAppearance) || !widget ||
             !drawWindowBgnd(cr, style, (QtcRect*)area, window, widget,
                             x + 1, y + 1, width - 2, height - 2)) {
-            qtcCairoRect(cr, (QtcRect*)area, x + 1, y + 1,
-                         width - 2, height - 2, &style->bg[state]);
+            Cairo::rect(cr, (QtcRect*)area, x + 1, y + 1,
+                        width - 2, height - 2, &style->bg[state]);
             if (widget && opts.bgndImage.type != IMG_NONE) {
                 drawWindowBgnd(cr, style, (QtcRect*)area, window, widget, x, y,
                                width, height);
@@ -1602,7 +1602,7 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
     QTC_RET_IF_FAIL(GDK_IS_DRAWABLE(window));
     const char *detail = _detail ? _detail : "";
     sanitizeSize(window, &width, &height);
-    cairo_t *cr = qtcGdkCreateCairoClip(window, area);
+    cairo_t *cr = Cairo::gdkCreateClip(window, area);
     bool comboBoxList = isComboBoxList(widget);
     bool comboList = !comboBoxList && isComboList(widget);
 
@@ -1618,11 +1618,11 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
             bool useAlpha = !nonGtk && qtSettings.useAlpha && isAlphaWidget;
 
             if (opts.popupBorder && square) {
-                qtcCairoRect(cr, (QtcRect*)area, x, y, width, height,
-                             &style->base[state]);
+                Cairo::rect(cr, (QtcRect*)area, x, y, width, height,
+                            &style->base[state]);
                 cairo_new_path(cr);
                 cairo_rectangle(cr, x + 0.5, y + 0.5, width - 1, height - 1);
-                qtcCairoSetColor(cr, &qtcPalette.background[QTC_STD_BORDER]);
+                Cairo::setColor(cr, &qtcPalette.background[QTC_STD_BORDER]);
                 cairo_stroke(cr);
             } else /* if (!opts.popupBorder || */
                    /*     !(opts.square & SQUARE_POPUP_MENUS)) */ {
@@ -1639,26 +1639,26 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
                                       false);
                 }
 
-                qtcCairoClipWhole(cr, x, y, width, height,
-                                  opts.round >= ROUND_FULL ? 5.0 : 2.5,
-                                  ROUNDED_ALL);
-                qtcCairoRect(cr, (QtcRect*)area, x, y, width, height,
-                             &style->base[state]);
+                Cairo::clipWhole(cr, x, y, width, height,
+                                 opts.round >= ROUND_FULL ? 5.0 : 2.5,
+                                 ROUNDED_ALL);
+                Cairo::rect(cr, (QtcRect*)area, x, y, width, height,
+                            &style->base[state]);
                 if(useAlpha)
                     cairo_set_operator(cr, CAIRO_OPERATOR_OVER);
                 if (opts.popupBorder) {
-                    qtcCairoPathWhole(cr, x + 0.5, y + 0.5, width - 1,
-                                      height - 1, (opts.round >= ROUND_FULL ?
-                                                   5.0 : 2.5) - 1,
-                                      ROUNDED_ALL);
-                    qtcCairoSetColor(cr,
+                    Cairo::pathWhole(cr, x + 0.5, y + 0.5, width - 1,
+                                     height - 1, (opts.round >= ROUND_FULL ?
+                                                  5.0 : 2.5) - 1,
+                                     ROUNDED_ALL);
+                    Cairo::setColor(cr,
                                      &qtcPalette.background[QTC_STD_BORDER]);
                     cairo_stroke(cr);
                 }
             }
         } else {
-            qtcCairoRect(cr, (QtcRect*)area, x, y, width, height,
-                         &style->base[state]);
+            Cairo::rect(cr, (QtcRect*)area, x, y, width, height,
+                        &style->base[state]);
         }
     }
     else if(!opts.gtkComboMenus && !isMozilla() && isComboFrame(widget))
@@ -1826,7 +1826,7 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 if (windowFrame) {
                     QtcRect wAlloc = Widget::getAllocation(widget);
                     QtcRect pAlloc = Widget::getAllocation(parent);
-                    windowFrame = qtcRectEqual(&wAlloc, &pAlloc);
+                    windowFrame = Rect::equal(wAlloc, pAlloc);
                 }
 
 //                 if(!drawSquare && widget && gtk_widget_get_parent(widget) && !isFixedWidget(widget) &&
@@ -1843,17 +1843,17 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
                                    nullptr, ROUNDED_NONE, BORDER_FLAT, WIDGET_SCROLLVIEW, 0);
                         */
                         /* 3d... */
-                        qtcCairoSetColor(cr, &cols[QTC_STD_BORDER]);
-                        qtcCairoPathTopLeft(cr, x + 0.5, y + 0.5, width - 1,
-                                            height - 1, 0.0, ROUNDED_NONE);
+                        Cairo::setColor(cr, &cols[QTC_STD_BORDER]);
+                        Cairo::pathTopLeft(cr, x + 0.5, y + 0.5, width - 1,
+                                           height - 1, 0.0, ROUNDED_NONE);
                         cairo_stroke(cr);
                         if(!opts.gtkScrollViews)
-                            qtcCairoSetColor(cr, &cols[QTC_STD_BORDER],
+                            Cairo::setColor(cr, &cols[QTC_STD_BORDER],
                                              LOWER_BORDER_ALPHA);
-                            /* qtcCairoSetColor(cr, &qtcPalette.background[ */
+                            /* Cairo::setColor(cr, &qtcPalette.background[ */
                             /*                      STD_BORDER_BR]); */
-                        qtcCairoPathBottomRight(cr, x + 0.5, y + 0.5, width - 1,
-                                                height - 1, 0, ROUNDED_NONE);
+                        Cairo::pathBottomRight(cr, x + 0.5, y + 0.5, width - 1,
+                                               height - 1, 0, ROUNDED_NONE);
                         cairo_stroke(cr);
                         doBorder=false;
                     } else if (opts.etchEntry) {
@@ -1870,9 +1870,9 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
                     cairo_rectangle(cr, x + 0.5, y + 0.5,
                                     width - 1, height - 1);
                     if (windowFrame) {
-                        qtcCairoSetColor(cr, &cols[QTC_STD_BORDER]);
+                        Cairo::setColor(cr, &cols[QTC_STD_BORDER]);
                     } else {
-                        qtcCairoSetColor(cr, &cols[ORIGINAL_SHADE]);
+                        Cairo::setColor(cr, &cols[ORIGINAL_SHADE]);
                     }
                     cairo_stroke(cr);
                 }
@@ -1912,7 +1912,7 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
                     cairo_new_path(cr);
                     cairo_rectangle(cr, x + 0.5, y + 0.5,
                                     width - 1, height - 1);
-                    qtcCairoSetColor(cr, &cols[QTC_STD_BORDER]);
+                    Cairo::setColor(cr, &cols[QTC_STD_BORDER]);
                     cairo_stroke(cr);
                 }
                 break;
@@ -1924,36 +1924,36 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
                     shadow == GTK_SHADOW_IN ? 1.0 : LOWER_BORDER_ALPHA;
                 double c1Alpha =
                     shadow == GTK_SHADOW_OUT ? 1.0 : LOWER_BORDER_ALPHA;
-                qtcCairoHLine(cr, x, y, width,
-                              &cols[QTC_STD_BORDER], c2Alpha);
-                qtcCairoVLine(cr, x, y, height,
-                              &cols[QTC_STD_BORDER], c2Alpha);
+                Cairo::hLine(cr, x, y, width,
+                             &cols[QTC_STD_BORDER], c2Alpha);
+                Cairo::vLine(cr, x, y, height,
+                             &cols[QTC_STD_BORDER], c2Alpha);
                 if (opts.appearance != APPEARANCE_FLAT) {
-                    qtcCairoHLine(cr, x, y + height - 1, width,
-                                  &cols[QTC_STD_BORDER], c1Alpha);
-                    qtcCairoVLine(cr, x + width - 1, y, height,
-                                  &cols[QTC_STD_BORDER], c1Alpha);
+                    Cairo::hLine(cr, x, y + height - 1, width,
+                                 &cols[QTC_STD_BORDER], c1Alpha);
+                    Cairo::vLine(cr, x + width - 1, y, height,
+                                 &cols[QTC_STD_BORDER], c1Alpha);
                 }
                 break;
             }
             case GTK_SHADOW_ETCHED_IN:
                 cairo_new_path(cr);
                 cairo_rectangle(cr, x + 1.5, y + 1.5, width - 2, height - 2);
-                qtcCairoSetColor(cr, &cols[c1]);
+                Cairo::setColor(cr, &cols[c1]);
                 cairo_stroke(cr);
                 cairo_new_path(cr);
                 cairo_rectangle(cr, x + 0.5, y + 0.5, width - 2, height - 2);
-                qtcCairoSetColor(cr, &cols[c2]);
+                Cairo::setColor(cr, &cols[c2]);
                 cairo_stroke(cr);
                 break;
             case GTK_SHADOW_ETCHED_OUT:
                 cairo_new_path(cr);
                 cairo_rectangle(cr, x + 1.5, y + 1.5, width - 2, height - 2);
-                qtcCairoSetColor(cr, &cols[c2]);
+                Cairo::setColor(cr, &cols[c2]);
                 cairo_stroke(cr);
                 cairo_new_path(cr);
                 cairo_rectangle(cr, x + 0.5, y + 0.5, width - 2, height - 2);
-                qtcCairoSetColor(cr, &cols[c1]);
+                Cairo::setColor(cr, &cols[c1]);
                 cairo_stroke(cr);
                 break;
             }
@@ -1988,7 +1988,7 @@ gtkDrawCheck(GtkStyle *style, GdkWindow *window, GtkStateType state,
     QTC_RET_IF_FAIL(GDK_IS_DRAWABLE(window));
     const char *detail = _detail ? _detail : "";
     QtcRect *area = (QtcRect*)_area;
-    cairo_t *cr = qtcGdkCreateCairoClip(window, area);
+    cairo_t *cr = Cairo::gdkCreateClip(window, area);
     drawCheckBox(cr, state, shadow, style, widget, detail, area,
                  x, y, width, height);
     cairo_destroy(cr);
@@ -2003,7 +2003,7 @@ gtkDrawOption(GtkStyle *style, GdkWindow *window, GtkStateType state,
     QTC_RET_IF_FAIL(GDK_IS_DRAWABLE(window));
     const char *detail = _detail ? _detail : "";
     QtcRect *area = (QtcRect*)_area;
-    cairo_t *cr = qtcGdkCreateCairoClip(window, area);
+    cairo_t *cr = Cairo::gdkCreateClip(window, area);
     drawRadioButton(cr, state, shadow, style, widget, detail, area,
                     x, y, width, height);
     cairo_destroy(cr);
@@ -2016,9 +2016,9 @@ drawLayout(cairo_t *cr, GtkStyle *style, GtkStateType state,
            bool use_text, const QtcRect *area, int x, int y,
            PangoLayout *layout)
 {
-    qtcCairoLayout(cr, area, x, y, layout,
-                   use_text || state == GTK_STATE_INSENSITIVE ?
-                   &style->text[state] : &style->fg[state]);
+    Cairo::layout(cr, area, x, y, layout,
+                  use_text || state == GTK_STATE_INSENSITIVE ?
+                  &style->text[state] : &style->fg[state]);
 }
 
 static void
@@ -2246,15 +2246,15 @@ gtkDrawTab(GtkStyle *style, GdkWindow *window, GtkStateType state,
          x + 1 : x + width / 2);
     if (opts.doubleGtkComboArrow) {
         int pad = opts.vArrows ? 0 : 1;
-        qtcGtkArrow(cr, arrowColor, area,  GTK_ARROW_UP,
-                    x, y + height / 2 - (LARGE_ARR_HEIGHT - pad),
-                    false, true, opts.vArrows);
-        qtcGtkArrow(cr, arrowColor, area,  GTK_ARROW_DOWN,
-                    x, y + height / 2 + (LARGE_ARR_HEIGHT - pad),
-                    false, true, opts.vArrows);
+        Cairo::arrow(cr, arrowColor, area,  GTK_ARROW_UP,
+                     x, y + height / 2 - (LARGE_ARR_HEIGHT - pad),
+                     false, true, opts.vArrows);
+        Cairo::arrow(cr, arrowColor, area,  GTK_ARROW_DOWN,
+                     x, y + height / 2 + (LARGE_ARR_HEIGHT - pad),
+                     false, true, opts.vArrows);
     } else {
-        qtcGtkArrow(cr, arrowColor, area,  GTK_ARROW_DOWN,
-                    x, y + height / 2, false, true, opts.vArrows);
+        Cairo::arrow(cr, arrowColor, area,  GTK_ARROW_DOWN,
+                     x, y + height / 2, false, true, opts.vArrows);
     }
     cairo_destroy(cr);
 }
@@ -2269,7 +2269,7 @@ gtkDrawBoxGap(GtkStyle *style, GdkWindow *window, GtkStateType state,
     QTC_RET_IF_FAIL(GTK_IS_STYLE(style));
     QTC_RET_IF_FAIL(GDK_IS_DRAWABLE(window));
     const char *detail = _detail ? _detail : "";
-    cairo_t *cr = qtcGdkCreateCairoClip(window, area);
+    cairo_t *cr = Cairo::gdkCreateClip(window, area);
 
     if ((opts.thin & THIN_FRAMES) && gapX == 0) {
         gapX--;
@@ -2309,7 +2309,7 @@ gtkDrawExtension(GtkStyle *style, GdkWindow *window, GtkStateType state,
 
     if (DETAIL("tab")) {
         QtcRect *area = (QtcRect*)_area;
-        cairo_t *cr = qtcGdkCreateCairoClip(window, area);
+        cairo_t *cr = Cairo::gdkCreateClip(window, area);
         drawTab(cr, state, style, widget, area, x, y, width, height, gapSide);
         cairo_destroy(cr);
     } else {
@@ -2337,7 +2337,7 @@ gtkDrawSlider(GtkStyle *style, GdkWindow *window, GtkStateType state,
         debugDisplayWidget(widget, 10);
     }
 
-    cairo_t *cr = qtcGdkCreateCairoClip(window, area);
+    cairo_t *cr = Cairo::gdkCreateClip(window, area);
     sanitizeSize(window, &width, &height);
 
     if (scrollbar || SLIDER_TRIANGULAR!=opts.sliderStyle) {
@@ -2418,8 +2418,8 @@ gtkDrawSlider(GtkStyle *style, GdkWindow *window, GtkStateType state,
 
             switch (opts.sliderThumbs) {
                 case LINE_1DOT:
-                    qtcCairoDot(cr, x, y, width, height,
-                                &markers[QTC_STD_BORDER]);
+                    Cairo::dot(cr, x, y, width, height,
+                               &markers[QTC_STD_BORDER]);
                     break;
                 case LINE_FLAT:
                     drawLines(cr, x, y, width, height, !horiz, 3, 5, markers,
@@ -2431,9 +2431,9 @@ gtkDrawSlider(GtkStyle *style, GdkWindow *window, GtkStateType state,
                     break;
                 default:
                 case LINE_DOTS:
-                    qtcCairoDots(cr, x, y, width, height, !horiz,
-                                 scale ? 3 : 5, scale ? 4 : 2, (QtcRect*)area,
-                                 0, &markers[5], markers);
+                    Cairo::dots(cr, x, y, width, height, !horiz,
+                                scale ? 3 : 5, scale ? 4 : 2, (QtcRect*)area,
+                                0, &markers[5], markers);
             }
         }
     } else {
@@ -2452,7 +2452,7 @@ gtkDrawShadowGap(GtkStyle *style, GdkWindow *window, GtkStateType state,
     QTC_RET_IF_FAIL(GTK_IS_STYLE(style));
     QTC_RET_IF_FAIL(GDK_IS_DRAWABLE(window));
     QtcRect *area = (QtcRect*)_area;
-    cairo_t *cr = qtcGdkCreateCairoClip(window, area);
+    cairo_t *cr = Cairo::gdkCreateClip(window, area);
     sanitizeSize(window, &width, &height);
     drawShadowGap(cr, style, shadow, state, widget, area, x, y,
                   width, height, gapSide, gapX, gapWidth);
@@ -2477,15 +2477,15 @@ gtkDrawHLine(GtkStyle *style, GdkWindow *window, GtkStateType state,
         debugDisplayWidget(widget, 10);
     }
 
-    cairo_t *cr = qtcGdkCreateCairoClip(window, area);
+    cairo_t *cr = Cairo::gdkCreateClip(window, area);
 
     if (tbar) {
         switch (opts.toolbarSeparators) {
             default:
             case LINE_DOTS:
-                qtcCairoDots(cr, x1, y, x2 - x1, 2, false,
-                             (x2 - x1) / 3.0 + 0.5, 0, (QtcRect*)area, 0,
-                             &qtcPalette.background[5], qtcPalette.background);
+                Cairo::dots(cr, x1, y, x2 - x1, 2, false,
+                            (x2 - x1) / 3.0 + 0.5, 0, (QtcRect*)area, 0,
+                            &qtcPalette.background[5], qtcPalette.background);
                 break;
             case LINE_NONE:
                 break;
@@ -2495,13 +2495,13 @@ gtkDrawHLine(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 drawFadedLine(cr, x1 < x2 ? x1 : x2, y, abs(x2 - x1), 1,
                               &qtcPalette.background[dark], (QtcRect*)area,
                               nullptr, true, true, true);
-                /* qtcCairoHLine(cr, x1 < x2 ? x1 : x2, y, abs(x2 - x1), */
-                /*               &qtcPalette.background[dark]); */
+                /* Cairo::hLine(cr, x1 < x2 ? x1 : x2, y, abs(x2 - x1), */
+                /*              &qtcPalette.background[dark]); */
                 if(LINE_SUNKEN==opts.toolbarSeparators)
                 {
                     cairo_new_path(cr);
-                    /* qtcCairoHLine(cr, x1 < x2 ? x1 : x2, y + 1, abs(x2 - x1), */
-                    /*               &qtcPalette.background[light]); */
+                    /* Cairo::hLine(cr, x1 < x2 ? x1 : x2, y + 1, abs(x2 - x1), */
+                    /*              &qtcPalette.background[light]); */
                     drawFadedLine(cr, x1 < x2 ? x1 : x2, y + 1, abs(x2 - x1), 1,
                                   &qtcPalette.background[light], (QtcRect*)area,
                                   nullptr, true, true, true);
@@ -2510,14 +2510,14 @@ gtkDrawHLine(GtkStyle *style, GdkWindow *window, GtkStateType state,
         }
     } else if (DETAIL("label")) {
         if (state == GTK_STATE_INSENSITIVE) {
-            /* qtcCairoHLine(cr, (x1 < x2 ? x1 : x2) + 1, y + 1, abs(x2 - x1), */
-            /*               &qtcPalette.background[light]); */
+            /* Cairo::hLine(cr, (x1 < x2 ? x1 : x2) + 1, y + 1, abs(x2 - x1), */
+            /*              &qtcPalette.background[light]); */
             drawFadedLine(cr, x1 < x2 ? x1 : x2, y + 1, abs(x2 - x1), 1,
                           &qtcPalette.background[light], (QtcRect*)area, nullptr,
                           true, true, true);
         }
-        /* qtcCairoHLine(cr, x1 < x2 ? x1 : x2, y, abs(x2 - x1), */
-        /*               &style->text[state]); */
+        /* Cairo::hLine(cr, x1 < x2 ? x1 : x2, y, abs(x2 - x1), */
+        /*              &style->text[state]); */
         drawFadedLine(cr, x1 < x2 ? x1 : x2, y, abs(x2 - x1), 1,
                       &qtcPalette.background[dark], (QtcRect*)area, nullptr,
                       true, true, true);
@@ -2537,14 +2537,14 @@ gtkDrawHLine(GtkStyle *style, GdkWindow *window, GtkStateType state,
             offset += 2;
         }
 
-        /* qtcCairoHLine(cr, x1 < x2 ? x1 : x2, y, abs(x2 - x1), */
-        /*               &qtcPalette.background[MENU_SEP_SHADE]); */
+        /* Cairo::hLine(cr, x1 < x2 ? x1 : x2, y, abs(x2 - x1), */
+        /*              &qtcPalette.background[MENU_SEP_SHADE]); */
         drawFadedLine(cr, offset + (x1 < x2 ? x1 : x2), y + 1,
                       abs(x2 - x1) - offset, 1, &cols[MENU_SEP_SHADE],
                       (QtcRect*)area, nullptr, true, true, true);
     } else {
-        /* qtcCairoHLine(cr, x1 < x2 ? x1 : x2, y, abs(x2 - x1), */
-        /*               qtcPalette.background[dark]); */
+        /* Cairo::hLine(cr, x1 < x2 ? x1 : x2, y, abs(x2 - x1), */
+        /*              qtcPalette.background[dark]); */
         drawFadedLine(cr, x1 < x2 ? x1 : x2, y, abs(x2 - x1), 1,
                       &qtcPalette.background[dark], (QtcRect*)area, nullptr,
                       true, true, true);
@@ -2568,7 +2568,7 @@ gtkDrawVLine(GtkStyle *style, GdkWindow *window, GtkStateType state,
         debugDisplayWidget(widget, 10);
     }
 
-    cairo_t *cr = qtcGdkCreateCairoClip(window, area);
+    cairo_t *cr = Cairo::gdkCreateClip(window, area);
 
     if (!(DETAIL("vseparator") && isOnComboBox(widget, 0))) /* CPD: Combo handled in drawBox */
     {
@@ -2582,25 +2582,25 @@ gtkDrawVLine(GtkStyle *style, GdkWindow *window, GtkStateType state,
             {
                 default:
                 case LINE_DOTS:
-                    qtcCairoDots(cr, x, y1, 2, y2 - y1, true,
-                                 (y2 - y1) / 3.0 + 0.5, 0, (QtcRect*)area, 0,
-                                 &qtcPalette.background[5],
-                                 qtcPalette.background);
+                    Cairo::dots(cr, x, y1, 2, y2 - y1, true,
+                                (y2 - y1) / 3.0 + 0.5, 0, (QtcRect*)area, 0,
+                                &qtcPalette.background[5],
+                                qtcPalette.background);
                     break;
                 case LINE_NONE:
                     break;
                 case LINE_FLAT:
                 case LINE_SUNKEN:
                 {
-                    /* qtcCairoVLine(cr, x, y1 < y2 ? y1 : y2, abs(y2 - y1), */
-                    /*               &qtcPalette.background[dark]); */
+                    /* Cairo::vLine(cr, x, y1 < y2 ? y1 : y2, abs(y2 - y1), */
+                    /*              &qtcPalette.background[dark]); */
                     drawFadedLine(cr, x, y1 < y2 ? y1 : y2, 1, abs(y2 - y1),
                                   &qtcPalette.background[dark],
                                   (QtcRect*)area, nullptr, true, true, false);
                     if(LINE_SUNKEN==opts.toolbarSeparators)
-                        /* qtcCairoVLine(cr, x + 1, y1 < y2 ? y1 : y2, */
-                        /*               abs(y2 - y1), */
-                        /*               &qtcPalette.background[light]); */
+                        /* Cairo::vLine(cr, x + 1, y1 < y2 ? y1 : y2, */
+                        /*              abs(y2 - y1), */
+                        /*              &qtcPalette.background[light]); */
                         drawFadedLine(cr, x + 1, y1 < y2 ? y1 : y2, 1,
                                       abs(y2 - y1),
                                       &qtcPalette.background[light],
@@ -2608,8 +2608,8 @@ gtkDrawVLine(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 }
             }
         } else {
-            /* qtcCairoVLine(cr, x, y1 < y2 ? y1 : y2, abs(y2 - y1), */
-            /*               &qtcPalette.background[dark]); */
+            /* Cairo::vLine(cr, x, y1 < y2 ? y1 : y2, abs(y2 - y1), */
+            /*              &qtcPalette.background[dark]); */
             drawFadedLine(cr, x, y1 < y2 ? y1 : y2, 1, abs(y2 - y1),
                           &qtcPalette.background[dark], (QtcRect*)area,
                           nullptr, true, true, false);
@@ -2803,7 +2803,7 @@ gtkDrawFocus(GtkStyle *style, GdkWindow *window, GtkStateType state,
             (view && state == GTK_STATE_SELECTED ? &style->text[state] :
              &qtcPalette.focus[FOCUS_SHADE(state == GTK_STATE_SELECTED)]);
 
-        cairo_t *cr = qtcGdkCreateCairoClip(window, area);
+        cairo_t *cr = Cairo::gdkCreateClip(window, area);
 
         if (qtSettings.app == GTK_APP_JAVA_SWT && view && widget &&
             GTK_IS_TREE_VIEW(widget)) {
@@ -2881,42 +2881,42 @@ gtkDrawFocus(GtkStyle *style, GdkWindow *window, GtkStateType state,
 
                 if (opts.focus == FOCUS_FILLED) {
                     if (drawRounded) {
-                        qtcCairoPathWhole(cr, x + 0.5, y + 0.5, width - 1,
-                                          height - 1,
-                                          qtcGetRadius(&opts, width, height,
-                                                       WIDGET_OTHER,
-                                                       RADIUS_EXTERNAL),
-                                          comboButton ?
-                                          (rev ? ROUNDED_LEFT : ROUNDED_RIGHT) :
-                                          ROUNDED_ALL);
+                        Cairo::pathWhole(cr, x + 0.5, y + 0.5, width - 1,
+                                         height - 1,
+                                         qtcGetRadius(&opts, width, height,
+                                                      WIDGET_OTHER,
+                                                      RADIUS_EXTERNAL),
+                                         comboButton ?
+                                         (rev ? ROUNDED_LEFT : ROUNDED_RIGHT) :
+                                         ROUNDED_ALL);
                     } else {
                         cairo_rectangle(cr, x + 0.5, y + 0.5,
                                         width - 1, height - 1);
                     }
-                    qtcCairoSetColor(cr, col, FOCUS_ALPHA);
+                    Cairo::setColor(cr, col, FOCUS_ALPHA);
                     cairo_fill(cr);
                     cairo_new_path(cr);
                 }
             }
             if (drawRounded) {
-                qtcCairoPathWhole(cr, x + 0.5, y + 0.5, width - 1, height - 1,
-                                  (view &&
-                                   opts.square & SQUARE_LISTVIEW_SELECTION) &&
-                                  opts.round != ROUND_NONE ? SLIGHT_INNER_RADIUS :
-                                  qtcGetRadius(&opts, width, height, WIDGET_OTHER,
-                                               qtcOneOf(opts.focus, FOCUS_FULL,
-                                                        FOCUS_FILLED) ?
-                                               RADIUS_EXTERNAL :
-                                               RADIUS_SELECTION),
-                                  qtcOneOf(opts.focus, FOCUS_FULL,
-                                           FOCUS_FILLED) && comboButton ?
-                                  (rev ? ROUNDED_LEFT : ROUNDED_RIGHT) :
-                                  ROUNDED_ALL);
+                Cairo::pathWhole(cr, x + 0.5, y + 0.5, width - 1, height - 1,
+                                 (view &&
+                                  opts.square & SQUARE_LISTVIEW_SELECTION) &&
+                                 opts.round != ROUND_NONE ? SLIGHT_INNER_RADIUS :
+                                 qtcGetRadius(&opts, width, height, WIDGET_OTHER,
+                                              qtcOneOf(opts.focus, FOCUS_FULL,
+                                                       FOCUS_FILLED) ?
+                                              RADIUS_EXTERNAL :
+                                              RADIUS_SELECTION),
+                                 qtcOneOf(opts.focus, FOCUS_FULL,
+                                          FOCUS_FILLED) && comboButton ?
+                                 (rev ? ROUNDED_LEFT : ROUNDED_RIGHT) :
+                                 ROUNDED_ALL);
             } else {
                 cairo_rectangle(cr, x+0.5, y+0.5, width-1, height-1);
             }
-            /* qtcCairoSetColor(cr, col, alpha); */
-            qtcCairoSetColor(cr, col);
+            /* Cairo::setColor(cr, col, alpha); */
+            Cairo::setColor(cr, col);
             cairo_stroke(cr);
         }
         cairo_destroy(cr);
@@ -2931,7 +2931,7 @@ gtkDrawResizeGrip(GtkStyle *style, GdkWindow *window, GtkStateType state,
     QTC_RET_IF_FAIL(GTK_IS_STYLE(style));
     QTC_RET_IF_FAIL(GDK_IS_DRAWABLE(window));
     QtcRect *area = (QtcRect*)_area;
-    cairo_t *cr = qtcGdkCreateCairoClip(window, area);
+    cairo_t *cr = Cairo::gdkCreateClip(window, area);
     int size = SIZE_GRIP_SIZE - 2;
 
     /* Clear background */
@@ -2955,14 +2955,14 @@ gtkDrawResizeGrip(GtkStyle *style, GdkWindow *window, GtkStateType state,
         const GdkPoint a[] = {{x + width, y + height - size},
                               {x + width, y + height},
                               {x + width - size,  y + height}};
-        qtcCairoPolygon(cr, &qtcPalette.background[2], area, a, 3, true);
+        Cairo::polygon(cr, &qtcPalette.background[2], area, a, 3, true);
         break;
     }
     case GDK_WINDOW_EDGE_SOUTH_WEST: {
         const GdkPoint a[] = {{x + width - size, y + height - size},
                               {x + width, y + height},
                               {x + width - size, y + height}};
-        qtcCairoPolygon(cr, &qtcPalette.background[2], area, a, 3, true);
+        Cairo::polygon(cr, &qtcPalette.background[2], area, a, 3, true);
         break;
     }
     case GDK_WINDOW_EDGE_NORTH_EAST:
@@ -3002,13 +3002,13 @@ gtkDrawExpander(GtkStyle *style, GdkWindow *window, GtkStateType state,
     y -= LV_SIZE / 2.0 + 0.5;
 
     if (expander_style == GTK_EXPANDER_COLLAPSED) {
-        qtcGtkArrow(cr, col, area,
-                    reverseLayout(widget) ? GTK_ARROW_LEFT : GTK_ARROW_RIGHT,
-                    x + LARGE_ARR_WIDTH / 2, y + LARGE_ARR_HEIGHT,
-                    false, fill, opts.vArrows);
+        Cairo::arrow(cr, col, area,
+                     reverseLayout(widget) ? GTK_ARROW_LEFT : GTK_ARROW_RIGHT,
+                     x + LARGE_ARR_WIDTH / 2, y + LARGE_ARR_HEIGHT,
+                     false, fill, opts.vArrows);
     } else {
-        qtcGtkArrow(cr, col, area, GTK_ARROW_DOWN, x + LARGE_ARR_WIDTH / 2,
-                    y + LARGE_ARR_HEIGHT, false, fill, opts.vArrows);
+        Cairo::arrow(cr, col, area, GTK_ARROW_DOWN, x + LARGE_ARR_WIDTH / 2,
+                     y + LARGE_ARR_HEIGHT, false, fill, opts.vArrows);
     }
     cairo_destroy(cr);
 }

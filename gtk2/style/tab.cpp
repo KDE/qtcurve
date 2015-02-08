@@ -109,7 +109,7 @@ setHovered(Info *tab, GtkWidget *widget, int index)
         QtcRect updateRect = {0, 0, -1, -1};
         tab->id = index;
         for (auto &rect: tab->rects) {
-            qtcRectUnion(&rect, &updateRect, &updateRect);
+            Rect::union_(&rect, &updateRect, &updateRect);
         }
         gtk_widget_queue_draw_area(widget, updateRect.x - 4, updateRect.y - 4,
                                    updateRect.width + 8, updateRect.height + 8);

@@ -150,7 +150,7 @@ updatePosition(GtkWidget *widget, int x, int y)
                 // take the union of both rectangles
                 if (oldRect.width > 0 && oldRect.height > 0) {
                     if (newRect.width > 0 && newRect.height > 0) {
-                        qtcRectUnion(&oldRect, &newRect, &updateRect);
+                        Rect::union_(&oldRect, &newRect, &updateRect);
                     } else {
                         updateRect = oldRect;
                     }

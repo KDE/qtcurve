@@ -19,8 +19,8 @@ add_library(qtcurve-cairo SHARED ${qtcurve_cairo_SRCS})
 target_link_libraries(qtcurve-cairo ${qtcurve_cairo_LINKS})
 
 set_target_properties(qtcurve-cairo PROPERTIES
-  VERSION 0.1
-  SOVERSION 0
+  VERSION 1.0
+  SOVERSION 1
   COMPILE_FLAGS "-fvisibility=hidden"
   LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}")
 install(TARGETS qtcurve-cairo LIBRARY DESTINATION "${LIB_INSTALL_DIR}")

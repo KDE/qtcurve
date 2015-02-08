@@ -27,7 +27,9 @@
 #include <qtcurve-utils/options.h>
 #include <cairo.h>
 
-QTC_BEGIN_DECLS
+#ifdef QTC_UTILS_GTK
+#include <gdk/gdk.h>
+#endif
 
 struct _GdkPoint;
 struct _GdkColor;
@@ -38,62 +40,8 @@ typedef cairo_rectangle_int_t QtcRect;
  */
 #define qtcRect(x, y, w, h) ((QtcRect){(x), (y), (w), (h)})
 
-/**
- * \param cr a cairo_t
- * \param pts an array of GdkPoint
- * \param count the number of points in \param pts
- *
- * Add points in \param pts to the current path of \param cr.
- * The path is shifted by (0.5, 0.5) so that it is in the middle of the pixel.
- */
-void qtcCairoPathPoints(cairo_t *cr, const struct _GdkPoint *pts, int count);
-
-/**
- * \param cr a cairo_t
- * \param region a cairo_region_t
- *
- * Clip \param cr on \param region. The current path of \param cr will
- * be cleared.
- */
-void qtcCairoClipRegion(cairo_t *cr, const cairo_region_t *region);
-
-/**
- * \param cr a cairo_t
- * \param rect a QtcRect
- *
- * Clip \param cr on \param rect. The current path of \param cr will
- * be cleared.
- */
-void qtcCairoClipRect(cairo_t *cr, const QtcRect *rect);
-
-/**
- * \param cr a cairo_t
- * \param col the color to be set
- * \param a (optional) the opacity of the color in the range [0.0 .. 1.0]
- *          (default: 1).
- *
- * Set the source of \param cr to \param col with opacity \param a
- * \sa cairo_set_source_rgba
- */
-void qtcCairoSetColor(cairo_t *cr, const struct _GdkColor *col, double a);
-#define qtcCairoSetColor(cr, col, a...)                 \
-    qtcCairoSetColor(cr, col, QTC_DEFAULT(a, 1))
-
-/**
- * \param pt a cairo_pattern_t
- * \param offset an offset in the range [0.0 .. 1.0]
- * \param col the color to be added.
- * \param a (optional) the opacity of the color in the range [0.0 .. 1.0]
- *          (default: 1).
- *
- * Adds a color stop with color \param col and opacity \param a to
- * a gradient pattern at \param offset.
- * \sa cairo_pattern_add_color_stop_rgba
- */
-void qtcCairoPatternAddColorStop(cairo_pattern_t *pt, double offset,
-                                 const struct _GdkColor *col, double a);
-#define qtcCairoPatternAddColorStop(pt, offset, col, a...)              \
-    qtcCairoPatternAddColorStop(pt, offset, col, QTC_DEFAULT(a, 1))
+namespace QtCurve {
+namespace Rect {
 
 /**
  * \param a a QtcRect
@@ -102,10 +50,10 @@ void qtcCairoPatternAddColorStop(cairo_pattern_t *pt, double offset,
  * Test if rectangle \param a and rectangle \param b are equal.
  */
 QTC_ALWAYS_INLINE static inline bool
-qtcRectEqual(const QtcRect *a, const QtcRect *b)
+equal(const QtcRect &a, const QtcRect &b)
 {
-    return (a->x == b->x && a->y == b->y &&
-            a->width == b->width && a->height == b->height);
+    return (a.x == b.x && a.y == b.y && a.width == b.width &&
+            a.height == b.height);
 }
 
 /**
@@ -121,7 +69,7 @@ qtcRectEqual(const QtcRect *a, const QtcRect *b)
  * \param src1 or \param src2.
  * \sa gdk_rectangle_union
  */
-void qtcRectUnion(const QtcRect *src1, const QtcRect *src2, QtcRect *dest);
+void union_(const QtcRect *src1, const QtcRect *src2, QtcRect *dest);
 
 /**
  * \param src1 a QtcRect
@@ -139,7 +87,7 @@ void qtcRectUnion(const QtcRect *src1, const QtcRect *src2, QtcRect *dest);
  * \return true if the rectangles intersect.
  * \sa gdk_rectangle_intersect
  */
-bool qtcRectIntersect(const QtcRect *src1, const QtcRect *src2, QtcRect *dest);
+bool intersect(const QtcRect *src1, const QtcRect *src2, QtcRect *dest);
 
 /**
  * \param rect a QtcRect
@@ -149,33 +97,102 @@ bool qtcRectIntersect(const QtcRect *src1, const QtcRect *src2, QtcRect *dest);
  * \sa qtcRectIntersect
  */
 QTC_ALWAYS_INLINE static inline void
-qtcRectConstrain(QtcRect *rect, const QtcRect *con)
+constrain(QtcRect *_rect, const QtcRect *con)
 {
-    qtcRectIntersect(rect, con, rect);
+    intersect(_rect, con, _rect);
 }
 
-void qtcCairoPathTopLeft(cairo_t *cr, double xd, double yd, double width,
-                         double height, double radius, ECornerBits round);
-void qtcCairoPathBottomRight(cairo_t *cr, double xd, double yd, double width,
-                             double height, double radius, ECornerBits round);
-void qtcCairoPathWhole(cairo_t *cr, double xd, double yd, double width,
-                       double height, double radius, ECornerBits round);
+}
+
+namespace Cairo {
+
+/**
+ * \param cr a cairo_t
+ * \param pts an array of GdkPoint
+ * \param count the number of points in \param pts
+ *
+ * Add points in \param pts to the current path of \param cr.
+ * The path is shifted by (0.5, 0.5) so that it is in the middle of the pixel.
+ */
+void pathPoints(cairo_t *cr, const _GdkPoint *pts, int count);
+
+/**
+ * \param cr a cairo_t
+ * \param region a cairo_region_t
+ *
+ * Clip \param cr on \param region. The current path of \param cr will
+ * be cleared.
+ */
+void clipRegion(cairo_t *cr, const cairo_region_t *region);
+
+/**
+ * \param cr a cairo_t
+ * \param rect a QtcRect
+ *
+ * Clip \param cr on \param rect. The current path of \param cr will
+ * be cleared.
+ */
+void clipRect(cairo_t *cr, const QtcRect *_rect);
+
+/**
+ * \param cr a cairo_t
+ * \param col the color to be set
+ * \param a (optional) the opacity of the color in the range [0.0 .. 1.0]
+ *          (default: 1).
+ *
+ * Set the source of \param cr to \param col with opacity \param a
+ * \sa cairo_set_source_rgba
+ */
+void setColor(cairo_t *cr, const _GdkColor *col, double a=1);
+
+/**
+ * \param pt a cairo_pattern_t
+ * \param offset an offset in the range [0.0 .. 1.0]
+ * \param col the color to be added.
+ * \param a (optional) the opacity of the color in the range [0.0 .. 1.0]
+ *          (default: 1).
+ *
+ * Adds a color stop with color \param col and opacity \param a to
+ * a gradient pattern at \param offset.
+ * \sa cairo_pattern_add_color_stop_rgba
+ */
+void patternAddColorStop(cairo_pattern_t *pt, double offset,
+                         const _GdkColor *col, double a=1);
+
+void pathTopLeft(cairo_t *cr, double xd, double yd, double width,
+                 double height, double radius, ECornerBits round);
+void pathBottomRight(cairo_t *cr, double xd, double yd, double width,
+                     double height, double radius, ECornerBits round);
+void pathWhole(cairo_t *cr, double xd, double yd, double width,
+               double height, double radius, ECornerBits round);
+
 QTC_ALWAYS_INLINE static inline void
-qtcCairoClipWhole(cairo_t *cr, double x, double y, int w, int h,
-                  double radius, ECornerBits round)
+clipWhole(cairo_t *cr, double x, double y, int w, int h,
+          double radius, ECornerBits round)
 {
     cairo_new_path(cr);
-    qtcCairoPathWhole(cr, x, y, w, h, radius, round);
+    pathWhole(cr, x, y, w, h, radius, round);
     cairo_clip(cr);
 }
-#define qtcGdkCreateCairoClip(window, area, width...)           \
-    ({                                                          \
-        cairo_t *__cr = gdk_cairo_create(window);               \
-        qtcCairoClipRect(__cr, (const QtcRect*)(area));         \
-        cairo_set_line_width(__cr, QTC_DEFAULT(width, 1));      \
-        __cr;                                                   \
-    })
 
-QTC_END_DECLS
+#ifdef QTC_UTILS_GTK
+QTC_ALWAYS_INLINE static inline cairo_t*
+gdkCreateClip(GdkWindow *window, const QtcRect *area, double width=1)
+{
+    cairo_t *cr = gdk_cairo_create(window);
+    clipRect(cr, area);
+    cairo_set_line_width(cr, width);
+    return cr;
+}
+
+QTC_ALWAYS_INLINE static inline cairo_t*
+gdkCreateClip(GdkWindow *window, const GdkRectangle *area, double width=1)
+{
+    return gdkCreateClip(window, (const QtcRect*)area, width);
+}
+#endif
+
+}
+}
 
 #endif
