@@ -41,8 +41,8 @@ add_dependencies(qtcurve-utils gen-git-ver)
 target_link_libraries(qtcurve-utils ${qtcurve_utils_LINKS})
 
 set_target_properties(qtcurve-utils PROPERTIES
-  VERSION 1.0
-  SOVERSION 1
+  VERSION 2.0
+  SOVERSION 2
   COMPILE_FLAGS "-fvisibility=hidden"
   LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
   OUTPUT_NAME "qtcurve-utils${QTC_UTILSLIB_INFIX}")
