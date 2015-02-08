@@ -26,81 +26,52 @@
 #include "blank16x16-png.h"
 #include "qt_settings.h"
 
+#include <qtcurve-utils/gtkutils.h>
+
+#include <unordered_map>
+
 namespace QtCurve {
 
-typedef struct {
+struct PixKey {
     GdkColor col;
     double shade;
-} QtcPixKey;
+};
 
-static GHashTable *_pixbufTable = NULL;
-static GdkPixbuf *_blankPixbuf = NULL;
+struct PixHash {
+    size_t
+    operator()(const PixKey &key) const
+    {
+        const GdkColor &col = key.col;
+        return (std::hash<int>()(col.red) ^
+                (std::hash<int>()(col.green) << 1) ^
+                (std::hash<int>()(col.blue) << 2) ^
+                (std::hash<double>()(key.shade) << 3));
+    }
+};
+
+struct PixEqual {
+    bool
+    operator()(const PixKey &lhs, const PixKey &rhs) const
+    {
+        return memcmp(&lhs, &rhs, sizeof(PixKey)) == 0;
+    }
+};
+
+static std::unordered_map<PixKey, GObjPtr<GdkPixbuf>,
+                          PixHash, PixEqual> pixbufMap;
+static GObjPtr<GdkPixbuf> blankPixbuf =
+    gdk_pixbuf_new_from_inline(-1, blank16x16, true, nullptr);
 
 static GdkPixbuf*
-getBlankPixbuf()
-{
-    if (!_blankPixbuf) {
-        _blankPixbuf = gdk_pixbuf_new_from_inline(-1, blank16x16, true, NULL);
-    }
-    return _blankPixbuf;
-}
-
-static unsigned
-pixbufCacheHashKey(const void *k)
-{
-    const QtcPixKey *key = (const QtcPixKey*)k;
-    int hash = (((key->col.red >> 8) << 16) + ((key->col.green >> 8) << 8) +
-                (key->col.blue >> 8));
-    return g_int_hash(&hash);
-}
-
-static gboolean
-pixbufCacheKeyEqual(const void *k1, const void *k2)
-{
-    return memcmp(k1, k2, sizeof(QtcPixKey)) == 0;
-}
-
-static inline GHashTable*
-getPixbufTable()
-{
-    if (!_pixbufTable) {
-        _pixbufTable = g_hash_table_new_full(pixbufCacheHashKey,
-                                             pixbufCacheKeyEqual,
-                                             g_free, g_object_unref);
-    }
-    return _pixbufTable;
-}
-
-__attribute__((constructor)) static void
-_qtcPixcacheInit()
-{
-    getPixbufTable();
-    getBlankPixbuf();
-}
-
-__attribute__((destructor)) static void
-_qtcPixcacheDone()
-{
-    if (_pixbufTable) {
-        g_hash_table_destroy(_pixbufTable);
-        _pixbufTable = NULL;
-    }
-    if (_blankPixbuf) {
-        g_object_unref(_blankPixbuf);
-        _blankPixbuf = NULL;
-    }
-}
-
-static GdkPixbuf*
-pixbufCacheValueNew(const QtcPixKey *key)
+pixbufCacheValueNew(const PixKey &key)
 {
     GdkPixbuf *res = gdk_pixbuf_new_from_inline(-1, opts.xCheck ? check_x_on :
-                                                check_on, true, NULL);
+                                                check_on, true, nullptr);
     qtcAdjustPix(gdk_pixbuf_get_pixels(res), gdk_pixbuf_get_n_channels(res),
                  gdk_pixbuf_get_width(res), gdk_pixbuf_get_height(res),
                  gdk_pixbuf_get_rowstride(res),
-                 key->col.red >> 8, key->col.green >> 8,
-                 key->col.blue >> 8, key->shade, QTC_PIXEL_GDK);
+                 key.col.red >> 8, key.col.green >> 8,
+                 key.col.blue >> 8, key.shade, QTC_PIXEL_GDK);
     return res;
 }
 
@@ -108,21 +79,14 @@ GdkPixbuf*
 getPixbuf(GdkColor *widgetColor, EPixmap p, double shade)
 {
     if (p != PIX_CHECK) {
-        return getBlankPixbuf();
+        return blankPixbuf.get();
     }
-    const QtcPixKey key = {
-        .col = *widgetColor,
-        .shade = shade
-    };
-    GHashTable *table = getPixbufTable();
-    GdkPixbuf *pixbuf = (GdkPixbuf*)g_hash_table_lookup(table, &key);
-    if (pixbuf) {
-        return pixbuf;
+    const PixKey key = {*widgetColor, shade};
+    auto &pixbuf = pixbufMap[key];
+    if (pixbuf.get() == nullptr) {
+        pixbuf = pixbufCacheValueNew(key);
     }
-    // TODO: Thread safe?
-    pixbuf = pixbufCacheValueNew(&key);
-    g_hash_table_insert(table, g_memdup(&key, sizeof(key)), pixbuf);
-    return pixbuf;
+    return pixbuf.get();
 }
 
 }

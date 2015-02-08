@@ -116,7 +116,9 @@ public:
     RefPtr(T *p)
         : std::unique_ptr<T, D>(p)
     {
-        this->get_deleter().ref(p);
+        if (p) {
+            this->get_deleter().ref(p);
+        }
     }
     RefPtr(const RefPtr &other)
         : RefPtr(other.get())
@@ -126,11 +128,18 @@ public:
         : std::unique_ptr<T, D>(std::move(other))
     {
     }
+    RefPtr&
+    operator=(RefPtr &&other)
+    {
+        std::unique_ptr<T, D>::operator=(std::move(other));
+        return *this;
+    }
 };
 
-class GObjPtr: public RefPtr<GObject, GObjectDeleter> {
+template<typename ObjType=GObject>
+class GObjPtr: public RefPtr<ObjType, GObjectDeleter> {
 public:
-    using RefPtr<GObject, GObjectDeleter>::RefPtr;
+    using RefPtr<ObjType, GObjectDeleter>::RefPtr;
 };
 
 }
