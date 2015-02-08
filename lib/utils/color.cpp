@@ -291,7 +291,7 @@ hslToRgb(double h, double s, double l, double *r, double *g, double *b)
 }
 
 QTC_EXPORT void
-_qtcShade(const QtcColor *ca, QtcColor *cb, double k, EShading shading)
+_qtcShade(const QtcColor *ca, QtcColor *cb, double k, Shading shading)
 {
     // Should be handled already by the wrapper inline functions.
     if (qtcUnlikely(qtcEqual(k, 1.0))) {
@@ -299,14 +299,14 @@ _qtcShade(const QtcColor *ca, QtcColor *cb, double k, EShading shading)
         return;
     }
     switch (shading) {
-    case SHADING_SIMPLE: {
+    case Shading::Simple: {
         double v = k - 1;
         qtcColorFill(cb, qtcLimit(ca->red + v, 1.0),
                      qtcLimit(ca->green + v, 1.0),
                      qtcLimit(ca->blue + v, 1.0));
         break;
     }
-    case SHADING_HSL: {
+    case Shading::HSL: {
         double r = ca->red;
         double g = ca->green;
         double b = ca->blue;
@@ -320,7 +320,7 @@ _qtcShade(const QtcColor *ca, QtcColor *cb, double k, EShading shading)
                      qtcLimit(b, 1.0));
         break;
     }
-    case SHADING_HSV: {
+    case Shading::HSV: {
         double r = ca->red;
         double g = ca->green;
         double b = ca->blue;
@@ -340,7 +340,7 @@ _qtcShade(const QtcColor *ca, QtcColor *cb, double k, EShading shading)
                      qtcLimit(b, 1.0));
         break;
     }
-    case SHADING_HCY:
+    case Shading::HCY:
 #define HCY_FACTOR 0.15
         *cb = *ca;
         if (k > 1) {

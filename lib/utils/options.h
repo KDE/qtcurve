@@ -25,22 +25,22 @@
 
 #include "number.h"
 
-typedef enum {
-    SHADING_SIMPLE,
-    SHADING_HSL,
-    SHADING_HSV,
-    SHADING_HCY
-} EShading;
+enum class Shading {
+    Simple,
+    HSL,
+    HSV,
+    HCY,
+};
 
-typedef enum {
+enum EScrollbar {
     SCROLLBAR_KDE,
     SCROLLBAR_WINDOWS,
     SCROLLBAR_PLATINUM,
     SCROLLBAR_NEXT,
     SCROLLBAR_NONE
-} EScrollbar;
+};
 
-typedef enum {
+enum EAppearance {
     APPEARANCE_CUSTOM1,
     APPEARANCE_CUSTOM2,
     APPEARANCE_CUSTOM3,
@@ -87,25 +87,25 @@ typedef enum {
     APPEARANCE_AGUA_MOD,
     APPEARANCE_LV_AGUA,
     NUM_STD_APP = (APPEARANCE_LV_AGUA - NUM_CUSTOM_GRAD) + 1
-} EAppearance;
+};
 
-typedef enum {
+enum EFrame {
     FRAME_NONE,
     FRAME_PLAIN,
     FRAME_LINE,
     FRAME_SHADED,
     FRAME_FADED
-} EFrame;
+};
 
-typedef enum {
+enum EGradientBorder {
     GB_NONE,
     GB_LIGHT,
     GB_3D,
     GB_3D_FULL,
     GB_SHINE
-} EGradientBorder;
+};
 
-typedef enum {
+enum ECornerBits {
     CORNER_TL = 1 << 0,
     CORNER_TR = 1 << 1,
     CORNER_BR = 1 << 2,
@@ -121,7 +121,7 @@ typedef enum {
     ROUNDED_TOPLEFT = CORNER_TL,
     ROUNDED_BOTTOMLEFT = CORNER_BL,
     ROUNDED_ALL = CORNER_TL | CORNER_TR | CORNER_BR | CORNER_BL,
-} ECornerBits;
+};
 
 QTC_ALWAYS_INLINE static inline bool
 qtcUseBorder(EGradientBorder border)

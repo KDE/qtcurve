@@ -172,7 +172,7 @@ qtcX11InitXlib(void *disp)
 {
     QTC_RET_IF_FAIL(!qtc_xcb_conn && disp);
     qtc_disp = disp;
-    qtcX11InitXcb(XGetXCBConnection(disp), DefaultScreen(disp));
+    qtcX11InitXcb(XGetXCBConnection((Display*)disp), DefaultScreen(disp));
 }
 
 QTC_EXPORT xcb_connection_t*

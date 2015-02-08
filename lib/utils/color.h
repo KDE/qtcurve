@@ -196,7 +196,7 @@ void _qtcColorTint(const QtcColor *base, const QtcColor *col,
                    double amount, QtcColor *out);
 void _qtcColorMix(const QtcColor *c1, const QtcColor *c2,
                   double bias, QtcColor *out);
-void _qtcShade(const QtcColor *ca, QtcColor *cb, double k, EShading shading);
+void _qtcShade(const QtcColor *ca, QtcColor *cb, double k, Shading shading);
 double _qtcShineAlpha(const QtcColor *bgnd);
 void _qtcCalcRingAlphas(const QtcColor *bgnd);
 void qtcColorFromStr(QtcColor *color, const char *str);
@@ -292,7 +292,7 @@ qtcColorLuma(const QColor *color)
 }
 
 QTC_ALWAYS_INLINE static inline void
-qtcShade(const QColor *ca, QColor *cb, double k, EShading shading)
+qtcShade(const QColor *ca, QColor *cb, double k, Shading shading)
 {
     if (qtcEqual(k, 1.0)) {
         *cb = *ca;
@@ -408,7 +408,7 @@ qtcColorLuma(const GdkColor *color)
 }
 
 QTC_ALWAYS_INLINE static inline void
-qtcShade(const GdkColor *ca, GdkColor *cb, double k, EShading shading)
+qtcShade(const GdkColor *ca, GdkColor *cb, double k, Shading shading)
 {
     if (qtcEqual(k, 1.0)) {
         *cb = *ca;

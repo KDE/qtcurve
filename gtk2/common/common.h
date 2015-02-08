@@ -695,7 +695,7 @@ typedef struct {
                      customSortedLvColor,
                      customCrBgndColor,
                      customProgressColor;
-    EShading         shading;
+    Shading shading;
     double           customShades[QTC_NUM_STD_SHADES],
                      customAlphas[NUM_STD_ALPHAS];
     Gradient         *customGradient[NUM_CUSTOM_GRAD];

@@ -1,10 +1,10 @@
 set(qtcurve_utils_SRCS
-  color.c
+  color.cpp
   dirs.c
   log.c
   utils.c
   strs.c
-  shadow.c
+  shadow.cpp
   timer.cpp
   map.c
   fd_utils.c
@@ -13,8 +13,8 @@ set(qtcurve_utils_SRCS
   # These provides dummy API functions so that x and non-x version are abi
   # compatible. There's no X11 linkage when QTC_ENABLE_X11 is off even though
   # these files are compiled
-  x11utils.c
-  x11helpers.c
+  x11utils.cpp
+  x11helpers.cpp
   x11wrap.c)
 
 set(qtcurve_utils_LINKS ${LIBEXECINFO_LIBRARIES} pthread)

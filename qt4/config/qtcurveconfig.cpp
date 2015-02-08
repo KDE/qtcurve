@@ -674,10 +674,10 @@ static void insertEffectEntries(QComboBox *combo, bool sameAsApp=false)
 
 static void insertShadingEntries(QComboBox *combo)
 {
-    combo->insertItem(SHADING_SIMPLE, i18n("Simple"));
-    combo->insertItem(SHADING_HSL, i18n("Use HSL color space"));
-    combo->insertItem(SHADING_HSV, i18n("Use HSV color space"));
-    combo->insertItem(SHADING_HCY, i18n("Use HCY color space"));
+    combo->insertItem(int(Shading::Simple), i18n("Simple"));
+    combo->insertItem(int(Shading::HSL), i18n("Use HSL color space"));
+    combo->insertItem(int(Shading::HSV), i18n("Use HSV color space"));
+    combo->insertItem(int(Shading::HCY), i18n("Use HCY color space"));
 }
 
 static void insertStripeEntries(QComboBox *combo)
@@ -2346,8 +2346,8 @@ void QtCurveConfig::populateShades(const Options &opts)
 
     for(int i=0; i<QTC_NUM_STD_SHADES; ++i)
         shadeVals[i]->setValue(USE_CUSTOM_SHADES(opts) ? opts.customShades[i] :
-                               qtc_intern_shades[SHADING_SIMPLE ==
-                                                 shading->currentIndex() ? 1 : 0]
+                               qtc_intern_shades[shading->currentIndex() ==
+                                                 int(Shading::Simple) ? 1 : 0]
                                [contrast][i]);
 
     customAlphas->setChecked(USE_CUSTOM_ALPHAS(opts));
@@ -3040,7 +3040,7 @@ void QtCurveConfig::setOptions(Options &opts)
     opts.selectionAppearance=(EAppearance)selectionAppearance->currentIndex();
     opts.shadeCheckRadio=(EShade)shadeCheckRadio->currentIndex();
     opts.customCheckRadioColor=customCheckRadioColor->color();
-    opts.shading=(EShading)shading->currentIndex();
+    opts.shading=(Shading)shading->currentIndex();
     opts.gtkScrollViews=gtkScrollViews->isChecked();
     opts.highlightScrollViews=highlightScrollViews->isChecked();
     opts.etchEntry=etchEntry->isChecked();
@@ -3350,7 +3350,7 @@ void QtCurveConfig::setWidgetOptions(const Options &opts)
     titlebarEffect->setCurrentIndex(opts.titlebarEffect);
     titlebarIcon->setCurrentIndex(opts.titlebarIcon);
 
-    shading->setCurrentIndex(opts.shading);
+    shading->setCurrentIndex(int(opts.shading));
     gtkScrollViews->setChecked(opts.gtkScrollViews);
     highlightScrollViews->setChecked(opts.highlightScrollViews);
     etchEntry->setChecked(opts.etchEntry);

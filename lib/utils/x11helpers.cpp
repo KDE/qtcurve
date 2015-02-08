@@ -125,7 +125,7 @@ qtcX11ShadowInstallWithMargin(xcb_window_t win, const int margins[4])
         for (int i = 0;i < 4;i++) {
             shadow_data[i + 8] -= margins[i];
         }
-        XChangeProperty(qtc_disp, win, atom, XA_CARDINAL, 32,
+        XChangeProperty((Display*)qtc_disp, win, atom, XA_CARDINAL, 32,
                         PropModeReplace, (unsigned char*)shadow_data, 12);
     } else {
         uint32_t shadow_data[8 + 4];
@@ -147,8 +147,8 @@ qtcX11ShadowInstall(xcb_window_t win)
     // However, it's complicated and we will gain nothing.
     xcb_atom_t atom = qtc_x11_kde_net_wm_shadow;
     if (qtc_disp) {
-        XChangeProperty(qtc_disp, win, atom, XA_CARDINAL, 32, PropModeReplace,
-                        (unsigned char*)shadow_data_xlib, 12);
+        XChangeProperty((Display*)qtc_disp, win, atom, XA_CARDINAL, 32,
+                        PropModeReplace, (unsigned char*)shadow_data_xlib, 12);
     } else {
         qtcX11ChangeProperty(XCB_PROP_MODE_REPLACE, win, atom,
                              XCB_ATOM_CARDINAL, 32, 12, shadow_data_xcb);
@@ -207,7 +207,7 @@ qtcX11BlurTrigger(xcb_window_t wid, bool enable, unsigned prop_num,
             for (unsigned i = 0;i < prop_num;i++) {
                 xlib_props.p[i] = props[i];
             }
-            XChangeProperty(qtc_disp, wid, atom, XA_CARDINAL, 32,
+            XChangeProperty((Display*)qtc_disp, wid, atom, XA_CARDINAL, 32,
                             PropModeReplace, (unsigned char*)xlib_props.p,
                             prop_num);
             QTC_FREE_LOCAL_BUFF(xlib_props);

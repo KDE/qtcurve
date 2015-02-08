@@ -164,7 +164,7 @@ public:
     bool settingsChanged();
 
     QSize sizeHint() const;
-    EShading currentShading() const;
+    Shading currentShading() const;
 
 private:
     void activeTabAppearanceChanged();
@@ -239,10 +239,10 @@ private:
                            *menuBgndImageDlg;
 };
 
-inline EShading
+inline Shading
 QtCurveConfig::currentShading() const
 {
-    return (EShading)shading->currentIndex();
+    return (Shading)shading->currentIndex();
 }
 
 inline bool

@@ -104,7 +104,10 @@ public:
     ~QtCurveConfig() override;
 
     QSize sizeHint() const;
-    EShading currentShading() const { return (EShading)shading->currentIndex(); }
+    Shading currentShading() const
+    {
+        return (Shading)shading->currentIndex();
+    }
 
 Q_SIGNALS:
     void changed(bool);

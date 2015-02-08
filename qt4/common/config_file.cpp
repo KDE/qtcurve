@@ -303,18 +303,19 @@ static EEffect toEffect(const char *str, EEffect def)
     return def;
 }
 
-static EShading toShading(const char *str, EShading def)
+static Shading
+toShading(const char *str, Shading def)
 {
     if(str && 0!=str[0])
     {
         if(0==memcmp(str, "simple", 6))
-            return SHADING_SIMPLE;
+            return Shading::Simple;
         if(0==memcmp(str, "hsl", 3))
-            return SHADING_HSL;
+            return Shading::HSL;
         if(0==memcmp(str, "hsv", 3))
-            return SHADING_HSV;
+            return Shading::HSV;
         if(0==memcmp(str, "hcy", 3))
-            return SHADING_HCY;
+            return Shading::HCY;
     }
 
     return def;
@@ -1623,7 +1624,7 @@ void qtcDefaultSettings(Options *opts)
     opts->titlebarIcon=TITLEBAR_ICON_NEXT_TO_TITLE;
     opts->menuStripe=SHADE_NONE;
     opts->menuStripeAppearance=APPEARANCE_DARK_INVERTED;
-    opts->shading=SHADING_HSL;
+    opts->shading=Shading::HSL;
     opts->gtkScrollViews=true;
     opts->comboBtn=SHADE_NONE;
     opts->doubleGtkComboArrow=true;
@@ -1904,19 +1905,19 @@ static const char *toStr(EEffect e)
 
 inline const char * toStr(bool b) { return b ? "true" : "false"; }
 
-static const char *toStr(EShading s)
+static const char*
+toStr(Shading s)
 {
-    switch(s)
-    {
-        case SHADING_SIMPLE:
-            return "simple";
-        default:
-        case SHADING_HSL:
-            return "hsl";
-        case SHADING_HSV:
-            return "hsv";
-        case SHADING_HCY:
-            return "hcy";
+    switch (s) {
+    case Shading::Simple:
+        return "simple";
+    default:
+    case Shading::HSL:
+        return "hsl";
+    case Shading::HSV:
+        return "hsv";
+    case Shading::HCY:
+        return "hcy";
     }
 }
 

@@ -863,7 +863,7 @@ typedef struct {
                      customSortedLvColor,
                      customCrBgndColor,
                      customProgressColor;
-    EShading         shading;
+    Shading shading;
     EAlign           titlebarAlignment;
     EEffect          titlebarEffect;
     bool             centerTabText;
