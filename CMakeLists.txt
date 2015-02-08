@@ -190,6 +190,7 @@ add_subdirectory(qt5)
 add_subdirectory(gtk2)
 add_subdirectory(tools)
 if(ENABLE_TEST)
+  enable_testing()
   add_subdirectory(test)
 endif()
 

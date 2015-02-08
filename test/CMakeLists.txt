@@ -1,5 +1,3 @@
-enable_testing()
-
 add_definitions(-UNDEBUG)
 remove_definitions(-DNDEBUG)
 
@@ -15,7 +13,7 @@ add_executable(test-search test-search.c)
 target_link_libraries(test-search qtcurve-utils)
 add_test(NAME test-search COMMAND test-search)
 
-add_executable(test-strmap test-strmap.c)
+add_executable(test-strmap test-strmap.cpp)
 target_link_libraries(test-strmap qtcurve-utils)
 add_test(NAME test-strmap COMMAND test-strmap)
 
@@ -35,7 +33,7 @@ add_executable(test-default-arg-cpp test-default-arg.cpp)
 target_link_libraries(test-default-arg-cpp qtcurve-utils)
 add_test(NAME test-default-arg-cpp COMMAND test-default-arg-cpp)
 
-add_executable(test-color-str test-color-str.c)
+add_executable(test-color-str test-color-str.cpp)
 target_link_libraries(test-color-str qtcurve-utils)
 add_test(NAME test-color-str COMMAND test-color-str)
 
