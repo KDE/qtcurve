@@ -45,28 +45,30 @@ Info::Info(GtkWidget *notebook)
 {
 }
 
-static std::unordered_map<GtkWidget*, Info> tabMap;
-
-static Info*
-lookupHash(GtkWidget *hash, bool create=false)
-{
-    auto it = tabMap.find(hash);
-    if (it != tabMap.end()) {
-        return &it->second;
-    } else if (!create) {
-        return nullptr;
+class TabMap: public std::unordered_map<GtkWidget*, Info> {
+public:
+    using std::unordered_map<GtkWidget*, Info>::unordered_map;
+    Info*
+    lookup(GtkWidget *hash, bool create=false)
+    {
+        auto it = find(hash);
+        if (it != end()) {
+            return &it->second;
+        } else if (!create) {
+            return nullptr;
+        }
+        return &(emplace(std::piecewise_construct, std::forward_as_tuple(hash),
+                         std::forward_as_tuple(hash)).first->second);
     }
-    auto res = tabMap.emplace(std::piecewise_construct,
-                              std::forward_as_tuple(hash),
-                              std::forward_as_tuple(hash));
-    return &(res.first->second);
-}
+};
+
+static TabMap tabMap;
 
 static Info*
 widgetFindTab(GtkWidget *widget)
 {
     if (GTK_IS_NOTEBOOK(widget))
-        return lookupHash(widget);
+        return tabMap.lookup(widget);
     return nullptr;
 }
 
@@ -256,7 +258,7 @@ setup(GtkWidget *widget)
     QTC_DEF_WIDGET_PROPS(props, widget);
     if (widget && !qtcWidgetProps(props)->tabHacked) {
         qtcWidgetProps(props)->tabHacked = true;
-        lookupHash(widget, true);
+        tabMap.lookup(widget, true);
         qtcConnectToProp(props, tabDestroy, "destroy-event",
                          destroy, NULL);
         qtcConnectToProp(props, tabUnrealize, "unrealize", destroy, NULL);
