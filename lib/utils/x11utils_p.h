@@ -105,7 +105,7 @@ qtcX11GetAtom(const char *name, bool create)
     xcb_intern_atom_reply_t *r = qtcX11Call(intern_atom, !create,
                                             strlen(name), name);
     xcb_atom_t atom = r ? r->atom : 0;
-    qtcFree(r);
+    free(r);
     return atom;
 }
 

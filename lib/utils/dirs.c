@@ -156,12 +156,12 @@ _qtcGetDirs()
 __attribute__((destructor)) static void
 _qtcFreeDirs()
 {
-    qtcFree(qtc_home);
+    free(qtc_home);
     qtc_home = NULL;
-    qtcFree(qtc_xdg_data_home);
+    free(qtc_xdg_data_home);
     qtc_xdg_data_home = NULL;
-    qtcFree(qtc_xdg_config_home);
+    free(qtc_xdg_config_home);
     qtc_xdg_config_home = NULL;
-    qtcFree(qtc_conf_dir);
+    free(qtc_conf_dir);
     qtc_conf_dir = NULL;
 }

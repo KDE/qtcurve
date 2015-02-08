@@ -58,18 +58,6 @@ qtcAlloc0(size_t size)
 }
 
 /**
- * Free a pointer if it is not NULL.
- * \param p the pointer to be freed.
- */
-QTC_ALWAYS_INLINE static inline void
-qtcFree(void *p)
-{
-    if (p) {
-        free(p);
-    }
-}
-
-/**
  * Allocate memory of size \param size for a \param type.
  * The memory is initialized to zero.
  * \param type type pointed to by the pointer

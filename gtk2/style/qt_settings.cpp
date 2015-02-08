@@ -1346,13 +1346,13 @@ processUserChromeCss(char *file, bool add_btn_css, bool add_menu_colors)
                         else
                             remove_menu_colors=true, write_line=false;
                     }
-                    if(write_line)
+                    if (write_line) {
                         strcat(contents, line);
+                    }
                 }
-                qtcFree(line);
+                free(line);
             }
         }
-
         fclose(f);
     }
 
@@ -1427,7 +1427,7 @@ processUserChromeCss(char *file, bool add_btn_css, bool add_menu_colors)
         }
         free(contents);
     }
-    qtcFree(menu_text_str);
+    free(menu_text_str);
 }
 
 static void
@@ -1480,7 +1480,7 @@ processMozillaApp(bool add_btn_css, bool add_menu_colors,
                                 break;
                             }
                         fclose(userJs);
-                        qtcFree(line);
+                        free(line);
                     }
 
                     if(alterUserJs && ((userJs=fopen(sub, "a"))))
@@ -2427,7 +2427,7 @@ qtSettingsInit()
                                     "widget_class \"*<GtkToolbar>\"  style \"" RC_SETTING "TbJ\"");
 
             QTC_FREE_LOCAL_BUFF(str_buff);
-            qtcFree(tmpStr);
+            free(tmpStr);
 
             if(opts.shadeMenubarOnlyWhenActive && SHADE_WINDOW_BORDER==opts.shadeMenubars &&
                EQUAL_COLOR(qtSettings.colors[PAL_ACTIVE][COLOR_WINDOW_BORDER], qtSettings.colors[PAL_INACTIVE][COLOR_WINDOW_BORDER]))
@@ -2450,10 +2450,10 @@ static void qtSettingsExit()
     qt_refs--;
     if (!qt_refs) {
         for(int i = 0;i < FONT_NUM_TOTAL;++i) {
-            qtcFree(qtSettings.fonts[i]);
+            free(qtSettings.fonts[i]);
             qtSettings.fonts[i] = NULL;
         }
-        qtcFree(qtSettings.icons);
+        free(qtSettings.icons);
         qtSettings.icons = NULL;
     }
 }

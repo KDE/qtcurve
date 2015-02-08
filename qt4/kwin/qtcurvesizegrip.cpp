@@ -129,7 +129,7 @@ QtCurveSizeGrip::embed()
                 reply->parent != current) {
                 current = reply->parent;
             } else {
-                qtcFree(reply);
+                free(reply);
                 break;
             }
             free(reply);
