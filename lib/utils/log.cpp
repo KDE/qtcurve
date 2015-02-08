@@ -41,7 +41,7 @@ _qtcCheckLogLevelReal()
         log_level = QTC_LOG_DEBUG;
         return;
     }
-    static const QtCurve::StrMap<QtcLogLevel> level_map{
+    static const QtCurve::StrMap<QtcLogLevel, false> level_map{
         {"debug", QTC_LOG_DEBUG},
         {"info", QTC_LOG_INFO},
         {"warning", QTC_LOG_WARN},

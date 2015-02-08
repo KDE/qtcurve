@@ -6,6 +6,7 @@ set(qtcurve_utils_SRCS
   strs.c
   shadow.cpp
   timer.cpp
+  options.cpp
   fd_utils.c
   process.c
   # DO NOT condition on QTC_ENABLE_X11 !!!

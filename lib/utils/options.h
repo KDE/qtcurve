@@ -180,4 +180,20 @@ qtcScrollbarButtonNumSize(EScrollbar type)
     return qtcMax(qtcScrollbarButtonNum(type), 2);
 }
 
+namespace QtCurve {
+namespace Config {
+
+template<typename T> T loadValue(const char *str, T def);
+
+#ifndef __QTC_UTILS_OPTIONS_INTERNAL__
+extern template Shading loadValue<Shading>(const char *str, Shading def);
+extern template EScrollbar loadValue<EScrollbar>(const char *str,
+                                                 EScrollbar def);
+#endif
+
+}
+
+}
+
+
 #endif

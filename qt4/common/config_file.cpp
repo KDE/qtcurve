@@ -250,23 +250,10 @@ static ERound toRound(const char *str, ERound def)
     return def;
 }
 
-static EScrollbar toScrollbar(const char *str, EScrollbar def)
+static EScrollbar
+toScrollbar(const char *str, EScrollbar def)
 {
-    if(str && 0!=str[0])
-    {
-        if(0==memcmp(str, "kde", 3))
-            return SCROLLBAR_KDE;
-        if(0==memcmp(str, "windows", 7))
-            return SCROLLBAR_WINDOWS;
-        if(0==memcmp(str, "platinum", 8))
-            return SCROLLBAR_PLATINUM;
-        if(0==memcmp(str, "next", 4))
-            return SCROLLBAR_NEXT;
-        if(0==memcmp(str, "none", 4))
-            return SCROLLBAR_NONE;
-    }
-
-    return def;
+    return QtCurve::Config::loadValue<EScrollbar>(str, def);
 }
 
 static EFrame toFrame(const char *str, EFrame def)
@@ -306,19 +293,7 @@ static EEffect toEffect(const char *str, EEffect def)
 static Shading
 toShading(const char *str, Shading def)
 {
-    if(str && 0!=str[0])
-    {
-        if(0==memcmp(str, "simple", 6))
-            return Shading::Simple;
-        if(0==memcmp(str, "hsl", 3))
-            return Shading::HSL;
-        if(0==memcmp(str, "hsv", 3))
-            return Shading::HSV;
-        if(0==memcmp(str, "hcy", 3))
-            return Shading::HCY;
-    }
-
-    return def;
+    return QtCurve::Config::loadValue<Shading>(str, def);
 }
 
 static EStripe toStripe(const char *str, EStripe def)

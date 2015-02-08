@@ -48,7 +48,7 @@ struct gens<0, S...> {
 template<int N>
 using gens_t = typename gens<N>::type;
 
-template<typename Val=int, bool case_sens=false>
+template<typename Val=int, bool case_sens=true>
 class StrMap : std::vector<std::pair<const char*, Val> > {
     typedef std::pair<const char*, Val> pair_type;
     static int

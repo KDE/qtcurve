@@ -62,14 +62,14 @@
 static int
 search_map(const char *str)
 {
-    static const QtCurve::StrMap<int, true> auto_map(STRINGS);
+    static const QtCurve::StrMap<> auto_map(STRINGS);
     return auto_map.search(str);
 }
 
 static int
 search_case_map(const char *str)
 {
-    static const QtCurve::StrMap<> auto_map(CASE_STRINGS);
+    static const QtCurve::StrMap<int, false> auto_map(CASE_STRINGS);
     return auto_map.search(str);
 }
 

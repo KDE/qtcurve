@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -21,6 +21,7 @@
  *****************************************************************************/
 
 #include <qtcurve-utils/log.h>
+#include <qtcurve-utils/map.h>
 #include <qtcurve-utils/dirs.h>
 #include <qtcurve-utils/strs.h>
 
@@ -137,27 +138,18 @@ loadImage(const char *file, QtCPixmap *pixmap)
 static EDefBtnIndicator
 toInd(const char *str, EDefBtnIndicator def)
 {
-    if(str && 0!=str[0])
-    {
-        if(0==memcmp(str, "fontcolor", 9) || 0==memcmp(str, "border", 6))
-            return IND_FONT_COLOR;
-        if(0==memcmp(str, "none", 4))
-            return IND_NONE;
-        if(0==memcmp(str, "corner", 6))
-            return IND_CORNER;
-        if(0==memcmp(str, "colored", 7))
-            return IND_COLORED;
-        if(0==memcmp(str, "tint", 4))
-            return IND_TINT;
-        if(0==memcmp(str, "glow", 4))
-            return IND_GLOW;
-        if(0==memcmp(str, "darken", 6))
-            return IND_DARKEN;
-        if(0==memcmp(str, "origselected", 12))
-            return IND_SELECTED;
-    }
-
-    return def;
+    static const QtCurve::StrMap<EDefBtnIndicator> map{
+        {"fontcolor", IND_FONT_COLOR},
+        {"border", IND_FONT_COLOR},
+        {"none", IND_NONE},
+        {"corner", IND_CORNER},
+        {"colored", IND_COLORED},
+        {"tint", IND_TINT},
+        {"glow", IND_GLOW},
+        {"darken", IND_DARKEN},
+        {"origselected", IND_SELECTED},
+    };
+    return map.search(str, def);
 }
 
 static ELine toLine(const char *str, ELine def)
@@ -310,23 +302,10 @@ static ERound toRound(const char *str, ERound def)
     return def;
 }
 
-static EScrollbar toScrollbar(const char *str, EScrollbar def)
+static EScrollbar
+toScrollbar(const char *str, EScrollbar def)
 {
-    if(str && 0!=str[0])
-    {
-        if(0==memcmp(str, "kde", 3))
-            return SCROLLBAR_KDE;
-        if(0==memcmp(str, "windows", 7))
-            return SCROLLBAR_WINDOWS;
-        if(0==memcmp(str, "platinum", 8))
-            return SCROLLBAR_PLATINUM;
-        if(0==memcmp(str, "next", 4))
-            return SCROLLBAR_NEXT;
-        if(0==memcmp(str, "none", 4))
-            return SCROLLBAR_NONE;
-    }
-
-    return def;
+    return QtCurve::Config::loadValue<EScrollbar>(str, def);
 }
 
 static EFrame toFrame(const char *str, EFrame def)
@@ -366,19 +345,7 @@ static EEffect toEffect(const char *str, EEffect def)
 static Shading
 toShading(const char *str, Shading def)
 {
-    if(str && 0!=str[0])
-    {
-        if(0==memcmp(str, "simple", 6))
-            return Shading::Simple;
-        if(0==memcmp(str, "hsl", 3))
-            return Shading::HSL;
-        if(0==memcmp(str, "hsv", 3))
-            return Shading::HSV;
-        if(0==memcmp(str, "hcy", 3))
-            return Shading::HCY;
-    }
-
-    return def;
+    return QtCurve::Config::loadValue<Shading>(str, def);
 }
 
 static EStripe toStripe(const char *str, EStripe def)
