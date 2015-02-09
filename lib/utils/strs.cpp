@@ -1,5 +1,5 @@
 /*****************************************************************************
- *   Copyright 2013 - 2013 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -48,9 +48,9 @@ _qtcSPrintfV(char *buff, size_t *_size, bool allocated,
     if (new_size > size) {
         new_size = qtcAlignTo(new_size, 1024);
         if (allocated) {
-            buff = realloc(buff, new_size);
+            buff = (char*)realloc(buff, new_size);
         } else {
-            buff = malloc(new_size);
+            buff = (char*)malloc(new_size);
         }
         *_size = new_size;
         new_size = vsnprintf(buff, new_size, fmt, _ap);
@@ -114,7 +114,7 @@ qtcStrListLoader(const char *str, size_t len, void *_data)
     QtcStrLoadListData *data = (QtcStrLoadListData*)_data;
     if (data->nele <= data->offset) {
         data->nele += 8;
-        data->buff = realloc(data->buff, data->nele * data->size);
+        data->buff = (char*)realloc(data->buff, data->nele * data->size);
     }
     if (data->loader((char*)data->buff + data->offset * data->size,
                      str, len, data->data)) {
@@ -157,7 +157,7 @@ qtcStrLoadList(const char *str, char delim, char escape, size_t size,
 static bool
 qtcStrListStrLoader(void *ele, const char *str, size_t len, void *data)
 {
-    const char *def = data;
+    const char *def = (const char*)data;
     if (def && !str[0]) {
         *(char**)ele = strdup(def);
     } else {
@@ -170,8 +170,8 @@ QTC_EXPORT char**
 qtcStrLoadStrList(const char *str, char delim, char escape, size_t *nele,
                   char **buff, size_t max_len, const char *def)
 {
-    return qtcStrLoadList(str, delim, escape, sizeof(char*), nele, buff,
-                          max_len, qtcStrListStrLoader, (void*)def);
+    return (char**)qtcStrLoadList(str, delim, escape, sizeof(char*), nele, buff,
+                                  max_len, qtcStrListStrLoader, (void*)def);
 }
 
 static bool
@@ -193,8 +193,9 @@ QTC_EXPORT long*
 qtcStrLoadIntList(const char *str, char delim, char escape, size_t *nele,
                   long *buff, size_t max_len, long def)
 {
-    return qtcStrLoadList(str, delim, escape, sizeof(long), nele, buff,
-                          max_len, qtcStrListIntLoader, (void*)(intptr_t)def);
+    return (long*)qtcStrLoadList(str, delim, escape, sizeof(long), nele, buff,
+                                 max_len, qtcStrListIntLoader,
+                                 (void*)(intptr_t)def);
 }
 
 static bool
@@ -216,6 +217,6 @@ QTC_EXPORT double*
 qtcStrLoadFloatList(const char *str, char delim, char escape, size_t *nele,
                     double *buff, size_t max_len, double def)
 {
-    return qtcStrLoadList(str, delim, escape, sizeof(double), nele, buff,
-                          max_len, qtcStrListFloatLoader, &def);
+    return (double*)qtcStrLoadList(str, delim, escape, sizeof(double), nele,
+                                   buff, max_len, qtcStrListFloatLoader, &def);
 }

@@ -231,7 +231,7 @@ qtcPopen(const char *file, const char *const *argv,
 static bool
 qtcPopenReadBuff(QtcPopenBuff *buffs)
 {
-    buffs->buff = realloc(buffs->buff, buffs->len + 1024 + 1);
+    buffs->buff = (char*)realloc(buffs->buff, buffs->len + 1024 + 1);
     ssize_t len = read(buffs->orig, buffs->buff + buffs->len, 1024);
     if (len == 0 || (len == -1 && qtcNoneOf(errno, EAGAIN, EINTR,
                                             EWOULDBLOCK))) {

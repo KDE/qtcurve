@@ -88,19 +88,21 @@ const char*
 _qtcGetProgName()
 {
     static char buff[1024] = "";
-    void *hdl = dlopen(NULL, RTLD_NOW);
-    const char *name = NULL;
-    char *const *progname = NULL;
-    const char *(*progname_func)() = NULL;
+    void *hdl = dlopen(nullptr, RTLD_NOW);
+    const char *name = nullptr;
+    char *const *progname = nullptr;
+    const char *(*progname_func)() = nullptr;
     // I do not use the procfs here since any system that has procfs (Linux)
     // should support one of these variables/functions.
     if (!hdl) {
         return "";
-    } else if ((progname = dlsym(hdl, "program_invocation_short_name")) ||
-               (progname = dlsym(hdl, "program_invocation_name")) ||
-               (progname = dlsym(hdl, "__progname"))) {
+    } else if ((progname =
+                (char *const*)dlsym(hdl, "program_invocation_short_name")) ||
+               (progname =
+                (char *const*)dlsym(hdl, "program_invocation_name")) ||
+               (progname = (char *const*)dlsym(hdl, "__progname"))) {
         name = *progname;
-    } else if ((progname_func = dlsym(hdl, "getprogname"))) {
+    } else if ((progname_func = (const char *(*)())dlsym(hdl, "getprogname"))) {
         name = progname_func();
     }
     if (!name) {
@@ -121,7 +123,7 @@ _qtcGetProgName()
 QTC_EXPORT const char*
 qtcGetProgName()
 {
-    static const char *name = NULL;
+    static const char *name = nullptr;
     if (!name) {
         name = _qtcGetProgName();
     }

@@ -28,24 +28,20 @@ qtcSendFD(int sock, int fd)
 {
     QTC_RET_IF_FAIL(fd >= 0 && sock >= 0, false);
     char buf = 0;
-    struct iovec iov = {
-        .iov_base = &buf,
-        .iov_len = 1
-    };
+    iovec iov;
+    iov.iov_base = &buf;
+    iov.iov_len = 1;
     union {
         struct cmsghdr cmsghdr;
         char control[CMSG_SPACE(sizeof(int))];
     } cmsgu;
     memset(&cmsgu, 0, sizeof(cmsgu));
-    struct msghdr msg = {
-        .msg_name = NULL,
-        .msg_namelen = 0,
-        .msg_iov = &iov,
-        .msg_iovlen = 1,
-        .msg_control = cmsgu.control,
-        .msg_controllen = sizeof(cmsgu.control)
-    };
-    struct cmsghdr *cmsg = CMSG_FIRSTHDR(&msg);
+    msghdr msg;
+    msg.msg_iov = &iov;
+    msg.msg_iovlen = 1;
+    msg.msg_control = cmsgu.control;
+    msg.msg_controllen = sizeof(cmsgu.control);
+    cmsghdr *cmsg = CMSG_FIRSTHDR(&msg);
     cmsg->cmsg_len = CMSG_LEN(sizeof(int));
     cmsg->cmsg_level = SOL_SOCKET;
     cmsg->cmsg_type = SCM_RIGHTS;
@@ -58,23 +54,19 @@ qtcRecvFD(int sock)
 {
     QTC_RET_IF_FAIL(sock >= 0, -1);
     char buf = 0;
-    struct iovec iov = {
-        .iov_base = &buf,
-        .iov_len = 1
-    };
+    iovec iov;
+    iov.iov_base = &buf;
+    iov.iov_len = 1;
     union {
         struct cmsghdr cmsghdr;
         char control[CMSG_SPACE(sizeof(int))];
     } cmsgu;
     memset(&cmsgu, 0, sizeof(cmsgu));
-    struct msghdr msg = {
-        .msg_name = NULL,
-        .msg_namelen = 0,
-        .msg_iov = &iov,
-        .msg_iovlen = 1,
-        .msg_control = cmsgu.control,
-        .msg_controllen = sizeof(cmsgu.control)
-    };
+    msghdr msg;
+    msg.msg_iov = &iov;
+    msg.msg_iovlen = 1;
+    msg.msg_control = cmsgu.control;
+    msg.msg_controllen = sizeof(cmsgu.control);
     QTC_RET_IF_FAIL(recvmsg(sock, &msg, 0) >= 0, -1);
     struct cmsghdr *cmsg = CMSG_FIRSTHDR(&msg);
     QTC_RET_IF_FAIL(cmsg && cmsg->cmsg_len == CMSG_LEN(sizeof(int)) &&

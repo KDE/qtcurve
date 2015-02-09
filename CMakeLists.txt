@@ -46,7 +46,8 @@ option(QTC_ENABLE_X11 "Enable X11" On)
 option(QTC_INSTALL_PO "Install translation files." On)
 
 qtc_option(QTC_QT4_ENABLE_KDE "Building Qt4 style with KDE4 support." On)
-qtc_option(QTC_QT5_ENABLE_KDE "Building Qt5 style with KDE Frameworks 5 support." On)
+qtc_option(QTC_QT5_ENABLE_KDE
+  "Building Qt5 style with KDE Frameworks 5 support." On)
 
 option(QTC_QT4_STYLE_SUPPORT
   "Qt4 support for creating a style for each QtCurve theme." Off)

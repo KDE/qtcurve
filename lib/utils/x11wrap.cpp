@@ -1,5 +1,5 @@
 /*****************************************************************************
- *   Copyright 2014 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2014 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -31,7 +31,7 @@ QTC_EXPORT void
 qtcX11FlushXlib()
 {
     QTC_RET_IF_FAIL(qtc_disp);
-    XFlush(qtc_disp);
+    XFlush((Display*)qtc_disp);
 }
 
 QTC_EXPORT void
