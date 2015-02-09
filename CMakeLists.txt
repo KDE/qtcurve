@@ -41,7 +41,7 @@ qtc_option(ENABLE_QT4 "Building Qt4 theme." On)
 qtc_option(ENABLE_QT5 "Building Qt5 theme." On)
 qtc_option(ENABLE_GTK2 "Building Gtk2 theme." On)
 # option(ENABLE_GTK3 "Building Gtk3 theme." On)
-option(ENABLE_TEST "Enable testing." Off)
+option(ENABLE_TEST "Enable testing." On)
 option(QTC_ENABLE_X11 "Enable X11" On)
 option(QTC_INSTALL_PO "Install translation files." On)
 

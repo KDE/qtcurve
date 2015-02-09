@@ -40,9 +40,8 @@ fillBuffer(char *buff, size_t size)
 }
 
 static void
-subProcess(int argc, char **argv)
+subProcess(int, char **argv)
 {
-    QTC_UNUSED(argc);
     char buff3[1024] = {0};
     read(0, buff3, sizeof(buff3));
     assert(memcmp(argv[1], buff3, sizeof(buff3)) == 0);
@@ -50,9 +49,8 @@ subProcess(int argc, char **argv)
 }
 
 static void
-mainProcess(int argc, char **argv)
+mainProcess(int, char **argv)
 {
-    QTC_UNUSED(argc);
     srandom(time(NULL));
     fillBuffer(buff1, sizeof(buff1));
     fillBuffer(buff2, sizeof(buff2));
@@ -67,7 +65,6 @@ mainProcess(int argc, char **argv)
         }
     };
     alarm(1);
-    // ()
     const char* const args[] = {argv[0], buff1, buff2, NULL};
     qtcPopen(argv[0], args, sizeof(fds) / sizeof(fds[0]), fds);
     write(fds[0].replace, buff1, sizeof(buff1));
