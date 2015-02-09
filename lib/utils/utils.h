@@ -28,11 +28,11 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <math.h>
-#ifndef __cplusplus
-#  include <stdbool.h>
-#endif
 
 #include "macros.h"
+
+#include <utility>
+#include <type_traits>
 
 /**
  * \file utils.h
@@ -76,7 +76,6 @@ qtcAlloc0(size_t size)
 #define qtcNew(type, n...)                              \
     qtcNewSize(type, sizeof(type) * (QTC_DEFAULT(n, 1)))
 
-#ifdef __cplusplus
 namespace QtCurve {
 /**
  * Turn a variable into a const reference. This is useful for range-based for
@@ -89,7 +88,6 @@ const_(const T &t)
     return t;
 }
 }
-#endif
 
 /**
  * Define a buffer type (struct) for \param type.
@@ -167,29 +165,8 @@ const_(const T &t)
         }                                       \
     } while (0)
 
-/**
- * Binary searches an sorted array of \param nmemb objects.
- * \param key The key for the search.
- * \param base pointer to the first element.
- * \param nmemb number of object in the array.
- * \param size size of each object.
- * \param compar function to compare key with an object.
- *
- * \return if a matching object is found, the pointer to the object will be
- *         returned, otherwise, a pointer to where the new object should be
- *         inserted will be returned. If the key is greater than all the
- *         elements in the array, the returned pointer will point to the end
- *         of the list, i.e. out of the bound of the list.
- */
-void *qtcBSearch(const void *key, const void *base, size_t nmemb, size_t size,
-                 int (*compar)(const void*, const void*));
 const char *qtcGetProgName();
 const char *qtcVersion();
-
-#ifdef __cplusplus
-
-#include <utility>
-#include <type_traits>
 
 template<typename T>
 using qtcPtrType = typename std::remove_reference<
@@ -199,18 +176,25 @@ using qtcPtrType = typename std::remove_reference<
 #define qtcMemPtr(ptr, name) &qtcPtrType<decltype(ptr)>::name
 
 template<typename T, typename First>
-QTC_ALWAYS_INLINE static inline bool
+static inline bool
 qtcOneOf(T &&value, First &&first)
 {
     return value == first;
 }
 template<typename T, typename First, typename... Rest>
-QTC_ALWAYS_INLINE static inline bool
-qtcOneOf(T &&value, First &&first, Rest &&...rest...)
+static inline bool
+qtcOneOf(T &&value, First &&first, Rest&&... rest)
 {
     return value == first || qtcOneOf(std::forward<T>(value),
                                       std::forward<Rest>(rest)...);
 }
+template<typename... Args>
+static inline bool
+qtcNoneOf(Args&&... args)
+{
+    return !qtcOneOf(std::forward<Args>(args)...);
+}
+
 // Use lambda for lazy evaluation of \param def
 #define qtcDefault(val, def)                    \
     (([&]() {                                   \
@@ -234,46 +218,9 @@ qtcOneOf(T &&value, First &&first, Rest &&...rest...)
             *__addr = (exp);                    \
         }                                       \
     } while(0)
-#else
-#define qtcOneOf(exp, args...)                                  \
-    ({                                                          \
-        const typeof((exp)) __val = (exp);                      \
-        const typeof((exp)) __args[] = {args};                  \
-        size_t __arg_n = sizeof(__args) / sizeof(__args[0]);    \
-        bool __res = false;                                     \
-        for (size_t __i = 0;__i < __arg_n;__i++) {              \
-            if (__val == __args[__i]) {                         \
-                __res = true;                                   \
-                break;                                          \
-            }                                                   \
-        }                                                       \
-        __res;                                                  \
-    })
-#define qtcDefault(val, def)                    \
-    ({                                          \
-        typeof(val) __val = (val);              \
-        __val ? __val : (def);                  \
-    })
-// The current c implementation of this macro does not support functions
-// with non-scaler as return type.
-#define qtcCall(func, args...)                                  \
-    ({                                                          \
-        typeof(func) __func = (func);                           \
-        __func ? __func(args) : (typeof(__func(args)))0;        \
-    })
-#define qtcAssign(addr, exp) do {               \
-        typeof(addr) __addr = (addr);           \
-        if (__addr) {                           \
-            *__addr = (exp);                    \
-        }                                       \
-    } while(0)
-#endif
-#define qtcNoneOf(args...) (!qtcOneOf(args))
 
-// gcc and clang both seem find with returning void expression in c
-// (even with -ansi).
-// Not sure if this is standard but should be fine since we require gnu99
-// anyway.
+// Returning a void expression is valid c++, see above
+// Or https://gcc.gnu.org/ml/gcc/2006-10/msg00697.html
 #define QTC_RET_IF_FAIL(exp, val...) do {       \
         if (!qtcLikely(exp)) {                  \
             return (QTC_DEFAULT(val, (void)0)); \

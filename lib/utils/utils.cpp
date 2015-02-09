@@ -25,29 +25,6 @@
 
 #include <dlfcn.h>
 
-// Return the position of the element that is greater than or equal to the key.
-QTC_EXPORT void*
-qtcBSearch(const void *key, const void *base, size_t nmemb, size_t size,
-           int (*compar)(const void*, const void*))
-{
-    size_t l = 0;
-    size_t u = nmemb;
-    while (l < u) {
-        size_t idx = (l + u) / 2;
-        const void *p = ((const char*)base) + (idx * size);
-        int comparison = (*compar)(key, p);
-        if (comparison == 0) {
-            l = idx;
-            break;
-        } else if (comparison < 0) {
-            u = idx;
-        } else if (comparison > 0) {
-            l = idx + 1;
-        }
-    }
-    return (void*)(((const char*)base) + (l * size));
-}
-
 const char*
 _qtcGetProgName()
 {
@@ -87,9 +64,6 @@ _qtcGetProgName()
 QTC_EXPORT const char*
 qtcGetProgName()
 {
-    static const char *name = nullptr;
-    if (!name) {
-        name = _qtcGetProgName();
-    }
+    static const char *name = _qtcGetProgName();
     return name;
 }

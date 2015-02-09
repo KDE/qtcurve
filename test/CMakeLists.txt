@@ -9,10 +9,6 @@ add_executable(test-buff test-buff.cpp)
 target_link_libraries(test-buff qtcurve-utils)
 add_test(NAME test-buff COMMAND test-buff)
 
-add_executable(test-search test-search.cpp)
-target_link_libraries(test-search qtcurve-utils)
-add_test(NAME test-search COMMAND test-search)
-
 add_executable(test-strmap test-strmap.cpp)
 target_link_libraries(test-strmap qtcurve-utils)
 add_test(NAME test-strmap COMMAND test-strmap)
