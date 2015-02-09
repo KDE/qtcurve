@@ -175,9 +175,8 @@ qtcStrLoadStrList(const char *str, char delim, char escape, size_t *nele,
 }
 
 static bool
-qtcStrListIntLoader(void *ele, const char *str, size_t len, void *data)
+qtcStrListIntLoader(void *ele, const char *str, size_t, void *data)
 {
-    QTC_UNUSED(len);
     long def = (long)(intptr_t)data;
     str += strspn(str, " \t\b\n\f\v");
     char *end = NULL;
@@ -199,9 +198,8 @@ qtcStrLoadIntList(const char *str, char delim, char escape, size_t *nele,
 }
 
 static bool
-qtcStrListFloatLoader(void *ele, const char *str, size_t len, void *data)
+qtcStrListFloatLoader(void *ele, const char *str, size_t, void *data)
 {
-    QTC_UNUSED(len);
     double def = *(double*)data;
     str += strspn(str, " \t\b\n\f\v");
     char *end = NULL;

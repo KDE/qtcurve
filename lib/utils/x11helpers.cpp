@@ -278,75 +278,54 @@ qtcX11SetBgnd(xcb_window_t win, uint32_t prop)
 QTC_EXPORT void
 qtcX11ShadowInstall(xcb_window_t, const int[4])
 {
-    QTC_UNUSED(win);
-    QTC_UNUSED(margins);
 }
 
 QTC_EXPORT void
-qtcX11ShadowInstall(xcb_window_t win)
+qtcX11ShadowInstall(xcb_window_t)
 {
-    QTC_UNUSED(win);
 }
 
 QTC_EXPORT void
-qtcX11ShadowUninstall(xcb_window_t win)
+qtcX11ShadowUninstall(xcb_window_t)
 {
-    QTC_UNUSED(win);
 }
 
 // WM Move
 QTC_EXPORT void
-qtcX11MoveTrigger(xcb_window_t wid, uint32_t x, uint32_t y)
+qtcX11MoveTrigger(xcb_window_t, uint32_t, uint32_t)
 {
-    QTC_UNUSED(wid);
-    QTC_UNUSED(x);
-    QTC_UNUSED(y);
 }
 
 // Blur
 QTC_EXPORT void
-qtcX11BlurTrigger(xcb_window_t wid, bool enable, unsigned prop_num,
-                  const uint32_t *props)
+qtcX11BlurTrigger(xcb_window_t, bool, unsigned, const uint32_t*)
 {
-    QTC_UNUSED(wid);
-    QTC_UNUSED(enable);
-    QTC_UNUSED(prop_num);
-    QTC_UNUSED(props);
 }
 
 QTC_EXPORT int32_t
-qtcX11GetShortProp(xcb_window_t win, xcb_atom_t atom)
+qtcX11GetShortProp(xcb_window_t, xcb_atom_t)
 {
-    QTC_UNUSED(win);
-    QTC_UNUSED(atom);
     return -1;
 }
 
 QTC_EXPORT void
-qtcX11SetMenubarSize(xcb_window_t win, unsigned short s)
+qtcX11SetMenubarSize(xcb_window_t, unsigned short)
 {
-    QTC_UNUSED(win);
-    QTC_UNUSED(s);
 }
 
 QTC_EXPORT void
-qtcX11SetStatusBar(xcb_window_t win)
+qtcX11SetStatusBar(xcb_window_t)
 {
-    QTC_UNUSED(win);
 }
 
 QTC_EXPORT void
-qtcX11SetOpacity(xcb_window_t win, unsigned short o)
+qtcX11SetOpacity(xcb_window_t, unsigned short)
 {
-    QTC_UNUSED(win);
-    QTC_UNUSED(o);
 }
 
 QTC_EXPORT void
-qtcX11SetBgnd(xcb_window_t win, uint32_t prop)
+qtcX11SetBgnd(xcb_window_t, uint32_t)
 {
-    QTC_UNUSED(win);
-    QTC_UNUSED(prop);
 }
 
 #endif
