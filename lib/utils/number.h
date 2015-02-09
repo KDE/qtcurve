@@ -23,68 +23,31 @@
 
 #include "utils.h"
 
-#ifdef __cplusplus
-
-template <typename T>
-QTC_ALWAYS_INLINE static inline const T&
-qtcMax(const T &a, const T &b)
-{
-    return (a > b) ? a : b;
-}
-template <typename T>
-QTC_ALWAYS_INLINE static inline const T&
-qtcMin(const T &a, const T &b)
-{
-    return (a < b) ? a : b;
-}
 template <typename T1, typename T2>
-QTC_ALWAYS_INLINE static inline auto
+static inline auto
 qtcMax(const T1 &a, const T2 &b) -> decltype((a > b) ? a : b)
 {
     return (a > b) ? a : b;
 }
 template <typename T1, typename T2>
-QTC_ALWAYS_INLINE static inline auto
+static inline auto
 qtcMin(const T1 &a, const T2 &b) -> decltype((a < b) ? a : b)
 {
     return (a < b) ? a : b;
 }
 template <typename T>
-QTC_ALWAYS_INLINE static inline T
+static inline T
 qtcAbs(const T &a)
 {
     return (a > 0) ? a : -a;
 }
 template <typename T>
-QTC_ALWAYS_INLINE static inline T
+static inline T
 qtcSquare(const T &a)
 {
     return a * a;
 }
-#else
-#define qtcMax(a, b)                            \
-    ({                                          \
-        typeof(a) _a = (a);                     \
-        typeof(b) _b = (b);                     \
-        (_a > _b) ? _a : _b;                    \
-    })
-#define qtcMin(a, b)                            \
-    ({                                          \
-        typeof(a) _a = (a);                     \
-        typeof(b) _b = (b);                     \
-        (_a < _b) ? _a : _b;                    \
-    })
-#define qtcAbs(a)                               \
-    ({                                          \
-        typeof(a) _a = (a);                     \
-        (_a > 0) ? _a : -_a;                    \
-    })
-#define qtcSquare(a)                            \
-    ({                                          \
-        typeof(a) _a = (a);                     \
-        _a * _a;                                \
-    })
-#endif
+
 #define qtcBound(a, b, c) qtcMax(a, qtcMin(b, c))
 #define qtcLimit(v, l) qtcBound(0, v, l)
 #define qtcEqual(v1, v2) (qtcAbs(v1 - v2) < 0.0001)
@@ -103,6 +66,21 @@ QTC_ALWAYS_INLINE static inline uintptr_t
 qtcAlignTo(uintptr_t len, uintptr_t align)
 {
     return len + qtcGetPadding(len, align);
+}
+
+template<typename First>
+static inline First
+qtcSum(First &&first)
+{
+    return first;
+}
+
+template<typename First, typename... Rest>
+static inline auto
+qtcSum(First &&first, Rest &&...rest...)
+    -> decltype(first + qtcSum(std::forward<Rest>(rest)...))
+{
+    return first + qtcSum(std::forward<Rest>(rest)...);
 }
 
 #endif

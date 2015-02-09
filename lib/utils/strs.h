@@ -25,88 +25,33 @@
 #include "utils.h"
 #include <stdarg.h>
 
-QTC_ALWAYS_INLINE static inline size_t
-_qtcCatStrsCalLens(int n, const char **strs, size_t *lens)
-{
-    size_t total_len = 0;
-    for (int i = 0;i < n;i++) {
-        lens[i] = strlen(strs[i]);
-        total_len += lens[i];
-    }
-    return total_len;
-}
-
+template <typename... ArgTypes>
 QTC_ALWAYS_INLINE static inline char*
-_qtcCatStrsFill(int n, const char **strs, size_t *lens,
-                size_t total_len, char *res)
+qtcFillStrs(char *buff, ArgTypes&&...strs)
 {
+    const char *strs_l[] = {strs...};
+    const size_t str_lens[] = {strlen(strs)...};
+    size_t total_len = 0;
+    for (size_t i = 0;i < sizeof...(strs);i++) {
+        total_len += str_lens[i];
+    }
+    char *res = (buff ? (char*)realloc(buff, total_len + 1) :
+                 (char*)malloc(total_len + 1));
     char *p = res;
-    for (int i = 0;i < n;i++) {
-        memcpy(p, strs[i], lens[i]);
-        p += lens[i];
+    for (size_t i = 0;i < sizeof...(strs);i++) {
+        memcpy(p, strs_l[i], str_lens[i]);
+        p += str_lens[i];
     }
     res[total_len] = 0;
     return res;
 }
 
-#define _qtcCatStrs(var, strs...)                                       \
-    do {                                                                \
-        const char *__strs[] = {strs};                                  \
-        const int __strs_n = sizeof(__strs) / sizeof(const char*);      \
-        size_t __strs_lens[sizeof(__strs) / sizeof(const char*)];       \
-        size_t __strs_total_len =                                       \
-            _qtcCatStrsCalLens(__strs_n, __strs, __strs_lens);          \
-        var = _qtcCatStrsFill(__strs_n, __strs, __strs_lens,            \
-                              __strs_total_len,                         \
-                              (char*)malloc(__strs_total_len + 1));     \
-    } while (0)
-
-#define _qtcFillStrs(var, buff, strs...)                                \
-    do {                                                                \
-        const char *__strs[] = {strs};                                  \
-        const int __strs_n = sizeof(__strs) / sizeof(const char*);      \
-        size_t __strs_lens[sizeof(__strs) / sizeof(const char*)];       \
-        size_t __strs_total_len =                                       \
-            _qtcCatStrsCalLens(__strs_n, __strs, __strs_lens);          \
-        var = _qtcCatStrsFill(__strs_n, __strs, __strs_lens,            \
-                              __strs_total_len,                         \
-                              (char*)realloc(buff, __strs_total_len + 1)); \
-    } while (0)
-
-// Gcc 4.4.5 produce error when using sizeof array in variadic template
-#if !defined __cplusplus ||                             \
-    !(defined __clang__ || QTC_CHECK_GCC_VERSION(4, 8))
-#define qtcCatStrs(strs...)                     \
-    ({                                          \
-        char *__cat_str_res;                    \
-        _qtcCatStrs(__cat_str_res, strs);       \
-        __cat_str_res;                          \
-    })
-
-#define qtcFillStrs(buff, strs...)                      \
-    ({                                                  \
-        char *__fill_str_res;                           \
-        _qtcFillStrs(__fill_str_res, buff, strs);       \
-        __fill_str_res;                                 \
-    })
-#else
 template <typename... ArgTypes>
 QTC_ALWAYS_INLINE static inline char*
-qtcCatStrs(ArgTypes... strs...)
+qtcCatStrs(ArgTypes&&... strs)
 {
-    char *res;
-    _qtcCatStrs(res, strs...);
-    return res;
+    return qtcFillStrs(nullptr, std::forward<ArgTypes>(strs)...);
 }
-template <typename... ArgTypes>
-QTC_ALWAYS_INLINE static inline char*
-qtcFillStrs(char *buff, ArgTypes... strs...)
-{
-    char *res;
-    _qtcFillStrs(res, buff, strs...);
-    return res;
-}
-#endif
 
 QTC_ALWAYS_INLINE static inline char*
 qtcSetStr(char *dest, const char *src, size_t len)
