@@ -35,15 +35,15 @@ main()
 
     char *m_res1 = _qtcSPrintf(NULL, NULL, false, TEST_FORMAT);
     size_t size = 10;
-    char *m_res2 = _qtcSPrintf(malloc(10), &size, true, TEST_FORMAT);
+    char *m_res2 = _qtcSPrintf((char*)malloc(10), &size, true, TEST_FORMAT);
     assert(size > strlen(m_res2));
 
     size = strlen(m_res2);
-    char *m_res3 = _qtcSPrintf(malloc(size), &size, true, TEST_FORMAT);
+    char *m_res3 = _qtcSPrintf((char*)malloc(size), &size, true, TEST_FORMAT);
     assert(size > strlen(m_res3));
 
     size = strlen(m_res3) + 1;
-    char *buff4 = malloc(size);
+    char *buff4 = (char*)malloc(size);
     char *m_res4 = _qtcSPrintf(buff4, &size, true, TEST_FORMAT);
     assert(m_res4 == buff4);
     assert(size == strlen(m_res4) + 1);

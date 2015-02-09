@@ -1,5 +1,5 @@
 /*****************************************************************************
- *   Copyright 2014 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -19,59 +19,36 @@
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
 
-#include <qtcurve-utils/utils.h>
-#include <assert.h>
-
-static int (*func_int)(int a) = NULL;
-static void (*func_void)() = NULL;
-
-static int arg_int_times = 0;
-
-static int
-arg_int()
-{
-    arg_int_times++;
-    return 10;
-}
-
-static int
-real_func_int(int a)
-{
-    return a;
-}
-
-static int real_func_void_times = 0;
-
-static void
-real_func_void()
-{
-    real_func_void_times++;
-}
-
-#ifdef __cplusplus
-// Functions with structs as return type only works for c++ (for now).
-typedef struct {
-    int i;
-    int j;
-} TestStruct;
-
-static TestStruct (*func_struct)() = NULL;
-#endif
+#include "stdio.h"
 
 int
-main()
+main(int argc, char **argv)
 {
-    qtcCall(func_void);
-    assert(qtcCall(func_int, arg_int()) == 0);
-    assert(arg_int_times == 0);
-    func_int = real_func_int;
-    assert(qtcCall(func_int, arg_int()) == 10);
-    assert(arg_int_times == 1);
-    func_void = real_func_void;
-    qtcCall(func_void);
-    assert(real_func_void_times == 1);
-#ifdef __cplusplus
-    qtcCall(func_struct);
-#endif
+    if (argc < 4)
+        return 1;
+    const char *filename = argv[1];
+    const char *varname = argv[2];
+    const char *outputname = argv[3];
+    FILE *inputfile = fopen(filename, "r");
+    FILE *outputfile = fopen(outputname, "w");
+
+    fprintf(outputfile,
+            "#ifndef __QTC_IMAGE_HDR_%s__\n", varname);
+    fprintf(outputfile,
+            "#define __QTC_IMAGE_HDR_%s__\n", varname);
+
+    fprintf(outputfile, "static const unsigned char _%s_data[] = {", varname);
+    int size = 0;
+    unsigned char buff;
+    while (fread(&buff, 1, 1, inputfile)) {
+        fprintf(outputfile, "%u,", (unsigned int)buff);
+        size++;
+    }
+    fprintf(outputfile, "};\n");
+    fprintf(outputfile,
+            "static const QImage %s __attribute__((unused)) = "
+            "QImage::fromData(_%s_data, %d);\n", varname, varname, size);
+    fprintf(outputfile, "#endif\n");
+    fclose(outputfile);
     return 0;
 }

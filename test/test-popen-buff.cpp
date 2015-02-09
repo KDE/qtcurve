@@ -65,13 +65,14 @@ mainProcess(int argc, char **argv)
         }, {
             .orig = 1,
             .mode = QTC_POPEN_READ,
-            .buff = malloc(10),
+            .buff = (char*)malloc(10),
             .len = 0
         }
     };
     alarm(1);
-    qtcPopenBuff(argv[0], (const char* const[]){argv[0], buff1, buff2, NULL},
-                 sizeof(popen_buffs) / sizeof(popen_buffs[0]), popen_buffs, 100);
+    const char* const args[] = {argv[0], buff1, buff2, NULL};
+    qtcPopenBuff(argv[0], args, sizeof(popen_buffs) / sizeof(popen_buffs[0]),
+                 popen_buffs, 100);
     assert(popen_buffs[1].len == sizeof(buff2));
     assert(memcmp(buff2, popen_buffs[1].buff, sizeof(buff2)) == 0);
     free(popen_buffs[1].buff);
