@@ -24,15 +24,9 @@
 
 #include "utils.h"
 
-QTC_BEGIN_DECLS
-
-bool qtcForkBackground(QtcCallback cb, void *data, QtcCallback fail_cb);
-#define qtcForkBackground(cb, data, fail_cb...)                 \
-    qtcForkBackground(cb, data, QTC_DEFAULT(fail_cb, NULL))
+bool qtcForkBackground(QtcCallback cb, void *data, QtcCallback fail_cb=nullptr);
 bool qtcSpawn(const char *file, const char *const *argv,
-              QtcCallback cb, void *cb_data, QtcCallback fail_cb);
-#define qtcSpawn(file, argv, cb, cb_data, fail_cb...)                   \
-    qtcSpawn(file, argv, cb, cb_data, QTC_DEFAULT(fail_cb, NULL))
+              QtcCallback cb, void *cb_data, QtcCallback fail_cb=nullptr);
 typedef enum {
     QTC_POPEN_NONE = 0,
     QTC_POPEN_READ = 1 << 0,
@@ -69,7 +63,5 @@ qtcPopenStdout(const char *file, const char *const *argv,
     popen_buff.buff[popen_buff.len] = '\0';
     return popen_buff.buff;
 }
-
-QTC_END_DECLS
 
 #endif

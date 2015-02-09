@@ -24,8 +24,6 @@
 
 #include "x11base.h"
 
-QTC_BEGIN_DECLS
-
 void qtcX11Flush();
 void qtcX11FlushXlib();
 uint32_t qtcX11GenerateId();
@@ -42,7 +40,5 @@ xcb_get_property_reply_t *qtcX11GetProperty(uint8_t del, xcb_window_t win,
                                             uint32_t offset, uint32_t len);
 void *qtcX11GetPropertyValue(const xcb_get_property_reply_t *reply);
 int qtcX11GetPropertyValueLength(const xcb_get_property_reply_t *reply);
-
-QTC_END_DECLS
 
 #endif

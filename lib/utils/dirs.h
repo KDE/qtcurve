@@ -32,8 +32,6 @@
 #include <unistd.h>
 #include <sys/stat.h>
 
-QTC_BEGIN_DECLS
-
 /**
  * Get home directory. The returned string is guaranteed to end with '/'
  */
@@ -64,9 +62,7 @@ void qtcMakePath(const char *path, int mode);
  * it will be realloc'ed to hold the result. If \param path is a relative path
  * the QtCurve configure directory will be created.
  */
-char *qtcGetConfFile(const char *file, char *buff);
-#define qtcGetConfFile(file, buff...)                   \
-    qtcGetConfFile(file, QTC_DEFAULT(buff, NULL))
+char *qtcGetConfFile(const char *file, char *buff=nullptr);
 
 /**
  * Check whether \param path is (or is a symlink that is pointing to)
@@ -101,7 +97,5 @@ qtcIsSymLink(const char *path)
     struct stat stats;
     return lstat(path, &stats) == 0 && S_ISLNK(stats.st_mode);
 }
-
-QTC_END_DECLS
 
 #endif

@@ -25,8 +25,6 @@
 #include "log.h"
 #include <inttypes.h>
 
-QTC_BEGIN_DECLS
-
 #define PRTime PRIu64
 uint64_t qtcGetTime();
 uint64_t qtcGetElapse(uint64_t prev);
@@ -35,7 +33,5 @@ uint64_t qtcToc();
 #define qtcPrintTime(time) qtcForceLog("Time: %" PRTime "\n", time)
 #define qtcPrintElapse(prev) qtcPrintTime(qtcGetElapse(prev))
 #define qtcPrintToc() qtcPrintTime(qtcToc())
-
-QTC_END_DECLS
 
 #endif

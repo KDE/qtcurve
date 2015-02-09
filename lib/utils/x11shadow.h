@@ -24,15 +24,8 @@
 
 #include "x11base.h"
 
-QTC_BEGIN_DECLS
-
-#define qtcX11ShadowInstall(win, margins...)                            \
-    QTC_SWITCH(margins, qtcX11ShadowInstallWithMargin(win, margins),    \
-               qtcX11ShadowInstall(win))
 void qtcX11ShadowInstall(xcb_window_t win);
-void qtcX11ShadowInstallWithMargin(xcb_window_t win, const int margins[4]);
+void qtcX11ShadowInstall(xcb_window_t win, const int margins[4]);
 void qtcX11ShadowUninstall(xcb_window_t win);
-
-QTC_END_DECLS
 
 #endif

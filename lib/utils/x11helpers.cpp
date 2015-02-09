@@ -109,7 +109,7 @@ qtcX11ShadowDestroy()
 }
 
 QTC_EXPORT void
-qtcX11ShadowInstallWithMargin(xcb_window_t win, const int margins[4])
+qtcX11ShadowInstall(xcb_window_t win, const int margins[4])
 {
     QTC_RET_IF_FAIL(win);
     if (qtcUnlikely(!margins)) {
@@ -276,7 +276,7 @@ qtcX11SetBgnd(xcb_window_t win, uint32_t prop)
 #else
 
 QTC_EXPORT void
-qtcX11ShadowInstallWithMargin(xcb_window_t win, const int margins[4])
+qtcX11ShadowInstall(xcb_window_t, const int[4])
 {
     QTC_UNUSED(win);
     QTC_UNUSED(margins);

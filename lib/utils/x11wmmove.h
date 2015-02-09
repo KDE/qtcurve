@@ -24,10 +24,6 @@
 
 #include "x11base.h"
 
-QTC_BEGIN_DECLS
-
 void qtcX11MoveTrigger(xcb_window_t win, uint32_t x, uint32_t y);
-
-QTC_END_DECLS
 
 #endif

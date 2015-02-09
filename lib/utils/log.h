@@ -25,8 +25,6 @@
 #include "utils.h"
 #include <stdarg.h>
 
-QTC_BEGIN_DECLS
-
 typedef enum {
     QTC_LOG_DEBUG,
     QTC_LOG_INFO,
@@ -101,7 +99,5 @@ void _qtcLogV(QtcLogLevel level, const char *fname, int line, const char *func,
     qtcLog(QTC_LOG_FORCE, fmt, ##args)
 
 void qtcBacktrace();
-
-QTC_END_DECLS
 
 #endif

@@ -24,11 +24,7 @@
 
 #include "x11base.h"
 
-QTC_BEGIN_DECLS
-
 void qtcX11BlurTrigger(xcb_window_t win, bool enable, unsigned prop_num,
                        const uint32_t *props);
-
-QTC_END_DECLS
 
 #endif

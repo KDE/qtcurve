@@ -63,8 +63,8 @@ destroy(GtkWidget *widget, GdkEvent*, void*)
     return false;
 }
 
-static GtkWidget *focusWidget = NULL;
-static GtkWidget *hoverWidget = NULL;
+static GtkWidget *focusWidget = nullptr;
+static GtkWidget *hoverWidget = nullptr;
 
 static gboolean
 enter(GtkWidget *widget, GdkEventMotion*, void *data)
@@ -82,7 +82,7 @@ leave(GtkWidget *widget, GdkEventMotion*, void *data)
 {
     GtkWidget *w = data ? (GtkWidget*)data : widget;
     if (GTK_IS_SCROLLED_WINDOW(w) && hoverWidget == w) {
-        hoverWidget = NULL;
+        hoverWidget = nullptr;
         gtk_widget_queue_draw(w);
     }
     return false;
@@ -104,7 +104,7 @@ focusOut(GtkWidget *widget, GdkEventMotion*, void *data)
 {
     GtkWidget *w = data ? (GtkWidget*)data : widget;
     if (GTK_IS_SCROLLED_WINDOW(w) && focusWidget == w) {
-        focusWidget = NULL;
+        focusWidget = nullptr;
         gtk_widget_queue_draw(w);
     }
     return false;
@@ -180,7 +180,7 @@ setup(GtkWidget *widget)
 void
 registerChild(GtkWidget *child)
 {
-    GtkWidget *parent = child ? gtk_widget_get_parent(child) : NULL;
+    GtkWidget *parent = child ? gtk_widget_get_parent(child) : nullptr;
 
     QTC_DEF_WIDGET_PROPS(parentProps, parent);
     if (parent && GTK_IS_SCROLLED_WINDOW(parent) &&

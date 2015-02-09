@@ -75,11 +75,6 @@
  * \sa QTC_SWITCH for restrictions.
  **/
 #define QTC_DEFAULT(v, def) QTC_SWITCH(v, v, def)
-/**
- * Evaluate to _\param f if \param v is empty and to \param f otherwise.
- * \sa QTC_SWITCH for restrictions.
- **/
-#define QTC_SWITCH_(v, f) QTC_SWITCH(v, f, _##f)
 
 /** @} */
 

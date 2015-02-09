@@ -25,8 +25,6 @@
 
 #include "utils.h"
 
-QTC_BEGIN_DECLS
-
 typedef struct _GdkColor GdkColor;
 typedef struct _GdkPoint GdkPoint;
 
@@ -41,7 +39,5 @@ struct _GdkPoint {
     int x;
     int y;
 };
-
-QTC_END_DECLS
 
 #endif

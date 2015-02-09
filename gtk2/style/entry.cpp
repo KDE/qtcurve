@@ -27,13 +27,13 @@
 namespace QtCurve {
 namespace Entry {
 
-static GtkWidget *lastMo = NULL;
+static GtkWidget *lastMo = nullptr;
 
 static void
 cleanup(GtkWidget *widget)
 {
     if (lastMo == widget) {
-        lastMo = NULL;
+        lastMo = nullptr;
     }
     if (GTK_IS_ENTRY(widget)) {
         QTC_DEF_WIDGET_PROPS(props, widget);
@@ -74,7 +74,7 @@ static gboolean
 leave(GtkWidget *widget, GdkEventCrossing*, void*)
 {
     if (GTK_IS_ENTRY(widget)) {
-        lastMo = NULL;
+        lastMo = nullptr;
         gtk_widget_queue_draw(widget);
     }
     return false;
@@ -93,15 +93,15 @@ setup(GtkWidget *widget)
     if (GTK_IS_ENTRY(widget) && !qtcWidgetProps(props)->entryHacked) {
         qtcWidgetProps(props)->entryHacked = true;
         qtcConnectToProp(props, entryEnter, "enter-notify-event",
-                         enter, NULL);
+                         enter, nullptr);
         qtcConnectToProp(props, entryLeave, "leave-notify-event",
-                         leave, NULL);
+                         leave, nullptr);
         qtcConnectToProp(props, entryDestroy, "destroy-event",
-                         destroy, NULL);
+                         destroy, nullptr);
         qtcConnectToProp(props, entryUnrealize, "unrealize",
-                         destroy, NULL);
+                         destroy, nullptr);
         qtcConnectToProp(props, entryStyleSet, "style-set",
-                         styleSet, NULL);
+                         styleSet, nullptr);
     }
 }
 

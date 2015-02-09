@@ -24,8 +24,6 @@
 #ifndef _QTC_UTILS_X11UTILS_P_H_
 #define _QTC_UTILS_X11UTILS_P_H_
 
-QTC_BEGIN_DECLS
-
 extern void *qtc_disp;
 extern xcb_connection_t *qtc_xcb_conn;
 extern int qtc_default_screen_no;
@@ -35,8 +33,6 @@ extern xcb_atom_t qtc_x11_kde_net_wm_blur_behind_region;
 extern xcb_atom_t qtc_x11_kde_net_wm_shadow;
 extern xcb_atom_t qtc_x11_net_wm_moveresize;
 extern xcb_atom_t qtc_x11_net_wm_cm_s_default;
-
-QTC_END_DECLS
 
 #ifndef __cplusplus
 #define qtcX11Call(name, args...)                                       \

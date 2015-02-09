@@ -24,10 +24,6 @@
 
 #include "x11shadow.h"
 
-QTC_BEGIN_DECLS
-
 void qtcX11ShadowInit();
-
-QTC_END_DECLS
 
 #endif

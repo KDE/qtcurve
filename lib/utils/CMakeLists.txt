@@ -32,8 +32,8 @@ endif()
 add_definitions("-DQTC_UTILS_INTERNAL -pthread")
 
 add_library(qtcurve-utils SHARED ${qtcurve_utils_SRCS}
-  "${CMAKE_BINARY_DIR}/version.c")
-set_source_files_properties("${CMAKE_BINARY_DIR}/version.c"
+  "${CMAKE_BINARY_DIR}/version.cpp")
+set_source_files_properties("${CMAKE_BINARY_DIR}/version.cpp"
   PROPERTIES GENERATED 1)
 
 add_dependencies(qtcurve-utils gen-git-ver)

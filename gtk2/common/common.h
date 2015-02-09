@@ -712,8 +712,6 @@ typedef struct {
     Strings          noMenuStripeApps;
 } Options;
 
-QTC_BEGIN_DECLS
-
 void qtcSetupGradient(Gradient *grad, EGradientBorder border, int numStops, ...);
 const Gradient *qtcGetGradient(EAppearance app, const Options *opts);
 
@@ -777,7 +775,5 @@ typedef enum {
 ERound qtcGetWidgetRound(const Options *opts, int w, int h, EWidget widget);
 double qtcGetRadius(const Options *opts, int w, int h, EWidget widget,
                     ERadius rad);
-
-QTC_END_DECLS
 
 #endif // __COMMON_H__

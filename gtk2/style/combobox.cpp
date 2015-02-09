@@ -36,7 +36,7 @@ static bool
 cellViewHasBgnd(GtkWidget *view)
 {
     gboolean val;
-    g_object_get(view, "background-set", &val, NULL);
+    g_object_get(view, "background-set", &val, nullptr);
     return val;
 }
 
@@ -56,15 +56,15 @@ clearBgndColor(GtkWidget *widget)
     }
 }
 
-static GtkWidget *comboFocus = NULL;
-static GtkWidget *comboHover = NULL;
+static GtkWidget *comboFocus = nullptr;
+static GtkWidget *comboHover = nullptr;
 
 #if 0
 static bool
 appearsAsList(GtkWidget *widget)
 {
     gboolean rv;
-    gtk_widget_style_get(widget, "appears-as-list", &rv, NULL);
+    gtk_widget_style_get(widget, "appears-as-list", &rv, nullptr);
     return rv;
 }
 #endif
@@ -120,7 +120,7 @@ leave(GtkWidget *widget, GdkEventMotion*, void *data)
     if (GTK_IS_EVENT_BOX(widget)) {
         GtkWidget *widget = (GtkWidget*)data;
         if (comboHover == widget) {
-            comboHover = NULL;
+            comboHover = nullptr;
             gtk_widget_queue_draw(widget);
         }
     }
@@ -140,7 +140,7 @@ isFocusChanged(GtkWidget *widget)
 {
     if (comboFocus == widget) {
         if (!gtk_widget_has_focus(widget)) {
-            comboFocus = NULL;
+            comboFocus = nullptr;
             return true;
         }
     } else if (gtk_widget_has_focus(widget)) {
@@ -173,7 +173,7 @@ setup(GtkWidget *frame, GtkWidget *combo)
         qtcWidgetProps(props)->comboBoxHacked = true;
         clearBgndColor(combo);
         qtcConnectToProp(props, comboBoxStateChange, "state-changed",
-                         stateChange, NULL);
+                         stateChange, nullptr);
 
         if (frame) {
             GList *children = gtk_container_get_children(GTK_CONTAINER(frame));
@@ -181,11 +181,11 @@ setup(GtkWidget *frame, GtkWidget *combo)
                 if (GTK_IS_EVENT_BOX(child->data)) {
                     QTC_DEF_WIDGET_PROPS(childProps, child->data);
                     qtcConnectToProp(childProps, comboBoxDestroy,
-                                     "destroy-event", destroy, NULL);
+                                     "destroy-event", destroy, nullptr);
                     qtcConnectToProp(childProps, comboBoxUnrealize,
-                                     "unrealize", destroy, NULL);
+                                     "unrealize", destroy, nullptr);
                     qtcConnectToProp(childProps, comboBoxStyleSet,
-                                     "style-set", styleSet, NULL);
+                                     "style-set", styleSet, nullptr);
                     qtcConnectToProp(childProps, comboBoxEnter,
                                      "enter-notify-event", enter, combo);
                     qtcConnectToProp(childProps, comboBoxLeave,
@@ -203,7 +203,7 @@ bool
 hasFrame(GtkWidget *widget)
 {
     gboolean val;
-    g_object_get(widget, "has-frame", &val, NULL);
+    g_object_get(widget, "has-frame", &val, nullptr);
     return val;
 }
 

@@ -117,14 +117,10 @@ qtcSetStr(char *dest, const char *src, size_t len)
     return dest;
 }
 QTC_ALWAYS_INLINE static inline char*
-_qtcSetStr(char *dest, const char *src)
+qtcSetStr(char *dest, const char *src)
 {
     return qtcSetStr(dest, src, strlen(src));
 }
-#define qtcSetStr(dest, src, len...)                    \
-    QTC_SWITCH_(len, qtcSetStr)(dest, src, ##len)
-
-QTC_BEGIN_DECLS
 
 __attribute__((format(printf, 4, 5)))
 char *_qtcSPrintf(char *buff, size_t *size, bool allocated,
@@ -205,8 +201,6 @@ double *qtcStrLoadFloatList(const char *str, char delim, char escape,
                         QTC_DEFAULT(buff, NULL), QTC_DEFAULT(max_len, 0), \
                         QTC_DEFAULT(def, 0))
 
-QTC_END_DECLS
-
 typedef QTC_BUFF_TYPE(char) QtcStrBuff;
 
 #define QTC_DEF_STR_BUFF(name, stack_size, size)                \
@@ -272,7 +266,7 @@ qtcStrToBool(const char *str, bool def)
 }
 
 QTC_ALWAYS_INLINE static inline long
-qtcStrToInt(const char *str, long def, bool *is_def)
+qtcStrToInt(const char *str, long def, bool *is_def=nullptr)
 {
     if (!str) {
         qtcAssign(is_def, true);
@@ -289,11 +283,9 @@ qtcStrToInt(const char *str, long def, bool *is_def)
     }
     return res;
 }
-#define qtcStrToInt(str, def, is_def...)                \
-    qtcStrToInt(str, def, (QTC_DEFAULT(is_def, NULL)))
 
 QTC_ALWAYS_INLINE static inline double
-qtcStrToFloat(const char *str, double def, bool *is_def)
+qtcStrToFloat(const char *str, double def, bool *is_def=nullptr)
 {
     if (!str) {
         qtcAssign(is_def, true);
@@ -310,8 +302,6 @@ qtcStrToFloat(const char *str, double def, bool *is_def)
     }
     return res;
 }
-#define qtcStrToFloat(str, def, is_def...)                      \
-    qtcStrToFloat(str, def, (QTC_DEFAULT(is_def, NULL)))
 
 QTC_ALWAYS_INLINE static inline bool
 qtcStrEndsWith(const char *str, const char *tail)

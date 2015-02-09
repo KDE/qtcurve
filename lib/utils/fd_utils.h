@@ -24,13 +24,9 @@
 
 #include "utils.h"
 
-QTC_BEGIN_DECLS
-
 bool qtcSendFD(int sock, int fd);
 int qtcRecvFD(int sock);
 bool qtcFDSetCloexec(int fd, bool cloexec);
 bool qtcFDSetNonBlock(int fd, bool nonblock);
-
-QTC_END_DECLS
 
 #endif

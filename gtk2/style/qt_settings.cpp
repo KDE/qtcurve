@@ -61,18 +61,18 @@ Options opts;
 #if __MAC_OS_X_VERSION_MAX_ALLOWED < 1070
 static size_t getline(char **lineptr, size_t *n, FILE *stream)
 {
-    char *bufptr = NULL;
+    char *bufptr = nullptr;
     char *p = bufptr;
     size_t size;
     int c;
 
-    if (lineptr == NULL) {
+    if (lineptr == nullptr) {
         return -1;
     }
-    if (stream == NULL) {
+    if (stream == nullptr) {
         return -1;
     }
-    if (n == NULL) {
+    if (n == nullptr) {
         return -1;
     }
     bufptr = *lineptr;
@@ -82,9 +82,9 @@ static size_t getline(char **lineptr, size_t *n, FILE *stream)
     if (c == EOF) {
         return -1;
     }
-    if (bufptr == NULL) {
+    if (bufptr == nullptr) {
         bufptr = malloc(128);
-        if (bufptr == NULL) {
+        if (bufptr == nullptr) {
             return -1;
         }
         size = 128;
@@ -94,7 +94,7 @@ static size_t getline(char **lineptr, size_t *n, FILE *stream)
         if ((p - bufptr) > (size - 1)) {
             size = size + 128;
             bufptr = realloc(bufptr, size);
-            if (bufptr == NULL) {
+            if (bufptr == nullptr) {
                 return -1;
             }
         }
@@ -117,14 +117,14 @@ static size_t getline(char **lineptr, size_t *n, FILE *stream)
 static char*
 getKdeHome()
 {
-    static char *kdeHome = NULL;
+    static char *kdeHome = nullptr;
     if (kdeHome) {
         return kdeHome;
     }
     size_t len = 0;
     kdeHome = qtcPopenStdout(
         "kde4-config", (const char *const[]){"kde4-config", "--expandvars",
-                "--localprefix", NULL}, 300, &len);
+                "--localprefix", nullptr}, 300, &len);
     if (kdeHome && kdeHome[strspn(kdeHome, " \t\b\n\f\v")]) {
         if (kdeHome[len - 1] == '\n') {
             kdeHome[len - 1] = '\0';
@@ -318,7 +318,7 @@ themeFileSub(const char *prefix, const char *name,
                                             name, THEME_SUFFIX))) {
         return str_buff->p;
     }
-    return NULL;
+    return nullptr;
 }
 
 static char*
@@ -425,7 +425,7 @@ static int readInt(const char *line, int offset)
 
 static double readDouble(const char *line, int offset)
 {
-    return line[offset]!='\0' ? g_ascii_strtod(&line[offset], NULL) : 0;
+    return line[offset]!='\0' ? g_ascii_strtod(&line[offset], nullptr) : 0;
 }
 
 static bool
@@ -472,9 +472,9 @@ static void parseFontLine(const char *line, QtFontDetails *font)
         {
             case 0:  /* Family - and foundry(maybe!) (ignore X11 and XFT) */
             {
-                char *dash=NULL;
+                char *dash=nullptr;
 
-                if(NULL!=(dash=strchr(l, '-')))
+                if(nullptr!=(dash=strchr(l, '-')))
                 {
                     *dash='\0';
                     l=++dash;
@@ -509,7 +509,7 @@ static void parseFontLine(const char *line, QtFontDetails *font)
             strcpy(font->family, rc.family);
             break;
         }
-        l=strtok(NULL, ",");
+        l=strtok(nullptr, ",");
     }
 }
 
@@ -518,12 +518,12 @@ static void setFont(QtFontDetails *font, int f)
     if(qtSettings.fonts[f])
     {
         free(qtSettings.fonts[f]);
-        qtSettings.fonts[f]=NULL;
+        qtSettings.fonts[f]=nullptr;
     }
     if(FONT_GENERAL==f && qtSettings.fonts[FONT_BOLD])
     {
         free(qtSettings.fonts[FONT_BOLD]);
-        qtSettings.fonts[FONT_BOLD]=NULL;
+        qtSettings.fonts[FONT_BOLD]=nullptr;
     }
 
     qtSettings.fonts[f] = (char*)malloc(
@@ -592,7 +592,7 @@ static void readKwinrc()
         if(qtSettings.debug)
             printf(DEBUG_PREFIX"Reading kwinrc\n");
 
-        while(NULL!=fgets(line, MAX_CONFIG_INPUT_LINE_LEN, f))
+        while(nullptr!=fgets(line, MAX_CONFIG_INPUT_LINE_LEN, f))
             if(line[0]=='[')
             {
                 if(0==strncasecmp(line, "[Compositing]", 13))
@@ -674,7 +674,7 @@ static void readKdeGlobals(const char *rc, int rd, bool first)
         if(qtSettings.debug)
             printf(DEBUG_PREFIX"Reading kdeglobals - %s\n", rc);
 
-        while(found!=rd && NULL!=fgets(line, MAX_CONFIG_INPUT_LINE_LEN, f))
+        while(found!=rd && nullptr!=fgets(line, MAX_CONFIG_INPUT_LINE_LEN, f))
             if(line[0]=='[')
             {
                 if(0==strncasecmp(line, "[Icons]", 7))
@@ -1040,13 +1040,13 @@ static int qt_refs = 0;
 static const char*
 kdeIconsPrefix()
 {
-    static const char *kdeIcons = NULL;
+    static const char *kdeIcons = nullptr;
     if (kdeIcons) {
         return kdeIcons;
     }
     size_t len = 0;
     char *res = qtcPopenStdout("kde4-config", (const char * const[]){
-            "kde4-config", "--expandvars", "--install", "icon", NULL},
+            "kde4-config", "--expandvars", "--install", "icon", nullptr},
         300, &len);
     if (res && res[strspn(res, " \t\b\n\f\v")]) {
         if (res[len - 1]=='\n') {
@@ -1062,7 +1062,7 @@ kdeIconsPrefix()
 
 static char *getIconPath()
 {
-    static char *path=NULL;
+    static char *path=nullptr;
     char        *kdeHome=getKdeHome();
     const char  *kdePrefix=kdeIconsPrefix(),
                 *defIcons=defaultIcons();
@@ -1262,8 +1262,8 @@ static void
 processUserChromeCss(char *file, bool add_btn_css, bool add_menu_colors)
 {
     FILE        *f=fopen(file, "r");
-    char        *contents=NULL,
-                *menu_text_str=NULL;
+    char        *contents=nullptr,
+                *menu_text_str=nullptr;
     bool remove_menu_colors = false;
     bool remove_old_menu_colors = false;
 #ifdef QTC_GTK2_MODIFY_MOZILLA
@@ -1313,7 +1313,7 @@ processUserChromeCss(char *file, bool add_btn_css, bool add_menu_colors)
 
             if(contents)
             {
-                char  *line=NULL;
+                char  *line=nullptr;
                 size_t len=0;
 
                 contents[0]='\0';
@@ -1334,7 +1334,7 @@ processUserChromeCss(char *file, bool add_btn_css, bool add_menu_colors)
 #endif
                     if(0==strcmp(line, OLD_MENU_TEXT_STR))
                         write_line=false, remove_old_menu_colors=true;
-                    else if(NULL!=strstr(line, MENU_GUARD_STR))
+                    else if(nullptr!=strstr(line, MENU_GUARD_STR))
                     {
                         if (add_menu_colors)
                         {
@@ -1438,17 +1438,17 @@ processMozillaApp(bool add_btn_css, bool add_menu_colors,
 
     if (home && (strlen(home)+strlen(app)+10+MAX_DEFAULT_NAME)<MAX_CSS_HOME) {
         char cssHome[MAX_CSS_HOME+1];
-        DIR  *dir=NULL;
+        DIR  *dir=nullptr;
 
         sprintf(cssHome, under_moz ? "%s/.mozilla/%s/" : "%s/.%s/", home, app);
 
         if((dir=opendir(cssHome)))
         {
-             struct dirent *dir_ent=NULL;
+             struct dirent *dir_ent=nullptr;
 
              for (dir_ent=readdir(dir); dir_ent; dir_ent=readdir(dir))
              {
-                 char *str=NULL;
+                 char *str=nullptr;
 
                  if(((str=strstr(dir_ent->d_name, CSS_DEFAULT)) && str>=dir_ent->d_name &&
                     '\0'==str[strlen(CSS_DEFAULT)]) ||
@@ -1457,7 +1457,7 @@ processMozillaApp(bool add_btn_css, bool add_menu_colors,
                  {
                     char        sub[MAX_CSS_HOME];
 #ifdef QTC_GTK2_MODIFY_MOZILLA
-                    FILE        *userJs=NULL;
+                    FILE        *userJs=nullptr;
                     bool alterUserJs = true;
 
                     /* Add custom user.js file */
@@ -1465,7 +1465,7 @@ processMozillaApp(bool add_btn_css, bool add_menu_colors,
 
                     if((userJs=fopen(sub, "r")))
                     {
-                        char  *line=NULL;
+                        char  *line=nullptr;
                         size_t len=0;
 
                         while(-1!=getline(&line, &len, userJs))
@@ -1597,17 +1597,17 @@ qtSettingsInit()
 {
     if (0 == qt_refs++) {
         static int lastRead = 0;
-        int now = time(NULL);
+        int now = time(nullptr);
         qtSettings.app = GTK_APP_UNKNOWN;
         if (abs(now - lastRead) > 1) {
-            char *locale = setlocale(LC_NUMERIC, NULL);
-            char *path = NULL;
+            char *locale = setlocale(LC_NUMERIC, nullptr);
+            char *path = nullptr;
             QTC_DEF_STR_BUFF(str_buff, 4096, 1);
-            char *tmpStr = NULL;
-            GtkSettings *settings=NULL;
+            char *tmpStr = nullptr;
+            GtkSettings *settings=nullptr;
 
             setlocale(LC_NUMERIC, "C");
-            qtSettings.icons=NULL;
+            qtSettings.icons=nullptr;
             memset(qtSettings.fonts, 0, sizeof(char *)*FONT_NUM_TOTAL);
             qtSettings.iconSizes.smlTbSize=16;
             qtSettings.iconSizes.tbSize=22;
@@ -1619,16 +1619,16 @@ qtSettingsInit()
             qtSettings.colors[PAL_ACTIVE][COLOR_TOOLTIP_TEXT]=setGdkColor(0, 0, 0);
             qtSettings.colors[PAL_ACTIVE][COLOR_TOOLTIP]=setGdkColor(0xFF, 0xFF, 192);
 #ifdef QTC_GTK2_STYLE_SUPPORT
-            qtSettings.styleName=NULL;
+            qtSettings.styleName=nullptr;
 #endif
             qtSettings.inactiveChangeSelectionColor=false;
-            qtSettings.appName=NULL;
+            qtSettings.appName=nullptr;
             /* qtSettings.startDragDist=4; */
             qtSettings.startDragTime=500;
             qtSettings.debug=debugLevel();
             opts.contrast=DEFAULT_CONTRAST;
             for (int i = 0;i < FONT_NUM_TOTAL;++i) {
-                qtSettings.fonts[i] = NULL;
+                qtSettings.fonts[i] = nullptr;
             }
 
             qtSettings.qt4 = false;
@@ -1676,7 +1676,7 @@ qtSettingsInit()
                 }
             }
 
-            char *rcFile = NULL;
+            char *rcFile = nullptr;
             /* Is the user using a non-default QtCurve style? */
             if (qtSettings.styleName &&
                 qtcStrStartsWith(qtSettings.styleName, THEME_PREFIX)) {
@@ -1862,8 +1862,8 @@ qtSettingsInit()
                                  toQtColor(qtSettings.colors[PAL_ACTIVE]
                                            [COLOR_TEXT_SELECTED].blue));
                 if (GTK_APP_OPEN_OFFICE == qtSettings.app) {
-                    GdkColor *active = NULL;
-                    GdkColor *inactive = NULL;
+                    GdkColor *active = nullptr;
+                    GdkColor *inactive = nullptr;
 
                     if (SHADE_WINDOW_BORDER == opts.shadeMenubars) {
                         active = (&qtSettings.colors[PAL_ACTIVE][
@@ -1974,11 +1974,11 @@ qtSettingsInit()
             if((settings=gtk_settings_get_default()))
             {
                 if(qtSettings.fonts[FONT_GENERAL])
-                    g_object_set(settings, "gtk-font-name", qtSettings.fonts[FONT_GENERAL], NULL);
+                    g_object_set(settings, "gtk-font-name", qtSettings.fonts[FONT_GENERAL], nullptr);
 
                 gtk_settings_set_long_property(settings, "gtk-toolbar-style", qtSettings.toolbarStyle, "KDE-Settings");
                 if(qtSettings.debug) printf(DEBUG_PREFIX "gtk-toolbar-style %d\n", qtSettings.toolbarStyle);
-                if (gtk_check_version(2, 4, 0) == NULL) {
+                if (gtk_check_version(2, 4, 0) == nullptr) {
                     /* The following settings only apply for GTK>=2.4.0 */
                     if(qtSettings.debug) printf(DEBUG_PREFIX "gtk-button-images %d\n", qtSettings.buttonIcons);
                     gtk_settings_set_long_property(settings, "gtk-button-images", qtSettings.buttonIcons, "KDE-Settings");
@@ -1997,8 +1997,8 @@ qtSettingsInit()
                 }
 
                 /* The following settings only apply for GTK>=2.6.0 */
-                if(!opts.gtkButtonOrder && NULL==gtk_check_version(2, 6, 0))
-                    g_object_set(settings, "gtk-alternative-button-order", true, NULL);
+                if(!opts.gtkButtonOrder && nullptr==gtk_check_version(2, 6, 0))
+                    g_object_set(settings, "gtk-alternative-button-order", true, nullptr);
 
                 gtk_settings_set_long_property(settings, "gtk-menu-popup-delay", opts.menuDelay, "KDE-Settings");
             }
@@ -2146,7 +2146,7 @@ qtSettingsInit()
                     qtSettings.colors[PAL_ACTIVE][COLOR_TEXT].blue>>8);
             gtk_rc_parse_string(tmpStr);
 
-            if(!opts.gtkScrollViews && NULL!=gtk_check_version(2, 12, 0))
+            if(!opts.gtkScrollViews && nullptr!=gtk_check_version(2, 12, 0))
                 opts.gtkScrollViews=true;
 
             bool doEffect=EFFECT_NONE!=opts.buttonEffect;
@@ -2451,10 +2451,10 @@ static void qtSettingsExit()
     if (!qt_refs) {
         for(int i = 0;i < FONT_NUM_TOTAL;++i) {
             free(qtSettings.fonts[i]);
-            qtSettings.fonts[i] = NULL;
+            qtSettings.fonts[i] = nullptr;
         }
         free(qtSettings.icons);
-        qtSettings.icons = NULL;
+        qtSettings.icons = nullptr;
     }
 }
 #endif

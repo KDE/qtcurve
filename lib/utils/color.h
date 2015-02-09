@@ -26,15 +26,8 @@
 #include "utils.h"
 #include "options.h"
 
-#ifdef __cplusplus
-#include <cmath>
 // Using c99 function in c++ mode seems to cause trouble on some OSX versions.
-#define _isnan(x) std::isnan(x)
-#else
-#define _isnan(x) isnan(x)
-#endif
-
-QTC_BEGIN_DECLS
+#include <cmath>
 
 typedef struct {
     double red;
@@ -219,8 +212,6 @@ void qtcAdjustPix(unsigned char *data, int numChannels, int w, int h,
                   int stride, int ro, int go, int bo, double shade,
                   QtcPixelByteOrder byte_order);
 
-QTC_END_DECLS
-
 #ifndef QTC_UTILS_INTERNAL
 
 #if defined QTC_UTILS_QT
@@ -373,7 +364,7 @@ qtcColorTint(const GdkColor *base, const GdkColor *col, double amount)
         return *base;
     } else if (amount >= 1.0) {
         return *col;
-    } else if (_isnan(amount)) {
+    } else if (std::isnan(amount)) {
         return *base;
     }
     QtcColor qtc_base = _qtc_color_from_gdk(base);
@@ -390,7 +381,7 @@ qtcColorMix(const GdkColor *c1, const GdkColor *c2, double bias)
         return *c1;
     } else if (bias >= 1.0) {
         return *c2;
-    } else if (_isnan(bias)) {
+    } else if (std::isnan(bias)) {
         return *c1;
     }
     QtcColor qtc_c1 = _qtc_color_from_gdk(c1);

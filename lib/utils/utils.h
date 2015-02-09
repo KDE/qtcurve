@@ -167,8 +167,6 @@ const_(const T &t)
         }                                       \
     } while (0)
 
-QTC_BEGIN_DECLS
-
 /**
  * Binary searches an sorted array of \param nmemb objects.
  * \param key The key for the search.
@@ -187,8 +185,6 @@ void *qtcBSearch(const void *key, const void *base, size_t nmemb, size_t size,
                  int (*compar)(const void*, const void*));
 const char *qtcGetProgName();
 const char *qtcVersion();
-
-QTC_END_DECLS
 
 #ifdef __cplusplus
 

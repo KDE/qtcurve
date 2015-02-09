@@ -26,8 +26,6 @@
 #include "utils.h"
 #include "options.h"
 
-QTC_BEGIN_DECLS
-
 #define QTC_NUM_STD_SHADES (6)
 /* 3d effect - i.e. buttons, etc */
 static const double qtc_intern_shades[2][11][QTC_NUM_STD_SHADES] = {
@@ -75,7 +73,5 @@ qtcShadeGetIntern(int c, int s, bool darker, Shading shading)
     }
     return shade;
 }
-
-QTC_END_DECLS
 
 #endif

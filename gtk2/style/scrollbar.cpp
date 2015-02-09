@@ -64,7 +64,7 @@ parentScrolledWindow(GtkWidget *widget)
             return GTK_SCROLLED_WINDOW(parent);
         }
     }
-    return NULL;
+    return nullptr;
 }
 
 static gboolean
@@ -87,13 +87,13 @@ setupSlider(GtkWidget *widget)
     if (widget && !qtcWidgetProps(props)->scrollBarHacked) {
         qtcWidgetProps(props)->scrollBarHacked = true;
         qtcConnectToProp(props, scrollBarDestroy, "destroy-event",
-                         destroy, NULL);
+                         destroy, nullptr);
         qtcConnectToProp(props, scrollBarUnrealize, "unrealize",
-                         destroy, NULL);
+                         destroy, nullptr);
         qtcConnectToProp(props, scrollBarStyleSet, "style-set",
-                         styleSet, NULL);
+                         styleSet, nullptr);
         qtcConnectToProp(props, scrollBarValueChanged, "value-changed",
-                         valueChanged, NULL);
+                         valueChanged, nullptr);
     }
 }
 

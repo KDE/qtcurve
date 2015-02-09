@@ -25,8 +25,6 @@
 #include <xcb/xcb.h>
 #include "utils.h"
 
-QTC_BEGIN_DECLS
-
 extern xcb_atom_t qtc_x11_qtc_menubar_size;
 extern xcb_atom_t qtc_x11_qtc_statusbar;
 extern xcb_atom_t qtc_x11_qtc_titlebar_size;
@@ -43,11 +41,7 @@ xcb_connection_t *qtcX11GetConn();
 void *qtcX11GetDisp();
 int qtcX11DefaultScreenNo();
 xcb_screen_t *qtcX11DefaultScreen();
-xcb_screen_t *qtcX11GetScreen(int scrn_no);
-#define qtcX11GetScreen(scrn_no...) qtcX11GetScreen(QTC_DEFAULT(scrn_no, -1))
-xcb_window_t qtcX11RootWindow(int scrn_no);
-#define qtcX11RootWindow(scrn_no...) qtcX11RootWindow(QTC_DEFAULT(scrn_no, -1))
-
-QTC_END_DECLS
+xcb_screen_t *qtcX11GetScreen(int scrn_no=-1);
+xcb_window_t qtcX11RootWindow(int scrn_no=-1);
 
 #endif

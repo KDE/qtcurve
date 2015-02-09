@@ -183,7 +183,7 @@ shellLeave(GtkWidget *widget, GdkEventCrossing*, void*)
                 GtkWidget *submenu =
                     gtk_menu_item_get_submenu(GTK_MENU_ITEM(child->data));
                 GtkWidget *topLevel =
-                    submenu ? gtk_widget_get_toplevel(submenu) : NULL;
+                    submenu ? gtk_widget_get_toplevel(submenu) : nullptr;
 
                 if (submenu &&
                     ((!GTK_IS_MENU(submenu)) ||
@@ -210,18 +210,18 @@ shellSetup(GtkWidget *widget)
     if (GTK_IS_MENU_BAR(widget) && !qtcWidgetProps(props)->menuShellHacked) {
         qtcWidgetProps(props)->menuShellHacked = true;
         qtcConnectToProp(props, menuShellMotion, "motion-notify-event",
-                         shellMotion, NULL);
+                         shellMotion, nullptr);
         qtcConnectToProp(props, menuShellLeave, "leave-notify-event",
-                         shellLeave, NULL);
+                         shellLeave, nullptr);
         qtcConnectToProp(props, menuShellDestroy, "destroy-event",
-                         shellDestroy, NULL);
+                         shellDestroy, nullptr);
         qtcConnectToProp(props, menuShellStyleSet, "style-set",
-                         shellStyleSet, NULL);
+                         shellStyleSet, nullptr);
 #ifdef EXTEND_MENUBAR_ITEM_HACK
         qtcConnectToProp(props, menuShellButtonPress, "button-press-event",
-                         shellButtonPress, NULL);
+                         shellButtonPress, nullptr);
         qtcConnectToProp(props, menuShellButtonRelease, "button-release-event",
-                         shellButtonPress, NULL);
+                         shellButtonPress, nullptr);
 #endif
     }
 }

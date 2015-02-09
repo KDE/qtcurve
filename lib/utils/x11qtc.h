@@ -24,14 +24,10 @@
 
 #include "x11base.h"
 
-QTC_BEGIN_DECLS
-
 int32_t qtcX11GetShortProp(xcb_window_t win, xcb_atom_t atom);
 void qtcX11SetMenubarSize(xcb_window_t win, unsigned short s);
 void qtcX11SetStatusBar(xcb_window_t win);
 void qtcX11SetOpacity(xcb_window_t win, unsigned short o);
 void qtcX11SetBgnd(xcb_window_t win, uint32_t prop);
-
-QTC_END_DECLS
 
 #endif

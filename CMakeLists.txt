@@ -19,14 +19,14 @@ set(QTCURVE_VERSION "${QTCURVE_VERSION_MAJOR}.${QTCURVE_VERSION_MINOR}")
 set(QTCURVE_VERSION_FULL "${QTCURVE_VERSION}.${QTCURVE_VERSION_PATCH}")
 
 find_package(Git QUIET)
-add_custom_command(OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/version.c"
+add_custom_command(OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/version.cpp"
   DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/tools/gen-version.sh"
   WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
 add_custom_target(gen-git-ver ALL
   COMMAND "${CMAKE_CURRENT_SOURCE_DIR}/tools/gen-version.sh"
-  "${CMAKE_CURRENT_BINARY_DIR}/version.c" "${QTCURVE_VERSION_FULL}"
+  "${CMAKE_CURRENT_BINARY_DIR}/version.cpp" "${QTCURVE_VERSION_FULL}"
   "${GIT_EXECUTABLE}"
-  DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/version.c")
+  DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/version.cpp")
 
 ## Options
 function(qtc_option name doc def_val)
