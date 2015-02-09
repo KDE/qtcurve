@@ -435,9 +435,8 @@ static void
 gtkDrawHandle(GtkStyle *style, GdkWindow *window, GtkStateType state,
               GtkShadowType shadow, GdkRectangle *_area, GtkWidget *widget,
               const char *_detail, int x, int y, int width, int height,
-              GtkOrientation orientation)
+              GtkOrientation)
 {
-    QTC_UNUSED(orientation);
     QTC_RET_IF_FAIL(GTK_IS_STYLE(style));
     QTC_RET_IF_FAIL(GDK_IS_WINDOW(window));
     const char *detail = _detail ? _detail : "";
@@ -531,11 +530,10 @@ drawArrow(GdkWindow *window, const GdkColor *col, const QtcRect *area,
 static void
 gtkDrawArrow(GtkStyle *style, GdkWindow *window, GtkStateType state,
              GtkShadowType shadow, GdkRectangle *_area, GtkWidget *widget,
-             const char *_detail, GtkArrowType arrow_type, gboolean fill,
+             const char *_detail, GtkArrowType arrow_type, gboolean,
              int x, int y, int width, int height)
 {
     QTC_RET_IF_FAIL(GDK_IS_DRAWABLE(window));
-    QTC_UNUSED(fill);
     const char *detail = _detail ? _detail : "";
     if (qtSettings.debug == DEBUG_ALL) {
         printf(DEBUG_PREFIX "%s %d %d %d %d %d %d %d %s  ", __FUNCTION__,
@@ -2211,21 +2209,18 @@ gtkDrawLayout(GtkStyle *style, GdkWindow *window, GtkStateType state,
 
 static GdkPixbuf*
 gtkRenderIcon(GtkStyle *style, const GtkIconSource *source,
-              GtkTextDirection direction, GtkStateType state, GtkIconSize size,
-              GtkWidget *widget, const char *detail)
+              GtkTextDirection, GtkStateType state, GtkIconSize size,
+              GtkWidget *widget, const char*)
 {
-    QTC_UNUSED(detail);
-    QTC_UNUSED(direction);
     return renderIcon(style, source, state, size, widget);
 }
 
 static void
-gtkDrawTab(GtkStyle *style, GdkWindow *window, GtkStateType state,
+gtkDrawTab(GtkStyle*, GdkWindow *window, GtkStateType state,
            GtkShadowType shadow, GdkRectangle *_area, GtkWidget *widget,
            const char *_detail, int x, int y, int width, int height)
 {
     QTC_RET_IF_FAIL(GDK_IS_DRAWABLE(window));
-    QTC_UNUSED(style);
     if (qtSettings.debug == DEBUG_ALL) {
         printf(DEBUG_PREFIX "%s %d %d %s  ", __FUNCTION__, state, shadow,
                _detail);
@@ -2261,11 +2256,10 @@ gtkDrawTab(GtkStyle *style, GdkWindow *window, GtkStateType state,
 
 static void
 gtkDrawBoxGap(GtkStyle *style, GdkWindow *window, GtkStateType state,
-              GtkShadowType shadow, GdkRectangle *area, GtkWidget *widget,
+              GtkShadowType, GdkRectangle *area, GtkWidget *widget,
               const char *_detail, int x, int y, int width, int height,
               GtkPositionType gapSide, int gapX, int gapWidth)
 {
-    QTC_UNUSED(shadow);
     QTC_RET_IF_FAIL(GTK_IS_STYLE(style));
     QTC_RET_IF_FAIL(GDK_IS_DRAWABLE(window));
     const char *detail = _detail ? _detail : "";
@@ -2445,10 +2439,9 @@ gtkDrawSlider(GtkStyle *style, GdkWindow *window, GtkStateType state,
 static void
 gtkDrawShadowGap(GtkStyle *style, GdkWindow *window, GtkStateType state,
                  GtkShadowType shadow, GdkRectangle *_area, GtkWidget *widget,
-                 const char *detail, int x, int y, int width, int height,
+                 const char*, int x, int y, int width, int height,
                  GtkPositionType gapSide, int gapX, int gapWidth)
 {
-    QTC_UNUSED(detail);
     QTC_RET_IF_FAIL(GTK_IS_STYLE(style));
     QTC_RET_IF_FAIL(GDK_IS_DRAWABLE(window));
     QtcRect *area = (QtcRect*)_area;

@@ -25,16 +25,19 @@
 #include "utils.h"
 #include <stdarg.h>
 
+#include <array>
+#include <numeric>
+
+namespace QtCurve {
+
 template <typename... ArgTypes>
 QTC_ALWAYS_INLINE static inline char*
-qtcFillStrs(char *buff, ArgTypes&&...strs)
+fillStrs(char *buff, ArgTypes&&...strs)
 {
-    const char *strs_l[] = {strs...};
-    const size_t str_lens[] = {strlen(strs)...};
-    size_t total_len = 0;
-    for (size_t i = 0;i < sizeof...(strs);i++) {
-        total_len += str_lens[i];
-    }
+    const std::array<const char*, sizeof...(strs)> strs_l = {strs...};
+    const std::array<size_t, sizeof...(strs)> str_lens = {strlen(strs)...};
+    const size_t total_len = std::accumulate(str_lens.begin(),
+                                             str_lens.end(), 0);
     char *res = (buff ? (char*)realloc(buff, total_len + 1) :
                  (char*)malloc(total_len + 1));
     char *p = res;
@@ -48,9 +51,11 @@ qtcFillStrs(char *buff, ArgTypes&&...strs)
 
 template <typename... ArgTypes>
 QTC_ALWAYS_INLINE static inline char*
-qtcCatStrs(ArgTypes&&... strs)
+catStrs(ArgTypes&&... strs)
 {
-    return qtcFillStrs(nullptr, std::forward<ArgTypes>(strs)...);
+    return fillStrs(nullptr, std::forward<ArgTypes>(strs)...);
+}
+
 }
 
 QTC_ALWAYS_INLINE static inline char*

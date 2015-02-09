@@ -30,16 +30,14 @@ int pipe_fds[2];
 long num;
 
 static void
-forkCb(void *data)
+forkCb(void*)
 {
-    QTC_UNUSED(data);
     write(pipe_fds[1], &num, sizeof(num));
 }
 
 static void
-sigchld_handler(int signum)
+sigchld_handler(int)
 {
-    QTC_UNUSED(signum);
     wait(NULL);
 }
 

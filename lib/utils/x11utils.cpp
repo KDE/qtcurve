@@ -43,11 +43,11 @@ QTC_EXPORT xcb_atom_t qtc_x11_qtc_bgnd;
 // #include <X11/Xutil.h>
 // #include <X11/extensions/Xrender.h>
 
-void *qtc_disp = NULL;
-xcb_connection_t *qtc_xcb_conn = NULL;
+void *qtc_disp = nullptr;
+xcb_connection_t *qtc_xcb_conn = nullptr;
 int qtc_default_screen_no = -1;
 xcb_window_t qtc_root_window = {0};
-xcb_screen_t *qtc_default_screen = NULL;
+xcb_screen_t *qtc_default_screen = nullptr;
 static char wm_cm_s_atom_name[100] = "_NET_WM_CM_S";
 
 xcb_atom_t qtc_x11_net_wm_moveresize;
@@ -79,7 +79,7 @@ static const struct {
 QTC_EXPORT bool
 qtcX11Enabled()
 {
-    return qtc_xcb_conn != NULL;
+    return qtc_xcb_conn != nullptr;
 }
 
 QTC_EXPORT xcb_window_t
@@ -114,7 +114,7 @@ screen_of_display(xcb_connection_t *c, int screen)
             return iter.data;
         }
     }
-    return NULL;
+    return nullptr;
 }
 
 static void
@@ -128,7 +128,7 @@ qtcX11AtomsInit()
     }
     for (size_t i = 0;i < QTC_X11_ATOM_N;i++) {
         xcb_intern_atom_reply_t *r =
-            xcb_intern_atom_reply(conn, cookies[i], NULL);
+            xcb_intern_atom_reply(conn, cookies[i], nullptr);
         if (qtcLikely(r)) {
             *qtc_x11_atoms[i].atom = r->atom;
             free(r);
@@ -141,7 +141,7 @@ qtcX11AtomsInit()
 QTC_EXPORT xcb_screen_t*
 qtcX11GetScreen(int screen_no)
 {
-    QTC_RET_IF_FAIL(qtc_xcb_conn, NULL);
+    QTC_RET_IF_FAIL(qtc_xcb_conn, nullptr);
     if (screen_no == -1 || screen_no == qtc_default_screen_no) {
         return qtc_default_screen;
     }
@@ -239,12 +239,12 @@ qtcX11IsEmbed(xcb_window_t win)
 QTC_EXPORT void*
 qtcX11RgbaVisual(unsigned long *colormap, int *map_entries, int screen)
 {
-    QTC_RET_IF_FAIL(qtc_disp, NULL);
+    QTC_RET_IF_FAIL(qtc_disp, nullptr);
     if (screen < 0) {
         screen = qtc_default_screen_no;
     }
     // Copied from Qt4
-    Visual *argbVisual = NULL;
+    Visual *argbVisual = nullptr;
     int nvi;
     XVisualInfo templ;
     templ.screen = screen;
@@ -262,7 +262,7 @@ qtcX11RgbaVisual(unsigned long *colormap, int *map_entries, int screen)
         }
     }
     XFree(xvi);
-    QTC_RET_IF_FAIL(argbVisual, NULL);
+    QTC_RET_IF_FAIL(argbVisual, nullptr);
     qtcAssign(colormap, XCreateColormap(qtc_disp, RootWindow(qtc_disp, screen),
                                         argbVisual, AllocNone));
     qtcAssign(map_entries, argbVisual->map_entries);
@@ -279,9 +279,8 @@ qtcX11Enabled()
 }
 
 QTC_EXPORT xcb_window_t
-qtcX11RootWindow(int scrn_no)
+qtcX11RootWindow(int)
 {
-    QTC_UNUSED(scrn_no);
     return 0;
 }
 
@@ -294,45 +293,40 @@ qtcX11DefaultScreenNo()
 QTC_EXPORT xcb_screen_t*
 qtcX11DefaultScreen()
 {
-    return NULL;
+    return nullptr;
 }
 
 QTC_EXPORT xcb_screen_t*
-qtcX11GetScreen(int screen_no)
+qtcX11GetScreen(int)
 {
-    QTC_UNUSED(screen_no);
-    return NULL;
+    return nullptr;
 }
 
 QTC_EXPORT void
-qtcX11InitXcb(xcb_connection_t *conn, int screen_no)
+qtcX11InitXcb(xcb_connection_t*, int)
 {
-    QTC_UNUSED(conn);
-    QTC_UNUSED(screen_no);
 }
 
 QTC_EXPORT void
-qtcX11InitXlib(void *disp)
+qtcX11InitXlib(void*)
 {
-    QTC_UNUSED(disp);
 }
 
 QTC_EXPORT xcb_connection_t*
 qtcX11GetConn()
 {
-    return NULL;
+    return nullptr;
 }
 
 QTC_EXPORT void*
 qtcX11GetDisp()
 {
-    return NULL;
+    return nullptr;
 }
 
 QTC_EXPORT void
-qtcX11MapRaised(xcb_window_t win)
+qtcX11MapRaised(xcb_window_t)
 {
-    QTC_UNUSED(win);
 }
 
 QTC_EXPORT bool
@@ -342,27 +336,22 @@ qtcX11CompositingActive()
 }
 
 QTC_EXPORT bool
-qtcX11HasAlpha(xcb_window_t win)
+qtcX11HasAlpha(xcb_window_t)
 {
-    QTC_UNUSED(win);
     return false;
 }
 
 QTC_EXPORT bool
-qtcX11IsEmbed(xcb_window_t win)
+qtcX11IsEmbed(xcb_window_t)
 {
-    QTC_UNUSED(win);
     return false;
 }
 
 #if 0
 QTC_EXPORT void*
-qtcX11RgbaVisual(unsigned long *colormap, int *map_entries, int screen)
+qtcX11RgbaVisual(unsigned long*, int*, int)
 {
-    QTC_UNUSED(colormap);
-    QTC_UNUSED(map_entries);
-    QTC_UNUSED(screen);
-    return NULL;
+    return nullptr;
 }
 #endif
 
