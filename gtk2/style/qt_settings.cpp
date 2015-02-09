@@ -48,8 +48,8 @@ Options opts;
 #define KDEGLOBALS_FILE "kdeglobals"
 #define KDEGLOBALS_SYS_FILE "system.kdeglobals"
 
-#define qtc_gtkrc_printf(args...)                       \
-    gtk_rc_parse_string(QTC_LOCAL_BUFF_PRINTF(args))
+#define qtc_gtkrc_printf(str_buff, args...)     \
+    gtk_rc_parse_string(str_buff.printf(args))
 
 #if defined(__MACH__) || defined(__APPLE__)
 /* This code is public domain -- Will Hartung 4/9/09 */
@@ -312,17 +312,17 @@ enum {
 #ifdef QTC_GTK2_STYLE_SUPPORT
 static char*
 themeFileSub(const char *prefix, const char *name,
-             QtcStrBuff *str_buff, const char *sub)
+             QtCurve::StrBuff &str_buff, const char *sub)
 {
-    if (qtcIsRegFile(QTC_LOCAL_BUFF_CAT_STR(*str_buff, prefix, "/", sub, "/",
-                                            name, THEME_SUFFIX))) {
-        return str_buff->p;
+    if (qtcIsRegFile(str_buff.cat_strs(prefix, "/", sub, "/",
+                                       name, THEME_SUFFIX))) {
+        return str_buff.get();
     }
     return nullptr;
 }
 
 static char*
-themeFile(const char *prefix, const char *name, QtcStrBuff *str_buff)
+themeFile(const char *prefix, const char *name, QtCurve::StrBuff &str_buff)
 {
     char *f = themeFileSub(prefix, name, str_buff, THEME_DIR);
     if (!f) {
@@ -1602,7 +1602,7 @@ qtSettingsInit()
         if (abs(now - lastRead) > 1) {
             char *locale = setlocale(LC_NUMERIC, nullptr);
             char *path = nullptr;
-            QTC_DEF_STR_BUFF(str_buff, 4096, 1);
+            QtCurve::StrBuff<4096> str_buff;
             char *tmpStr = nullptr;
             GtkSettings *settings=nullptr;
 
@@ -1681,11 +1681,11 @@ qtSettingsInit()
             if (qtSettings.styleName &&
                 qtcStrStartsWith(qtSettings.styleName, THEME_PREFIX)) {
                 rcFile = themeFile(getKdeHome(),
-                                   qtSettings.styleName, &str_buff);
+                                   qtSettings.styleName, str_buff);
 
                 if (!rcFile) {
                     rcFile = themeFile(QTC_KDE4_PREFIX, qtSettings.styleName,
-                                       &str_buff);
+                                       str_buff);
                 }
             }
 
@@ -2426,7 +2426,6 @@ qtSettingsInit()
                 gtk_rc_parse_string("style \"" RC_SETTING "TbJ\" { GtkToolbar::button-relief = 1 } "
                                     "widget_class \"*<GtkToolbar>\"  style \"" RC_SETTING "TbJ\"");
 
-            QTC_FREE_LOCAL_BUFF(str_buff);
             free(tmpStr);
 
             if(opts.shadeMenubarOnlyWhenActive && SHADE_WINDOW_BORDER==opts.shadeMenubars &&

@@ -33,6 +33,7 @@
 
 #include <utility>
 #include <type_traits>
+#include <initializer_list>
 
 /**
  * \file utils.h
@@ -87,83 +88,66 @@ const_(const T &t)
 {
     return t;
 }
-}
 
-/**
- * Define a buffer type (struct) for \param type.
- * \sa QTC_DEF_LOCAL_BUFF
- */
-#define QTC_BUFF_TYPE(type)                     \
-    struct {                                    \
-        union {                                 \
-            type *p;                            \
-            void *_p;                           \
-        };                                      \
-        size_t l;                               \
-        type *const static_p;                   \
-        const size_t static_l;                  \
+template<typename T, size_t N>
+class LocalBuff {
+    LocalBuff(const LocalBuff&) = delete;
+public:
+    LocalBuff(size_t size=N, const T *ary=nullptr)
+        : m_ptr(size > N ? qtcNew(T, size) : m_static_buf),
+          m_size(size),
+          m_static_buf{}
+    {
+        if (ary) {
+            memcpy(m_ptr, ary, sizeof(T) * size);
+        }
     }
-
-/**
- * \brief Define a local buffer for holding an array of \param type.
- * \param type type of the array element.
- * \param name name of the variable
- * \param stack_size the maximum number of elements in the array that will be
- *                   kept on the stack.
- * \param size real size of the array.
- *
- * This macro define a buffer \param name for an array of \param type.
- * The buffer's field p points to the address of the array.
- * Use QTC_FREE_LOCAL_BUFF to free the buffer.
- * \sa QTC_FREE_LOCAL_BUFF
- * \sa QTC_RESIZE_LOCAL_BUFF
- */
-#define QTC_DEF_LOCAL_BUFF(type, name, stack_size, size)                \
-    type __##qtc_local_buff##name[stack_size];                          \
-    QTC_BUFF_TYPE(type) name = {                                        \
-        {__##qtc_local_buff##name},                                     \
-        sizeof(__##qtc_local_buff##name) / sizeof(type),                \
-        __##qtc_local_buff##name,                                       \
-        sizeof(__##qtc_local_buff##name) / sizeof(type)                 \
-    };                                                                  \
-    QTC_RESIZE_LOCAL_BUFF(name, size)
-
-/**
- * \brief Resize a local buffer defined with QTC_DEF_LOCAL_BUFF for holding
- * .      more elements.
- * \param name name of the buffer
- * \param size new minimum size of the array.
- *
- * This macro resizes a buffer \param name defined with QTC_DEF_LOCAL_BUFF for
- * holding at least \param size elements.
- * \sa QTC_DEF_LOCAL_BUFF
- * \sa QTC_FREE_LOCAL_BUFF
- */
-#define QTC_RESIZE_LOCAL_BUFF(name, size) do {                          \
-        size_t __new_size = (size);                                     \
-        if (__new_size <= (name).l || __new_size <= (name).static_l)    \
-            break;                                                      \
-        (name).l = __new_size;                                          \
-        size_t __alloc_size = sizeof(*(name).p) * __new_size;           \
-        if ((name).p == (name).static_p) {                              \
-            (name)._p = malloc(__alloc_size);                           \
-        } else {                                                        \
-            (name)._p = realloc((name)._p, __alloc_size);               \
-        }                                                               \
-    } while (0)
-
-/**
- * \brief Free a local buffer defined with QTC_DEF_LOCAL_BUFF if necessary.
- * \param name name of the buffer
- *
- * \sa QTC_DEF_LOCAL_BUFF
- * \sa QTC_RESIZE_LOCAL_BUFF
- */
-#define QTC_FREE_LOCAL_BUFF(name) do {          \
-        if ((name).p != (name).static_p) {      \
-            free((name)._p);                    \
-        }                                       \
-    } while (0)
+    bool
+    is_static() const
+    {
+        return m_ptr == m_static_buf;
+    }
+    void
+    resize(size_t size)
+    {
+        if (is_static()) {
+            if (size > N) {
+                m_ptr = qtcNew(T, size);
+                memcpy(m_ptr, m_static_buf, sizeof(T) * m_size);
+            }
+        } else {
+            m_ptr = (T*)realloc(m_ptr, sizeof(T) * size);
+        }
+        m_size = size;
+    }
+    T*
+    get() const
+    {
+        return m_ptr;
+    }
+    T&
+    operator[](size_t i) const
+    {
+        return get()[i];
+    }
+    size_t
+    size() const
+    {
+        return m_size;
+    }
+    ~LocalBuff()
+    {
+        if (!is_static()) {
+            free(m_ptr);
+        }
+    }
+protected:
+    T *m_ptr;
+    size_t m_size;
+private:
+    T m_static_buf[N];
+};
+}
 
 const char *qtcGetProgName();
 const char *qtcVersion();

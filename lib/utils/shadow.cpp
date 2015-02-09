@@ -124,11 +124,11 @@ qtcShadowCreate(size_t size, const QtcColor *c1, const QtcColor *c2,
                 QtcImage **images)
 {
     size_t full_size = size + radius;
-    QTC_DEF_LOCAL_BUFF(float, gradient, 128, full_size);
+    QtCurve::LocalBuff<float, 128> gradient(full_size);
     for (size_t i = 0;i < radius;i++) {
-        gradient.p[i] = 0;
+        gradient[i] = 0;
     }
-    qtcCreateShadowGradient(gradient.p + radius, size);
+    qtcCreateShadowGradient(gradient.get() + radius, size);
     int aligns[8][2] = {
         {0, -1},
         {1, -1},
@@ -140,8 +140,7 @@ qtcShadowCreate(size_t size, const QtcColor *c1, const QtcColor *c2,
         {-1, -1},
     };
     for (int i = 0;i < 8;i++) {
-        images[i] = qtcShadowSubImage(full_size, gradient.p, aligns[i][1],
+        images[i] = qtcShadowSubImage(full_size, gradient.get(), aligns[i][1],
                                       aligns[i][0], c1, c2, square, order);
     }
-    QTC_FREE_LOCAL_BUFF(gradient);
 }

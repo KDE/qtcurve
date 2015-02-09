@@ -25,23 +25,21 @@
 static void
 test_int_buff(unsigned size)
 {
-    QTC_DEF_LOCAL_BUFF(int, int_buff, 1024, size);
-    assert(int_buff.l >= size);
-    assert(size <= 1024 ? int_buff.p == int_buff.static_p :
-           int_buff.p != int_buff.static_p);
+    QtCurve::LocalBuff<unsigned, 1024> int_buff(size);
+    assert(int_buff.size() == size);
+    assert((size <= 1024) == int_buff.is_static());
     for (unsigned i = 0;i < size;i++) {
-        int_buff.p[i] = i * i;
+        int_buff[i] = i * i;
     }
-    QTC_RESIZE_LOCAL_BUFF(int_buff, size * 2);
-    assert(int_buff.l >= size * 2);
-    assert(size * 2 <= 1024 ? int_buff.p == int_buff.static_p :
-           int_buff.p != int_buff.static_p);
+    int_buff.resize(size * 2);
+    assert(int_buff.size() == size * 2);
+    assert((size * 2 <= 1024) == int_buff.is_static());
+    for (unsigned i = 0;i < size;i++) {
+        assert(int_buff[i] == i * i);
+    }
     for (unsigned i = 0;i < size * 2;i++) {
-        int_buff.p[i] = i * i;
+        int_buff[i] = i * i;
     }
-    QTC_DEF_LOCAL_BUFF(int, int_buff2, 1024, size);
-    QTC_FREE_LOCAL_BUFF(int_buff);
-    QTC_FREE_LOCAL_BUFF(int_buff2);
 }
 
 int

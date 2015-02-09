@@ -63,7 +63,7 @@ qtcStrListForEach(const char *str, char delim, char escape,
                   QtcListForEachFunc func, void *data)
 {
     QTC_RET_IF_FAIL(str && func);
-    QTC_DEF_STR_BUFF(str_buff, 1024, 1024);
+    QtCurve::StrBuff<1024> str_buff;
     if (qtcUnlikely(escape == delim)) {
         escape = '\0';
     }
@@ -73,12 +73,12 @@ qtcStrListForEach(const char *str, char delim, char escape,
         size_t len = 0;
         while (true) {
             size_t sub_len = strcspn(p, key);
-            QTC_RESIZE_LOCAL_BUFF(str_buff, len + sub_len + 2);
-            memcpy(str_buff.p + len, p, sub_len);
+            str_buff.resize(len + sub_len + 2);
+            memcpy(str_buff.get() + len, p, sub_len);
             len += sub_len;
             p += sub_len;
             if (escape && *p == escape) {
-                str_buff.p[len] = p[1];
+                str_buff[len] = p[1];
                 if (qtcUnlikely(!p[1])) {
                     p++;
                     break;
@@ -86,16 +86,15 @@ qtcStrListForEach(const char *str, char delim, char escape,
                 len++;
                 p += 2;
             } else {
-                str_buff.p[len] = '\0';
+                str_buff[len] = '\0';
                 break;
             }
         }
-        if (!func(str_buff.p, len, data) || !*p) {
+        if (!func(str_buff.get(), len, data) || !*p) {
             break;
         }
         p++;
     }
-    QTC_FREE_LOCAL_BUFF(str_buff);
 }
 
 typedef struct {

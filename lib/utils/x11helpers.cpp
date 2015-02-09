@@ -203,14 +203,13 @@ qtcX11BlurTrigger(xcb_window_t wid, bool enable, unsigned prop_num,
     xcb_atom_t atom = qtc_x11_kde_net_wm_blur_behind_region;
     if (enable) {
         if (qtc_disp) {
-            QTC_DEF_LOCAL_BUFF(unsigned long, xlib_props, 256, prop_num);
+            QtCurve::LocalBuff<unsigned long, 256> xlib_props(prop_num);
             for (unsigned i = 0;i < prop_num;i++) {
-                xlib_props.p[i] = props[i];
+                xlib_props[i] = props[i];
             }
             XChangeProperty((Display*)qtc_disp, wid, atom, XA_CARDINAL, 32,
-                            PropModeReplace, (unsigned char*)xlib_props.p,
+                            PropModeReplace, (unsigned char*)xlib_props.get(),
                             prop_num);
-            QTC_FREE_LOCAL_BUFF(xlib_props);
         } else {
             qtcX11ChangeProperty(XCB_PROP_MODE_REPLACE, wid, atom,
                                  XCB_ATOM_CARDINAL, 32, prop_num, props);

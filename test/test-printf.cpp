@@ -59,33 +59,33 @@ main()
     assert(m_res6 != buff6);
     assert(size > strlen(m_res6) + 1);
 
-    QTC_DEF_LOCAL_BUFF(char, buff7, 10, 10);
-    assert(buff7.p == buff7.static_p && buff7.l == buff7.static_l);
-    char *m_res7 = QTC_LOCAL_BUFF_PRINTF(buff7, TEST_FORMAT);
-    assert(buff7.p == m_res7);
-    assert(buff7.p != buff7.static_p);
+    QtCurve::StrBuff<10> buff7(10);
+    assert(buff7.is_static() && buff7.size() == 10);
+    char *m_res7 = buff7.printf(TEST_FORMAT);
+    assert(buff7.get() == m_res7);
+    assert(!buff7.is_static());
 
-    QTC_DEF_LOCAL_BUFF(char, buff8, 10, 11);
-    assert(buff8.p != buff8.static_p && buff8.l != buff8.static_l);
-    char *old_p8 = buff8.p;
-    char *m_res8 = QTC_LOCAL_BUFF_PRINTF(buff8, TEST_FORMAT);
-    assert(buff8.p == m_res8);
-    assert(buff8.p != old_p8);
+    QtCurve::StrBuff<10> buff8(11);
+    assert(!buff8.is_static() && buff8.size() == 11);
+    char *old_p8 = buff8.get();
+    char *m_res8 = buff8.printf(TEST_FORMAT);
+    assert(buff8.get() == m_res8);
+    assert(buff8.get() != old_p8);
 
-    QTC_DEF_LOCAL_BUFF(char, buff9, 10, 1024);
-    assert(buff9.p != buff9.static_p && buff9.l != buff9.static_l);
-    char *old_p9 = buff9.p;
-    char *m_res9 = QTC_LOCAL_BUFF_PRINTF(buff9, TEST_FORMAT);
-    assert(buff9.p == m_res9);
-    assert(buff9.p == old_p9);
+    QtCurve::StrBuff<10> buff9(1024);
+    assert(!buff9.is_static() && buff9.size() == 1024);
+    char *old_p9 = buff9.get();
+    char *m_res9 = buff9.printf(TEST_FORMAT);
+    assert(buff9.get() == m_res9);
+    assert(buff9.get() == old_p9);
 
-    QTC_DEF_LOCAL_BUFF(char, buff10, 2048, 1024);
-    assert(buff10.p == buff10.static_p && buff10.l == buff10.static_l);
-    char *old_p10 = buff10.p;
-    char *m_res10 = QTC_LOCAL_BUFF_PRINTF(buff10, TEST_FORMAT);
-    assert(buff10.p == m_res10);
-    assert(buff10.p == old_p10);
-    assert(buff10.p == buff10.static_p);
+    QtCurve::StrBuff<2048> buff10(1024);
+    assert(buff10.is_static() && buff10.size() == 1024);
+    char *old_p10 = buff10.get();
+    char *m_res10 = buff10.printf(TEST_FORMAT);
+    assert(buff10.get() == m_res10);
+    assert(buff10.get() == old_p10);
+    assert(buff10.is_static());
 
     const char *const results[] = {
         static_res,
@@ -112,9 +112,5 @@ main()
     free(m_res3);
     free(m_res4);
     free(m_res6);
-    QTC_FREE_LOCAL_BUFF(buff7);
-    QTC_FREE_LOCAL_BUFF(buff8);
-    QTC_FREE_LOCAL_BUFF(buff9);
-    QTC_FREE_LOCAL_BUFF(buff10);
     return 0;
 }

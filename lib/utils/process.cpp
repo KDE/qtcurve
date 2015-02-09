@@ -288,38 +288,36 @@ qtcPopenBuff(const char *file, const char *const argv[],
             need_poll = true;
         }
     }
-    QTC_DEF_LOCAL_BUFF(QtcPopenFD, fds, 16, buff_num);
+    QtCurve::LocalBuff<QtcPopenFD, 16> fds(buff_num);
     for (unsigned i = 0;i < buff_num;i++) {
-        fds.p[i].orig = buffs[i].orig;
-        fds.p[i].replace = -1;
-        fds.p[i].mode = buffs[i].mode;
+        fds[i].orig = buffs[i].orig;
+        fds[i].replace = -1;
+        fds[i].mode = buffs[i].mode;
     }
-    bool res = qtcPopen(file, argv, buff_num, fds.p);
+    bool res = qtcPopen(file, argv, buff_num, fds.get());
     if (!res) {
-        QTC_FREE_LOCAL_BUFF(fds);
         return false;
     }
     for (unsigned i = 0;i < buff_num;i++) {
-        buffs[i].orig = fds.p[i].replace;
-        if (fds.p[i].replace >= 0) {
-            qtcFDSetNonBlock(fds.p[i].replace, true);
-            qtcFDSetCloexec(fds.p[i].replace, true);
+        buffs[i].orig = fds[i].replace;
+        if (fds[i].replace >= 0) {
+            qtcFDSetNonBlock(fds[i].replace, true);
+            qtcFDSetCloexec(fds[i].replace, true);
         }
     }
-    QTC_FREE_LOCAL_BUFF(fds);
     if (!need_poll) {
         return true;
     }
-    QTC_DEF_LOCAL_BUFF(struct pollfd, poll_fds, 16, buff_num);
-    QTC_DEF_LOCAL_BUFF(int, indexes, 16, buff_num);
+    QtCurve::LocalBuff<pollfd, 16> poll_fds(buff_num);
+    QtCurve::LocalBuff<int, 16> indexes(buff_num);
     unsigned poll_fd_num = 0;
     for (unsigned i = 0;i < buff_num;i++) {
         if (!(buffs[i].mode & (QTC_POPEN_READ | QTC_POPEN_WRITE))) {
             close(buffs[i].orig);
             continue;
         }
-        indexes.p[poll_fd_num] = i;
-        struct pollfd *cur_fd = &poll_fds.p[poll_fd_num];
+        indexes[poll_fd_num] = i;
+        pollfd *cur_fd = &poll_fds[poll_fd_num];
         cur_fd->fd = buffs[i].orig;
         cur_fd->events = (buffs[i].mode & QTC_POPEN_READ) ? POLLIN : POLLOUT;
         poll_fd_num++;
@@ -327,7 +325,7 @@ qtcPopenBuff(const char *file, const char *const argv[],
     uint64_t start_time = qtcGetTime();
     int poll_timeout = timeout;
     while (true) {
-        int ret = poll(poll_fds.p, poll_fd_num, poll_timeout);
+        int ret = poll(poll_fds.get(), poll_fd_num, poll_timeout);
         if (ret == -1) {
             if (errno == EINTR) {
                 if (!qtcPopenPollCheckTimeout(start_time, timeout,
@@ -341,13 +339,13 @@ qtcPopenBuff(const char *file, const char *const argv[],
             break;
         }
         for (unsigned i = 0;i < poll_fd_num;i++) {
-            struct pollfd *cur_fd = &poll_fds.p[i];
+            pollfd *cur_fd = &poll_fds[i];
             if (cur_fd->revents & POLLIN) {
-                if (!qtcPopenReadBuff(&buffs[indexes.p[i]])) {
+                if (!qtcPopenReadBuff(&buffs[indexes[i]])) {
                     cur_fd->events &= ~POLLIN;
                 }
             } else if (cur_fd->revents & POLLOUT) {
-                if (!qtcPopenWriteBuff(&buffs[indexes.p[i]])) {
+                if (!qtcPopenWriteBuff(&buffs[indexes[i]])) {
                     cur_fd->events &= ~POLLOUT;
                 }
             }
@@ -357,8 +355,8 @@ qtcPopenBuff(const char *file, const char *const argv[],
                 close(cur_fd->fd);
                 poll_fd_num--;
                 memmove(cur_fd, cur_fd + 1,
-                        (poll_fd_num - i) * sizeof(struct pollfd));
-                memmove(indexes.p + i, indexes.p + i + 1,
+                        (poll_fd_num - i) * sizeof(pollfd));
+                memmove(indexes.get() + i, indexes.get() + i + 1,
                         (poll_fd_num - i) * sizeof(int));
                 i--;
             }
@@ -369,11 +367,9 @@ qtcPopenBuff(const char *file, const char *const argv[],
         }
     }
     for (unsigned i = 0;i < poll_fd_num;i++) {
-        struct pollfd *cur_fd = &poll_fds.p[i];
+        pollfd *cur_fd = &poll_fds[i];
         shutdown(cur_fd->fd, SHUT_RDWR);
         close(cur_fd->fd);
     }
-    QTC_FREE_LOCAL_BUFF(indexes);
-    QTC_FREE_LOCAL_BUFF(poll_fds);
     return true;
 }

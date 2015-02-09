@@ -28,6 +28,13 @@
 #include <array>
 #include <numeric>
 
+__attribute__((format(printf, 4, 5)))
+char *_qtcSPrintf(char *buff, size_t *size, bool allocated,
+                  const char *fmt, ...);
+__attribute__((format(printf, 4, 0)))
+char *_qtcSPrintfV(char *buff, size_t *size, bool allocated,
+                   const char *fmt, va_list ap);
+
 namespace QtCurve {
 
 template <typename... ArgTypes>
@@ -56,6 +63,49 @@ catStrs(ArgTypes&&... strs)
     return fillStrs(nullptr, std::forward<ArgTypes>(strs)...);
 }
 
+template<size_t N>
+class StrBuff : public LocalBuff<char, N> {
+public:
+    using LocalBuff<char, N>::LocalBuff;
+    __attribute__((format(printf, 2, 3)))
+    char*
+    printf(const char *fmt, ...)
+    {
+        va_list ap;
+        va_start(ap, fmt);
+        if (this->is_static()) {
+            size_t new_size = N;
+            char *res = _qtcSPrintfV(this->m_ptr, &new_size, false, fmt, ap);
+            if (res != this->m_ptr) {
+                this->m_ptr = res;
+                this->m_size = new_size;
+            }
+        } else {
+            this->m_ptr = _qtcSPrintfV(this->m_ptr, &this->m_size,
+                                       true, fmt, ap);
+        }
+        va_end(ap);
+        return this->m_ptr;
+    }
+    template <typename... ArgTypes>
+    char*
+    cat_strs(ArgTypes&&...strs)
+    {
+        const std::array<const char*, sizeof...(strs)> strs_l = {strs...};
+        const std::array<size_t, sizeof...(strs)> str_lens = {strlen(strs)...};
+        const size_t total_len = std::accumulate(str_lens.begin(),
+                                                 str_lens.end(), 0);
+        this->resize(total_len);
+        char *p = this->m_ptr;
+        for (size_t i = 0;i < sizeof...(strs);i++) {
+            memcpy(p, strs_l[i], str_lens[i]);
+            p += str_lens[i];
+        }
+        this->m_ptr[total_len] = 0;
+        return this->m_ptr;
+    }
+};
+
 }
 
 QTC_ALWAYS_INLINE static inline char*
@@ -71,13 +121,6 @@ qtcSetStr(char *dest, const char *src)
 {
     return qtcSetStr(dest, src, strlen(src));
 }
-
-__attribute__((format(printf, 4, 5)))
-char *_qtcSPrintf(char *buff, size_t *size, bool allocated,
-                  const char *fmt, ...);
-__attribute__((format(printf, 4, 0)))
-char *_qtcSPrintfV(char *buff, size_t *size, bool allocated,
-                   const char *fmt, va_list ap);
 
 #define qtcSPrintfV(buff, size, fmt, ap)        \
     _qtcSPrintfV(buff, size, true, fmt, ap)
@@ -147,54 +190,6 @@ double *qtcStrLoadFloatList(const char *str, char delim, char escape,
 #define qtcStrLoadFloatList(str, delim, escape, nele, extra...)         \
     qtcStrLoadFloatList(str, QTC_DEFAULT(delim, ','),                   \
                         QTC_DEFAULT(escape, '\\'), nele, ##extra)
-
-typedef QTC_BUFF_TYPE(char) QtcStrBuff;
-
-#define QTC_DEF_STR_BUFF(name, stack_size, size)                \
-    char __##qtc_local_buff##name[stack_size];                  \
-    QtcStrBuff name = {                                         \
-        {__##qtc_local_buff##name},                             \
-        sizeof(__##qtc_local_buff##name) / sizeof(char),        \
-        __##qtc_local_buff##name,                               \
-        sizeof(__##qtc_local_buff##name) / sizeof(char)         \
-    };                                                          \
-    QTC_RESIZE_LOCAL_BUFF(name, size)
-
-#define _QTC_LOCAL_BUFF_PRINTF(name, fmt, args...) do {                 \
-        if ((name).p == (name).static_p) {                              \
-            size_t _size = (name).l;                                    \
-            char *__res = _qtcSPrintf((name).p, &_size, false, fmt, ##args); \
-            if (__res != (name).p) {                                    \
-                (name).l = _size;                                       \
-                (name).p = __res;                                       \
-            }                                                           \
-            break;                                                      \
-        }                                                               \
-        (name).p = _qtcSPrintf((name).p, &(name).l, true, fmt, ##args); \
-    } while (0)
-
-#define _QTC_LOCAL_BUFF_CAT_STR(name, strs...) do {                     \
-        const char *__strs[] = {strs};                                  \
-        const int __strs_n = sizeof(__strs) / sizeof(const char*);      \
-        size_t __strs_lens[sizeof(__strs) / sizeof(const char*)];       \
-        size_t __strs_total_len =                                       \
-            _qtcCatStrsCalLens(__strs_n, __strs, __strs_lens);          \
-        QTC_RESIZE_LOCAL_BUFF(name, __strs_total_len + 1);              \
-        _qtcCatStrsFill(__strs_n, __strs, __strs_lens,                  \
-                        __strs_total_len, (name).p);                    \
-    } while (0)
-
-#define QTC_LOCAL_BUFF_PRINTF(name, fmt, args...)       \
-    ({                                                  \
-        _QTC_LOCAL_BUFF_PRINTF(name, fmt, ##args);      \
-        (name).p;                                       \
-    })
-
-#define QTC_LOCAL_BUFF_CAT_STR(name, strs...)   \
-    ({                                          \
-        _QTC_LOCAL_BUFF_CAT_STR(name, ##strs);  \
-        (name).p;                               \
-    })
 
 QTC_ALWAYS_INLINE static inline bool
 qtcStrToBool(const char *str, bool def)
