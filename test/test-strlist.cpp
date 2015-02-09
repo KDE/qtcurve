@@ -92,14 +92,14 @@ main()
     free(list2);
 
     size_t int_list_len;
-    long *int_list_res = qtcStrLoadIntList(int_str, ',', , &int_list_len, , ,);
+    long *int_list_res = qtcStrLoadIntList(int_str, ',', , &int_list_len);
     assert(int_list_len == (sizeof(int_list) / sizeof(long)));
     assert(memcmp(int_list, int_list_res, sizeof(int_list)) == 0);
     free(int_list_res);
 
     size_t float_list_len;
     double *float_list_res = qtcStrLoadFloatList(float_str, ',', ,
-                                                 &float_list_len, , ,);
+                                                 &float_list_len);
     assert(float_list_len == (sizeof(float_list) / sizeof(double)));
     assert(memcmp(float_list, float_list_res, sizeof(float_list)) == 0);
     free(float_list_res);
@@ -109,7 +109,7 @@ main()
     double *float_list_res2 =
         qtcStrLoadFloatList(float_str, ',', , &float_list_len2,
                             static_float_list,
-                            sizeof(static_float_list) / sizeof(double),);
+                            sizeof(static_float_list) / sizeof(double));
     assert(float_list_len2 == (sizeof(static_float_list) / sizeof(double)));
     assert(memcmp(float_list, float_list_res2, sizeof(static_float_list)) == 0);
     return 0;
