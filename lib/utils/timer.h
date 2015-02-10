@@ -23,7 +23,7 @@
 #define _QTC_UTILS_TIMER_H_
 
 #include "log.h"
-#include <inttypes.h>
+#include <cinttypes>
 
 namespace QtCurve {
 
