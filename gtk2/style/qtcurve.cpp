@@ -862,7 +862,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
             }
             width += 4;
 
-            cairo_save(cr);
+            Cairo::Saver saver(cr);
             if (moz) {
                 QtcRect a = {x + 2, y, width - 2, height};
                 Cairo::clipRect(cr, &a);
@@ -870,7 +870,6 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
             drawEntryField(cr, style, state, window, widget, (QtcRect*)area,
                            x, y, width, height,
                            rev ? ROUNDED_LEFT : ROUNDED_RIGHT, WIDGET_SPIN);
-            cairo_restore(cr);
         } else if (opts.unifySpinBtns) {
             int offset = (opts.buttonEffect != EFFECT_NONE && opts.etchEntry ?
                           1 : 0);
@@ -1319,7 +1318,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                               (cwidth - ind_width - style->xthickness) + 1),
                         y, ind_width + 3, height
                     };
-                    cairo_save(cr);
+                    Cairo::Saver saver(cr);
                     if (!opts.comboSplitter) {
                         Cairo::clipRect(cr, &btn);
                     }
@@ -1340,7 +1339,6 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                                    WIDGET_COMBO, BORDER_FLAT,
                                    (sunken ? DF_SUNKEN : 0) | DF_DO_BORDER |
                                    DF_HIDE_EFFECT, widget);
-                    cairo_restore(cr);
                 } else if (opts.comboSplitter) {
                     if(sunken)
                         cx++, cy++, cheight--;
@@ -1390,7 +1388,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                             vx + (rev ? LARGE_ARR_WIDTH + 4 : 0),
                             y, 20 + 3, height
                         };
-                        cairo_save(cr);
+                        Cairo::Saver saver(cr);
                         if (!opts.comboSplitter) {
                             Cairo::clipRect(cr, &btn);
                         }
@@ -1408,7 +1406,6 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                                        WIDGET_COMBO, BORDER_FLAT,
                                        (sunken ? DF_SUNKEN : 0) | DF_DO_BORDER |
                                        DF_HIDE_EFFECT, widget);
-                        cairo_restore(cr);
                     } else if (opts.comboSplitter) {
                         drawFadedLine(cr, vx + (rev ? LARGE_ARR_WIDTH + 4 : 0),
                                       y + 4, 1, height - 8,
@@ -1554,7 +1551,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
     } else {
         EWidget wt = (!_detail && GTK_IS_TREE_VIEW(widget) ?
                       WIDGET_PBAR_TROUGH : WIDGET_FRAME);
-        cairo_save(cr);
+        Cairo::Saver saver(cr);
         qtcClipPath(cr, x + 1, y + 1, width - 2, height - 2,
                     WIDGET_OTHER, RADIUS_INTERNAL, round);
         if (qtcIsFlatBgnd(opts.bgndAppearance) || !widget ||
@@ -1567,15 +1564,17 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                                width, height);
             }
         }
-        cairo_restore(cr);
+        saver.restore();
 
-        if(WIDGET_PBAR_TROUGH==wt)
-            drawProgressGroove(cr, style, state, window, widget, (QtcRect*)area, x, y, width, height, true, true);
-        else
+        if (wt == WIDGET_PBAR_TROUGH) {
+            drawProgressGroove(cr, style, state, window, widget,
+                               (QtcRect*)area, x, y, width, height, true, true);
+        } else {
             drawBorder(cr, style, state, (QtcRect*)area, x, y, width, height,
                        nullptr, (menuScroll || opts.square & SQUARE_FRAME ?
                               ROUNDED_NONE : ROUNDED_ALL),
                        shadowToBorder(shadow), wt, QTC_STD_BORDER);
+        }
     }
     cairo_destroy(cr);
 }

@@ -106,6 +106,33 @@ constrain(QtcRect *_rect, const QtcRect *con)
 
 namespace Cairo {
 
+class Saver {
+    Saver(const Saver&) = delete;
+public:
+    Saver(cairo_t *cr)
+        : m_cr(cr),
+          m_restored(false)
+    {
+        cairo_save(m_cr);
+    }
+    void
+    restore()
+    {
+        // not thread safe but we don't care...
+        if (!m_restored) {
+            m_restored = true;
+            cairo_restore(m_cr);
+        }
+    }
+    ~Saver()
+    {
+        restore();
+    }
+private:
+    cairo_t *const m_cr;
+    bool m_restored;
+};
+
 /**
  * \param cr a cairo_t
  * \param pts an array of GdkPoint

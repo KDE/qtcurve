@@ -107,7 +107,7 @@ drawBevelGradient(cairo_t *cr, const QtcRect *area, int x, int y,
                            WIDGET_LISTVIEW_HEADER == w ? bevApp :
                            APPEARANCE_GRADIENT);
         const Gradient *grad = qtcGetGradient(app, &opts);
-        cairo_save(cr);
+        Cairo::Saver saver(cr);
         Cairo::clipRect(cr, area);
 
         for (int i = 0;i < grad->numStops;i++) {
@@ -149,7 +149,6 @@ drawBevelGradient(cairo_t *cr, const QtcRect *area, int x, int y,
         cairo_rectangle(cr, x, y, width, height);
         cairo_fill(cr);
         cairo_pattern_destroy(pt);
-        cairo_restore(cr);
     }
 }
 
@@ -184,7 +183,7 @@ drawBorder(cairo_t *cr, GtkStyle *style, GtkStateType state,
                                   &colors[useBorderVal]);
     width--;
     height--;
-    cairo_save(cr);
+    Cairo::Saver saver(cr);
     Cairo::clipRect(cr, area);
 
     if (qtcOneOf(widget, WIDGET_TAB_BOT, WIDGET_TAB_TOP)) {
@@ -239,12 +238,11 @@ drawBorder(cairo_t *cr, GtkStyle *style, GtkStateType state,
                     if (widget == WIDGET_SCROLLVIEW) {
                         /* Because of list view headers, need to draw dark
                          * line on right! */
-                        cairo_save(cr);
+                        Cairo::Saver saver(cr);
                         Cairo::setColor(cr, &style->base[state]);
                         Cairo::pathBottomRight(cr, xdi, ydi, widthi, heighti,
                                                radiusi, round);
                         cairo_stroke(cr);
-                        cairo_restore(cr);
                     } else if (qtcOneOf(widget, WIDGET_SCROLLVIEW,
                                         WIDGET_ENTRY)) {
                         Cairo::setColor(cr, &style->base[state]);
@@ -292,7 +290,6 @@ drawBorder(cairo_t *cr, GtkStyle *style, GtkStateType state,
         Cairo::pathWhole(cr, xd, yd, width, height, radius, round);
         cairo_stroke(cr);
     }
-    cairo_restore(cr);
 }
 
 void
@@ -315,12 +312,11 @@ drawGlow(cairo_t *cr, const QtcRect *area, int x, int y, int w, int h,
              !qtcPalette.mouseover ? &qtcPalette.defbtn[GLOW_DEFBTN] :
              &qtcPalette.mouseover[GLOW_MO]);
 
-        cairo_save(cr);
+        Cairo::Saver saver(cr);
         Cairo::clipRect(cr, area);
         Cairo::setColor(cr, col, GLOW_ALPHA(defShade));
         Cairo::pathWhole(cr, xd, yd, w - 1, h - 1, radius, round);
         cairo_stroke(cr);
-        cairo_restore(cr);
     }
 }
 
@@ -342,7 +338,7 @@ drawEtch(cairo_t *cr, const QtcRect *area, GtkWidget *widget, int x, int y,
         b = qtcRect(x + 2, y, w - 4, h);
         a = &b;
     }
-    cairo_save(cr);
+    Cairo::Saver saver(cr);
     Cairo::clipRect(cr, a);
 
     cairo_set_source_rgba(cr, 0.0, 0.0, 0.0,
@@ -363,7 +359,6 @@ drawEtch(cairo_t *cr, const QtcRect *area, GtkWidget *widget, int x, int y,
     }
     Cairo::pathBottomRight(cr, xd, yd, w - 1, h - 1, radius, round);
     cairo_stroke(cr);
-    cairo_restore(cr);
 }
 
 void
@@ -467,7 +462,7 @@ drawLightBevel(cairo_t *cr, GtkStyle *style, GtkStateType state,
     }
 
     if (width > 0 && height > 0) {
-        cairo_save(cr);
+        Cairo::Saver saver(cr);
         if (!(flags & DF_DO_BORDER)) {
             Cairo::clipWhole(cr, x, y, width, height,
                              qtcGetRadius(&opts, width, height, widget,
@@ -570,7 +565,7 @@ drawLightBevel(cairo_t *cr, GtkStyle *style, GtkStateType state,
                                                 topGradRectX,
                                                 topGradRectY + topGradRectH);
 
-                cairo_save(cr);
+                Cairo::Saver saver(cr);
                 Cairo::clipWhole(cr, topGradRectX + 0.5, topGradRectY + 0.5,
                                  topGradRectW, topGradRectH,
                                  topGradRectW / 2.0, ROUNDED_ALL);
@@ -587,7 +582,6 @@ drawLightBevel(cairo_t *cr, GtkStyle *style, GtkStateType state,
                                 topGradRectH);
                 cairo_fill(cr);
                 cairo_pattern_destroy(pt);
-                cairo_restore(cr);
             } else {
                 double size = qtcMin((horiz ? ha : wa) / 2.0, 16);
                 double rad = size / 2.0;
@@ -622,7 +616,7 @@ drawLightBevel(cairo_t *cr, GtkStyle *style, GtkStateType state,
                     mod /= 2;
                 }
 
-                cairo_save(cr);
+                Cairo::Saver saver(cr);
                 if (horiz) {
                     Cairo::clipWhole(cr, xa + mod + 0.5, ya + 0.5,
                                      wa - mod * 2 - 1, size - 1, rad, round);
@@ -643,10 +637,8 @@ drawLightBevel(cairo_t *cr, GtkStyle *style, GtkStateType state,
                                 horiz ? size : ha);
                 cairo_fill(cr);
                 cairo_pattern_destroy(pt);
-                cairo_restore(cr);
             }
         }
-        cairo_restore(cr);
     }
     xd += 1;
     x++;
@@ -789,12 +781,11 @@ drawLightBevel(cairo_t *cr, GtkStyle *style, GtkStateType state,
     }
 
     if (WIDGET_SB_SLIDER == widget && opts.stripedSbar) {
-        cairo_save(cr);
+        Cairo::Saver saver(cr);
         Cairo::clipWhole(cr, x, y, width, height,
                          qtcGetRadius(&opts, width, height, WIDGET_SB_SLIDER,
                                       RADIUS_INTERNAL), round);
         addStripes(cr, x + 1, y + 1, width - 2, height - 2, horiz);
-        cairo_restore(cr);
     }
 }
 
@@ -862,7 +853,7 @@ drawLines(cairo_t *cr, double rx, double ry, int rwidth, int rheight,
         ((pt1 && type != LINE_FLAT) ?
          cairo_pattern_create_linear(rx, ry, horiz ? x2 : rx + 1,
                                      horiz ? ry + 1 : y2) : nullptr);
-    cairo_save(cr);
+    Cairo::Saver saver(cr);
     Cairo::clipRect(cr, area);
     setLineCol(cr, pt1, col1);
     if (horiz) {
@@ -904,14 +895,13 @@ drawLines(cairo_t *cr, double rx, double ry, int rwidth, int rheight,
     if (pt2) {
         cairo_pattern_destroy(pt2);
     }
-    cairo_restore(cr);
 }
 
 void
 drawEntryCorners(cairo_t *cr, const QtcRect *area, int round, int x, int y,
                  int width, int height, const GdkColor *col, double a)
 {
-    cairo_save(cr);
+    Cairo::Saver saver(cr);
     Cairo::clipRect(cr, area);
     Cairo::setColor(cr, col, a);
     cairo_rectangle(cr, x + 0.5, y + 0.5, width - 1, height - 1);
@@ -935,7 +925,6 @@ drawEntryCorners(cairo_t *cr, const QtcRect *area, int round, int x, int y,
     cairo_set_line_width(cr, opts.round > ROUND_FULL &&
                          qtSettings.app != GTK_APP_OPEN_OFFICE ? 2 : 1);
     cairo_stroke(cr);
-    cairo_restore(cr);
 }
 
 void
@@ -1223,7 +1212,7 @@ drawWindowBgnd(cairo_t *cr, GtkStyle *style, const QtcRect *area,
             ww += wmod;
         }
         QtcRect clip = {x, y, width, height};
-        cairo_save(cr);
+        Cairo::Saver saver(cr);
         Cairo::clipRect(cr, &clip);
         if (useAlpha) {
             alpha = opacity / 100.0;
@@ -1234,10 +1223,9 @@ drawWindowBgnd(cairo_t *cr, GtkStyle *style, const QtcRect *area,
         } else if (opts.bgndAppearance == APPEARANCE_STRIPED) {
             drawStripedBgnd(cr, -wx, -wy, ww, wh, col, alpha);
         } else if (opts.bgndAppearance == APPEARANCE_FILE) {
-            cairo_save(cr);
+            Cairo::Saver saver(cr);
             cairo_translate(cr, -wx, -wy);
             drawBgndImage(cr, 0, 0, ww, wh, true);
-            cairo_restore(cr);
         } else {
             drawBevelGradient(cr, area, -wx, -wy, ww, wh + 1, col,
                               opts.bgndGrad == GT_HORIZ, false,
@@ -1276,7 +1264,6 @@ drawWindowBgnd(cairo_t *cr, GtkStyle *style, const QtcRect *area,
             wy -= ymod;
         }
         drawBgndRings(cr, -wx, -wy, ww, wh, true);
-        cairo_restore(cr);
         return true;
     }
     return false;

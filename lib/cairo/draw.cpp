@@ -30,32 +30,30 @@ namespace Cairo {
 QTC_EXPORT void
 hLine(cairo_t *cr, int x, int y, int w, const GdkColor *col, double a)
 {
-    cairo_save(cr);
+    Saver saver(cr);
     cairo_new_path(cr);
     setColor(cr, col, a);
     cairo_move_to(cr, x, y + 0.5);
     cairo_line_to(cr, x + w, y + 0.5);
     cairo_stroke(cr);
-    cairo_restore(cr);
 }
 
 QTC_EXPORT void
 vLine(cairo_t *cr, int x, int y, int h, const GdkColor *col, double a)
 {
-    cairo_save(cr);
+    Saver saver(cr);
     cairo_new_path(cr);
     setColor(cr, col, a);
     cairo_move_to(cr, x + 0.5, y);
     cairo_line_to(cr, x + 0.5, y + h);
     cairo_stroke(cr);
-    cairo_restore(cr);
 }
 
 QTC_EXPORT void
 polygon(cairo_t *cr, const GdkColor *col, const QtcRect *area,
         const GdkPoint *points, int npoints, bool fill)
 {
-    cairo_save(cr);
+    Saver saver(cr);
     cairo_set_line_width(cr, 1);
     clipRect(cr, area);
     setColor(cr, col);
@@ -66,19 +64,17 @@ polygon(cairo_t *cr, const GdkColor *col, const QtcRect *area,
     if (fill) {
         cairo_fill(cr);
     }
-    cairo_restore(cr);
 }
 
 QTC_EXPORT void
 rect(cairo_t *cr, const QtcRect *area, int x, int y, int width, int height,
      const GdkColor *col, double alpha)
 {
-    cairo_save(cr);
+    Saver saver(cr);
     clipRect(cr, area);
     cairo_rectangle(cr, x, y, width, height);
     setColor(cr, col, alpha);
     cairo_fill(cr);
-    cairo_restore(cr);
 }
 
 QTC_EXPORT void
@@ -93,7 +89,7 @@ fadedLine(cairo_t *cr, int x, int y, int width, int height,
         cairo_pattern_create_linear(rx, ry, horiz ? rx + width - 1 : rx + 1,
                                     horiz ? ry + 1 : ry + height - 1);
 
-    cairo_save(cr);
+    Saver saver(cr);
     if (gap) {
         QtcRect r = {x, y, width, height};
         cairo_region_t *region =
@@ -118,7 +114,6 @@ fadedLine(cairo_t *cr, int x, int y, int width, int height,
     }
     cairo_stroke(cr);
     cairo_pattern_destroy(pt);
-    cairo_restore(cr);
 }
 
 QTC_EXPORT void
@@ -133,11 +128,10 @@ stripes(cairo_t *cr, int x, int y, int w, int h,
     cairo_pattern_add_color_stop_rgba(pat, 1, 1.0, 1.0, 1.0, 0.15);
     cairo_pattern_set_extend(pat, CAIRO_EXTEND_REFLECT);
 
-    cairo_save(cr);
+    Saver saver(cr);
     cairo_set_source(cr, pat);
     cairo_rectangle(cr, x, y, w, h);
     cairo_fill(cr);
-    cairo_restore(cr);
 
     cairo_pattern_destroy(pat);
 }
@@ -156,7 +150,7 @@ dot(cairo_t *cr, int x, int y, int w, int h, const GdkColor *col)
     cairo_pattern_add_color_stop_rgba(p2, 1, 1, 1, 1, 0.9);
     cairo_pattern_add_color_stop_rgba(p2, 0, 1, 1, 1, 0.7);
 
-    cairo_save(cr);
+    Saver saver(cr);
     cairo_new_path(cr);
     cairo_arc(cr, dx + 2.5, dy + 2.5, 2.5, 0, 2 * M_PI);
     cairo_clip(cr);
@@ -170,7 +164,6 @@ dot(cairo_t *cr, int x, int y, int w, int h, const GdkColor *col)
     cairo_set_source(cr, p2);
     cairo_rectangle(cr, dx + 1, dy + 1, 4, 4);
     cairo_fill(cr);
-    cairo_restore(cr);
 
     cairo_pattern_destroy(p1);
     cairo_pattern_destroy(p2);
@@ -186,7 +179,7 @@ dots(cairo_t *cr, int rx, int ry, int rwidth, int rheight, bool horiz,
     int y = horiz ? ry + (rheight - space) / 2 : ry;
     int numDots = ((horiz ? rwidth : rheight) - 2 * offset) / 3 + 1;
 
-    cairo_save(cr);
+    Saver saver(cr);
     clipRect(cr, area);
     if (horiz) {
         if (startOffset && y + startOffset > 0) {
@@ -231,7 +224,6 @@ dots(cairo_t *cr, int rx, int ry, int rwidth, int rheight, bool horiz,
         }
         cairo_fill(cr);
     }
-    cairo_restore(cr);
 }
 
 static void
@@ -262,13 +254,12 @@ QTC_EXPORT void
 layout(cairo_t *cr, const QtcRect *area, int x, int y, PangoLayout *_layout,
        const GdkColor *col)
 {
-    cairo_save(cr);
+    Saver saver(cr);
     clipRect(cr, area);
     cairo_set_line_width(cr, 1);
     setColor(cr, col);
     ge_transform_for_layout(cr, _layout, x, y);
     pango_cairo_show_layout(cr, _layout);
-    cairo_restore(cr);
 }
 
 QTC_EXPORT void
