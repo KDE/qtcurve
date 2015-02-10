@@ -66,12 +66,15 @@ search_map(const char *str)
     return auto_map.search(str);
 }
 
+#ifndef __clang__
+// clang doesn't like template recursion deeper than 256 levels....
 static int
 search_case_map(const char *str)
 {
     static const QtCurve::StrMap<int, false> auto_map(CASE_STRINGS);
     return auto_map.search(str);
 }
+#endif
 
 int
 main()
@@ -94,6 +97,7 @@ main()
             }
         }
     }
+#ifndef __clang__
     const char *case_real_order[] = {CASE_STRINGS};
     for (char i = 0;i < 127;i++) {
         key[0] = i;
@@ -115,5 +119,6 @@ main()
             }
         }
     }
+#endif
     return 0;
 }

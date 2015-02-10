@@ -41,8 +41,8 @@ template <typename... ArgTypes>
 QTC_ALWAYS_INLINE static inline char*
 fillStrs(char *buff, ArgTypes&&...strs)
 {
-    const std::array<const char*, sizeof...(strs)> strs_l = {strs...};
-    const std::array<size_t, sizeof...(strs)> str_lens = {strlen(strs)...};
+    const std::array<const char*, sizeof...(strs)> strs_l{{strs...}};
+    const std::array<size_t, sizeof...(strs)> str_lens{{strlen(strs)...}};
     const size_t total_len = std::accumulate(str_lens.begin(),
                                              str_lens.end(), 0);
     char *res = (buff ? (char*)realloc(buff, total_len + 1) :
@@ -91,8 +91,8 @@ public:
     char*
     cat_strs(ArgTypes&&...strs)
     {
-        const std::array<const char*, sizeof...(strs)> strs_l = {strs...};
-        const std::array<size_t, sizeof...(strs)> str_lens = {strlen(strs)...};
+        const std::array<const char*, sizeof...(strs)> strs_l{{strs...}};
+        const std::array<size_t, sizeof...(strs)> str_lens{{strlen(strs)...}};
         const size_t total_len = std::accumulate(str_lens.begin(),
                                                  str_lens.end(), 0);
         this->resize(total_len);
