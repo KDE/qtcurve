@@ -31,12 +31,10 @@ uint64_t getTime();
 uint64_t getElapse(uint64_t prev);
 void tic();
 uint64_t toc();
-#define PRTime PRIu64
-
 static inline void
 printTime(uint64_t time)
 {
-    qtcForceLog("Time: %" PRTime "\n", time);
+    qtcForceLog("Time: %" PRIu64 "\n", time);
 }
 static inline void
 printElapse(uint64_t prev)
