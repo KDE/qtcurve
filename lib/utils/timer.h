@@ -25,13 +25,30 @@
 #include "log.h"
 #include <inttypes.h>
 
+namespace QtCurve {
+
+uint64_t getTime();
+uint64_t getElapse(uint64_t prev);
+void tic();
+uint64_t toc();
 #define PRTime PRIu64
-uint64_t qtcGetTime();
-uint64_t qtcGetElapse(uint64_t prev);
-void qtcTic();
-uint64_t qtcToc();
-#define qtcPrintTime(time) qtcForceLog("Time: %" PRTime "\n", time)
-#define qtcPrintElapse(prev) qtcPrintTime(qtcGetElapse(prev))
-#define qtcPrintToc() qtcPrintTime(qtcToc())
+
+static inline void
+printTime(uint64_t time)
+{
+    qtcForceLog("Time: %" PRTime "\n", time);
+}
+static inline void
+printElapse(uint64_t prev)
+{
+    printTime(getElapse(prev));
+}
+static inline void
+printToc()
+{
+    printTime(toc());
+}
+
+}
 
 #endif

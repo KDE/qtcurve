@@ -20,77 +20,46 @@
  *****************************************************************************/
 
 #include "timer.h"
-#include "number.h"
-#include <time.h>
+
+#include <chrono>
 #include <vector>
-
-#if defined(__APPLE__) || defined(__MACH__)
-#include <mach/mach.h>
-#include <mach/mach_time.h>
-#include <mach/mach_init.h>
-#include <sys/sysctl.h>
-
-static mach_timebase_info_data_t sTimebaseInfo;
-static double calibrator = 0;
-
-__attribute__((constructor)) static void
-init_HRTime()
-{
-    if (!calibrator) {
-        mach_timebase_info(&sTimebaseInfo);
-        /* go from absolute time units to nanoseconds: */
-        calibrator = (double)sTimebaseInfo.numer / (double)sTimebaseInfo.denom;
-        /* fprintf(stderr, "init_HRTime(): calibrator=%g\n", calibrator); */
-    }
-}
-
-QTC_EXPORT uint64_t
-qtcGetTime()
-{
-    return (uint64_t)mach_absolute_time() * calibrator;
-}
-
-#else
-
-#ifdef CLOCK_THREAD_CPUTIME_ID
-#  define CLOCK_ID CLOCK_THREAD_CPUTIME_ID
-#else
-#  define CLOCK_ID CLOCK_MONOTONIC
-#endif
-
-QTC_EXPORT uint64_t
-qtcGetTime()
-{
-    struct timespec time_spec;
-    clock_gettime(CLOCK_ID, &time_spec);
-    return ((uint64_t)time_spec.tv_sec) * 1000000000ull + time_spec.tv_nsec;
-}
-#endif // __APPLE__
-
-QTC_EXPORT uint64_t
-qtcGetElapse(uint64_t prev)
-{
-    return qtcGetTime() - prev;
-}
 
 static thread_local std::vector<uint64_t> qtc_tics;
 
-QTC_EXPORT void
-qtcTic()
+namespace QtCurve {
+
+QTC_EXPORT uint64_t
+getTime()
 {
-    qtc_tics.push_back(0);
-    auto &back = qtc_tics.back();
-    back = qtcGetTime();
+    using namespace std::chrono;
+    return time_point_cast<nanoseconds>(high_resolution_clock::now())
+        .time_since_epoch().count();
 }
 
 QTC_EXPORT uint64_t
-qtcToc()
+getElapse(uint64_t prev)
 {
-    uint64_t cur_time = qtcGetTime();
+    return getTime() - prev;
+}
+
+QTC_EXPORT void
+tic()
+{
+    qtc_tics.push_back(0);
+    auto &back = qtc_tics.back();
+    back = getTime();
+}
+
+QTC_EXPORT uint64_t
+toc()
+{
+    uint64_t cur_time = getTime();
     if (!qtc_tics.size()) {
         return 0;
     }
     uint64_t old_time = qtc_tics.back();
     qtc_tics.pop_back();
     return cur_time - old_time;
+}
+
 }

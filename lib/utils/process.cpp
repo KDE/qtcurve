@@ -263,7 +263,7 @@ qtcPopenPollCheckTimeout(uint64_t start, int timeout, int *new_timeout)
         *new_timeout = -1;
         return true;
     }
-    int elapse = qtcGetElapse(start) / 1000000;
+    int elapse = QtCurve::getElapse(start) / 1000000;
     if (elapse > timeout) {
         return false;
     }
@@ -322,7 +322,7 @@ qtcPopenBuff(const char *file, const char *const argv[],
         cur_fd->events = (buffs[i].mode & QTC_POPEN_READ) ? POLLIN : POLLOUT;
         poll_fd_num++;
     }
-    uint64_t start_time = qtcGetTime();
+    uint64_t start_time = QtCurve::getTime();
     int poll_timeout = timeout;
     while (true) {
         int ret = poll(poll_fds.get(), poll_fd_num, poll_timeout);
