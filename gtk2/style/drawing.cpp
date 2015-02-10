@@ -170,8 +170,8 @@ drawBorder(cairo_t *cr, GtkStyle *style, GtkStateType state,
     bool useText = (enabled && widget == WIDGET_DEF_BUTTON &&
                     opts.defBtnIndicator == IND_FONT_COLOR);
     /* CPD USED TO INDICATE FOCUS! */
-    bool hasFocus = (enabled && qtcPalette.focus &&
-                     c_colors == qtcPalette.focus);
+    // TODO: what exactly is this
+    bool hasFocus = (enabled && c_colors == qtcPalette.focus);
     bool hasMouseOver = (enabled && qtcPalette.mouseover &&
                          c_colors == qtcPalette.mouseover &&
                          opts.unifyCombo && opts.unifySpin);
@@ -1292,7 +1292,7 @@ drawEntryField(cairo_t *cr, GtkStyle *style, GtkStateType state,
                      (widget && !gtk_widget_is_sensitive(widget)));
     bool highlightReal =
         (enabled && widget && gtk_widget_has_focus(widget) &&
-         qtSettings.app != GTK_APP_JAVA && qtcPalette.focus);
+         qtSettings.app != GTK_APP_JAVA);
     bool mouseOver =
         (opts.unifyCombo && opts.unifySpin && enabled &&
          (GTK_STATE_PRELIGHT == state || Entry::isLastMo(widget)) &&
@@ -4024,8 +4024,8 @@ drawDefBtnIndicator(cairo_t *cr, GtkStateType state, const GdkColor *btnColors,
     if (opts.defBtnIndicator == IND_CORNER) {
         int offset = sunken ? 5 : 4;
         int etchOffset = opts.buttonEffect != EFFECT_NONE ? 1 : 0;
-        const GdkColor *cols = (qtcPalette.focus ? qtcPalette.focus :
-                                qtcPalette.highlight);
+        // TODO: used to be switching between focus and highlight
+        const GdkColor *cols = qtcPalette.focus;
         const GdkColor *col = &cols[state == GTK_STATE_ACTIVE ? 0 : 4];
 
         cairo_new_path(cr);
