@@ -1351,7 +1351,7 @@ drawEntryField(cairo_t *cr, GtkStyle *style, GtkStateType state,
         }
     }
 
-    cairo_save(cr);
+    Cairo::Saver saver(cr);
     if (opts.round > ROUND_FULL) {
         qtcClipPath(cr, x + 1, y + 1, width - 2, height - 2,
                     WIDGET_ENTRY, RADIUS_INTERNAL, ROUNDED_ALL);
@@ -1359,9 +1359,9 @@ drawEntryField(cairo_t *cr, GtkStyle *style, GtkStateType state,
     Cairo::rect(cr, area, x + 1, y + 1, width - 2, height - 2,
                 enabled ? &style->base[GTK_STATE_NORMAL] :
                 &style->bg[GTK_STATE_INSENSITIVE]);
-    cairo_restore(cr);
 
-    cairo_save(cr);
+    saver.resave();
+
     if (qtSettings.app == GTK_APP_OPEN_OFFICE && comboOrSpin) {
         const QtcRect rect = {x, y, width, height};
         x -= 4;
@@ -1396,7 +1396,6 @@ drawEntryField(cairo_t *cr, GtkStyle *style, GtkStateType state,
                            state : GTK_STATE_INSENSITIVE), area,
                xo, yo, widtho, heighto, colors, round,
                BORDER_SUNKEN, WIDGET_ENTRY, DF_BLEND);
-    cairo_restore(cr);
     if (GTK_IS_ENTRY(widget) && !gtk_entry_get_visibility(GTK_ENTRY(widget))) {
         gtk_entry_set_invisible_char(GTK_ENTRY(widget), opts.passwordChar);
     }
@@ -1531,7 +1530,7 @@ drawProgress(cairo_t *cr, GtkStyle *style, GtkStateType state,
     width -= 2;
     height -= 2;
 
-    cairo_save(cr);
+    Cairo::Saver saver(cr);
     if (opts.borderProgress && opts.round > ROUND_SLIGHT &&
         (horiz ? width : height) < 4) {
         qtcClipPath(cr, x, y, width, height, wid, RADIUS_EXTERNAL, ROUNDED_ALL);
@@ -1549,7 +1548,7 @@ drawProgress(cairo_t *cr, GtkStyle *style, GtkStateType state,
                        width + (horiz ? sizeMod : 0),
                        height + (horiz ? 0 : sizeMod), horiz);
         } else {
-            cairo_save(cr);
+            Cairo::Saver saver(cr);
             qtcSetProgressStripeClipping(cr, area, xo, yo, wo, ho,
                                          animShift, horiz);
             drawLightBevel(cr, style, new_state, nullptr, x, y,
@@ -1557,7 +1556,6 @@ drawProgress(cairo_t *cr, GtkStyle *style, GtkStateType state,
                            ROUNDED_ALL, wid, BORDER_FLAT,
                            (opts.fillProgress || !opts.borderProgress ? 0 :
                             DF_DO_BORDER) | (horiz ? 0 : DF_VERT), widget);
-            cairo_restore(cr);
         }
     }
     if (opts.glowProgress && (horiz ? width : height)>3) {
@@ -1617,7 +1615,6 @@ drawProgress(cairo_t *cr, GtkStyle *style, GtkStateType state,
             }
         }
     }
-    cairo_restore(cr);
 }
 
 void
@@ -2137,7 +2134,7 @@ drawScrollbarGroove(cairo_t *cr, GtkStyle *style, GtkStateType state,
                 (parent_col ? parent_col :
                  &qtcPalette.background[ORIGINAL_SHADE]);
 
-            cairo_save(cr);
+            Cairo::Saver saver(cr);
             Cairo::clipRect(cr, area);
             Cairo::rect(cr, area, x, y, width, height,
                         &qtcPalette.background[ORIGINAL_SHADE]);
@@ -2156,7 +2153,6 @@ drawScrollbarGroove(cairo_t *cr, GtkStyle *style, GtkStateType state,
                     Cairo::hLine(cr, x, y + height - 1, width, bgnd_col);
                 }
             }
-            cairo_restore(cr);
         }
     } else if (qtSettings.app == GTK_APP_OPEN_OFFICE &&
                opts.flatSbarButtons && isFixedWidget(widget)) {
@@ -2188,7 +2184,7 @@ drawSelectionGradient(cairo_t *cr, const QtcRect *area, int x, int y,
                       bool isLvSelection, double alpha, const GdkColor *col,
                       bool horiz)
 {
-    cairo_save(cr);
+    Cairo::Saver saver(cr);
     if ((!isLvSelection || !(opts.square & SQUARE_LISTVIEW_SELECTION)) &&
         opts.round != ROUND_NONE) {
         Cairo::clipWhole(cr, x, y, width, height,
@@ -2197,7 +2193,6 @@ drawSelectionGradient(cairo_t *cr, const QtcRect *area, int x, int y,
     }
     drawBevelGradient(cr, area, x, y, width, height, col, horiz, false,
                       opts.selectionAppearance, WIDGET_SELECTION, alpha);
-    cairo_restore(cr);
 }
 
 void
@@ -2239,7 +2234,7 @@ drawSelection(cairo_t *cr, GtkStyle *style, GtkStateType state,
             }
         }
 
-        cairo_save(cr);
+        Cairo::Saver saver(cr);
         cairo_new_path(cr);
         cairo_rectangle(cr, xo, y, widtho, height);
         cairo_clip(cr);
@@ -2248,7 +2243,6 @@ drawSelection(cairo_t *cr, GtkStyle *style, GtkStateType state,
                          qtcGetRadius(&opts, widtho, height, WIDGET_OTHER,
                                       RADIUS_SELECTION), round);
         cairo_stroke(cr);
-        cairo_restore(cr);
     }
 }
 
@@ -2492,7 +2486,7 @@ colorTab(cairo_t *cr, int x, int y, int width, int height, ECornerBits round,
         cairo_pattern_create_linear(x, y, horiz ? x : x + width - 1,
                                     horiz ? y + height - 1 : y);
 
-    cairo_save(cr);
+    Cairo::Saver saver(cr);
     qtcClipPath(cr, x, y, width, height, tab, RADIUS_EXTERNAL, round);
     Cairo::patternAddColorStop(pt, 0, &qtcPalette.highlight[ORIGINAL_SHADE],
                                tab == WIDGET_TAB_TOP ?
@@ -2505,7 +2499,6 @@ colorTab(cairo_t *cr, int x, int y, int width, int height, ECornerBits round,
     cairo_rectangle(cr, x, y, width, height);
     cairo_fill(cr);
     cairo_pattern_destroy(pt);
-    cairo_restore(cr);
 }
 
 void
@@ -2522,7 +2515,7 @@ drawToolTip(cairo_t *cr, GtkWidget *widget, const QtcRect *area,
     if (!nonGtk && !useAlpha && GTK_IS_WINDOW(widget)) {
         gtk_window_set_opacity(GTK_WINDOW(widget), 0.875);
     }
-    cairo_save(cr);
+    Cairo::Saver saver(cr);
     if (rounded) {
         if (useAlpha) {
             cairo_rectangle(cr, x, y, width, height);
@@ -2553,7 +2546,6 @@ drawToolTip(cairo_t *cr, GtkWidget *widget, const QtcRect *area,
         cairo_rectangle(cr, x + 0.5, y + 0.5, width - 1, height - 1);
         cairo_stroke(cr);
     }
-    cairo_restore(cr);
 }
 
 void
@@ -2704,8 +2696,8 @@ drawMenuItem(cairo_t *cr, GtkStateType state, GtkStyle *style,
             bool reverse = false; /* TODO !!! */
             cairo_pattern_t *pt = nullptr;
             double fadePercent = 0.0;
+            Cairo::Saver saver(cr);
 
-            cairo_save(cr);
             if (opts.round != ROUND_NONE) {
                 x++;
                 y++;
@@ -2729,7 +2721,6 @@ drawMenuItem(cairo_t *cr, GtkStateType state, GtkStyle *style,
             cairo_rectangle(cr, x, y, width, height);
             cairo_fill(cr);
             cairo_pattern_destroy(pt);
-            cairo_restore(cr);
         } else if (!opts.borderMenuitems && !mb) {
             /* For now dont round combos - getting weird effects with
                shadow/clipping :-( ...but these work ok if we have an rgba
@@ -2740,8 +2731,8 @@ drawMenuItem(cairo_t *cr, GtkStateType state, GtkStyle *style,
                               compositingActive(widget) && isRgbaWidget(widget)));
             bool roundedMenu = ((!widget || !isCombo) &&
                                 !(opts.square & SQUARE_POPUP_MENUS));
+            Cairo::Saver saver(cr);
 
-            cairo_save(cr);
             if (roundedMenu) {
                 Cairo::clipWhole(cr, x, y, width, height,
                                  (opts.round >= ROUND_FULL ? 5.0 : 2.5) - 1.0,
@@ -2750,7 +2741,6 @@ drawMenuItem(cairo_t *cr, GtkStateType state, GtkStyle *style,
             drawBevelGradient(cr, area, x, y, width, height,
                               &itemCols[fillVal], true, false,
                               opts.menuitemAppearance, WIDGET_MENU_ITEM);
-            cairo_restore(cr);
         } else if (stdColors && opts.borderMenuitems) {
             drawLightBevel(cr, style, new_state, area, x, y,
                            width, height, &itemCols[fillVal], itemCols,
@@ -2800,12 +2790,11 @@ drawMenu(cairo_t *cr, GtkWidget *widget, const QtcRect *area,
     if (roundedMenu && !comboMenu) {
         radius = opts.round >= ROUND_FULL ? 5.0 : 2.5;
         if (useAlphaForCorners) {
-            cairo_save(cr);
+            Cairo::Saver saver(cr);
             cairo_rectangle(cr, x, y, width, height);
             cairo_set_operator(cr, CAIRO_OPERATOR_CLEAR);
             cairo_set_source_rgba(cr, 0, 0, 0, 1);
             cairo_fill(cr);
-            cairo_restore(cr);
             clearRoundedMask(widget, false);
         } else {
             createRoundedMask(widget, x, y, width, height,

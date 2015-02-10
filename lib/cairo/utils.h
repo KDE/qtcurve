@@ -109,13 +109,14 @@ namespace Cairo {
 class Saver {
     Saver(const Saver&) = delete;
 public:
+    inline
     Saver(cairo_t *cr)
         : m_cr(cr),
-          m_restored(false)
+          m_restored(true)
     {
-        cairo_save(m_cr);
+        save();
     }
-    void
+    inline void
     restore()
     {
         // not thread safe but we don't care...
@@ -124,6 +125,25 @@ public:
             cairo_restore(m_cr);
         }
     }
+    inline void
+    save()
+    {
+        // not thread safe but we don't care...
+        if (m_restored) {
+            m_restored = false;
+            cairo_save(m_cr);
+        }
+    }
+    inline void
+    resave()
+    {
+        // not thread safe but we don't care...
+        if (!m_restored) {
+            restore();
+            save();
+        }
+    }
+    inline
     ~Saver()
     {
         restore();
