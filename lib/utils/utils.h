@@ -77,7 +77,90 @@ qtcAlloc0(size_t size)
 #define qtcNew(type, n...)                              \
     qtcNewSize(type, sizeof(type) * (QTC_DEFAULT(n, 1)))
 
+template<typename T, typename First>
+static inline bool
+qtcOneOf(T &&value, First &&first)
+{
+    return value == first;
+}
+template<typename T, typename First, typename... Rest>
+static inline bool
+qtcOneOf(T &&value, First &&first, Rest&&... rest)
+{
+    return value == first || qtcOneOf(std::forward<T>(value),
+                                      std::forward<Rest>(rest)...);
+}
+template<typename... Args>
+static inline bool
+qtcNoneOf(Args&&... args)
+{
+    return !qtcOneOf(std::forward<Args>(args)...);
+}
+
 namespace QtCurve {
+
+template<typename T>
+using remove_cvr_t = typename std::remove_cv<
+    typename std::remove_reference<T>::type>::type;
+
+template<typename T>
+struct _isChar : std::is_same<remove_cvr_t<T>, char> {};
+
+template<typename T>
+struct _isCharPtr : std::integral_constant<
+    bool,
+    std::is_pointer<remove_cvr_t<T> >::value &&
+    _isChar<typename std::remove_pointer<remove_cvr_t<T> >::type>::value> {};
+
+template<typename T>
+struct _isCharAry : std::integral_constant<
+    bool,
+    std::is_array<remove_cvr_t<T> >::value &&
+    _isChar<typename std::remove_extent<remove_cvr_t<T> >::type>::value> {};
+
+template<typename T>
+struct _isCharStr : std::integral_constant<
+    bool, _isCharPtr<T>::value || _isCharAry<T>::value> {};
+
+template<typename T1, typename T2, class=void>
+struct _oneOfCmp {
+    inline bool operator()(T1 &&v1, T2 &&v2)
+    {
+        return std::forward<T1>(v1) == std::forward<T2>(v2);
+    }
+};
+
+template<typename T1, typename T2>
+struct _oneOfCmp<T1, T2, typename std::enable_if<_isCharStr<T1>::value &&
+                                      _isCharStr<T2>::value>::type> {
+    inline bool operator()(T1 &&v1, T2 &&v2)
+    {
+        return strcmp(v1, v2) == 0;
+    }
+};
+
+template<typename T1, typename T2>
+static inline bool
+oneOf(T1 &&v1, T2 &&v2)
+{
+    return _oneOfCmp<T1, T2>()(std::forward<T1>(v1), std::forward<T2>(v2));
+}
+
+template<typename T, typename First, typename... Rest>
+static inline bool
+oneOf(T &&value, First &&first, Rest&&... rest)
+{
+    return (oneOf(std::forward<T>(value), std::forward<First>(first)) ||
+            oneOf(std::forward<T>(value), std::forward<Rest>(rest)...));
+}
+
+template<typename... Args>
+static inline bool
+noneOf(Args&&... args)
+{
+    return !oneOf(std::forward<Args>(args)...);
+}
+
 /**
  * Turn a variable into a const reference. This is useful for range-based for
  * loop where a non-const variable may cause unnecessary copy.
@@ -153,31 +236,9 @@ const char *qtcGetProgName();
 const char *qtcVersion();
 
 template<typename T>
-using qtcPtrType = typename std::remove_reference<
-    typename std::remove_cv<
-        typename std::remove_pointer<T>::type>::type>::type;
+using qtcPtrType = QtCurve::remove_cvr_t<typename std::remove_pointer<T>::type>;
 
 #define qtcMemPtr(ptr, name) &qtcPtrType<decltype(ptr)>::name
-
-template<typename T, typename First>
-static inline bool
-qtcOneOf(T &&value, First &&first)
-{
-    return value == first;
-}
-template<typename T, typename First, typename... Rest>
-static inline bool
-qtcOneOf(T &&value, First &&first, Rest&&... rest)
-{
-    return value == first || qtcOneOf(std::forward<T>(value),
-                                      std::forward<Rest>(rest)...);
-}
-template<typename... Args>
-static inline bool
-qtcNoneOf(Args&&... args)
-{
-    return !qtcOneOf(std::forward<Args>(args)...);
-}
 
 // Use lambda for lazy evaluation of \param def
 #define qtcDefault(val, def)                    \
