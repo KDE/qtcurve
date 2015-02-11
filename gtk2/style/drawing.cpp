@@ -82,7 +82,7 @@ drawBevelGradient(cairo_t *cr, const QtcRect *area, int x, int y,
                   int width, int height, const GdkColor *base, bool horiz,
                   bool sel, EAppearance bevApp, EWidget w, double alpha)
 {
-    /* EAppearance app = ((APPEARANCE_BEVELLED != bevApp || WIDGET_BUTTON(w) || */
+    /* EAppearance app = ((APPEARANCE_BEVELLED != bevApp || widgetIsButton(w) || */
     /*                     WIDGET_LISTVIEW_HEADER == w) ? bevApp : */
     /*                    APPEARANCE_GRADIENT); */
 
@@ -103,7 +103,7 @@ drawBevelGradient(cairo_t *cr, const QtcRect *area, int x, int y,
                            APPEARANCE_BEVELLED == bevApp ?
                            APPEARANCE_LV_BEVELLED :
                            APPEARANCE_BEVELLED != bevApp ||
-                           WIDGET_BUTTON(w) ||
+                           widgetIsButton(w) ||
                            WIDGET_LISTVIEW_HEADER == w ? bevApp :
                            APPEARANCE_GRADIENT);
         const Gradient *grad = qtcGetGradient(app, &opts);
@@ -175,7 +175,7 @@ drawBorder(cairo_t *cr, GtkStyle *style, GtkStateType state,
                          c_colors == qtcPalette.mouseover &&
                          opts.unifyCombo && opts.unifySpin);
     const GdkColor *colors = c_colors ? c_colors : qtcPalette.background;
-    int useBorderVal = (!enabled && WIDGET_BUTTON(widget) ?
+    int useBorderVal = (!enabled && widgetIsButton(widget) ?
                         QTC_DISABLED_BORDER :
                         qtcPalette.mouseover == colors && IS_SLIDER(widget) ?
                         SLIDER_MO_BORDER_VAL : borderVal);
@@ -383,7 +383,7 @@ drawLightBevel(cairo_t *cr, GtkStyle *style, GtkStateType state,
 {
     EAppearance app = qtcWidgetApp(APPEARANCE_NONE != opts.tbarBtnAppearance &&
                                    (WIDGET_TOOLBAR_BUTTON == widget ||
-                                    (WIDGET_BUTTON(widget) &&
+                                    (widgetIsButton(widget) &&
                                      isOnToolbar(wid, nullptr, 0))) ?
                                    WIDGET_TOOLBAR_BUTTON : widget, &opts);
     bool sunken = flags & DF_SUNKEN;
@@ -409,7 +409,7 @@ drawLightBevel(cairo_t *cr, GtkStyle *style, GtkStateType state,
         (!flatWidget && (draw3dfull ||
                          (!lightBorder && DRAW_3D_BORDER(sunken, app))));
     bool drawShine = DRAW_SHINE(sunken, app);
-    bool bevelledButton = WIDGET_BUTTON(widget) && app == APPEARANCE_BEVELLED;
+    bool bevelledButton = widgetIsButton(widget) && app == APPEARANCE_BEVELLED;
     bool doEtch =
         (flags & DF_DO_BORDER &&
          (ETCH_WIDGET(widget) || (WIDGET_COMBO_BUTTON == widget &&
@@ -709,12 +709,12 @@ drawLightBevel(cairo_t *cr, GtkStyle *style, GtkStateType state,
     if ((doEtch || glowFocus) && !(flags & DF_HIDE_EFFECT)) {
         if ((!sunken || glowFocusSunkenToggle) &&
             GTK_STATE_INSENSITIVE != state && !(opts.thin&THIN_FRAMES) &&
-            ((WIDGET_OTHER != widget && WIDGET_SLIDER_TROUGH != widget &&
-              WIDGET_COMBO_BUTTON != widget &&
-              MO_GLOW == opts.coloredMouseOver &&
-              GTK_STATE_PRELIGHT == state) || glowFocus ||
-             (WIDGET_DEF_BUTTON == widget &&
-              IND_GLOW == opts.defBtnIndicator))) {
+            ((qtcNoneOf(widget, WIDGET_OTHER, WIDGET_SLIDER_TROUGH,
+                        WIDGET_COMBO_BUTTON) &&
+              opts.coloredMouseOver == MO_GLOW &&
+              state == GTK_STATE_PRELIGHT) || glowFocus ||
+             (widget == WIDGET_DEF_BUTTON &&
+              opts.defBtnIndicator == IND_GLOW))) {
             drawGlow(cr, area, xe - 1, ye - 1, we + 2, he + 2, round,
                      (widget == WIDGET_DEF_BUTTON &&
                       state == GTK_STATE_PRELIGHT ? WIDGET_STD_BUTTON : widget),
@@ -726,7 +726,7 @@ drawLightBevel(cairo_t *cr, GtkStyle *style, GtkStateType state,
                      we + (WIDGET_COMBO_BUTTON == widget ?
                            (ROUNDED_RIGHT == round ? 4 : 5) : 2), he + 2,
                      EFFECT_SHADOW == opts.buttonEffect &&
-                     WIDGET_COMBO_BUTTON != widget && WIDGET_BUTTON(widget) &&
+                     WIDGET_COMBO_BUTTON != widget && widgetIsButton(widget) &&
                      !sunken, round, widget);
         }
     }
@@ -2778,7 +2778,7 @@ drawMenu(cairo_t *cr, GtkWidget *widget, const QtcRect *area,
        shadow/clipping :-(. If 'useAlphaForCorners', then dont care if its a
        combo menu - as it can still be rounded */
 
-    cairo_save(cr); // For operator
+    Cairo::Saver saver(cr); // For operator
     if (useAlpha) {
         if (widget && /*!comboMenu && */opts.menuBgndOpacity != 100) {
             enableBlurBehind(widget, true);
@@ -2786,7 +2786,7 @@ drawMenu(cairo_t *cr, GtkWidget *widget, const QtcRect *area,
         alpha = opts.menuBgndOpacity / 100.0;
         cairo_set_operator(cr, CAIRO_OPERATOR_SOURCE);
     }
-    cairo_save(cr); // For clipping
+    Cairo::Saver saver2(cr); // For clipping
     if (roundedMenu && !comboMenu) {
         radius = opts.round >= ROUND_FULL ? 5.0 : 2.5;
         if (useAlphaForCorners) {
@@ -2874,7 +2874,7 @@ drawMenu(cairo_t *cr, GtkWidget *widget, const QtcRect *area,
                           opts.menuStripeAppearance, WIDGET_OTHER, alpha);
     }
 
-    cairo_restore(cr); // For clipping
+    saver2.restore(); // For clipping
     if (opts.popupBorder) {
         EGradientBorder border =
             qtcGetGradient(opts.menuBgndAppearance, &opts)->border;
@@ -2920,7 +2920,6 @@ drawMenu(cairo_t *cr, GtkWidget *widget, const QtcRect *area,
             }
         }
     }
-    cairo_restore(cr); // For operator
 }
 
 void
@@ -2941,12 +2940,11 @@ drawBoxGap(cairo_t *cr, GtkStyle *style, GtkShadowType shadow,
         return;
     }
     if (isTab && opts.tabBgnd != 0) {
-        cairo_save(cr);
+        Cairo::Saver saver(cr);
         qtcClipPath(cr, x - 1, y - 1, width + 2, height + 2,
                     WIDGET_TAB_FRAME, RADIUS_EXTERNAL, ROUNDED_ALL);
         drawAreaMod(cr, style, state, area, TO_FACTOR(opts.tabBgnd),
                     x, y, width, height);
-        cairo_restore(cr);
     }
     if (opts.tabMouseOver == TAB_MO_GLOW && gapWidth > 4 &&
         isMozillaWidget(widget)) {
@@ -2974,14 +2972,13 @@ drawBoxGap(cairo_t *cr, GtkStyle *style, GtkShadowType shadow,
                 break;
             }
         }
-        cairo_save(cr);
+        Cairo::Saver saver(cr);
         qtcSetGapClip(cr, area, gapSide, gapX, gapWidth, x, y,
                       width, height, isTab);
         drawBorder(cr, gtk_widget_get_style(parent ? parent : widget), state,
                    area, x, y, width, height, nullptr, round,
                    borderProfile, isTab ? WIDGET_TAB_FRAME : WIDGET_FRAME,
                    isTab ? 0 : DF_BLEND);
-        cairo_restore(cr);
     }
 }
 
@@ -3183,7 +3180,7 @@ drawShadowGap(cairo_t *cr, GtkStyle *style, GtkShadowType shadow,
                      qtcGetRadius(&opts, width, height, WIDGET_FRAME,
                                   RADIUS_EXTERNAL) : 0.0);
                 if (opts.gbFactor != 0) {
-                    cairo_save(cr);
+                    Cairo::Saver saver(cr);
                     Cairo::clipWhole(cr, x + 0.5, y + 0.5, width - 1,
                                      height - 1, radius, round);
                     cairo_rectangle(cr, x, y, width, height);
@@ -3202,7 +3199,6 @@ drawShadowGap(cairo_t *cr, GtkStyle *style, GtkShadowType shadow,
                         cairo_pattern_destroy(pt);
                     }
                     cairo_fill(cr);
-                    cairo_restore(cr);
                 }
                 if (opts.groupBox == FRAME_FADED) {
                     cairo_pattern_t *pt =
@@ -3212,14 +3208,13 @@ drawShadowGap(cairo_t *cr, GtkStyle *style, GtkShadowType shadow,
                     Cairo::patternAddColorStop(
                         pt, CAIRO_GRAD_END,
                         &qtcPalette.background[QTC_STD_BORDER], 0);
-                    cairo_save(cr);
+                    Cairo::Saver saver(cr);
                     qtcSetGapClip(cr, area, gapSide, gapX, gapWidth,
                                   x, y, width, height, false);
                     cairo_set_source(cr, pt);
                     Cairo::pathWhole(cr, x + 0.5, y + 0.5, width - 1,
                                      height - 1, radius, round);
                     cairo_stroke(cr);
-                    cairo_restore(cr);
                     cairo_pattern_destroy(pt);
                     drawFrame = false;
                 }

@@ -449,8 +449,7 @@ typedef enum {
     PIX_DOT
 } EPixmap;
 
-typedef enum
-{
+typedef enum {
     WIDGET_TAB_TOP,
     WIDGET_TAB_BOT,
     WIDGET_STD_BUTTON,

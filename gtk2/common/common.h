@@ -164,11 +164,6 @@ enum {
 
 #define NUM_SPLITTER_DASHES 21
 
-#define WIDGET_BUTTON(w)                                                \
-    qtcOneOf(w, WIDGET_STD_BUTTON, WIDGET_DEF_BUTTON, WIDGET_TOGGLE_BUTTON, \
-             WIDGET_CHECKBOX, WIDGET_RADIO_BUTTON, WIDGET_RADIO_BUTTON, \
-             WIDGET_COMBO, WIDGET_COMBO_BUTTON, WIDGET_UNCOLOURED_MO_BUTTON, \
-             WIDGET_TOOLBAR_BUTTON)
 #define ETCH_WIDGET(w)                                                  \
     (qtcOneOf(w, WIDGET_STD_BUTTON, WIDGET_DEF_BUTTON, WIDGET_TOGGLE_BUTTON, \
               WIDGET_SLIDER_TROUGH, WIDGET_CHECKBOX, WIDGET_RADIO_BUTTON, \
@@ -380,6 +375,15 @@ typedef enum {
     WIDGET_TOOLTIP,
     WIDGET_OTHER
 } EWidget;
+
+static inline bool
+widgetIsButton(EWidget w)
+{
+    return qtcOneOf(w, WIDGET_STD_BUTTON, WIDGET_DEF_BUTTON,
+                    WIDGET_TOGGLE_BUTTON, WIDGET_CHECKBOX, WIDGET_RADIO_BUTTON,
+                    WIDGET_RADIO_BUTTON, WIDGET_COMBO, WIDGET_COMBO_BUTTON,
+                    WIDGET_UNCOLOURED_MO_BUTTON, WIDGET_TOOLBAR_BUTTON);
+}
 
 typedef enum
 {

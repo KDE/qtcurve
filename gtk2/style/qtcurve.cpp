@@ -2385,48 +2385,56 @@ gtkDrawSlider(GtkStyle *style, GdkWindow *window, GtkStateType state,
             state=GTK_STATE_PRELIGHT;
 #endif
 
-        drawBox(style, window, state, shadow, area, widget, !scrollbar ? "qtc-slider" : "slider", x, y, width, height, false);
+        drawBox(style, window, state, shadow, area, widget,
+                !scrollbar ? "qtc-slider" : "slider",
+                x, y, width, height, false);
 
-       /* Orientation is always vertical with Mozilla, why? Anyway this hack should be OK - as we only draw
-          dashes when slider is larger than 'min' pixels... */
-        orientation=width<height ? GTK_ORIENTATION_VERTICAL : GTK_ORIENTATION_HORIZONTAL;
-        if(LINE_NONE!=opts.sliderThumbs && (scrollbar || SLIDER_CIRCULAR!=opts.sliderStyle) &&
-           (scale || ((GTK_ORIENTATION_HORIZONTAL==orientation && width>=min) || height>=min)))
-        {
+       /* Orientation is always vertical with Mozilla, why? Anyway this hack
+          should be OK - as we only draw dashes when slider is larger than
+          'min' pixels... */
+        orientation = (width < height ? GTK_ORIENTATION_VERTICAL :
+                       GTK_ORIENTATION_HORIZONTAL);
+        if (opts.sliderThumbs != LINE_NONE &&
+            (scrollbar || opts.sliderStyle != SLIDER_CIRCULAR) &&
+            (scale || ((orientation == GTK_ORIENTATION_HORIZONTAL &&
+                        width >= min) || height >= min))) {
             GdkColor *markers=/*opts.coloredMouseOver && GTK_STATE_PRELIGHT==state
                                 ? qtcPalette.mouseover
                                 : */btnColors;
             bool horiz = orientation == GTK_ORIENTATION_HORIZONTAL;
 
-            if(LINE_SUNKEN==opts.sliderThumbs)
-                if(horiz)
-                    y--, height++;
-                else
-                    x--, width++;
-            else
-                if(horiz)
-                    x++;
-                else
-                    y++;
+            if (opts.sliderThumbs == LINE_SUNKEN) {
+                if (horiz) {
+                    y--;
+                    height++;
+                } else {
+                    x--;
+                    width++;
+                }
+            } else if (horiz) {
+                x++;
+            } else {
+                y++;
+            }
 
             switch (opts.sliderThumbs) {
-                case LINE_1DOT:
-                    Cairo::dot(cr, x, y, width, height,
-                               &markers[QTC_STD_BORDER]);
-                    break;
-                case LINE_FLAT:
-                    drawLines(cr, x, y, width, height, !horiz, 3, 5, markers,
-                              (QtcRect*)area, 5, opts.sliderThumbs);
-                    break;
-                case LINE_SUNKEN:
-                    drawLines(cr, x, y, width, height, !horiz, 4, 3, markers,
-                              (QtcRect*)area, 3, opts.sliderThumbs);
-                    break;
-                default:
-                case LINE_DOTS:
-                    Cairo::dots(cr, x, y, width, height, !horiz,
-                                scale ? 3 : 5, scale ? 4 : 2, (QtcRect*)area,
-                                0, &markers[5], markers);
+            case LINE_1DOT:
+                Cairo::dot(cr, x, y, width, height,
+                           &markers[QTC_STD_BORDER]);
+                break;
+            case LINE_FLAT:
+                drawLines(cr, x, y, width, height, !horiz, 3, 5, markers,
+                          (QtcRect*)area, 5, opts.sliderThumbs);
+                break;
+            case LINE_SUNKEN:
+                drawLines(cr, x, y, width, height, !horiz, 4, 3, markers,
+                          (QtcRect*)area, 3, opts.sliderThumbs);
+                break;
+            default:
+            case LINE_DOTS:
+                Cairo::dots(cr, x, y, width, height, !horiz,
+                            scale ? 3 : 5, scale ? 4 : 2, (QtcRect*)area,
+                            0, &markers[5], markers);
             }
         }
     } else {
@@ -2459,7 +2467,7 @@ gtkDrawHLine(GtkStyle *style, GdkWindow *window, GtkStateType state,
     QTC_RET_IF_FAIL(GTK_IS_STYLE(style));
     QTC_RET_IF_FAIL(GDK_IS_DRAWABLE(window));
     const char *detail = _detail ? _detail : "";
-    bool tbar = DETAIL("toolbar");
+    bool tbar = strcmp(detail, "toolbar");
     int light = 0;
     int dark = tbar ? (opts.toolbarSeparators == LINE_FLAT ? 4 : 3) : 5;
 
