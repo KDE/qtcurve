@@ -214,7 +214,7 @@ void qtcAdjustPix(unsigned char *data, int numChannels, int w, int h,
 
 #ifndef QTC_UTILS_INTERNAL
 
-#if defined QTC_UTILS_QT
+#ifdef QTC_UTILS_QT
 #include <QColor>
 
 QTC_ALWAYS_INLINE static inline QColor
@@ -310,7 +310,7 @@ qtcCalcRingAlphas(const QColor *bgnd)
 }
 #endif
 
-#if defined QTC_UTILS_GTK
+#ifdef QTC_UTILS_GTK
 #include <gdk/gdk.h>
 
 QTC_ALWAYS_INLINE static inline GdkColor
@@ -426,6 +426,30 @@ qtcCalcRingAlphas(const GdkColor *bgnd)
 }
 
 #endif
+
+namespace QtCurve {
+
+#ifdef QTC_UTILS_QT
+
+static inline bool
+isBlack(const QColor &color)
+{
+    return color.red() == 0 && color.green() == 0 && color.blue() == 0;
+}
+
+#endif
+
+#ifdef QTC_UTILS_GTK
+
+static inline bool
+isBlack(const GdkColor &color)
+{
+    return color.red == 0 && color.green == 0 && color.blue == 0;
+}
+
+#endif
+
+}
 
 #endif
 

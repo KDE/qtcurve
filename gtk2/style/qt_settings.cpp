@@ -1788,8 +1788,8 @@ qtSettingsInit()
             if(GTK_APP_JAVA==qtSettings.app)
                 opts.sliderStyle=SLIDER_PLAIN;
 
-            if (qtcOneOf(qtSettings.app, GTK_APP_JAVA, GTK_APP_JAVA_SWT,
-                         GTK_APP_OPEN_OFFICE) || isMozilla()) {
+            if (oneOf(qtSettings.app, GTK_APP_JAVA, GTK_APP_JAVA_SWT,
+                      GTK_APP_OPEN_OFFICE) || isMozilla()) {
                 opts.square |= SQUARE_POPUP_MENUS;
                 opts.bgndAppearance = APPEARANCE_FLAT;
                 opts.bgndImage.type = IMG_NONE;
@@ -1805,8 +1805,8 @@ qtSettingsInit()
             if(IMG_NONE!=opts.bgndImage.type && excludedApp(opts.noBgndImageApps))
                 opts.bgndImage.type=IMG_NONE;
 
-            if (qtcOneOf(qtSettings.app, GTK_APP_OPEN_OFFICE, GTK_APP_JAVA,
-                         GTK_APP_JAVA_SWT) || isMozilla()) {
+            if (oneOf(qtSettings.app, GTK_APP_OPEN_OFFICE, GTK_APP_JAVA,
+                      GTK_APP_JAVA_SWT) || isMozilla()) {
                 opts.bgndOpacity = opts.dlgOpacity = opts.menuBgndOpacity = 100;
                 qtSettings.useAlpha = false;
             }
@@ -2087,7 +2087,7 @@ qtSettingsInit()
                 gtk_rc_parse_string("style \"" RC_SETTING "Cmbf\" { xthickness=5 } widget_class \"*.GtkComboBox.GtkFrame\" style \"" RC_SETTING "Cmbf\"");
             }
 
-            if (qtcOneOf(qtSettings.app, GTK_APP_MOZILLA, GTK_APP_JAVA) ||
+            if (oneOf(qtSettings.app, GTK_APP_MOZILLA, GTK_APP_JAVA) ||
                 (opts.scrollbarType == SCROLLBAR_NONE && isMozilla())) {
                 opts.scrollbarType = SCROLLBAR_WINDOWS;
             } else {
@@ -2265,7 +2265,7 @@ qtSettingsInit()
             if(!opts.popupBorder)
                 gtk_rc_parse_string("style \"" RC_SETTING "M\" { xthickness=0 ythickness=0 }\n"
                                     "class \"*GtkMenu\" style \"" RC_SETTING "M\"");
-            else if(!qtcDrawMenuBorder(&opts) && !opts.borderMenuitems &&
+            else if(!qtcDrawMenuBorder(opts) && !opts.borderMenuitems &&
                     opts.square & SQUARE_POPUP_MENUS)
                 gtk_rc_parse_string("style \"" RC_SETTING "M\" { xthickness=1 ythickness=1 }\n"
                                     "class \"*GtkMenu\" style \"" RC_SETTING "M\"");

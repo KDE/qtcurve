@@ -24,6 +24,7 @@
 #include <qtcurve-utils/map.h>
 #include <qtcurve-utils/dirs.h>
 #include <qtcurve-utils/strs.h>
+#include <qtcurve-utils/color.h>
 
 #include "common.h"
 #include "config_file.h"
@@ -617,8 +618,9 @@ void qtcLoadBgndImage(QtCImage *img)
 static void
 checkColor(EShade *s, GdkColor *c)
 {
-    if(SHADE_CUSTOM==*s && IS_BLACK(*c))
-        *s=SHADE_NONE;
+    if (*s == SHADE_CUSTOM && QtCurve::isBlack(*c)) {
+        *s = SHADE_NONE;
+    }
 }
 
 static char*

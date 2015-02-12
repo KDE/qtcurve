@@ -180,7 +180,7 @@ getCellCol(GdkColor *std, const char *detail)
 
     shaded = *std;
 
-    if (IS_BLACK(shaded)) {
+    if (isBlack(shaded)) {
         shaded.red = shaded.green = shaded.blue = 55 << 8;
     } else {
         double r = shaded.red / 65535.0;
@@ -237,9 +237,9 @@ isOnHandlebox(GtkWidget *widget, bool *horiz, int level)
 {
     if (widget) {
         if (GTK_IS_HANDLE_BOX(widget)) {
-            qtcAssign(horiz, qtcOneOf(gtk_handle_box_get_handle_position(
-                                          GTK_HANDLE_BOX(widget)),
-                                      GTK_POS_LEFT, GTK_POS_RIGHT));
+            qtcAssign(horiz, oneOf(gtk_handle_box_get_handle_position(
+                                       GTK_HANDLE_BOX(widget)),
+                                   GTK_POS_LEFT, GTK_POS_RIGHT));
             return true;
         } else if (level < 4) {
             return isOnHandlebox(gtk_widget_get_parent(widget), horiz,

@@ -126,19 +126,19 @@ enum ECornerBits {
 QTC_ALWAYS_INLINE static inline bool
 qtcUseBorder(EGradientBorder border)
 {
-    return qtcNoneOf(border, GB_SHINE, GB_NONE);
+    return QtCurve::noneOf(border, GB_SHINE, GB_NONE);
 }
 
 QTC_ALWAYS_INLINE static inline bool
 qtcNoFrame(EFrame frame)
 {
-    return qtcOneOf(frame, FRAME_NONE, FRAME_LINE);
+    return QtCurve::oneOf(frame, FRAME_NONE, FRAME_LINE);
 }
 
 QTC_ALWAYS_INLINE static inline bool
 qtcIsFlatBgnd(EAppearance appear)
 {
-    return qtcOneOf(appear, APPEARANCE_FLAT, APPEARANCE_RAISED);
+    return QtCurve::oneOf(appear, APPEARANCE_FLAT, APPEARANCE_RAISED);
 }
 
 QTC_ALWAYS_INLINE static inline bool

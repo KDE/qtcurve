@@ -151,7 +151,7 @@ checkColour(const QStyleOption *option, QPalette::ColorRole role)
 {
     QColor col(option->palette.brush(role).color());
 
-    if (col.alpha() == 255 && IS_BLACK(col))
+    if (col.alpha() == 255 && isBlack(col))
         return QApplication::palette().brush(role).color();
     return col;
 }
@@ -213,9 +213,9 @@ isHoriz(const QStyleOption *option, EWidget w, bool joinedTBar)
 {
     return (option->state & QStyle::State_Horizontal ||
             (WIDGET_BUTTON(w) &&
-             (!joinedTBar || qtcNoneOf(w, WIDGET_TOOLBAR_BUTTON,
-                                       WIDGET_NO_ETCH_BTN,
-                                       WIDGET_MENU_BUTTON))));
+             (!joinedTBar || noneOf(w, WIDGET_TOOLBAR_BUTTON,
+                                    WIDGET_NO_ETCH_BTN,
+                                    WIDGET_MENU_BUTTON))));
 }
 
 static bool
@@ -659,10 +659,10 @@ void Style::init(bool initial)
     else
         opts.titlebarButtons&=~TITLEBAR_BUTTON_COLOR;
 
-    if (qtcOneOf(opts.bgndImage.type, IMG_PLAIN_RINGS, IMG_BORDERED_RINGS,
-                 IMG_SQUARE_RINGS) ||
-        qtcOneOf(opts.menuBgndImage.type, IMG_PLAIN_RINGS, IMG_BORDERED_RINGS,
-                 IMG_SQUARE_RINGS)) {
+    if (oneOf(opts.bgndImage.type, IMG_PLAIN_RINGS, IMG_BORDERED_RINGS,
+              IMG_SQUARE_RINGS) ||
+        oneOf(opts.menuBgndImage.type, IMG_PLAIN_RINGS, IMG_BORDERED_RINGS,
+              IMG_SQUARE_RINGS)) {
         qtcCalcRingAlphas(&m_backgroundCols[ORIGINAL_SHADE]);
     }
 
@@ -881,8 +881,8 @@ QIcon Style::standardIcon(StandardPixmap pix, const QStyleOption *option,
         QPainter painter(&pm);
 
         drawIcon(&painter, Qt::color1, QRect(0, 0, pm.width(), pm.height()),
-                 false, pix2Icon(pix), qtcOneOf(pix, SP_TitleBarShadeButton,
-                                                SP_TitleBarUnshadeButton));
+                 false, pix2Icon(pix), oneOf(pix, SP_TitleBarShadeButton,
+                                             SP_TitleBarUnshadeButton));
         return QIcon(pm);
     }
     case SP_ToolBarHorizontalExtensionButton:
@@ -1405,8 +1405,8 @@ Style::drawBevelGradient(const QColor &base, QPainter *p, const QRect &origRect,
         return;
     }
     if (qtcIsFlat(bevApp)) {
-        if (qtcNoneOf(w, WIDGET_TAB_TOP, WIDGET_TAB_BOT) ||
-            !qtcIsCustomBgnd(&opts) || opts.tabBgnd || !sel) {
+        if (noneOf(w, WIDGET_TAB_TOP, WIDGET_TAB_BOT) ||
+            !qtcIsCustomBgnd(opts) || opts.tabBgnd || !sel) {
             if (path.isEmpty()) {
                 p->fillRect(origRect, base);
             } else {
@@ -1414,15 +1414,15 @@ Style::drawBevelGradient(const QColor &base, QPainter *p, const QRect &origRect,
             }
         }
     } else {
-        bool tab = qtcOneOf(w, WIDGET_TAB_TOP, WIDGET_TAB_BOT);
+        bool tab = oneOf(w, WIDGET_TAB_TOP, WIDGET_TAB_BOT);
         bool selected = tab ? false : sel;
         EAppearance app =
             (selected ? opts.sunkenAppearance :
              w == WIDGET_LISTVIEW_HEADER && bevApp == APPEARANCE_BEVELLED ?
              APPEARANCE_LV_BEVELLED : bevApp != APPEARANCE_BEVELLED ||
              WIDGET_BUTTON(w) ||
-             qtcOneOf(w, WIDGET_LISTVIEW_HEADER, WIDGET_TROUGH,
-                      WIDGET_NO_ETCH_BTN, WIDGET_MENU_BUTTON) ? bevApp :
+             oneOf(w, WIDGET_LISTVIEW_HEADER, WIDGET_TROUGH,
+                   WIDGET_NO_ETCH_BTN, WIDGET_MENU_BUTTON) ? bevApp :
              APPEARANCE_GRADIENT);
 
         if (w == WIDGET_PROGRESSBAR || !useCache) {
@@ -1475,9 +1475,9 @@ Style::drawBevelGradientReal(const QColor &base, QPainter *p, const QRect &r,
 {
     bool topTab = (w == WIDGET_TAB_TOP);
     bool botTab = (w == WIDGET_TAB_BOT);
-    bool dwt = qtcIsCustomBgnd(&opts) && (w == WIDGET_DOCK_WIDGET_TITLE);
+    bool dwt = qtcIsCustomBgnd(opts) && (w == WIDGET_DOCK_WIDGET_TITLE);
     bool titleBar = (opts.windowBorder & WINDOW_BORDER_BLEND_TITLEBAR &&
-                     (qtcOneOf(w, WIDGET_MDI_WINDOW, WIDGET_MDI_WINDOW_TITLE) ||
+                     (oneOf(w, WIDGET_MDI_WINDOW, WIDGET_MDI_WINDOW_TITLE) ||
                       (opts.dwtSettings & DWT_COLOR_AS_PER_TITLEBAR &&
                        w == WIDGET_DOCK_WIDGET_TITLE && !dwt)));
     bool reverse = QApplication::layoutDirection() == Qt::RightToLeft;
@@ -1560,7 +1560,7 @@ Style::drawLightBevel(QPainter *p, const QRect &r, const QStyleOption *option,
                       (w == WIDGET_TOOLBAR_BUTTON ||
                        (WIDGET_BUTTON(w) && isOnToolbar(widget))));
 
-    if (qtcOneOf(w, WIDGET_PROGRESSBAR, WIDGET_SB_BUTTON) ||
+    if (oneOf(w, WIDGET_PROGRESSBAR, WIDGET_SB_BUTTON) ||
         (w == WIDGET_SPIN && !opts.unifySpin)/* || !m_usePixmapCache*/) {
         drawLightBevelReal(p, r, option, widget, round, fill, custom,
                            doBorder, w, true, opts.round, onToolbar);
@@ -1573,7 +1573,7 @@ Style::drawLightBevel(QPainter *p, const QRect &r, const QStyleOption *option,
                       isHoriz(option, w, opts.tbarBtns == TBTN_JOINED));
         bool circular = ((w == WIDGET_MDI_WINDOW_BUTTON &&
                           (opts.titlebarButtons & TITLEBAR_BUTTON_ROUND)) ||
-                         qtcOneOf(w, WIDGET_RADIO_BUTTON, WIDGET_DIAL) ||
+                         oneOf(w, WIDGET_RADIO_BUTTON, WIDGET_DIAL) ||
                          CIRCULAR_SLIDER(w));
         double radius = 0;
         ERound realRound = qtcGetWidgetRound(&opts, r.width(), r.height(), w);
@@ -1756,15 +1756,14 @@ Style::drawLightBevelReal(QPainter *p, const QRect &rOrig,
                     p->save();
                     p->setClipPath(buildPath(r.adjusted(0, 0, 0, -1), w, round,
                                              qtcGetRadius(&opts, r.width()-2, r.height()-2, w, RADIUS_INTERNAL)));
-                    if(SLIDER(w))
-                    {
-                        int len(SB_SLIDER_MO_LEN(horiz ? r.width() : r.height())+1),
-                            so(lightBorder ? SLIDER_MO_PLASTIK_BORDER : 1),
-                            eo(len+so),
-                            col(SLIDER_MO_SHADE);
+                    if (SLIDER(w)) {
+                        int len = sbSliderMOLen(opts, horiz ? r.width() :
+                                                r.height()) + 1;
+                        int so = lightBorder ? SLIDER_MO_PLASTIK_BORDER : 1;
+                        int eo = len + so;
+                        int col = SLIDER_MO_SHADE;
 
-                        if(horiz)
-                        {
+                        if (horiz) {
                             drawBevelGradient(m_mouseOverCols[col], p, QRect(r.x()+so-1, r.y(), len, r.height()-1), horiz, sunken, app, w, useCache);
                             drawBevelGradient(m_mouseOverCols[col], p, QRect(r.x()+r.width()-eo+1, r.y(), len, r.height()-1), horiz, sunken, app, w, useCache);
                         }
@@ -1852,10 +1851,10 @@ Style::drawLightBevelReal(QPainter *p, const QRect &rOrig,
                         ra.adjust(0, 0, 0, 8);
                 }
 
-                if(realRound<ROUND_MAX || (!IS_MAX_ROUND_WIDGET(w) && !IS_SLIDER(w)))
-                {
-                    rad/=2.0;
-                    mod=mod>>1;
+                if (realRound < ROUND_MAX ||
+                    (!isMaxRoundWidget(w) && !IS_SLIDER(w))) {
+                    rad /= 2.0;
+                    mod = mod >> 1;
                 }
 
                 QRectF          gr(horiz ? QRectF(ra.x()+mod, ra.y(), ra.width()-(mod*2)-1, size-1)
@@ -1880,29 +1879,32 @@ Style::drawLightBevelReal(QPainter *p, const QRect &rOrig,
 
     r.adjust(1, 1, -1, -1);
 
-    if(plastikMouseOver && (!sunken  || sunkenToggleMo))
-    {
-        bool thin(WIDGET_SB_BUTTON==w || WIDGET_SPIN==w || ((horiz ? r.height() : r.width())<16)),
-            horizontal(SLIDER(w) ? !horiz : (horiz && WIDGET_SB_BUTTON!=w)|| (!horiz && WIDGET_SB_BUTTON==w));
-        int  len(SLIDER(w) ? SB_SLIDER_MO_LEN(horiz ? r.width() : r.height()) : (thin ? 1 : 2));
+    if (plastikMouseOver && (!sunken  || sunkenToggleMo)) {
+        bool thin = (oneOf(w, WIDGET_SB_BUTTON, WIDGET_SPIN) ||
+                     (horiz ? r.height() : r.width()) < 16);
+        bool horizontal = (SLIDER(w) ? !horiz :
+                           (horiz && w != WIDGET_SB_BUTTON) ||
+                           (!horiz && w == WIDGET_SB_BUTTON));
+        int len = SLIDER(w) ? sbSliderMOLen(opts, horiz ? r.width() :
+                                            r.height()) : (thin ? 1 : 2);
 
         p->save();
-        if(horizontal)
-            p->setClipRect(r.x(), r.y()+len, r.width(), r.height()-(len*2));
-        else
-            p->setClipRect(r.x()+len, r.y(), r.width()-(len*2), r.height());
+        if (horizontal) {
+            p->setClipRect(r.x(), r.y() + len, r.width(), r.height() - len * 2);
+        } else {
+            p->setClipRect(r.x() + len, r.y(), r.width() - len * 2, r.height());
+        }
     }
 
-    if(!colouredMouseOver && lightBorder)
-    {
+    if (!colouredMouseOver && lightBorder) {
         p->setPen(cols[LIGHT_BORDER(app)]);
-        p->drawPath(buildPath(r, w, round, qtcGetRadius(&opts, r.width(), r.height(), w, RADIUS_INTERNAL)));
-    }
-    else if(colouredMouseOver || (draw3d && option->state&State_Raised))
-    {
-        QPainterPath innerTlPath,
-            innerBrPath;
-        int          dark(/*bevelledButton ? */2/* : 4*/);
+        p->drawPath(buildPath(r, w, round,
+                              qtcGetRadius(&opts, r.width(),
+                                           r.height(), w, RADIUS_INTERNAL)));
+    } else if (colouredMouseOver || (draw3d && option->state & State_Raised)) {
+        QPainterPath innerTlPath;
+        QPainterPath innerBrPath;
+        int dark(/*bevelledButton ? */2/* : 4*/);
 
         buildSplitPath(r, round, qtcGetRadius(&opts, r.width(), r.height(), w, RADIUS_INTERNAL),
                        innerTlPath, innerBrPath);
@@ -2130,22 +2132,22 @@ Style::drawBackground(QPainter *p, const QColor &bgnd, const QRect &r,
         }
 
         if (path.isEmpty()) {
-            p->drawTiledPixmap(r, qtcOneOf(app, APPEARANCE_STRIPED,
-                                           APPEARANCE_FILE) ||
+            p->drawTiledPixmap(r, oneOf(app, APPEARANCE_STRIPED,
+                                        APPEARANCE_FILE) ||
                                scaledSize == pix.size() ? pix :
                                pix.scaled(scaledSize, Qt::IgnoreAspectRatio));
         } else {
             p->save();
             p->setBrushOrigin(r.x(), r.y());
             p->fillPath(path,
-                        QBrush(qtcOneOf(app, APPEARANCE_STRIPED,
-                                        APPEARANCE_FILE) ||
+                        QBrush(oneOf(app, APPEARANCE_STRIPED,
+                                     APPEARANCE_FILE) ||
                                scaledSize == pix.size() ? pix :
                                pix.scaled(scaledSize, Qt::IgnoreAspectRatio)));
             p->restore();
         }
 
-        if (isWindow && qtcNoneOf(app, APPEARANCE_STRIPED, APPEARANCE_FILE) &&
+        if (isWindow && noneOf(app, APPEARANCE_STRIPED, APPEARANCE_FILE) &&
             grad == GT_HORIZ &&
             qtcGetGradient(app, &opts)->border == GB_SHINE) {
             int size = qMin(BGND_SHINE_SIZE, qMin(r.height() * 2, r.width()));
@@ -2387,7 +2389,7 @@ Style::buildPath(const QRectF &r, EWidget w, int round, double radius) const
 {
     QPainterPath path;
 
-    if (qtcOneOf(w, WIDGET_RADIO_BUTTON, WIDGET_DIAL) ||
+    if (oneOf(w, WIDGET_RADIO_BUTTON, WIDGET_DIAL) ||
         (w == WIDGET_MDI_WINDOW_BUTTON &&
          opts.titlebarButtons & TITLEBAR_BUTTON_ROUND) || CIRCULAR_SLIDER(w)) {
         path.addEllipse(r);
@@ -3067,7 +3069,7 @@ void Style::drawSbSliderHandle(QPainter *p, const QRect &rOrig, const QStyleOpti
     opt.state &= ~(State_Sunken | State_On);
     opt.state |= State_Raised;
 
-    if (auto slider = qtcStyleCast<QStyleOptionSlider>(option)) {
+    if (auto slider = styleOptCast<QStyleOptionSlider>(option)) {
         if (slider->minimum == slider->maximum) {
             opt.state &= ~(State_MouseOver | State_Enabled);
         }
@@ -3133,8 +3135,8 @@ void Style::drawSliderHandle(QPainter *p, const QRect &r, const QStyleOptionSlid
         opt.state |= State_Raised;
         const QColor *use = sliderColors(&opt);
         const QColor *border = (opt.state & State_MouseOver &&
-                                qtcOneOf(opts.coloredMouseOver, MO_GLOW,
-                                         MO_COLORED) ? m_mouseOverCols : use);
+                                oneOf(opts.coloredMouseOver, MO_GLOW,
+                                      MO_COLORED) ? m_mouseOverCols : use);
         const QColor &fill(getFill(&opt, use, false,
                                    opts.shadeSliders == SHADE_DARKEN));
         int x = r.x();
@@ -3361,8 +3363,8 @@ void Style::drawSliderHandle(QPainter *p, const QRect &r, const QStyleOptionSlid
         }
         p->restore();
     } else {
-        if (qtcOneOf(opts.sliderStyle, SLIDER_PLAIN_ROTATED,
-                     SLIDER_ROUND_ROTATED)) {
+        if (oneOf(opts.sliderStyle, SLIDER_PLAIN_ROTATED,
+                  SLIDER_ROUND_ROTATED)) {
             opt.state ^= State_Horizontal;
         }
         drawSbSliderHandle(p, r, &opt, true);
@@ -3437,7 +3439,7 @@ Style::drawMenuOrToolBarBackground(const QWidget *widget, QPainter *p,
         return;
 
     EAppearance app = menu ? opts.menubarAppearance : opts.toolbarAppearance;
-    if (!qtcIsCustomBgnd(&opts) || !qtcIsFlat(app) ||
+    if (!qtcIsCustomBgnd(opts) || !qtcIsFlat(app) ||
         (menu && opts.shadeMenubars != SHADE_NONE)) {
         p->save();
 #if 0
@@ -3732,8 +3734,8 @@ void Style::setMenuTextColors(QWidget *widget, bool isMenuBar) const
 
         widget->setPalette(pal);
     } else if (opts.customMenuTextColor ||
-               qtcOneOf(opts.shadeMenubars, SHADE_BLEND_SELECTED,
-                        SHADE_SELECTED) ||
+               oneOf(opts.shadeMenubars, SHADE_BLEND_SELECTED,
+                     SHADE_SELECTED) ||
                (opts.shadeMenubars == SHADE_CUSTOM &&
                 TOO_DARK(m_menubarCols[ORIGINAL_SHADE]))) {
         QPalette pal(widget->palette());
@@ -4016,8 +4018,11 @@ QColor Style::menuStripeCol() const
         return opts.customMenuStripeColor;
     case SHADE_BLEND_SELECTED:
         // Hack! Use opts.customMenuStripeColor to store this setting!
-        if(IS_BLACK(opts.customMenuStripeColor))
-            opts.customMenuStripeColor=midColor(m_highlightCols[ORIGINAL_SHADE], popupMenuCols()[ORIGINAL_SHADE]);
+        if (isBlack(opts.customMenuStripeColor)) {
+            opts.customMenuStripeColor =
+                midColor(m_highlightCols[ORIGINAL_SHADE],
+                         popupMenuCols()[ORIGINAL_SHADE]);
+        }
         return opts.customMenuStripeColor;
     case SHADE_SELECTED:
         return m_highlightCols[MENU_STRIPE_SHADE];

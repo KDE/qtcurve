@@ -44,13 +44,10 @@
 #include <map>
 #include <set>
 #include <QString>
-
-#define IS_BLACK(A) (0==(A).red() && 0==(A).green() && 0==(A).blue())
-
 #include <QPixmap>
-class QColor;
-
 #include <QSet>
+
+class QColor;
 typedef QSet<QString> Strings;
 
 #define SETTINGS_GROUP        "Settings"
@@ -229,10 +226,6 @@ enum {
     (opts.sliderStyle == SLIDER_TRIANGULAR ? 2 :        \
      (qtcOneOf(opts.shadeSliders, SHADE_SELECTED,       \
                SHADE_BLEND_SELECTED) ? 4 : 3))
-#define SB_SLIDER_MO_LEN(A)                                             \
-    ((A) < 22 && !(opts.round >= ROUND_FULL) ? 2 :                      \
-     ((A) < 32 || qtcNoneOf(opts.shadeSliders, SHADE_SELECTED,          \
-                            SHADE_BLEND_SELECTED) ? 4 : 6))
 
 #define CR_MO_FILL          1
 #define MO_DEF_BTN          2
@@ -891,20 +884,20 @@ void qtcSetupGradient(Gradient *grad, EGradientBorder border, int numStops, ...)
 const Gradient *qtcGetGradient(EAppearance app, const Options *opts);
 
 QTC_ALWAYS_INLINE static inline bool
-qtcDrawMenuBorder(const Options *opts)
+qtcDrawMenuBorder(const Options &opts)
 {
-    return (opts->menuBgndAppearance != APPEARANCE_FLAT &&
-            opts->version >= qtcMakeVersion(1, 7) &&
-            qtcUseBorder(qtcGetGradient(opts->menuBgndAppearance,
-                                        opts)->border));
+    return (opts.menuBgndAppearance != APPEARANCE_FLAT &&
+            opts.version >= qtcMakeVersion(1, 7) &&
+            qtcUseBorder(qtcGetGradient(opts.menuBgndAppearance,
+                                        &opts)->border));
 }
 
 QTC_ALWAYS_INLINE static inline bool
-qtcIsCustomBgnd(const Options *opts)
+qtcIsCustomBgnd(const Options &opts)
 {
-    return (!qtcIsFlatBgnd(opts->bgndAppearance) ||
-            opts->bgndImage.type != IMG_NONE ||
-            opts->bgndOpacity != 100 || opts->dlgOpacity != 100);
+    return (!qtcIsFlatBgnd(opts.bgndAppearance) ||
+            opts.bgndImage.type != IMG_NONE ||
+            opts.bgndOpacity != 100 || opts.dlgOpacity != 100);
 }
 
 #ifdef QTC_QT5_ENABLE_KDE
@@ -919,8 +912,7 @@ qtcIsCustomBgnd(const Options *opts)
 
 EAppearance qtcWidgetApp(EWidget w, const Options *opts, bool active=true);
 
-typedef enum
-{
+typedef enum {
     RADIUS_SELECTION,
     RADIUS_INTERNAL,
     RADIUS_EXTERNAL,
@@ -935,11 +927,34 @@ typedef enum
 #define MIN_ROUND_FULL_SIZE     8
 #define MIN_ROUND_EXTRA_SIZE(W) (WIDGET_SPIN==(W) ? 7 : 14)
 
-#define IS_MAX_ROUND_WIDGET(A)                          \
-    qtcOneOf(A, WIDGET_STD_BUTTON, WIDGET_DEF_BUTTON)
-#define IS_EXTRA_ROUND_WIDGET(A)                                        \
-    qtcNoneOf(A, WIDGET_MENU_ITEM, WIDGET_TAB_FRAME, WIDGET_PBAR_TROUGH, \
-              WIDGET_PROGRESSBAR, WIDGET_MDI_WINDOW, WIDGET_MDI_WINDOW_TITLE)
+namespace QtCurve {
+
+static inline bool
+isMaxRoundWidget(EWidget w)
+{
+    return oneOf(w, WIDGET_STD_BUTTON, WIDGET_DEF_BUTTON);
+}
+
+static inline bool
+isExtraRoundWidget(EWidget w)
+{
+    return noneOf(w, WIDGET_MENU_ITEM, WIDGET_TAB_FRAME, WIDGET_PBAR_TROUGH,
+                  WIDGET_PROGRESSBAR, WIDGET_MDI_WINDOW,
+                  WIDGET_MDI_WINDOW_TITLE);
+}
+
+static inline int
+sbSliderMOLen(const Options &opts, int len)
+{
+    if (len < 22 && opts.round < ROUND_FULL)
+        return 2;
+    if (len < 32 || noneOf(opts.shadeSliders, SHADE_SELECTED,
+                           SHADE_BLEND_SELECTED))
+        return 4;
+    return 6;
+}
+
+}
 
 #define EXTRA_INNER_RADIUS   3.5
 #define EXTRA_OUTER_RADIUS   4.5

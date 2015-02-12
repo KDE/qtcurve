@@ -183,7 +183,7 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
     }
 
     if (opts.windowDrag > WM_DRAG_MENU_AND_TOOLBAR &&
-        (DETAIL("base") || DETAIL("eventbox") || DETAIL("viewportbin"))) {
+        oneOf(detail, "base", "eventbox", "viewportbin")) {
         WMMove::setup(widget);
     }
 
@@ -244,12 +244,11 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
         }
     }
 
-    if (widget && qtcIsCustomBgnd(&opts) &&
-        (DETAIL("base") || DETAIL("eventbox"))) {
+    if (widget && qtcIsCustomBgnd(opts) && oneOf(detail, "base", "eventbox")) {
         Scrollbar::setup(widget);
     }
 
-    if (qtcIsCustomBgnd(&opts) && DETAIL("viewportbin")) {
+    if (qtcIsCustomBgnd(opts) && DETAIL("viewportbin")) {
         GtkRcStyle *st = widget ? gtk_widget_get_modifier_style(widget) : nullptr;
         // if the app hasn't modified bg, draw background gradient
         if (st && !(st->color_flags[state]&GTK_RC_BG)) {
@@ -260,7 +259,7 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
             parent_class->draw_flat_box(style, window, state, shadow, area,
                                         widget, _detail, x, y, width, height);
         }
-    } else if (qtcIsCustomBgnd(&opts) && widget && GTK_IS_WINDOW(widget) &&
+    } else if (qtcIsCustomBgnd(opts) && widget && GTK_IS_WINDOW(widget) &&
              !isMenuOrToolTipWindow &&
              drawWindowBgnd(cr, style, (QtcRect*)area, window, widget,
                             x, y, width, height)) {
@@ -404,7 +403,7 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
         drawSelection(cr, style, state, (QtcRect*)area, widget, x, y,
                       width, height, ROUNDED_ALL, false, 1.0, 0);
     } else if (state != GTK_STATE_SELECTED &&
-               qtcIsCustomBgnd(&opts) && DETAIL("eventbox")) {
+               qtcIsCustomBgnd(opts) && DETAIL("eventbox")) {
         drawWindowBgnd(cr, style, nullptr, window, widget, x, y, width, height);
     } else if (!(qtSettings.app == GTK_APP_JAVA && widget &&
                  GTK_IS_LABEL(widget))) {
@@ -1450,7 +1449,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                      rev, true);
     } else if (strcmp(detail,"dockitem") == 0 ||
                strcmp(detail,"dockitem_bin") == 0) {
-        if (qtcIsCustomBgnd(&opts) && widget) {
+        if (qtcIsCustomBgnd(opts) && widget) {
             drawWindowBgnd(cr, style, (QtcRect*)area, window, widget,
                            x, y, width, height);
         }
@@ -1485,7 +1484,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 }
             }
 
-            if (widget && (opacity!=100 || qtcIsCustomBgnd(&opts))) {
+            if (widget && (opacity!=100 || qtcIsCustomBgnd(opts))) {
                 drawWindowBgnd(cr, style, (QtcRect*)area, window, widget,
                                x, y, width, height);
             }
@@ -2322,7 +2321,7 @@ gtkDrawSlider(GtkStyle *style, GdkWindow *window, GtkStateType state,
     QTC_RET_IF_FAIL(GDK_IS_DRAWABLE(window));
     const char *detail = _detail ? _detail : "";
     bool scrollbar = DETAIL("slider");
-    bool scale = DETAIL("hscale") || DETAIL("vscale");
+    bool scale = oneOf(detail, "hscale", "vscale");
 
     if (qtSettings.debug == DEBUG_ALL) {
         printf(DEBUG_PREFIX "%s %d %d %d %d %d %d %s  ", __FUNCTION__, state,
@@ -2570,42 +2569,37 @@ gtkDrawVLine(GtkStyle *style, GdkWindow *window, GtkStateType state,
 
     cairo_t *cr = Cairo::gdkCreateClip(window, area);
 
-    if (!(DETAIL("vseparator") && isOnComboBox(widget, 0))) /* CPD: Combo handled in drawBox */
-    {
+    if (!(DETAIL("vseparator") && isOnComboBox(widget, 0))) {
+         /* CPD: Combo handled in drawBox */
         bool tbar = DETAIL("toolbar");
         int dark = tbar ? 3 : 5;
         int light = 0;
 
-        if(tbar)
-        {
-            switch(opts.toolbarSeparators)
-            {
-                default:
-                case LINE_DOTS:
-                    Cairo::dots(cr, x, y1, 2, y2 - y1, true,
-                                (y2 - y1) / 3.0 + 0.5, 0, (QtcRect*)area, 0,
-                                &qtcPalette.background[5],
-                                qtcPalette.background);
-                    break;
-                case LINE_NONE:
-                    break;
-                case LINE_FLAT:
-                case LINE_SUNKEN:
-                {
-                    /* Cairo::vLine(cr, x, y1 < y2 ? y1 : y2, abs(y2 - y1), */
-                    /*              &qtcPalette.background[dark]); */
-                    drawFadedLine(cr, x, y1 < y2 ? y1 : y2, 1, abs(y2 - y1),
-                                  &qtcPalette.background[dark],
+        if (tbar) {
+            switch (opts.toolbarSeparators) {
+            default:
+            case LINE_DOTS:
+                Cairo::dots(cr, x, y1, 2, y2 - y1, true,
+                            (y2 - y1) / 3.0 + 0.5, 0, (QtcRect*)area, 0,
+                            &qtcPalette.background[5],
+                            qtcPalette.background);
+                break;
+            case LINE_NONE:
+                break;
+            case LINE_FLAT:
+            case LINE_SUNKEN:
+                /* Cairo::vLine(cr, x, y1 < y2 ? y1 : y2, abs(y2 - y1), */
+                /*              &qtcPalette.background[dark]); */
+                drawFadedLine(cr, x, y1 < y2 ? y1 : y2, 1, abs(y2 - y1),
+                              &qtcPalette.background[dark],
+                              (QtcRect*)area, nullptr, true, true, false);
+                if (opts.toolbarSeparators == LINE_SUNKEN)
+                    /* Cairo::vLine(cr, x + 1, y1 < y2 ? y1 : y2, */
+                    /*              abs(y2 - y1), */
+                    /*              &qtcPalette.background[light]); */
+                    drawFadedLine(cr, x + 1, y1 < y2 ? y1 : y2, 1,
+                                  abs(y2 - y1), &qtcPalette.background[light],
                                   (QtcRect*)area, nullptr, true, true, false);
-                    if(LINE_SUNKEN==opts.toolbarSeparators)
-                        /* Cairo::vLine(cr, x + 1, y1 < y2 ? y1 : y2, */
-                        /*              abs(y2 - y1), */
-                        /*              &qtcPalette.background[light]); */
-                        drawFadedLine(cr, x + 1, y1 < y2 ? y1 : y2, 1,
-                                      abs(y2 - y1),
-                                      &qtcPalette.background[light],
-                                      (QtcRect*)area, nullptr, true, true, false);
-                }
             }
         } else {
             /* Cairo::vLine(cr, x, y1 < y2 ? y1 : y2, abs(y2 - y1), */
@@ -2649,7 +2643,7 @@ gtkDrawFocus(GtkStyle *style, GdkWindow *window, GtkStateType state,
                        isButtonOnToolbar(widget, nullptr));
 
     if (opts.comboSplitter &&
-        qtcNoneOf(opts.focus, FOCUS_FULL, FOCUS_FILLED) && isComboBox(widget)) {
+        noneOf(opts.focus, FOCUS_FULL, FOCUS_FILLED) && isComboBox(widget)) {
         /* x++; */
         /* y++; */
         /* height -= 2; */

@@ -1,5 +1,5 @@
 /*****************************************************************************
- *   Copyright 2013 - 2013 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -44,13 +44,13 @@ template<typename T, typename T2>
 QTC_ALWAYS_INLINE static inline const T*
 qtcObjCast(const T2 *obj)
 {
-    return obj ? qobject_cast<const T*>(obj) : NULL;
+    return obj ? qobject_cast<const T*>(obj) : nullptr;
 }
 template<typename T, typename T2>
 QTC_ALWAYS_INLINE static inline T*
 qtcObjCast(T2 *obj)
 {
-    return obj ? qobject_cast<T*>(obj) : NULL;
+    return obj ? qobject_cast<T*>(obj) : nullptr;
 }
 
 template <class T, class T2> static inline bool
@@ -88,26 +88,26 @@ qtcGetWindowType(const QWidget *w)
 QTC_ALWAYS_INLINE static inline bool
 qtcIsDialog(const QWidget *w)
 {
-    return qtcOneOf(qtcGetWindowType(w), Qt::Dialog, Qt::Sheet);
+    return oneOf(qtcGetWindowType(w), Qt::Dialog, Qt::Sheet);
 }
 
 QTC_ALWAYS_INLINE static inline bool
 qtcIsWindow(const QWidget *w)
 {
-    return qtcOneOf(qtcGetWindowType(w), Qt::Window);
+    return oneOf(qtcGetWindowType(w), Qt::Window);
 }
 
 QTC_ALWAYS_INLINE static inline bool
 qtcIsToolTip(const QWidget *w)
 {
-    return qtcOneOf(qtcGetWindowType(w), Qt::Tool, Qt::SplashScreen,
-                    Qt::ToolTip, Qt::Drawer);
+    return oneOf(qtcGetWindowType(w), Qt::Tool, Qt::SplashScreen,
+                 Qt::ToolTip, Qt::Drawer);
 }
 
 QTC_ALWAYS_INLINE static inline bool
 qtcIsPopup(const QWidget *w)
 {
-    return qtcOneOf(qtcGetWindowType(w), Qt::Popup);
+    return oneOf(qtcGetWindowType(w), Qt::Popup);
 }
 
 QTC_ALWAYS_INLINE static inline QWidget*
@@ -116,7 +116,7 @@ qtcToWidget(QObject *obj)
     if (obj->isWidgetType()) {
         return static_cast<QWidget*>(obj);
     }
-    return NULL;
+    return nullptr;
 }
 
 QTC_ALWAYS_INLINE static inline const QWidget*
@@ -125,17 +125,17 @@ qtcToWidget(const QObject *obj)
     if (obj->isWidgetType()) {
         return static_cast<const QWidget*>(obj);
     }
-    return NULL;
+    return nullptr;
 }
 
-template<class StyleType, class C>
+class Style;
+template<class StyleType=Style, class C>
 static inline StyleType*
-_qtcGetStyle(const C *obj)
+getStyle(const C *obj)
 {
     QStyle *style = obj->style();
     return style ? qobject_cast<StyleType*>(style) : 0;
 }
-#define qtcGetStyle(obj) _qtcGetStyle<Style>(obj)
 
 // Get the width and direction of the arrow in a QBalloonTip
 QTC_ALWAYS_INLINE static inline int
@@ -143,7 +143,7 @@ qtcGetBalloonMargin(QWidget *widget, bool *atTop)
 {
     int topMargin = 0;
     int bottomMargin = 0;
-    widget->getContentsMargins(NULL, &topMargin, NULL, &bottomMargin);
+    widget->getContentsMargins(nullptr, &topMargin, nullptr, &bottomMargin);
     if (topMargin > bottomMargin) {
         *atTop = true;
         return topMargin - bottomMargin;
@@ -155,57 +155,50 @@ qtcGetBalloonMargin(QWidget *widget, bool *atTop)
 
 template<typename T, typename T2>
 QTC_ALWAYS_INLINE static inline const T*
-qtcStyleCast(const T2 *opt)
+styleOptCast(const T2 *opt)
 {
     return qstyleoption_cast<const T*>(opt);
 }
 
 template<typename T, typename T2>
 QTC_ALWAYS_INLINE static inline T*
-qtcStyleCast(T2 *opt)
+styleOptCast(T2 *opt)
 {
     return qstyleoption_cast<T*>(opt);
 }
 
-template<unsigned level>
+template<unsigned level=1>
 QTC_ALWAYS_INLINE static inline QWidget*
-qtcGetParent(const QWidget *w)
+getParent(const QWidget *w)
 {
-    if (const QWidget *parent = qtcGetParent<level - 1>(w)) {
+    if (const QWidget *parent = getParent<level - 1>(w)) {
         return parent->parentWidget();
     }
-    return NULL;
+    return nullptr;
 }
 
 template<>
 inline QWidget*
-qtcGetParent<0>(const QWidget *w)
+getParent<0>(const QWidget *w)
 {
     return const_cast<QWidget*>(w);
 }
 
-template<unsigned level>
+template<unsigned level=1>
 QTC_ALWAYS_INLINE static inline QObject*
-qtcGetParent(const QObject *o)
+getParent(const QObject *o)
 {
-    if (const QObject *parent = qtcGetParent<level - 1>(o)) {
+    if (const QObject *parent = getParent<level - 1>(o)) {
         return parent->parent();
     }
-    return NULL;
+    return nullptr;
 }
 
 template<>
 inline QObject*
-qtcGetParent<0>(const QObject *o)
+getParent<0>(const QObject *o)
 {
     return const_cast<QObject*>(o);
-}
-
-template<typename T>
-QTC_ALWAYS_INLINE static inline T*
-qtcGetParent(const T *w)
-{
-    return qtcGetParent<1>(w);
 }
 
 #define _qtcSlotWithTypes(self, name, types)                    \

@@ -118,7 +118,7 @@ qtcEventCallback(void **cbdata)
         return false;
     if (qtcUnlikely(!widget->testAttribute(Qt::WA_WState_Polished) &&
                     !qtcGetWid(widget))) {
-        if (Style *style = qtcGetStyle(widget)) {
+        if (Style *style = getStyle(widget)) {
             style->prePolish(widget);
         }
     } else if (event->type() == QEvent::UpdateRequest) {

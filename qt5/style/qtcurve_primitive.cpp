@@ -139,7 +139,7 @@ Style::drawPrimitivePanelScrollAreaCorner(PrimitiveElement,
     // the default implementation fills the rect with the window background
     // color which does not work for windows that have gradients.
     // ...but need to for WebView!!!
-    if (!opts.gtkScrollViews || !qtcIsCustomBgnd(&opts) ||
+    if (!opts.gtkScrollViews || !qtcIsCustomBgnd(opts) ||
         (widget && widget->inherits("WebView"))) {
         painter->fillRect(option->rect,
                           option->palette.brush(QPalette::Window));
@@ -279,7 +279,7 @@ Style::drawPrimitiveIndicatorHeaderArrow(PrimitiveElement,
 {
     State state = option->state;
     const QPalette &palette = option->palette;
-    if (auto header = qtcStyleCast<QStyleOptionHeader>(option)) {
+    if (auto header = styleOptCast<QStyleOptionHeader>(option)) {
         drawArrow(painter, option->rect,
                   header->sortIndicator & QStyleOptionHeader::SortUp ?
                   PE_IndicatorArrowUp : PE_IndicatorArrowDown,
@@ -332,7 +332,7 @@ Style::drawPrimitiveIndicatorSpin(PrimitiveElement element,
     QRect sr = r;
     const QColor *use = buttonColors(option);
     const QColor &col = MOArrow(state, palette, QPalette::ButtonText);
-    bool down = qtcOneOf(element, PE_IndicatorSpinDown, PE_IndicatorSpinMinus);
+    bool down = oneOf(element, PE_IndicatorSpinDown, PE_IndicatorSpinMinus);
     bool reverse = option->direction == Qt::RightToLeft;
 
     if ((!opts.unifySpinBtns || state & State_Sunken) && !opts.unifySpin) {
@@ -341,7 +341,7 @@ Style::drawPrimitiveIndicatorSpin(PrimitiveElement element,
                        ROUNDED_TOPLEFT : ROUNDED_TOPRIGHT,
                        getFill(option, use), use, true, WIDGET_SPIN);
     }
-    if (qtcOneOf(element, PE_IndicatorSpinUp, PE_IndicatorSpinDown)) {
+    if (oneOf(element, PE_IndicatorSpinUp, PE_IndicatorSpinDown)) {
         sr.setY(sr.y() + (down ? -2 : 1));
         if (opts.unifySpin) {
             sr.adjust(reverse ? 1 : -1, 0, reverse ? 1 : -1, 0);
@@ -431,7 +431,7 @@ Style::drawPrimitiveFrameGroupBox(PrimitiveElement,
     if (opts.groupBox == FRAME_NONE) {
         return true;
     }
-    if (auto _frame = qtcStyleCast<QStyleOptionFrame>(option)) {
+    if (auto _frame = styleOptCast<QStyleOptionFrame>(option)) {
         bool reverse = option->direction == Qt::RightToLeft;
         QStyleOptionFrame frame(*_frame);
         if (frame.features & QStyleOptionFrame::Flat ||
@@ -446,7 +446,7 @@ Style::drawPrimitiveFrameGroupBox(PrimitiveElement,
             if (opts.gbLabel & GB_LBL_OUTSIDE) {
                 r.adjust(0, 2, 0, 0);
             }
-            if (qtcOneOf(opts.groupBox, FRAME_SHADED, FRAME_FADED)) {
+            if (oneOf(opts.groupBox, FRAME_SHADED, FRAME_FADED)) {
                 int round = (opts.square & SQUARE_FRAME ?
                              ROUNDED_NONE : ROUNDED_ALL);
                 QPainterPath path =
@@ -532,14 +532,14 @@ Style::drawPrimitiveFrame(PrimitiveElement,
             drawRect(painter, r.adjusted(1, 1, -1, -1));
         }
     } else {
-        auto fo = qtcStyleCast<QStyleOptionFrame>(option);
+        auto fo = styleOptCast<QStyleOptionFrame>(option);
         if (theThemedApp == APP_K3B &&
             !(state & (State_Sunken | State_Raised)) &&
             fo && fo->lineWidth == 1) {
             painter->setPen(backgroundColors(option)[QTC_STD_BORDER]);
             drawRect(painter, r);
-        } else if (qtcOneOf(state, QtC_StateKWin,
-                            QtC_StateKWin | State_Active) && fo &&
+        } else if (oneOf(state, QtC_StateKWin,
+                         QtC_StateKWin | State_Active) && fo &&
                    fo->lineWidth == 1 && fo->midLineWidth == 1) {
             QColor border;
             if (fo->version == TBAR_BORDER_VERSION_HACK + 2) {
@@ -677,8 +677,8 @@ Style::drawPrimitivePanelMenuBar(PrimitiveElement,
         if (opts.toolbarBorders != TB_NONE) {
             const QColor *use = (m_active ? m_menubarCols :
                                  backgroundColors(option));
-            bool dark = qtcOneOf(opts.toolbarBorders, TB_DARK, TB_DARK_ALL);
-            if (qtcOneOf(opts.toolbarBorders, TB_DARK_ALL, TB_LIGHT_ALL)) {
+            bool dark = oneOf(opts.toolbarBorders, TB_DARK, TB_DARK_ALL);
+            if (oneOf(opts.toolbarBorders, TB_DARK_ALL, TB_LIGHT_ALL)) {
                 painter->setPen(use[0]);
                 painter->drawLine(r.x(), r.y(), r.x() + r.width() - 1, r.y());
                 painter->drawLine(r.x(), r.y(), r.x(), r.y() + r.height() - 1);
@@ -743,7 +743,7 @@ Style::drawPrimitiveQtcBackground(PrimitiveElement,
     const QRect &r = option->rect;
     const QPalette &palette(option->palette);
     State state = option->state;
-    if (auto bgnd = qtcStyleCast<BgndOption>(option)) {
+    if (auto bgnd = styleOptCast<BgndOption>(option)) {
         if (state & QtC_StateKWin) {
             QColor col(palette.brush(QPalette::Window).color());
             int opacity(col.alphaF() * 100);
@@ -770,7 +770,7 @@ Style::drawPrimitivePanelItemViewItem(PrimitiveElement,
                                       QPainter *painter,
                                       const QWidget *widget) const
 {
-    auto v4Opt = qtcStyleCast<QStyleOptionViewItemV4>(option);
+    auto v4Opt = styleOptCast<QStyleOptionViewItemV4>(option);
     auto view = qobject_cast<const QAbstractItemView*>(widget);
     QRect r = option->rect;
     const QPalette &palette(option->palette);
@@ -873,9 +873,9 @@ Style::drawPrimitivePanelItemViewItem(PrimitiveElement,
                                QStyleOptionViewItemV4::Beginning);
                 roundedRight = (v4Opt->viewItemPosition ==
                                 QStyleOptionViewItemV4::End);
-                if (qtcOneOf(v4Opt->viewItemPosition,
-                             QStyleOptionViewItemV4::OnlyOne,
-                             QStyleOptionViewItemV4::Invalid) ||
+                if (oneOf(v4Opt->viewItemPosition,
+                          QStyleOptionViewItemV4::OnlyOne,
+                          QStyleOptionViewItemV4::Invalid) ||
                     (view && (view->selectionBehavior() !=
                               QAbstractItemView::SelectRows))) {
                     roundedLeft = roundedRight = true;
@@ -911,7 +911,7 @@ Style::drawPrimitiveFrameTabWidget(PrimitiveElement,
     bool reverse = option->direction == Qt::RightToLeft;
     int round = opts.square & SQUARE_TAB_FRAME ? ROUNDED_NONE : ROUNDED_ALL;
 
-    if (auto twf = qtcStyleCast<QStyleOptionTabWidgetFrame>(option)) {
+    if (auto twf = styleOptCast<QStyleOptionTabWidgetFrame>(option)) {
         if ((opts.round || opts.tabBgnd == 0) &&
             widget && qobject_cast<const QTabWidget*>(widget)) {
             struct QtcTabWidget: public QTabWidget {
@@ -1122,7 +1122,7 @@ Style::drawPrimitiveButton(PrimitiveElement element, const QStyleOption *option,
     if (element == PE_PanelButtonBevel) {
         opt.state |= State_Enabled;
     }
-    if (auto button = qtcStyleCast<QStyleOptionButton>(option)) {
+    if (auto button = styleOptCast<QStyleOptionButton>(option)) {
         isDefault = ((button->features & QStyleOptionButton::DefaultButton) &&
                      (button->state & State_Enabled));
         isFlat = button->features & QStyleOptionButton::Flat;
@@ -1136,7 +1136,7 @@ Style::drawPrimitiveButton(PrimitiveElement element, const QStyleOption *option,
     }
 
     isDefault = (isDefault ||
-                 (doEtch && qtcOneOf(opts.focus, FOCUS_FULL, FOCUS_FILLED) &&
+                 (doEtch && oneOf(opts.focus, FOCUS_FULL, FOCUS_FILLED) &&
                   opts.coloredMouseOver == MO_GLOW &&
                   opt.state & State_HasFocus && opt.state & State_Enabled));
     if (isFlat && !isDown && !(opt.state & State_MouseOver)) {
@@ -1147,7 +1147,7 @@ Style::drawPrimitiveButton(PrimitiveElement element, const QStyleOption *option,
         opt.state |= State_Horizontal | State_Raised;
     }
     if (isDefault && state & State_Enabled &&
-        qtcOneOf(opts.defBtnIndicator, IND_TINT, IND_SELECTED)) {
+        oneOf(opts.defBtnIndicator, IND_TINT, IND_SELECTED)) {
         use = m_defBtnCols;
     } else if (state & STATE_DWT_BUTTON && widget &&
                opts.titlebarButtons & TITLEBAR_BUTTON_COLOR &&
@@ -1158,9 +1158,9 @@ Style::drawPrimitiveButton(PrimitiveElement element, const QStyleOption *option,
             use = m_titleBarButtonsCols[TITLEBAR_CLOSE];
         } else if (constDwtFloat == widget->objectName()) {
             use = m_titleBarButtonsCols[TITLEBAR_MAX];
-        } else if (qtcCheckType<QDockWidget>(qtcGetParent<2>(widget)) &&
+        } else if (qtcCheckType<QDockWidget>(getParent<2>(widget)) &&
                    widget->parentWidget()->inherits("KoDockWidgetTitleBar")) {
-            QDockWidget *dw = (QDockWidget*)qtcGetParent<2>(widget);
+            QDockWidget *dw = (QDockWidget*)getParent<2>(widget);
             QWidget *koDw = widget->parentWidget();
             int fw = (dw->isFloating() ?
                       pixelMetric(QStyle::PM_DockWidgetFrameWidth, 0, dw) : 0);
@@ -1179,11 +1179,11 @@ Style::drawPrimitiveButton(PrimitiveElement element, const QStyleOption *option,
                                QDockWidget::DockWidgetFloatable);
             if (dwOpt.closable &&
                 subElementRect(QStyle::SE_DockWidgetCloseButton, &dwOpt,
-                               qtcGetParent<2>(widget)) == geom) {
+                               getParent<2>(widget)) == geom) {
                 use = m_titleBarButtonsCols[TITLEBAR_CLOSE];
             } else if (dwOpt.floatable &&
                        subElementRect(QStyle::SE_DockWidgetFloatButton, &dwOpt,
-                                      qtcGetParent<2>(widget)) == geom) {
+                                      getParent<2>(widget)) == geom) {
                 use = m_titleBarButtonsCols[TITLEBAR_MAX];
             } else {
                 use = m_titleBarButtonsCols[TITLEBAR_SHADE];
@@ -1344,7 +1344,7 @@ Style::drawPrimitiveFrameFocusRect(PrimitiveElement, const QStyleOption *option,
     if (FOCUS_NONE==opts.focus)
         return true;
 
-    if (auto focusFrame = qtcStyleCast<QStyleOptionFocusRect>(option)) {
+    if (auto focusFrame = styleOptCast<QStyleOptionFocusRect>(option)) {
         if (!(focusFrame->state & State_KeyboardFocusChange) ||
             (widget && widget->inherits("QComboBoxListView"))) {
             return true;
@@ -1423,7 +1423,7 @@ Style::drawPrimitiveFrameFocusRect(PrimitiveElement, const QStyleOption *option,
                      palette.highlightedText().color() :
                      m_focusCols[FOCUS_SHADE(state & State_Selected)]);
 
-            if (qtcOneOf(opts.focus, FOCUS_LINE, FOCUS_GLOW)) {
+            if (oneOf(opts.focus, FOCUS_LINE, FOCUS_GLOW)) {
                 if (!(state & State_Horizontal) && widget &&
                     qobject_cast<const QTabBar*>(widget)) {
                     drawFadedLine(painter, QRect(r2.x() + r2.width() - 1,
@@ -1456,8 +1456,8 @@ Style::drawPrimitiveFrameFocusRect(PrimitiveElement, const QStyleOption *option,
                                   square ? SLIGHT_INNER_RADIUS :
                                   qtcGetRadius(&opts, r2.width(),
                                                r2.height(), WIDGET_OTHER,
-                                               qtcOneOf(opts.focus, FOCUS_FULL,
-                                                        FOCUS_FILLED) ?
+                                               oneOf(opts.focus, FOCUS_FULL,
+                                                     FOCUS_FILLED) ?
                                                RADIUS_EXTERNAL :
                                                RADIUS_SELECTION)));
                 } else {
@@ -1490,12 +1490,12 @@ Style::drawPrimitiveIndicatorRadioButton(PrimitiveElement,
     const QPalette &palette(option->palette);
     bool isOO = isOOWidget(widget);
     // TODO: WTF???
-    bool selectedOOMenu = (isOO && qtcOneOf(r, QRect(0, 0, 15, 15),
-                                            QRect(0, 0, 14, 15)) &&
+    bool selectedOOMenu = (isOO && oneOf(r, QRect(0, 0, 15, 15),
+                                         QRect(0, 0, 14, 15)) &&
                            // OO.o 3.2 =14x15?
-                           qtcOneOf(state, State_Sunken | State_Enabled,
-                                    State_Sunken | State_Enabled |
-                                    State_Selected));
+                           oneOf(state, State_Sunken | State_Enabled,
+                                 State_Sunken | State_Enabled |
+                                 State_Selected));
 
     if (isOO) {
         painter->fillRect(r, palette.brush(QPalette::Background));
@@ -1638,12 +1638,12 @@ Style::drawPrimitiveIndicatorCheckBox(PrimitiveElement element,
                      r.width() >= opts.crSize + 2 &&
                      r.height() >= opts.crSize + 2)));
     bool isOO = isOOWidget(widget);
-    bool selectedOOMenu = (isOO && qtcOneOf(r, QRect(0, 0, 15, 15),
-                                            QRect(0, 0, 14, 15)) &&
+    bool selectedOOMenu = (isOO && oneOf(r, QRect(0, 0, 15, 15),
+                                         QRect(0, 0, 14, 15)) &&
                            // OO.o 3.2 =14x15?
-                           qtcOneOf(state, State_Sunken | State_Enabled,
-                                    State_Sunken | State_Enabled |
-                                    State_Selected));
+                           oneOf(state, State_Sunken | State_Enabled,
+                                 State_Sunken | State_Enabled |
+                                 State_Selected));
     int crSize = opts.crSize + (doEtch ? 2 : 0);
     QRect rect(r.x(), r.y() + (view ? -1 : 0), crSize, crSize);
 
@@ -1772,7 +1772,7 @@ Style::drawPrimitiveFrameLineEdit(PrimitiveElement, const QStyleOption *option,
     const QRect &r = option->rect;
     State state = option->state;
     const QPalette &palette(option->palette);
-    if (auto lineEdit = qtcStyleCast<QStyleOptionFrame>(option)) {
+    if (auto lineEdit = styleOptCast<QStyleOptionFrame>(option)) {
         if ((lineEdit->lineWidth > 0 || isOOWidget(widget)) &&
             !(widget &&
               (qobject_cast<const QComboBox*>(widget->parentWidget()) ||
@@ -1842,7 +1842,7 @@ Style::drawPrimitivePanelLineEdit(PrimitiveElement,
 {
     const QRect &r = option->rect;
     const QPalette &palette(option->palette);
-    if (auto panel = qtcStyleCast<QStyleOptionFrame>(option)) {
+    if (auto panel = styleOptCast<QStyleOptionFrame>(option)) {
         if (panel->lineWidth > 0) {
             QRect r2 = r.adjusted(1, 1, -1,
                                   opts.buttonEffect != EFFECT_NONE ? -2 : -1);
@@ -1884,7 +1884,7 @@ Style::drawPrimitiveButtonTool(PrimitiveElement element,
 {
     State state = option->state;
     const QRect &r = option->rect;
-    if (qtcOneOf(element, PE_FrameButtonTool, PE_PanelButtonTool)) {
+    if (oneOf(element, PE_FrameButtonTool, PE_PanelButtonTool)) {
         if (isMultiTabBarTab(getButton(widget, painter))) {
             if (!opts.stdSidebarButtons) {
                 drawSideBarButton(painter, r, option, widget);
@@ -1983,9 +1983,9 @@ Style::drawPrimitiveFrameTabBarBase(PrimitiveElement,
                                     const QWidget *widget) const
 {
     bool reverse = option->direction == Qt::RightToLeft;
-    if (auto tbb = qtcStyleCast<QStyleOptionTabBarBase>(option)) {
-        if (qtcNoneOf(tbb->shape, QTabBar::RoundedNorth, QTabBar::RoundedWest,
-                      QTabBar::RoundedSouth, QTabBar::RoundedEast)) {
+    if (auto tbb = styleOptCast<QStyleOptionTabBarBase>(option)) {
+        if (noneOf(tbb->shape, QTabBar::RoundedNorth, QTabBar::RoundedWest,
+                   QTabBar::RoundedSouth, QTabBar::RoundedEast)) {
             return false;
         } else {
             static const int constSidePad = 16 * 2;
@@ -1994,8 +1994,8 @@ Style::drawPrimitiveFrameTabBarBase(PrimitiveElement,
             QLine topLine(tbb->rect.bottomLeft() - QPoint(0, 1),
                           tbb->rect.bottomRight() - QPoint(0, 1));
             QLine bottomLine(tbb->rect.bottomLeft(), tbb->rect.bottomRight());
-            bool horiz = qtcOneOf(tbb->shape, QTabBar::RoundedNorth,
-                                  QTabBar::RoundedSouth);
+            bool horiz = oneOf(tbb->shape, QTabBar::RoundedNorth,
+                               QTabBar::RoundedSouth);
             double size = horiz ? tbb->rect.width() : tbb->rect.height();
             double tabRectSize = (horiz ? tbb->tabBarRect.width() :
                                   tbb->tabBarRect.height());
@@ -2016,7 +2016,7 @@ Style::drawPrimitiveFrameTabBarBase(PrimitiveElement,
             bool fadeEnd = true;
             // Dont fade start/end of tabbar in KDevelop's menubar
             if (theThemedApp == APP_KDEVELOP &&
-                qtcCheckType<QMenuBar>(qtcGetParent<2>(widget)) &&
+                qtcCheckType<QMenuBar>(getParent<2>(widget)) &&
                 qobject_cast<const QTabBar*>(widget)) {
                 fadeState = fadeEnd = false;
             }

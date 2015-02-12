@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -21,6 +21,7 @@
  *****************************************************************************/
 
 #include <qtcurve-utils/dirs.h>
+#include <qtcurve-utils/color.h>
 #include "common.h"
 #include "config_file.h"
 
@@ -574,8 +575,9 @@ void qtcLoadBgndImage(QtCImage *img)
 static void
 checkColor(EShade *s, QColor *c)
 {
-    if(SHADE_CUSTOM==*s && IS_BLACK(*c))
-        *s=SHADE_NONE;
+    if (*s == SHADE_CUSTOM && QtCurve::isBlack(*c)) {
+        *s = SHADE_NONE;
+    }
 }
 
 class QtCConfig {

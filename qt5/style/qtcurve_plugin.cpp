@@ -53,7 +53,7 @@ qtcPolishQuickControl(QObject *obj)
         // QtQuickControl support
         // This is still VERY experimental.
         // Need a lot more testing and refactoring.
-        if (Style *style = qtcGetStyle(qApp)) {
+        if (Style *style = getStyle(qApp)) {
             if (window->inherits("QQuickPopupWindow")) {
                 if (window->inherits("QQuickMenuPopupWindow")) {
                     window->setColor(QColor(0, 0, 0, 0));
@@ -74,7 +74,7 @@ qtcPolishQuickControl(QObject *obj)
         }
     } else if (QQuickItem *item = qobject_cast<QQuickItem*>(obj)) {
         if (QQuickWindow *window = item->window()) {
-            if (qtcGetStyle(qApp)) {
+            if (getStyle(qApp)) {
                 window->setColor(QColor(0, 0, 0, 0));
                 qtcX11BlurTrigger(window->winId(), true, 0, NULL);
             }
@@ -101,7 +101,7 @@ qtcEventCallback(void **cbdata)
     }
     QWidget *widget = qtcToWidget(receiver);
     if (qtcUnlikely(widget && !qtcGetWid(widget))) {
-        if (Style *style = qtcGetStyle(widget)) {
+        if (Style *style = getStyle(widget)) {
             style->prePolish(widget);
         }
     } else if (widget && event->type() == QEvent::UpdateRequest) {

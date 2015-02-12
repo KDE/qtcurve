@@ -194,7 +194,7 @@ isMultiTabBarTab(const QAbstractButton *button)
                        // ((QPushButton *)button)->isFlat() &&
                        button->inherits("KMultiTabBarTab")) ||
                       (APP_KDEVELOP == theThemedApp &&
-                       qobject_cast<const QToolButton *>(button) &&
+                       qobject_cast<const QToolButton*>(button) &&
                        button->inherits("Sublime::IdealToolButton")));
 }
 
@@ -230,7 +230,8 @@ class QtCurveDockWidgetTitleBar: public QWidget {
     Q_OBJECT
 public:
     QtCurveDockWidgetTitleBar(QWidget* parent) : QWidget(parent) {}
-    QSize sizeHint() const {
+    QSize sizeHint() const
+    {
         return QSize(0, 0);
     }
 };
@@ -247,7 +248,7 @@ static inline bool
 isKateView(const QWidget *widget)
 {
     return (qtcCheckType<QFrame>(widget) &&
-            qtcCheckType(qtcGetParent(widget), "KateView"));
+            qtcCheckType(getParent(widget), "KateView"));
 }
 
 static inline bool
@@ -255,8 +256,8 @@ isKontactPreviewPane(const QWidget *widget)
 {
     return (theThemedApp == APP_KONTACT &&
             qtcCheckType(widget, "KHBox") &&
-            qtcCheckType<QSplitter>(qtcGetParent(widget)) &&
-            qtcCheckType(qtcGetParent<2>(widget), "KMReaderWin"));
+            qtcCheckType<QSplitter>(getParent(widget)) &&
+            qtcCheckType(getParent<2>(widget), "KMReaderWin"));
 }
 
 static inline QColor

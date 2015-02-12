@@ -90,12 +90,6 @@ qtcOneOf(T &&value, First &&first, Rest&&... rest)
     return value == first || qtcOneOf(std::forward<T>(value),
                                       std::forward<Rest>(rest)...);
 }
-template<typename... Args>
-static inline bool
-qtcNoneOf(Args&&... args)
-{
-    return !qtcOneOf(std::forward<Args>(args)...);
-}
 
 namespace QtCurve {
 

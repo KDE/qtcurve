@@ -188,7 +188,7 @@ qtcWidgetApp(EWidget w, const Options *opts)
 }
 
 #define CAN_EXTRA_ROUND(MOD)                                            \
-    (IS_EXTRA_ROUND_WIDGET(widget) &&                                   \
+    (QtCurve::isExtraRoundWidget(widget) &&                             \
      (IS_SLIDER(widget) || WIDGET_TROUGH == widget ||                   \
       (((w > (MIN_ROUND_EXTRA_SIZE(widget) + MOD)) ||                   \
         (WIDGET_NO_ETCH_BTN == widget || WIDGET_MENU_BUTTON == widget)) && \
@@ -233,7 +233,7 @@ qtcGetWidgetRound(const Options *opts, int w, int h, EWidget widget)
     case ROUND_MAX:
         if (IS_SLIDER(widget) || widget == WIDGET_TROUGH ||
             (w > (MIN_ROUND_MAX_WIDTH + 2) && h > (MIN_ROUND_MAX_HEIGHT + 2) &&
-             IS_MAX_ROUND_WIDGET(widget))) {
+             QtCurve::isMaxRoundWidget(widget))) {
             return ROUND_MAX;
         }
     case ROUND_EXTRA:
@@ -326,7 +326,7 @@ qtcGetRadius(const Options *opts, int w, int h, EWidget widget, ERadius rad)
             }
             if (w > (MIN_ROUND_MAX_WIDTH - 2) &&
                 h > (MIN_ROUND_MAX_HEIGHT - 2) &&
-                IS_MAX_ROUND_WIDGET(widget)) {
+                QtCurve::isMaxRoundWidget(widget)) {
                 double r = ((w > h ? h : w) - 2.0) / 2.0;
                 return r > 9.5 ? 9.5 : r;
             }
@@ -352,7 +352,7 @@ qtcGetRadius(const Options *opts, int w, int h, EWidget widget, ERadius rad)
                 return r > MAX_RADIUS_EXTERNAL ? MAX_RADIUS_EXTERNAL : r;
             }
             if (w > MIN_ROUND_MAX_WIDTH && h > MIN_ROUND_MAX_HEIGHT &&
-                IS_MAX_ROUND_WIDGET(widget)) {
+                QtCurve::isMaxRoundWidget(widget)) {
                 double r = ((w > h ? h : w) - 2.0) / 2.0;
                 return r > 10.5 ? 10.5 : r;
             }
@@ -380,7 +380,7 @@ qtcGetRadius(const Options *opts, int w, int h, EWidget widget, ERadius rad)
             }
             if (w > (MIN_ROUND_MAX_WIDTH + 2) &&
                 h > (MIN_ROUND_MAX_HEIGHT + 2) &&
-                IS_MAX_ROUND_WIDGET(widget)) {
+                QtCurve::isMaxRoundWidget(widget)) {
                 double r = ((w > h ? h : w) - 2.0) / 2.0;
                 return r > 11.5 ? 11.5 : r;
             }

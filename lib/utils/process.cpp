@@ -41,7 +41,7 @@ qtcSignalHandlerSet(int sig)
     QTC_RET_IF_FAIL(sigaction(sig, NULL, &oact) == 0, false);
     void *handler = ((oact.sa_flags & SA_SIGINFO) ? (void*)oact.sa_handler :
                      (void*)oact.sa_sigaction);
-    return qtcNoneOf(handler, SIG_DFL, SIG_IGN);
+    return QtCurve::noneOf(handler, SIG_DFL, SIG_IGN);
 }
 
 QTC_EXPORT bool
@@ -233,8 +233,8 @@ qtcPopenReadBuff(QtcPopenBuff *buffs)
 {
     buffs->buff = (char*)realloc(buffs->buff, buffs->len + 1024 + 1);
     ssize_t len = read(buffs->orig, buffs->buff + buffs->len, 1024);
-    if (len == 0 || (len == -1 && qtcNoneOf(errno, EAGAIN, EINTR,
-                                            EWOULDBLOCK))) {
+    if (len == 0 || (len == -1 && QtCurve::noneOf(errno, EAGAIN, EINTR,
+                                                  EWOULDBLOCK))) {
         return false;
     } else if (len > 0) {
         buffs->len += len;
@@ -246,8 +246,8 @@ static bool
 qtcPopenWriteBuff(QtcPopenBuff *buffs)
 {
     ssize_t len = write(buffs->orig, buffs->buff, buffs->len);
-    if (len == 0 || (len == -1 && qtcNoneOf(errno, EAGAIN, EINTR,
-                                            EWOULDBLOCK))) {
+    if (len == 0 || (len == -1 && QtCurve::noneOf(errno, EAGAIN, EINTR,
+                                                  EWOULDBLOCK))) {
         return false;
     } else if (len > 0) {
         buffs->buff += len;
