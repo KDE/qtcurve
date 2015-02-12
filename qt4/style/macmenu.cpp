@@ -293,7 +293,7 @@ MacMenu::menuBar(qlonglong key)
                 ++i;
         }
     }
-    return NULL;
+    return nullptr;
 }
 
 void

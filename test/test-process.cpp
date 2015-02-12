@@ -38,7 +38,7 @@ forkCb(void*)
 static void
 sigchld_handler(int)
 {
-    wait(NULL);
+    wait(nullptr);
 }
 
 int
@@ -46,7 +46,7 @@ main()
 {
     int res = pipe(pipe_fds);
     assert(res == 0);
-    srandom(time(NULL));
+    srandom(time(nullptr));
     num = random();
 
     struct sigaction sa;
@@ -54,7 +54,7 @@ main()
     sa.sa_handler = sigchld_handler;
     sigemptyset(&sa.sa_mask);
     sa.sa_flags = SA_RESTART;
-    sigaction(SIGCHLD, &sa, NULL);
+    sigaction(SIGCHLD, &sa, nullptr);
 
     if (fork() == 0) {
         sleep(4);
@@ -62,7 +62,7 @@ main()
     }
 
     alarm(1);
-    bool fork_res = qtcForkBackground(forkCb, NULL);
+    bool fork_res = qtcForkBackground(forkCb, nullptr);
     assert(fork_res);
     long num_sent = 0;
     ssize_t read_res = read(pipe_fds[0], &num_sent, sizeof(num_sent));

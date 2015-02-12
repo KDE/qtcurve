@@ -105,11 +105,11 @@ setup(GtkWidget *from, GtkWidget *to, int map)
     if (from && to && !getMapHacked(fromProps, map)) {
         if (!qtcWidgetProps(fromProps)->widgetMapHacked) {
             qtcConnectToProp(fromProps, widgetMapDestroy, "destroy-event",
-                             destroy, nullptr);
+                             destroy);
             qtcConnectToProp(fromProps, widgetMapUnrealize, "unrealize",
-                             destroy, nullptr);
+                             destroy);
             qtcConnectToProp(fromProps, widgetMapStyleSet, "style-set",
-                             styleSet, nullptr);
+                             styleSet);
         }
         setMapHacked(fromProps, map);
         lookupHash(from, to, map);

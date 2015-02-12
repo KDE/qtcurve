@@ -92,7 +92,7 @@ bool isNoEtchWidget(const QWidget *widget)
     // KHTML:  widget -> QWidget -> QWidget -> KHTMLView
     const QObject *w = (widget && widget->parent() &&
                         widget->parent()->parent() ?
-                        widget->parent()->parent()->parent() : 0L);
+                        widget->parent()->parent()->parent() : nullptr);
 
     return ((w && isA(w, "KHTMLView")) ||
             (widget && isInQAbstractItemView(widget->parentWidget())));
@@ -175,14 +175,14 @@ scrollViewFrame(QWidget *widget)
 {
     QWidget *w = widget;
 
-    for (int i=0; i<10 && w; ++i, w=w->parentWidget()) {
-        if ((qobject_cast<QFrame *>(w) &&
-             ((QFrame *)w)->frameWidth() > 0) ||
-            qobject_cast<QTabWidget *>(w)) {
+    for (int i = 0; i < 10 && w;i++, w = w->parentWidget()) {
+        if ((qobject_cast<QFrame*>(w) &&
+             ((QFrame*)w)->frameWidth() > 0) ||
+            qobject_cast<QTabWidget*>(w)) {
             return w;
         }
     }
-    return NULL;
+    return nullptr;
 }
 
 QToolBar*
@@ -199,7 +199,7 @@ getToolBarChild(QWidget *w)
         }
     }
 
-    return 0L;
+    return nullptr;
 }
 
 void
@@ -223,29 +223,31 @@ setStyleRecursive(QWidget *w, QStyle *s, int minSize)
 bool
 updateMenuBarEvent(QMouseEvent *event, QMenuBar *menu)
 {
-    struct HackEvent :public QMouseEvent
-    {
-        bool adjust()
-            {
-                if (l.x() < 2 || l.y() < 2) {
-                    l = QPointF(l.x() < 2 ? l.x() + 2 : l.x(),
-                                l.y() < 2 ? l.y() + 2 : l.y());
-                    s = QPointF(l.x() < 2 ? s.x() + 2 : s.x(),
-                                l.y() < 2 ? s.y() + 2 : s.y());
-                    return true;
-                }
-                return false;
+    struct HackEvent: public QMouseEvent {
+        bool
+        adjust()
+        {
+            if (l.x() < 2 || l.y() < 2) {
+                l = QPointF(l.x() < 2 ? l.x() + 2 : l.x(),
+                            l.y() < 2 ? l.y() + 2 : l.y());
+                s = QPointF(l.x() < 2 ? s.x() + 2 : s.x(),
+                            l.y() < 2 ? s.y() + 2 : s.y());
+                return true;
             }
+            return false;
+        }
     };
 
-    struct HackedMenu : public QMenuBar
-    {
-        void send(QMouseEvent *ev) { event(ev); }
+    struct HackedMenu: public QMenuBar {
+        void
+        send(QMouseEvent *ev)
+        {
+            event(ev);
+        }
     };
 
-    if(((HackEvent *)event)->adjust())
-    {
-        ((HackedMenu *)menu)->send(event);
+    if (((HackEvent*)event)->adjust()) {
+        ((HackedMenu*)menu)->send(event);
         return true;
     }
     return false;
@@ -284,21 +286,21 @@ getWidget(const QPainter *p)
             }
         }
     }
-    return 0L;
+    return nullptr;
 }
 
 const QImage*
 getImage(const QPainter *p)
 {
     return (p && p->device() && QInternal::Image==p->device()->devType() ?
-            static_cast<const QImage*>(p->device()) : 0L);
+            static_cast<const QImage*>(p->device()) : nullptr);
 }
 
 const QAbstractButton*
 getButton(const QWidget *w, const QPainter *p)
 {
     const QWidget *widget = w ? w : getWidget(p);
-    return widget ? qobject_cast<const QAbstractButton*>(widget) : 0L;
+    return widget ? qobject_cast<const QAbstractButton*>(widget) : nullptr;
 }
 
 void
@@ -360,10 +362,9 @@ isInQAbstractItemView(const QObject *w)
 const QToolBar*
 getToolBar(const QWidget *w)
 {
-    return (w ?
-            qobject_cast<const QToolBar*>(w) ?
+    return (w ? qobject_cast<const QToolBar*>(w) ?
             static_cast<const QToolBar*>(w) :
-            getToolBar(w->parentWidget()) : 0L);
+            getToolBar(w->parentWidget()) : nullptr);
 }
 
 void
@@ -403,7 +404,7 @@ adjustToolbarButtons(const QWidget *widget, const QToolBar *toolbar,
     const int constAdjust=6;
     const int d = 1;
     QRect geo(widget->geometry());
-    if (Qt::Horizontal == toolbar->orientation()) {
+    if (toolbar->orientation() == Qt::Horizontal) {
         bool haveLeft =
             qobject_cast<QToolButton*>(toolbar->childAt(geo.x() -
                                                         d, geo.y()));
@@ -435,7 +436,7 @@ adjustToolbarButtons(const QWidget *widget, const QToolBar *toolbar,
         } else if (haveTop) {
             topAdjust = -constAdjust;
             round = ROUNDED_BOTTOM;
-        } else if(haveBot) {
+        } else if (haveBot) {
             bottomAdjust = constAdjust;
             round = ROUNDED_TOP;
         }

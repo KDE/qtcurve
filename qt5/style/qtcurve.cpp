@@ -4093,7 +4093,7 @@ Style::getFrameRound(const QWidget *widget) const
     if (opts.square & SQUARE_FRAME) {
         return ROUNDED_NONE;
     }
-    const QWidget *window = widget ? widget->window() : NULL;
+    const QWidget *window = widget ? widget->window() : nullptr;
 
     if (window) {
         if (widget->rect() == window->rect()) {
@@ -4227,13 +4227,13 @@ void Style::borderSizesChanged()
 static QMainWindow*
 getWindow(unsigned int xid)
 {
-    QTC_RET_IF_FAIL(xid, NULL);
+    QTC_RET_IF_FAIL(xid, nullptr);
     for (QWidget *widget: QApplication::topLevelWidgets()) {
         if (qobject_cast<QMainWindow*>(widget) && qtcGetWid(widget) == xid) {
             return static_cast<QMainWindow*>(widget);
         }
     }
-    return NULL;
+    return nullptr;
 }
 
 static bool
@@ -4241,7 +4241,7 @@ diffTime(struct timeval *lastTime)
 {
     struct timeval now, diff;
 
-    gettimeofday(&now, NULL);
+    gettimeofday(&now, nullptr);
     timersub(&now, lastTime, &diff);
     *lastTime = now;
     return diff.tv_sec > 0 || diff.tv_usec > 500000;

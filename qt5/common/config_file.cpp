@@ -186,7 +186,7 @@ toAppearance(const char *str, EAppearance def, EAppAllow allow,
             return APPEARANCE_STRIPED;
         if(APP_ALLOW_NONE==allow && 0==memcmp(str, "none", 4))
             return APPEARANCE_NONE;
-        if(NULL!=pix && APP_ALLOW_STRIPED==allow && 0==memcmp(str, "file", 4) && strlen(str)>9)
+        if (pix && APP_ALLOW_STRIPED==allow && 0==memcmp(str, "file", 4) && strlen(str)>9)
             return loadImage(&str[5], pix) || !checkImage ? APPEARANCE_FILE : def;
 
         if(0==memcmp(str, "customgradient", 14) && strlen(str)>14)
@@ -736,7 +736,7 @@ static void readDoubleList(QtCConfig &cfg, const char *key, double *list, int co
 
 #define CFG_READ_APPEARANCE(ENTRY, ALLOW) do {                          \
         opts->ENTRY = toAppearance(TO_LATIN1(readStringEntry(cfg, #ENTRY)), \
-                                   def->ENTRY, ALLOW, NULL, false);     \
+                                   def->ENTRY, ALLOW, nullptr, false);     \
     } while (0)
 
 #define CFG_READ_APPEARANCE_PIXMAP(ENTRY, ALLOW, PIXMAP, CHECK) do {    \
@@ -1064,7 +1064,7 @@ bool qtcReadConfig(const QString &file, Options *opts, Options *defOpts, bool ch
     if (file.isEmpty()) {
         const char *env=getenv("QTCURVE_CONFIG_FILE");
 
-        if (NULL != env) {
+        if (nullptr != env) {
             return qtcReadConfig(env, opts, defOpts);
         } else {
             const char *cfgDir=qtcConfDir();
@@ -1434,7 +1434,7 @@ static const char * getSystemConfigFile()
           "/etc/qt/" OLD_CONFIG_FILE,
         */
         "/etc/" OLD_CONFIG_FILE,
-        NULL
+        nullptr
     };
 
     int i;
@@ -1442,7 +1442,7 @@ static const char * getSystemConfigFile()
     for(i=0; constFiles[i]; ++i)
         if(qtcIsRegFile(constFiles[i]))
             return constFiles[i];
-    return NULL;
+    return nullptr;
 }
 
 void qtcDefaultSettings(Options *opts)
@@ -1626,7 +1626,7 @@ void qtcDefaultSettings(Options *opts)
     opts->titlebarButtonAppearance=APPEARANCE_GRADIENT;
     /* Read system config file... */
     {
-    static const char * systemFilename=NULL;
+    static const char * systemFilename=nullptr;
 
     if(!systemFilename)
         systemFilename=getSystemConfigFile();
@@ -2107,7 +2107,7 @@ static const char * toStr(ETBarBtn tb)
     if (!exportingStyle && def.ENTRY==opts.ENTRY) \
         CFG.deleteEntry(#ENTRY); \
     else \
-        CFG.writeEntry(#ENTRY, toStr(opts.ENTRY, ALLOW, NULL));
+        CFG.writeEntry(#ENTRY, toStr(opts.ENTRY, ALLOW, nullptr));
 
 #define CFG_WRITE_APPEARANCE_ENTRY_PIXMAP(ENTRY, ALLOW, PIXMAP) \
     if (!exportingStyle && def.ENTRY==opts.ENTRY) \

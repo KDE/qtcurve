@@ -146,16 +146,16 @@ qtcASNPrintf(char *buff, size_t size, const char *fmt, ...)
 }
 
 #define qtcASPrintfV(fmt, ap)                   \
-    qtcASNPrintfV(NULL, 0, fmt, ap)
+    qtcASNPrintfV(nullptr, 0, fmt, ap)
 #define qtcASPrintf(fmt, args...)               \
-    qtcASNPrintf(NULL, 0, fmt, ##args)
+    qtcASNPrintf(nullptr, 0, fmt, ##args)
 
 typedef bool (*QtcListForEachFunc)(const char *str, size_t len, void *data);
 void qtcStrListForEach(const char *str, char delim, char escape,
                        QtcListForEachFunc func, void *data);
 #define qtcStrListForEach(str, delim, escape, func, data)               \
     qtcStrListForEach(str, QTC_DEFAULT(delim, ','),                     \
-                      QTC_DEFAULT(escape, '\\'), func, QTC_DEFAULT(data, NULL))
+                      QTC_DEFAULT(escape, '\\'), func, QTC_DEFAULT(data, nullptr))
 
 typedef bool (*QtcListEleLoader)(void *ele, const char *str,
                                  size_t len, void *data);
@@ -166,7 +166,7 @@ void *qtcStrLoadList(const char *str, char delim, char escape,
 #define qtcStrLoadList(str, delim, escape, size, nele,                  \
                        buff, max_len, loader, data...)                  \
     qtcStrLoadList(str, QTC_DEFAULT(delim, ','), QTC_DEFAULT(escape, '\\'), \
-                   size, nele, QTC_DEFAULT(buff, NULL),                 \
+                   size, nele, QTC_DEFAULT(buff, nullptr),              \
                    QTC_DEFAULT(max_len, 0), loader, ##data)
 
 char **qtcStrLoadStrList(const char *str, char delim, char escape, size_t *nele,
@@ -174,14 +174,14 @@ char **qtcStrLoadStrList(const char *str, char delim, char escape, size_t *nele,
 #define qtcStrLoadStrList(str, delim, escape, nele, buff, max_len, def) \
     qtcStrLoadStrList(str, QTC_DEFAULT(delim, ','),                     \
                       QTC_DEFAULT(escape, '\\'), nele,                  \
-                      QTC_DEFAULT(buff, NULL), QTC_DEFAULT(max_len, 0), \
-                      QTC_DEFAULT(def, NULL))
+                      QTC_DEFAULT(buff, nullptr), QTC_DEFAULT(max_len, 0), \
+                      QTC_DEFAULT(def, nullptr))
 
 long *qtcStrLoadIntList(const char *str, char delim, char escape,
                         size_t *nele, long *buff=nullptr,
                         size_t max_len=0, long def=0);
-#define qtcStrLoadIntList(str, delim, escape, nele, extra...)           \
-    qtcStrLoadIntList(str, QTC_DEFAULT(delim, ','),                     \
+#define qtcStrLoadIntList(str, delim, escape, nele, extra...)   \
+    qtcStrLoadIntList(str, QTC_DEFAULT(delim, ','),             \
                       QTC_DEFAULT(escape, '\\'), nele, ##extra)
 
 double *qtcStrLoadFloatList(const char *str, char delim, char escape,
@@ -215,7 +215,7 @@ qtcStrToInt(const char *str, long def, bool *is_def=nullptr)
         return def;
     }
     str += strspn(str, " \t\b\n\f\v");
-    char *end = NULL;
+    char *end = nullptr;
     long res = strtol(str, &end, 0);
     if (end == str) {
         qtcAssign(is_def, true);
@@ -234,7 +234,7 @@ qtcStrToFloat(const char *str, double def, bool *is_def=nullptr)
         return def;
     }
     str += strspn(str, " \t\b\n\f\v");
-    char *end = NULL;
+    char *end = nullptr;
     double res = strtod(str, &end);
     if (end == str) {
         qtcAssign(is_def, true);

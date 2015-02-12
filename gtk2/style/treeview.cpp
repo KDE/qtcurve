@@ -117,7 +117,7 @@ updatePosition(GtkWidget *widget, int x, int y)
             GtkTreeViewColumn *column = nullptr;
 
             gtk_tree_view_get_path_at_pos(treeView, x, y, &path,
-                                          &column, 0L, 0L);
+                                          &column, nullptr, nullptr);
 
             if (!samePath(tv->path, path)) {
                 // prepare update area
@@ -231,8 +231,8 @@ getCell(GtkTreeView *treeView, GtkTreePath **path, GtkTreeViewColumn **column,
                                 {x + width - 1, y + 1},
                                 {x + width, y + height - 1}};
     for (int pos = 0;pos < 4 && !(*path);pos++) {
-        gtk_tree_view_get_path_at_pos(treeView, points[pos].x,
-                                      points[pos].y, path, column, 0L, 0L);
+        gtk_tree_view_get_path_at_pos(treeView, points[pos].x, points[pos].y,
+                                      path, column, nullptr, nullptr);
     }
 }
 
@@ -254,20 +254,17 @@ setup(GtkWidget *widget)
             gtk_widget_style_get(widget, "row_ending_details",
                                  &tv->fullWidth, nullptr);
 #endif
-            gdk_window_get_pointer(gtk_widget_get_window(widget), &x, &y, 0L);
+            gdk_window_get_pointer(gtk_widget_get_window(widget),
+                                   &x, &y, nullptr);
             gtk_tree_view_convert_widget_to_bin_window_coords(treeView, x, y,
                                                               &x, &y);
             updatePosition(widget, x, y);
-            qtcConnectToProp(props, treeViewDestroy, "destroy-event",
-                             destroy, nullptr);
-            qtcConnectToProp(props, treeViewUnrealize, "unrealize",
-                             destroy, nullptr);
-            qtcConnectToProp(props, treeViewStyleSet, "style-set",
-                             styleSet, nullptr);
+            qtcConnectToProp(props, treeViewDestroy, "destroy-event", destroy);
+            qtcConnectToProp(props, treeViewUnrealize, "unrealize", destroy);
+            qtcConnectToProp(props, treeViewStyleSet, "style-set", styleSet);
             qtcConnectToProp(props, treeViewMotion, "motion-notify-event",
-                             motion, nullptr);
-            qtcConnectToProp(props, treeViewLeave, "leave-notify-event",
-                             leave, nullptr);
+                             motion);
+            qtcConnectToProp(props, treeViewLeave, "leave-notify-event", leave);
         }
 
         if (!gtk_tree_view_get_show_expanders(treeView))

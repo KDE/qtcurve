@@ -38,7 +38,7 @@ static bool
 qtcSignalHandlerSet(int sig)
 {
     struct sigaction oact;
-    QTC_RET_IF_FAIL(sigaction(sig, NULL, &oact) == 0, false);
+    QTC_RET_IF_FAIL(sigaction(sig, nullptr, &oact) == 0, false);
     void *handler = ((oact.sa_flags & SA_SIGINFO) ? (void*)oact.sa_handler :
                      (void*)oact.sa_sigaction);
     return QtCurve::noneOf(handler, SIG_DFL, SIG_IGN);
@@ -186,7 +186,7 @@ qtcPopen(const char *file, const char *const *argv,
          unsigned fd_num, QtcPopenFD *fds)
 {
     if (qtcUnlikely(!fds || !fd_num)) {
-        return qtcSpawn(file, argv, NULL, NULL);
+        return qtcSpawn(file, argv, nullptr, nullptr);
     }
     for (unsigned i = 0;i < fd_num;i++) {
         QTC_RET_IF_FAIL(fds[i].orig >= 0, false);
@@ -276,7 +276,7 @@ qtcPopenBuff(const char *file, const char *const argv[],
              unsigned buff_num, QtcPopenBuff *buffs, int timeout)
 {
     if (qtcUnlikely(!buffs || !buff_num)) {
-        return qtcSpawn(file, argv, NULL, NULL);
+        return qtcSpawn(file, argv, nullptr, nullptr);
     }
     bool need_poll = false;
     for (unsigned i = 0;i < buff_num;i++) {

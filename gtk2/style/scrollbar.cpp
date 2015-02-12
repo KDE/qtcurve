@@ -86,14 +86,11 @@ setupSlider(GtkWidget *widget)
     QTC_DEF_WIDGET_PROPS(props, widget);
     if (widget && !qtcWidgetProps(props)->scrollBarHacked) {
         qtcWidgetProps(props)->scrollBarHacked = true;
-        qtcConnectToProp(props, scrollBarDestroy, "destroy-event",
-                         destroy, nullptr);
-        qtcConnectToProp(props, scrollBarUnrealize, "unrealize",
-                         destroy, nullptr);
-        qtcConnectToProp(props, scrollBarStyleSet, "style-set",
-                         styleSet, nullptr);
+        qtcConnectToProp(props, scrollBarDestroy, "destroy-event", destroy);
+        qtcConnectToProp(props, scrollBarUnrealize, "unrealize", destroy);
+        qtcConnectToProp(props, scrollBarStyleSet, "style-set", styleSet);
         qtcConnectToProp(props, scrollBarValueChanged, "value-changed",
-                         valueChanged, nullptr);
+                         valueChanged);
     }
 }
 

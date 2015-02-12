@@ -33,7 +33,7 @@ main()
     char *asprintf_res;
     asprintf(&asprintf_res, TEST_FORMAT);
 
-    char *m_res1 = _qtcSPrintf(NULL, NULL, false, TEST_FORMAT);
+    char *m_res1 = _qtcSPrintf(nullptr, nullptr, false, TEST_FORMAT);
     size_t size = 10;
     char *m_res2 = _qtcSPrintf((char*)malloc(10), &size, true, TEST_FORMAT);
     assert(size > strlen(m_res2));

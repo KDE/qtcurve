@@ -66,7 +66,7 @@ Style::prePolish(QWidget *widget) const
         // be used in other cases.
 
         // Fix for kaffeine. Kaffeine needs a RGB window for the XV extension.
-        // Setting parent to NULL forces a native RGB window to be created
+        // Setting parent to nullptr forces a native RGB window to be created
         // for MediaWidget so that its children will also have RGB visual.
         // Kaffeine later sets the parent again (when adding the to layout)
         // after the native RGB children has already been created and in this
@@ -81,7 +81,7 @@ Style::prePolish(QWidget *widget) const
                 props->prePolished = true;
                 // Kaffeine set parent back after children window has been
                 // created.
-                widget->setParent(NULL);
+                widget->setParent(nullptr);
                 widget->createWinId();
             }
             return;

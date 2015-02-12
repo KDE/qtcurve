@@ -52,7 +52,7 @@ subProcess(int, char **argv)
 static void
 mainProcess(int, char **argv)
 {
-    srandom(time(NULL));
+    srandom(time(nullptr));
     fillBuffer(buff1, sizeof(buff1));
     fillBuffer(buff2, sizeof(buff2));
     QtcPopenBuff popen_buffs[] = {{
@@ -68,7 +68,7 @@ mainProcess(int, char **argv)
         }
     };
     alarm(1);
-    const char* const args[] = {argv[0], buff1, buff2, NULL};
+    const char* const args[] = {argv[0], buff1, buff2, nullptr};
     qtcPopenBuff(argv[0], args, sizeof(popen_buffs) / sizeof(popen_buffs[0]),
                  popen_buffs, 100);
     assert(popen_buffs[1].len == sizeof(buff2));

@@ -138,7 +138,8 @@ setupConnections(GtkWidget *widget, GtkWidget *parent)
             int x, y;
             QtcRect alloc = Widget::getAllocation(parent);
 
-            gdk_window_get_pointer(gtk_widget_get_window(parent), &x, &y, 0L);
+            gdk_window_get_pointer(gtk_widget_get_window(parent),
+                                   &x, &y, nullptr);
             if (x >= 0 && x <alloc.width && y >= 0 && y < alloc.height) {
                 hoverWidget = parent;
             }

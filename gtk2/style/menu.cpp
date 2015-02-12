@@ -210,18 +210,17 @@ shellSetup(GtkWidget *widget)
     if (GTK_IS_MENU_BAR(widget) && !qtcWidgetProps(props)->menuShellHacked) {
         qtcWidgetProps(props)->menuShellHacked = true;
         qtcConnectToProp(props, menuShellMotion, "motion-notify-event",
-                         shellMotion, nullptr);
+                         shellMotion);
         qtcConnectToProp(props, menuShellLeave, "leave-notify-event",
-                         shellLeave, nullptr);
+                         shellLeave);
         qtcConnectToProp(props, menuShellDestroy, "destroy-event",
-                         shellDestroy, nullptr);
-        qtcConnectToProp(props, menuShellStyleSet, "style-set",
-                         shellStyleSet, nullptr);
+                         shellDestroy);
+        qtcConnectToProp(props, menuShellStyleSet, "style-set", shellStyleSet);
 #ifdef EXTEND_MENUBAR_ITEM_HACK
         qtcConnectToProp(props, menuShellButtonPress, "button-press-event",
-                         shellButtonPress, nullptr);
+                         shellButtonPress);
         qtcConnectToProp(props, menuShellButtonRelease, "button-release-event",
-                         shellButtonPress, nullptr);
+                         shellButtonPress);
 #endif
     }
 }

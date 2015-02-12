@@ -40,18 +40,18 @@
 
 #if __MAC_OS_X_VERSION_MAX_ALLOWED < 1070
 static size_t getline(char **lineptr, size_t *n, FILE *stream) {
-    char *bufptr = NULL;
+    char *bufptr = nullptr;
     char *p = bufptr;
     size_t size;
     int c;
 
-    if (lineptr == NULL) {
+    if (lineptr == nullptr) {
         return -1;
     }
-    if (stream == NULL) {
+    if (stream == nullptr) {
         return -1;
     }
-    if (n == NULL) {
+    if (n == nullptr) {
         return -1;
     }
     bufptr = *lineptr;
@@ -61,9 +61,9 @@ static size_t getline(char **lineptr, size_t *n, FILE *stream) {
     if (c == EOF) {
         return -1;
     }
-    if (bufptr == NULL) {
+    if (bufptr == nullptr) {
         bufptr = malloc(128);
-        if (bufptr == NULL) {
+        if (bufptr == nullptr) {
             return -1;
         }
         size = 128;
@@ -73,7 +73,7 @@ static size_t getline(char **lineptr, size_t *n, FILE *stream) {
         if ((p - bufptr) > (size - 1)) {
             size = size + 128;
             bufptr = realloc(bufptr, size);
-            if (bufptr == NULL) {
+            if (bufptr == nullptr) {
                 return -1;
             }
         }
@@ -101,7 +101,7 @@ determineFileName(const char *file)
     if('/'==file[0])
         return file;
 
-    static char *filename = NULL;
+    static char *filename = nullptr;
     filename = QtCurve::fillStrs(filename, qtcConfDir(), file);
     return filename;
 }
@@ -132,8 +132,8 @@ void qtcSetRgb(GdkColor *col, const char *str)
 static bool
 loadImage(const char *file, QtCPixmap *pixmap)
 {
-    pixmap->img = gdk_pixbuf_new_from_file(determineFileName(file), NULL);
-    return NULL != pixmap->img;
+    pixmap->img = gdk_pixbuf_new_from_file(determineFileName(file), nullptr);
+    return nullptr != pixmap->img;
 }
 
 static EDefBtnIndicator
@@ -239,7 +239,7 @@ static EAppearance toAppearance(const char *str, EAppearance def, EAppAllow allo
             return APPEARANCE_STRIPED;
         if(APP_ALLOW_NONE==allow && 0==memcmp(str, "none", 4))
             return APPEARANCE_NONE;
-        if(NULL!=pix && APP_ALLOW_STRIPED==allow && 0==memcmp(str, "file", 4) && strlen(str)>9)
+        if(nullptr!=pix && APP_ALLOW_STRIPED==allow && 0==memcmp(str, "file", 4) && strlen(str)>9)
             return loadImage(&str[5], pix) || !checkImage ? APPEARANCE_FILE : def;
 
         if(0==memcmp(str, "customgradient", 14) && strlen(str)>14)
@@ -547,9 +547,9 @@ qtcGetWindowBorderSize(bool force)
 
     if (-1 == sizes.titleHeight || force) {
         char *filename = QtCurve::catStrs(qtcConfDir(), BORDER_SIZE_FILE);
-        FILE *f = NULL;
+        FILE *f = nullptr;
         if ((f = fopen(filename, "r"))) {
-            char *line=NULL;
+            char *line=nullptr;
             size_t len;
             getline(&line, &len, f);
             sizes.titleHeight=atoi(line);
@@ -571,7 +571,7 @@ qtcGetWindowBorderSize(bool force)
 static char*
 qtcGetBarFileName(const char *app, const char *prefix)
 {
-    static char *filename = NULL;
+    static char *filename = nullptr;
     filename = QtCurve::fillStrs(filename, qtcConfDir(), prefix, app);
     return filename;
 }
@@ -600,12 +600,12 @@ void qtcLoadBgndImage(QtCImage *img)
         ( (img->width>16 && img->width<1024 && img->height>16 && img->height<1024) || (0==img->width && 0==img->height)) )
     {
         img->loaded=true;
-        img->pixmap.img=0L;
+        img->pixmap.img=nullptr;
         if(img->pixmap.file)
         {
             img->pixmap.img=0==img->width
-                            ? gdk_pixbuf_new_from_file(determineFileName(img->pixmap.file), NULL)
-                            : gdk_pixbuf_new_from_file_at_scale(determineFileName(img->pixmap.file), img->width, img->height, false, NULL);
+                            ? gdk_pixbuf_new_from_file(determineFileName(img->pixmap.file), nullptr)
+                            : gdk_pixbuf_new_from_file_at_scale(determineFileName(img->pixmap.file), img->width, img->height, false, nullptr);
             if(img->pixmap.img && 0==img->width && img->pixmap.img)
             {
                 img->width=gdk_pixbuf_get_width(img->pixmap.img);
@@ -626,7 +626,7 @@ checkColor(EShade *s, GdkColor *c)
 static char*
 lookupCfgHash(GHashTable **cfg, const char *key, char *val)
 {
-    char *rv = NULL;
+    char *rv = nullptr;
 
     if (!*cfg) {
         *cfg = g_hash_table_new(g_str_hash, g_str_equal);
@@ -644,13 +644,13 @@ lookupCfgHash(GHashTable **cfg, const char *key, char *val)
 static GHashTable * loadConfig(const char *filename)
 {
     FILE       *f=fopen(filename, "r");
-    GHashTable *cfg=NULL;
+    GHashTable *cfg=nullptr;
 
     if(f)
     {
         char line[MAX_CONFIG_INPUT_LINE_LEN];
 
-        while(NULL!=fgets(line, MAX_CONFIG_INPUT_LINE_LEN-1, f))
+        while(nullptr!=fgets(line, MAX_CONFIG_INPUT_LINE_LEN-1, f))
         {
             char *eq=strchr(line, '=');
             int  pos=eq ? eq-line : -1;
@@ -683,7 +683,7 @@ releaseConfig(GHashTable *cfg)
 static char*
 readStringEntry(GHashTable *cfg, const char *key)
 {
-    return lookupCfgHash(&cfg, key, NULL);
+    return lookupCfgHash(&cfg, key, nullptr);
 }
 
 static int
@@ -738,7 +738,7 @@ readDoubleList(GHashTable *cfg, const char *key, double *list, int count)
                 {
                     if(c)
                         *c='\0';
-                    list[j]=g_ascii_strtod(str, NULL);
+                    list[j]=g_ascii_strtod(str, nullptr);
                     str=c+1;
                 }
                 else
@@ -789,7 +789,7 @@ readDoubleList(GHashTable *cfg, const char *key, double *list, int count)
             opts->ENTRY = g_strsplit(str, ",", -1);      \
         } else if (def->ENTRY) {                         \
             opts->ENTRY = def->ENTRY;                    \
-            def->ENTRY = NULL;                           \
+            def->ENTRY = nullptr;                           \
         }                                                \
     } while (0)
 
@@ -826,7 +826,7 @@ readDoubleList(GHashTable *cfg, const char *key, double *list, int count)
 
 #define CFG_READ_APPEARANCE(ENTRY, ALLOW) do {                          \
         opts->ENTRY = toAppearance(TO_LATIN1(readStringEntry(cfg, #ENTRY)), \
-                                   def->ENTRY, ALLOW, NULL, false);     \
+                                   def->ENTRY, ALLOW, nullptr, false);     \
     } while (0)
 
 #define CFG_READ_APPEARANCE_PIXMAP(ENTRY, ALLOW, PIXMAP, CHECK) do {    \
@@ -969,7 +969,7 @@ static void copyOpts(Options *src, Options *dest)
         dest->noMenuBgndOpacityApps=src->noMenuBgndOpacityApps;
         dest->noBgndImageApps=src->noBgndImageApps;
         dest->noMenuStripeApps=src->noMenuStripeApps;
-        src->noBgndGradientApps=src->noBgndOpacityApps=src->noMenuBgndOpacityApps=src->noBgndImageApps=src->noMenuStripeApps=NULL;
+        src->noBgndGradientApps=src->noBgndOpacityApps=src->noMenuBgndOpacityApps=src->noBgndImageApps=src->noMenuStripeApps=nullptr;
         memcpy(dest->customShades, src->customShades,
                sizeof(double) * QTC_NUM_STD_SHADES);
         memcpy(dest->customAlphas, src->customAlphas,
@@ -1001,7 +1001,7 @@ freeOpts(Options *opts)
             if (auto &grad = opts->customGradient[i]) {
                 free(grad->stops);
                 free(grad);
-                grad = NULL;
+                grad = nullptr;
             }
         }
     }
@@ -1234,9 +1234,9 @@ bool qtcReadConfig(const char *file, Options *opts, Options *defOpts)
 
             Options newOpts;
             Options *def=&newOpts;
-            opts->noBgndGradientApps=opts->noBgndOpacityApps=opts->noMenuBgndOpacityApps=opts->noBgndImageApps=opts->noMenuStripeApps=NULL;
+            opts->noBgndGradientApps=opts->noBgndOpacityApps=opts->noMenuBgndOpacityApps=opts->noBgndImageApps=opts->noMenuStripeApps=nullptr;
             for (int i = 0;i < NUM_CUSTOM_GRAD;++i) {
-                opts->customGradient[i] = NULL;
+                opts->customGradient[i] = nullptr;
             }
 
             if(defOpts)
@@ -1538,25 +1538,25 @@ bool qtcReadConfig(const char *file, Options *opts, Options *defOpts)
                                     if (c) {
                                         *c = '\0';
                                         grad->stops[stop].pos =
-                                            g_ascii_strtod(str, NULL);
+                                            g_ascii_strtod(str, nullptr);
                                         str = c + 1;
-                                        c = str ? strchr(str, ',') : 0L;
+                                        c = str ? strchr(str, ',') : nullptr;
 
                                         if (c || str) {
                                             if (c) {
                                                 *c = '\0';
                                             }
                                             grad->stops[stop].val =
-                                                g_ascii_strtod(str, NULL);
+                                                g_ascii_strtod(str, nullptr);
                                             str = c ? c + 1 : c;
                                             if (haveAlpha) {
-                                                c = str ? strchr(str, ',') : 0L;
+                                                c = str ? strchr(str, ',') : nullptr;
                                                 if (c || str) {
                                                     if (c) {
                                                         *c = '\0';
                                                     }
                                                     grad->stops[stop].alpha =
-                                                        g_ascii_strtod(str, NULL);
+                                                        g_ascii_strtod(str, nullptr);
                                                     str = c ? c + 1 : c;
                                                 } else {
                                                     ok = false;
@@ -1658,14 +1658,14 @@ static const char * getSystemConfigFile()
             return constFiles[i];
         }
     }
-    return NULL;
+    return nullptr;
 }
 
 void qtcDefaultSettings(Options *opts)
 {
     /* Set hard-coded defaults... */
     for (int i = 0;i < NUM_CUSTOM_GRAD;++i) {
-        opts->customGradient[i] = NULL;
+        opts->customGradient[i] = nullptr;
     }
     opts->customGradient[APPEARANCE_CUSTOM1] = qtcNew(Gradient);
     opts->customGradient[APPEARANCE_CUSTOM2] = qtcNew(Gradient);
@@ -1814,9 +1814,9 @@ void qtcDefaultSettings(Options *opts)
     opts->toolbarTabs=false;
     opts->bgndOpacity = opts->dlgOpacity = opts->menuBgndOpacity = 100;
     opts->gtkComboMenus=false;
-    opts->noBgndGradientApps=NULL;
+    opts->noBgndGradientApps=nullptr;
     opts->noBgndOpacityApps=g_strsplit("sonata,totem,vmware,vmplayer",",", -1);;
-    opts->noBgndImageApps=NULL;
+    opts->noBgndImageApps=nullptr;
     opts->noMenuStripeApps=g_strsplit("gtk",",", -1);
     opts->noMenuBgndOpacityApps=g_strsplit("sonata,totem,vmware,vmplayer,gtk",",", -1);
 /*
@@ -1836,7 +1836,7 @@ void qtcDefaultSettings(Options *opts)
     opts->titlebarAppearance=APPEARANCE_CUSTOM1;
     opts->inactiveTitlebarAppearance=APPEARANCE_CUSTOM1;
     /* Read system config file... */
-    static const char *systemFilename = NULL;
+    static const char *systemFilename = nullptr;
 
     if (!systemFilename) {
         systemFilename = getSystemConfigFile();

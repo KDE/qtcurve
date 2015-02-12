@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2007 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -88,8 +88,8 @@ Handler()
 QtCurveHandler::QtCurveHandler() :
     m_lastMenuXid(0),
     m_lastStatusXid(0),
-    m_style(NULL),
-    m_dBus(NULL)
+    m_style(nullptr),
+    m_dBus(nullptr)
 {
     qtcX11InitXlib(QX11Info::display());
     handler = this;
@@ -428,17 +428,23 @@ void QtCurveHandler::emitToggleStatusBar(int xid)
     m_dBus->emitSbToggle(xid);
 }
 
-int QtCurveHandler::borderEdgeSize() const
+int
+QtCurveHandler::borderEdgeSize() const
 {
-    return m_config.edgePad()+
-                (outerBorder()
-                    ? (m_config.borderSize()>QtCurveConfig::BORDER_NO_SIDES &&
-                        wStyle()->pixelMetric((QStyle::PixelMetric)QtC_Round, 0L, 0L)<ROUND_FULL)
-                        ? wStyle()->pixelMetric((QStyle::PixelMetric)QtC_WindowBorder, 0L, 0L)&WINDOW_BORDER_ADD_LIGHT_BORDER
-                            ? 2
-                            : 1
-                        : 3
-                    : 1);
+    auto edgePad = m_config.edgePad();
+    if (!outerBorder()) {
+        return edgePad + 1;
+    } else if (m_config.borderSize() <= QtCurveConfig::BORDER_NO_SIDES ||
+               wStyle()->pixelMetric((QStyle::PixelMetric)QtC_Round,
+                                     nullptr, nullptr) >= ROUND_FULL) {
+        return edgePad + 3;
+    } else if (wStyle()->pixelMetric((QStyle::PixelMetric)QtC_WindowBorder,
+                                     nullptr, nullptr) &
+               WINDOW_BORDER_ADD_LIGHT_BORDER) {
+        return edgePad + 2;
+    } else {
+        return edgePad + 1;
+    }
 }
 
 void QtCurveHandler::removeClient(QtCurveClient *c)

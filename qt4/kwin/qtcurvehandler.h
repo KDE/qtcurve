@@ -75,7 +75,7 @@ class QtCurveDBus;
 #define _KDecorationFactoryBase KDecorationFactory
 #endif
 
-class QtCurveHandler : public QObject, public _KDecorationFactoryBase {
+class QtCurveHandler: public QObject, public _KDecorationFactoryBase {
     Q_OBJECT
 public:
     QtCurveHandler();

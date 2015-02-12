@@ -52,13 +52,13 @@ QTC_ALWAYS_INLINE static inline char*
 qtcPopenStdout(const char *file, const char *const *argv,
                int timeout, size_t *len)
 {
-    QtcPopenBuff popen_buff = {1, QTC_POPEN_READ, NULL, 0};
+    QtcPopenBuff popen_buff = {1, QTC_POPEN_READ, nullptr, 0};
     bool res = qtcPopenBuff(file, argv, 1, &popen_buff, timeout);
     qtcAssign(len, popen_buff.len);
-    QTC_RET_IF_FAIL(res, NULL);
+    QTC_RET_IF_FAIL(res, nullptr);
     if (!popen_buff.len) {
         free(popen_buff.buff);
-        return NULL;
+        return nullptr;
     }
     popen_buff.buff[popen_buff.len] = '\0';
     return popen_buff.buff;

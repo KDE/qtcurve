@@ -181,20 +181,20 @@ qtcWidgetProps(QtcGtkWidgetProps *props)
 
 #define QTC_DEF_WIDGET_PROPS(name, widget)                      \
     QtcGtkWidgetProps __qtc_gtk_widget_props_##name = {         \
-        (GObject*)(widget), NULL                                \
+        (GObject*)(widget), nullptr                             \
     };                                                          \
     QtcGtkWidgetProps *name = &__qtc_gtk_widget_props_##name
 
 static inline void
 qtcConnectToProp(GObject *obj, int *prop, const char *sig_name,
-                 GCallback cb, void *data)
+                 GCallback cb, void *data=nullptr)
 {
     *prop = g_signal_connect(obj, sig_name, cb, data);
 }
 
-#define qtcConnectToProp(props, field, sig_name, cb, data)      \
+#define qtcConnectToProp(props, field, sig_name, cb, data...)   \
     qtcConnectToProp(props->obj, &qtcWidgetProps(props)->field, \
-                     sig_name, G_CALLBACK(cb), data)
+                     sig_name, G_CALLBACK(cb), ##data)
 
 #define qtcDisconnectFromProp(props, field) do {                        \
         _QtcGtkWidgetProps *_props = qtcWidgetProps(props);             \

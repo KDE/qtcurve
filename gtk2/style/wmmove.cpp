@@ -36,10 +36,10 @@ namespace WMMove {
 static int lastX = -1;
 static int lastY = -1;
 static int timer = 0;
-static GtkWidget *dragWidget = NULL;
+static GtkWidget *dragWidget = nullptr;
 //! keep track of the last rejected button event to reject it again if passed to some parent widget
 /*! this spares some time (by not processing the same event twice), and prevents some bugs */
-GdkEventButton *lastRejectedEvent = NULL;
+GdkEventButton *lastRejectedEvent = nullptr;
 
 static int btnReleaseSignalId = 0;
 static int btnReleaseHookId = 0;
@@ -63,8 +63,8 @@ registerBtnReleaseHook()
         if (btnReleaseSignalId) {
             btnReleaseHookId =
                 g_signal_add_emission_hook(btnReleaseSignalId,
-                                           (GQuark)0L, btnReleaseHook,
-                                           0L, 0L);
+                                           (GQuark)0, btnReleaseHook,
+                                           nullptr, nullptr);
         }
     }
 }
@@ -82,8 +82,8 @@ reset()
 {
     lastX = -1;
     lastY = -1;
-    dragWidget = NULL;
-    lastRejectedEvent = NULL;
+    dragWidget = nullptr;
+    lastRejectedEvent = nullptr;
     stopTimer();
 }
 
@@ -110,7 +110,7 @@ withinWidget(GtkWidget *widget, GdkEventButton *event)
 {
     // get top level widget
     GtkWidget *topLevel=gtk_widget_get_toplevel(widget);;
-    GdkWindow *window = topLevel ? gtk_widget_get_window(topLevel) : NULL;
+    GdkWindow *window = topLevel ? gtk_widget_get_window(topLevel) : nullptr;
 
     if (window) {
         QtcRect allocation;
@@ -170,7 +170,7 @@ childrenUseEvent(GtkWidget *widget, GdkEventButton *event, bool inNoteBook)
         // cast child to GtkWidget
         if (GTK_IS_WIDGET(child->data)) {
             GtkWidget *childWidget = GTK_WIDGET(child->data);
-            GdkWindow *window = NULL;
+            GdkWindow *window = nullptr;
 
             // check widget state and type
             if (gtk_widget_get_state(childWidget) == GTK_STATE_PRELIGHT) {
@@ -256,7 +256,7 @@ isWindowDragWidget(GtkWidget *widget, GdkEventButton *event)
         // Start timer
         stopTimer();
         timer = g_timeout_add(qtSettings.startDragTime,
-                              (GSourceFunc)startDelayedDrag, NULL);
+                              (GSourceFunc)startDelayedDrag, nullptr);
         return true;
     }
     lastRejectedEvent=event;
@@ -345,7 +345,7 @@ void
 setup(GtkWidget *widget)
 {
     QTC_RET_IF_FAIL(widget);
-    GtkWidget *parent = NULL;
+    GtkWidget *parent = nullptr;
 
     if (GTK_IS_WINDOW(widget) &&
         !gtk_window_get_decorated(GTK_WINDOW(widget))) {
@@ -381,16 +381,12 @@ setup(GtkWidget *widget)
                               GDK_BUTTON_PRESS_MASK | GDK_LEAVE_NOTIFY_MASK |
                               GDK_BUTTON1_MOTION_MASK);
         registerBtnReleaseHook();
-        qtcConnectToProp(props, wmMoveDestroy, "destroy-event",
-                         destroy, NULL);
-        qtcConnectToProp(props, wmMoveStyleSet, "style-set",
-                         styleSet, NULL);
-        qtcConnectToProp(props, wmMoveMotion, "motion-notify-event",
-                         motion, NULL);
-        qtcConnectToProp(props, wmMoveLeave, "leave-notify-event",
-                         leave, NULL);
+        qtcConnectToProp(props, wmMoveDestroy, "destroy-event", destroy);
+        qtcConnectToProp(props, wmMoveStyleSet, "style-set", styleSet);
+        qtcConnectToProp(props, wmMoveMotion, "motion-notify-event", motion);
+        qtcConnectToProp(props, wmMoveLeave, "leave-notify-event", leave);
         qtcConnectToProp(props, wmMoveButtonPress, "button-press-event",
-                         buttonPress, NULL);
+                         buttonPress);
     }
 }
 

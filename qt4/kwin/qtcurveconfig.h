@@ -53,8 +53,8 @@ public:
     QtCurveConfig()               { defaults(); }
 
     void defaults();
-    void load(const KConfig *cfg, const char *grp=0L);
-    void save(KConfig *cfg, const char *grp=0L);
+    void load(const KConfig *cfg, const char *grp=nullptr);
+    void save(KConfig *cfg, const char *grp=nullptr);
 
     Size  borderSize() const        { return (Size)m_borderSize; }
     bool  roundBottom() const       { return m_roundBottom; }

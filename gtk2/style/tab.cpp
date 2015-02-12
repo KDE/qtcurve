@@ -122,7 +122,7 @@ motion(GtkWidget *widget, GdkEventMotion*, void*)
     if (tab) {
         int px;
         int py;
-        gdk_window_get_pointer(gtk_widget_get_window(widget), &px, &py, NULL);
+        gdk_window_get_pointer(gtk_widget_get_window(widget), &px, &py, nullptr);
 
         for (size_t i = 0;i < tab->rects.size();i++) {
             auto &rect = tab->rects[i];
@@ -258,16 +258,12 @@ setup(GtkWidget *widget)
     if (widget && !qtcWidgetProps(props)->tabHacked) {
         qtcWidgetProps(props)->tabHacked = true;
         tabMap.lookup(widget, true);
-        qtcConnectToProp(props, tabDestroy, "destroy-event",
-                         destroy, NULL);
-        qtcConnectToProp(props, tabUnrealize, "unrealize", destroy, NULL);
-        qtcConnectToProp(props, tabStyleSet, "style-set", styleSet, NULL);
-        qtcConnectToProp(props, tabMotion, "motion-notify-event",
-                         motion, NULL);
-        qtcConnectToProp(props, tabLeave, "leave-notify-event",
-                         leave, NULL);
-        qtcConnectToProp(props, tabPageAdded, "page-added",
-                         pageAdded, NULL);
+        qtcConnectToProp(props, tabDestroy, "destroy-event", destroy);
+        qtcConnectToProp(props, tabUnrealize, "unrealize", destroy);
+        qtcConnectToProp(props, tabStyleSet, "style-set", styleSet);
+        qtcConnectToProp(props, tabMotion, "motion-notify-event", motion);
+        qtcConnectToProp(props, tabLeave, "leave-notify-event", leave);
+        qtcConnectToProp(props, tabPageAdded, "page-added", pageAdded);
         updateChildren(widget);
     }
 }
@@ -310,7 +306,7 @@ getTabbarRect(GtkNotebook *notebook)
     unsigned int borderWidth;
     int pageIndex;
     GtkWidget *page;
-    GList *children = NULL;
+    GList *children = nullptr;
     // check tab visibility
     if (!(gtk_notebook_get_show_tabs(notebook) &&
           (children = gtk_container_get_children(GTK_CONTAINER(notebook))))) {

@@ -317,7 +317,7 @@ public:
         layout->setMargin(0);
         layout->setSpacing(KDialog::spacingHint());
 
-        m_selector = new KCharSelect(page, NULL);
+        m_selector = new KCharSelect(page, nullptr);
         m_selector->setCurrentChar(QChar(v));
         layout->addWidget(m_selector);
     }
@@ -465,7 +465,7 @@ kdeHome(bool kde3)
     if (kdeHome[kde3 ? 0 : 1].isEmpty()) {
         size_t len = 0;
         const char *kde_config = kde3 ? "kde-config" : "kde4-config";
-        const char *const argv[] = {kde_config, "--localprefix", NULL};
+        const char *const argv[] = {kde_config, "--localprefix", nullptr};
         char *res = qtcPopenStdout(kde_config, argv, 300, &len);
         if (res) {
             res[len] = '\0';
@@ -850,13 +850,13 @@ static void insertTBarBtnEntries(QComboBox *combo)
 
 QtCurveConfig::QtCurveConfig(QWidget *parent)
              : QWidget(parent),
-               workSpace(NULL),
-               stylePreview(NULL),
-               mdiWindow(NULL),
+               workSpace(nullptr),
+               stylePreview(nullptr),
+               mdiWindow(nullptr),
 #ifdef QTC_QT4_STYLE_SUPPORT
-               exportDialog(NULL),
+               exportDialog(nullptr),
 #endif
-               gradPreview(NULL),
+               gradPreview(nullptr),
                readyForPreview(false)
 {
     setupUi(this);
@@ -1183,7 +1183,7 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
 
         kwin->load(nullptr);
         qtcDefaultSettings(&defaultStyle);
-        if (!qtcReadConfig(NULL, &currentStyle, &defaultStyle))
+        if (!qtcReadConfig(nullptr, &currentStyle, &defaultStyle))
             currentStyle = defaultStyle;
 
         previewStyle = currentStyle;
@@ -1267,7 +1267,7 @@ void QtCurveConfig::save()
     else
         removeInstalledThemeFile(BGND_FILE MENU_FILE);
 
-    qtcWriteConfig(NULL, opts, presets[defaultText].opts);
+    qtcWriteConfig(nullptr, opts, presets[defaultText].opts);
 
     // This is only read by KDE3...
     KConfig      k3globals(kdeHome(true)+"/share/config/kdeglobals", KConfig::CascadeConfig);
@@ -2160,7 +2160,7 @@ static const char * constGradValProp="qtc-grad-val";
 void QtCurveConfig::copyGradient(QAction *act)
 {
     int            val=act->property(constGradValProp).toInt();
-    const Gradient *copy=NULL;
+    const Gradient *copy=nullptr;
 
     if(val>=APPEARANCE_CUSTOM1 && val <(APPEARANCE_CUSTOM1+NUM_CUSTOM_GRAD))
     {

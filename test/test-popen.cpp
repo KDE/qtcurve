@@ -51,7 +51,7 @@ subProcess(int, char **argv)
 static void
 mainProcess(int, char **argv)
 {
-    srandom(time(NULL));
+    srandom(time(nullptr));
     fillBuffer(buff1, sizeof(buff1));
     fillBuffer(buff2, sizeof(buff2));
     QtcPopenFD fds[] = {{
@@ -65,7 +65,7 @@ mainProcess(int, char **argv)
         }
     };
     alarm(1);
-    const char* const args[] = {argv[0], buff1, buff2, NULL};
+    const char* const args[] = {argv[0], buff1, buff2, nullptr};
     qtcPopen(argv[0], args, sizeof(fds) / sizeof(fds[0]), fds);
     write(fds[0].replace, buff1, sizeof(buff1));
     shutdown(fds[0].replace, SHUT_RDWR);

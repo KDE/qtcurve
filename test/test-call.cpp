@@ -22,8 +22,8 @@
 #include <qtcurve-utils/utils.h>
 #include <assert.h>
 
-static int (*func_int)(int a) = NULL;
-static void (*func_void)() = NULL;
+static int (*func_int)(int a) = nullptr;
+static void (*func_void)() = nullptr;
 
 static int arg_int_times = 0;
 
@@ -55,7 +55,7 @@ typedef struct {
     int j;
 } TestStruct;
 
-static TestStruct (*func_struct)() = NULL;
+static TestStruct (*func_struct)() = nullptr;
 #endif
 
 int

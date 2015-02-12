@@ -42,7 +42,7 @@ void qtcLoadBgndImage(QtCImage *img);
 void qtcSetRgb(QColor *col, const char *str);
 void qtcDefaultSettings(Options *opts);
 void qtcCheckConfig(Options *opts);
-bool qtcReadConfig(const QString &file, Options *opts, Options *defOpts=0L,
+bool qtcReadConfig(const QString &file, Options *opts, Options *defOpts=nullptr,
                    bool checkImages=true);
 WindowBorders qtcGetWindowBorderSize(bool force);
 

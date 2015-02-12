@@ -90,7 +90,7 @@ QtcX11Info::setRgba()
 inline QWidget*
 QtcX11Info::rgbaDummy()
 {
-    static QWidget **dummies = NULL;
+    static QWidget **dummies = nullptr;
     int scrno = screen();
     if (qtcUnlikely(!dummies || !dummies[scrno])) {
         creatingDummy = true;

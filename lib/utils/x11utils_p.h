@@ -38,7 +38,7 @@ extern xcb_atom_t qtc_x11_net_wm_cm_s_default;
 #define qtcX11Call(name, args...)                                       \
     ({                                                                  \
         xcb_connection_t *conn = qtc_xcb_conn;                          \
-        xcb_##name##_reply_t *res = NULL;                               \
+        xcb_##name##_reply_t *res = nullptr;                            \
         if (qtcLikely(conn)) {                                          \
             res = xcb_##name##_reply(conn, xcb_##name(conn, args), 0);  \
         }                                                               \
@@ -71,7 +71,7 @@ _qtcX11Call(Cookie (*func)(xcb_connection_t*, Args...),
             Args2... args...)
 {
     xcb_connection_t *conn = qtc_xcb_conn;
-    QTC_RET_IF_FAIL(conn, NULL);
+    QTC_RET_IF_FAIL(conn, nullptr);
     Cookie cookie = func(conn, args...);
     return reply_func(conn, cookie, 0);
 }

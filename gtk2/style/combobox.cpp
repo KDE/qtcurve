@@ -48,7 +48,7 @@ clearBgndColor(GtkWidget *widget)
         GtkWidget *boxChild = (GtkWidget*)child->data;
         if (GTK_IS_CELL_VIEW(boxChild) &&
             cellViewHasBgnd(boxChild)) {
-            gtk_cell_view_set_background_color(GTK_CELL_VIEW(boxChild), 0L);
+            gtk_cell_view_set_background_color(GTK_CELL_VIEW(boxChild), nullptr);
         }
     }
     if (children) {
@@ -173,7 +173,7 @@ setup(GtkWidget *frame, GtkWidget *combo)
         qtcWidgetProps(props)->comboBoxHacked = true;
         clearBgndColor(combo);
         qtcConnectToProp(props, comboBoxStateChange, "state-changed",
-                         stateChange, nullptr);
+                         stateChange);
 
         if (frame) {
             GList *children = gtk_container_get_children(GTK_CONTAINER(frame));
@@ -181,11 +181,11 @@ setup(GtkWidget *frame, GtkWidget *combo)
                 if (GTK_IS_EVENT_BOX(child->data)) {
                     QTC_DEF_WIDGET_PROPS(childProps, child->data);
                     qtcConnectToProp(childProps, comboBoxDestroy,
-                                     "destroy-event", destroy, nullptr);
+                                     "destroy-event", destroy);
                     qtcConnectToProp(childProps, comboBoxUnrealize,
-                                     "unrealize", destroy, nullptr);
+                                     "unrealize", destroy);
                     qtcConnectToProp(childProps, comboBoxStyleSet,
-                                     "style-set", styleSet, nullptr);
+                                     "style-set", styleSet);
                     qtcConnectToProp(childProps, comboBoxEnter,
                                      "enter-notify-event", enter, combo);
                     qtcConnectToProp(childProps, comboBoxLeave,

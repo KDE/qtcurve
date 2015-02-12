@@ -92,16 +92,11 @@ setup(GtkWidget *widget)
     QTC_DEF_WIDGET_PROPS(props, widget);
     if (GTK_IS_ENTRY(widget) && !qtcWidgetProps(props)->entryHacked) {
         qtcWidgetProps(props)->entryHacked = true;
-        qtcConnectToProp(props, entryEnter, "enter-notify-event",
-                         enter, nullptr);
-        qtcConnectToProp(props, entryLeave, "leave-notify-event",
-                         leave, nullptr);
-        qtcConnectToProp(props, entryDestroy, "destroy-event",
-                         destroy, nullptr);
-        qtcConnectToProp(props, entryUnrealize, "unrealize",
-                         destroy, nullptr);
-        qtcConnectToProp(props, entryStyleSet, "style-set",
-                         styleSet, nullptr);
+        qtcConnectToProp(props, entryEnter, "enter-notify-event", enter);
+        qtcConnectToProp(props, entryLeave, "leave-notify-event", leave);
+        qtcConnectToProp(props, entryDestroy, "destroy-event", destroy);
+        qtcConnectToProp(props, entryUnrealize, "unrealize", destroy);
+        qtcConnectToProp(props, entryStyleSet, "style-set", styleSet);
     }
 }
 

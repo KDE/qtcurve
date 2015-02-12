@@ -186,7 +186,7 @@ static void fillBackground(EAppearance app, QPainter &painter, const QColor &col
         opt.palette.setColor(QPalette::Window, col);
         opt.app=app;
         opt.path=path;
-        Handler()->wStyle()->drawPrimitive(QtC_PE_DrawBackground, &opt, &painter, NULL);
+        Handler()->wStyle()->drawPrimitive(QtC_PE_DrawBackground, &opt, &painter, nullptr);
     }
     else if(path.isEmpty())
         painter.fillRect(fillRect, col);
@@ -360,7 +360,7 @@ void QtCurveClient::paintEvent(QPaintEvent *e)
     bool colorTitleOnly(windowBorder&WINDOW_BORDER_COLOR_TITLEBAR_ONLY);
     bool roundBottom(Handler()->roundBottom());
     bool preview(isPreview());
-    bool blend(!preview && Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_BlendMenuAndTitleBar, NULL, NULL));
+    bool blend(!preview && Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_BlendMenuAndTitleBar, nullptr, nullptr));
     bool menuColor(windowBorder&WINDOW_BORDER_USE_MENUBAR_COLOR_FOR_TITLEBAR);
     bool separator(active && windowBorder&WINDOW_BORDER_SEPARATOR);
     bool maximized(isMaximized());
@@ -373,8 +373,8 @@ void QtCurveClient::paintEvent(QPaintEvent *e)
                          titleEdgeLeft(layoutMetric(LM_TitleEdgeLeft)),
                          titleEdgeRight(layoutMetric(LM_TitleEdgeRight)),
                          titleBarHeight(titleHeight+titleEdgeTop+titleEdgeBottom+(isMaximized() ? border : 0)),
-                         round=Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_Round, NULL, NULL),
-                         buttonFlags=Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_TitleBarButtons, NULL, NULL);
+                         round=Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_Round, nullptr, nullptr),
+                         buttonFlags=Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_TitleBarButtons, nullptr, nullptr);
     int                  rectX, rectY, rectX2, rectY2, shadowSize(0),
                          kwinOpacity(compositing ? Handler()->opacity(active) : 100),
                          opacity(kwinOpacity);
@@ -453,8 +453,8 @@ void QtCurveClient::paintEvent(QPaintEvent *e)
     }
 
     if(menuColor && m_menuBarSize>0 &&
-       (active || !Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_ShadeMenubarOnlyWhenActive, NULL, NULL)))
-        col=QColor(QRgb(Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_MenubarColor, NULL, NULL)));
+       (active || !Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_ShadeMenubarOnlyWhenActive, nullptr, nullptr)))
+        col=QColor(QRgb(Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_MenubarColor, nullptr, nullptr)));
 
     if(opacity<100)
     {
@@ -490,7 +490,7 @@ void QtCurveClient::paintEvent(QPaintEvent *e)
                                 ? QPainterPath()
                                 : createPath(QRectF(fillRect),
                                              APPEARANCE_NONE==Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_TitleBarApp,
-                                                                                               &opt, NULL) ? 6.0 : 8.0,
+                                                                                               &opt, nullptr) ? 6.0 : 8.0,
                                              roundBottom ? 6.0 : 1.0));
 
 
@@ -674,7 +674,7 @@ void QtCurveClient::paintEvent(QPaintEvent *e)
                m_caption, showIcon ? icon().pixmap(iconSize) : QPixmap(), shadowSize);
 
     bool hideToggleButtons(true);
-    int  toggleButtons(Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_ToggleButtons, NULL, NULL));
+    int  toggleButtons(Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_ToggleButtons, nullptr, nullptr));
 
     if(toggleButtons)
     {
@@ -902,7 +902,7 @@ void QtCurveClient::updateWindowShape()
                 widget()->rect());
 
         setMask(getMask(Handler()->wStyle()->pixelMetric(
-                            (QStyle::PixelMetric)QtC_Round, NULL, NULL), r));
+                            (QStyle::PixelMetric)QtC_Round, nullptr, nullptr), r));
     }
 }
 
@@ -1138,7 +1138,7 @@ void QtCurveClient::informAppOfBorderSizeChanges()
 void QtCurveClient::informAppOfActiveChange()
 {
     if (Handler()->wStyle()->pixelMetric(
-            (QStyle::PixelMetric)QtC_ShadeMenubarOnlyWhenActive, NULL, NULL)) {
+            (QStyle::PixelMetric)QtC_ShadeMenubarOnlyWhenActive, nullptr, nullptr)) {
         union {
             char _buff[32];
             xcb_client_message_event_t ev;
@@ -1157,7 +1157,7 @@ void QtCurveClient::informAppOfActiveChange()
 void QtCurveClient::sendToggleToApp(bool menubar)
 {
     // if (Handler()->wStyle()->pixelMetric(
-    //         (QStyle::PixelMetric)QtC_ShadeMenubarOnlyWhenActive, NULL, NULL))
+    //         (QStyle::PixelMetric)QtC_ShadeMenubarOnlyWhenActive, nullptr, nullptr))
     {
         union {
             char _buff[32];
@@ -1205,7 +1205,7 @@ const QString & QtCurveClient::windowClass()
 void QtCurveClient::menuBarSize(int size)
 {
     m_menuBarSize=size;
-    if(Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_ToggleButtons, NULL, NULL) &0x01)
+    if(Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_ToggleButtons, nullptr, nullptr) &0x01)
     {
         if(!m_toggleMenuBarButton)
             m_toggleMenuBarButton=createToggleButton(true);
@@ -1218,8 +1218,7 @@ void QtCurveClient::menuBarSize(int size)
 void QtCurveClient::statusBarState(bool state)
 {
     Q_UNUSED(state)
-    if(Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_ToggleButtons, NULL, NULL) &0x02)
-    {
+    if (Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_ToggleButtons, nullptr, nullptr) &0x02) {
         if(!m_toggleStatusBarButton)
             m_toggleStatusBarButton=createToggleButton(false);
         //if(m_toggleStatusBarButton)

@@ -310,7 +310,7 @@ public:
         layout->setMargin(0);
         layout->setSpacing(KDialog::spacingHint());
 
-        m_selector = new KCharSelect(page, NULL);
+        m_selector = new KCharSelect(page, nullptr);
         m_selector->setCurrentChar(QChar(v));
         layout->addWidget(m_selector);
     }
@@ -383,7 +383,7 @@ private:
 CGradientPreview::CGradientPreview(QtCurveConfig *c, QWidget *p)
                 : QWidget(p),
                   cfg(c),
-                  style(0L)
+                  style(nullptr)
 {
     // setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
     setObjectName("QtCurveConfigDialog-GradientPreview");
@@ -458,7 +458,7 @@ kdeHome(bool kde3)
     if (kdeHome[kde3 ? 0 : 1].isEmpty()) {
         size_t len = 0;
         const char *kde_config = kde3 ? "kde-config" : "kde4-config";
-        const char *const argv[] = {kde_config, "--localprefix", NULL};
+        const char *const argv[] = {kde_config, "--localprefix", nullptr};
         char *res = qtcPopenStdout(kde_config, argv, 300, &len);
         if (res) {
             res[len] = '\0';
@@ -843,13 +843,13 @@ static void insertTBarBtnEntries(QComboBox *combo)
 
 QtCurveConfig::QtCurveConfig(QWidget *parent)
              : QWidget(parent),
-               workSpace(NULL),
-               stylePreview(NULL),
-               mdiWindow(NULL),
+               workSpace(nullptr),
+               stylePreview(nullptr),
+               mdiWindow(nullptr),
 #ifdef QTC_QT4_STYLE_SUPPORT
-               exportDialog(NULL),
+               exportDialog(nullptr),
 #endif
-               gradPreview(NULL),
+               gradPreview(nullptr),
                readyForPreview(false)
 {
     setupUi(this);
@@ -1228,9 +1228,9 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
         Options currentStyle;
         Options defaultStyle;
 
-        kwin->load(0L);
+        kwin->load(nullptr);
         qtcDefaultSettings(&defaultStyle);
-        if (!qtcReadConfig(NULL, &currentStyle, &defaultStyle))
+        if (!qtcReadConfig(nullptr, &currentStyle, &defaultStyle))
             currentStyle = defaultStyle;
 
         previewStyle = currentStyle;
@@ -1308,7 +1308,7 @@ void QtCurveConfig::save()
     else
         removeInstalledThemeFile(BGND_FILE MENU_FILE);
 
-    qtcWriteConfig(NULL, opts, presets[defaultText].opts);
+    qtcWriteConfig(nullptr, opts, presets[defaultText].opts);
 
     // This is only read by KDE3...
     KConfig      k3globals(kdeHome(true)+"/share/config/kdeglobals", KConfig::CascadeConfig);
@@ -1319,7 +1319,7 @@ void QtCurveConfig::save()
     else
         kde.deleteEntry("ButtonLayout");
 
-    kwin->save(0L);
+    kwin->save(nullptr);
     // If using QtCurve window decoration, get this to update...
     KConfig kwin("kwinrc", KConfig::CascadeConfig);
     KConfigGroup style(&kwin, "Style");
@@ -1723,7 +1723,7 @@ void QtCurveConfig::setupStack()
     new CStackItem(stackList, i18n("Checks and Radios"), i++);
     new CStackItem(stackList, i18n("Windows"), i++);
 
-    kwin = new QtCurve::KWinConfig(0L, this);
+    kwin = new QtCurve::KWinConfig(nullptr, this);
     kwinPage = i;
 
     if(kwin->ok())
@@ -1844,7 +1844,7 @@ void QtCurveConfig::gradChanged(int i)
 
         GradientStopCont::const_iterator git((*it).second.stops.begin()),
                                          gend((*it).second.stops.end());
-        CGradItem                        *first=0L;
+        CGradItem                        *first=nullptr;
 
         gradStops->blockSignals(true);
         for(; git!=gend; ++git)
@@ -2009,7 +2009,7 @@ void QtCurveConfig::removeGradStop()
 
 void QtCurveConfig::updateGradStop()
 {
-    QTreeWidgetItem *i=gradStops->selectedItems().size() ? *(gradStops->selectedItems().begin()) : 0L;
+    QTreeWidgetItem *i=gradStops->selectedItems().size() ? *(gradStops->selectedItems().begin()) : nullptr;
 
     GradientCont::iterator cg=customGradient.find((EAppearance)gradCombo->currentIndex());
 
@@ -2040,7 +2040,7 @@ void QtCurveConfig::updateGradStop()
 
 void QtCurveConfig::stopSelected()
 {
-    QTreeWidgetItem *i=gradStops->selectedItems().size() ? *(gradStops->selectedItems().begin()) : 0L;
+    QTreeWidgetItem *i=gradStops->selectedItems().size() ? *(gradStops->selectedItems().begin()) : nullptr;
 
     removeButton->setEnabled(i);
     updateButton->setEnabled(i);
@@ -2195,7 +2195,7 @@ void QtCurveConfig::updatePreview()
     QtCurve::Style::PreviewOption styleOpt;
     styleOpt.opts=previewStyle;
 
-    style->drawControl((QStyle::ControlElement)QtCurve::Style::CE_QtC_SetOptions, &styleOpt, 0L, this);
+    style->drawControl((QStyle::ControlElement)QtCurve::Style::CE_QtC_SetOptions, &styleOpt, nullptr, this);
 
     setStyleRecursive(mdiWindow ? (QWidget *)previewFrame : (QWidget *)stylePreview, style);
 }
@@ -2205,7 +2205,7 @@ static const char * constGradValProp="qtc-grad-val";
 void QtCurveConfig::copyGradient(QAction *act)
 {
     int            val=act->property(constGradValProp).toInt();
-    const Gradient *copy=NULL;
+    const Gradient *copy=nullptr;
 
     if(val>=APPEARANCE_CUSTOM1 && val <(APPEARANCE_CUSTOM1+NUM_CUSTOM_GRAD))
     {
@@ -2238,7 +2238,7 @@ void QtCurveConfig::previewControlPressed()
         if(stylePreview)
             stylePreview->deleteLater();
         mdiWindow->deleteLater();
-        mdiWindow=0L;
+        mdiWindow=nullptr;
         stylePreview = new CStylePreview(this);
         stylePreview->show();
     }
@@ -2662,7 +2662,7 @@ void QtCurveConfig::importPreset()
         else
         {
             QString  qtcFile(file);
-            KZip     *zip=compressed ? new KZip(file) : 0L;
+            KZip     *zip=compressed ? new KZip(file) : nullptr;
             KTempDir *tmpDir = nullptr;
             if (compressed) {
                 qtcFile=QString();
@@ -2790,7 +2790,7 @@ void QtCurveConfig::exportPreset()
                      this));
 
     if (!file.isEmpty()) {
-        KZip *zip(compressed ? new KZip(file) : 0L);
+        KZip *zip(compressed ? new KZip(file) : nullptr);
         bool rv(true);
 
         if(zip && !zip->open(QIODevice::WriteOnly))

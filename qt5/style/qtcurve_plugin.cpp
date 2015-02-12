@@ -68,7 +68,7 @@ qtcPolishQuickControl(QObject *obj)
                                                       color.greenF() * opacityF,
                                                       color.blueF() * opacityF,
                                                       opacityF));
-                    qtcX11BlurTrigger(window->winId(), true, 0, NULL);
+                    qtcX11BlurTrigger(window->winId(), true, 0, nullptr);
                 }
             }
         }
@@ -76,7 +76,7 @@ qtcPolishQuickControl(QObject *obj)
         if (QQuickWindow *window = item->window()) {
             if (getStyle(qApp)) {
                 window->setColor(QColor(0, 0, 0, 0));
-                qtcX11BlurTrigger(window->winId(), true, 0, NULL);
+                qtcX11BlurTrigger(window->winId(), true, 0, nullptr);
             }
         }
     }

@@ -44,7 +44,7 @@ getRequisition(GtkWidget *widget)
 {
     GtkRequisition req;
 #if GTK_CHECK_VERSION(3, 0, 0)
-    gtk_widget_get_preferred_size(widget, &req, NULL);
+    gtk_widget_get_preferred_size(widget, &req, nullptr);
 #else
     gtk_widget_get_requisition(widget, &req);
 #endif

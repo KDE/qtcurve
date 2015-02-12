@@ -559,54 +559,61 @@ WindowManager::WindowManager(QObject *parent):
         }
 
         // labels
-        if( QLabel* label = qobject_cast<QLabel*>( widget ) )
-        { if( label->textInteractionFlags().testFlag( Qt::TextSelectableByMouse ) ) return false; }
-
-        // abstract item views
-        QAbstractItemView* itemView( NULL );
-        if(
-            ( itemView = qobject_cast<QListView*>( widget->parentWidget() ) ) ||
-            ( itemView = qobject_cast<QTreeView*>( widget->parentWidget() ) ) )
-        {
-            if( widget == itemView->viewport() )
-            {
-                // QListView
-                if( itemView->frameShape() != QFrame::NoFrame ) return false;
-                else if(
-                    itemView->selectionMode() != QAbstractItemView::NoSelection &&
-                    itemView->selectionMode() != QAbstractItemView::SingleSelection &&
-                    itemView->model() && itemView->model()->rowCount() ) return false;
-                else if( itemView->model() && itemView->indexAt( position ).isValid() ) return false;
+        if (QLabel *label = qobject_cast<QLabel*>(widget)) {
+            if (label->textInteractionFlags().testFlag(
+                    Qt::TextSelectableByMouse)) {
+                return false;
             }
-
-        } else if( ( itemView = qobject_cast<QAbstractItemView*>( widget->parentWidget() ) ) ) {
-
-
-            if( widget == itemView->viewport() )
-            {
-                // QAbstractItemView
-                if( itemView->frameShape() != QFrame::NoFrame ) return false;
-                else if( itemView->indexAt( position ).isValid() ) return false;
-            }
-
-        } else if( QGraphicsView* graphicsView =  qobject_cast<QGraphicsView*>( widget->parentWidget() ) )  {
-
-            if( widget == graphicsView->viewport() )
-            {
-                // QGraphicsView
-                if( graphicsView->frameShape() != QFrame::NoFrame ) return false;
-                else if( graphicsView->dragMode() != QGraphicsView::NoDrag ) return false;
-                else if( graphicsView->itemAt( position ) ) return false;
-            }
-
         }
 
-        return true;
+        // abstract item views
+        QAbstractItemView* itemView(nullptr);
+        if ((itemView = qobject_cast<QListView*>(widget->parentWidget())) ||
+            (itemView = qobject_cast<QTreeView*>(widget->parentWidget()))) {
+            if (widget == itemView->viewport()) {
+                // QListView
+                if (itemView->frameShape() != QFrame::NoFrame) {
+                    return false;
+                } else if (itemView->selectionMode() !=
+                           QAbstractItemView::NoSelection &&
+                           itemView->selectionMode() !=
+                           QAbstractItemView::SingleSelection &&
+                           itemView->model() && itemView->model()->rowCount()) {
+                    return false;
+                } else if (itemView->model() &&
+                           itemView->indexAt(position).isValid()) {
+                    return false;
+                }
+            }
+        } else if ((itemView = qobject_cast<QAbstractItemView*>(
+                        widget->parentWidget()))) {
+            if (widget == itemView->viewport()) {
+                // QAbstractItemView
+                if (itemView->frameShape() != QFrame::NoFrame) {
+                    return false;
+                } else if (itemView->indexAt(position).isValid()) {
+                    return false;
+                }
+            }
+        } else if (QGraphicsView *graphicsView =
+                   qobject_cast<QGraphicsView*>(widget->parentWidget()))  {
 
+            if (widget == graphicsView->viewport()) {
+                // QGraphicsView
+                if (graphicsView->frameShape() != QFrame::NoFrame) {
+                    return false;
+                } else if (graphicsView->dragMode() != QGraphicsView::NoDrag) {
+                    return false;
+                } else if (graphicsView->itemAt(position)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     //____________________________________________________________
-    void WindowManager::resetDrag( void )
+    void WindowManager::resetDrag()
     {
 
         if( (!useWMMoveResize() ) && _target && _cursorOverride ) {

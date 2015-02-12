@@ -142,8 +142,9 @@ GtkMenuBar *isMenubar(GtkWidget *w, int level);
 bool isMenuitem(GtkWidget *w, int level);
 #define IS_MENU_ITEM(WIDGET) isMenuitem(WIDGET, 0)
 bool isMenuWindow(GtkWidget *w);
-#define IS_GROUP_BOX(W) ((W) && GTK_IS_FRAME((W)) && (NULL!=gtk_frame_get_label(GTK_FRAME((W))) || \
-                                                      NULL!=gtk_frame_get_label_widget(GTK_FRAME((W)))))
+#define IS_GROUP_BOX(W) ((W) && GTK_IS_FRAME(W) &&                    \
+                         (gtk_frame_get_label(GTK_FRAME(W)) ||        \
+                          gtk_frame_get_label_widget(GTK_FRAME(W))))
 
 bool isInGroupBox(GtkWidget *w, int level);
 bool isOnButton(GtkWidget *w, int level, bool *def);

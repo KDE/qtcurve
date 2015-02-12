@@ -37,7 +37,7 @@ _qtcSPrintfV(char *buff, size_t *_size, bool allocated,
              const char *fmt, va_list ap)
 {
     if (!buff || !_size || !*_size) {
-        char *res = NULL;
+        char *res = nullptr;
         vasprintf(&res, fmt, ap);
         return res;
     }
@@ -130,7 +130,7 @@ qtcStrLoadList(const char *str, char delim, char escape, size_t size,
                size_t *_nele, void *buff, size_t max_len,
                QtcListEleLoader loader, void *data)
 {
-    QTC_RET_IF_FAIL(_nele && size && loader && str, NULL);
+    QTC_RET_IF_FAIL(_nele && size && loader && str, nullptr);
     QtcStrLoadListData loader_data = {
         .size = size,
         .nele = *_nele,
@@ -148,7 +148,7 @@ qtcStrLoadList(const char *str, char delim, char escape, size_t size,
     *_nele = loader_data.offset;
     if (!*_nele) {
         free(loader_data.buff);
-        return NULL;
+        return nullptr;
     }
     return loader_data.buff;
 }
@@ -160,7 +160,7 @@ qtcStrListStrLoader(void *ele, const char *str, size_t len, void *data)
     if (def && !str[0]) {
         *(char**)ele = strdup(def);
     } else {
-        *(char**)ele = qtcSetStr(NULL, str, len);
+        *(char**)ele = qtcSetStr(nullptr, str, len);
     }
     return true;
 }
@@ -178,7 +178,7 @@ qtcStrListIntLoader(void *ele, const char *str, size_t, void *data)
 {
     long def = (long)(intptr_t)data;
     str += strspn(str, " \t\b\n\f\v");
-    char *end = NULL;
+    char *end = nullptr;
     long res = strtol(str, &end, 0);
     if (end == str) {
         res = def;
@@ -201,7 +201,7 @@ qtcStrListFloatLoader(void *ele, const char *str, size_t, void *data)
 {
     double def = *(double*)data;
     str += strspn(str, " \t\b\n\f\v");
-    char *end = NULL;
+    char *end = nullptr;
     double res = strtod(str, &end);
     if (end == str) {
         res = def;

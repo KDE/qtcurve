@@ -237,9 +237,9 @@ ge_transform_for_layout(cairo_t *cr, PangoLayout *layout, int x, int y)
 
         cairo_matrix_init(&cairo_matrix, matrix->xx, matrix->yx,
                           matrix->xy, matrix->yy, matrix->x0, matrix->y0);
-        pango_layout_get_extents(layout, NULL, &_rect);
+        pango_layout_get_extents(layout, nullptr, &_rect);
         pango_matrix_transform_rectangle(matrix, &_rect);
-        pango_extents_to_pixels(&_rect, NULL);
+        pango_extents_to_pixels(&_rect, nullptr);
 
         cairo_matrix.x0 += x - _rect.x;
         cairo_matrix.y0 += y - _rect.y;

@@ -70,7 +70,7 @@ findWindowHandle(const QWidget *w)
             return window;
         }
     } while ((w = w->parentWidget()));
-    return NULL;
+    return nullptr;
 }
 
 bool

@@ -151,7 +151,7 @@ void QtCurveButton::paintEvent(QPaintEvent *ev)
 void QtCurveButton::drawButton(QPainter *painter)
 {
     int flags = Handler()->wStyle()->pixelMetric(
-        (QStyle::PixelMetric)QtC_TitleBarButtons, 0L, 0L);
+        (QStyle::PixelMetric)QtC_TitleBarButtons, nullptr, nullptr);
     bool active(m_client->isActive());
 
     if (!active && !m_hover && flags & TITLEBAR_BUTTOM_HIDE_ON_INACTIVE_WINDOW)
@@ -166,7 +166,7 @@ void QtCurveButton::drawButton(QPainter *painter)
     bool drewFrame(false);
     bool iconForMenu(TITLEBAR_ICON_MENU_BUTTON ==
                      Handler()->wStyle()->pixelMetric(
-                         (QStyle::PixelMetric)QtC_TitleBarIcon, 0L, 0L));
+                         (QStyle::PixelMetric)QtC_TitleBarIcon, nullptr, nullptr));
     QColor buttonColor(KDecoration::options()->color(KDecoration::ColorTitleBar,
                                                      active));
     QPixmap buffer(width(), height());
@@ -245,7 +245,7 @@ void QtCurveButton::drawButton(QPainter *painter)
                 opt.version = versionHack;
         }
         Handler()->wStyle()->drawPrimitive(QStyle::PE_PanelButtonCommand,
-                                           &opt, &bP, 0L);
+                                           &opt, &bP, nullptr);
         drewFrame = true;
     }
 
@@ -294,7 +294,7 @@ void QtCurveButton::drawButton(QPainter *painter)
                         versionHack+=NUM_TITLEBAR_BUTTONS;
                 }
                 opt.version=versionHack;
-                col=QColor(QRgb(Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_TitleBarIconColor, &opt, 0L)));
+                col=QColor(QRgb(Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_TitleBarIconColor, &opt, nullptr)));
                 customCol=true;
             }
         }
@@ -371,11 +371,11 @@ QBitmap IconEngine::icon(ButtonIcon icon, int size, QStyle *style)
         break;
     }
     case MaxIcon:
-        if (Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_TitleBarButtons, 0L, 0L) & TITLEBAR_BUTTOM_ARROW_MIN_MAX) {
+        if (Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_TitleBarButtons, nullptr, nullptr) & TITLEBAR_BUTTOM_ARROW_MIN_MAX) {
             QStyleOption opt;
             opt.rect = r;
             opt.state = QStyle::State_Enabled | QtC_StateKWin;
-            style->drawPrimitive(QStyle::PE_IndicatorArrowUp, &opt, &p, 0L);
+            style->drawPrimitive(QStyle::PE_IndicatorArrowUp, &opt, &p, nullptr);
         } else {
             int lineWidth2 = 1; // frame
             if (r.width() > 16) {
@@ -393,7 +393,7 @@ QBitmap IconEngine::icon(ButtonIcon icon, int size, QStyle *style)
         }
         break;
     case MaxRestoreIcon:
-        if (Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_TitleBarButtons, 0L, 0L) & TITLEBAR_BUTTOM_ARROW_MIN_MAX) {
+        if (Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_TitleBarButtons, nullptr, nullptr) & TITLEBAR_BUTTOM_ARROW_MIN_MAX) {
             p.drawLine(r.x() + 1, r.y(), r.x() + r.width() - 2, r.y());
             p.drawLine(r.x() + 1, r.y() + r.height() - 1,
                        r.x() + r.width() - 2, r.y() + r.height() - 1);
@@ -439,12 +439,12 @@ QBitmap IconEngine::icon(ButtonIcon icon, int size, QStyle *style)
         }
         break;
     case MinIcon:
-        if (Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_TitleBarButtons, 0L, 0L)&TITLEBAR_BUTTOM_ARROW_MIN_MAX) {
+        if (Handler()->wStyle()->pixelMetric((QStyle::PixelMetric)QtC_TitleBarButtons, nullptr, nullptr)&TITLEBAR_BUTTOM_ARROW_MIN_MAX) {
             QStyleOption opt;
 
             opt.rect = r;
             opt.state = QStyle::State_Enabled | QtC_StateKWin;
-            style->drawPrimitive(QStyle::PE_IndicatorArrowDown, &opt, &p, 0L);
+            style->drawPrimitive(QStyle::PE_IndicatorArrowDown, &opt, &p, nullptr);
         } else {
             drawObject(p, HorizontalLine, r.x(), r.bottom() - (lwTitleBar - 1),
                        r.width(), lwTitleBar);
@@ -556,9 +556,9 @@ QBitmap IconEngine::icon(ButtonIcon icon, int size, QStyle *style)
             drawObject(p, HorizontalLine, r.x() + (r.width() - w)/2, r.y() + 1, w, 2);
         }
         else
-            style->drawPrimitive(QStyle::PE_IndicatorArrowUp, &opt, &p, 0L);
+            style->drawPrimitive(QStyle::PE_IndicatorArrowUp, &opt, &p, nullptr);
         opt.rect.adjust(0, 4, 0, 4);
-        style->drawPrimitive(QStyle::PE_IndicatorArrowUp, &opt, &p, 0L);
+        style->drawPrimitive(QStyle::PE_IndicatorArrowUp, &opt, &p, nullptr);
         break;
     }
     case NoKeepBelowIcon:
@@ -570,7 +570,7 @@ QBitmap IconEngine::icon(ButtonIcon icon, int size, QStyle *style)
         opt.rect.adjust(2, 2, -2, -2);
         opt.state=QStyle::State_Enabled|QtC_StateKWin;
         opt.rect.adjust(0, -1, 0, -1);
-        style->drawPrimitive(QStyle::PE_IndicatorArrowDown, &opt, &p, 0L);
+        style->drawPrimitive(QStyle::PE_IndicatorArrowDown, &opt, &p, nullptr);
         opt.rect.adjust(0, 4, 0, 4);
         if(NoKeepBelowIcon==icon)
         {
@@ -580,7 +580,7 @@ QBitmap IconEngine::icon(ButtonIcon icon, int size, QStyle *style)
             drawObject(p, HorizontalLine, r.x() + (r.width() - w)/2, r.y() + r.height() - 3, w, 2);
         }
         else
-            style->drawPrimitive(QStyle::PE_IndicatorArrowDown, &opt, &p, 0L);
+            style->drawPrimitive(QStyle::PE_IndicatorArrowDown, &opt, &p, nullptr);
         break;
     }
     case UnShadeIcon:
@@ -595,10 +595,12 @@ QBitmap IconEngine::icon(ButtonIcon icon, int size, QStyle *style)
         opt.state=QStyle::State_Enabled|QtC_StateKWin;
 
         //opt.palette.setColor(QPalette::Button, Qt::red);
-        style->drawPrimitive(ShadeIcon==icon ? QStyle::PE_IndicatorArrowDown
-                             : QStyle::PE_IndicatorArrowUp,
-                             &opt, &p, 0L);
-        drawObject(p, HorizontalLine, r.x() + 1, r.bottom() - (lwTitleBar - 1), r.width() - 2, lwTitleBar);
+        style->drawPrimitive(icon == ShadeIcon ?
+                             QStyle::PE_IndicatorArrowDown :
+                             QStyle::PE_IndicatorArrowUp,
+                             &opt, &p, nullptr);
+        drawObject(p, HorizontalLine, r.x() + 1, r.bottom() - (lwTitleBar - 1),
+                   r.width() - 2, lwTitleBar);
         break;
     }
     case MenuIcon: {

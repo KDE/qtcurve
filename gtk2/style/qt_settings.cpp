@@ -1651,7 +1651,7 @@ qtSettingsInit()
                                  QTC_KDE4_PREFIX KDE4_SYS_CFG_DIR
                                  KDEGLOBALS_SYS_FILE,
                                  kdeGlobals(),
-                                 0L};
+                                 nullptr};
 
             for(f=0; 0!=files[f]; ++f)
                 readKdeGlobals(files[f], RD_ICONS|RD_SMALL_ICON_SIZE|RD_TOOLBAR_STYLE|RD_MENU_FONT|RD_TB_FONT|
@@ -1689,9 +1689,9 @@ qtSettingsInit()
                 }
             }
 
-            qtcReadConfig(rcFile, &opts, 0L);
+            qtcReadConfig(rcFile, &opts, nullptr);
 #else
-            qtcReadConfig(0L, &opts, 0L);
+            qtcReadConfig(nullptr, &opts, nullptr);
 #endif
 
 #if GTK_CHECK_VERSION(2, 90, 0) /* Gtk3:TODO !!! */

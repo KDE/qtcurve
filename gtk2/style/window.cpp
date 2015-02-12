@@ -130,7 +130,7 @@ clientEvent(GtkWidget *widget, GdkEventClient *event, void*)
         if (event->data.l[0]) {
             currentActiveWindow = widget;
         } else if (currentActiveWindow == widget) {
-            currentActiveWindow = 0L;
+            currentActiveWindow = nullptr;
         }
         gtk_widget_queue_draw(widget);
     } else if (gdk_x11_atom_to_xatom(event->message_type) ==
@@ -413,14 +413,12 @@ setup(GtkWidget *widget, int opacity)
                 window->widget = widget;
             }
         }
-        qtcConnectToProp(props, windowDestroy, "destroy-event",
-                         destroy, nullptr);
-        qtcConnectToProp(props, windowStyleSet, "style-set",
-                         styleSet, nullptr);
+        qtcConnectToProp(props, windowDestroy, "destroy-event", destroy);
+        qtcConnectToProp(props, windowStyleSet, "style-set", styleSet);
         if ((opts.menubarHiding & HIDE_KEYBOARD) ||
             (opts.statusbarHiding & HIDE_KEYBOARD)) {
             qtcConnectToProp(props, windowKeyRelease, "key-release-event",
-                             keyRelease, nullptr);
+                             keyRelease);
         }
         qtcWidgetProps(props)->windowOpacity = (unsigned short)opacity;
         setProperties(widget, (unsigned short)opacity);
@@ -428,11 +426,11 @@ setup(GtkWidget *widget, int opacity)
         if ((opts.menubarHiding & HIDE_KWIN) ||
             (opts.statusbarHiding & HIDE_KWIN) || 100 != opacity)
             qtcConnectToProp(props, windowMap, "map-event",
-                             mapWindow, nullptr);
+                             mapWindow);
         if (opts.shadeMenubarOnlyWhenActive || BLEND_TITLEBAR ||
             opts.menubarHiding || opts.statusbarHiding)
             qtcConnectToProp(props, windowClientEvent, "client-event",
-                             clientEvent, nullptr);
+                             clientEvent);
         return true;
     }
     return false;

@@ -106,7 +106,7 @@ registerWidget(GtkWidget* widget)
     installX11Shadows(widget);
 
     qtcWidgetProps(props)->shadowSet = true;
-    qtcConnectToProp(props, shadowDestroy, "destroy", destroy, nullptr);
+    qtcConnectToProp(props, shadowDestroy, "destroy", destroy);
     return true;
 }
 
@@ -133,7 +133,7 @@ void initialize()
         if (realizeSignalId) {
             realizeHookId = g_signal_add_emission_hook(
                 realizeSignalId, (GQuark)0, realizeHook,
-                0, 0L);
+                0, nullptr);
         }
     }
 }

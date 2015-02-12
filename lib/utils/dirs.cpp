@@ -25,10 +25,10 @@
 #include <sys/types.h>
 #include <pwd.h>
 
-static char *qtc_home = NULL;
-static char *qtc_xdg_data_home = NULL;
-static char *qtc_xdg_config_home = NULL;
-static char *qtc_conf_dir = NULL;
+static char *qtc_home = nullptr;
+static char *qtc_xdg_data_home = nullptr;
+static char *qtc_xdg_config_home = nullptr;
+static char *qtc_conf_dir = nullptr;
 
 QTC_EXPORT void
 qtcMakePath(const char *path, int mode)
@@ -79,7 +79,7 @@ _qtcConfDir()
 QTC_EXPORT const char*
 qtcConfDir()
 {
-    static const char *conf_dir = NULL;
+    static const char *conf_dir = nullptr;
     if (!conf_dir) {
         conf_dir = _qtcConfDir();
         qtcMakePath(conf_dir, 0700);
@@ -157,11 +157,11 @@ __attribute__((destructor)) static void
 _qtcFreeDirs()
 {
     free(qtc_home);
-    qtc_home = NULL;
+    qtc_home = nullptr;
     free(qtc_xdg_data_home);
-    qtc_xdg_data_home = NULL;
+    qtc_xdg_data_home = nullptr;
     free(qtc_xdg_config_home);
-    qtc_xdg_config_home = NULL;
+    qtc_xdg_config_home = nullptr;
     free(qtc_conf_dir);
-    qtc_conf_dir = NULL;
+    qtc_conf_dir = nullptr;
 }

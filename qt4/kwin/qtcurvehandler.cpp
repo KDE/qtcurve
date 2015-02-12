@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2007 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -88,8 +88,8 @@ Handler()
 QtCurveHandler::QtCurveHandler() :
     m_lastMenuXid(0),
     m_lastStatusXid(0),
-    m_style(NULL),
-    m_dBus(NULL)
+    m_style(nullptr),
+    m_dBus(nullptr)
 {
     qtcX11InitXlib(QX11Info::display());
     handler = this;
@@ -132,7 +132,7 @@ bool QtCurveHandler::reset(unsigned long changed)
     if (qtcAbs(m_timeStamp - getTimeStamp(xdgConfigFolder() +
                                           "/qtcurve/stylerc")) > 2) {
         delete m_style;
-        m_style = 0L;
+        m_style = nullptr;
         setStyle();
         styleChanged = true;
     }
@@ -247,7 +247,7 @@ bool QtCurveHandler::supports(Ability ability) const
     case AbilityProvidesShadow:
         return customShadows();
     case AbilityUsesBlurBehind:
-        return opacity(true)<100 || opacity(false)<100 || wStyle()->pixelMetric((QStyle::PixelMetric)QtC_CustomBgnd, 0L, 0L);
+        return opacity(true)<100 || opacity(false)<100 || wStyle()->pixelMetric((QStyle::PixelMetric)QtC_CustomBgnd, nullptr, nullptr);
         // TODO's
     default:
         return false;
@@ -291,7 +291,7 @@ bool QtCurveHandler::readConfig(bool compositingToggled)
     } else if (compositingToggled && !m_config.outerBorder() &&
                (m_config.borderSize() < QtCurveConfig::BORDER_TINY ||
                 (wStyle()->pixelMetric((QStyle::PixelMetric)QtC_WindowBorder,
-                                       0L, 0L) &
+                                       nullptr, nullptr) &
                  WINDOW_BORDER_COLOR_TITLEBAR_ONLY))) {
         QDBusConnection::sessionBus().send(
             QDBusMessage::createSignal("/KWin", "org.kde.KWin",
@@ -428,25 +428,31 @@ void QtCurveHandler::emitToggleStatusBar(int xid)
     m_dBus->emitSbToggle(xid);
 }
 
-int QtCurveHandler::borderEdgeSize() const
+int
+QtCurveHandler::borderEdgeSize() const
 {
-    return m_config.edgePad()+
-                (outerBorder()
-                    ? (m_config.borderSize()>QtCurveConfig::BORDER_NO_SIDES &&
-                        wStyle()->pixelMetric((QStyle::PixelMetric)QtC_Round, 0L, 0L)<ROUND_FULL)
-                        ? wStyle()->pixelMetric((QStyle::PixelMetric)QtC_WindowBorder, 0L, 0L)&WINDOW_BORDER_ADD_LIGHT_BORDER
-                            ? 2
-                            : 1
-                        : 3
-                    : 1);
+    auto edgePad = m_config.edgePad();
+    if (!outerBorder()) {
+        return edgePad + 1;
+    } else if (m_config.borderSize() <= QtCurveConfig::BORDER_NO_SIDES ||
+               wStyle()->pixelMetric((QStyle::PixelMetric)QtC_Round,
+                                     nullptr, nullptr) >= ROUND_FULL) {
+        return edgePad + 3;
+    } else if (wStyle()->pixelMetric((QStyle::PixelMetric)QtC_WindowBorder,
+                                     nullptr, nullptr) &
+               WINDOW_BORDER_ADD_LIGHT_BORDER) {
+        return edgePad + 2;
+    } else {
+        return edgePad + 1;
+    }
 }
 
 void QtCurveHandler::removeClient(QtCurveClient *c)
 {
-    if(c->windowId()==m_lastMenuXid)
-        m_lastMenuXid=0;
-    if(c->windowId()==m_lastStatusXid)
-        m_lastStatusXid=0;
+    if (c->windowId() == m_lastMenuXid)
+        m_lastMenuXid = 0;
+    if (c->windowId() == m_lastStatusXid)
+        m_lastStatusXid = 0;
     m_clients.removeAll(c);
 }
 
