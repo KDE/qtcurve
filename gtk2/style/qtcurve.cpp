@@ -162,16 +162,16 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
     if (!opts.gtkButtonOrder && opts.reorderGtkButtons &&
         GTK_IS_WINDOW(widget) && strcmp(detail, "base") == 0) {
         GtkWidget *topLevel = gtk_widget_get_toplevel(widget);
-        QTC_DEF_WIDGET_PROPS(topProps, topLevel);
+        GtkWidgetProps topProps(topLevel);
 
         if (topLevel && GTK_IS_DIALOG(topLevel) &&
-            !qtcWidgetProps(topProps)->buttonOrderHacked) {
+            !topProps->buttonOrderHacked) {
             // gtk_dialog_set_alternative_button_order will cause errors to be
             // logged, but dont want these so register our own error handler,
             // and then unregister afterwards...
             unsigned id = g_log_set_handler("Gtk", G_LOG_LEVEL_CRITICAL,
                                             gtkLogHandler, nullptr);
-            qtcWidgetProps(topProps)->buttonOrderHacked = true;
+            topProps->buttonOrderHacked = true;
 
             gtk_dialog_set_alternative_button_order(
                 GTK_DIALOG(topLevel), GTK_RESPONSE_HELP, GTK_RESPONSE_OK,
@@ -765,9 +765,9 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
         GtkWindow *topLevel = GTK_WINDOW(gtk_widget_get_toplevel(widget));
 
         if (topLevel && GTK_IS_WINDOW(topLevel)) {
-            QTC_DEF_WIDGET_PROPS(topProps, topLevel);
-            if (!qtcWidgetProps(topProps)->shadeActiveMBHacked) {
-                qtcWidgetProps(topProps)->shadeActiveMBHacked = true;
+            GtkWidgetProps topProps(topLevel);
+            if (!topProps->shadeActiveMBHacked) {
+                topProps->shadeActiveMBHacked = true;
                 g_signal_connect(G_OBJECT(topLevel), "event",
                                  G_CALLBACK(windowEvent), widget);
             }

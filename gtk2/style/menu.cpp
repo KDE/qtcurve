@@ -105,16 +105,16 @@ static void
 shellCleanup(GtkWidget *widget)
 {
     if (GTK_IS_MENU_BAR(widget)) {
-        QTC_DEF_WIDGET_PROPS(props, widget);
-        qtcDisconnectFromProp(props, menuShellMotion);
-        qtcDisconnectFromProp(props, menuShellLeave);
-        qtcDisconnectFromProp(props, menuShellDestroy);
-        qtcDisconnectFromProp(props, menuShellStyleSet);
+        GtkWidgetProps props(widget);
+        props->menuShellMotion.disconn();
+        props->menuShellLeave.disconn();
+        props->menuShellDestroy.disconn();
+        props->menuShellStyleSet.disconn();
 #ifdef EXTEND_MENUBAR_ITEM_HACK
-        qtcDisconnectFromProp(props, menuShellButtonPress);
-        qtcDisconnectFromProp(props, menuShellButtonRelease);
+        props->menuShellButtonPress.disconn();
+        props->menuShellButtonRelease.disconn();
 #endif
-        qtcWidgetProps(props)->menuShellHacked = true;
+        props->menuShellHacked = true;
     }
 }
 
@@ -206,21 +206,18 @@ shellLeave(GtkWidget *widget, GdkEventCrossing*, void*)
 void
 shellSetup(GtkWidget *widget)
 {
-    QTC_DEF_WIDGET_PROPS(props, widget);
-    if (GTK_IS_MENU_BAR(widget) && !qtcWidgetProps(props)->menuShellHacked) {
-        qtcWidgetProps(props)->menuShellHacked = true;
-        qtcConnectToProp(props, menuShellMotion, "motion-notify-event",
-                         shellMotion);
-        qtcConnectToProp(props, menuShellLeave, "leave-notify-event",
-                         shellLeave);
-        qtcConnectToProp(props, menuShellDestroy, "destroy-event",
-                         shellDestroy);
-        qtcConnectToProp(props, menuShellStyleSet, "style-set", shellStyleSet);
+    GtkWidgetProps props(widget);
+    if (GTK_IS_MENU_BAR(widget) && !props->menuShellHacked) {
+        props->menuShellHacked = true;
+        props->menuShellMotion.conn("motion-notify-event", shellMotion);
+        props->menuShellLeave.conn("leave-notify-event", shellLeave);
+        props->menuShellDestroy.conn("destroy-event", shellDestroy);
+        props->menuShellStyleSet.conn("style-set", shellStyleSet);
 #ifdef EXTEND_MENUBAR_ITEM_HACK
-        qtcConnectToProp(props, menuShellButtonPress, "button-press-event",
-                         shellButtonPress);
-        qtcConnectToProp(props, menuShellButtonRelease, "button-release-event",
-                         shellButtonPress);
+        props->menuShellButtonPress.conn("button-press-event",
+                                         shellButtonPress);
+        props->menuShellButtonRelease.conn("button-release-event",
+                                           shellButtonPress);
 #endif
     }
 }
@@ -229,8 +226,8 @@ bool
 emitSize(GtkWidget *w, unsigned size)
 {
     if (w) {
-        QTC_DEF_WIDGET_PROPS(props, w);
-        unsigned oldSize = qtcWidgetProps(props)->menuBarSize;
+        GtkWidgetProps props(w);
+        unsigned oldSize = props->menuBarSize;
 
         if (oldSize != size) {
             GtkWidget *topLevel = gtk_widget_get_toplevel(w);
@@ -240,7 +237,7 @@ emitSize(GtkWidget *w, unsigned size)
             if (size == 0xFFFF) {
                 size = 0;
             }
-            qtcWidgetProps(props)->menuBarSize = size;
+            props->menuBarSize = size;
             qtcX11SetMenubarSize(wid, size);
             return true;
         }

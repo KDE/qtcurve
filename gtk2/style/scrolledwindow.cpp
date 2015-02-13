@@ -34,18 +34,18 @@ namespace ScrolledWindow {
 static void
 cleanup(GtkWidget *widget)
 {
-    QTC_DEF_WIDGET_PROPS(props, widget);
-    if (widget && qtcWidgetProps(props)->scrolledWindowHacked) {
-        qtcDisconnectFromProp(props, scrolledWindowDestroy);
-        qtcDisconnectFromProp(props, scrolledWindowUnrealize);
-        qtcDisconnectFromProp(props, scrolledWindowStyleSet);
+    GtkWidgetProps props(widget);
+    if (widget && props->scrolledWindowHacked) {
+        props->scrolledWindowDestroy.disconn();
+        props->scrolledWindowUnrealize.disconn();
+        props->scrolledWindowStyleSet.disconn();
         if (opts.unifyCombo && opts.unifySpin) {
-            qtcDisconnectFromProp(props, scrolledWindowEnter);
-            qtcDisconnectFromProp(props, scrolledWindowLeave);
+            props->scrolledWindowEnter.disconn();
+            props->scrolledWindowLeave.disconn();
         }
-        qtcDisconnectFromProp(props, scrolledWindowFocusIn);
-        qtcDisconnectFromProp(props, scrolledWindowFocusOut);
-        qtcWidgetProps(props)->scrolledWindowHacked = false;
+        props->scrolledWindowFocusIn.disconn();
+        props->scrolledWindowFocusOut.disconn();
+        props->scrolledWindowHacked = false;
     }
 }
 
@@ -113,31 +113,26 @@ focusOut(GtkWidget *widget, GdkEventMotion*, void *data)
 static void
 setupConnections(GtkWidget *widget, GtkWidget *parent)
 {
-    QTC_DEF_WIDGET_PROPS(props, widget);
-    if (widget && !qtcWidgetProps(props)->scrolledWindowHacked) {
-        qtcWidgetProps(props)->scrolledWindowHacked = true;
+    GtkWidgetProps props(widget);
+    if (widget && !props->scrolledWindowHacked) {
+        props->scrolledWindowHacked = true;
         gtk_widget_add_events(widget, GDK_LEAVE_NOTIFY_MASK |
                               GDK_ENTER_NOTIFY_MASK | GDK_FOCUS_CHANGE_MASK);
-        qtcConnectToProp(props, scrolledWindowDestroy,
-                         "destroy-event", destroy, parent);
-        qtcConnectToProp(props, scrolledWindowUnrealize,
-                         "unrealize", destroy, parent);
-        qtcConnectToProp(props, scrolledWindowStyleSet,
-                         "style-set", styleSet, parent);
+        props->scrolledWindowDestroy.conn("destroy-event", destroy, parent);
+        props->scrolledWindowUnrealize.conn("unrealize", destroy, parent);
+        props->scrolledWindowStyleSet.conn("style-set", styleSet, parent);
         if (opts.unifyCombo && opts.unifySpin) {
-            qtcConnectToProp(props, scrolledWindowEnter, "enter-notify-event",
-                             enter, parent);
-            qtcConnectToProp(props, scrolledWindowLeave, "leave-notify-event",
-                             leave, parent);
+            props->scrolledWindowEnter.conn("enter-notify-event",
+                                            enter, parent);
+            props->scrolledWindowLeave.conn("leave-notify-event",
+                                            leave, parent);
         }
-        qtcConnectToProp(props, scrolledWindowFocusIn, "focus-in-event",
-                         focusIn, parent);
-        qtcConnectToProp(props, scrolledWindowFocusOut, "focus-out-event",
-                         focusOut, parent);
+        props->scrolledWindowFocusIn.conn("focus-in-event", focusIn, parent);
+        props->scrolledWindowFocusOut.conn("focus-out-event", focusOut, parent);
         if (parent && opts.unifyCombo && opts.unifySpin) {
-            int x, y;
             QtcRect alloc = Widget::getAllocation(parent);
-
+            int x;
+            int y;
             gdk_window_get_pointer(gtk_widget_get_window(parent),
                                    &x, &y, nullptr);
             if (x >= 0 && x <alloc.width && y >= 0 && y < alloc.height) {
@@ -150,9 +145,9 @@ setupConnections(GtkWidget *widget, GtkWidget *parent)
 void
 setup(GtkWidget *widget)
 {
-    QTC_DEF_WIDGET_PROPS(props, widget);
+    GtkWidgetProps props(widget);
     if (widget && GTK_IS_SCROLLED_WINDOW(widget) &&
-        !qtcWidgetProps(props)->scrolledWindowHacked) {
+        !props->scrolledWindowHacked) {
         GtkScrolledWindow *scrolledWindow = GTK_SCROLLED_WINDOW(widget);
         GtkWidget *child;
 
@@ -174,7 +169,7 @@ setup(GtkWidget *widget)
                 }
             }
         }
-        qtcWidgetProps(props)->scrolledWindowHacked = true;
+        props->scrolledWindowHacked = true;
     }
 }
 
@@ -183,9 +178,9 @@ registerChild(GtkWidget *child)
 {
     GtkWidget *parent = child ? gtk_widget_get_parent(child) : nullptr;
 
-    QTC_DEF_WIDGET_PROPS(parentProps, parent);
+    GtkWidgetProps parentProps(parent);
     if (parent && GTK_IS_SCROLLED_WINDOW(parent) &&
-        qtcWidgetProps(parentProps)->scrolledWindowHacked) {
+        parentProps->scrolledWindowHacked) {
         setupConnections(child, parent);
     }
 }

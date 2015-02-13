@@ -74,15 +74,15 @@ removeFromHash(void *hash)
 static void
 cleanup(GtkWidget *widget)
 {
-    QTC_DEF_WIDGET_PROPS(props, widget);
-    if (widget && qtcWidgetProps(props)->treeViewHacked) {
+    GtkWidgetProps props(widget);
+    if (widget && props->treeViewHacked) {
         removeFromHash(widget);
-        qtcDisconnectFromProp(props, treeViewDestroy);
-        qtcDisconnectFromProp(props, treeViewUnrealize);
-        qtcDisconnectFromProp(props, treeViewStyleSet);
-        qtcDisconnectFromProp(props, treeViewMotion);
-        qtcDisconnectFromProp(props, treeViewLeave);
-        qtcWidgetProps(props)->treeViewHacked = false;
+        props->treeViewDestroy.disconn();
+        props->treeViewUnrealize.disconn();
+        props->treeViewStyleSet.disconn();
+        props->treeViewMotion.disconn();
+        props->treeViewLeave.disconn();
+        props->treeViewHacked = false;
     }
 }
 
@@ -239,14 +239,14 @@ getCell(GtkTreeView *treeView, GtkTreePath **path, GtkTreeViewColumn **column,
 void
 setup(GtkWidget *widget)
 {
-    QTC_DEF_WIDGET_PROPS(props, widget);
-    if (widget && !qtcWidgetProps(props)->treeViewHacked) {
+    GtkWidgetProps props(widget);
+    if (widget && !props->treeViewHacked) {
         QtCTreeView *tv = lookupHash(widget, true);
         GtkTreeView *treeView = GTK_TREE_VIEW(widget);
         GtkWidget *parent = gtk_widget_get_parent(widget);
 
         if (tv) {
-            qtcWidgetProps(props)->treeViewHacked = true;
+            props->treeViewHacked = true;
             int x, y;
 #if GTK_CHECK_VERSION(2, 90, 0) /* Gtk3:TODO !!! */
             tv->fullWidth = true;
@@ -259,12 +259,11 @@ setup(GtkWidget *widget)
             gtk_tree_view_convert_widget_to_bin_window_coords(treeView, x, y,
                                                               &x, &y);
             updatePosition(widget, x, y);
-            qtcConnectToProp(props, treeViewDestroy, "destroy-event", destroy);
-            qtcConnectToProp(props, treeViewUnrealize, "unrealize", destroy);
-            qtcConnectToProp(props, treeViewStyleSet, "style-set", styleSet);
-            qtcConnectToProp(props, treeViewMotion, "motion-notify-event",
-                             motion);
-            qtcConnectToProp(props, treeViewLeave, "leave-notify-event", leave);
+            props->treeViewDestroy.conn("destroy-event", destroy);
+            props->treeViewUnrealize.conn("unrealize", destroy);
+            props->treeViewStyleSet.conn("style-set", styleSet);
+            props->treeViewMotion.conn("motion-notify-event", motion);
+            props->treeViewLeave.conn("leave-notify-event", leave);
         }
 
         if (!gtk_tree_view_get_show_expanders(treeView))

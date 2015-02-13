@@ -1082,11 +1082,11 @@ enableBlurBehind(GtkWidget *w, bool enable)
 {
     GtkWindow *topLevel = GTK_WINDOW(gtk_widget_get_toplevel(w));
     if (topLevel) {
-        QTC_DEF_WIDGET_PROPS(props, w);
-        int oldValue = qtcWidgetProps(props)->blurBehind;
+        GtkWidgetProps props(w);
+        int oldValue = props->blurBehind;
         if (oldValue == 0 || (enable && oldValue != 1) ||
             (!enable && oldValue != 2)) {
-            qtcWidgetProps(props)->blurBehind = enable ? 1 : 2;
+            props->blurBehind = enable ? 1 : 2;
             xcb_window_t wid =
                 GDK_WINDOW_XID(gtk_widget_get_window(GTK_WIDGET(topLevel)));
             qtcX11BlurTrigger(wid, enable, 0, nullptr);

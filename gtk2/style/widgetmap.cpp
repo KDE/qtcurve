@@ -29,18 +29,18 @@ namespace WidgetMap {
 
 static GHashTable *hashTable[2] = {nullptr, nullptr};
 
-template<typename Props, typename Id>
+template<typename Id>
 static inline bool
-getMapHacked(Props &props, Id &id)
+getMapHacked(const GtkWidgetProps &props, Id &id)
 {
-    return qtcWidgetProps(props)->widgetMapHacked & (id ? (1 << 1) : (1 << 0));
+    return props->widgetMapHacked & (id ? (1 << 1) : (1 << 0));
 }
 
-template<typename Props, typename Id>
+template<typename Id>
 static inline void
-setMapHacked(Props &props, Id &id)
+setMapHacked(const GtkWidgetProps &props, Id &id)
 {
-    qtcWidgetProps(props)->widgetMapHacked |= id ? (1 << 1) : (1 << 0);
+    props->widgetMapHacked |= id ? (1 << 1) : (1 << 0);
 }
 
 static GtkWidget*
@@ -74,12 +74,12 @@ removeHash(void *hash)
 static void
 cleanup(GtkWidget *widget)
 {
-    QTC_DEF_WIDGET_PROPS(props, widget);
-    if (qtcWidgetProps(props)->widgetMapHacked) {
-        qtcDisconnectFromProp(props, widgetMapDestroy);
-        qtcDisconnectFromProp(props, widgetMapUnrealize);
-        qtcDisconnectFromProp(props, widgetMapStyleSet);
-        qtcWidgetProps(props)->widgetMapHacked = 0;
+    GtkWidgetProps props(widget);
+    if (props->widgetMapHacked) {
+        props->widgetMapDestroy.disconn();
+        props->widgetMapUnrealize.disconn();
+        props->widgetMapStyleSet.disconn();
+        props->widgetMapHacked = 0;
         removeHash(widget);
     }
 }
@@ -101,15 +101,12 @@ destroy(GtkWidget *widget, GdkEvent*, void*)
 void
 setup(GtkWidget *from, GtkWidget *to, int map)
 {
-    QTC_DEF_WIDGET_PROPS(fromProps, from);
+    GtkWidgetProps fromProps(from);
     if (from && to && !getMapHacked(fromProps, map)) {
-        if (!qtcWidgetProps(fromProps)->widgetMapHacked) {
-            qtcConnectToProp(fromProps, widgetMapDestroy, "destroy-event",
-                             destroy);
-            qtcConnectToProp(fromProps, widgetMapUnrealize, "unrealize",
-                             destroy);
-            qtcConnectToProp(fromProps, widgetMapStyleSet, "style-set",
-                             styleSet);
+        if (!fromProps->widgetMapHacked) {
+            fromProps->widgetMapDestroy.conn("destroy-event", destroy);
+            fromProps->widgetMapUnrealize.conn("unrealize", destroy);
+            fromProps->widgetMapStyleSet.conn("style-set", styleSet);
         }
         setMapHacked(fromProps, map);
         lookupHash(from, to, map);
@@ -119,7 +116,7 @@ setup(GtkWidget *from, GtkWidget *to, int map)
 GtkWidget*
 getWidget(GtkWidget *widget, int map)
 {
-    QTC_DEF_WIDGET_PROPS(props, widget);
+    GtkWidgetProps props(widget);
     return (widget && getMapHacked(props, map) ?
             lookupHash(widget, nullptr, map) : nullptr);
 }

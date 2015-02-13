@@ -2252,8 +2252,8 @@ createRoundedMask(GtkWidget *widget, int x, int y, int width,
 {
     if (widget) {
         int size = ((width & 0xFFFF) << 16) + (height & 0xFFFF);
-        QTC_DEF_WIDGET_PROPS(props, widget);
-        int old = qtcWidgetProps(props)->widgetMask;
+        GtkWidgetProps props(widget);
+        int old = props->widgetMask;
 
         if (size != old) {
 #if GTK_CHECK_VERSION(2, 90, 0)
@@ -2284,7 +2284,7 @@ createRoundedMask(GtkWidget *widget, int x, int y, int width,
             cairo_destroy(crMask);
             gdk_pixmap_unref(mask);
 #endif
-            qtcWidgetProps(props)->widgetMask = size;
+            props->widgetMask = size;
             /* Setting the window type to 'popup menu' seems to
                re-eanble kwin shadows! */
             if (isToolTip && gtk_widget_get_window(widget)) {
@@ -2299,8 +2299,8 @@ void
 clearRoundedMask(GtkWidget *widget, bool isToolTip)
 {
     if (widget) {
-        QTC_DEF_WIDGET_PROPS(props, widget);
-        if (qtcWidgetProps(props)->widgetMask) {
+        GtkWidgetProps props(widget);
+        if (props->widgetMask) {
 #if GTK_CHECK_VERSION(2, 90, 0)
             gtk_widget_shape_combine_region(widget, nullptr);
 #else
@@ -2309,7 +2309,7 @@ clearRoundedMask(GtkWidget *widget, bool isToolTip)
             else
                 gdk_window_shape_combine_mask(gtk_widget_get_parent_window(widget), nullptr, 0, 0);
 #endif
-            qtcWidgetProps(props)->widgetMask = 0;
+            props->widgetMask = 0;
         }
     }
 }

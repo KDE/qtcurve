@@ -75,14 +75,14 @@ static void
 cleanup(GtkWidget *widget)
 {
     if (widget) {
-        QTC_DEF_WIDGET_PROPS(props, widget);
-        qtcDisconnectFromProp(props, tabDestroy);
-        qtcDisconnectFromProp(props, tabUnrealize);
-        qtcDisconnectFromProp(props, tabStyleSet);
-        qtcDisconnectFromProp(props, tabMotion);
-        qtcDisconnectFromProp(props, tabLeave);
-        qtcDisconnectFromProp(props, tabPageAdded);
-        qtcWidgetProps(props)->tabHacked = true;
+        GtkWidgetProps props(widget);
+        props->tabDestroy.disconn();
+        props->tabUnrealize.disconn();
+        props->tabStyleSet.disconn();
+        props->tabMotion.disconn();
+        props->tabLeave.disconn();
+        props->tabPageAdded.disconn();
+        props->tabHacked = true;
         tabMap.erase(widget);
     }
 }
@@ -152,16 +152,16 @@ leave(GtkWidget *widget, GdkEventCrossing*, void*)
 static void
 unregisterChild(GtkWidget *widget)
 {
-    QTC_DEF_WIDGET_PROPS(props, widget);
-    if (widget && qtcWidgetProps(props)->tabChildHacked) {
-        qtcDisconnectFromProp(props, tabChildDestroy);
-        qtcDisconnectFromProp(props, tabChildStyleSet);
-        qtcDisconnectFromProp(props, tabChildEnter);
-        qtcDisconnectFromProp(props, tabChildLeave);
+    GtkWidgetProps props(widget);
+    if (widget && props->tabChildHacked) {
+        props->tabChildDestroy.disconn();
+        props->tabChildStyleSet.disconn();
+        props->tabChildEnter.disconn();
+        props->tabChildLeave.disconn();
         if (GTK_IS_CONTAINER(widget)) {
-            qtcDisconnectFromProp(props, tabChildAdd);
+            props->tabChildAdd.disconn();
         }
-        qtcWidgetProps(props)->tabChildHacked = false;
+        props->tabChildHacked = false;
     }
 }
 
@@ -198,20 +198,15 @@ childAdd(GtkWidget*, GdkEventCrossing *, void *data)
 static void
 registerChild(GtkWidget *notebook, GtkWidget *widget)
 {
-    QTC_DEF_WIDGET_PROPS(props, widget);
-    if (widget && !qtcWidgetProps(props)->tabChildHacked) {
-        qtcWidgetProps(props)->tabChildHacked = true;
-        qtcConnectToProp(props, tabChildDestroy, "destroy",
-                         childDestroy, notebook);
-        qtcConnectToProp(props, tabChildStyleSet, "style-set",
-                         childStyleSet, notebook);
-        qtcConnectToProp(props, tabChildEnter, "enter-notify-event",
-                         childMotion, notebook);
-        qtcConnectToProp(props, tabChildLeave, "leave-notify-event",
-                         childMotion, notebook);
+    GtkWidgetProps props(widget);
+    if (widget && !props->tabChildHacked) {
+        props->tabChildHacked = true;
+        props->tabChildDestroy.conn("destroy", childDestroy, notebook);
+        props->tabChildStyleSet.conn("style-set", childStyleSet, notebook);
+        props->tabChildEnter.conn("enter-notify-event", childMotion, notebook);
+        props->tabChildLeave.conn("leave-notify-event", childMotion, notebook);
         if (GTK_IS_CONTAINER(widget)) {
-            qtcConnectToProp(props, tabChildAdd, "add",
-                             childAdd, notebook);
+            props->tabChildAdd.conn("add", childAdd, notebook);
             GList *children = gtk_container_get_children(GTK_CONTAINER(widget));
             for (GList *child = children;child;child = g_list_next(child)) {
                 registerChild(notebook, GTK_WIDGET(child->data));
@@ -254,16 +249,16 @@ currentHoveredIndex(GtkWidget *widget)
 void
 setup(GtkWidget *widget)
 {
-    QTC_DEF_WIDGET_PROPS(props, widget);
-    if (widget && !qtcWidgetProps(props)->tabHacked) {
-        qtcWidgetProps(props)->tabHacked = true;
+    GtkWidgetProps props(widget);
+    if (widget && !props->tabHacked) {
+        props->tabHacked = true;
         tabMap.lookup(widget, true);
-        qtcConnectToProp(props, tabDestroy, "destroy-event", destroy);
-        qtcConnectToProp(props, tabUnrealize, "unrealize", destroy);
-        qtcConnectToProp(props, tabStyleSet, "style-set", styleSet);
-        qtcConnectToProp(props, tabMotion, "motion-notify-event", motion);
-        qtcConnectToProp(props, tabLeave, "leave-notify-event", leave);
-        qtcConnectToProp(props, tabPageAdded, "page-added", pageAdded);
+        props->tabDestroy.conn("destroy-event", destroy);
+        props->tabUnrealize.conn("unrealize", destroy);
+        props->tabStyleSet.conn("style-set", styleSet);
+        props->tabMotion.conn("motion-notify-event", motion);
+        props->tabLeave.conn("leave-notify-event", leave);
+        props->tabPageAdded.conn("page-added", pageAdded);
         updateChildren(widget);
     }
 }

@@ -289,16 +289,16 @@ dragEnd()
 
 static void cleanup(GtkWidget *widget)
 {
-    QTC_DEF_WIDGET_PROPS(props, widget);
-    if (qtcWidgetProps(props)->wmMoveHacked) {
+    GtkWidgetProps props(widget);
+    if (props->wmMoveHacked) {
         if (widget == dragWidget)
             reset();
-        qtcDisconnectFromProp(props, wmMoveDestroy);
-        qtcDisconnectFromProp(props, wmMoveStyleSet);
-        qtcDisconnectFromProp(props, wmMoveMotion);
-        qtcDisconnectFromProp(props, wmMoveLeave);
-        qtcDisconnectFromProp(props, wmMoveButtonPress);
-        qtcWidgetProps(props)->wmMoveHacked = false;
+        props->wmMoveDestroy.disconn();
+        props->wmMoveStyleSet.disconn();
+        props->wmMoveMotion.disconn();
+        props->wmMoveLeave.disconn();
+        props->wmMoveButtonPress.disconn();
+        props->wmMoveHacked = false;
     }
 }
 
@@ -374,19 +374,18 @@ setup(GtkWidget *widget)
         (GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK)))
         return;
 
-    QTC_DEF_WIDGET_PROPS(props, widget);
-    if (!isFakeGtk() && !qtcWidgetProps(props)->wmMoveHacked) {
-        qtcWidgetProps(props)->wmMoveHacked = true;
+    GtkWidgetProps props(widget);
+    if (!isFakeGtk() && !props->wmMoveHacked) {
+        props->wmMoveHacked = true;
         gtk_widget_add_events(widget, GDK_BUTTON_RELEASE_MASK |
                               GDK_BUTTON_PRESS_MASK | GDK_LEAVE_NOTIFY_MASK |
                               GDK_BUTTON1_MOTION_MASK);
         registerBtnReleaseHook();
-        qtcConnectToProp(props, wmMoveDestroy, "destroy-event", destroy);
-        qtcConnectToProp(props, wmMoveStyleSet, "style-set", styleSet);
-        qtcConnectToProp(props, wmMoveMotion, "motion-notify-event", motion);
-        qtcConnectToProp(props, wmMoveLeave, "leave-notify-event", leave);
-        qtcConnectToProp(props, wmMoveButtonPress, "button-press-event",
-                         buttonPress);
+        props->wmMoveDestroy.conn("destroy-event", destroy);
+        props->wmMoveStyleSet.conn("style-set", styleSet);
+        props->wmMoveMotion.conn("motion-notify-event", motion);
+        props->wmMoveLeave.conn("leave-notify-event", leave);
+        props->wmMoveButtonPress.conn("button-press-event", buttonPress);
     }
 }
 

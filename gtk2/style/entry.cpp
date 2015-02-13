@@ -36,13 +36,13 @@ cleanup(GtkWidget *widget)
         lastMo = nullptr;
     }
     if (GTK_IS_ENTRY(widget)) {
-        QTC_DEF_WIDGET_PROPS(props, widget);
-        qtcDisconnectFromProp(props, entryEnter);
-        qtcDisconnectFromProp(props, entryLeave);
-        qtcDisconnectFromProp(props, entryDestroy);
-        qtcDisconnectFromProp(props, entryUnrealize);
-        qtcDisconnectFromProp(props, entryStyleSet);
-        qtcWidgetProps(props)->entryHacked = false;
+        GtkWidgetProps props(widget);
+        props->entryEnter.disconn();
+        props->entryLeave.disconn();
+        props->entryDestroy.disconn();
+        props->entryUnrealize.disconn();
+        props->entryStyleSet.disconn();
+        props->entryHacked = false;
     }
 }
 
@@ -89,14 +89,14 @@ isLastMo(GtkWidget *widget)
 void
 setup(GtkWidget *widget)
 {
-    QTC_DEF_WIDGET_PROPS(props, widget);
-    if (GTK_IS_ENTRY(widget) && !qtcWidgetProps(props)->entryHacked) {
-        qtcWidgetProps(props)->entryHacked = true;
-        qtcConnectToProp(props, entryEnter, "enter-notify-event", enter);
-        qtcConnectToProp(props, entryLeave, "leave-notify-event", leave);
-        qtcConnectToProp(props, entryDestroy, "destroy-event", destroy);
-        qtcConnectToProp(props, entryUnrealize, "unrealize", destroy);
-        qtcConnectToProp(props, entryStyleSet, "style-set", styleSet);
+    GtkWidgetProps props(widget);
+    if (GTK_IS_ENTRY(widget) && !props->entryHacked) {
+        props->entryHacked = true;
+        props->entryEnter.conn("enter-notify-event", enter);
+        props->entryLeave.conn("leave-notify-event", leave);
+        props->entryDestroy.conn("destroy-event", destroy);
+        props->entryUnrealize.conn("unrealize", destroy);
+        props->entryStyleSet.conn("style-set", styleSet);
     }
 }
 

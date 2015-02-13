@@ -43,12 +43,16 @@ add_test(NAME test-process COMMAND test-process)
 
 add_executable(test-popen test-popen.cpp)
 target_link_libraries(test-popen qtcurve-utils)
-add_test(NAME test-popen COMMAND test-popen)
+# add_test(NAME test-popen COMMAND test-popen)
 
 add_executable(test-popen-buff test-popen-buff.cpp)
 target_link_libraries(test-popen-buff qtcurve-utils)
-add_test(NAME test-popen-buff COMMAND test-popen-buff)
+# add_test(NAME test-popen-buff COMMAND test-popen-buff)
 
 add_executable(test-oneof test-oneof.cpp)
 target_link_libraries(test-oneof qtcurve-utils)
 add_test(NAME test-oneof COMMAND test-oneof)
+
+add_executable(test-containerof test-containerof.cpp)
+target_link_libraries(test-containerof qtcurve-utils)
+add_test(NAME test-containerof COMMAND test-containerof)

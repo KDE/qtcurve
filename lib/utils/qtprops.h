@@ -57,34 +57,34 @@ struct _QtcQWidgetProps {
 
 #define QTC_PROP_NAME "_q__QTCURVE_WIDGET_PROPERTIES__"
 
-QTC_ALWAYS_INLINE static inline QSharedPointer<_QtcQWidgetProps>
-qtcGetWidgetProps(const QWidget *w)
-{
-    // use _q_ to mimic qt internal properties and suppress QtDesigner
-    // warning about unsupported properties.
-    QVariant val(w->property(QTC_PROP_NAME));
-    if (!val.isValid()) {
-        val = QVariant::fromValue(QSharedPointer<_QtcQWidgetProps>(
-                                      new _QtcQWidgetProps));
-        const_cast<QWidget*>(w)->setProperty(QTC_PROP_NAME, val);
-    }
-    return val.value<QSharedPointer<_QtcQWidgetProps> >();
-}
-
 class QtcQWidgetProps {
-public:
-    QtcQWidgetProps(const QWidget *widget): w(widget), p(0) {}
-    inline _QtcQWidgetProps*
-    operator ->() const
+    typedef QSharedPointer<_QtcQWidgetProps> prop_type;
+    inline prop_type
+    getProps() const
     {
-        if (!p && w) {
-            p = qtcGetWidgetProps(w);
+        // use _q_ to mimic qt internal properties and suppress QtDesigner
+        // warning about unsupported properties.
+        QVariant val(m_w->property(QTC_PROP_NAME));
+        if (!val.isValid()) {
+            val = QVariant::fromValue(QSharedPointer<_QtcQWidgetProps>(
+                                          new _QtcQWidgetProps));
+            const_cast<QWidget*>(m_w)->setProperty(QTC_PROP_NAME, val);
         }
-        return p.data();
+        return val.value<prop_type>();
+    }
+public:
+    QtcQWidgetProps(const QWidget *widget): m_w(widget), m_p(0) {}
+    inline _QtcQWidgetProps*
+    operator->() const
+    {
+        if (!m_p && m_w) {
+            m_p = getProps();
+        }
+        return m_p.data();
     }
 private:
-    const QWidget *w;
-    mutable QSharedPointer<_QtcQWidgetProps> p;
+    const QWidget *m_w;
+    mutable prop_type m_p;
 };
 
 static inline int

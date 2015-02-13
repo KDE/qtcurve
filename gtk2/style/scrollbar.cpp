@@ -30,13 +30,13 @@ namespace Scrollbar {
 static void
 cleanup(GtkWidget *widget)
 {
-    QTC_DEF_WIDGET_PROPS(props, widget);
-    if (widget && qtcWidgetProps(props)->scrollBarHacked) {
-        qtcDisconnectFromProp(props, scrollBarDestroy);
-        qtcDisconnectFromProp(props, scrollBarUnrealize);
-        qtcDisconnectFromProp(props, scrollBarStyleSet);
-        qtcDisconnectFromProp(props, scrollBarValueChanged);
-        qtcWidgetProps(props)->scrollBarHacked = false;
+    GtkWidgetProps props(widget);
+    if (widget && props->scrollBarHacked) {
+        props->scrollBarDestroy.disconn();
+        props->scrollBarUnrealize.disconn();
+        props->scrollBarStyleSet.disconn();
+        props->scrollBarValueChanged.disconn();
+        props->scrollBarHacked = false;
     }
 }
 
@@ -83,14 +83,13 @@ valueChanged(GtkWidget *widget, GdkEventMotion*, void*)
 static void
 setupSlider(GtkWidget *widget)
 {
-    QTC_DEF_WIDGET_PROPS(props, widget);
-    if (widget && !qtcWidgetProps(props)->scrollBarHacked) {
-        qtcWidgetProps(props)->scrollBarHacked = true;
-        qtcConnectToProp(props, scrollBarDestroy, "destroy-event", destroy);
-        qtcConnectToProp(props, scrollBarUnrealize, "unrealize", destroy);
-        qtcConnectToProp(props, scrollBarStyleSet, "style-set", styleSet);
-        qtcConnectToProp(props, scrollBarValueChanged, "value-changed",
-                         valueChanged);
+    GtkWidgetProps props(widget);
+    if (widget && !props->scrollBarHacked) {
+        props->scrollBarHacked = true;
+        props->scrollBarDestroy.conn("destroy-event", destroy);
+        props->scrollBarUnrealize.conn("unrealize", destroy);
+        props->scrollBarStyleSet.conn("style-set", styleSet);
+        props->scrollBarValueChanged.conn("value-changed", valueChanged);
     }
 }
 

@@ -128,7 +128,7 @@
  * the containing structure.
  */
 #define qtcContainerOf(ptr, type, member)               \
-    ((type*)(((void*)(ptr)) - offsetof(type, member)))
+    ((type*)(((char*)(ptr)) - offsetof(type, member)))
 
 /**
  * Tell the compiler that \param exp is likely to be \param var.

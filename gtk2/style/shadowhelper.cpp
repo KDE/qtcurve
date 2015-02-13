@@ -76,10 +76,10 @@ destroy(GtkWidget *widget, void*)
     if (qtSettings.debug == DEBUG_ALL)
         printf(DEBUG_PREFIX "%s %p\n", __FUNCTION__, widget);
 
-    QTC_DEF_WIDGET_PROPS(props, widget);
-    if (qtcWidgetProps(props)->shadowSet) {
-        qtcDisconnectFromProp(props, shadowDestroy);
-        qtcWidgetProps(props)->shadowSet = false;
+    GtkWidgetProps props(widget);
+    if (props->shadowSet) {
+        props->shadowDestroy.disconn();
+        props->shadowSet = false;
     }
     return false;
 }
@@ -93,9 +93,9 @@ registerWidget(GtkWidget* widget)
     if (!(widget && GTK_IS_WINDOW(widget)))
         return false;
 
-    QTC_DEF_WIDGET_PROPS(props, widget);
+    GtkWidgetProps props(widget);
     // make sure that widget is not already registered
-    if (qtcWidgetProps(props)->shadowSet)
+    if (props->shadowSet)
         return false;
 
     // check if window is accepted
@@ -105,8 +105,8 @@ registerWidget(GtkWidget* widget)
     // try install shadows
     installX11Shadows(widget);
 
-    qtcWidgetProps(props)->shadowSet = true;
-    qtcConnectToProp(props, shadowDestroy, "destroy", destroy);
+    props->shadowSet = true;
+    props->shadowDestroy.conn("destroy", destroy);
     return true;
 }
 
