@@ -1556,9 +1556,7 @@ excludedApp(Strings config)
 static QtcDebug
 debugLevel()
 {
-    const char *dbg = getenv("QTCURVE_DEBUG");
-
-    if (dbg) {
+    if (const char *dbg = getenv("QTCURVE_DEBUG")) {
         switch (atoi(dbg)) {
         case 1:
             return DEBUG_SETTINGS;

@@ -619,7 +619,7 @@ gtkDrawArrow(GtkStyle *style, GdkWindow *window, GtkStateType state,
             /*     y++; */
             /* a_height = SMALL_ARR_HEIGHT; */
             /* a_width = SMALL_ARR_WIDTH; */
-        } else if (qtcOneOf(arrow_type, GTK_ARROW_LEFT, GTK_ARROW_RIGHT) ||
+        } else if (oneOf(arrow_type, GTK_ARROW_LEFT, GTK_ARROW_RIGHT) ||
                    isMenuItem) {
             /* a_width = LARGE_ARR_HEIGHT; */
             /* a_height = LARGE_ARR_WIDTH; */
@@ -687,8 +687,8 @@ gtkDrawArrow(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 col = &qtSettings.colors[PAL_ACTIVE][COLOR_WINDOW_BORDER_TEXT];
             } else if (opts.customMenuTextColor) {
                 col = &opts.customMenuNormTextColor;
-            } else if (qtcOneOf(opts.shadeMenubars, SHADE_BLEND_SELECTED,
-                                SHADE_SELECTED) ||
+            } else if (oneOf(opts.shadeMenubars, SHADE_BLEND_SELECTED,
+                             SHADE_SELECTED) ||
                         (opts.shadeMenubars == SHADE_CUSTOM &&
                          TOO_DARK(qtcPalette.menubar[ORIGINAL_SHADE]))) {
                 col = &style->text[GTK_STATE_SELECTED];
@@ -954,7 +954,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
             /* Yuck this is a horrible mess!!!!! */
             bool glowFocus = (widget && gtk_widget_has_focus(widget) &&
                               opts.coloredMouseOver == MO_GLOW &&
-                              qtcOneOf(opts.focus, FOCUS_FULL, FOCUS_FILLED));
+                              oneOf(opts.focus, FOCUS_FULL, FOCUS_FILLED));
             EWidget widgetType=isComboBoxButton(widget)
                                 ? WIDGET_COMBO_BUTTON
                                 : slider
@@ -977,7 +977,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
             int xo=x, yo=y, wo=width, ho=height, stepper=STEPPER_NONE;
 
             /* Try and guess if this button is a toolbar button... */
-            if (qtcOneOf(widgetType, WIDGET_STD_BUTTON, WIDGET_TOGGLE_BUTTON) &&
+            if (oneOf(widgetType, WIDGET_STD_BUTTON, WIDGET_TOGGLE_BUTTON) &&
                 isMozillaWidget(widget) && GTK_IS_BUTTON(widget) &&
                 DETAIL("button") && ((width > 22 && width < 56 &&
                                       height > 30) || height >= 32 ||
@@ -1113,8 +1113,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
 
                 if (!opts.gtkComboMenus && !ComboBox::hasFrame(parent)) {
                     mod = 0;
-                    draw = qtcOneOf(state, GTK_STATE_ACTIVE,
-                                    GTK_STATE_PRELIGHT);
+                    draw = oneOf(state, GTK_STATE_ACTIVE, GTK_STATE_PRELIGHT);
                     ComboBox::setup(nullptr, parent);
                 } else {
                     changedFocus = ComboBox::isFocusChanged(widget);
@@ -1222,8 +1221,8 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
 #endif
             } else {
                 const GdkColor *cols =
-                    (defBtn && qtcOneOf(opts.defBtnIndicator, IND_TINT,
-                                        IND_COLORED, IND_SELECTED) ?
+                    (defBtn && oneOf(opts.defBtnIndicator, IND_TINT,
+                                     IND_COLORED, IND_SELECTED) ?
                      qtcPalette.defbtn : widgetType == WIDGET_COMBO_BUTTON &&
                      qtcPalette.combobtn && state != GTK_STATE_INSENSITIVE ?
                      qtcPalette.combobtn : btnColors);
@@ -1663,7 +1662,7 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
         GdkColor *btnColors;
         int bgnd = getFill(state, false); // TODO!!! btnDown???
         bool sunken = //btnDown || (GTK_IS_BUTTON(widget) && qtcButtonIsDepressed(widget)) ||
-            state == GTK_STATE_ACTIVE || qtcOneOf(bgnd, 2, 3);
+            state == GTK_STATE_ACTIVE || oneOf(bgnd, 2, 3);
         GtkWidget *parent = gtk_widget_get_parent(widget);
         GtkWidget *mapped = parent ? WidgetMap::getWidget(parent, 0) : nullptr;
 
@@ -2142,8 +2141,8 @@ gtkDrawLayout(GtkStyle *style, GdkWindow *window, GtkStateType state,
                     style->text[GTK_STATE_INSENSITIVE] =
                         *qtc_style->menutext[0];
                     use_text = true;
-                } else if (qtcOneOf(opts.shadeMenubars, SHADE_BLEND_SELECTED,
-                                    SHADE_SELECTED) ||
+                } else if (oneOf(opts.shadeMenubars, SHADE_BLEND_SELECTED,
+                                 SHADE_SELECTED) ||
                            (opts.shadeMenubars == SHADE_CUSTOM &&
                             TOO_DARK(qtcPalette.menubar[ORIGINAL_SHADE]))) {
                     selectedText = true;
@@ -2665,7 +2664,7 @@ gtkDrawFocus(GtkStyle *style, GdkWindow *window, GtkStateType state,
 #if !GTK_CHECK_VERSION(2, 90, 0)
     else if (GTK_IS_OPTION_MENU(widget)) {
         if ((!opts.comboSplitter ||
-             qtcOneOf(opts.focus, FOCUS_FULL, FOCUS_FILLED)) && widget) {
+             oneOf(opts.focus, FOCUS_FULL, FOCUS_FILLED)) && widget) {
             QtcRect alloc = Widget::getAllocation(widget);
             if (alloc.width > width) {
                 width = alloc.width - (doEtch ? 8 : 4);
@@ -2742,7 +2741,7 @@ gtkDrawFocus(GtkStyle *style, GdkWindow *window, GtkStateType state,
             else {
                 if (opts.focus == FOCUS_LINE) {
                     height--;
-                } else if (qtcOneOf(opts.focus, FOCUS_FULL, FOCUS_FILLED)) {
+                } else if (oneOf(opts.focus, FOCUS_FULL, FOCUS_FILLED)) {
                     y--;
                     x -= 3;
                     width += 6;
@@ -2777,7 +2776,7 @@ gtkDrawFocus(GtkStyle *style, GdkWindow *window, GtkStateType state,
         }
     }
     if (state == GTK_STATE_PRELIGHT && opts.coloredMouseOver != MO_NONE &&
-        qtcOneOf(opts.focus, FOCUS_FULL, FOCUS_FILLED) && !listViewHeader &&
+        oneOf(opts.focus, FOCUS_FULL, FOCUS_FILLED) && !listViewHeader &&
         (btn || comboButton)) {
         return;
     }
@@ -2828,7 +2827,7 @@ gtkDrawFocus(GtkStyle *style, GdkWindow *window, GtkStateType state,
             }
         }
 
-        if (qtcOneOf(opts.focus, FOCUS_LINE, FOCUS_GLOW)) {
+        if (oneOf(opts.focus, FOCUS_LINE, FOCUS_GLOW)) {
             if (view || listViewHeader) {
                 height -= 2;
             }
@@ -2850,7 +2849,7 @@ gtkDrawFocus(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 width -= 2;
                 height -= 3;
             }
-            if (qtcOneOf(opts.focus, FOCUS_FULL, FOCUS_FILLED)) {
+            if (oneOf(opts.focus, FOCUS_FULL, FOCUS_FILLED)) {
                 if (btn) {
                     if (toolbarBtn) {
                         x -= 2;
@@ -2898,12 +2897,12 @@ gtkDrawFocus(GtkStyle *style, GdkWindow *window, GtkStateType state,
                                   opts.square & SQUARE_LISTVIEW_SELECTION) &&
                                  opts.round != ROUND_NONE ? SLIGHT_INNER_RADIUS :
                                  qtcGetRadius(&opts, width, height, WIDGET_OTHER,
-                                              qtcOneOf(opts.focus, FOCUS_FULL,
-                                                       FOCUS_FILLED) ?
+                                              oneOf(opts.focus, FOCUS_FULL,
+                                                    FOCUS_FILLED) ?
                                               RADIUS_EXTERNAL :
                                               RADIUS_SELECTION),
-                                 qtcOneOf(opts.focus, FOCUS_FULL,
-                                          FOCUS_FILLED) && comboButton ?
+                                 oneOf(opts.focus, FOCUS_FULL,
+                                       FOCUS_FILLED) && comboButton ?
                                  (rev ? ROUNDED_LEFT : ROUNDED_RIGHT) :
                                  ROUNDED_ALL);
             } else {

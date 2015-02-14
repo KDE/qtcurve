@@ -202,21 +202,22 @@ qtcGetWidgetRound(const Options *opts, int w, int h, EWidget widget)
 {
     ERound r = opts->round;
 
-    if ((qtcOneOf(widget, WIDGET_PBAR_TROUGH, WIDGET_PROGRESSBAR) &&
+    if ((QtCurve::oneOf(widget, WIDGET_PBAR_TROUGH, WIDGET_PROGRESSBAR) &&
          (opts->square & SQUARE_PROGRESS)) ||
         (widget == WIDGET_ENTRY && (opts->square & SQUARE_ENTRY)) ||
         (widget == WIDGET_SCROLLVIEW && (opts->square & SQUARE_SCROLLVIEW))) {
         return ROUND_NONE;
     }
 
-    if (qtcOneOf(widget, WIDGET_CHECKBOX, WIDGET_FOCUS) && r != ROUND_NONE) {
+    if (QtCurve::oneOf(widget, WIDGET_CHECKBOX, WIDGET_FOCUS) &&
+        r != ROUND_NONE) {
         r = ROUND_SLIGHT;
     }
 
 #ifdef QTC_UTILS_QT
     if ((widget == WIDGET_MDI_WINDOW_BUTTON &&
          (opts->titlebarButtons & TITLEBAR_BUTTON_ROUND)) ||
-        qtcOneOf(widget, WIDGET_RADIO_BUTTON, WIDGET_DIAL)) {
+        QtCurve::oneOf(widget, WIDGET_RADIO_BUTTON, WIDGET_DIAL)) {
         return ROUND_MAX;
     }
 #endif
@@ -225,8 +226,8 @@ qtcGetWidgetRound(const Options *opts, int w, int h, EWidget widget)
         return ROUND_MAX;
     }
 #endif
-    if (qtcOneOf(opts->sliderStyle, SLIDER_ROUND, SLIDER_ROUND_ROTATED,
-                 SLIDER_CIRCULAR) && widget == WIDGET_SLIDER) {
+    if (QtCurve::oneOf(opts->sliderStyle, SLIDER_ROUND, SLIDER_ROUND_ROTATED,
+                       SLIDER_CIRCULAR) && widget == WIDGET_SLIDER) {
         return ROUND_MAX;
     }
     switch (r) {
@@ -257,11 +258,12 @@ qtcGetRadius(const Options *opts, int w, int h, EWidget widget, ERadius rad)
 {
     ERound r = opts->round;
 
-    if (qtcOneOf(widget, WIDGET_CHECKBOX, WIDGET_FOCUS) && ROUND_NONE != r) {
+    if (QtCurve::oneOf(widget, WIDGET_CHECKBOX, WIDGET_FOCUS) &&
+        ROUND_NONE != r) {
         r = ROUND_SLIGHT;
     }
 
-    if ((qtcOneOf(widget, WIDGET_PBAR_TROUGH, WIDGET_PROGRESSBAR) &&
+    if ((QtCurve::oneOf(widget, WIDGET_PBAR_TROUGH, WIDGET_PROGRESSBAR) &&
          (opts->square & SQUARE_PROGRESS)) ||
         (widget == WIDGET_ENTRY && (opts->square & SQUARE_ENTRY)) ||
         (widget == WIDGET_SCROLLVIEW && (opts->square & SQUARE_SCROLLVIEW))) {
@@ -271,7 +273,7 @@ qtcGetRadius(const Options *opts, int w, int h, EWidget widget, ERadius rad)
 #ifdef QTC_UTILS_QT
     if ((widget == WIDGET_MDI_WINDOW_BUTTON &&
          (opts->titlebarButtons & TITLEBAR_BUTTON_ROUND)) ||
-        qtcOneOf(widget, WIDGET_RADIO_BUTTON, WIDGET_DIAL)) {
+        QtCurve::oneOf(widget, WIDGET_RADIO_BUTTON, WIDGET_DIAL)) {
         return (w > h ? h : w) / 2.0;
     }
 #endif
@@ -281,8 +283,8 @@ qtcGetRadius(const Options *opts, int w, int h, EWidget widget, ERadius rad)
     }
 #endif
 
-    if (qtcOneOf(opts->sliderStyle, SLIDER_ROUND, SLIDER_ROUND_ROTATED,
-                 SLIDER_CIRCULAR) && widget == WIDGET_SLIDER) {
+    if (QtCurve::oneOf(opts->sliderStyle, SLIDER_ROUND, SLIDER_ROUND_ROTATED,
+                       SLIDER_CIRCULAR) && widget == WIDGET_SLIDER) {
         return (w > h ? h : w) / 2.0;
     }
 

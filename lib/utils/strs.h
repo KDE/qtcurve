@@ -150,32 +150,31 @@ void _forEach(const char *str, char delim, char escape,
 
 template<typename Func, typename... Args>
 static inline auto
-_forEachCaller(const char *str, size_t len, Func &&func, Args&&... args)
-    -> typename std::enable_if<
-        std::is_same<decltype(func(str, len, std::forward<Args>(args)...)),
-                     bool>::value, bool>::type
+_forEachCaller(const char *str, size_t len, Func &func, Args&... args)
+    -> typename std::enable_if<std::is_same<decltype(func(str, len, args...)),
+                                            bool>::value, bool>::type
 {
-    return func(str, len, std::forward<Args>(args)...);
+    return func(str, len, args...);
 }
 
 template<typename Func, typename... Args>
 static inline auto
-_forEachCaller(const char *str, size_t, Func &&func, Args&&... args)
-    -> typename std::enable_if<
-        std::is_same<decltype(func(str, std::forward<Args>(args)...)),
-                     bool>::value, bool>::type
+_forEachCaller(const char *str, size_t, Func &func, Args&... args)
+    -> typename std::enable_if<std::is_same<decltype(func(str, args...)),
+                                            bool>::value, bool>::type
 {
-    return func(str, std::forward<Args>(args)...);
+    return func(str, args...);
 }
 
 template<typename Func, typename... Args>
 static inline void
 forEach(const char *str, char delim, char escape, Func &&func, Args&&... args)
 {
-    _forEach(str, delim, escape, [&] (const char *str, size_t len) {
-            return _forEachCaller(str, len, std::forward<Func>(func),
-                                  std::forward<Args>(args)...);
-        });
+    using namespace std::placeholders;
+    _forEach(str, delim, escape,
+             std::bind(_forEachCaller<typename std::decay<Func>::type,
+                       typename std::decay<Args>::type...>, _1, _2,
+                       std::forward<Func>(func), std::forward<Args>(args)...));
 }
 template<typename Func, typename... Args>
 static inline typename std::enable_if<!_isChar<Func>::value>::type

@@ -77,20 +77,6 @@ qtcAlloc0(size_t size)
 #define qtcNew(type, n...)                              \
     qtcNewSize(type, sizeof(type) * (QTC_DEFAULT(n, 1)))
 
-template<typename T, typename First>
-static inline bool
-qtcOneOf(T &&value, First &&first)
-{
-    return value == first;
-}
-template<typename T, typename First, typename... Rest>
-static inline bool
-qtcOneOf(T &&value, First &&first, Rest&&... rest)
-{
-    return value == first || qtcOneOf(std::forward<T>(value),
-                                      std::forward<Rest>(rest)...);
-}
-
 namespace QtCurve {
 
 template<typename T>
@@ -226,6 +212,12 @@ private:
 };
 }
 
+template<typename... Args>
+static inline bool
+qtcOneOf(Args&&... args)
+{
+    return QtCurve::oneOf(std::forward<Args>(args)...);
+}
 const char *qtcGetProgName();
 const char *qtcVersion();
 
