@@ -1,5 +1,5 @@
 /*****************************************************************************
- *   Copyright 2013 - 2013 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -52,20 +52,25 @@ qtcSquare(const T &a)
 #define qtcLimit(v, l) qtcBound(0, v, l)
 #define qtcEqual(v1, v2) (qtcAbs(v1 - v2) < 0.0001)
 
-QTC_ALWAYS_INLINE static inline uintptr_t
-qtcGetPadding(uintptr_t len, uintptr_t align)
+namespace QtCurve {
+
+template<typename T1, typename T2>
+static inline auto
+getPadding(T1 len, T2 align) -> decltype(len + align)
 {
-    uintptr_t left;
-    if ((left = len % align)) {
+    if (auto left = len % align) {
         return align - left;
     }
     return 0;
 }
 
-QTC_ALWAYS_INLINE static inline uintptr_t
-qtcAlignTo(uintptr_t len, uintptr_t align)
+template<typename T1, typename T2>
+static inline auto
+alignTo(T1 len, T2 align) -> decltype(len + align)
 {
-    return len + qtcGetPadding(len, align);
+    return len + getPadding(len, align);
+}
+
 }
 
 template<typename First>

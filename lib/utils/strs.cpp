@@ -19,22 +19,17 @@
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
 
+#define __QTC_UTILS_STRS_INTERNAL__
+
 #include "strs.h"
 #include "number.h"
 
-QTC_EXPORT char*
-_qtcSPrintf(char *buff, size_t *size, bool allocated, const char *fmt, ...)
-{
-    va_list ap;
-    va_start(ap, fmt);
-    char *res = _qtcSPrintfV(buff, size, allocated, fmt, ap);
-    va_end(ap);
-    return res;
-}
+namespace QtCurve {
+namespace Str {
 
-QTC_EXPORT char*
-_qtcSPrintfV(char *buff, size_t *_size, bool allocated,
-             const char *fmt, va_list ap)
+template<bool allocated>
+char*
+vformat(char *buff, size_t *_size, const char *fmt, va_list ap)
 {
     if (!buff || !_size || !*_size) {
         char *res = nullptr;
@@ -46,7 +41,7 @@ _qtcSPrintfV(char *buff, size_t *_size, bool allocated,
     size_t size = *_size;
     size_t new_size = vsnprintf(buff, size, fmt, ap) + 1;
     if (new_size > size) {
-        new_size = qtcAlignTo(new_size, 1024);
+        new_size = alignTo(new_size, 1024);
         if (allocated) {
             buff = (char*)realloc(buff, new_size);
         } else {
@@ -58,12 +53,21 @@ _qtcSPrintfV(char *buff, size_t *_size, bool allocated,
     return buff;
 }
 
+template QTC_EXPORT char *vformat<true>(char *buff, size_t *size,
+                                        const char *fmt, va_list ap);
+template QTC_EXPORT char *vformat<false>(char *buff, size_t *size,
+                                         const char *fmt, va_list ap);
+
+}
+
+namespace StrList {
+
 QTC_EXPORT void
-qtcStrListForEach(const char *str, char delim, char escape,
-                  QtcListForEachFunc func, void *data)
+_forEach(const char *str, char delim, char escape,
+         const std::function<bool(const char*, size_t)> &func)
 {
-    QTC_RET_IF_FAIL(str && func);
-    QtCurve::StrBuff<1024> str_buff;
+    QTC_RET_IF_FAIL(str);
+    Str::Buff<1024> buff;
     if (qtcUnlikely(escape == delim)) {
         escape = '\0';
     }
@@ -73,12 +77,12 @@ qtcStrListForEach(const char *str, char delim, char escape,
         size_t len = 0;
         while (true) {
             size_t sub_len = strcspn(p, key);
-            str_buff.resize(len + sub_len + 2);
-            memcpy(str_buff.get() + len, p, sub_len);
+            buff.resize(len + sub_len + 2);
+            memcpy(buff.get() + len, p, sub_len);
             len += sub_len;
             p += sub_len;
             if (escape && *p == escape) {
-                str_buff[len] = p[1];
+                buff[len] = p[1];
                 if (qtcUnlikely(!p[1])) {
                     p++;
                     break;
@@ -86,43 +90,18 @@ qtcStrListForEach(const char *str, char delim, char escape,
                 len++;
                 p += 2;
             } else {
-                str_buff[len] = '\0';
+                buff[len] = '\0';
                 break;
             }
         }
-        if (!func(str_buff.get(), len, data) || !*p) {
+        if (!func(buff.get(), len) || !*p) {
             break;
         }
         p++;
     }
 }
+}
 
-typedef struct {
-    size_t size;
-    size_t nele;
-    void *buff;
-    size_t max_len;
-    QtcListEleLoader loader;
-    void *data;
-    size_t offset;
-} QtcStrLoadListData;
-
-static bool
-qtcStrListLoader(const char *str, size_t len, void *_data)
-{
-    QtcStrLoadListData *data = (QtcStrLoadListData*)_data;
-    if (data->nele <= data->offset) {
-        data->nele += 8;
-        data->buff = (char*)realloc(data->buff, data->nele * data->size);
-    }
-    if (data->loader((char*)data->buff + data->offset * data->size,
-                     str, len, data->data)) {
-        data->offset++;
-        if (data->max_len && data->offset >= data->max_len) {
-            return false;
-        }
-    }
-    return true;
 }
 
 QTC_EXPORT void*
@@ -131,26 +110,32 @@ qtcStrLoadList(const char *str, char delim, char escape, size_t size,
                QtcListEleLoader loader, void *data)
 {
     QTC_RET_IF_FAIL(_nele && size && loader && str, nullptr);
-    QtcStrLoadListData loader_data = {
-        .size = size,
-        .nele = *_nele,
-        .buff = buff,
-        .max_len = max_len,
-        .loader = loader,
-        .data = data,
-        .offset = 0,
-    };
-    if (!(loader_data.buff && loader_data.nele)) {
-        loader_data.nele = 16;
-        loader_data.buff = malloc(16 * size);
+    size_t nele = *_nele;
+    size_t offset = 0;
+    if (!(buff && nele)) {
+        nele = 16;
+        buff = malloc(16 * size);
     }
-    qtcStrListForEach(str, delim, escape, qtcStrListLoader, &loader_data);
-    *_nele = loader_data.offset;
+    QtCurve::StrList::forEach(
+        str, delim, escape, [&] (const char *str, size_t len) {
+            if (nele <= offset) {
+                nele += 8;
+                buff = (char*)realloc(buff, nele * size);
+            }
+            if (loader((char*)buff + offset * size, str, len, data)) {
+                offset++;
+                if (max_len && offset >= max_len) {
+                    return false;
+                }
+            }
+            return true;
+        });
+    *_nele = offset;
     if (!*_nele) {
-        free(loader_data.buff);
+        free(buff);
         return nullptr;
     }
-    return loader_data.buff;
+    return buff;
 }
 
 static bool
@@ -160,7 +145,7 @@ qtcStrListStrLoader(void *ele, const char *str, size_t len, void *data)
     if (def && !str[0]) {
         *(char**)ele = strdup(def);
     } else {
-        *(char**)ele = qtcSetStr(nullptr, str, len);
+        *(char**)ele = QtCurve::Str::dup(nullptr, str, len);
     }
     return true;
 }

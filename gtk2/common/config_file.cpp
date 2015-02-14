@@ -102,7 +102,7 @@ determineFileName(const char *file)
         return file;
 
     static char *filename = nullptr;
-    filename = QtCurve::fillStrs(filename, qtcConfDir(), file);
+    filename = QtCurve::Str::fill(filename, qtcConfDir(), file);
     return filename;
 }
 
@@ -546,7 +546,7 @@ qtcGetWindowBorderSize(bool force)
     static WindowBorders sizes={-1, -1, -1, -1};
 
     if (-1 == sizes.titleHeight || force) {
-        char *filename = QtCurve::catStrs(qtcConfDir(), BORDER_SIZE_FILE);
+        char *filename = QtCurve::Str::cat(qtcConfDir(), BORDER_SIZE_FILE);
         FILE *f = nullptr;
         if ((f = fopen(filename, "r"))) {
             char *line=nullptr;
@@ -572,7 +572,7 @@ static char*
 qtcGetBarFileName(const char *app, const char *prefix)
 {
     static char *filename = nullptr;
-    filename = QtCurve::fillStrs(filename, qtcConfDir(), prefix, app);
+    filename = QtCurve::Str::fill(filename, qtcConfDir(), prefix, app);
     return filename;
 }
 
@@ -1217,11 +1217,11 @@ bool qtcReadConfig(const char *file, Options *opts, Options *defOpts)
         if (env && *env)
             return qtcReadConfig(env, opts, defOpts);
 
-        char *filename = QtCurve::catStrs(qtcConfDir(), CONFIG_FILE);
+        char *filename = QtCurve::Str::cat(qtcConfDir(), CONFIG_FILE);
         bool rv = false;
         if (!qtcIsRegFile(filename)) {
-            filename = QtCurve::fillStrs(filename, qtcConfDir(),
-                                         "/../" OLD_CONFIG_FILE);
+            filename = QtCurve::Str::fill(filename, qtcConfDir(),
+                                          "/../" OLD_CONFIG_FILE);
         }
         rv = qtcReadConfig(filename, opts, defOpts);
         free(filename);

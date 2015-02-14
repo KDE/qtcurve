@@ -1,5 +1,5 @@
 /*****************************************************************************
- *   Copyright 2013 - 2013 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -68,9 +68,9 @@ _qtcConfDir()
     if (qtcUnlikely(!qtc_conf_dir)) {
         const char *env_home = getenv("QTCURVE_CONFIG_DIR");
         if (env_home && *env_home == '/') {
-            qtc_conf_dir = QtCurve::catStrs(env_home, "/");
+            qtc_conf_dir = QtCurve::Str::cat(env_home, "/");
         } else {
-            qtc_conf_dir = QtCurve::catStrs(qtcGetXDGConfigHome(), "qtcurve/");
+            qtc_conf_dir = QtCurve::Str::cat(qtcGetXDGConfigHome(), "qtcurve/");
         }
     }
     return qtc_conf_dir;
@@ -93,11 +93,11 @@ qtcGetHome()
     if (qtcUnlikely(!qtc_home)) {
         const char *env_home = getenv("HOME");
         if (qtcLikely(env_home && *env_home == '/')) {
-            qtc_home = QtCurve::catStrs(env_home, "/");
+            qtc_home = QtCurve::Str::cat(env_home, "/");
         } else {
             struct passwd *pw = getpwuid(getuid());
             if (qtcLikely(pw && pw->pw_dir && *pw->pw_dir == '/')) {
-                qtc_home = QtCurve::catStrs(pw->pw_dir, "/");
+                qtc_home = QtCurve::Str::cat(pw->pw_dir, "/");
             }
         }
         if (qtcUnlikely(!qtc_home)) {
@@ -113,9 +113,10 @@ qtcGetXDGDataHome()
     if (qtcUnlikely(!qtc_xdg_data_home)) {
         const char *env_home = getenv("XDG_DATA_HOME");
         if (env_home && *env_home == '/') {
-            qtc_xdg_data_home = QtCurve::catStrs(env_home, "/");
+            qtc_xdg_data_home = QtCurve::Str::cat(env_home, "/");
         } else {
-            qtc_xdg_data_home = QtCurve::catStrs(qtcGetHome(), ".local/share/");
+            qtc_xdg_data_home = QtCurve::Str::cat(qtcGetHome(),
+                                                  ".local/share/");
         }
     }
     return qtc_xdg_data_home;
@@ -127,9 +128,9 @@ qtcGetXDGConfigHome()
     if (qtcUnlikely(!qtc_xdg_config_home)) {
         const char *env_home = getenv("XDG_CONFIG_HOME");
         if (env_home && *env_home == '/') {
-            qtc_xdg_config_home = QtCurve::catStrs(env_home, "/");
+            qtc_xdg_config_home = QtCurve::Str::cat(env_home, "/");
         } else {
-            qtc_xdg_config_home = QtCurve::catStrs(qtcGetHome(), ".config/");
+            qtc_xdg_config_home = QtCurve::Str::cat(qtcGetHome(), ".config/");
         }
     }
     return qtc_xdg_config_home;
@@ -139,9 +140,9 @@ QTC_EXPORT char*
 qtcGetConfFile(const char *file, char *buff)
 {
     if (file[0] == '/') {
-        return QtCurve::fillStrs(buff, file);
+        return QtCurve::Str::fill(buff, file);
     }
-    return QtCurve::fillStrs(buff, qtcConfDir(), file);
+    return QtCurve::Str::fill(buff, qtcConfDir(), file);
 }
 
 __attribute__((constructor)) static void

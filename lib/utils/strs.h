@@ -27,19 +27,55 @@
 
 #include <array>
 #include <numeric>
-
-__attribute__((format(printf, 4, 5)))
-char *_qtcSPrintf(char *buff, size_t *size, bool allocated,
-                  const char *fmt, ...);
-__attribute__((format(printf, 4, 0)))
-char *_qtcSPrintfV(char *buff, size_t *size, bool allocated,
-                   const char *fmt, va_list ap);
+#include <functional>
 
 namespace QtCurve {
+namespace Str {
+
+QTC_ALWAYS_INLINE static inline char*
+dup(char *dest, const char *src, size_t len)
+{
+    dest = (char*)realloc(dest, len + 1);
+    memcpy(dest, src, len);
+    dest[len] = '\0';
+    return dest;
+}
+QTC_ALWAYS_INLINE static inline char*
+dup(char *dest, const char *src)
+{
+    return dup(dest, src, strlen(src));
+}
+QTC_ALWAYS_INLINE static inline char*
+dup(const char *src)
+{
+    return strdup(src);
+}
+
+template<bool allocated=true> __attribute__((format(printf, 3, 0)))
+char *vformat(char *buff, size_t *size, const char *fmt, va_list ap);
+
+#ifndef __QTC_UTILS_STRS_INTERNAL__
+extern template __attribute__((format(printf, 3, 0)))
+char *vformat<true>(char *buff, size_t *size, const char *fmt, va_list ap);
+extern template __attribute__((format(printf, 3, 0)))
+char *vformat<false>(char *buff, size_t *size, const char *fmt, va_list ap);
+#endif
+
+template<bool allocated=true>
+__attribute__((format(printf, 3, 4)))
+static inline char*
+format(char *buff, size_t *size, const char *fmt, ...)
+{
+    va_list ap;
+    va_start(ap, fmt);
+    char *res = vformat<allocated>(buff, size, fmt, ap);
+    va_end(ap);
+    return res;
+}
 
 template <typename... ArgTypes>
 QTC_ALWAYS_INLINE static inline char*
-fillStrs(char *buff, ArgTypes&&...strs)
+fill(char *buff, ArgTypes&&...strs)
 {
     const std::array<const char*, sizeof...(strs)> strs_l{{strs...}};
     const std::array<size_t, sizeof...(strs)> str_lens{{strlen(strs)...}};
@@ -58,13 +94,13 @@ fillStrs(char *buff, ArgTypes&&...strs)
 
 template <typename... ArgTypes>
 QTC_ALWAYS_INLINE static inline char*
-catStrs(ArgTypes&&... strs)
+cat(ArgTypes&&... strs)
 {
-    return fillStrs(nullptr, std::forward<ArgTypes>(strs)...);
+    return fill(nullptr, std::forward<ArgTypes>(strs)...);
 }
 
 template<size_t N>
-class StrBuff : public LocalBuff<char, N> {
+class Buff : public LocalBuff<char, N> {
 public:
     using LocalBuff<char, N>::LocalBuff;
     __attribute__((format(printf, 2, 3)))
@@ -75,21 +111,20 @@ public:
         va_start(ap, fmt);
         if (this->is_static()) {
             size_t new_size = N;
-            char *res = _qtcSPrintfV(this->m_ptr, &new_size, false, fmt, ap);
+            char *res = vformat<false>(this->m_ptr, &new_size, fmt, ap);
             if (res != this->m_ptr) {
                 this->m_ptr = res;
                 this->m_size = new_size;
             }
         } else {
-            this->m_ptr = _qtcSPrintfV(this->m_ptr, &this->m_size,
-                                       true, fmt, ap);
+            this->m_ptr = vformat(this->m_ptr, &this->m_size, fmt, ap);
         }
         va_end(ap);
         return this->m_ptr;
     }
     template <typename... ArgTypes>
-    char*
-    cat_strs(ArgTypes&&...strs)
+    inline char*
+    cat(ArgTypes&&... strs)
     {
         const std::array<const char*, sizeof...(strs)> strs_l{{strs...}};
         const std::array<size_t, sizeof...(strs)> str_lens{{strlen(strs)...}};
@@ -108,54 +143,56 @@ public:
 
 }
 
-QTC_ALWAYS_INLINE static inline char*
-qtcSetStr(char *dest, const char *src, size_t len)
-{
-    dest = (char*)realloc(dest, len + 1);
-    memcpy(dest, src, len);
-    dest[len] = '\0';
-    return dest;
-}
-QTC_ALWAYS_INLINE static inline char*
-qtcSetStr(char *dest, const char *src)
-{
-    return qtcSetStr(dest, src, strlen(src));
-}
+namespace StrList {
 
-#define qtcSPrintfV(buff, size, fmt, ap)        \
-    _qtcSPrintfV(buff, size, true, fmt, ap)
-#define qtcSPrintf(buff, size, fmt, ap, args...)        \
-    _qtcSPrintf(buff, size, true, fmt, ap, ##args)
+void _forEach(const char *str, char delim, char escape,
+              const std::function<bool(const char*, size_t)> &func);
 
-__attribute__((format(printf, 3, 0)))
-QTC_ALWAYS_INLINE static inline char*
-qtcASNPrintfV(char *buff, size_t size, const char *fmt, va_list ap)
+template<typename Func, typename... Args>
+static inline auto
+_forEachCaller(const char *str, size_t len, Func &&func, Args&&... args)
+    -> typename std::enable_if<
+        std::is_same<decltype(func(str, len, std::forward<Args>(args)...)),
+                     bool>::value, bool>::type
 {
-    return qtcSPrintfV(buff, &size, fmt, ap);
+    return func(str, len, std::forward<Args>(args)...);
 }
 
-__attribute__((format(printf, 3, 4)))
-QTC_ALWAYS_INLINE static inline char*
-qtcASNPrintf(char *buff, size_t size, const char *fmt, ...)
+template<typename Func, typename... Args>
+static inline auto
+_forEachCaller(const char *str, size_t, Func &&func, Args&&... args)
+    -> typename std::enable_if<
+        std::is_same<decltype(func(str, std::forward<Args>(args)...)),
+                     bool>::value, bool>::type
 {
-    va_list ap;
-    va_start(ap, fmt);
-    char *res = qtcASNPrintfV(buff, size, fmt, ap);
-    va_end(ap);
-    return res;
+    return func(str, std::forward<Args>(args)...);
 }
 
-#define qtcASPrintfV(fmt, ap)                   \
-    qtcASNPrintfV(nullptr, 0, fmt, ap)
-#define qtcASPrintf(fmt, args...)               \
-    qtcASNPrintf(nullptr, 0, fmt, ##args)
+template<typename Func, typename... Args>
+static inline void
+forEach(const char *str, char delim, char escape, Func &&func, Args&&... args)
+{
+    _forEach(str, delim, escape, [&] (const char *str, size_t len) {
+            return _forEachCaller(str, len, std::forward<Func>(func),
+                                  std::forward<Args>(args)...);
+        });
+}
+template<typename Func, typename... Args>
+static inline typename std::enable_if<!_isChar<Func>::value>::type
+forEach(const char *str, char delim, Func &&func, Args&&... args)
+{
+    forEach(str, delim, '\\', std::forward<Func>(func),
+            std::forward<Args>(args)...);
+}
+template<typename Func, typename... Args>
+static inline typename std::enable_if<!_isChar<Func>::value>::type
+forEach(const char *str, Func &&func, Args&&... args)
+{
+    forEach(str, ',', std::forward<Func>(func), std::forward<Args>(args)...);
+}
 
-typedef bool (*QtcListForEachFunc)(const char *str, size_t len, void *data);
-void qtcStrListForEach(const char *str, char delim, char escape,
-                       QtcListForEachFunc func, void *data);
-#define qtcStrListForEach(str, delim, escape, func, data)               \
-    qtcStrListForEach(str, QTC_DEFAULT(delim, ','),                     \
-                      QTC_DEFAULT(escape, '\\'), func, QTC_DEFAULT(data, nullptr))
+}
+}
 
 typedef bool (*QtcListEleLoader)(void *ele, const char *str,
                                  size_t len, void *data);

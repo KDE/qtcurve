@@ -1,5 +1,5 @@
 /*****************************************************************************
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -34,36 +34,6 @@ extern xcb_atom_t qtc_x11_kde_net_wm_shadow;
 extern xcb_atom_t qtc_x11_net_wm_moveresize;
 extern xcb_atom_t qtc_x11_net_wm_cm_s_default;
 
-#ifndef __cplusplus
-#define qtcX11Call(name, args...)                                       \
-    ({                                                                  \
-        xcb_connection_t *conn = qtc_xcb_conn;                          \
-        xcb_##name##_reply_t *res = nullptr;                            \
-        if (qtcLikely(conn)) {                                          \
-            res = xcb_##name##_reply(conn, xcb_##name(conn, args), 0);  \
-        }                                                               \
-        res;                                                            \
-    })
-#define qtcX11CallVoid(name, args...)                   \
-    ({                                                  \
-        xcb_connection_t *conn = qtc_xcb_conn;          \
-        xcb_void_cookie_t res = {0};                    \
-        if (qtcLikely(conn)) {                          \
-            res = xcb_##name(conn, args);               \
-        }                                               \
-        res;                                            \
-    })
-#define qtcX11CallVoidChecked(name, args...)            \
-    ({                                                  \
-        xcb_connection_t *conn = qtc_xcb_conn;          \
-        xcb_void_cookie_t res = {0};                    \
-        if (qtcLikely(conn)) {                          \
-            xcb_##name##_checked(conn, args);           \
-        }                                               \
-        res;                                            \
-    })
-#else
-
 template <typename Ret, typename Cookie, typename... Args, typename... Args2>
 static inline Ret*
 _qtcX11Call(Cookie (*func)(xcb_connection_t*, Args...),
@@ -92,8 +62,6 @@ _qtcX11CallVoid(xcb_void_cookie_t (*func)(xcb_connection_t*, Args...),
 
 #define qtcX11CallVoidChecked(name, args...)            \
     (_qtcX11CallVoid(xcb_##name##_checked, args))
-
-#endif
 
 QTC_ALWAYS_INLINE static inline xcb_atom_t
 qtcX11GetAtom(const char *name, bool create)

@@ -311,18 +311,17 @@ enum {
 
 #ifdef QTC_GTK2_STYLE_SUPPORT
 static char*
-themeFileSub(const char *prefix, const char *name,
-             QtCurve::StrBuff &str_buff, const char *sub)
+themeFileSub(const char *prefix, const char *name, Str::Buff &str_buff,
+             const char *sub)
 {
-    if (qtcIsRegFile(str_buff.cat_strs(prefix, "/", sub, "/",
-                                       name, THEME_SUFFIX))) {
+    if (qtcIsRegFile(str_buff.cat(prefix, "/", sub, "/", name, THEME_SUFFIX))) {
         return str_buff.get();
     }
     return nullptr;
 }
 
 static char*
-themeFile(const char *prefix, const char *name, QtCurve::StrBuff &str_buff)
+themeFile(const char *prefix, const char *name, Str::Buff &str_buff)
 {
     char *f = themeFileSub(prefix, name, str_buff, THEME_DIR);
     if (!f) {
@@ -1045,9 +1044,9 @@ kdeIconsPrefix()
         return kdeIcons;
     }
     size_t len = 0;
-    char *res = qtcPopenStdout("kde4-config", (const char * const[]){
-            "kde4-config", "--expandvars", "--install", "icon", nullptr},
-        300, &len);
+    const char *const args[] = {"kde4-config", "--expandvars", "--install",
+                                "icon", nullptr};
+    char *res = qtcPopenStdout("kde4-config", args, 300, &len);
     if (res && res[strspn(res, " \t\b\n\f\v")]) {
         if (res[len - 1]=='\n') {
             res[len - 1]='\0';
@@ -1060,12 +1059,13 @@ kdeIconsPrefix()
     return kdeIcons;
 }
 
-static char *getIconPath()
+static char*
+getIconPath()
 {
-    static char *path=nullptr;
-    char        *kdeHome=getKdeHome();
-    const char  *kdePrefix=kdeIconsPrefix(),
-                *defIcons=defaultIcons();
+    static char *path = nullptr;
+    char *kdeHome = getKdeHome();
+    const char *kdePrefix = kdeIconsPrefix();
+    const char *defIcons = defaultIcons();
     bool nonDefIcons = qtSettings.icons && strcmp(qtSettings.icons, defIcons);
     unsigned len = strlen("pixmap_path \"");
     unsigned kdeHomeLen = kdeHome ? strlen(kdeHome) : 0;
@@ -1074,101 +1074,85 @@ static char *getIconPath()
     unsigned defIconsLen = strlen(defIcons);
     bool addDefaultPrefix = strcmp(kdePrefix, DEFAULT_ICON_PREFIX);
 
-    if(nonDefIcons)
-    {
-        if(kdeHome)
-        {
-            len+=kdeHomeLen;
-            len+=ICON_FOLDER_SLEN;
-            len+=iconLen;
+    if (nonDefIcons) {
+        if (kdeHome) {
+            len += kdeHomeLen;
+            len += ICON_FOLDER_SLEN;
+            len += iconLen;
             len++;
         }
-        if(kdeIconPrefixLen)
-        {
-            len+=kdeIconPrefixLen;
+        if (kdeIconPrefixLen) {
+            len += kdeIconPrefixLen;
             len++;
-            len+=iconLen;
+            len += iconLen;
             len++;
         }
-        if(addDefaultPrefix)
-        {
-            len+=DEFAULT_ICON_PREFIX_LEN;
+        if (addDefaultPrefix) {
+            len += DEFAULT_ICON_PREFIX_LEN;
             len++;
-            len+=iconLen;
+            len += iconLen;
             len++;
         }
     }
 
-    if(kdeHome)
-    {
-        len+=kdeHomeLen;
-        len+=ICON_FOLDER_SLEN;
-        len+=defIconsLen;
+    if (kdeHome) {
+        len += kdeHomeLen;
+        len += ICON_FOLDER_SLEN;
+        len += defIconsLen;
         len++;
     }
-    if(kdeIconPrefixLen)
-    {
-        len+=kdeIconPrefixLen;
+    if (kdeIconPrefixLen) {
+        len += kdeIconPrefixLen;
         len++;
-        len+=defIconsLen;
-        len++;
-    }
-    if(addDefaultPrefix)
-    {
-        len+=DEFAULT_ICON_PREFIX_LEN;
-        len++;
-        len+=defIconsLen;
+        len += defIconsLen;
         len++;
     }
-    if(kdeHome)
-    {
-        len+=kdeHomeLen;
-        len+=ICON_FOLDER_SLEN;
-        len+=HICOLOR_LEN;
+    if (addDefaultPrefix) {
+        len += DEFAULT_ICON_PREFIX_LEN;
+        len++;
+        len += defIconsLen;
         len++;
     }
-    if(kdeIconPrefixLen)
-    {
-        len+=kdeIconPrefixLen;
-        len++;
-        len+=HICOLOR_LEN;
+    if (kdeHome) {
+        len += kdeHomeLen;
+        len += ICON_FOLDER_SLEN;
+        len += HICOLOR_LEN;
         len++;
     }
-    if(addDefaultPrefix)
-    {
-        len+=DEFAULT_ICON_PREFIX_LEN;
+    if (kdeIconPrefixLen) {
+        len += kdeIconPrefixLen;
         len++;
-        len+=HICOLOR_LEN;
+        len += HICOLOR_LEN;
+        len++;
+    }
+    if (addDefaultPrefix) {
+        len += DEFAULT_ICON_PREFIX_LEN;
+        len++;
+        len += HICOLOR_LEN;
         len++;
     }
     len++;
 
-    if(path && len!=(strlen(path)+1))
-        free(path);
-
-    if(!path)
-        path=(char *)malloc(len+1);
+    if (!path || strlen(path) + 1 != len) {
+        path = (char*)realloc(path, len + 1);
+    }
 
     strcpy(path, "pixmap_path \"");
 
-    if(nonDefIcons)
-    {
-        if(kdeHome)
-        {
+    if (nonDefIcons) {
+        if (kdeHome) {
             strcat(path, kdeHome);
             strcat(path, ICON_FOLDER);
             strcat(path, qtSettings.icons);
             strcat(path, ":");
         }
-        if(kdeIconPrefixLen)
-        {
+        if (kdeIconPrefixLen) {
             strcat(path, kdePrefix);
             strcat(path, "/");
             strcat(path, qtSettings.icons);
             strcat(path, ":");
         }
-        if(addDefaultPrefix)
-        {
+        if (addDefaultPrefix) {
             strcat(path, DEFAULT_ICON_PREFIX);
             strcat(path, "/");
             strcat(path, qtSettings.icons);
@@ -1176,48 +1160,42 @@ static char *getIconPath()
         }
     }
 
-    if(kdeHome)
-    {
+    if (kdeHome) {
         strcat(path, kdeHome);
         strcat(path, ICON_FOLDER);
         strcat(path, defIcons);
         strcat(path, ":");
     }
 
-    if(kdeIconPrefixLen)
-    {
+    if (kdeIconPrefixLen) {
         strcat(path, kdePrefix);
         strcat(path, "/");
         strcat(path, defIcons);
         strcat(path, ":");
     }
 
-    if(addDefaultPrefix)
-    {
+    if (addDefaultPrefix) {
         strcat(path, DEFAULT_ICON_PREFIX);
         strcat(path, "/");
         strcat(path, defIcons);
         strcat(path, ":");
     }
 
-    if(kdeHome)
-    {
+    if (kdeHome) {
         strcat(path, kdeHome);
         strcat(path, ICON_FOLDER);
         strcat(path, HICOLOR_ICONS);
         strcat(path, ":");
     }
 
-    if(kdeIconPrefixLen)
-    {
+    if (kdeIconPrefixLen) {
         strcat(path, kdePrefix);
         strcat(path, "/");
         strcat(path, HICOLOR_ICONS);
         strcat(path, ":");
     }
 
-    if(addDefaultPrefix)
-    {
+    if (addDefaultPrefix) {
         strcat(path, DEFAULT_ICON_PREFIX);
         strcat(path, "/");
         strcat(path, HICOLOR_ICONS);
@@ -1261,9 +1239,9 @@ static char *getIconPath()
 static void
 processUserChromeCss(char *file, bool add_btn_css, bool add_menu_colors)
 {
-    FILE        *f=fopen(file, "r");
-    char        *contents=nullptr,
-                *menu_text_str=nullptr;
+    FILE *f = fopen(file, "r");
+    char *contents = nullptr;
+    char *menu_text_str = nullptr;
     bool remove_menu_colors = false;
     bool remove_old_menu_colors = false;
 #ifdef QTC_GTK2_MODIFY_MOZILLA
@@ -1272,79 +1250,84 @@ processUserChromeCss(char *file, bool add_btn_css, bool add_menu_colors)
 #else
     QTC_UNUSED(add_btn_css);
 #endif
-    struct stat st;
-    size_t      file_size=0,
-                new_size=0;
+    size_t file_size = 0;
+    size_t new_size = 0;
 
-    if(add_menu_colors)
-    {
+    if (add_menu_colors) {
         GdkColor *std, *active;
-        if(SHADE_WINDOW_BORDER==opts.shadeMenubars)
-            std=&qtSettings.colors[PAL_ACTIVE][COLOR_WINDOW_BORDER_TEXT];
-        else if(opts.customMenuTextColor)
-            std=&opts.customMenuNormTextColor;
-        else if(SHADE_BLEND_SELECTED==opts.shadeMenubars || SHADE_SELECTED==opts.shadeMenubars ||
-                (SHADE_CUSTOM==opts.shadeMenubars && TOO_DARK(qtcPalette.menubar[ORIGINAL_SHADE])))
-            std=&qtSettings.colors[PAL_ACTIVE][COLOR_TEXT_SELECTED];
-        else
-            std=&qtSettings.colors[PAL_ACTIVE][COLOR_WINDOW_TEXT];
+        if (opts.shadeMenubars == SHADE_WINDOW_BORDER) {
+            std = &qtSettings.colors[PAL_ACTIVE][COLOR_WINDOW_BORDER_TEXT];
+        } else if (opts.customMenuTextColor) {
+            std = &opts.customMenuNormTextColor;
+        } else if (oneOf(opts.shadeMenubars, SHADE_BLEND_SELECTED,
+                         SHADE_SELECTED) ||
+                   (opts.shadeMenubars == SHADE_CUSTOM &&
+                    TOO_DARK(qtcPalette.menubar[ORIGINAL_SHADE]))) {
+            std = &qtSettings.colors[PAL_ACTIVE][COLOR_TEXT_SELECTED];
+        } else {
+            std = &qtSettings.colors[PAL_ACTIVE][COLOR_WINDOW_TEXT];
+        }
 
-        if(opts.customMenuTextColor)
-            active=&opts.customMenuSelTextColor;
-        else if(opts.useHighlightForMenu)
-            active=&qtSettings.colors[PAL_ACTIVE][COLOR_TEXT_SELECTED];
-        else
-            active=&qtSettings.colors[PAL_ACTIVE][COLOR_WINDOW_TEXT];
+        if (opts.customMenuTextColor) {
+            active = &opts.customMenuSelTextColor;
+        } else if (opts.useHighlightForMenu) {
+            active = &qtSettings.colors[PAL_ACTIVE][COLOR_TEXT_SELECTED];
+        } else {
+            active = &qtSettings.colors[PAL_ACTIVE][COLOR_WINDOW_TEXT];
+        }
 
-        menu_text_str=(char *)malloc(strlen(MENU_TEXT_STR_FORMAT)+1);
-        sprintf(menu_text_str, MENU_TEXT_STR_FORMAT,
-                toQtColor(std->red), toQtColor(std->green), toQtColor(std->blue),
-                toQtColor(std->red), toQtColor(std->green), toQtColor(std->blue),
-                toQtColor(active->red), toQtColor(active->green), toQtColor(active->blue));
+        menu_text_str = (char*)malloc(strlen(MENU_TEXT_STR_FORMAT) + 1);
+        sprintf(menu_text_str, MENU_TEXT_STR_FORMAT, toQtColor(std->red),
+                toQtColor(std->green), toQtColor(std->blue),
+                toQtColor(std->red), toQtColor(std->green),
+                toQtColor(std->blue), toQtColor(active->red),
+                toQtColor(active->green), toQtColor(active->blue));
     }
 
-    if(f)
-    {
-        if(0==fstat(fileno(f), &st))
-        {
+    if (f) {
+        struct stat st;
+        if (fstat(fileno(f), &st) == 0) {
             file_size = st.st_size;
-            new_size=file_size+strlen(MENU_TEXT_STR_FORMAT)+strlen(CSS_FILE_STR)+3;
-            contents=(char *)malloc(new_size);
+            new_size = (file_size + strlen(MENU_TEXT_STR_FORMAT) +
+                        strlen(CSS_FILE_STR) + 3);
+            contents = (char*)malloc(new_size);
 
-            if(contents)
-            {
-                char  *line=nullptr;
-                size_t len=0;
+            if (contents) {
+                char *line = nullptr;
+                size_t len = 0;
 
-                contents[0]='\0';
+                contents[0] = '\0';
                 while (getline(&line, &len, f) != -1) {
                     bool write_line = true;
 
 #ifdef QTC_GTK2_MODIFY_MOZILLA
-                    if(0==strcmp(line, BTN_CSS_FILE_STR))
-                    {
-                        if (add_btn_css)
-                            add_btn_css=false;
-                        else
-                            remove_btn_css=true, write_line=false;
-                    }
-                    else if(0==strcmp(line, CSS_FILE_STR))
-                        add_css=false;
-                    else
-#endif
-                    if(0==strcmp(line, OLD_MENU_TEXT_STR))
-                        write_line=false, remove_old_menu_colors=true;
-                    else if(nullptr!=strstr(line, MENU_GUARD_STR))
-                    {
-                        if (add_menu_colors)
-                        {
-                            if(0==strcmp(menu_text_str, line))
-                                add_menu_colors=false;
-                            else
-                                write_line=false;
+                    if (strcmp(line, BTN_CSS_FILE_STR) == 0) {
+                        if (add_btn_css) {
+                            add_btn_css = false;
+                        } else {
+                            remove_btn_css = true;
+                            write_line = false;
                         }
-                        else
-                            remove_menu_colors=true, write_line=false;
+                    } else if (strcmp(line, CSS_FILE_STR) == 0) {
+                        add_css = false;
+                    } else
+#endif
+                    {
+                        if (strcmp(line, OLD_MENU_TEXT_STR) == 0) {
+                            write_line = false;
+                            remove_old_menu_colors = true;
+                        } else if (strstr(line, MENU_GUARD_STR)) {
+                            if (add_menu_colors) {
+                                if (strcmp(menu_text_str, line) == 0) {
+                                    add_menu_colors = false;
+                                } else {
+                                    write_line = false;
+                                }
+                            } else {
+                                remove_menu_colors = true;
+                                write_line = false;
+                            }
+                        }
                     }
                     if (write_line) {
                         strcat(contents, line);
@@ -1357,13 +1340,12 @@ processUserChromeCss(char *file, bool add_btn_css, bool add_menu_colors)
     }
 
 #ifdef QTC_GTK2_MODIFY_MOZILLA
-    if(!contents || add_btn_css || add_menu_colors || add_css)
+    if (!contents || add_btn_css || add_menu_colors || add_css)
 #else
-    if(!contents || add_menu_colors)
+    if (!contents || add_menu_colors)
 #endif
     {
-        if(!contents)
-        {
+        if (!contents) {
             new_size=strlen(MENU_TEXT_STR_FORMAT)+strlen(BTN_CSS_FILE_STR)+strlen(CSS_FILE_STR)+4;
 
             contents=(char *)malloc(new_size);
@@ -1371,11 +1353,9 @@ processUserChromeCss(char *file, bool add_btn_css, bool add_menu_colors)
                 contents[0]='\0';
         }
 
-        if(contents)
-        {
+        if (contents) {
 #ifdef QTC_GTK2_MODIFY_MOZILLA
-            if(add_css)
-            {
+            if (add_css) {
                 char *css_contents=(char *)malloc(new_size);
 
                 if(css_contents)
@@ -1387,25 +1367,23 @@ processUserChromeCss(char *file, bool add_btn_css, bool add_menu_colors)
                     contents=css_contents;
                 }
             }
-            if(add_btn_css)
-            {
+            if (add_btn_css) {
                 char *css_contents=(char *)malloc(new_size);
 
-                if(css_contents)
-                {
-                    css_contents[0]='\0';
+                if (css_contents) {
+                    css_contents[0] = '\0';
                     strcat(css_contents, BTN_CSS_FILE_STR);
                     strcat(css_contents, contents);
                     free(contents);
-                    contents=css_contents;
+                    contents = css_contents;
                 }
             }
 #endif
-            if(add_menu_colors)  /* This can be on last line */
-            {
+            if (add_menu_colors) {
+                /* This can be on last line */
                 int len=strlen(contents);
 
-                if(len && contents[len-1]!='\n')
+                if (len && contents[len - 1] != '\n')
                     strcat(contents, "\n");
                 strcat(contents, menu_text_str);
             }
@@ -1413,15 +1391,16 @@ processUserChromeCss(char *file, bool add_btn_css, bool add_menu_colors)
     }
 
 #ifdef QTC_GTK2_MODIFY_MOZILLA
-    if(contents && (add_btn_css || remove_btn_css || add_menu_colors || remove_menu_colors || remove_old_menu_colors))
+    if (contents && (add_btn_css || remove_btn_css || add_menu_colors ||
+                     remove_menu_colors || remove_old_menu_colors))
 #else
-    if(contents && (add_menu_colors || remove_menu_colors || remove_old_menu_colors))
+    if (contents && (add_menu_colors || remove_menu_colors ||
+                     remove_old_menu_colors))
 #endif
     {
-        f=fopen(file, "w");
+        f = fopen(file, "w");
 
-        if(f)
-        {
+        if (f) {
             fputs(contents, f);
             fclose(f);
         }
@@ -1602,7 +1581,7 @@ qtSettingsInit()
         if (abs(now - lastRead) > 1) {
             char *locale = setlocale(LC_NUMERIC, nullptr);
             char *path = nullptr;
-            QtCurve::StrBuff<4096> str_buff;
+            Str::Buff<4096> str_buff;
             char *tmpStr = nullptr;
             GtkSettings *settings=nullptr;
 

@@ -1,5 +1,5 @@
 /*****************************************************************************
- *   Copyright 2013 - 2013 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -24,6 +24,8 @@
 
 #define TEST_FORMAT "%d ... %x \"%s\" kkk %d", 1023, 999, "als8fausdfas", 40
 
+using namespace QtCurve;
+
 int
 main()
 {
@@ -33,53 +35,53 @@ main()
     char *asprintf_res;
     asprintf(&asprintf_res, TEST_FORMAT);
 
-    char *m_res1 = _qtcSPrintf(nullptr, nullptr, false, TEST_FORMAT);
+    char *m_res1 = Str::format<false>(nullptr, nullptr, TEST_FORMAT);
     size_t size = 10;
-    char *m_res2 = _qtcSPrintf((char*)malloc(10), &size, true, TEST_FORMAT);
+    char *m_res2 = Str::format((char*)malloc(10), &size, TEST_FORMAT);
     assert(size > strlen(m_res2));
 
     size = strlen(m_res2);
-    char *m_res3 = _qtcSPrintf((char*)malloc(size), &size, true, TEST_FORMAT);
+    char *m_res3 = Str::format((char*)malloc(size), &size, TEST_FORMAT);
     assert(size > strlen(m_res3));
 
     size = strlen(m_res3) + 1;
     char *buff4 = (char*)malloc(size);
-    char *m_res4 = _qtcSPrintf(buff4, &size, true, TEST_FORMAT);
+    char *m_res4 = Str::format(buff4, &size, TEST_FORMAT);
     assert(m_res4 == buff4);
     assert(size == strlen(m_res4) + 1);
 
     char buff5[size];
-    char *m_res5 = _qtcSPrintf(buff5, &size, false, TEST_FORMAT);
+    char *m_res5 = Str::format<false>(buff5, &size, TEST_FORMAT);
     assert(m_res5 == buff5);
     assert(size == strlen(m_res5) + 1);
 
     size--;
     char buff6[size];
-    char *m_res6 = _qtcSPrintf(buff6, &size, false, TEST_FORMAT);
+    char *m_res6 = Str::format<false>(buff6, &size, TEST_FORMAT);
     assert(m_res6 != buff6);
     assert(size > strlen(m_res6) + 1);
 
-    QtCurve::StrBuff<10> buff7(10);
+    Str::Buff<10> buff7(10);
     assert(buff7.is_static() && buff7.size() == 10);
     char *m_res7 = buff7.printf(TEST_FORMAT);
     assert(buff7.get() == m_res7);
     assert(!buff7.is_static());
 
-    QtCurve::StrBuff<10> buff8(11);
+    Str::Buff<10> buff8(11);
     assert(!buff8.is_static() && buff8.size() == 11);
     char *old_p8 = buff8.get();
     char *m_res8 = buff8.printf(TEST_FORMAT);
     assert(buff8.get() == m_res8);
     assert(buff8.get() != old_p8);
 
-    QtCurve::StrBuff<10> buff9(1024);
+    Str::Buff<10> buff9(1024);
     assert(!buff9.is_static() && buff9.size() == 1024);
     char *old_p9 = buff9.get();
     char *m_res9 = buff9.printf(TEST_FORMAT);
     assert(buff9.get() == m_res9);
     assert(buff9.get() == old_p9);
 
-    QtCurve::StrBuff<2048> buff10(1024);
+    Str::Buff<2048> buff10(1024);
     assert(buff10.is_static() && buff10.size() == 1024);
     char *old_p10 = buff10.get();
     char *m_res10 = buff10.printf(TEST_FORMAT);

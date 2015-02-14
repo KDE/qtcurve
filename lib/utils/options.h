@@ -1,6 +1,6 @@
 /*****************************************************************************
  *   Copyright 2003 - 2010 Craig Drummond <craig.p.drummond@gmail.com>       *
- *   Copyright 2013 - 2014 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -195,6 +195,8 @@ template<typename T> T loadValue(const char *str, T def);
 extern QTC_CONFIG_DEF_LOAD_VALUE(Shading);
 extern QTC_CONFIG_DEF_LOAD_VALUE(EScrollbar);
 extern QTC_CONFIG_DEF_LOAD_VALUE(EFrame);
+#undef _QTC_CONFIG_DEF_LOAD_VALUE
+#undef QTC_CONFIG_DEF_LOAD_VALUE
 #endif
 
 }

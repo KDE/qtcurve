@@ -1,5 +1,5 @@
 /*****************************************************************************
- *   Copyright 2013 - 2013 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -21,6 +21,8 @@
 
 #include <qtcurve-utils/strs.h>
 #include <assert.h>
+
+using namespace QtCurve;
 
 static const char *str1 = "abcdef;;\\;;aa\\\\a;a\\bb;";
 static const char *str_list1[] = {"abcdef", "", ";", "aa\\a", "abb", ""};
@@ -48,10 +50,17 @@ typedef struct {
 } QtcStrListTest;
 
 static bool
-qtcStrListFunc(const char *str, size_t len, void *_data)
+qtcStrListFunc(const char *str, size_t len, QtcStrListTest *data)
 {
-    QtcStrListTest *data = (QtcStrListTest*)_data;
     assert(strlen(str) == len);
+    assert(strcmp(str, data->strs[data->index]) == 0);
+    data->index++;
+    return true;
+}
+
+static bool
+qtcStrListFunc2(const char *str, QtcStrListTest *data)
+{
     assert(strcmp(str, data->strs[data->index]) == 0);
     data->index++;
     return true;
@@ -64,14 +73,20 @@ main()
         .strs = str_list1,
         .index = 0,
     };
-    qtcStrListForEach(str1, ';', , qtcStrListFunc, &test1);
-    assert(test1.index == (sizeof(str_list1) / sizeof(char*)));
+    StrList::forEach(str1, ';', qtcStrListFunc, &test1);
+    assert(test1.index == sizeof(str_list1) / sizeof(char*));
+    test1.index = 0;
+    StrList::forEach(str1, ';', qtcStrListFunc2, &test1);
+    assert(test1.index == sizeof(str_list1) / sizeof(char*));
     QtcStrListTest test2 = {
         .strs = str_list2,
         .index = 0,
     };
-    qtcStrListForEach(str2, , , qtcStrListFunc, &test2);
-    assert(test2.index == (sizeof(str_list2) / sizeof(char*)));
+    StrList::forEach(str2, qtcStrListFunc, &test2);
+    assert(test2.index == sizeof(str_list2) / sizeof(char*));
+    test2.index = 0;
+    StrList::forEach(str2, qtcStrListFunc2, &test2);
+    assert(test2.index == sizeof(str_list2) / sizeof(char*));
 
     size_t list1_len;
     char **list1 = qtcStrLoadStrList(str1, ';', , &list1_len, , ,);
