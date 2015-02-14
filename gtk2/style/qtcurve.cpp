@@ -720,8 +720,8 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
     bool togglebutton = !button && DETAIL("togglebutton");
     bool optionmenu = !togglebutton && DETAIL("optionmenu");
     bool stepper = !optionmenu && DETAIL("stepper");
-    bool vscrollbar = (!optionmenu && qtcStrStartsWith(detail, "vscrollbar"));
-    bool hscrollbar = (!vscrollbar && qtcStrStartsWith(detail, "hscrollbar"));
+    bool vscrollbar = (!optionmenu && Str::startsWith(detail, "vscrollbar"));
+    bool hscrollbar = (!vscrollbar && Str::startsWith(detail, "hscrollbar"));
     bool spinUp = !hscrollbar && DETAIL("spinbutton_up");
     bool spinDown = !spinUp && DETAIL("spinbutton_down");
     bool menuScroll = strstr(detail, "menu_scroll_arrow_");
@@ -1423,7 +1423,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
     } else if (strcmp(detail, "buttondefault") == 0 ||
                strcmp(detail, "togglebuttondefault") == 0) {
     } else if (widget && (strcmp(detail, "trough") == 0 ||
-                          qtcStrStartsWith(detail, "trough-"))) {
+                          Str::startsWith(detail, "trough-"))) {
         bool list = isList(widget);
         bool pbar = list || GTK_IS_PROGRESS_BAR(widget);
         bool scale = !pbar && GTK_IS_SCALE(widget);
@@ -3120,10 +3120,10 @@ rc_style_merge(GtkRcStyle *dest, GtkRcStyle *src)
 
     GtkRcStyle copy;
     const char *typeName=src ? g_type_name(G_TYPE_FROM_INSTANCE(src)) : nullptr;
-    bool destIsQtc = isRcStyle(dest),
-        srcIsQtc=!src->name || qtcStrStartsWith(src->name, RC_SETTING) ||
-        qtcStrStartsWith(src->name, qtcGetProgName()),
-        isQtCNoteBook=0!=opts.tabBgnd && src->name && 0==strcmp(src->name, "qtcurve-notebook_bg"),
+    bool destIsQtc = isRcStyle(dest);
+    bool srcIsQtc = (!src->name || Str::startsWith(src->name, RC_SETTING) ||
+                     Str::startsWith(src->name, qtcGetProgName()));
+    bool isQtCNoteBook=0!=opts.tabBgnd && src->name && 0==strcmp(src->name, "qtcurve-notebook_bg"),
                 dontChangeColors=destIsQtc && !srcIsQtc && !isQtCNoteBook &&
                                  // Only allow GtkRcStyle and QtCurve::RcStyle to change colours
                                  // ...this should catch most cases whre another themes gtkrc is in the

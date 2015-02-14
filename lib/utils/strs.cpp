@@ -58,6 +58,64 @@ template QTC_EXPORT char *vformat<true>(char *buff, size_t *size,
 template QTC_EXPORT char *vformat<false>(char *buff, size_t *size,
                                          const char *fmt, va_list ap);
 
+template<>
+QTC_EXPORT double
+convert<double>(const char *str, const double &def, bool *is_def)
+{
+    if (!str) {
+        qtcAssign(is_def, true);
+        return def;
+    }
+    str += strspn(str, " \t\b\n\f\v");
+    char *end = nullptr;
+    double res = strtod(str, &end);
+    if (end == str) {
+        qtcAssign(is_def, true);
+        res = def;
+    } else {
+        qtcAssign(is_def, false);
+    }
+    return res;
+}
+template double convert<double>(const char*, const double&, bool *is_def);
+
+template<>
+QTC_EXPORT long
+convert<long>(const char *str, const long &def, bool *is_def)
+{
+    if (!str) {
+        qtcAssign(is_def, true);
+        return def;
+    }
+    str += strspn(str, " \t\b\n\f\v");
+    char *end = nullptr;
+    long res = strtol(str, &end, 0);
+    if (end == str) {
+        qtcAssign(is_def, true);
+        res = def;
+    } else {
+        qtcAssign(is_def, false);
+    }
+    return res;
+}
+template long convert<long>(const char*, const long&, bool *is_def);
+
+template<>
+QTC_EXPORT bool
+convert<bool>(const char *str, const bool &def, bool *is_def)
+{
+    qtcAssign(is_def, false);
+    if (str && *str) {
+        if (def) {
+            return noneOf<CaseCmp>(str, "0", "f", "false", "off");
+        } else {
+            return oneOf<CaseCmp>(str, "1", "t", "true", "on");
+        }
+    }
+    return def;
+}
+template bool convert<bool>(const char*, const bool&, bool *is_def);
+
 }
 
 namespace StrList {
@@ -161,14 +219,7 @@ qtcStrLoadStrList(const char *str, char delim, char escape, size_t *nele,
 static bool
 qtcStrListIntLoader(void *ele, const char *str, size_t, void *data)
 {
-    long def = (long)(intptr_t)data;
-    str += strspn(str, " \t\b\n\f\v");
-    char *end = nullptr;
-    long res = strtol(str, &end, 0);
-    if (end == str) {
-        res = def;
-    }
-    *(long*)ele = res;
+    *(long*)ele = QtCurve::Str::convert(str, (long)(intptr_t)data);
     return true;
 }
 
@@ -184,14 +235,7 @@ qtcStrLoadIntList(const char *str, char delim, char escape, size_t *nele,
 static bool
 qtcStrListFloatLoader(void *ele, const char *str, size_t, void *data)
 {
-    double def = *(double*)data;
-    str += strspn(str, " \t\b\n\f\v");
-    char *end = nullptr;
-    double res = strtod(str, &end);
-    if (end == str) {
-        res = def;
-    }
-    *(double*)ele = res;
+    *(double*)ele = QtCurve::Str::convert(str, *(double*)data);
     return true;
 }
 

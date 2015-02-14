@@ -25,79 +25,52 @@
 #include "utils.h"
 #include <stdarg.h>
 
-typedef enum {
-    QTC_LOG_DEBUG,
-    QTC_LOG_INFO,
-    QTC_LOG_WARN,
-    QTC_LOG_ERROR,
-    QTC_LOG_FORCE
-} QtcLogLevel;
+namespace QtCurve {
 
-QtcLogLevel _qtcGetLogLevel();
-bool _qtcGetLogColor();
+void backtrace();
+enum class LogLevel {
+    Debug,
+    Info,
+    Warn,
+    Error,
+    Force
+};
 
-static inline QtcLogLevel
-qtcGetLogLevel()
-{
-    static bool inited = false;
-    static QtcLogLevel level = QTC_LOG_ERROR;
-    if (!inited) {
-        level = _qtcGetLogLevel();
-        inited = true;
-    }
-    return level;
-}
+namespace Log {
 
-static inline bool
-qtcGetLogColor()
-{
-    static bool inited = false;
-    static bool color = false;
-    if (!inited) {
-        color = _qtcGetLogColor();
-        inited = true;
-    }
-    return color;
-}
-
-#define qtcLogLevel (qtcGetLogLevel())
-#define qtcLogColor (qtcGetLogColor())
-
-static inline bool
-qtcCheckLogLevel(unsigned level)
-{
-    return qtcUnlikely(level <= QTC_LOG_FORCE && level >= qtcLogLevel);
-}
-
-__attribute__((format(printf, 5, 6)))
-void _qtcLog(QtcLogLevel level, const char *fname, int line, const char *func,
-             const char *fmt, ...);
+LogLevel level();
 
 __attribute__((format(printf, 5, 0)))
-void _qtcLogV(QtcLogLevel level, const char *fname, int line, const char *func,
-              const char *fmt, va_list ap);
+void logv(LogLevel level, const char *fname, int line,
+          const char *func, const char *fmt, va_list ap);
+
+__attribute__((format(printf, 5, 6)))
+void log(LogLevel level, const char *fname, int line, const char *func,
+         const char *fmt, ...);
+
+static inline bool
+checkLevel(LogLevel _level)
+{
+    return qtcUnlikely(_level <= LogLevel::Force && _level >= level());
+}
+
+}
+}
 
 #define qtcLog(__level, fmt, args...)                                   \
     do {                                                                \
-        unsigned level = (__level);                                     \
-        if (!qtcCheckLogLevel(level)) {                                 \
+        using namespace QtCurve;                                        \
+        LogLevel level = (__level);                                     \
+        if (!Log::checkLevel(level)) {                                  \
             break;                                                      \
         }                                                               \
-        _qtcLog((QtcLogLevel)level, __FILE__, __LINE__, __FUNCTION__,   \
-                fmt, ##args);                                           \
+        Log::log(level, __FILE__, __LINE__, __FUNCTION__, fmt, ##args); \
     } while (0)
 
-#define qtcDebug(fmt, args...)                  \
-    qtcLog(QTC_LOG_DEBUG, fmt, ##args)
-#define qtcInfo(fmt, args...)                   \
-    qtcLog(QTC_LOG_INFO, fmt, ##args)
-#define qtcWarn(fmt, args...)                   \
-    qtcLog(QTC_LOG_WARN, fmt, ##args)
-#define qtcError(fmt, args...)                  \
-    qtcLog(QTC_LOG_ERROR, fmt, ##args)
-#define qtcForceLog(fmt, args...)               \
-    qtcLog(QTC_LOG_FORCE, fmt, ##args)
-
-void qtcBacktrace();
+#define qtcDebug(fmt, args...) qtcLog(LogLevel::Debug, fmt, ##args)
+#define qtcInfo(fmt, args...) qtcLog(LogLevel::Info, fmt, ##args)
+#define qtcWarn(fmt, args...) qtcLog(LogLevel::Warn, fmt, ##args)
+#define qtcError(fmt, args...) qtcLog(LogLevel::Error, fmt, ##args)
+#define qtcForceLog(fmt, args...) qtcLog(LogLevel::Force, fmt, ##args)
 
 #endif

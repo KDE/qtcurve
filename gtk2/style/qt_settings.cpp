@@ -1521,7 +1521,7 @@ isMozApp(const char *app, const char *check)
 {
     if (strcmp(app, check) == 0) {
         return true;
-    } else if (qtcStrStartsWith(app, check)) {
+    } else if (Str::startsWith(app, check)) {
         int app_len=strlen(app),
             check_len=strlen(check);
 
@@ -1656,7 +1656,7 @@ qtSettingsInit()
             char *rcFile = nullptr;
             /* Is the user using a non-default QtCurve style? */
             if (qtSettings.styleName &&
-                qtcStrStartsWith(qtSettings.styleName, THEME_PREFIX)) {
+                Str::startsWith(qtSettings.styleName, THEME_PREFIX)) {
                 rcFile = themeFile(getKdeHome(),
                                    qtSettings.styleName, str_buff);
 
@@ -1742,7 +1742,7 @@ qtSettingsInit()
                     qtSettings.app=GTK_APP_OPEN_OFFICE;
                 else if(0==strcmp(qtSettings.appName, "vmplayer"))
                     qtSettings.app=GTK_APP_VMPLAYER;
-                else if (qtcStrStartsWith(qtSettings.appName, "gimp"))
+                else if (Str::startsWith(qtSettings.appName, "gimp"))
                     qtSettings.app=GTK_APP_GIMP;
                 else if(0==strcmp(qtSettings.appName, "java"))
                     qtSettings.app=GTK_APP_JAVA;

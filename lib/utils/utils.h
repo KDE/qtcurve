@@ -119,26 +119,37 @@ struct _oneOfCmp<T1, T2, typename std::enable_if<_isCharStr<T1>::value &&
     }
 };
 
-template<typename T1, typename T2>
+template<typename...>
+struct CaseCmp {
+    inline bool operator()(const char *str1, const char *str2)
+    {
+        return strcasecmp(str1, str2) == 0;
+    }
+};
+
+template<template<typename...> class _Cmp=_oneOfCmp,
+         typename T1, typename T2>
 static inline bool
 oneOf(T1 &&v1, T2 &&v2)
 {
-    return _oneOfCmp<T1, T2>()(std::forward<T1>(v1), std::forward<T2>(v2));
+    return _Cmp<T1, T2>()(std::forward<T1>(v1), std::forward<T2>(v2));
 }
 
-template<typename T, typename First, typename... Rest>
+template<template<typename...> class _Cmp=_oneOfCmp,
+         typename T, typename First, typename... Rest>
 static inline bool
 oneOf(T &&value, First &&first, Rest&&... rest)
 {
-    return (oneOf(std::forward<T>(value), std::forward<First>(first)) ||
-            oneOf(std::forward<T>(value), std::forward<Rest>(rest)...));
+    return (oneOf<_Cmp>(std::forward<T>(value), std::forward<First>(first)) ||
+            oneOf<_Cmp>(std::forward<T>(value), std::forward<Rest>(rest)...));
 }
 
-template<typename... Args>
+template<template<typename...> class _Cmp=_oneOfCmp,
+         typename... Args>
 static inline bool
 noneOf(Args&&... args)
 {
-    return !oneOf(std::forward<Args>(args)...);
+    return !oneOf<_Cmp>(std::forward<Args>(args)...);
 }
 
 /**

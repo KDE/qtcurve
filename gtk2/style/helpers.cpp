@@ -36,7 +36,7 @@ namespace QtCurve {
 void
 debugDisplayWidget(GtkWidget *widget, int level)
 {
-    if (qtcLogLevel > QTC_LOG_DEBUG)
+    if (Log::level() > LogLevel::Debug)
         return;
     if (level < 0 || !widget) {
         printf("\n");
@@ -99,7 +99,7 @@ useButtonColor(const char *detail)
              strcmp(detail, "spinbutton_down") == 0 ||
              strcmp(detail, "slider") == 0 ||
              strcmp(detail, "qtc-slider") == 0 ||
-             (detail[0] && qtcStrStartsWith(detail + 1, "scrollbar")) ||
+             (detail[0] && Str::startsWith(detail + 1, "scrollbar")) ||
              strcmp(detail, "stepper") == 0));
 }
 
@@ -714,7 +714,7 @@ bool
 isSbarDetail(const char *detail)
 {
     return detail && detail[0] && (strcmp(detail, "stepper") == 0 ||
-                                   qtcStrStartsWith(detail + 1, "scrollbar"));
+                                   Str::startsWith(detail + 1, "scrollbar"));
 }
 
 ECornerBits
@@ -743,9 +743,9 @@ getRound(const char *detail, GtkWidget *widget, bool rev)
             return rev ? ROUNDED_BOTTOMLEFT : ROUNDED_BOTTOMRIGHT;
         else if (isSbarDetail(detail)) {
             // Requires `GtkRange::stepper-position-details = 1`
-            if (qtcStrEndsWith(detail, "_start")) {
+            if (Str::endsWith(detail, "_start")) {
                 return detail[0] == 'h' ? ROUNDED_LEFT : ROUNDED_TOP;
-            } else if (qtcStrEndsWith(detail, "_end")) {
+            } else if (Str::endsWith(detail, "_end")) {
                 return detail[0] == 'v' ? ROUNDED_BOTTOM : ROUNDED_RIGHT;
             }
             return ROUNDED_NONE;

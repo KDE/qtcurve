@@ -32,6 +32,23 @@
 namespace QtCurve {
 namespace Str {
 
+QTC_ALWAYS_INLINE static inline bool
+startsWith(const char *str, const char *head)
+{
+    return strncmp(str, head, strlen(head)) == 0;
+}
+
+QTC_ALWAYS_INLINE static inline bool
+endsWith(const char *str, const char *tail)
+{
+    size_t len1 = strlen(str);
+    size_t len2 = strlen(tail);
+    if (len2 > len1) {
+        return false;
+    }
+    return memcmp(str + len1 - len2, tail, len2) == 0;
+}
+
 QTC_ALWAYS_INLINE static inline char*
 dup(char *dest, const char *src, size_t len)
 {
@@ -141,6 +158,33 @@ public:
     }
 };
 
+template<typename T>
+T convert(const char*, const T &def=T(), bool *is_def=nullptr);
+
+#ifndef __QTC_UTILS_STRS_INTERNAL__
+extern template double convert<double>(const char*, const double& =0,
+                                       bool* =nullptr);
+extern template long convert<long>(const char*, const long& =0, bool* =nullptr);
+extern template bool convert<bool>(const char*, const bool& =false,
+                                   bool* =nullptr);
+#endif
+
+template<>
+inline std::string
+convert<std::string>(const char *str, const std::string&, bool *is_def)
+{
+    qtcAssign(is_def, false);
+    return std::string(str);
+}
+
+template<>
+inline char*
+convert<char*>(const char *str, char *const&, bool *is_def)
+{
+    qtcAssign(is_def, false);
+    return strdup(str);
+}
+
 }
 
 namespace StrList {
@@ -226,76 +270,5 @@ double *qtcStrLoadFloatList(const char *str, char delim, char escape,
 #define qtcStrLoadFloatList(str, delim, escape, nele, extra...)         \
     qtcStrLoadFloatList(str, QTC_DEFAULT(delim, ','),                   \
                         QTC_DEFAULT(escape, '\\'), nele, ##extra)
-
-QTC_ALWAYS_INLINE static inline bool
-qtcStrToBool(const char *str, bool def)
-{
-    if (str && *str) {
-        if (def) {
-            return !(strcasecmp(str, "0") == 0 || strcasecmp(str, "f") == 0 ||
-                     strcasecmp(str, "false") == 0 ||
-                     strcasecmp(str, "off") == 0);
-        } else {
-            return (strcasecmp(str, "1") == 0 || strcasecmp(str, "t") == 0 ||
-                    strcasecmp(str, "true") == 0 || strcasecmp(str, "on") == 0);
-        }
-    }
-    return def;
-}
-
-QTC_ALWAYS_INLINE static inline long
-qtcStrToInt(const char *str, long def, bool *is_def=nullptr)
-{
-    if (!str) {
-        qtcAssign(is_def, true);
-        return def;
-    }
-    str += strspn(str, " \t\b\n\f\v");
-    char *end = nullptr;
-    long res = strtol(str, &end, 0);
-    if (end == str) {
-        qtcAssign(is_def, true);
-        res = def;
-    } else {
-        qtcAssign(is_def, false);
-    }
-    return res;
-}
-
-QTC_ALWAYS_INLINE static inline double
-qtcStrToFloat(const char *str, double def, bool *is_def=nullptr)
-{
-    if (!str) {
-        qtcAssign(is_def, true);
-        return def;
-    }
-    str += strspn(str, " \t\b\n\f\v");
-    char *end = nullptr;
-    double res = strtod(str, &end);
-    if (end == str) {
-        qtcAssign(is_def, true);
-        res = def;
-    } else {
-        qtcAssign(is_def, false);
-    }
-    return res;
-}
-
-QTC_ALWAYS_INLINE static inline bool
-qtcStrEndsWith(const char *str, const char *tail)
-{
-    size_t len1 = strlen(str);
-    size_t len2 = strlen(tail);
-    if (len2 > len1) {
-        return false;
-    }
-    return memcmp(str + len1 - len2, tail, len2) == 0;
-}
-
-QTC_ALWAYS_INLINE static inline bool
-qtcStrStartsWith(const char *str, const char *head)
-{
-    return strncmp(str, head, strlen(head)) == 0;
-}
 
 #endif
