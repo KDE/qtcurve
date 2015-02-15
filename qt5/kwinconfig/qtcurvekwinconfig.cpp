@@ -151,9 +151,11 @@ KWinConfig::KWinConfig(KConfig *config, QWidget *parent)
         // TODO: remove
         grouping->setVisible(false);
         groupingLabel->setVisible(false);
-        connect(activeOpacity, SIGNAL(valueChanged(int)), this, SIGNAL(changed()));
-        connect(inactiveOpacity, SIGNAL(valueChanged(int)), this, SIGNAL(changed()));
-        connect(opaqueBorder, SIGNAL(toggled(bool)), this, SIGNAL(changed()));
+        connect(qtcSlot(activeOpacity, valueChanged, (int)),
+                qtcSlot(this, changed));
+        connect(qtcSlot(inactiveOpacity, valueChanged, (int)),
+                qtcSlot(this, changed));
+        connect(qtcSlot(opaqueBorder, toggled), qtcSlot(this, changed));
     }
 }
 

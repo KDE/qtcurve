@@ -118,7 +118,7 @@ void QtCurveHandler::setStyle()
 
         m_style = QStyleFactory::create(styleName.isEmpty() ||
                                          (styleName != "qtcurve"
-#ifdef QTC_QT4_STYLE_SUPPORT
+#ifdef QTC_QT5_STYLE_SUPPORT
                                           && !styleName.startsWith(THEME_PREFIX)
 #endif
                                              ) ? QString("QtCurve") : styleName);

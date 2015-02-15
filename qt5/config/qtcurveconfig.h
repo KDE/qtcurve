@@ -35,7 +35,7 @@
 
 class QComboBox;
 class QDoubleSpinBox;
-#ifdef QTC_QT4_STYLE_SUPPORT
+#ifdef QTC_QT5_STYLE_SUPPORT
 class CExportThemeDialog;
 #endif
 class QtCurveConfig;
@@ -111,28 +111,8 @@ public Q_SLOTS:
     void defaults();
 
 private Q_SLOTS:
-    void gtkButtonOrderChanged();
-    void reorderGtkButtonsChanged();
-    void roundChanged();
-    void exportTheme();
-    void crColorChanged();
-    void passwordCharClicked();
-    void borderProgressChanged();
-    void squareProgressChanged();
-    void fillProgressChanged();
-    void titlebarButtons_customChanged();
-    void titlebarButtons_useHoverChanged();
-    void menuBgndImageChanged();
-    void configureBgndAppearanceFile();
-    void configureBgndImageFile();
-    void configureMenuBgndAppearanceFile();
-    void configureMenuBgndImageFile();
-    void groupBoxChanged();
     void exportKDE3();
     void exportQt();
-    void menubarTitlebarBlend();
-    void updatePreview();
-    void previewControlPressed();
 
 public:
     QString getPresetName(const QString &cap, QString label, QString def,
@@ -170,27 +150,43 @@ private:
     void bgndAppearanceChanged();
     void bgndImageChanged();
     void borderChanged(int i);
+    void borderProgressChanged();
     void borderSbarGrooveChanged();
     void buttonEffectChanged();
     void changeStack();
     void coloredMouseOverChanged();
     void comboBtnChanged();
+    void configureBgndAppearanceFile();
+    void configureBgndImageFile();
+    void configureMenuBgndAppearanceFile();
+    void configureMenuBgndImageFile();
     void copyGradient(QAction *act);
+    void crColorChanged();
     void customMenuTextColorChanged();
     void defBtnIndicatorChanged();
     void deletePreset();
     void editItem(QTreeWidgetItem *i, int col);
     void emboldenToggled();
     void exportPreset();
+    void exportTheme();
     void focusChanged();
+    void fillProgressChanged();
     void gradChanged(int i);
+    void groupBoxChanged();
+    void gtkButtonOrderChanged();
     void importPreset();
     void itemChanged(QTreeWidgetItem *i, int col);
     void menubarHidingChanged();
+    void menubarTitlebarBlend();
     void menuBgndAppearanceChanged();
+    void menuBgndImageChanged();
     void menuStripeChanged();
+    void passwordCharClicked();
+    void previewControlPressed();
     void progressColorChanged();
     void removeGradStop();
+    void reorderGtkButtonsChanged();
+    void roundChanged();
     void savePreset();
     bool savePreset(const QString &name);
     void setPreset();
@@ -202,39 +198,43 @@ private:
     void sliderThumbChanged();
     void sliderWidthChanged();
     void sortedLvChanged();
+    void squareProgressChanged();
     void stopSelected();
     void stripedProgressChanged();
     void tabMoChanged();
     void thinSbarGrooveChanged();
+    void titlebarButtons_customChanged();
+    void titlebarButtons_useHoverChanged();
     void unifySpinBtnsToggled();
     void unifySpinToggled();
     void updateChanged();
     void updateGradStop();
+    void updatePreview();
     void windowBorder_blendChanged();
     void windowBorder_colorTitlebarOnlyChanged();
     void windowBorder_menuColorChanged();
 
-    Options                previewStyle;
-    CWorkspace             *workSpace;
-    CStylePreview          *stylePreview;
-    QMdiSubWindow          *mdiWindow;
+    Options previewStyle;
+    CWorkspace *workSpace;
+    CStylePreview *stylePreview;
+    QMdiSubWindow *mdiWindow;
     QMap<QString, Preset>  presets;
-#ifdef QTC_QT4_STYLE_SUPPORT
-    CExportThemeDialog     *exportDialog;
+#ifdef QTC_QT5_STYLE_SUPPORT
+    CExportThemeDialog *exportDialog;
 #endif
-    CGradientPreview       *gradPreview;
-    GradientCont           customGradient;
+    CGradientPreview *gradPreview;
+    GradientCont customGradient;
     QDoubleSpinBox *shadeVals[QTC_NUM_STD_SHADES];
     QDoubleSpinBox *alphaVals[NUM_STD_ALPHAS];
-    QString                currentText,
-                           defaultText;
+    QString currentText;
+    QString defaultText;
     QtCurve::KWinConfig *kwin;
-    int                    kwinPage;
-    bool                   readyForPreview;
-    CImagePropertiesDialog *bgndPixmapDlg,
-                           *menuBgndPixmapDlg,
-                           *bgndImageDlg,
-                           *menuBgndImageDlg;
+    int kwinPage;
+    bool readyForPreview;
+    CImagePropertiesDialog *bgndPixmapDlg;
+    CImagePropertiesDialog *menuBgndPixmapDlg;
+    CImagePropertiesDialog *bgndImageDlg;
+    CImagePropertiesDialog *menuBgndImageDlg;
 };
 
 inline Shading

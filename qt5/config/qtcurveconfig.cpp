@@ -26,7 +26,7 @@
 #include "qtcurveconfig.h"
 #include "imagepropertiesdialog.h"
 // TODO
-#ifdef QTC_QT4_STYLE_SUPPORT
+#ifdef QTC_QT5_STYLE_SUPPORT
 #  include "exportthemedialog.h"
 #endif
 
@@ -850,7 +850,7 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
                workSpace(nullptr),
                stylePreview(nullptr),
                mdiWindow(nullptr),
-#ifdef QTC_QT4_STYLE_SUPPORT
+#ifdef QTC_QT5_STYLE_SUPPORT
                exportDialog(nullptr),
 #endif
                gradPreview(nullptr),
@@ -1135,29 +1135,42 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
             qtcSlot(this, bgndAppearanceChanged));
     connect(qtcSlot(bgndImage, currentIndexChanged, (int)),
             qtcSlot(this, bgndImageChanged));
+    connect(qtcSlot(menuBgndImage, currentIndexChanged, (int)),
+            qtcSlot(this, menuBgndImageChanged));
+    connect(qtcSlot(crColor, currentIndexChanged, (int)),
+            qtcSlot(this, crColorChanged));
+    connect(qtcSlot(gtkButtonOrder, toggled),
+            qtcSlot(this, gtkButtonOrderChanged));
+    connect(qtcSlot(reorderGtkButtons, toggled),
+            qtcSlot(this, reorderGtkButtonsChanged));
+    connect(qtcSlot(passwordChar, clicked), qtcSlot(this, passwordCharClicked));
+    connect(qtcSlot(groupBox, currentIndexChanged, (int)),
+            qtcSlot(this, groupBoxChanged));
+    connect(qtcSlot(titlebarButtons_custom, toggled),
+            qtcSlot(this, titlebarButtons_customChanged));
+    connect(qtcSlot(titlebarButtons_useHover, toggled),
+            qtcSlot(this, titlebarButtons_useHoverChanged));
+    connect(qtcSlot(borderProgress, toggled),
+            qtcSlot(this, borderProgressChanged));
+    connect(qtcSlot(fillProgress, toggled), qtcSlot(this, fillProgressChanged));
+    connect(qtcSlot(squareProgress, toggled),
+            qtcSlot(this, squareProgressChanged));
 
     // TODO
-    connect(menuBgndImage, SIGNAL(currentIndexChanged(int)), SLOT(menuBgndImageChanged()));
-    connect(crColor, SIGNAL(currentIndexChanged(int)), SLOT(crColorChanged()));
-    connect(gtkButtonOrder, SIGNAL(toggled(bool)), SLOT(gtkButtonOrderChanged()));
-    connect(reorderGtkButtons, SIGNAL(toggled(bool)), SLOT(reorderGtkButtonsChanged()));
-    connect(passwordChar, SIGNAL(clicked()), SLOT(passwordCharClicked()));
-    connect(groupBox, SIGNAL(currentIndexChanged(int)), SLOT(groupBoxChanged()));
-    connect(titlebarButtons_custom, SIGNAL(toggled(bool)), SLOT(titlebarButtons_customChanged()));
-    connect(titlebarButtons_useHover, SIGNAL(toggled(bool)), SLOT(titlebarButtons_useHoverChanged()));
-
-    connect(borderProgress, SIGNAL(toggled(bool)), SLOT(borderProgressChanged()));
-    connect(fillProgress, SIGNAL(toggled(bool)), SLOT(fillProgressChanged()));
-    connect(squareProgress, SIGNAL(toggled(bool)), SLOT(squareProgressChanged()));
-
     menubarBlend->setIcon(QtCurve::loadKIcon("configure"));
-    connect(menubarBlend, SIGNAL(clicked(bool)), SLOT(menubarTitlebarBlend()));
-    connect(previewControlButton, SIGNAL(clicked(bool)), SLOT(previewControlPressed()));
+    connect(qtcSlot(menubarBlend, clicked),
+            qtcSlot(this, menubarTitlebarBlend));
+    connect(qtcSlot(previewControlButton, clicked),
+            qtcSlot(this, previewControlPressed));
 
-    connect(bgndAppearance_btn, SIGNAL(clicked(bool)), SLOT(configureBgndAppearanceFile()));
-    connect(bgndImage_btn, SIGNAL(clicked(bool)), SLOT(configureBgndImageFile()));
-    connect(menuBgndAppearance_btn, SIGNAL(clicked(bool)), SLOT(configureMenuBgndAppearanceFile()));
-    connect(menuBgndImage_btn, SIGNAL(clicked(bool)), SLOT(configureMenuBgndImageFile()));
+    connect(qtcSlot(bgndAppearance_btn, clicked),
+            qtcSlot(this, configureBgndAppearanceFile));
+    connect(qtcSlot(bgndImage_btn, clicked),
+            qtcSlot(this, configureBgndImageFile));
+    connect(qtcSlot(menuBgndAppearance_btn, clicked),
+            qtcSlot(this, configureMenuBgndAppearanceFile));
+    connect(qtcSlot(menuBgndImage_btn, clicked),
+            qtcSlot(this, configureMenuBgndImageFile));
 
     bgndAppearance_btn->setAutoRaise(true);
     bgndAppearance_btn->setVisible(false);
@@ -2741,7 +2754,7 @@ void QtCurveConfig::importPreset()
 
 void QtCurveConfig::exportPreset()
 {
-#ifdef QTC_QT4_STYLE_SUPPORT
+#ifdef QTC_QT5_STYLE_SUPPORT
     switch(KMessageBox::questionYesNoCancel(this, i18n("<p>In which format would you like to export the QtCurve "
                                                        "settings?<ul><li><i>QtCurve settings file</i> -"
                                                        " a file to be imported via this config dialog.</li>"
@@ -2849,7 +2862,7 @@ void QtCurveConfig::exportPreset()
 
 void QtCurveConfig::exportTheme()
 {
-#ifdef QTC_QT4_STYLE_SUPPORT
+#ifdef QTC_QT5_STYLE_SUPPORT
     if(!exportDialog)
         exportDialog=new CExportThemeDialog(this);
 
