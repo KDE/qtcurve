@@ -31,7 +31,7 @@
 #include <QApplication>
 
 #ifdef Qt5X11Extras_FOUND
-#include <qtcurve-utils/x11base.h>
+#  include <qtcurve-utils/x11base.h>
 #  include <QX11Info>
 #endif
 
@@ -41,12 +41,12 @@
 #endif
 #include <QDebug>
 
+#include <mutex>
+
 namespace QtCurve {
 
-static bool inited = false;
-
 __attribute__((hot)) static void
-qtcPolishQuickControl(QObject *obj)
+polishQuickControl(QObject *obj)
 {
 #ifdef QTC_QT5_ENABLE_QTQUICK2
     if (QQuickWindow *window = qobject_cast<QQuickWindow*>(obj)) {
@@ -108,7 +108,7 @@ qtcEventCallback(void **cbdata)
         QtcQWidgetProps props(widget);
         props->opacity = 100;
     } else {
-        qtcPolishQuickControl(receiver);
+        polishQuickControl(receiver);
     }
     return false;
 }
@@ -117,24 +117,24 @@ QStyle*
 StylePlugin::create(const QString &key)
 {
     init();
-    return key.toLower() == "qtcurve" ? new Style : 0;
+    return key.toLower() == "qtcurve" ? new Style : nullptr;
 }
 
 void
 StylePlugin::init()
 {
-    if (inited)
-        return;
-    inited = true;
-    QInternal::registerCallback(QInternal::EventNotifyCallback,
-                                qtcEventCallback);
+    static std::once_flag ref_flag;
+    std::call_once(ref_flag, [] {
+            QInternal::registerCallback(QInternal::EventNotifyCallback,
+                                        qtcEventCallback);
 #ifdef QTC_QT5_ENABLE_QTQUICK2
-    QQuickWindow::setDefaultAlphaBuffer(true);
+            QQuickWindow::setDefaultAlphaBuffer(true);
 #endif
 #ifdef Qt5X11Extras_FOUND
-    if (qApp->platformName() == "xcb") {
-        qtcX11InitXcb(QX11Info::connection(), QX11Info::appScreen());
-    }
+            if (qApp->platformName() == "xcb") {
+                qtcX11InitXcb(QX11Info::connection(), QX11Info::appScreen());
+            }
 #endif
+        });
 }
 }

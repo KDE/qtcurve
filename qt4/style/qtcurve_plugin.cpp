@@ -33,13 +33,13 @@
 
 #include <QTypeInfo>
 #include <QFileInfo>
+#include <QDir>
+
+#include <mutex>
 
 namespace QtCurve {
 
 #ifdef QTC_QT4_STYLE_SUPPORT
-
-#include <QDir>
-
 static void
 getStyles(const QString &dir, const char *sub, QSet<QString> &styles)
 {
@@ -97,8 +97,6 @@ StylePlugin::create(const QString &key)
     return 0;
 }
 
-static bool inited = false;
-
 __attribute__((hot)) static bool
 qtcEventCallback(void **cbdata)
 {
@@ -130,14 +128,14 @@ qtcEventCallback(void **cbdata)
 void
 StylePlugin::init()
 {
-    if (inited)
-        return;
-    inited = true;
-    QInternal::registerCallback(QInternal::EventNotifyCallback,
-                                qtcEventCallback);
+    static std::once_flag ref_flag;
+    std::call_once(ref_flag, [] {
+        QInternal::registerCallback(QInternal::EventNotifyCallback,
+                                    qtcEventCallback);
 #ifdef Q_WS_X11
-    qtcX11InitXlib(QX11Info::display());
+        qtcX11InitXlib(QX11Info::display());
 #endif
+        });
 }
 
 Q_EXPORT_PLUGIN2(Style, StylePlugin)
