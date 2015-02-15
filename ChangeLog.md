@@ -7,6 +7,11 @@
    [QtCurve-Bug](https://github.com/QtCurve/qtcurve/issues/49)
 4. Fix text emboldening in gtk2.
    [QtCurve-Bug](https://github.com/QtCurve/qtcurve/issues/58)
+5. Become a KDE project
+6. KF5 configure interface.
+   Thanks to Eike Hein
+7. Fix OSX build.
+   Thanks to René J.V. Bertin.
 
 ## 1.8.18
 1. Gtk2: Remove mozilla version detection.
