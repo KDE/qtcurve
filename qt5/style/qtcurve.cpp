@@ -81,7 +81,6 @@
 #include <KDE/KIcon>
 #include <KDE/KColorScheme>
 #include <KDE/KStandardDirs>
-#include <KDE/KComponentData>
 #include <KDE/KTitleWidget>
 #include <KDE/KTabBar>
 #include <KDE/KFileDialog>
@@ -375,10 +374,6 @@ void Style::init(bool initial)
 
             if(name.isEmpty())
                 name = "QtApp";
-
-            m_componentData =
-                KComponentData(name.toLatin1(), name.toLatin1(),
-                               KComponentData::SkipMainComponentRegistration);
         }
     }
 #endif

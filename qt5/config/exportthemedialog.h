@@ -23,26 +23,23 @@
 #ifndef __EXPORT_THEME_DIALOG_H__
 #define __EXPORT_THEME_DIALOG_H__
 
-#include <kdialog.h>
-#ifdef Q_OS_MAC
-#include "common/common.h"
-#else
-#include "common.h"
-#endif //Q_OS_MAC
+#include <common/common.h>
+
+#include <QDialog>
 
 class KUrlRequester;
 class QLineEdit;
 
-class CExportThemeDialog: public KDialog {
+class CExportThemeDialog: public QDialog {
     Q_OBJECT
 public:
     CExportThemeDialog(QWidget *parent);
 
     void run(const Options &o);
-    QSize sizeHint() const;
+    QSize sizeHint() const override;
 
 private:
-    void slotButtonClicked(int button);
+    void accept() override;
 
     QLineEdit *themeName;
     QLineEdit *themeComment;

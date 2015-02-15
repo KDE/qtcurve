@@ -29,11 +29,7 @@
 #include <QDir>
 #include <QGridLayout>
 #include <QLabel>
-#ifdef Q_OS_MAC
-#include "common/config_file.h"
-#else
-#include "config_file.h"
-#endif //Q_OS_MAC
+#include <common/config_file.h>
 
 CExportThemeDialog::CExportThemeDialog(QWidget *parent)
                   : KDialog(parent)

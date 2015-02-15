@@ -21,20 +21,27 @@
  *****************************************************************************/
 
 #include "imagepropertiesdialog.h"
+
+#include <qtcurve-utils/qtutils.h>
+#include <common/common.h>
+
 #include <KLocale>
 #include <KUrlRequester>
 #include <KFileDialog>
+
 #include <QFile>
 #include <QFileInfo>
 #include <QGridLayout>
+#include <QVBoxLayout>
+#include <QDialogButtonBox>
 #include <QLabel>
-#include <common/common.h>
 
 #define MIN_SIZE 16
 #define MAX_SIZE 1024
 #define DEF_SIZE 256
 
-static void insertPosEntries(QComboBox *combo)
+static void
+insertPosEntries(QComboBox *combo)
 {
     combo->insertItem(PP_TL, i18n("Top left"));
     combo->insertItem(PP_TM, i18n("Top middle"));
@@ -47,28 +54,41 @@ static void insertPosEntries(QComboBox *combo)
     combo->insertItem(PP_CENTRED, i18n("Centred"));
 }
 
-CImagePropertiesDialog::CImagePropertiesDialog(const QString &title, QWidget *parent, int props)
-                      : KDialog(parent)
-                      , properties(props)
+CImagePropertiesDialog::CImagePropertiesDialog(const QString &title,
+                                               QWidget *parent, int props)
+    : QDialog(parent),
+      properties(props)
 {
-    QWidget *page = new QWidget(this);
+    auto mainLayout = new QVBoxLayout(this);
+    auto page = new QWidget(this);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok |
+                                          QDialogButtonBox::Cancel);
 
-    setButtons(Ok|Cancel);
-    setDefaultButton(Ok);
+    auto okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(qtcSlot(buttonBox, accepted), qtcSlot(this, accept));
+    connect(qtcSlot(buttonBox, rejected), qtcSlot(this, reject));
+
     setupUi(page);
-    setMainWidget(page);
-    setCaption(i18n("Edit %1", title));
-    fileRequester->setMode(KFile::File|KFile::ExistingOnly|KFile::LocalOnly);
-    fileRequester->setFilter("image/svg+xml image/png image/jpeg image/bmp image/gif image/xpixmap");
+    mainLayout->addWidget(page);
+    mainLayout->addWidget(buttonBox);
+    if (QWidget *win = window()) {
+        win->setWindowTitle(i18n("Edit %1", title));
+    }
+    fileRequester->setMode(KFile::File | KFile::ExistingOnly |
+                           KFile::LocalOnly);
+    fileRequester->setFilter("image/svg+xml image/png image/jpeg image/bmp "
+                             "image/gif image/xpixmap");
 
-    if(props&SCALE)
-    {
+    if (props & SCALE) {
         scaleWidth->setRange(MIN_SIZE, MAX_SIZE);
         scaleHeight->setRange(MIN_SIZE, MAX_SIZE);
     }
 
-    if(props&POS)
+    if (props & POS) {
         insertPosEntries(posCombo);
+    }
 
     scaleControls->setVisible(props&SCALE);
     scaleImage->setVisible(props&SCALE);
@@ -82,38 +102,42 @@ CImagePropertiesDialog::CImagePropertiesDialog(const QString &title, QWidget *pa
 
 bool CImagePropertiesDialog::run()
 {
-    QString oldFile=fileName();
-    int     oldWidth=imgWidth(),
-            oldHeight=imgHeight(),
-            oldPos=imgPos();
-    bool    oldOnBorder=onBorder->isChecked();
+    QString oldFile = fileName();
+    int oldWidth = imgWidth();
+    int oldHeight = imgHeight();
+    int oldPos = imgPos();
+    bool oldOnBorder = onBorder->isChecked();
 
-    if(QDialog::Accepted==exec())
+    if (exec() == QDialog::Accepted)
         return true;
 
     set(oldFile, oldWidth, oldHeight, oldPos, oldOnBorder);
     return false;
 }
 
-void CImagePropertiesDialog::set(const QString &file, int width, int height, int pos, bool onWindowBorder)
+void
+CImagePropertiesDialog::set(const QString &file, int width, int height,
+                            int pos, bool onWindowBorder)
 {
-    if(properties&SCALE)
-    {
-        scaleImage->setChecked(0!=width || 0!=height);
-        scaleWidth->setValue(width<MIN_SIZE || width>MAX_SIZE ? DEF_SIZE : width);
-        scaleHeight->setValue(height<MIN_SIZE || height>MAX_SIZE ? DEF_SIZE : height);
+    if (properties & SCALE) {
+        scaleImage->setChecked(width || height);
+        scaleWidth->setValue(width < MIN_SIZE || width > MAX_SIZE ?
+                             DEF_SIZE : width);
+        scaleHeight->setValue(height < MIN_SIZE || height > MAX_SIZE ?
+                              DEF_SIZE : height);
     }
 
-    if(properties&BORDER)
+    if (properties & BORDER)
         onBorder->setChecked(onWindowBorder);
-    if(properties&POS)
+    if(properties & POS)
         posCombo->setCurrentIndex(pos);
 
     fileRequester->setUrl(QFile::exists(file) && !QFileInfo(file).isDir() ?
                           QUrl(file) : QUrl());
 }
 
-QSize CImagePropertiesDialog::sizeHint() const
+QSize
+CImagePropertiesDialog::sizeHint() const
 {
     return QSize(400, 120);
 }

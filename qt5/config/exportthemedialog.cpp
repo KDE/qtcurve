@@ -21,48 +21,65 @@
  *****************************************************************************/
 
 #include "exportthemedialog.h"
+
+#include <qtcurve-utils/qtutils.h>
+
+#include <common/config_file.h>
+
 #include <klocale.h>
 #include <kurlrequester.h>
 #include <klineedit.h>
 #include <kmessagebox.h>
-#include <kconfig.h>
+#include <KConfig>
+#include <KConfigGroup>
+
 #include <QDir>
 #include <QGridLayout>
 #include <QLabel>
-#ifdef Q_OS_MAC
-#include "common/config_file.h"
-#else
-#include "config_file.h"
-#endif //Q_OS_MAC
 
 CExportThemeDialog::CExportThemeDialog(QWidget *parent)
-                  : KDialog(parent)
+                  : QDialog(parent)
 {
-    QWidget     *page = new QWidget(this);
-    QGridLayout *layout = new QGridLayout(page);
+    auto mainLayout = new QVBoxLayout(this);
+    auto page = new QWidget(this);
+    auto layout = new QGridLayout(page);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok |
+                                          QDialogButtonBox::Cancel);
 
-    setButtons(Ok|Cancel);
-    setDefaultButton(Ok);
-    setCaption(i18n("Export Theme"));
-    layout->setSpacing(spacingHint());
+    auto okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(qtcSlot(buttonBox, accepted), qtcSlot(this, accept));
+    connect(qtcSlot(buttonBox, rejected), qtcSlot(this, reject));
+
+    if (QWidget *win = window()) {
+        win->setWindowTitle(i18n("Export Theme"));
+    }
+    layout->setSpacing(QApplication::style()
+                       ->pixelMetric(QStyle::PM_DefaultLayoutSpacing));
     layout->setMargin(0);
     layout->addWidget(new QLabel(i18n("Name:"), page), 0, 0);
     layout->addWidget(new QLabel(i18n("Comment:"), page), 1, 0);
     layout->addWidget(new QLabel(i18n("Destination folder:"), page), 2, 0);
-    layout->addWidget(themeName=new QLineEdit(page), 0, 1);
-    layout->addWidget(themeComment=new QLineEdit(i18n("QtCurve based theme"), page), 1, 1);
+    layout->addWidget(themeName = new QLineEdit(page), 0, 1);
+    layout->addWidget(themeComment = new QLineEdit(i18n("QtCurve based theme"),
+                                                   page), 1, 1);
     layout->addWidget(themeUrl=new KUrlRequester(page), 2, 1);
-    layout->addItem(new QSpacerItem(2, 2, QSizePolicy::Minimum, QSizePolicy::Expanding), 3, 1);
+    layout->addItem(new QSpacerItem(2, 2, QSizePolicy::Minimum,
+                                    QSizePolicy::Expanding), 3, 1);
 
-    themeUrl->setMode(KFile::Directory|KFile::ExistingOnly|KFile::LocalOnly);
+    themeUrl->setMode(KFile::Directory | KFile::ExistingOnly |
+                      KFile::LocalOnly);
     themeUrl->lineEdit()->setReadOnly(true);
     themeUrl->setUrl(QDir::homePath());
-    setMainWidget(page);
+
+    mainLayout->addWidget(page);
+    mainLayout->addWidget(buttonBox);
 }
 
 void CExportThemeDialog::run(const Options &o)
 {
-    opts=o;
+    opts = o;
     exec();
 }
 
@@ -71,41 +88,35 @@ QSize CExportThemeDialog::sizeHint() const
     return QSize(400, 120);
 }
 
-void CExportThemeDialog::slotButtonClicked(int button)
+void
+CExportThemeDialog::accept()
 {
-    if(Ok==button)
-    {
-        QString name(themeName->text().trimmed().toLower());
+    QString name(themeName->text().trimmed().toLower());
 
-        if(name.isEmpty())
-            KMessageBox::error(this, i18n("Name is empty!"));
-        else
-        {
-            QString fileName(themeUrl->url().path()+"/"THEME_PREFIX+name+".themerc");
+    if (name.isEmpty()) {
+        KMessageBox::error(this, i18n("Name is empty!"));
+    } else {
+        QString fileName(themeUrl->url().path() + "/" THEME_PREFIX + name +
+                         ".themerc");
 
-            KConfig cfg(fileName, KConfig::SimpleConfig);
-            bool    rv(cfg.isConfigWritable(false));
+        KConfig cfg(fileName, KConfig::SimpleConfig);
+        bool rv(cfg.isConfigWritable(false));
 
-            if(rv)
-            {
-                cfg.group("Misc").writeEntry("Name", themeName->text().trimmed());
-                cfg.group("Misc").writeEntry("Comment", themeComment->text());
-                cfg.group("KDE").writeEntry("WidgetStyle", THEME_PREFIX+name);
+        if (rv) {
+            cfg.group("Misc").writeEntry("Name", themeName->text().trimmed());
+            cfg.group("Misc").writeEntry("Comment", themeComment->text());
+            cfg.group("KDE").writeEntry("WidgetStyle", THEME_PREFIX + name);
 
-                rv=qtcWriteConfig(&cfg, opts, opts, true);
-            }
+            rv = qtcWriteConfig(&cfg, opts, opts, true);
+        }
 
-            if(rv)
-            {
-                QDialog::accept();
-                KMessageBox::information(this, i18n("Successfully created:\n%1", fileName));
-            }
-            else
-                KMessageBox::error(this, i18n("Failed to create file: %1", fileName));
+        if (rv) {
+            QDialog::accept();
+            KMessageBox::information(this, i18n("Successfully created:\n%1",
+                                                fileName));
+        } else {
+            KMessageBox::error(this, i18n("Failed to create file: %1",
+                                          fileName));
         }
     }
-    else
-        QDialog::reject();
 }
-
-#include "exportthemedialog.moc"

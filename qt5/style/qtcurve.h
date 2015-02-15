@@ -36,10 +36,6 @@
 typedef qulonglong QtcKey;
 #include <common/common.h>
 
-#ifdef QTC_QT5_ENABLE_KDE
-#include <KDE/KComponentData>
-#endif
-
 class QStyleOptionSlider;
 class QLabel;
 class QMenuBar;
@@ -558,9 +554,6 @@ private:
     ShadowHelper *m_shadowHelper;
     mutable QScrollBar *m_sViewSBar;
     mutable QMap<QWidget*, QSet<QWidget*> > m_sViewContainers;
-#ifdef QTC_QT5_ENABLE_KDE
-    KComponentData m_componentData;
-#endif
     WindowManager *m_windowManager;
     BlurHelper *m_blurHelper;
     ShortcutHandler *m_shortcutHandler;

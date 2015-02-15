@@ -70,11 +70,9 @@
 #include <klocalizedstring.h>
 #include <kactioncollection.h>
 #include <kguiitem.h>
-#include <kinputdialog.h>
 #include <kfiledialog.h>
 #include <kmessagebox.h>
 #include <kcharselect.h>
-#include <kdialog.h>
 #include <kstandardaction.h>
 #include <ktoolbar.h>
 #include <kzip.h>
@@ -82,12 +80,13 @@
 #include <kcolorscheme.h>
 #include <ksharedconfig.h>
 #include <kconfig.h>
+#include <kconfiggroup.h>
+#include <kaboutdata.h>
 
 // KDE4 support
 #include <KDE/KGlobal>
-#include <KDE/K4AboutData>
-#include <KDE/KComponentData>
 #include <KDE/KStandardDirs>
+#include <KDE/KInputDialog>
 
 // system
 #include <mutex>
@@ -240,19 +239,17 @@ static QSet<QString> toSet(const QString &str)
 CStylePreview::CStylePreview(QWidget *parent)
              : KXmlGuiWindow(parent)
 {
-    aboutData = new K4AboutData("QtCurve", 0, ki18n("QtCurve"), qtcVersion(),
-                               ki18n("Unified widget style."),
-                               K4AboutData::License_GPL,
-                               ki18n("(C) Craig Drummond, 2003-2011 & Yichao Yu, 2013-2015"),
-                               KLocalizedString());
-    aboutData->setProgramIconName("preferences-desktop-theme");
-    componentData = new KComponentData(aboutData);
+    aboutData = new KAboutData("QtCurve", i18n("QtCurve"), qtcVersion(),
+                               i18n("Unified widget style."),
+                               KAboutLicense::LicenseKey::LGPL,
+                               i18n("(C) Craig Drummond, 2003-2011 & "
+                                    "Yichao Yu, 2013-2015"));
+    setWindowIcon(QIcon::fromTheme("preferences-desktop-theme"));
 
-    QWidget *main=new QWidget(this);
+    QWidget *main = new QWidget(this);
     setObjectName("QtCurvePreview");
     setupUi(main);
     setCentralWidget(main);
-    //setComponentData(*componentData);
     for (uint i = 0; standardAction[i] != KStandardAction::ActionNone; ++i)
         actionCollection()->addAction(standardAction[i]);
     createGUI();
@@ -263,7 +260,6 @@ CStylePreview::CStylePreview(QWidget *parent)
 
 CStylePreview::~CStylePreview()
 {
-    delete componentData;
     delete aboutData;
 }
 
@@ -299,27 +295,36 @@ class CWorkspace : public QMdiArea
     }
 };
 
-class CharSelectDialog : public KDialog {
+class CharSelectDialog : public QDialog {
 public:
     CharSelectDialog(QWidget *parent, int v)
-        : KDialog(parent)
+        : QDialog(parent)
     {
-        setCaption(i18n("Select Password Character"));
+        if (QWidget *win = window()) {
+            win->setWindowTitle(i18n("Select Password Character"));
+        }
         setModal(true);
-        setButtons(KDialog::Ok|KDialog::Cancel);
-        enableButtonOk(true);
-        enableButtonCancel(true);
-
-        QFrame *page = new QFrame(this);
-        setMainWidget(page);
+        auto mainLayout = new QVBoxLayout(this);
+        auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok |
+                                              QDialogButtonBox::Cancel);
+        auto page = new QFrame(this);
+        auto okButton = buttonBox->button(QDialogButtonBox::Ok);
+        okButton->setDefault(true);
+        okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+        connect(qtcSlot(buttonBox, accepted), qtcSlot(this, accept));
+        connect(qtcSlot(buttonBox, rejected), qtcSlot(this, reject));
 
         QBoxLayout *layout = new QBoxLayout(QBoxLayout::TopToBottom, page);
         layout->setMargin(0);
-        layout->setSpacing(KDialog::spacingHint());
+        layout->setSpacing(QApplication::style()
+                           ->pixelMetric(QStyle::PM_DefaultLayoutSpacing));
 
         m_selector = new KCharSelect(page, nullptr);
         m_selector->setCurrentChar(QChar(v));
         layout->addWidget(m_selector);
+
+        mainLayout->addWidget(page);
+        mainLayout->addWidget(buttonBox);
     }
 
     int

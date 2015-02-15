@@ -23,37 +23,58 @@
 #ifndef __IMAGE_PROPERTIES_DIALOG_H__
 #define __IMAGE_PROPERTIES_DIALOG_H__
 
-#include <kdialog.h>
 #include <kurlrequester.h>
 
 #include <QCheckBox>
 #include <QComboBox>
+#include <QDialog>
 
 #include "ui_imageproperties.h"
 
-class CImagePropertiesDialog : public KDialog,  public Ui::ImageProperties {
+class CImagePropertiesDialog : public QDialog, public Ui::ImageProperties {
 public:
     enum {
-        BASIC  = 0x00,
-        POS    = 0x01,
-        SCALE  = 0x02,
+        BASIC = 0x00,
+        POS = 0x01,
+        SCALE = 0x02,
         BORDER = 0x04
     };
 
     CImagePropertiesDialog(const QString &title, QWidget *parent, int props);
 
-    bool  run();
-    void  set(const QString &file, int width=-1, int height=-1, int pos=1, bool onWindowBorder=false);
-    QSize sizeHint() const;
+    bool run();
+    void set(const QString &file, int width=-1, int height=-1,
+             int pos=1, bool onWindowBorder=false);
+    QSize sizeHint() const override;
 
-    QString fileName()       { return fileRequester->url().toLocalFile(); }
-    int     imgWidth()       { return (properties&SCALE) && scaleImage->isChecked() ? scaleWidth->value() : 0; }
-    int     imgHeight()      { return (properties&SCALE) && scaleImage->isChecked() ? scaleHeight->value() : 0; }
-    int     imgPos()         { return (properties&POS) ? posCombo->currentIndex() : 0; }
-    bool    onWindowBorder() { return (properties&BORDER) && onBorder->isChecked(); }
-
-    private:
-
+    QString
+    fileName()
+    {
+        return fileRequester->url().toLocalFile();
+    }
+    int
+    imgWidth()
+    {
+        return ((properties & SCALE) && scaleImage->isChecked() ?
+                scaleWidth->value() : 0);
+    }
+    int
+    imgHeight()
+    {
+        return ((properties & SCALE) && scaleImage->isChecked() ?
+                scaleHeight->value() : 0);
+    }
+    int
+    imgPos()
+    {
+        return (properties & POS) ? posCombo->currentIndex() : 0;
+    }
+    bool
+    onWindowBorder()
+    {
+        return (properties & BORDER) && onBorder->isChecked();
+    }
+private:
     int properties;
 };
 

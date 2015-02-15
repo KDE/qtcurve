@@ -44,8 +44,7 @@ class QMdiSubWindow;
 class CWorkspace;
 class CStylePreview;
 class CImagePropertiesDialog;
-class K4AboutData;
-class KComponentData;
+class KAboutData;
 namespace QtCurve {
 class KWinConfig;
 }
@@ -94,8 +93,7 @@ Q_SIGNALS:
     void closePressed();
 
 private:
-    K4AboutData     *aboutData;
-    KComponentData *componentData;
+    KAboutData *aboutData;
 };
 
 class QtCurveConfig: public QWidget, private Ui::QtCurveConfigBase {

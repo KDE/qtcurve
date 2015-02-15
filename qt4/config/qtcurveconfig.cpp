@@ -235,8 +235,9 @@ CStylePreview::CStylePreview(QWidget *parent)
 {
     aboutData = new KAboutData("QtCurve", 0, ki18n("QtCurve"), qtcVersion(),
                                ki18n("Unified widget style."),
-                               KAboutData::License_GPL,
-                               ki18n("(C) Craig Drummond, 2003-2011 & Yichao Yu, 2013-2015"),
+                               KAboutData::License_LGPL,
+                               ki18n("(C) Craig Drummond, 2003-2011 & "
+                                     "Yichao Yu, 2013-2015"),
                                KLocalizedString());
     aboutData->setProgramIconName("preferences-desktop-theme");
     componentData = new KComponentData(aboutData);
