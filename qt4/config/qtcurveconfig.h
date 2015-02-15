@@ -31,6 +31,8 @@
 
 #include <common/common.h>
 
+#include <memory>
+
 class QComboBox;
 class KDoubleNumInput;
 #ifdef QTC_QT4_STYLE_SUPPORT
@@ -93,8 +95,8 @@ Q_SIGNALS:
     void closePressed();
 
 private:
-    KAboutData     *aboutData;
-    KComponentData *componentData;
+    std::unique_ptr<KAboutData> m_aboutData;
+    std::unique_ptr<KComponentData> m_componentData;
 };
 
 class QtCurveConfig : public QWidget, private Ui::QtCurveConfigBase {

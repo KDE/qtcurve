@@ -33,6 +33,8 @@
 #include <QMap>
 #include <QComboBox>
 
+#include <memory>
+
 class QComboBox;
 class QDoubleSpinBox;
 #ifdef QTC_QT5_STYLE_SUPPORT
@@ -93,7 +95,7 @@ Q_SIGNALS:
     void closePressed();
 
 private:
-    KAboutData *aboutData;
+    std::unique_ptr<KAboutData> m_aboutData;
 };
 
 class QtCurveConfig: public QWidget, private Ui::QtCurveConfigBase {
