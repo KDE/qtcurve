@@ -29,13 +29,43 @@
 
 #include <QStandardPaths>
 #include <QDir>
+#include <QDialog>
 
-class QDialog;
 class QDialogButtonBox;
+class QValidator;
+class QLineEdit;
+class QLabel;
 
 namespace QtCurve {
 
 QDialogButtonBox *createDialogButtonBox(QDialog *dialog);
+
+class InputDialog : public QDialog {
+public:
+    explicit InputDialog(QWidget *parent=nullptr, Qt::WindowFlags=0);
+
+    void setTitle(const QString &title);
+    void setLabelText(const QString &label);
+    void setText(const QString &text);
+    void setValidator(QValidator *validator);
+
+    QString getLabelText();
+    QString getText();
+
+    static QString getText(QWidget *parent, const QString &title,
+                           const QString &label, const QString &text,
+                           QValidator *validator=nullptr,
+                           bool *ok=nullptr, Qt::WindowFlags flags=0);
+
+private:
+    void checkValid(const QString &text);
+
+private:
+    QLabel *m_label;
+    QLineEdit *m_text;
+    QDialogButtonBox *m_buttonBox;
+    QValidator *m_validator;
+};
 
 static inline QIcon
 loadKIcon(const QString &name)

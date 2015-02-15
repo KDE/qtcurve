@@ -86,7 +86,6 @@
 // KDE4 support
 #include <KDE/KGlobal>
 #include <KDE/KStandardDirs>
-#include <KDE/KInputDialog>
 
 // system
 #include <mutex>
@@ -2533,7 +2532,8 @@ QtCurveConfig::getPresetName(const QString &cap, QString label, QString def,
 
     while (true) {
         if (name.isEmpty()) {
-            name = KInputDialog::getText(cap, label, def, 0, this, &validator);
+            name = QtCurve::InputDialog::getText(this, cap, label, def,
+                                                 &validator);
         }
 
         if (!name.isEmpty()) {
