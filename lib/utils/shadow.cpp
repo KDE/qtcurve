@@ -97,7 +97,7 @@ _qtcGradientGetValue(float *gradient, size_t size, float distance)
             gradient[index + 1] * (distance - index));
 }
 
-static QtcImage*
+static QtCurve::Image*
 qtcShadowSubImage(size_t size, float *gradient, int vertical_align,
                   int horizontal_align, const QtcColor *c1, const QtcColor *c2,
                   bool square, QtcPixelByteOrder order)
@@ -106,11 +106,11 @@ qtcShadowSubImage(size_t size, float *gradient, int vertical_align,
     int y0 = vertical_align == -1 ? height - 1 : 0;
     int width = horizontal_align ? size : 1;
     int x0 = horizontal_align == -1 ? width - 1 : 0;
-    QtcImage *res = qtcImageNew(width, height, 32);
+    auto *res = new QtCurve::Image(width, height, 4);
     for (int x = 0;x < width;x++) {
         for (int y = 0;y < height;y++) {
             qtcFillShadowPixel(
-                res->data + (x + y * width) * 4, c1, c2,
+                &res->data[(x + y * width) * 4], c1, c2,
                 _qtcGradientGetValue(
                     gradient, size, _qtcDistance(x, y, x0, y0, square)), order);
         }
@@ -121,7 +121,7 @@ qtcShadowSubImage(size_t size, float *gradient, int vertical_align,
 void
 qtcShadowCreate(size_t size, const QtcColor *c1, const QtcColor *c2,
                 size_t radius, bool square, QtcPixelByteOrder order,
-                QtcImage **images)
+                QtCurve::Image **images)
 {
     size_t full_size = size + radius;
     QtCurve::LocalBuff<float, 128> gradient(full_size);

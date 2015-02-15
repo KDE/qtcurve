@@ -21,25 +21,20 @@
 
 #include "utils.h"
 
-typedef struct {
-    int len;
-    int width;
-    int height;
-    int depth;
-    unsigned char *data;
-} QtcImage;
+#include <vector>
 
-QTC_ALWAYS_INLINE static inline QtcImage*
-qtcImageNew(int width, int height, int depth)
-{
-    QTC_RET_IF_FAIL(width > 0 && height > 0 && depth > 0 &&
-                    depth % 8 == 0, nullptr);
-    int len = width * height * depth / 8;
-    QtcImage *res = qtcNewSize(QtcImage, sizeof(QtcImage) + len);
-    res->len = len;
-    res->width = width;
-    res->height = height;
-    res->depth = depth;
-    res->data = ((unsigned char*)res) + sizeof(QtcImage);
-    return res;
+namespace QtCurve {
+
+struct Image {
+    unsigned width;
+    unsigned height;
+    std::vector<unsigned char> data;
+    Image(unsigned _width, unsigned _height, unsigned _depth)
+        : width(_width),
+          height(_height),
+          data(_width * _height * _depth)
+    {
+    }
+};
+
 }

@@ -24,4 +24,4 @@
 
 void qtcShadowCreate(size_t size, const QtcColor *c1, const QtcColor *c2,
                      size_t radius, bool square, QtcPixelByteOrder order,
-                     QtcImage *images[8]);
+                     QtCurve::Image *images[8]);
