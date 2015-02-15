@@ -25,15 +25,12 @@
 #include <sys/types.h>
 #include <pwd.h>
 
-static char *qtc_home = nullptr;
-static char *qtc_xdg_data_home = nullptr;
-static char *qtc_xdg_config_home = nullptr;
-static char *qtc_conf_dir = nullptr;
+namespace QtCurve {
 
 QTC_EXPORT void
-qtcMakePath(const char *path, int mode)
+makePath(const char *path, int mode)
 {
-    if (qtcIsDir(path)) {
+    if (isDir(path)) {
         return;
     }
     size_t len = strlen(path);
@@ -62,107 +59,73 @@ qtcMakePath(const char *path, int mode)
     }
 }
 
-static const char*
-_qtcConfDir()
-{
-    if (qtcUnlikely(!qtc_conf_dir)) {
-        const char *env_home = getenv("QTCURVE_CONFIG_DIR");
-        if (env_home && *env_home == '/') {
-            qtc_conf_dir = QtCurve::Str::cat(env_home, "/");
-        } else {
-            qtc_conf_dir = QtCurve::Str::cat(qtcGetXDGConfigHome(), "qtcurve/");
-        }
-    }
-    return qtc_conf_dir;
-}
-
-QTC_EXPORT const char*
-qtcConfDir()
-{
-    static const char *conf_dir = nullptr;
-    if (!conf_dir) {
-        conf_dir = _qtcConfDir();
-        qtcMakePath(conf_dir, 0700);
-    }
-    return conf_dir;
-}
-
-QTC_EXPORT const char*
-qtcGetHome()
-{
-    if (qtcUnlikely(!qtc_home)) {
-        const char *env_home = getenv("HOME");
-        if (qtcLikely(env_home && *env_home == '/')) {
-            qtc_home = QtCurve::Str::cat(env_home, "/");
-        } else {
-            struct passwd *pw = getpwuid(getuid());
-            if (qtcLikely(pw && pw->pw_dir && *pw->pw_dir == '/')) {
-                qtc_home = QtCurve::Str::cat(pw->pw_dir, "/");
-            }
-        }
-        if (qtcUnlikely(!qtc_home)) {
-            qtc_home = strdup("/tmp/");
-        }
-    }
-    return qtc_home;
-}
-
-QTC_EXPORT const char*
-qtcGetXDGDataHome()
-{
-    if (qtcUnlikely(!qtc_xdg_data_home)) {
-        const char *env_home = getenv("XDG_DATA_HOME");
-        if (env_home && *env_home == '/') {
-            qtc_xdg_data_home = QtCurve::Str::cat(env_home, "/");
-        } else {
-            qtc_xdg_data_home = QtCurve::Str::cat(qtcGetHome(),
-                                                  ".local/share/");
-        }
-    }
-    return qtc_xdg_data_home;
-}
-
-QTC_EXPORT const char*
-qtcGetXDGConfigHome()
-{
-    if (qtcUnlikely(!qtc_xdg_config_home)) {
-        const char *env_home = getenv("XDG_CONFIG_HOME");
-        if (env_home && *env_home == '/') {
-            qtc_xdg_config_home = QtCurve::Str::cat(env_home, "/");
-        } else {
-            qtc_xdg_config_home = QtCurve::Str::cat(qtcGetHome(), ".config/");
-        }
-    }
-    return qtc_xdg_config_home;
-}
-
 QTC_EXPORT char*
-qtcGetConfFile(const char *file, char *buff)
+getConfFile(const char *file, char *buff)
 {
     if (file[0] == '/') {
-        return QtCurve::Str::fill(buff, file);
+        return Str::fill(buff, file);
     }
-    return QtCurve::Str::fill(buff, qtcConfDir(), file);
+    return Str::fill(buff, confDir(), file);
 }
 
-__attribute__((constructor)) static void
-_qtcGetDirs()
+QTC_EXPORT const char*
+getXDGConfigHome()
 {
-    qtcGetHome();
-    qtcGetXDGDataHome();
-    qtcGetXDGConfigHome();
-    _qtcConfDir();
+    static uniqueCPtr<char> dir([] {
+            const char *env_home = getenv("XDG_CONFIG_HOME");
+            if (env_home && *env_home == '/') {
+                return Str::cat(env_home, "/");
+            } else {
+                return Str::cat(getHome(), ".config/");
+            }
+        }());
+    return dir.get();
 }
 
-__attribute__((destructor)) static void
-_qtcFreeDirs()
+QTC_EXPORT const char*
+getXDGDataHome()
 {
-    free(qtc_home);
-    qtc_home = nullptr;
-    free(qtc_xdg_data_home);
-    qtc_xdg_data_home = nullptr;
-    free(qtc_xdg_config_home);
-    qtc_xdg_config_home = nullptr;
-    free(qtc_conf_dir);
-    qtc_conf_dir = nullptr;
+    static uniqueCPtr<char> dir([] {
+            const char *env_home = getenv("XDG_DATA_HOME");
+            if (env_home && *env_home == '/') {
+                return Str::cat(env_home, "/");
+            } else {
+                return Str::cat(getHome(), ".local/share/");
+            }
+        }());
+    return dir.get();
+}
+
+QTC_EXPORT const char*
+getHome()
+{
+    static uniqueCPtr<char> dir([] {
+            const char *env_home = getenv("HOME");
+            if (qtcLikely(env_home && *env_home == '/')) {
+                return Str::cat(env_home, "/");
+            } else {
+                struct passwd *pw = getpwuid(getuid());
+                if (qtcLikely(pw && pw->pw_dir && *pw->pw_dir == '/')) {
+                    return Str::cat(pw->pw_dir, "/");
+                }
+            }
+            return strdup("/tmp/");
+        }());
+    return dir.get();
+}
+
+QTC_EXPORT const char*
+confDir()
+{
+    static uniqueCPtr<char> dir([] {
+            const char *env_home = getenv("QTCURVE_CONFIG_DIR");
+            char *res = ((env_home && *env_home == '/') ?
+                         Str::cat(env_home, "/") :
+                         Str::cat(getXDGConfigHome(), "qtcurve/"));
+            makePath(res, 0700);
+            return res;
+        }());
+    return dir.get();
+}
+
 }

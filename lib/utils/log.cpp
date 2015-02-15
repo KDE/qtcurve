@@ -44,53 +44,46 @@ backtrace()
 
 namespace Log {
 
-static inline LogLevel
-getLevel()
-{
-    const char *env_debug = getenv("QTCURVE_DEBUG");
-    if (Str::convert(env_debug, false)) {
-        return LogLevel::Debug;
-    }
-    static const StrMap<LogLevel, false> level_map{
-        {"debug", LogLevel::Debug},
-        {"info", LogLevel::Info},
-        {"warning", LogLevel::Warn},
-        {"warn", LogLevel::Warn},
-        {"error", LogLevel::Error}
-    };
-    LogLevel res = level_map.search(getenv("QTCURVE_LEVEL"), LogLevel::Error);
-    if (Str::convert(env_debug, true) && res <= LogLevel::Debug) {
-        return LogLevel::Info;
-    }
-    return res;
-}
-
-static inline bool
-getUseColor()
-{
-    const char *env_color = getenv("QTCURVE_LOG_COLOR");
-    if (Str::convert(env_color, false)) {
-        return true;
-    } else if (!Str::convert(env_color, true)) {
-        return false;
-    } else if (isatty(2)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
 QTC_EXPORT LogLevel
 level()
 {
-    static LogLevel _level = Log::getLevel();
+    static LogLevel _level = [] () -> LogLevel {
+        const char *env_debug = getenv("QTCURVE_DEBUG");
+        if (Str::convert(env_debug, false)) {
+            return LogLevel::Debug;
+        }
+        static const StrMap<LogLevel, false> level_map{
+            {"debug", LogLevel::Debug},
+            {"info", LogLevel::Info},
+            {"warning", LogLevel::Warn},
+            {"warn", LogLevel::Warn},
+            {"error", LogLevel::Error}
+        };
+        LogLevel res = level_map.search(getenv("QTCURVE_LEVEL"),
+                                        LogLevel::Error);
+        if (Str::convert(env_debug, true) && res <= LogLevel::Debug) {
+            return LogLevel::Info;
+        }
+        return res;
+    }();
     return _level;
 }
 
 static bool
 useColor()
 {
-    static bool color = Log::getUseColor();
+    static bool color = [] () -> bool {
+        const char *env_color = getenv("QTCURVE_LOG_COLOR");
+        if (Str::convert(env_color, false)) {
+            return true;
+        } else if (!Str::convert(env_color, true)) {
+            return false;
+        } else if (isatty(2)) {
+            return true;
+        } else {
+            return false;
+        }
+    }();
     return color;
 }
 

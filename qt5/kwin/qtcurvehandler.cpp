@@ -67,14 +67,15 @@ static time_t getTimeStamp(const QString &item)
     return !item.isEmpty() && 0==KDE_lstat(QFile::encodeName(item), &info) ? info.st_mtime : 0;
 }
 
+namespace QtCurve {
+
 static const QString&
 xdgConfigFolder()
 {
-    static QString xdgDir = QString::fromLocal8Bit(qtcGetXDGConfigHome());
+    static QString xdgDir = QString::fromLocal8Bit(getXDGConfigHome());
     return xdgDir;
 }
 
-namespace QtCurve {
 namespace KWin {
 
 // make the handler accessible to other classes...

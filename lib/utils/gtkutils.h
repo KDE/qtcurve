@@ -24,10 +24,8 @@
 
 #include "utils.h"
 #include <gtk/gtk.h>
-#include <memory>
 
 namespace QtCurve {
-
 namespace Widget {
 
 static inline cairo_rectangle_int_t

@@ -31,6 +31,7 @@
 
 #include "macros.h"
 
+#include <memory>
 #include <utility>
 #include <type_traits>
 #include <initializer_list>
@@ -162,6 +163,17 @@ const_(const T &t)
 {
     return t;
 }
+
+struct CDeleter {
+    template<typename T>
+    void operator()(T *p)
+    {
+        free((void*)p);
+    }
+};
+
+template<typename T>
+using uniqueCPtr = std::unique_ptr<T, CDeleter>;
 
 template<typename T, size_t N>
 class LocalBuff {

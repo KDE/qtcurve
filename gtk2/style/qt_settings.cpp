@@ -135,7 +135,7 @@ getKdeHome()
     if (!kdeHome) {
         // FIXME
         static char kdeHomeStr[MAX_CONFIG_FILENAME_LEN + 1];
-        const char *home = qtcGetHome();
+        const char *home = getHome();
         if (strlen(home) < (MAX_CONFIG_FILENAME_LEN - 5)) {
             sprintf(kdeHomeStr, "%s/.kde", home);
             kdeHome = kdeHomeStr;
@@ -314,7 +314,7 @@ static char*
 themeFileSub(const char *prefix, const char *name, Str::Buff &str_buff,
              const char *sub)
 {
-    if (qtcIsRegFile(str_buff.cat(prefix, "/", sub, "/", name, THEME_SUFFIX))) {
+    if (isRegFile(str_buff.cat(prefix, "/", sub, "/", name, THEME_SUFFIX))) {
         return str_buff.get();
     }
     return nullptr;
@@ -1413,7 +1413,7 @@ static void
 processMozillaApp(bool add_btn_css, bool add_menu_colors,
                   const char *app, bool under_moz)
 {
-    const char *home=qtcGetHome();
+    const char *home = getHome();
 
     if (home && (strlen(home)+strlen(app)+10+MAX_DEFAULT_NAME)<MAX_CSS_HOME) {
         char cssHome[MAX_CSS_HOME+1];
@@ -1473,8 +1473,8 @@ processMozillaApp(bool add_btn_css, bool add_menu_colors,
                     sprintf(sub, "%s%s%s/", cssHome, dir_ent->d_name,
                             USER_CHROME_DIR);
 
-                    qtcMakePath(sub, 0755);
-                    if (qtcIsDir(sub)) {
+                    makePath(sub, 0755);
+                    if (isDir(sub)) {
                         strcat(sub, USER_CHROME_FILE);
                         processUserChromeCss(sub, add_btn_css, add_menu_colors);
                     }
@@ -1486,10 +1486,10 @@ processMozillaApp(bool add_btn_css, bool add_menu_colors,
     }
 }
 
-static void getGtk2CfgFile(char **tmpStr, const char *f)
+static void
+getGtk2CfgFile(char **tmpStr, const char *f)
 {
-    *tmpStr=(char *)realloc(*tmpStr, strlen(qtcConfDir())+strlen(f)+1);
-    sprintf(*tmpStr, "%s%s", qtcConfDir(), f);
+    *tmpStr = Str::fill(*tmpStr, confDir(), f);
 }
 
 static bool

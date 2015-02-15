@@ -32,44 +32,50 @@
 #include <unistd.h>
 #include <sys/stat.h>
 
-/**
- * Get home directory. The returned string is guaranteed to end with '/'
- */
-const char *qtcGetHome();
-/**
- * Get XDG_DATA_HOME directory. This is usually `~/.local/share/`
- * The returned string is guaranteed to end with '/'
- */
-const char *qtcGetXDGDataHome();
-/**
- * Get XDG_CONFIG_HOME directory. This is usually `~/.config/`
- * The returned string is guaranteed to end with '/'
- */
-const char *qtcGetXDGConfigHome();
+namespace QtCurve {
 /**
  * Get QtCurve configure directory. The directory will be created if it doesn't
  * exist. The returned string is guaranteed to end with '/'
  */
-const char *qtcConfDir();
+const char *confDir();
+
 /**
- * Create directory \param path with mode \param mode. Its parent directories
- * will also be created as needed.
+ * Get home directory. The returned string is guaranteed to end with '/'
  */
-void qtcMakePath(const char *path, int mode);
+const char *getHome();
+
+/**
+ * Get XDG_DATA_HOME directory. This is usually `~/.local/share/`
+ * The returned string is guaranteed to end with '/'
+ */
+const char *getXDGDataHome();
+
+/**
+ * Get XDG_CONFIG_HOME directory. This is usually `~/.config/`
+ * The returned string is guaranteed to end with '/'
+ */
+const char *getXDGConfigHome();
+
 /**
  * Return the absolute path of \param file with the QtCurve configure directory
  * as the current directory. If the optional argument \param buff is not NULL
  * it will be realloc'ed to hold the result. If \param path is a relative path
  * the QtCurve configure directory will be created.
  */
-char *qtcGetConfFile(const char *file, char *buff=nullptr);
+char *getConfFile(const char *file, char *buff=nullptr);
+
+/**
+ * Create directory \param path with mode \param mode. Its parent directories
+ * will also be created as needed.
+ */
+void makePath(const char *path, int mode);
 
 /**
  * Check whether \param path is (or is a symlink that is pointing to)
  * a directory with read and execute permissions.
  */
 static inline bool
-qtcIsDir(const char *path)
+isDir(const char *path)
 {
     struct stat stats;
     return (stat(path, &stats) == 0 && S_ISDIR(stats.st_mode) &&
@@ -81,7 +87,7 @@ qtcIsDir(const char *path)
  * a regular file with read permission.
  */
 static inline bool
-qtcIsRegFile(const char *path)
+isRegFile(const char *path)
 {
     struct stat stats;
     return (stat(path, &stats) == 0 && S_ISREG(stats.st_mode) &&
@@ -92,10 +98,12 @@ qtcIsRegFile(const char *path)
  * Check whether \param path is a symlink.
  */
 static inline bool
-qtcIsSymLink(const char *path)
+isSymLink(const char *path)
 {
     struct stat stats;
     return lstat(path, &stats) == 0 && S_ISLNK(stats.st_mode);
+}
+
 }
 
 #endif

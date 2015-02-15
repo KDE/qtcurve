@@ -102,7 +102,7 @@ determineFileName(const char *file)
         return file;
 
     static char *filename = nullptr;
-    filename = QtCurve::Str::fill(filename, qtcConfDir(), file);
+    filename = QtCurve::Str::fill(filename, QtCurve::confDir(), file);
     return filename;
 }
 
@@ -546,7 +546,8 @@ qtcGetWindowBorderSize(bool force)
     static WindowBorders sizes={-1, -1, -1, -1};
 
     if (-1 == sizes.titleHeight || force) {
-        char *filename = QtCurve::Str::cat(qtcConfDir(), BORDER_SIZE_FILE);
+        char *filename = QtCurve::Str::cat(QtCurve::confDir(),
+                                           BORDER_SIZE_FILE);
         FILE *f = nullptr;
         if ((f = fopen(filename, "r"))) {
             char *line=nullptr;
@@ -572,13 +573,13 @@ static char*
 qtcGetBarFileName(const char *app, const char *prefix)
 {
     static char *filename = nullptr;
-    filename = QtCurve::Str::fill(filename, qtcConfDir(), prefix, app);
+    filename = QtCurve::Str::fill(filename, QtCurve::confDir(), prefix, app);
     return filename;
 }
 
 bool qtcBarHidden(const char *app, const char *prefix)
 {
-    return qtcIsRegFile(qtcGetBarFileName(app, prefix));
+    return QtCurve::isRegFile(qtcGetBarFileName(app, prefix));
 }
 
 void qtcSetBarHidden(const char *app, bool hidden, const char *prefix)
@@ -1217,10 +1218,10 @@ bool qtcReadConfig(const char *file, Options *opts, Options *defOpts)
         if (env && *env)
             return qtcReadConfig(env, opts, defOpts);
 
-        char *filename = QtCurve::Str::cat(qtcConfDir(), CONFIG_FILE);
+        char *filename = QtCurve::Str::cat(QtCurve::confDir(), CONFIG_FILE);
         bool rv = false;
-        if (!qtcIsRegFile(filename)) {
-            filename = QtCurve::Str::fill(filename, qtcConfDir(),
+        if (!QtCurve::isRegFile(filename)) {
+            filename = QtCurve::Str::fill(filename, QtCurve::confDir(),
                                           "/../" OLD_CONFIG_FILE);
         }
         rv = qtcReadConfig(filename, opts, defOpts);
@@ -1654,7 +1655,7 @@ static const char * getSystemConfigFile()
         nullptr};
 
     for (int i = 0;constFiles[i];i++) {
-        if (qtcIsRegFile(constFiles[i])) {
+        if (QtCurve::isRegFile(constFiles[i])) {
             return constFiles[i];
         }
     }
