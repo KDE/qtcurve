@@ -173,11 +173,10 @@ isSortColumn(GtkWidget *button)
 GdkColor*
 getCellCol(GdkColor *std, const char *detail)
 {
-    static GdkColor shaded;
-
     if (!qtSettings.shadeSortedList || !strstr(detail, "_sorted"))
         return std;
 
+    static GdkColor shaded;
     shaded = *std;
 
     if (isBlack(shaded)) {

@@ -24,6 +24,8 @@
 #include <QDesktopWidget>
 #include <QApplication>
 
+#include <vector>
+
 // Copied from qt_x11_p.h.
 // This is not part of the public API but should be stable enough to use
 // because it had never changed since the first git commit of Qt.
@@ -90,13 +92,11 @@ QtcX11Info::setRgba()
 inline QWidget*
 QtcX11Info::rgbaDummy()
 {
-    static QWidget **dummies = nullptr;
+    QDesktopWidget *desktop = qApp->desktop();
+    static std::vector<QWidget*> dummies(desktop->screenCount(), nullptr);
     int scrno = screen();
-    if (qtcUnlikely(!dummies || !dummies[scrno])) {
+    if (qtcUnlikely(!dummies[scrno])) {
         creatingDummy = true;
-        QDesktopWidget *desktop = qApp->desktop();
-        if (qtcUnlikely(!dummies))
-            dummies = qtcNew(QWidget*, desktop->screenCount());
         dummies[scrno] = new QWidget(desktop->screen(scrno));
         dummies[scrno]->setAttribute(Qt::WA_TranslucentBackground);
         dummies[scrno]->setAttribute(Qt::WA_WState_Polished);

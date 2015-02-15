@@ -147,7 +147,8 @@ static bool
 isBlackListed(GObject *object)
 {
     static const char *widgets[] = {
-        "GtkPizza", "GladeDesignLayout", "MetaFrames", "SPHRuler", "SPVRuler", 0
+        "GtkPizza", "GladeDesignLayout", "MetaFrames", "SPHRuler",
+        "SPVRuler", nullptr
     };
 
     for (int i = 0;widgets[i];i++) {

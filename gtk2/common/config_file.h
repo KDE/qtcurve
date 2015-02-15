@@ -25,7 +25,6 @@
 
 #include "common.h"
 
-#define MAX_CONFIG_FILENAME_LEN   1024
 #define MAX_CONFIG_INPUT_LINE_LEN 256
 #define QTC_MENU_FILE_PREFIX   "menubar-"
 #define QTC_STATUS_FILE_PREFIX "statusbar-"

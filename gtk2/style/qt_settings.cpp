@@ -117,46 +117,30 @@ static size_t getline(char **lineptr, size_t *n, FILE *stream)
 static char*
 getKdeHome()
 {
-    static char *kdeHome = nullptr;
-    if (kdeHome) {
-        return kdeHome;
-    }
-    size_t len = 0;
-    kdeHome = qtcPopenStdout(
-        "kde4-config", (const char *const[]){"kde4-config", "--expandvars",
-                "--localprefix", nullptr}, 300, &len);
-    if (kdeHome && kdeHome[strspn(kdeHome, " \t\b\n\f\v")]) {
-        if (kdeHome[len - 1] == '\n') {
-            kdeHome[len - 1] = '\0';
-        }
-        return kdeHome;
-    }
-    kdeHome = getenv(getuid() ? "KDEHOME" : "KDEROOTHOME");
-    if (!kdeHome) {
-        // FIXME
-        static char kdeHomeStr[MAX_CONFIG_FILENAME_LEN + 1];
-        const char *home = getHome();
-        if (strlen(home) < (MAX_CONFIG_FILENAME_LEN - 5)) {
-            sprintf(kdeHomeStr, "%s/.kde", home);
-            kdeHome = kdeHomeStr;
-        }
-    }
-    return kdeHome;
+    static uniqueCPtr<char> dir([] {
+            size_t len = 0;
+            const char *const args[] = {"kde4-config", "--expandvars",
+                                        "--localprefix", nullptr};
+            char *res = qtcPopenStdout("kde4-config", args, 300, &len);
+            if (res && res[strspn(res, " \t\b\n\f\v")]) {
+                if (res[len - 1] == '\n') {
+                    res[len - 1] = '\0';
+                }
+                return res;
+            }
+            if ((res = getenv(getuid() ? "KDEHOME" : "KDEROOTHOME"))) {
+                return strdup(res);
+            }
+            return Str::cat(getHome(), ".kde4");
+        }());
+    return dir.get();
 }
 
 static const char*
 kdeFile(const char *f)
 {
-    static char kg[MAX_CONFIG_FILENAME_LEN + 1] = {'\0'};
-
-    char *kdehome = getKdeHome();
-
-    if (kdehome && strlen(kdehome) <
-        (MAX_CONFIG_FILENAME_LEN - (strlen(KDE_CFG_DIR) + strlen(f)))) {
-        sprintf(kg, "%s" KDE_CFG_DIR "%s", kdehome, f);
-    }
-
-    return kg;
+    static Str::Buff<1024> buff;
+    return buff.cat(getKdeHome(), KDE_CFG_DIR, f);
 }
 
 static const char*
@@ -1039,180 +1023,63 @@ static int qt_refs = 0;
 static const char*
 kdeIconsPrefix()
 {
-    static const char *kdeIcons = nullptr;
-    if (kdeIcons) {
-        return kdeIcons;
-    }
-    size_t len = 0;
-    const char *const args[] = {"kde4-config", "--expandvars", "--install",
-                                "icon", nullptr};
-    char *res = qtcPopenStdout("kde4-config", args, 300, &len);
-    if (res && res[strspn(res, " \t\b\n\f\v")]) {
-        if (res[len - 1]=='\n') {
-            res[len - 1]='\0';
-        }
-        kdeIcons = res;
-        return kdeIcons;
-    }
-    kdeIcons = (QTC_KDE4_ICONS_PREFIX && strlen(QTC_KDE4_ICONS_PREFIX) > 2 ?
-                QTC_KDE4_ICONS_PREFIX : DEFAULT_ICON_PREFIX);
-    return kdeIcons;
+    static uniqueCPtr<char> dir([] {
+            size_t len = 0;
+            const char *const args[] = {"kde4-config", "--expandvars",
+                                        "--install", "icon", nullptr};
+            char *res = qtcPopenStdout("kde4-config", args, 300, &len);
+            if (res && res[strspn(res, " \t\b\n\f\v")]) {
+                if (res[len - 1]=='\n') {
+                    res[len - 1]='\0';
+                }
+                return res;
+            }
+            return strdup(QTC_KDE4_ICONS_PREFIX &&
+                          strlen(QTC_KDE4_ICONS_PREFIX) > 2 ?
+                          QTC_KDE4_ICONS_PREFIX : DEFAULT_ICON_PREFIX);
+        }());
+    return dir.get();
 }
 
 static char*
 getIconPath()
 {
-    static char *path = nullptr;
-    char *kdeHome = getKdeHome();
+    static Str::Buff<1024> buff;
+
+    const char *kdeHome = getKdeHome();
     const char *kdePrefix = kdeIconsPrefix();
     const char *defIcons = defaultIcons();
     bool nonDefIcons = qtSettings.icons && strcmp(qtSettings.icons, defIcons);
-    unsigned len = strlen("pixmap_path \"");
-    unsigned kdeHomeLen = kdeHome ? strlen(kdeHome) : 0;
-    unsigned kdeIconPrefixLen = strlen(kdePrefix);
-    unsigned iconLen = qtSettings.icons ? strlen(qtSettings.icons) : 0;
-    unsigned defIconsLen = strlen(defIcons);
     bool addDefaultPrefix = strcmp(kdePrefix, DEFAULT_ICON_PREFIX);
 
+    buff.cat("pixmap_path \"");
     if (nonDefIcons) {
-        if (kdeHome) {
-            len += kdeHomeLen;
-            len += ICON_FOLDER_SLEN;
-            len += iconLen;
-            len++;
-        }
-        if (kdeIconPrefixLen) {
-            len += kdeIconPrefixLen;
-            len++;
-            len += iconLen;
-            len++;
-        }
+        buff.append(kdeHome, ICON_FOLDER, qtSettings.icons, ":",
+                    kdePrefix, "/", qtSettings.icons, ":");
         if (addDefaultPrefix) {
-            len += DEFAULT_ICON_PREFIX_LEN;
-            len++;
-            len += iconLen;
-            len++;
+            buff.append(DEFAULT_ICON_PREFIX, "/", qtSettings.icons, ":");
         }
     }
-
-    if (kdeHome) {
-        len += kdeHomeLen;
-        len += ICON_FOLDER_SLEN;
-        len += defIconsLen;
-        len++;
-    }
-    if (kdeIconPrefixLen) {
-        len += kdeIconPrefixLen;
-        len++;
-        len += defIconsLen;
-        len++;
-    }
+    buff.append(kdeHome, ICON_FOLDER, defIcons, ":",
+                kdePrefix, "/", defIcons, ":");
     if (addDefaultPrefix) {
-        len += DEFAULT_ICON_PREFIX_LEN;
-        len++;
-        len += defIconsLen;
-        len++;
+        buff.append(DEFAULT_ICON_PREFIX, "/", defIcons, ":");
     }
-    if (kdeHome) {
-        len += kdeHomeLen;
-        len += ICON_FOLDER_SLEN;
-        len += HICOLOR_LEN;
-        len++;
-    }
-    if (kdeIconPrefixLen) {
-        len += kdeIconPrefixLen;
-        len++;
-        len += HICOLOR_LEN;
-        len++;
-    }
+    buff.append(kdeHome, ICON_FOLDER, HICOLOR_ICONS, ":",
+                kdePrefix, "/", HICOLOR_ICONS, ":");
     if (addDefaultPrefix) {
-        len += DEFAULT_ICON_PREFIX_LEN;
-        len++;
-        len += HICOLOR_LEN;
-        len++;
-    }
-    len++;
-
-    if (!path || strlen(path) + 1 != len) {
-        path = (char*)realloc(path, len + 1);
-    }
-
-    strcpy(path, "pixmap_path \"");
-
-    if (nonDefIcons) {
-        if (kdeHome) {
-            strcat(path, kdeHome);
-            strcat(path, ICON_FOLDER);
-            strcat(path, qtSettings.icons);
-            strcat(path, ":");
-        }
-        if (kdeIconPrefixLen) {
-            strcat(path, kdePrefix);
-            strcat(path, "/");
-            strcat(path, qtSettings.icons);
-            strcat(path, ":");
-        }
-        if (addDefaultPrefix) {
-            strcat(path, DEFAULT_ICON_PREFIX);
-            strcat(path, "/");
-            strcat(path, qtSettings.icons);
-            strcat(path, ":");
+        buff.append(DEFAULT_ICON_PREFIX, "/", HICOLOR_ICONS);
+    } else {
+        auto len = strlen(buff.get());
+        if (buff[len] == ':') {
+            buff[len] = 0;
         }
     }
-
-    if (kdeHome) {
-        strcat(path, kdeHome);
-        strcat(path, ICON_FOLDER);
-        strcat(path, defIcons);
-        strcat(path, ":");
+    buff.append("\"");
+    if (qtSettings.debug) {
+        printf(DEBUG_PREFIX "%s\n", buff.get());
     }
-
-    if (kdeIconPrefixLen) {
-        strcat(path, kdePrefix);
-        strcat(path, "/");
-        strcat(path, defIcons);
-        strcat(path, ":");
-    }
-
-    if (addDefaultPrefix) {
-        strcat(path, DEFAULT_ICON_PREFIX);
-        strcat(path, "/");
-        strcat(path, defIcons);
-        strcat(path, ":");
-    }
-
-    if (kdeHome) {
-        strcat(path, kdeHome);
-        strcat(path, ICON_FOLDER);
-        strcat(path, HICOLOR_ICONS);
-        strcat(path, ":");
-    }
-
-    if (kdeIconPrefixLen) {
-        strcat(path, kdePrefix);
-        strcat(path, "/");
-        strcat(path, HICOLOR_ICONS);
-        strcat(path, ":");
-    }
-
-    if (addDefaultPrefix) {
-        strcat(path, DEFAULT_ICON_PREFIX);
-        strcat(path, "/");
-        strcat(path, HICOLOR_ICONS);
-    }
-
-    strcat(path, "\"");
-
-    int plen = strlen(path);
-
-    if (path[plen - 1] == ':') {
-        path[plen - 1] = '\0';
-    }
-
-    if (qtSettings.debug && path) {
-        printf(DEBUG_PREFIX "%s\n", path);
-    }
-    return path;
+    return buff.get();
 }
 
 #define MAX_CSS_HOME     256
@@ -1504,10 +1371,8 @@ checkFileVersion(const char *fname, const char *versionStr, int versionStrLen)
             diff = false;
         } else {
             static const int constVLen = 32;
-
             char line[constVLen + 1];
             int numChars = qtcMin(constVLen, versionStrLen - 1);
-
             diff = (fgets(line, numChars + 1, f) == nullptr ||
                     memcmp(versionStr, line, numChars));
         }
@@ -1695,7 +1560,7 @@ qtSettingsInit()
 #endif
 
             /* Check if we're firefox... */
-            if ((qtSettings.appName = qtcGetProgName())) {
+            if ((qtSettings.appName = getProgName())) {
                 bool firefox = (isMozApp(qtSettings.appName, "firefox") ||
                                 isMozApp(qtSettings.appName, "iceweasel") ||
                                 isMozApp(qtSettings.appName, "swiftfox") ||

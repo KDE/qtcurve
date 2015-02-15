@@ -98,8 +98,6 @@ determineFileName(const char *file)
 {
     if (file[0] == '/')
         return file;
-    if('/'==file[0])
-        return file;
 
     static char *filename = nullptr;
     filename = QtCurve::Str::fill(filename, QtCurve::confDir(), file);
@@ -542,8 +540,8 @@ static ETBarBtn toTBarBtn(const char *str, ETBarBtn def)
 WindowBorders
 qtcGetWindowBorderSize(bool force)
 {
-    static WindowBorders def={24, 18, 4, 4};
-    static WindowBorders sizes={-1, -1, -1, -1};
+    static WindowBorders def = {24, 18, 4, 4};
+    static WindowBorders sizes = {-1, -1, -1, -1};
 
     if (-1 == sizes.titleHeight || force) {
         char *filename = QtCurve::Str::cat(QtCurve::confDir(),

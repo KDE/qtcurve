@@ -40,7 +40,7 @@
 static QString
 determineFileName(const QString &file)
 {
-    if(file.startsWith("/"))
+    if (file.startsWith("/"))
         return file;
     return QtCurve::confDir()+file;
 }

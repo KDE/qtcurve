@@ -143,12 +143,25 @@ public:
     inline char*
     cat(ArgTypes&&... strs)
     {
+        return this->append_from(0, std::forward<ArgTypes>(strs)...);
+    }
+    template <typename... ArgTypes>
+    inline char*
+    append(ArgTypes&&... strs)
+    {
+        return this->append_from(strlen(this->m_ptr),
+                                 std::forward<ArgTypes>(strs)...);
+    }
+    template <typename... ArgTypes>
+    inline char*
+    append_from(size_t orig_len, ArgTypes&&... strs)
+    {
         const std::array<const char*, sizeof...(strs)> strs_l{{strs...}};
         const std::array<size_t, sizeof...(strs)> str_lens{{strlen(strs)...}};
         const size_t total_len = std::accumulate(str_lens.begin(),
-                                                 str_lens.end(), 0);
+                                                 str_lens.end(), 0) + orig_len;
         this->resize(total_len);
-        char *p = this->m_ptr;
+        char *p = this->m_ptr + orig_len;
         for (size_t i = 0;i < sizeof...(strs);i++) {
             memcpy(p, strs_l[i], str_lens[i]);
             p += str_lens[i];

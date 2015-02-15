@@ -233,6 +233,8 @@ protected:
 private:
     T m_static_buf[N];
 };
+
+const char *getProgName();
 }
 
 template<typename... Args>
@@ -241,7 +243,6 @@ qtcOneOf(Args&&... args)
 {
     return QtCurve::oneOf(std::forward<Args>(args)...);
 }
-const char *qtcGetProgName();
 const char *qtcVersion();
 
 template<typename T>

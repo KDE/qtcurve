@@ -3080,37 +3080,30 @@ static GtkRcStyleClass *parent_rc_class;
 static unsigned
 rc_style_parse(GtkRcStyle*, GtkSettings*, GScanner *scanner)
 {
-    static GQuark scope_id = 0;
     unsigned old_scope;
     unsigned token;
 
     /* Set up a new scope in this scanner. */
-    if (!scope_id)
-        scope_id = g_quark_from_string("qtcurve_theme_engine");
+    static GQuark scope_id = g_quark_from_string("qtcurve_theme_engine");
 
-    /* If we bail out due to errors, we *don't* reset the scope, so the error messaging code can make
-       sense of our tokens. */
+    /* If we bail out due to errors, we *don't* reset the scope, so the error
+       messaging code can make sense of our tokens. */
     old_scope = g_scanner_set_scope(scanner, scope_id);
 
     token = g_scanner_peek_next_token(scanner);
-    while(token != G_TOKEN_RIGHT_CURLY)
-    {
-        switch(token)
-        {
-            default:
-                g_scanner_get_next_token(scanner);
-                token = G_TOKEN_RIGHT_CURLY;
+    while (token != G_TOKEN_RIGHT_CURLY) {
+        switch (token) {
+        default:
+            g_scanner_get_next_token(scanner);
+            token = G_TOKEN_RIGHT_CURLY;
         }
-
-        if(token != G_TOKEN_NONE)
+        if (token != G_TOKEN_NONE)
             return token;
-
         token = g_scanner_peek_next_token(scanner);
     }
 
     g_scanner_get_next_token(scanner);
     g_scanner_set_scope(scanner, old_scope);
-
     return G_TOKEN_NONE;
 }
 
@@ -3122,7 +3115,7 @@ rc_style_merge(GtkRcStyle *dest, GtkRcStyle *src)
     const char *typeName=src ? g_type_name(G_TYPE_FROM_INSTANCE(src)) : nullptr;
     bool destIsQtc = isRcStyle(dest);
     bool srcIsQtc = (!src->name || Str::startsWith(src->name, RC_SETTING) ||
-                     Str::startsWith(src->name, qtcGetProgName()));
+                     Str::startsWith(src->name, getProgName()));
     bool isQtCNoteBook=0!=opts.tabBgnd && src->name && 0==strcmp(src->name, "qtcurve-notebook_bg"),
                 dontChangeColors=destIsQtc && !srcIsQtc && !isQtCNoteBook &&
                                  // Only allow GtkRcStyle and QtCurve::RcStyle to change colours
