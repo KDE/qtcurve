@@ -19,47 +19,28 @@
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
 
-#ifndef __COMMON_KF5_UTILS_H__
-#define __COMMON_KF5_UTILS_H__
+#include "kf5_utils.h"
 
-#include <qtcurve-utils/utils.h>
+#include <qtcurve-utils/qtutils.h>
 
-#include <kiconengine.h>
-#include <kiconloader.h>
-
-#include <QStandardPaths>
-#include <QDir>
-
-class QDialog;
-class QDialogButtonBox;
+#include <QDialog>
+#include <QDialogButtonBox>
+#include <QPushButton>
 
 namespace QtCurve {
 
-QDialogButtonBox *createDialogButtonBox(QDialog *dialog);
-
-static inline QIcon
-loadKIcon(const QString &name)
+QDialogButtonBox*
+createDialogButtonBox(QDialog *dialog)
 {
-    return QIcon(new KIconEngine(name, KIconLoader::global()));
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok |
+                                          QDialogButtonBox::Cancel);
+    auto okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    QObject::connect(qtcSlot(buttonBox, accepted), qtcSlot(dialog, accept));
+    QObject::connect(qtcSlot(buttonBox, rejected), qtcSlot(dialog, reject));
+    return buttonBox;
 }
 
-// TODO probably merge with utils/dirs
-static inline QString
-saveLocation(QStandardPaths::StandardLocation type, const QString &suffix)
-{
-    QString path = QStandardPaths::writableLocation(type);
-    QTC_RET_IF_FAIL(!path.isEmpty(), path);
-    path += '/' + suffix;
-    QDir().mkpath(path);
-    return path;
-}
-
-static inline QString
-qtcSaveDir()
-{
-    return saveLocation(QStandardPaths::GenericDataLocation, "QtCurve/");
-}
 
 }
-
-#endif

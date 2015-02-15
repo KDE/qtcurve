@@ -22,8 +22,8 @@
 
 #include "imagepropertiesdialog.h"
 
-#include <qtcurve-utils/qtutils.h>
 #include <common/common.h>
+#include <common/kf5_utils.h>
 
 #include <KLocale>
 #include <KUrlRequester>
@@ -61,14 +61,7 @@ CImagePropertiesDialog::CImagePropertiesDialog(const QString &title,
 {
     auto mainLayout = new QVBoxLayout(this);
     auto page = new QWidget(this);
-    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok |
-                                          QDialogButtonBox::Cancel);
-
-    auto okButton = buttonBox->button(QDialogButtonBox::Ok);
-    okButton->setDefault(true);
-    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(qtcSlot(buttonBox, accepted), qtcSlot(this, accept));
-    connect(qtcSlot(buttonBox, rejected), qtcSlot(this, reject));
+    auto buttonBox = QtCurve::createDialogButtonBox(this);
 
     setupUi(page);
     mainLayout->addWidget(page);

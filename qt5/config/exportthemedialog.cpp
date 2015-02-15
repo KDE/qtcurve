@@ -22,9 +22,8 @@
 
 #include "exportthemedialog.h"
 
-#include <qtcurve-utils/qtutils.h>
-
 #include <common/config_file.h>
+#include <common/kf5_utils.h>
 
 #include <klocale.h>
 #include <kurlrequester.h>
@@ -43,15 +42,7 @@ CExportThemeDialog::CExportThemeDialog(QWidget *parent)
     auto mainLayout = new QVBoxLayout(this);
     auto page = new QWidget(this);
     auto layout = new QGridLayout(page);
-    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok |
-                                          QDialogButtonBox::Cancel);
-
-    auto okButton = buttonBox->button(QDialogButtonBox::Ok);
-    okButton->setDefault(true);
-    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(qtcSlot(buttonBox, accepted), qtcSlot(this, accept));
-    connect(qtcSlot(buttonBox, rejected), qtcSlot(this, reject));
-
+    auto buttonBox = QtCurve::createDialogButtonBox(this);
     if (QWidget *win = window()) {
         win->setWindowTitle(i18n("Export Theme"));
     }

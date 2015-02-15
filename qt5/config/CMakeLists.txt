@@ -7,6 +7,7 @@ set(kstyle_qtcurve5_config_PART_SRCS
   imagepropertiesdialog.cpp
   ../common/common.cpp
   ../common/config_file.cpp
+  ../common/kf5_utils.cpp
   ../kwinconfig/qtcurvekwinconfig.cpp
   ../kwin/qtcurveconfig.cpp
   ../kwin/qtcurveshadowconfiguration.cpp)

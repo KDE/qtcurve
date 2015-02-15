@@ -305,15 +305,8 @@ public:
         }
         setModal(true);
         auto mainLayout = new QVBoxLayout(this);
-        auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok |
-                                              QDialogButtonBox::Cancel);
+        auto buttonBox = QtCurve::createDialogButtonBox(this);
         auto page = new QFrame(this);
-        auto okButton = buttonBox->button(QDialogButtonBox::Ok);
-        okButton->setDefault(true);
-        okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-        connect(qtcSlot(buttonBox, accepted), qtcSlot(this, accept));
-        connect(qtcSlot(buttonBox, rejected), qtcSlot(this, reject));
-
         QBoxLayout *layout = new QBoxLayout(QBoxLayout::TopToBottom, page);
         layout->setMargin(0);
         layout->setSpacing(QApplication::style()
