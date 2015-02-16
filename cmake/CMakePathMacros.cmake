@@ -66,7 +66,7 @@ function(__cmake_utils_src_to_bin_with_path out path src_path bin_path)
   if(issub)
     file(RELATIVE_PATH rel_path "${src_path}" "${path}")
     cmake_utils_abs_path(path "${bin_path}/${rel_path}")
-    set(path "${path}" PARENT_SCOPE)
+    set("${out}" "${path}" PARENT_SCOPE)
   endif()
 endfunction()
 
