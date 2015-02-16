@@ -29,6 +29,13 @@ namespace QtCurve {
 class GtkWidgetProps {
     struct Props {
         GtkWidget *m_w;
+        Props() = default;
+        template<typename T>
+        Props(T *w)
+            : Props()
+        {
+            m_w = (GtkWidget*)w;
+        }
         template<typename ObjGetter>
         class SigConn {
             SigConn(const SigConn&) = delete;
@@ -176,8 +183,7 @@ class GtkWidgetProps {
             g_quark_from_static_string("_gtk__QTCURVE_WIDGET_PROPERTIES__");
         Props *props = (Props*)g_object_get_qdata(m_obj, name);
         if (!props) {
-            props = new Props;
-            props->m_w = (GtkWidget*)m_obj;
+            props = new Props(m_obj);
             g_object_set_qdata_full(m_obj, name, props, [] (void *props) {
                     delete (Props*)props;
                 });
