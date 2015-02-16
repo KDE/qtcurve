@@ -29,26 +29,23 @@ main(int argc, char **argv)
     const char *filename = argv[1];
     const char *varname = argv[2];
     const char *outputname = argv[3];
-    FILE *inputfile = fopen(filename, "r");
     FILE *outputfile = fopen(outputname, "w");
-
+    fprintf(outputfile, "#ifndef __QTC_IMAGE_HDR_%s__\n"
+            "#define __QTC_IMAGE_HDR_%s__\n", varname, varname);
     fprintf(outputfile,
-            "#ifndef __QTC_IMAGE_HDR_%s__\n", varname);
-    fprintf(outputfile,
-            "#define __QTC_IMAGE_HDR_%s__\n", varname);
-
-    fprintf(outputfile, "static const unsigned char _%s_data[] = {", varname);
+            "static constexpr unsigned char _%s_data[] = {", varname);
     int size = 0;
     unsigned char buff;
+    FILE *inputfile = fopen(filename, "r");
     while (fread(&buff, 1, 1, inputfile)) {
-        fprintf(outputfile, "%u,", (unsigned int)buff);
+        fprintf(outputfile, "%u,", (unsigned)buff);
         size++;
     }
-    fprintf(outputfile, "};\n");
-    fprintf(outputfile,
+    fclose(inputfile);
+    fprintf(outputfile, "};\n"
             "static const QImage %s __attribute__((unused)) = "
-            "QImage::fromData(_%s_data, %d);\n", varname, varname, size);
-    fprintf(outputfile, "#endif\n");
+            "QImage::fromData(_%s_data, %d);\n"
+            "#endif\n", varname, varname, size);
     fclose(outputfile);
     return 0;
 }

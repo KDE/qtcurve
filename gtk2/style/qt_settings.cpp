@@ -54,8 +54,6 @@ Options opts;
 #if defined(__MACH__) || defined(__APPLE__)
 /* This code is public domain -- Will Hartung 4/9/09 */
 // http://stackoverflow.com/questions/735126/are-there-alternate-implementations-of-gnu-getline-interface
-#include <stdio.h>
-#include <stdlib.h>
 #include <AvailabilityMacros.h>
 
 #if __MAC_OS_X_VERSION_MAX_ALLOWED < 1070
@@ -119,8 +117,8 @@ getKdeHome()
 {
     static uniqueCPtr<char> dir([] {
             size_t len = 0;
-            const char *const args[] = {"kde4-config", "--expandvars",
-                                        "--localprefix", nullptr};
+            const char *const args[] = {"kde4-config", "--localprefix",
+                                        nullptr};
             char *res = qtcPopenStdout("kde4-config", args, 300, &len);
             if (res && res[strspn(res, " \t\b\n\f\v")]) {
                 if (res[len - 1] == '\n') {
@@ -1025,8 +1023,8 @@ kdeIconsPrefix()
 {
     static uniqueCPtr<char> dir([] {
             size_t len = 0;
-            const char *const args[] = {"kde4-config", "--expandvars",
-                                        "--install", "icon", nullptr};
+            const char *const args[] = {"kde4-config", "--install",
+                                        "icon", nullptr};
             char *res = qtcPopenStdout("kde4-config", args, 300, &len);
             if (res && res[strspn(res, " \t\b\n\f\v")]) {
                 if (res[len - 1]=='\n') {

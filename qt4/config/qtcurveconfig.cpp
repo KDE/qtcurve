@@ -2564,7 +2564,7 @@ bool QtCurveConfig::savePreset(const QString &name)
 
 QString QtCurveConfig::getPresetName(const QString &cap, QString label, QString def, QString name)
 {
-    QRegExp          exp("\\w+[^\\0042\\0044\\0045\\0046\\0047\\0052\\0057\\0077\\0137\\0140]*");
+    QRegExp exp("\\w+[^\\0042\\0044\\0045\\0046\\0047\\0052\\0057\\0077\\0137\\0140]*");
     QRegExpValidator validator(exp, this);
 
     while (true) {
