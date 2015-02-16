@@ -117,7 +117,7 @@ enum {
 #define TOOLBAR_SEP_GAP        (opts.fadeLines ? 5 : 6)
 #define FADE_SIZE              0.4
 
-#define IS_GLASS(A) qtcOneOf(A, APPEARANCE_DULL_GLASS, APPEARANCE_SHINY_GLASS)
+#define IS_GLASS(A) QtCurve::oneOf(A, APPEARANCE_DULL_GLASS, APPEARANCE_SHINY_GLASS)
 #define IS_CUSTOM(A) ((A)>=APPEARANCE_CUSTOM1 && (A)<(APPEARANCE_CUSTOM1+NUM_CUSTOM_GRAD))
 
 #define MENUBAR_DARK_LIMIT 160
@@ -169,18 +169,18 @@ enum {
 #define NUM_SPLITTER_DASHES 21
 
 #define WIDGET_BUTTON(w)                                                \
-    qtcOneOf(w, WIDGET_STD_BUTTON, WIDGET_DEF_BUTTON, WIDGET_CHECKBOX,  \
+    QtCurve::oneOf(w, WIDGET_STD_BUTTON, WIDGET_DEF_BUTTON, WIDGET_CHECKBOX,  \
              WIDGET_RADIO_BUTTON, WIDGET_DIAL, WIDGET_COMBO,            \
              WIDGET_COMBO_BUTTON, WIDGET_MDI_WINDOW_BUTTON,             \
              WIDGET_TOOLBAR_BUTTON)
 #define ETCH_WIDGET(w)                                                  \
-    (qtcOneOf(w, WIDGET_STD_BUTTON, WIDGET_DEF_BUTTON, WIDGET_SLIDER_TROUGH, \
+    (QtCurve::oneOf(w, WIDGET_STD_BUTTON, WIDGET_DEF_BUTTON, WIDGET_SLIDER_TROUGH, \
               WIDGET_CHECKBOX, WIDGET_RADIO_BUTTON, WIDGET_DIAL,        \
               WIDGET_FILLED_SLIDER_TROUGH, WIDGET_MDI_WINDOW_BUTTON,    \
               WIDGET_TOOLBAR_BUTTON) ||                                 \
      ((w) == WIDGET_SLIDER && opts.coloredMouseOver == MO_GLOW))
 
-#define SLIDER(w) qtcOneOf(w, WIDGET_SB_SLIDER, WIDGET_SLIDER)
+#define SLIDER(w) QtCurve::oneOf(w, WIDGET_SB_SLIDER, WIDGET_SLIDER)
 #define CIRCULAR_SLIDER(w) (WIDGET_SLIDER==(w) && SLIDER_CIRCULAR==opts.sliderStyle)
 
 #define MODIFY_AGUA_X(A, X) (APPEARANCE_AGUA==(A) ?  (X) : (A))
@@ -214,17 +214,17 @@ enum {
 #define CR_LARGE_SIZE 15
 
 #define TAB_APP(A)                                                      \
-    (qtcOneOf(A, APPEARANCE_BEVELLED, APPEARANCE_SPLIT_GRADIENT) ?      \
+    (QtCurve::oneOf(A, APPEARANCE_BEVELLED, APPEARANCE_SPLIT_GRADIENT) ?      \
      APPEARANCE_GRADIENT : (A))
 #define NORM_TAB_APP TAB_APP(opts.tabAppearance)
 #define SEL_TAB_APP  TAB_APP(opts.activeTabAppearance)
 
 #define SLIDER_MO_SHADE  (SHADE_SELECTED==opts.shadeSliders ? 1 : (SHADE_BLEND_SELECTED==opts.shadeSliders ? 0 : ORIGINAL_SHADE))
 #define SLIDER_MO_PLASTIK_BORDER                                        \
-    (qtcOneOf(opts.shadeSliders, SHADE_SELECTED, SHADE_BLEND_SELECTED) ? 2 : 1)
+    (QtCurve::oneOf(opts.shadeSliders, SHADE_SELECTED, SHADE_BLEND_SELECTED) ? 2 : 1)
 #define SLIDER_MO_LEN                                   \
     (opts.sliderStyle == SLIDER_TRIANGULAR ? 2 :        \
-     (qtcOneOf(opts.shadeSliders, SHADE_SELECTED,       \
+     (QtCurve::oneOf(opts.shadeSliders, SHADE_SELECTED,       \
                SHADE_BLEND_SELECTED) ? 4 : 3))
 
 #define CR_MO_FILL          1
@@ -239,7 +239,7 @@ enum {
 
 #define FOCUS_ALPHA              0.08
 #define BORDER_BLEND_ALPHA(W)                                   \
-    (qtcOneOf(W, WIDGET_ENTRY, WIDGET_SCROLLVIEW) ? 0.45 : 0.7)
+    (QtCurve::oneOf(W, WIDGET_ENTRY, WIDGET_SCROLLVIEW) ? 0.45 : 0.7)
 
 #define ETCH_TOP_ALPHA           0.055
 #define ETCH_BOTTOM_ALPHA        0.1
@@ -497,8 +497,8 @@ typedef enum
     APP_ALLOW_NONE
 } EAppAllow;
 
-#define IS_SLIDER(w) qtcOneOf(w, WIDGET_SLIDER, WIDGET_SB_SLIDER)
-#define IS_TROUGH(w) qtcOneOf(w, WIDGET_SLIDER_TROUGH, WIDGET_PBAR_TROUGH, \
+#define IS_SLIDER(w) QtCurve::oneOf(w, WIDGET_SLIDER, WIDGET_SB_SLIDER)
+#define IS_TROUGH(w) QtCurve::oneOf(w, WIDGET_SLIDER_TROUGH, WIDGET_PBAR_TROUGH, \
                               WIDGET_TROUGH, WIDGET_FILLED_SLIDER_TROUGH)
 
 typedef enum {

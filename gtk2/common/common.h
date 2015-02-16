@@ -112,7 +112,7 @@ enum {
 #define TOOLBAR_SEP_GAP        (opts.fadeLines ? 5 : 6)
 #define FADE_SIZE              0.4
 
-#define IS_GLASS(A) qtcOneOf(A, APPEARANCE_DULL_GLASS, APPEARANCE_SHINY_GLASS)
+#define IS_GLASS(A) QtCurve::oneOf(A, APPEARANCE_DULL_GLASS, APPEARANCE_SHINY_GLASS)
 #define IS_CUSTOM(A) ((A)>=APPEARANCE_CUSTOM1 && (A)<(APPEARANCE_CUSTOM1+NUM_CUSTOM_GRAD))
 
 #define MENUBAR_DARK_LIMIT (160<<8)
@@ -164,13 +164,14 @@ enum {
 #define NUM_SPLITTER_DASHES 21
 
 #define ETCH_WIDGET(w)                                                  \
-    (qtcOneOf(w, WIDGET_STD_BUTTON, WIDGET_DEF_BUTTON, WIDGET_TOGGLE_BUTTON, \
-              WIDGET_SLIDER_TROUGH, WIDGET_CHECKBOX, WIDGET_RADIO_BUTTON, \
-              WIDGET_FILLED_SLIDER_TROUGH, WIDGET_COMBO,                \
-              WIDGET_TOOLBAR_BUTTON, WIDGET_UNCOLOURED_MO_BUTTON) ||    \
+    (QtCurve::oneOf(w, WIDGET_STD_BUTTON, WIDGET_DEF_BUTTON,            \
+                    WIDGET_TOGGLE_BUTTON, WIDGET_SLIDER_TROUGH,         \
+                    WIDGET_CHECKBOX, WIDGET_RADIO_BUTTON,               \
+                    WIDGET_FILLED_SLIDER_TROUGH, WIDGET_COMBO,          \
+                    WIDGET_TOOLBAR_BUTTON, WIDGET_UNCOLOURED_MO_BUTTON) || \
      ((w) == WIDGET_SLIDER && opts.coloredMouseOver == MO_GLOW))
 
-#define SLIDER(w) qtcOneOf(w, WIDGET_SB_SLIDER, WIDGET_SLIDER)
+#define SLIDER(w) QtCurve::oneOf(w, WIDGET_SB_SLIDER, WIDGET_SLIDER)
 #define CIRCULAR_SLIDER(w) (WIDGET_SLIDER==(w) && SLIDER_CIRCULAR==opts.sliderStyle)
 
 #define MODIFY_AGUA_X(A, X) (APPEARANCE_AGUA==(A) ?  (X) : (A))
@@ -204,7 +205,7 @@ enum {
 #define CR_LARGE_SIZE 15
 
 #define TAB_APP(A)                                                      \
-    (qtcOneOf(A, APPEARANCE_BEVELLED, APPEARANCE_SPLIT_GRADIENT) ?      \
+    (QtCurve::oneOf(A, APPEARANCE_BEVELLED, APPEARANCE_SPLIT_GRADIENT) ?      \
      APPEARANCE_GRADIENT : (A))
 #define NORM_TAB_APP TAB_APP(opts.tabAppearance)
 #define SEL_TAB_APP  TAB_APP(opts.activeTabAppearance)
@@ -224,9 +225,9 @@ enum {
     (opts.coloredMouseOver == MO_GLOW ? 1 : MO_PLASTIK_LIGHT(W))
 
 #define FOCUS_ALPHA              0.08
-#define BORDER_BLEND_ALPHA(W)                                   \
-    (qtcOneOf(W, WIDGET_ENTRY, WIDGET_SCROLLVIEW,               \
-              WIDGET_SPIN, WIDGET_COMBO_BUTTON) ? 0.4 : 0.7)
+#define BORDER_BLEND_ALPHA(W)                                         \
+    (QtCurve::oneOf(W, WIDGET_ENTRY, WIDGET_SCROLLVIEW,               \
+                    WIDGET_SPIN, WIDGET_COMBO_BUTTON) ? 0.4 : 0.7)
 
 #define ETCH_TOP_ALPHA           0.055
 #define ETCH_BOTTOM_ALPHA        0.1
@@ -371,15 +372,6 @@ typedef enum {
     WIDGET_OTHER
 } EWidget;
 
-static inline bool
-widgetIsButton(EWidget w)
-{
-    return qtcOneOf(w, WIDGET_STD_BUTTON, WIDGET_DEF_BUTTON,
-                    WIDGET_TOGGLE_BUTTON, WIDGET_CHECKBOX, WIDGET_RADIO_BUTTON,
-                    WIDGET_RADIO_BUTTON, WIDGET_COMBO, WIDGET_COMBO_BUTTON,
-                    WIDGET_UNCOLOURED_MO_BUTTON, WIDGET_TOOLBAR_BUTTON);
-}
-
 typedef enum
 {
     APP_ALLOW_BASIC,
@@ -388,10 +380,12 @@ typedef enum
     APP_ALLOW_NONE
 } EAppAllow;
 
-#define IS_SLIDER(w) qtcOneOf(w, WIDGET_SLIDER, WIDGET_SB_SLIDER)
-#define IS_TROUGH(w) qtcOneOf(w, WIDGET_SLIDER_TROUGH, WIDGET_PBAR_TROUGH, \
-                              WIDGET_TROUGH, WIDGET_FILLED_SLIDER_TROUGH)
-#define IS_TOGGLE_BUTTON(W) qtcOneOf(W, WIDGET_TOGGLE_BUTTON, WIDGET_CHECKBOX)
+#define IS_SLIDER(w) QtCurve::oneOf(w, WIDGET_SLIDER, WIDGET_SB_SLIDER)
+#define IS_TROUGH(w) QtCurve::oneOf(w, WIDGET_SLIDER_TROUGH,            \
+                                    WIDGET_PBAR_TROUGH, WIDGET_TROUGH,  \
+                                    WIDGET_FILLED_SLIDER_TROUGH)
+#define IS_TOGGLE_BUTTON(W) QtCurve::oneOf(W, WIDGET_TOGGLE_BUTTON, \
+                                           WIDGET_CHECKBOX)
 
 typedef enum {
     IND_CORNER,
@@ -750,9 +744,18 @@ typedef enum {
 
 #define MIN_ROUND_FULL_SIZE 8
 #define MIN_ROUND_EXTRA_SIZE(W)                                         \
-    (qtcOneOf(W, WIDGET_SPIN_UP, WIDGET_SPIN_DOWN, WIDGET_SPIN) ? 7 : 14)
+    (QtCurve::oneOf(W, WIDGET_SPIN_UP, WIDGET_SPIN_DOWN, WIDGET_SPIN) ? 7 : 14)
 
 namespace QtCurve {
+
+static inline bool
+widgetIsButton(EWidget w)
+{
+    return oneOf(w, WIDGET_STD_BUTTON, WIDGET_DEF_BUTTON, WIDGET_TOGGLE_BUTTON,
+                 WIDGET_CHECKBOX, WIDGET_RADIO_BUTTON, WIDGET_RADIO_BUTTON,
+                 WIDGET_COMBO, WIDGET_COMBO_BUTTON,
+                 WIDGET_UNCOLOURED_MO_BUTTON, WIDGET_TOOLBAR_BUTTON);
+}
 
 static inline bool
 isMaxRoundWidget(EWidget w)

@@ -237,13 +237,7 @@ private:
 const char *getProgName();
 }
 
-template<typename... Args>
-static inline bool
-qtcOneOf(Args&&... args)
-{
-    return QtCurve::oneOf(std::forward<Args>(args)...);
-}
-const char *qtcVersion();
+extern "C" const char *qtcVersion();
 
 template<typename T>
 using qtcPtrType = QtCurve::remove_cvr_t<typename std::remove_pointer<T>::type>;
@@ -251,22 +245,20 @@ using qtcPtrType = QtCurve::remove_cvr_t<typename std::remove_pointer<T>::type>;
 #define qtcMemPtr(ptr, name) &qtcPtrType<decltype(ptr)>::name
 
 // Use lambda for lazy evaluation of \param def
-#define qtcDefault(val, def)                    \
-    (([&]() {                                   \
+#define qtcDefault(val, def) ([&] {             \
             auto __val = (val);                 \
             return __val ? __val : (def);       \
-        })())
+        }())
 // Use lambda for lazy evaluation of \param args
 // C++ allows returning void expression! =) See the quote of the standard
 // (here)[http://gcc.gnu.org/ml/gcc/2006-10/msg00697.html]
 // The current c++ implementation of this macro does not support functions
 // with types that do not have accessible default constructor (including
 // references) as return type.
-#define qtcCall(func, args...)                                          \
-    (([&]() {                                                           \
+#define qtcCall(func, args...) ([&] {                                   \
             auto __func = (func);                                       \
             return __func ? __func(args) : decltype(__func(args))();    \
-        })())
+        }())
 #define qtcAssign(addr, exp) do {               \
         auto __addr = (addr);                   \
         if (__addr) {                           \
