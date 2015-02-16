@@ -115,22 +115,21 @@ static size_t getline(char **lineptr, size_t *n, FILE *stream)
 static char*
 getKdeHome()
 {
-    static uniqueCPtr<char> dir([] {
-            size_t len = 0;
-            const char *const args[] = {"kde4-config", "--localprefix",
-                                        nullptr};
-            char *res = qtcPopenStdout("kde4-config", args, 300, &len);
-            if (res && res[strspn(res, " \t\b\n\f\v")]) {
-                if (res[len - 1] == '\n') {
-                    res[len - 1] = '\0';
-                }
-                return res;
+    static uniqueStr dir = [] {
+        size_t len = 0;
+        const char *const args[] = {"kde4-config", "--localprefix", nullptr};
+        char *res = qtcPopenStdout("kde4-config", args, 300, &len);
+        if (res && res[strspn(res, " \t\b\n\f\v")]) {
+            if (res[len - 1] == '\n') {
+                res[len - 1] = '\0';
             }
-            if ((res = getenv(getuid() ? "KDEHOME" : "KDEROOTHOME"))) {
-                return strdup(res);
-            }
-            return Str::cat(getHome(), ".kde4");
-        }());
+            return res;
+        }
+        if ((res = getenv(getuid() ? "KDEHOME" : "KDEROOTHOME"))) {
+            return strdup(res);
+        }
+        return Str::cat(getHome(), ".kde4");
+    };
     return dir.get();
 }
 
@@ -1021,21 +1020,21 @@ static int qt_refs = 0;
 static const char*
 kdeIconsPrefix()
 {
-    static uniqueCPtr<char> dir([] {
-            size_t len = 0;
-            const char *const args[] = {"kde4-config", "--install",
-                                        "icon", nullptr};
-            char *res = qtcPopenStdout("kde4-config", args, 300, &len);
-            if (res && res[strspn(res, " \t\b\n\f\v")]) {
-                if (res[len - 1]=='\n') {
-                    res[len - 1]='\0';
-                }
-                return res;
+    static uniqueStr dir = [] {
+        size_t len = 0;
+        const char *const args[] = {"kde4-config", "--install", "icon",
+                                    nullptr};
+        char *res = qtcPopenStdout("kde4-config", args, 300, &len);
+        if (res && res[strspn(res, " \t\b\n\f\v")]) {
+            if (res[len - 1]=='\n') {
+                res[len - 1]='\0';
             }
-            return strdup(QTC_KDE4_ICONS_PREFIX &&
-                          strlen(QTC_KDE4_ICONS_PREFIX) > 2 ?
-                          QTC_KDE4_ICONS_PREFIX : DEFAULT_ICON_PREFIX);
-        }());
+            return res;
+        }
+        return strdup(QTC_KDE4_ICONS_PREFIX &&
+                      strlen(QTC_KDE4_ICONS_PREFIX) > 2 ?
+                      QTC_KDE4_ICONS_PREFIX : DEFAULT_ICON_PREFIX);
+    };
     return dir.get();
 }
 

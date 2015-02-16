@@ -30,6 +30,24 @@
 #include <functional>
 
 namespace QtCurve {
+
+class uniqueStr : public uniqueCPtr<char> {
+public:
+    using uniqueCPtr<char>::uniqueCPtr;
+    uniqueStr(char *p)
+        : uniqueCPtr<char>(p)
+    {
+    }
+    template<typename T,
+             typename std::enable_if<
+                 std::is_convertible<decltype(std::declval<T>()()),
+                                     char*>::value>::type* = nullptr>
+    uniqueStr(T &&f)
+        : uniqueStr((char*)f())
+    {
+    }
+};
+
 namespace Str {
 
 QTC_ALWAYS_INLINE static inline bool

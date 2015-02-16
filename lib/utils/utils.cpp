@@ -20,6 +20,7 @@
  *****************************************************************************/
 
 #include "utils.h"
+#include "strs.h"
 
 #include <config.h>
 
@@ -30,31 +31,31 @@ namespace QtCurve {
 QTC_EXPORT const char*
 getProgName()
 {
-    static uniqueCPtr<char> name([] {
-            void *hdl = dlopen(nullptr, RTLD_NOW);
-            // I do not use the procfs here since any system that has procfs
-            // (Linux) should support one of these variables/functions.
-            if (!hdl) {
-                return strdup("");
-            }
-            void *progname_p = nullptr;
-            const char *name = nullptr;
-            if ((progname_p = dlsym(hdl, "program_invocation_short_name")) ||
-                (progname_p = dlsym(hdl, "program_invocation_name")) ||
-                (progname_p = dlsym(hdl, "__progname"))) {
-                name = *(char *const*)progname_p;
-            } else if ((progname_p = dlsym(hdl, "getprogname"))) {
-                name = ((const char *(*)())progname_p)();
-            }
-            if (!name) {
-                return strdup("");
-            }
-            const char *sub_name;
-            if ((sub_name = strrchr(name, '/')) && sub_name[1]) {
-                return strdup(sub_name + 1);
-            }
-            return strdup(name);
-        }());
+    static uniqueStr name = [] {
+        void *hdl = dlopen(nullptr, RTLD_NOW);
+        // I do not use the procfs here since any system that has procfs
+        // (Linux) should support one of these variables/functions.
+        if (!hdl) {
+            return strdup("");
+        }
+        void *progname_p = nullptr;
+        const char *name = nullptr;
+        if ((progname_p = dlsym(hdl, "program_invocation_short_name")) ||
+            (progname_p = dlsym(hdl, "program_invocation_name")) ||
+            (progname_p = dlsym(hdl, "__progname"))) {
+            name = *(char *const*)progname_p;
+        } else if ((progname_p = dlsym(hdl, "getprogname"))) {
+            name = ((const char *(*)())progname_p)();
+        }
+        if (!name) {
+            return strdup("");
+        }
+        const char *sub_name;
+        if ((sub_name = strrchr(name, '/')) && sub_name[1]) {
+            return strdup(sub_name + 1);
+        }
+        return strdup(name);
+    };
     return name.get();
 }
 

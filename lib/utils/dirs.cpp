@@ -71,60 +71,59 @@ getConfFile(const char *file, char *buff)
 QTC_EXPORT const char*
 getXDGConfigHome()
 {
-    static uniqueCPtr<char> dir([] {
-            const char *env_home = getenv("XDG_CONFIG_HOME");
-            if (env_home && *env_home == '/') {
-                return Str::cat(env_home, "/");
-            } else {
-                return Str::cat(getHome(), ".config/");
-            }
-        }());
+    static uniqueStr dir = [] {
+        const char *env_home = getenv("XDG_CONFIG_HOME");
+        if (env_home && *env_home == '/') {
+            return Str::cat(env_home, "/");
+        } else {
+            return Str::cat(getHome(), ".config/");
+        }
+    };
     return dir.get();
 }
 
 QTC_EXPORT const char*
 getXDGDataHome()
 {
-    static uniqueCPtr<char> dir([] {
-            const char *env_home = getenv("XDG_DATA_HOME");
-            if (env_home && *env_home == '/') {
-                return Str::cat(env_home, "/");
-            } else {
-                return Str::cat(getHome(), ".local/share/");
-            }
-        }());
+    static uniqueStr dir = [] {
+        const char *env_home = getenv("XDG_DATA_HOME");
+        if (env_home && *env_home == '/') {
+            return Str::cat(env_home, "/");
+        } else {
+            return Str::cat(getHome(), ".local/share/");
+        }
+    };
     return dir.get();
 }
 
 QTC_EXPORT const char*
 getHome()
 {
-    static uniqueCPtr<char> dir([] {
-            const char *env_home = getenv("HOME");
-            if (qtcLikely(env_home && *env_home == '/')) {
-                return Str::cat(env_home, "/");
-            } else {
-                struct passwd *pw = getpwuid(getuid());
-                if (qtcLikely(pw && pw->pw_dir && *pw->pw_dir == '/')) {
-                    return Str::cat(pw->pw_dir, "/");
-                }
+    static uniqueStr dir = [] {
+        const char *env_home = getenv("HOME");
+        if (qtcLikely(env_home && *env_home == '/')) {
+            return Str::cat(env_home, "/");
+        } else {
+            struct passwd *pw = getpwuid(getuid());
+            if (qtcLikely(pw && pw->pw_dir && *pw->pw_dir == '/')) {
+                return Str::cat(pw->pw_dir, "/");
             }
-            return strdup("/tmp/");
-        }());
+        }
+        return strdup("/tmp/");
+    };
     return dir.get();
 }
 
 QTC_EXPORT const char*
 confDir()
 {
-    static uniqueCPtr<char> dir([] {
-            const char *env_home = getenv("QTCURVE_CONFIG_DIR");
-            char *res = ((env_home && *env_home == '/') ?
-                         Str::cat(env_home, "/") :
-                         Str::cat(getXDGConfigHome(), "qtcurve/"));
-            makePath(res, 0700);
-            return res;
-        }());
+    static uniqueStr dir = [] {
+        const char *env_home = getenv("QTCURVE_CONFIG_DIR");
+        char *res = ((env_home && *env_home == '/') ? Str::cat(env_home, "/") :
+                     Str::cat(getXDGConfigHome(), "qtcurve/"));
+        makePath(res, 0700);
+        return res;
+    };
     return dir.get();
 }
 
