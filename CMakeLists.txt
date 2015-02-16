@@ -57,33 +57,44 @@ option(QTC_GTK2_MODIFY_MOZILLA "Modify Mozilla Gtk2 with js and css." Off)
 ## Common settings.
 # support an infix argument to have different qtcurve-utils libraries, e.g. for
 # GTk2, Qt4 and Qt5
-qtc_option(QTC_UTILSLIB_INFIX "an infix argument to have different qtcurve-utils libraries" "")
+qtc_option(QTC_UTILSLIB_INFIX
+  "an infix argument to have different qtcurve-utils libraries" "")
 
-# Only try to figure out what kde prefix is if not specified at command line.
-if(NOT DEFINED QTC_KDE4_PREFIX)
-  find_package(KDE4)
-  find_program(KDE4_KDECONFIG_EXECUTABLE NAMES kde4-config
-    PATHS "${CMAKE_INSTALL_PREFIX}/bin" ${_KDEDIRS} /opt/kde4/bin
-    NO_DEFAULT_PATH)
-  if(NOT KDE4_KDECONFIG_EXECUTABLE)
-    find_program(KDE4_KDECONFIG_EXECUTABLE NAMES kde4-config)
+find_package(KDE4 QUIET)
+set(KDE4_KDECONFIG_EXECUTABLE)
+find_program(KDE4_KDECONFIG_EXECUTABLE NAMES kde4-config
+  PATHS "${CMAKE_INSTALL_PREFIX}/bin" ${_KDEDIRS} /opt/kde4/bin
+  NO_DEFAULT_PATH)
+if(NOT KDE4_KDECONFIG_EXECUTABLE)
+  find_program(KDE4_KDECONFIG_EXECUTABLE NAMES kde4-config)
+endif()
+
+function(get_cmd_var varname def cmd)
+  if(DEFINED ${varname})
+    return()
   endif()
-  if(KDE4_KDECONFIG_EXECUTABLE)
-    execute_process(COMMAND "${KDE4_KDECONFIG_EXECUTABLE}" --prefix
-      OUTPUT_VARIABLE QTC_KDE4_PREFIX)
-    string(STRIP "${QTC_KDE4_PREFIX}" QTC_KDE4_PREFIX)
-    execute_process(COMMAND "${KDE4_KDECONFIG_EXECUTABLE}" --expandvars
-      --install icon
-      OUTPUT_VARIABLE QTC_KDE4_ICONS_PREFIX)
-    string(STRIP "${QTC_KDE4_ICONS_PREFIX}" QTC_KDE4_ICONS_PREFIX)
+  if(cmd)
+    execute_process(COMMAND "${cmd}" ${ARGN} OUTPUT_VARIABLE _cmd_out
+      RESULT_VARIABLE _cmd_res)
+    if("${_cmd_res}" EQUAL 0)
+      string(STRIP "${_cmd_out}" _cmd_out)
+    else()
+      set(_cmd_out "${def}")
+    endif()
   else()
-    set(QTC_KDE4_PREFIX "${CMAKE_INSTALL_PREFIX}")
+    set(_cmd_out "${def}")
   endif()
-endif()
+  set("${varname}" "${_cmd_out}" PARENT_SCOPE)
+endfunction()
 
-if(NOT DEFINED QTC_KDE4_ICONS_PREFIX)
-  set(QTC_KDE4_ICONS_PREFIX "${QTC_KDE4_PREFIX}/share/icons")
-endif()
+function(get_kde_var var def)
+  get_cmd_var(_output "${def}" "${KDE4_KDECONFIG_EXECUTABLE}" ${ARGN})
+  set(${var} "${_output}" PARENT_SCOPE)
+endfunction()
+
+get_kde_var(QTC_KDE4_PREFIX "${CMAKE_INSTALL_PREFIX}" --prefix)
+get_kde_var(QTC_KDE4_ICONS_PREFIX "${QTC_KDE4_PREFIX}/share/icons"
+  --install icon)
 
 ## Handle options
 find_package(Libexecinfo)
@@ -165,18 +176,20 @@ include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 cmake_c_fix_include_path(lib/utils qtcurve-utils)
 cmake_c_fix_include_path(lib/cairo qtcurve-cairo)
 # glibc 2.20 warns about _BSD_SOURCE if _DEFAULT_SOURCE is not defined.
-cmake_c_add_flags(CMAKE_C_FLAGS -Wall -Wextra -std=gnu99 -D_DEFAULT_SOURCE)
+cmake_c_add_flags(CMAKE_C_FLAGS -Wall -Wextra -Wno-cast-align
+  -std=gnu99 -D_DEFAULT_SOURCE)
 # Register storage class is deprecated in C++11 but is still used in Qt.
 # Use compiler option (-Wno-deprecated-register) to suppress
 # the warning in clang++.
+cmake_c_add_flags(CMAKE_CXX_FLAGS -Wall -Wextra
+  -Wno-deprecated-register -Wno-cast-align)
 if(NOT APPLE)
   # -std=c++0x is deprecated but gcc < 4.7 do not recognise c++11 ....
-  cmake_c_add_flags(CMAKE_CXX_FLAGS -Wall -Wextra -std=c++0x -D_DEFAULT_SOURCE)
+  cmake_c_add_flags(CMAKE_CXX_FLAGS -std=c++0x -D_DEFAULT_SOURCE)
   cmake_c_add_flags(CMAKE_SHARED_LINKER_FLAGS -Wl,--as-needed -Wl,--no-undefined)
   cmake_c_add_flags(CMAKE_MODULE_LINKER_FLAGS -Wl,--as-needed -Wl,--no-undefined)
 else()
-  cmake_c_add_flags(CMAKE_CXX_FLAGS -Wall -Wextra
-    -Wno-deprecated-register -std=c++11)
+  cmake_c_add_flags(CMAKE_CXX_FLAGS -std=c++11)
 endif()
 add_definitions("-D_GNU_SOURCE -pthread")
 
