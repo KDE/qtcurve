@@ -194,7 +194,9 @@ public:
     template<typename T>
     inline
     GtkWidgetProps(T *obj) : m_obj((GObject*)obj), m_props(nullptr)
-    {}
+    {
+        static_assert(std::is_standard_layout<GtkWidgetProps>::value, "");
+    }
     inline Props*
     operator->() const
     {
