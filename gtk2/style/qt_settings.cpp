@@ -364,152 +364,135 @@ typedef struct
 
 static void initFont(QtFontDetails *f, bool setFamily)
 {
-    f->weight=WEIGHT_NORMAL,
-    f->italic=0;
-    f->fixedW=0;
-    f->size=DEFAULT_KDE_FONT_SIZE;
-    if(setFamily)
+    f->weight = WEIGHT_NORMAL,
+    f->italic = 0;
+    f->fixedW = 0;
+    f->size = DEFAULT_KDE_FONT_SIZE;
+    if (setFamily) {
         strcpy(f->family, DEFAULT_KDE_FONT);
-    else
-        f->family[0]='\0';
+    } else {
+        f->family[0] = '\0';
+    }
 }
 
-static void parseFontLine(const char *line, QtFontDetails *font)
+static void
+parseFontLine(const char *line, QtFontDetails *font)
 {
-    int           n=-1;
-    char          *l,
-                  fontLine[MAX_CONFIG_INPUT_LINE_LEN+1];
+    int n = -1;
+    char *l;
+    char fontLine[MAX_CONFIG_INPUT_LINE_LEN+1];
     QtFontDetails rc;
 
     initFont(&rc, false);
-    memcpy(fontLine, line, MAX_CONFIG_INPUT_LINE_LEN+1);
-    l=strtok(fontLine, "=");
+    memcpy(fontLine, line, MAX_CONFIG_INPUT_LINE_LEN + 1);
+    l = strtok(fontLine, "=");
 
-    while(l)
-    {
-        switch(n)
-        {
-            case 0:  /* Family - and foundry(maybe!) (ignore X11 and XFT) */
-            {
-                char *dash=nullptr;
-
-                if(nullptr!=(dash=strchr(l, '-')))
-                {
-                    *dash='\0';
-                    l=++dash;
-                }
-
-                strcpy(rc.family, l);
-                break;
+    while (l) {
+        switch (n) {
+        case 0: {
+            /* Family - and foundry(maybe!) (ignore X11 and XFT) */
+            if (char *dash = strchr(l, '-')) {
+                *dash = '\0';
+                l = ++dash;
             }
-            case 1:  /* Point size */
-                sscanf(l, "%f", &rc.size);
-                break;
-            case 4:  /* Weight */
-                sscanf(l, "%d", &rc.weight);
-                break;
-            case 5:  /* Slant */
-                sscanf(l, "%d", &rc.italic);
-                break;
-            case 8:  /* Spacing */
-                sscanf(l, "%d", &rc.fixedW);
-                break;
-            default:
-                break;
+            strcpy(rc.family, l);
+            break;
+        }
+        case 1:  /* Point size */
+            sscanf(l, "%f", &rc.size);
+            break;
+        case 4:  /* Weight */
+            sscanf(l, "%d", &rc.weight);
+            break;
+        case 5:  /* Slant */
+            sscanf(l, "%d", &rc.italic);
+            break;
+        case 8:  /* Spacing */
+            sscanf(l, "%d", &rc.fixedW);
+            break;
+        default:
+            break;
         }
 
         n++;
-        if(n>8 && '\0'!=font->family[0])
-        {
-            font->weight=rc.weight;
-            font->italic=rc.italic;
-            font->fixedW=rc.fixedW;
-            font->size=rc.size;
+        if (n>8 && font->family[0]) {
+            font->weight = rc.weight;
+            font->italic = rc.italic;
+            font->fixedW = rc.fixedW;
+            font->size = rc.size;
             strcpy(font->family, rc.family);
             break;
         }
-        l=strtok(nullptr, ",");
+        l = strtok(nullptr, ",");
     }
 }
 
-static void setFont(QtFontDetails *font, int f)
+static void
+setFont(QtFontDetails *font, int f)
 {
-    if(qtSettings.fonts[f])
-    {
+    if (qtSettings.fonts[f]) {
         free(qtSettings.fonts[f]);
-        qtSettings.fonts[f]=nullptr;
+        qtSettings.fonts[f] = nullptr;
     }
-    if(FONT_GENERAL==f && qtSettings.fonts[FONT_BOLD])
-    {
+    if (f == FONT_GENERAL && qtSettings.fonts[FONT_BOLD]) {
         free(qtSettings.fonts[FONT_BOLD]);
-        qtSettings.fonts[FONT_BOLD]=nullptr;
+        qtSettings.fonts[FONT_BOLD] = nullptr;
     }
 
-    qtSettings.fonts[f] = (char*)malloc(
-        strlen(font->family) + 1 +
-        strlen(weightStr(font->weight)) + 1 +
-        strlen(italicStr(font->italic)) + 1 +
-        20+  /* point size */ +1);
+    qtSettings.fonts[f] = (char*)malloc(strlen(font->family) + 1 +
+                                        strlen(weightStr(font->weight)) + 1 +
+                                        strlen(italicStr(font->italic)) + 1 +
+                                        20 /* point size */ + 1);
 
-    sprintf(qtSettings.fonts[f], "%s %s %s %f",
-            font->family,
-            weightStr(font->weight),
-            italicStr(font->italic),
-            font->size);
+    sprintf(qtSettings.fonts[f], "%s %s %s %f", font->family,
+            weightStr(font->weight), italicStr(font->italic), font->size);
 
     /* Qt uses a bold font for progressbars, try to mimic this... */
-    if(FONT_GENERAL==f && font->weight>=WEIGHT_NORMAL && font->weight<WEIGHT_DEMIBOLD)
-    {
-        qtSettings.fonts[FONT_BOLD] = (char*)malloc(
-            strlen(font->family) + 1 +
-            strlen(weightStr(WEIGHT_BOLD)) + 1 +
-            strlen(italicStr(font->italic)) + 1 +
-            20+  /* point size */ +1);
+    if (f == FONT_GENERAL && font->weight >= WEIGHT_NORMAL &&
+        font->weight < WEIGHT_DEMIBOLD) {
+        qtSettings.fonts[FONT_BOLD] =
+            (char*)malloc(strlen(font->family) + 1 +
+                          strlen(weightStr(WEIGHT_BOLD)) + 1 +
+                          strlen(italicStr(font->italic)) + 1 +
+                          20 /* point size */ + 1);
 
-        sprintf(qtSettings.fonts[FONT_BOLD], "%s %s %s %f",
-                font->family,
-                weightStr(WEIGHT_BOLD),
-                italicStr(font->italic),
-                font->size);
+        sprintf(qtSettings.fonts[FONT_BOLD], "%s %s %s %f", font->family,
+                weightStr(WEIGHT_BOLD), italicStr(font->italic), font->size);
     }
-    if(qtSettings.debug)
+    if (qtSettings.debug) {
         printf(DEBUG_PREFIX"Font[%d] - %s\n", f, qtSettings.fonts[f]);
+    }
 }
 
 #define MIX(a, b, bias) (a + ((b - a) * bias))
 GdkColor mixColors(const GdkColor *c1, const GdkColor *c2, double bias)
 {
-    if (bias <= 0.0 || isnan(bias)) return *c1;
-    if (bias >= 1.0) return *c2;
+    if (bias <= 0.0 || isnan(bias))
+        return *c1;
+    if (bias >= 1.0)
+        return *c2;
 
-    {
-    double   r1=c1->red/65535.0,
-             g1=c1->green/65535.0,
-             b1=c1->blue/65535.0,
-             r2=c2->red/65535.0,
-             g2=c2->green/65535.0,
-             b2=c2->blue/65535.0;
+    double r1 = c1->red / 65535.0;
+    double g1 = c1->green / 65535.0;
+    double b1 = c1->blue / 65535.0;
+    double r2 = c2->red / 65535.0;
+    double g2 = c2->green / 65535.0;
+    double b2 = c2->blue / 65535.0;
     GdkColor col;
-
-    col.red=(int)(65535.0*MIX(r1, r2, bias));
-    col.green=(int)(65535.0*MIX(g1, g2, bias));
-    col.blue=(int)(65535.0*MIX(b1, b2, bias));
-
+    col.red = int(65535.0 * MIX(r1, r2, bias));
+    col.green = int(65535.0 * MIX(g1, g2, bias));
+    col.blue = int(65535.0 * MIX(b1, b2, bias));
     return col;
-    }
 }
 
 static void readKwinrc()
 {
-    FILE *f=fopen(kwinrc(), "r");
+    if (FILE *f = fopen(kwinrc(), "r")) {
+        int  section = SECT_NONE;
+        char line[MAX_CONFIG_INPUT_LINE_LEN + 1];
 
-    if(f)
-    {
-        int  section=SECT_NONE;
-        char line[MAX_CONFIG_INPUT_LINE_LEN+1];
-
-        if(qtSettings.debug)
-            printf(DEBUG_PREFIX"Reading kwinrc\n");
+        if (qtSettings.debug)
+            printf(DEBUG_PREFIX "Reading kwinrc\n");
 
         while(nullptr!=fgets(line, MAX_CONFIG_INPUT_LINE_LEN, f))
             if(line[0]=='[')

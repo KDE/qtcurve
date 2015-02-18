@@ -33,7 +33,6 @@
 #cmakedefine QTC_ENABLE_X11
 
 #define QTC_GTK2_THEME_DIR "@GTK2_THEME_DIR@/gtk-2.0"
-#define QTC_GTK2_MOZILLA_DIR "@GTK2_THEME_DIR@/mozilla"
 
 #cmakedefine QTC_QT4_STYLE_SUPPORT
 
