@@ -42,7 +42,7 @@ determineFileName(const QString &file)
 {
     if (file.startsWith("/"))
         return file;
-    return QtCurve::confDir()+file;
+    return QtCurve::getConfDir()+file;
 }
 
 static int c2h(char ch)
@@ -72,7 +72,7 @@ loadImage(const QString &file, QtCPixmap *pixmap)
 {
     // Need to store filename for config dialog!
     QString f(determineFileName(file));
-    pixmap->file=f;
+    pixmap->file = f;
     return pixmap->img.load(f);
 }
 
@@ -507,7 +507,7 @@ WindowBorders qtcGetWindowBorderSize(bool force)
     static WindowBorders sizes={-1, -1, -1, -1};
 
     if (-1 == sizes.titleHeight || force) {
-        QFile f(QtCurve::confDir()+QString(BORDER_SIZE_FILE));
+        QFile f(QtCurve::getConfDir() + QString(BORDER_SIZE_FILE));
 
         if (f.open(QIODevice::ReadOnly)) {
             QTextStream stream(&f);
@@ -527,15 +527,15 @@ WindowBorders qtcGetWindowBorderSize(bool force)
 
 bool qtcBarHidden(const QString &app, const char *prefix)
 {
-    return QFile::exists(QFile::decodeName(QtCurve::confDir())+prefix+app);
+    return QFile::exists(QFile::decodeName(QtCurve::getConfDir())+prefix+app);
 }
 
 void qtcSetBarHidden(const QString &app, bool hidden, const char *prefix)
 {
     if(!hidden)
-        QFile::remove(QFile::decodeName(QtCurve::confDir())+prefix+app);
+        QFile::remove(QFile::decodeName(QtCurve::getConfDir())+prefix+app);
     else
-        QFile(QFile::decodeName(QtCurve::confDir())+prefix+app).open(QIODevice::WriteOnly);
+        QFile(QFile::decodeName(QtCurve::getConfDir())+prefix+app).open(QIODevice::WriteOnly);
 }
 
 void qtcLoadBgndImage(QtCImage *img)
@@ -1066,7 +1066,7 @@ bool qtcReadConfig(const QString &file, Options *opts, Options *defOpts, bool ch
         if (env)
             return qtcReadConfig(env, opts, defOpts);
 
-        const char *cfgDir = QtCurve::confDir();
+        const char *cfgDir = QtCurve::getConfDir();
         if (cfgDir) {
             QString filename(QFile::decodeName(cfgDir)+CONFIG_FILE);
 
@@ -1747,8 +1747,8 @@ static QString toStr(EAppearance exp, EAppAllow allow, const QtCPixmap *pix)
         case APPEARANCE_FILE:
             // When savng, strip users config dir from location.
             return QLatin1String("file:")+
-                    (pix->file.startsWith(QtCurve::confDir())
-                        ? pix->file.mid(strlen(QtCurve::confDir())+1)
+                    (pix->file.startsWith(QtCurve::getConfDir())
+                        ? pix->file.mid(strlen(QtCurve::getConfDir())+1)
                         : pix->file);
         case APPEARANCE_FADE:
             switch(allow)
@@ -2166,7 +2166,7 @@ static const char * toStr(ETBarBtn tb)
 bool qtcWriteConfig(KConfig *cfg, const Options &opts, const Options &def, bool exportingStyle)
 {
     if (!cfg) {
-        const char *cfgDir=QtCurve::confDir();
+        const char *cfgDir=QtCurve::getConfDir();
 
         if (cfgDir) {
             KConfig defCfg(QFile::decodeName(cfgDir) + CONFIG_FILE,

@@ -137,7 +137,16 @@ cat(ArgTypes&&... strs)
 template<size_t N>
 class Buff : public LocalBuff<char, N> {
 public:
-    using LocalBuff<char, N>::LocalBuff;
+    Buff(size_t size=N, const char *ary=nullptr)
+        : LocalBuff<char, N>(size, ary)
+    {}
+    Buff(const char *str)
+        : Buff(str ? strlen(str) + 1 : 0, str)
+    {}
+    operator char*() const
+    {
+        return this->get();
+    }
     __attribute__((format(printf, 2, 3)))
     char*
     printf(const char *fmt, ...)

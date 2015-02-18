@@ -37,7 +37,7 @@ namespace QtCurve {
  * Get QtCurve configure directory. The directory will be created if it doesn't
  * exist. The returned string is guaranteed to end with '/'
  */
-const char *confDir();
+const char *getConfDir();
 
 /**
  * Get home directory. The returned string is guaranteed to end with '/'
@@ -63,6 +63,22 @@ const char *getXDGConfigHome();
  * the QtCurve configure directory will be created.
  */
 char *getConfFile(const char *file, char *buff=nullptr);
+
+static inline std::string
+getConfFile(const std::string &file)
+{
+    if (file[0] == '/')
+        return file;
+    return getConfDir() + file;
+}
+
+static inline std::string
+getConfFile(std::string &&file)
+{
+    if (file[0] == '/')
+        return std::move(file);
+    return getConfDir() + std::move(file);
+}
 
 /**
  * Create directory \param path with mode \param mode. Its parent directories

@@ -112,7 +112,7 @@ static inline QString getFileName(const QString &f)
 static QString getThemeFile(const QString &file)
 {
     if (file.startsWith(THEME_IMAGE_PREFIX BGND_FILE)) {
-        QString f(QtCurve::confDir() + file);
+        QString f(QtCurve::getConfDir() + file);
 
         if (QFile::exists(f)) {
             return f.replace("//", "/");
@@ -149,7 +149,7 @@ static QString installThemeFile(const QString &src, const QString &dest)
 {
     QString source(getThemeFile(src)),
             name(QLatin1String(THEME_IMAGE_PREFIX)+dest+getExt(source)),
-            destination(QtCurve::confDir()+name);
+            destination(QtCurve::getConfDir()+name);
 
     // printf("INST THM \"%s\" \"%s\"", source.toLatin1().constData(),
     //        destination.toLatin1().constData());
@@ -175,7 +175,7 @@ static QString saveThemeFile(const QString &src, const QString &dest, const QStr
 
 static void removeInstalledThemeFile(const QString &file)
 {
-    removeFile(QtCurve::confDir()+QLatin1String(THEME_IMAGE_PREFIX)+file);
+    removeFile(QtCurve::getConfDir()+QLatin1String(THEME_IMAGE_PREFIX)+file);
 }
 
 static void

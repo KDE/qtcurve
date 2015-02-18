@@ -52,13 +52,23 @@ qtc_option(QTC_QT5_ENABLE_KDE
 option(QTC_QT4_STYLE_SUPPORT
   "Qt4 support for creating a style for each QtCurve theme." Off)
 
-option(QTC_GTK2_MODIFY_MOZILLA "Modify Mozilla Gtk2 with js and css." Off)
-
 ## Common settings.
 # support an infix argument to have different qtcurve-utils libraries, e.g. for
 # GTk2, Qt4 and Qt5
-qtc_option(QTC_UTILSLIB_INFIX
-  "an infix argument to have different qtcurve-utils libraries" "")
+qtc_option(QTC_UTILSLIB_INFIX "Infix for having multiple qtcurve-utils's" "")
+qtc_option(QTC_KDE4_DEFAULT_HOME
+  "Path of kde4 home (relative to user home), for reading old theme files only"
+  ".kde4")
+
+if((QTC_KDE4_DEFAULT_HOME STREQUAL ".kde4") OR
+    (QTC_KDE4_DEFAULT_HOME STREQUAL ".kde") OR
+    (QTC_KDE4_DEFAULT_HOME STREQUAL ".kde4/") OR
+    (QTC_KDE4_DEFAULT_HOME STREQUAL ".kde/") OR
+    (QTC_KDE4_DEFAULT_HOME STREQUAL ""))
+  set(QTC_KDE4_DEFAULT_HOME_DEFAULT True)
+else()
+  set(QTC_KDE4_DEFAULT_HOME_DEFAULT False)
+endif()
 
 find_package(KDE4 QUIET)
 set(KDE4_KDECONFIG_EXECUTABLE)
@@ -206,19 +216,4 @@ add_subdirectory(tools)
 if(ENABLE_TEST)
   enable_testing()
   add_subdirectory(test)
-endif()
-
-if(ENABLE_GTK2 AND QTC_GTK2_MODIFY_MOZILLA)
-  message(WARNING
-    "You have enabled the option for QtCurve to modify the configuration "
-    "files of Mozilla applications (Firefox, Thunderbird, Seamonkey). "
-    "Note: This sometimes causes issues with newer versions of these "
-    "applications. Should such issues occur, you should recompile QtCurve "
-    "without this option - and you will have to remove BY HAND the changes "
-    "that QtCurve has made. This will entail removing lines from "
-    "userChrom.css that indicate 'Added by QtCurve' userChrome.css is usually "
-    "in a folder such as: \n"
-    "`~/.mozilla/firefox/xxxxxxx.default/chrome/userChrome.css` or \n"
-    "`~/.thunderbird/xxxxxxx.default/chrome/userChrome.css`. \n"
-    "where xxxxxxx is a series of random characters.")
 endif()

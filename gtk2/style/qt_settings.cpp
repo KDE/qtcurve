@@ -51,67 +51,6 @@ Options opts;
 #define qtc_gtkrc_printf(str_buff, args...)     \
     gtk_rc_parse_string(str_buff.printf(args))
 
-#if defined(__MACH__) || defined(__APPLE__)
-/* This code is public domain -- Will Hartung 4/9/09 */
-// http://stackoverflow.com/questions/735126/are-there-alternate-implementations-of-gnu-getline-interface
-#include <AvailabilityMacros.h>
-
-#if __MAC_OS_X_VERSION_MAX_ALLOWED < 1070
-static size_t getline(char **lineptr, size_t *n, FILE *stream)
-{
-    char *bufptr = nullptr;
-    char *p = bufptr;
-    size_t size;
-    int c;
-
-    if (lineptr == nullptr) {
-        return -1;
-    }
-    if (stream == nullptr) {
-        return -1;
-    }
-    if (n == nullptr) {
-        return -1;
-    }
-    bufptr = *lineptr;
-    size = *n;
-
-    c = fgetc(stream);
-    if (c == EOF) {
-        return -1;
-    }
-    if (bufptr == nullptr) {
-        bufptr = malloc(128);
-        if (bufptr == nullptr) {
-            return -1;
-        }
-        size = 128;
-    }
-    p = bufptr;
-    while (c != EOF) {
-        if ((p - bufptr) > (size - 1)) {
-            size = size + 128;
-            bufptr = realloc(bufptr, size);
-            if (bufptr == nullptr) {
-                return -1;
-            }
-        }
-        *p++ = c;
-        if (c == '\n') {
-            break;
-        }
-        c = fgetc(stream);
-    }
-
-    *p++ = '\0';
-    *lineptr = bufptr;
-    *n = size;
-
-    return p - bufptr - 1;
-}
-#endif //pre 10.7
-#endif
-
 static char*
 getKdeHome()
 {
@@ -1079,283 +1018,6 @@ getIconPath()
     return buff.get();
 }
 
-#define MAX_CSS_HOME     256
-#define CSS_DEFAULT      ".default"
-#define CSS_DEFAULT_ALT  "default."
-#define USER_CHROME_DIR  "/chrome"
-#define USER_CHROME_FILE "userChrome.css"
-#define USER_CHROME_CSS  USER_CHROME_DIR "/" USER_CHROME_FILE
-#define MAX_DEFAULT_NAME 16+strlen(CSS_DEFAULT)+strlen(USER_CHROME_CSS)
-
-#define GUARD_STR      "Added by QtCurve -- do not remove"
-#define MENU_GUARD_STR "MenuColors, " GUARD_STR
-
-#define OLD_MENU_TEXT_STR "menubar > menu { color: HighlightText !important; } menubar > menu[_moz-menuactive=\"true\"] "\
-                      "{ background-color : HighlightText !important; color: HighlightText !important; } "\
-                      "/* " GUARD_STR " */\n"
-#define MENU_TEXT_STR_FORMAT "menubar > menu { color: #%02x%02x%02x !important; } " \
-                             "menubar > menu[_moz-menuactive=\"true\"][open=\"false\"] { color: #%02x%02x%02x !important; } "\
-                             "menubar > menu[_moz-menuactive=\"true\"][open=\"true\"] { color: #%02x%02x%02x !important; } "\
-                             "/* " MENU_GUARD_STR " */\n"
-#define CSS_FILE_STR     "@import url(\"file://" QTC_GTK2_MOZILLA_DIR "/QtCurve.css\"); /* " GUARD_STR " */\n"
-#define BTN_CSS_FILE_STR "@import url(\"file://" QTC_GTK2_MOZILLA_DIR "/QtCurve-KDEButtonOrder.css\"); /* " GUARD_STR " */\n"
-
-static void
-processUserChromeCss(char *file, bool add_btn_css, bool add_menu_colors)
-{
-    FILE *f = fopen(file, "r");
-    char *contents = nullptr;
-    char *menu_text_str = nullptr;
-    bool remove_menu_colors = false;
-    bool remove_old_menu_colors = false;
-#ifdef QTC_GTK2_MODIFY_MOZILLA
-    bool remove_btn_css = false;
-    bool add_css = true;
-#else
-    QTC_UNUSED(add_btn_css);
-#endif
-    size_t file_size = 0;
-    size_t new_size = 0;
-
-    if (add_menu_colors) {
-        GdkColor *std, *active;
-        if (opts.shadeMenubars == SHADE_WINDOW_BORDER) {
-            std = &qtSettings.colors[PAL_ACTIVE][COLOR_WINDOW_BORDER_TEXT];
-        } else if (opts.customMenuTextColor) {
-            std = &opts.customMenuNormTextColor;
-        } else if (oneOf(opts.shadeMenubars, SHADE_BLEND_SELECTED,
-                         SHADE_SELECTED) ||
-                   (opts.shadeMenubars == SHADE_CUSTOM &&
-                    TOO_DARK(qtcPalette.menubar[ORIGINAL_SHADE]))) {
-            std = &qtSettings.colors[PAL_ACTIVE][COLOR_TEXT_SELECTED];
-        } else {
-            std = &qtSettings.colors[PAL_ACTIVE][COLOR_WINDOW_TEXT];
-        }
-
-        if (opts.customMenuTextColor) {
-            active = &opts.customMenuSelTextColor;
-        } else if (opts.useHighlightForMenu) {
-            active = &qtSettings.colors[PAL_ACTIVE][COLOR_TEXT_SELECTED];
-        } else {
-            active = &qtSettings.colors[PAL_ACTIVE][COLOR_WINDOW_TEXT];
-        }
-
-        menu_text_str = (char*)malloc(strlen(MENU_TEXT_STR_FORMAT) + 1);
-        sprintf(menu_text_str, MENU_TEXT_STR_FORMAT, toQtColor(std->red),
-                toQtColor(std->green), toQtColor(std->blue),
-                toQtColor(std->red), toQtColor(std->green),
-                toQtColor(std->blue), toQtColor(active->red),
-                toQtColor(active->green), toQtColor(active->blue));
-    }
-
-    if (f) {
-        struct stat st;
-        if (fstat(fileno(f), &st) == 0) {
-            file_size = st.st_size;
-            new_size = (file_size + strlen(MENU_TEXT_STR_FORMAT) +
-                        strlen(CSS_FILE_STR) + 3);
-            contents = (char*)malloc(new_size);
-
-            if (contents) {
-                char *line = nullptr;
-                size_t len = 0;
-
-                contents[0] = '\0';
-                while (getline(&line, &len, f) != -1) {
-                    bool write_line = true;
-
-#ifdef QTC_GTK2_MODIFY_MOZILLA
-                    if (strcmp(line, BTN_CSS_FILE_STR) == 0) {
-                        if (add_btn_css) {
-                            add_btn_css = false;
-                        } else {
-                            remove_btn_css = true;
-                            write_line = false;
-                        }
-                    } else if (strcmp(line, CSS_FILE_STR) == 0) {
-                        add_css = false;
-                    } else
-#endif
-                    {
-                        if (strcmp(line, OLD_MENU_TEXT_STR) == 0) {
-                            write_line = false;
-                            remove_old_menu_colors = true;
-                        } else if (strstr(line, MENU_GUARD_STR)) {
-                            if (add_menu_colors) {
-                                if (strcmp(menu_text_str, line) == 0) {
-                                    add_menu_colors = false;
-                                } else {
-                                    write_line = false;
-                                }
-                            } else {
-                                remove_menu_colors = true;
-                                write_line = false;
-                            }
-                        }
-                    }
-                    if (write_line) {
-                        strcat(contents, line);
-                    }
-                }
-                free(line);
-            }
-        }
-        fclose(f);
-    }
-
-#ifdef QTC_GTK2_MODIFY_MOZILLA
-    if (!contents || add_btn_css || add_menu_colors || add_css)
-#else
-    if (!contents || add_menu_colors)
-#endif
-    {
-        if (!contents) {
-            new_size=strlen(MENU_TEXT_STR_FORMAT)+strlen(BTN_CSS_FILE_STR)+strlen(CSS_FILE_STR)+4;
-
-            contents=(char *)malloc(new_size);
-            if(contents)
-                contents[0]='\0';
-        }
-
-        if (contents) {
-#ifdef QTC_GTK2_MODIFY_MOZILLA
-            if (add_css) {
-                char *css_contents=(char *)malloc(new_size);
-
-                if(css_contents)
-                {
-                    css_contents[0]='\0';
-                    strcat(css_contents, CSS_FILE_STR);
-                    strcat(css_contents, contents);
-                    free(contents);
-                    contents=css_contents;
-                }
-            }
-            if (add_btn_css) {
-                char *css_contents=(char *)malloc(new_size);
-
-                if (css_contents) {
-                    css_contents[0] = '\0';
-                    strcat(css_contents, BTN_CSS_FILE_STR);
-                    strcat(css_contents, contents);
-                    free(contents);
-                    contents = css_contents;
-                }
-            }
-#endif
-            if (add_menu_colors) {
-                /* This can be on last line */
-                int len=strlen(contents);
-
-                if (len && contents[len - 1] != '\n')
-                    strcat(contents, "\n");
-                strcat(contents, menu_text_str);
-            }
-        }
-    }
-
-#ifdef QTC_GTK2_MODIFY_MOZILLA
-    if (contents && (add_btn_css || remove_btn_css || add_menu_colors ||
-                     remove_menu_colors || remove_old_menu_colors))
-#else
-    if (contents && (add_menu_colors || remove_menu_colors ||
-                     remove_old_menu_colors))
-#endif
-    {
-        f = fopen(file, "w");
-
-        if (f) {
-            fputs(contents, f);
-            fclose(f);
-        }
-        free(contents);
-    }
-    free(menu_text_str);
-}
-
-static void
-processMozillaApp(bool add_btn_css, bool add_menu_colors,
-                  const char *app, bool under_moz)
-{
-    const char *home = getHome();
-
-    if (home && (strlen(home)+strlen(app)+10+MAX_DEFAULT_NAME)<MAX_CSS_HOME) {
-        char cssHome[MAX_CSS_HOME+1];
-        DIR  *dir=nullptr;
-
-        sprintf(cssHome, under_moz ? "%s/.mozilla/%s/" : "%s/.%s/", home, app);
-
-        if((dir=opendir(cssHome)))
-        {
-             struct dirent *dir_ent=nullptr;
-
-             for (dir_ent=readdir(dir); dir_ent; dir_ent=readdir(dir))
-             {
-                 char *str=nullptr;
-
-                 if(((str=strstr(dir_ent->d_name, CSS_DEFAULT)) && str>=dir_ent->d_name &&
-                    '\0'==str[strlen(CSS_DEFAULT)]) ||
-                    ((str=strstr(dir_ent->d_name, CSS_DEFAULT_ALT)) && str==dir_ent->d_name &&
-                    '\0'!=str[strlen(CSS_DEFAULT_ALT)]))
-                 {
-                    char        sub[MAX_CSS_HOME];
-#ifdef QTC_GTK2_MODIFY_MOZILLA
-                    FILE        *userJs=nullptr;
-                    bool alterUserJs = true;
-
-                    /* Add custom user.js file */
-                    sprintf(sub, "%s%s/user.js", cssHome, dir_ent->d_name);
-
-                    if((userJs=fopen(sub, "r")))
-                    {
-                        char  *line=nullptr;
-                        size_t len=0;
-
-                        while(-1!=getline(&line, &len, userJs))
-                            if(strstr(line, "browser.preferences.instantApply"))
-                            {
-                                /* If instant-apply is set to true, then we cannot alter button order,
-                                   as this produces sde effects (such as the preferences dialog's close
-                                   button having no text! */
-                                if(strstr(line, "true"))
-                                    add_btn_css=false;
-                                alterUserJs=false;
-                                break;
-                            }
-                        fclose(userJs);
-                        free(line);
-                    }
-
-                    if(alterUserJs && ((userJs=fopen(sub, "a"))))
-                    {
-                        fputs("\nuser_pref(\"browser.preferences.instantApply\", false);\n", userJs);
-                        fclose(userJs);
-                    }
-#endif
-
-                    /* Now do userChrome.css */
-                    sprintf(sub, "%s%s%s/", cssHome, dir_ent->d_name,
-                            USER_CHROME_DIR);
-
-                    makePath(sub, 0755);
-                    if (isDir(sub)) {
-                        strcat(sub, USER_CHROME_FILE);
-                        processUserChromeCss(sub, add_btn_css, add_menu_colors);
-                    }
-                }
-            }
-
-            closedir(dir);
-        }
-    }
-}
-
-static void
-getGtk2CfgFile(char **tmpStr, const char *f)
-{
-    *tmpStr = Str::fill(*tmpStr, confDir(), f);
-}
-
 static bool
 checkFileVersion(const char *fname, const char *versionStr, int versionStrLen)
 {
@@ -1505,13 +1167,9 @@ qtSettingsInit()
 
                QTC_STYLE=qtc_klearlooks gtk-demo
             */
-            {
-                const char *env=getenv("QTC_STYLE");
-
-                if(env && strlen(env))
-                {
-                    qtSettings.styleName=realloc(qtSettings.styleName, strlen(env));
-                    strcpy(qtSettings.styleName, env);
+            if (const char *env = getenv("QTC_STYLE")) {
+                if (*env) {
+                    qtSettings.styleName = Str::fill(qtSettings.styleName, env);
                 }
             }
 
@@ -1519,8 +1177,8 @@ qtSettingsInit()
             /* Is the user using a non-default QtCurve style? */
             if (qtSettings.styleName &&
                 Str::startsWith(qtSettings.styleName, THEME_PREFIX)) {
-                rcFile = themeFile(getKdeHome(),
-                                   qtSettings.styleName, str_buff);
+                rcFile = themeFile(getKdeHome(), qtSettings.styleName,
+                                   str_buff);
 
                 if (!rcFile) {
                     rcFile = themeFile(QTC_KDE4_PREFIX, qtSettings.styleName,
@@ -1532,18 +1190,9 @@ qtSettingsInit()
 #else
             qtcReadConfig(nullptr, &opts, nullptr);
 #endif
-
-#if GTK_CHECK_VERSION(2, 90, 0) /* Gtk3:TODO !!! */
-            opts.square|=SQUARE_POPUP_MENUS;
-            opts.bgndOpacity=opts.dlgOpacity=opts.menuBgndOpacity=100;
-            opts.gtkComboMenus=true;
-            qtSettings.useAlpha=false;
-#endif
-
             /* Focus is messed up if not using glow focus*/
-            if(!opts.gtkComboMenus && FOCUS_GLOW!=opts.focus)
-                opts.gtkComboMenus=true;
-
+            if (!opts.gtkComboMenus && opts.focus != FOCUS_GLOW)
+                opts.gtkComboMenus = true;
 #if 0
             if (opts.inactiveHighlight) {
                 generateMidColor(&qtSettings.colors[PAL_ACTIVE][COLOR_WINDOW],
@@ -1555,7 +1204,6 @@ qtSettingsInit()
                     qtSettings.colors[PAL_INACTIVE][COLOR_SELECTED];
             }
 #endif
-
             /* Check if we're firefox... */
             if ((qtSettings.appName = getProgName())) {
                 bool firefox = (isMozApp(qtSettings.appName, "firefox") ||
@@ -1573,47 +1221,29 @@ qtSettingsInit()
                                   isMozApp(qtSettings.appName, "seamonkey"));
 
                 if (firefox || thunderbird || mozThunderbird || seamonkey) {
-                    GdkColor *menu_col=SHADE_CUSTOM==opts.shadeMenubars
-                                        ? &opts.customMenubarsColor
-                                        : &qtSettings.colors[PAL_ACTIVE][COLOR_SELECTED];
-                    bool add_menu_colors = SHADE_BLEND_SELECTED==opts.shadeMenubars || SHADE_SELECTED==opts.shadeMenubars ||
-                                             SHADE_WINDOW_BORDER==opts.shadeMenubars ||
-                                             opts.customMenuTextColor || !opts.useHighlightForMenu ||
-                                             (SHADE_CUSTOM==opts.shadeMenubars && TOO_DARK(*menu_col) ),
-                             add_btn_css=false;
-
-                    if (firefox) {
-                        processMozillaApp(0, add_menu_colors, "firefox", true);
-                    } else if (thunderbird) {
-                        processMozillaApp(add_btn_css, add_menu_colors,
-                                          "thunderbird", false);
-                    } else if (mozThunderbird) {
-                        processMozillaApp(add_btn_css, add_menu_colors,
-                                          "mozilla-thunderbird", false);
+                    qtSettings.app = (firefox ? GTK_APP_NEW_MOZILLA :
+                                      GTK_APP_MOZILLA);
+                    if (qtSettings.app == GTK_APP_MOZILLA)
+                        qtSettings.app = GTK_APP_NEW_MOZILLA;
+                    if (qtSettings.app != GTK_APP_NEW_MOZILLA &&
+                        opts.menuitemAppearance == APPEARANCE_FADE &&
+                        (thunderbird || mozThunderbird)) {
+                        opts.menuitemAppearance = APPEARANCE_FLAT;
                     }
-
-                    qtSettings.app = (firefox ?
-                                      GTK_APP_NEW_MOZILLA : GTK_APP_MOZILLA);
-                    if (GTK_APP_MOZILLA == qtSettings.app)
-                        qtSettings.app=GTK_APP_NEW_MOZILLA;
-                    if(GTK_APP_NEW_MOZILLA!=qtSettings.app && APPEARANCE_FADE==opts.menuitemAppearance &&
-                       (thunderbird || mozThunderbird))
-                        opts.menuitemAppearance=APPEARANCE_FLAT;
-                }
-                else if(0==strcmp(qtSettings.appName, "soffice.bin"))
-                    qtSettings.app=GTK_APP_OPEN_OFFICE;
-                else if(0==strcmp(qtSettings.appName, "vmplayer"))
-                    qtSettings.app=GTK_APP_VMPLAYER;
-                else if (Str::startsWith(qtSettings.appName, "gimp"))
-                    qtSettings.app=GTK_APP_GIMP;
-                else if(0==strcmp(qtSettings.appName, "java"))
-                    qtSettings.app=GTK_APP_JAVA;
-                else if(0==strcmp(qtSettings.appName, "evolution"))
-                    qtSettings.app=GTK_APP_EVOLUTION;
-                else if(0==strcmp(qtSettings.appName, "eclipse"))
-                    qtSettings.app=GTK_APP_JAVA_SWT;
-                else if (strcmp(qtSettings.appName, "ghb") == 0) {
-                    qtSettings.app=GTK_APP_GHB;
+                } else if (strcmp(qtSettings.appName, "soffice.bin") == 0) {
+                    qtSettings.app = GTK_APP_OPEN_OFFICE;
+                } else if (strcmp(qtSettings.appName, "vmplayer") == 0) {
+                    qtSettings.app = GTK_APP_VMPLAYER;
+                } else if (Str::startsWith(qtSettings.appName, "gimp")) {
+                    qtSettings.app = GTK_APP_GIMP;
+                } else if (strcmp(qtSettings.appName, "java") == 0) {
+                    qtSettings.app = GTK_APP_JAVA;
+                } else if (strcmp(qtSettings.appName, "evolution") == 0) {
+                    qtSettings.app = GTK_APP_EVOLUTION;
+                } else if (strcmp(qtSettings.appName, "eclipse") == 0) {
+                    qtSettings.app = GTK_APP_JAVA_SWT;
+                } else if (strcmp(qtSettings.appName, "ghb") == 0) {
+                    qtSettings.app = GTK_APP_GHB;
                 }
             }
 
@@ -1769,7 +1399,7 @@ qtSettingsInit()
                                   strlen(iconTheme) + 1 + 2 + 6 * 2 + 1);
                 char *version = (char*)malloc(versionLen);
 
-                getGtk2CfgFile(&tmpStr, "gtk-icons");
+                tmpStr = getConfFile("gtk-icons", tmpStr);
                 sprintf(version, "#%s %s %02X%02X%02X%02X%02X%02X%02X",
                         qtcVersion(), iconTheme, 4,
                         qtSettings.iconSizes.smlTbSize,

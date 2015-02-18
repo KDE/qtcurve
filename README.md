@@ -93,29 +93,6 @@ recommanded to turn on in distribution packages.
 
     (Default: `Off`)
 
-2. `QTC_GTK2_MODIFY_MOZILLA`:
-
-    1. Modify `userChrome.css`
-
-        1. setting KDE button order
-        2. shrink size of toolbars
-
-    2. Edit `user.js`
-
-        1. disable instant apply
-
-    **Note**: This sometimes causes issues with newer versions of these
-    applications. Should such issues occur, you should recompile
-    QtCurve without this option - and you will have to remove BY HAND
-    the changes that QtCurve has made. This will entail removing lines
-    from `userChrom.css` that indicate 'Added by QtCurve'. `userChrome.css`
-    is usually in a folder such as:
-    `~/.mozilla/firefox/xxxxxxx.default/chrome/userChrome.css` or
-    `~/.thunderbird/xxxxxxx.default/chrome/userChrome.css`
-    Where xxxxxxx is a series of random characters.
-
-    (Default: `Off`)
-
 # Additional Features
 ## XBar/MacMenu
 The XBar support was copied directly from Bespin. The relevant files are named

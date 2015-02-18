@@ -22,8 +22,12 @@
 #include "dirs.h"
 #include "log.h"
 #include "strs.h"
+
+#include <config.h>
+
 #include <sys/types.h>
 #include <pwd.h>
+#include <forward_list>
 
 namespace QtCurve {
 
@@ -33,15 +37,14 @@ makePath(const char *path, int mode)
     if (isDir(path)) {
         return;
     }
-    size_t len = strlen(path);
-    char opath[len + 1];
-    memcpy(opath, path, len + 1);
+    Str::Buff<1024> opath(path);
+    size_t len = opath.size() - 1;
     while (opath[len - 1] == '/') {
         opath[len - 1] = '\0';
         len--;
     }
-    char *p = opath + strspn(opath, "/");
-    if (!p) {
+    char *p = opath.get() + strspn(opath, "/");
+    if (!*p) {
         return;
     }
     p += 1;
@@ -59,15 +62,26 @@ makePath(const char *path, int mode)
     }
 }
 
-QTC_EXPORT char*
-getConfFile(const char *file, char *buff)
+// Home
+QTC_EXPORT const char*
+getHome()
 {
-    if (file[0] == '/') {
-        return Str::fill(buff, file);
-    }
-    return Str::fill(buff, confDir(), file);
+    static uniqueStr dir = [] {
+        const char *env_home = getenv("HOME");
+        if (qtcLikely(env_home && *env_home == '/')) {
+            return Str::cat(env_home, "/");
+        } else {
+            struct passwd *pw = getpwuid(getuid());
+            if (qtcLikely(pw && pw->pw_dir && *pw->pw_dir == '/')) {
+                return Str::cat(pw->pw_dir, "/");
+            }
+        }
+        return strdup("/tmp/");
+    };
+    return dir.get();
 }
 
+// XDG dirs
 QTC_EXPORT const char*
 getXDGConfigHome()
 {
@@ -96,26 +110,36 @@ getXDGDataHome()
     return dir.get();
 }
 
-QTC_EXPORT const char*
-getHome()
+// TODO
+const std::forward_list<uniqueStr>&
+getKDE4Home()
 {
-    static uniqueStr dir = [] {
-        const char *env_home = getenv("HOME");
-        if (qtcLikely(env_home && *env_home == '/')) {
-            return Str::cat(env_home, "/");
-        } else {
-            struct passwd *pw = getpwuid(getuid());
-            if (qtcLikely(pw && pw->pw_dir && *pw->pw_dir == '/')) {
-                return Str::cat(pw->pw_dir, "/");
+    static const std::forward_list<uniqueStr> homes = [] {
+        std::forward_list<uniqueStr> res;
+        auto add_dir = [&] (char *dir) {
+            if (isDir(dir)) {
+                res.emplace_front(dir);
+            } else {
+                free(dir);
             }
+        };
+        add_dir(Str::cat(getHome(), ".kde/"));
+        add_dir(Str::cat(getHome(), ".kde4/"));
+        char *env = getenv(getuid() ? "KDEHOME" : "KDEROOTHOME");
+        if (env && env[0] == '/') {
+            add_dir(Str::cat(env, "/"));
+        } else {
+#ifndef QTC_KDE4_DEFAULT_HOME_DEFAULT
+            add_dir(Str::cat(getHome(), QTC_KDE4_DEFAULT_HOME "/"));
+#endif
         }
-        return strdup("/tmp/");
-    };
-    return dir.get();
+        return res;
+    }();
+    return homes;
 }
 
 QTC_EXPORT const char*
-confDir()
+getConfDir()
 {
     static uniqueStr dir = [] {
         const char *env_home = getenv("QTCURVE_CONFIG_DIR");
@@ -125,6 +149,14 @@ confDir()
         return res;
     };
     return dir.get();
+}
+
+QTC_EXPORT char*
+getConfFile(const char *file, char *buff)
+{
+    if (file[0] == '/')
+        return Str::fill(buff, file);
+    return Str::fill(buff, getConfDir(), file);
 }
 
 }

@@ -29,82 +29,14 @@
 #include "common.h"
 #include "config_file.h"
 
+#include <fstream>
+
 #define CONFIG_FILE               "stylerc"
 #define OLD_CONFIG_FILE           "qtcurvestylerc"
 #define VERSION_KEY               "version"
 
-#if defined(__MACH__) || defined(__APPLE__)
-/* This code is public domain -- Will Hartung 4/9/09 */
-// http://stackoverflow.com/questions/735126/are-there-alternate-implementations-of-gnu-getline-interface
-#include <AvailabilityMacros.h>
-
-#if __MAC_OS_X_VERSION_MAX_ALLOWED < 1070
-static size_t getline(char **lineptr, size_t *n, FILE *stream) {
-    char *bufptr = nullptr;
-    char *p = bufptr;
-    size_t size;
-    int c;
-
-    if (lineptr == nullptr) {
-        return -1;
-    }
-    if (stream == nullptr) {
-        return -1;
-    }
-    if (n == nullptr) {
-        return -1;
-    }
-    bufptr = *lineptr;
-    size = *n;
-
-    c = fgetc(stream);
-    if (c == EOF) {
-        return -1;
-    }
-    if (bufptr == nullptr) {
-        bufptr = malloc(128);
-        if (bufptr == nullptr) {
-            return -1;
-        }
-        size = 128;
-    }
-    p = bufptr;
-    while(c != EOF) {
-        if ((p - bufptr) > (size - 1)) {
-            size = size + 128;
-            bufptr = realloc(bufptr, size);
-            if (bufptr == nullptr) {
-                return -1;
-            }
-        }
-        *p++ = c;
-        if (c == '\n') {
-            break;
-        }
-        c = fgetc(stream);
-    }
-
-    *p++ = '\0';
-    *lineptr = bufptr;
-    *n = size;
-
-    return p - bufptr - 1;
-}
-#endif // pre 10.7
-#endif
-
-static const char*
-determineFileName(const char *file)
-{
-    if (file[0] == '/')
-        return file;
-
-    static char *filename = nullptr;
-    filename = QtCurve::Str::fill(filename, QtCurve::confDir(), file);
-    return filename;
-}
-
-static int c2h(char ch)
+static int
+c2h(char ch)
 {
     return (ch>='0' && ch<='9') ? ch-'0' :
            (ch>='a' && ch<='f') ? 10+(ch-'a') :
@@ -130,8 +62,9 @@ void qtcSetRgb(GdkColor *col, const char *str)
 static bool
 loadImage(const char *file, QtCPixmap *pixmap)
 {
-    pixmap->img = gdk_pixbuf_new_from_file(determineFileName(file), nullptr);
-    return nullptr != pixmap->img;
+    pixmap->img = gdk_pixbuf_new_from_file(
+        QtCurve::getConfFile(std::string(file)).c_str(), nullptr);
+    return pixmap->img != nullptr;
 }
 
 static EDefBtnIndicator
@@ -543,25 +476,19 @@ qtcGetWindowBorderSize(bool force)
     static WindowBorders def = {24, 18, 4, 4};
     static WindowBorders sizes = {-1, -1, -1, -1};
 
-    if (-1 == sizes.titleHeight || force) {
-        char *filename = QtCurve::Str::cat(QtCurve::confDir(),
-                                           BORDER_SIZE_FILE);
-        FILE *f = nullptr;
-        if ((f = fopen(filename, "r"))) {
-            char *line=nullptr;
-            size_t len;
-            getline(&line, &len, f);
-            sizes.titleHeight=atoi(line);
-            getline(&line, &len, f);
-            sizes.toolTitleHeight=atoi(line);
-            getline(&line, &len, f);
-            sizes.bottom=atoi(line);
-            getline(&line, &len, f);
-            sizes.sides=atoi(line);
-            free(line);
-            fclose(f);
+    if (sizes.titleHeight == -1 || force) {
+        std::ifstream f(QtCurve::getConfFile(std::string(BORDER_SIZE_FILE)));
+        if (f) {
+            std::string line;
+            std::getline(f, line);
+            sizes.titleHeight = std::stoi(line);
+            std::getline(f, line);
+            sizes.toolTitleHeight = std::stoi(line);
+            std::getline(f, line);
+            sizes.bottom = std::stoi(line);
+            std::getline(f, line);
+            sizes.sides = std::stoi(line);
         }
-        free(filename);
     }
 
     return sizes.titleHeight<12 ? def : sizes;
@@ -570,9 +497,8 @@ qtcGetWindowBorderSize(bool force)
 static char*
 qtcGetBarFileName(const char *app, const char *prefix)
 {
-    static char *filename = nullptr;
-    filename = QtCurve::Str::fill(filename, QtCurve::confDir(), prefix, app);
-    return filename;
+    QtCurve::Str::Buff<1024> filename;
+    return filename.cat(QtCurve::getConfDir(), prefix, app);
 }
 
 bool qtcBarHidden(const char *app, const char *prefix)
@@ -595,20 +521,20 @@ void qtcSetBarHidden(const char *app, bool hidden, const char *prefix)
 
 void qtcLoadBgndImage(QtCImage *img)
 {
-    if(!img->loaded &&
-        ( (img->width>16 && img->width<1024 && img->height>16 && img->height<1024) || (0==img->width && 0==img->height)) )
-    {
-        img->loaded=true;
-        img->pixmap.img=nullptr;
-        if(img->pixmap.file)
-        {
-            img->pixmap.img=0==img->width
-                            ? gdk_pixbuf_new_from_file(determineFileName(img->pixmap.file), nullptr)
-                            : gdk_pixbuf_new_from_file_at_scale(determineFileName(img->pixmap.file), img->width, img->height, false, nullptr);
-            if(img->pixmap.img && 0==img->width && img->pixmap.img)
-            {
-                img->width=gdk_pixbuf_get_width(img->pixmap.img);
-                img->height=gdk_pixbuf_get_height(img->pixmap.img);
+    if (!img->loaded &&
+        ((img->width > 16 && img->width < 1024 && img->height > 16 &&
+          img->height < 1024) || (img->width == 0 && img->height == 0))) {
+        img->loaded = true;
+        img->pixmap.img = nullptr;
+        if (img->pixmap.file) {
+            auto file = QtCurve::getConfFile(std::string(img->pixmap.file));
+            img->pixmap.img = (img->width == 0) ?
+                gdk_pixbuf_new_from_file(file.c_str(), nullptr) :
+                gdk_pixbuf_new_from_file_at_scale(file.c_str(), img->width,
+                                                  img->height, false, nullptr);
+            if (img->pixmap.img && 0==img->width && img->pixmap.img) {
+                img->width = gdk_pixbuf_get_width(img->pixmap.img);
+                img->height = gdk_pixbuf_get_height(img->pixmap.img);
             }
         }
     }
@@ -1215,18 +1141,14 @@ bool qtcReadConfig(const char *file, Options *opts, Options *defOpts)
         const char *env = getenv("QTCURVE_CONFIG_FILE");
         if (env && *env)
             return qtcReadConfig(env, opts, defOpts);
-
-        char *filename = QtCurve::Str::cat(QtCurve::confDir(), CONFIG_FILE);
-        bool rv = false;
-        if (!QtCurve::isRegFile(filename)) {
-            filename = QtCurve::Str::fill(filename, QtCurve::confDir(),
-                                          "/../" OLD_CONFIG_FILE);
+        auto filename = QtCurve::getConfFile(std::string(CONFIG_FILE));
+        if (!QtCurve::isRegFile(filename.c_str())) {
+            filename = QtCurve::getConfFile(std::string("/../"
+                                                        OLD_CONFIG_FILE));
         }
-        rv = qtcReadConfig(filename, opts, defOpts);
-        free(filename);
-        return rv;
+        return qtcReadConfig(filename.c_str(), opts, defOpts);
     } else {
-        GHashTable *cfg=loadConfig(file);
+        GHashTable *cfg = loadConfig(file);
 
         if (cfg) {
             opts->version = readVersionEntry(cfg, VERSION_KEY);
