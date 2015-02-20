@@ -23,6 +23,8 @@
 
 #include "utils.h"
 
+#include <cmath>
+
 template <typename T1, typename T2>
 static inline auto
 qtcMax(const T1 &a, const T2 &b) -> decltype((a > b) ? a : b)
@@ -37,12 +39,6 @@ qtcMin(const T1 &a, const T2 &b) -> decltype((a < b) ? a : b)
 }
 template <typename T>
 static inline T
-qtcAbs(const T &a)
-{
-    return (a > 0) ? a : -a;
-}
-template <typename T>
-static inline T
 qtcSquare(const T &a)
 {
     return a * a;
@@ -50,7 +46,7 @@ qtcSquare(const T &a)
 
 #define qtcBound(a, b, c) qtcMax(a, qtcMin(b, c))
 #define qtcLimit(v, l) qtcBound(0, v, l)
-#define qtcEqual(v1, v2) (qtcAbs(v1 - v2) < 0.0001)
+#define qtcEqual(v1, v2) (std::abs(v1 - v2) < 0.0001)
 
 namespace QtCurve {
 

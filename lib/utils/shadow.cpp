@@ -75,12 +75,13 @@ _qtcDistance(int x, int y, int x0, int y0, bool square)
     int dx = x - x0;
     int dy = y - y0;
     if (dx == 0) {
-        return qtcAbs(dy);
+        return std::abs(dy);
     }
     if (dy == 0) {
-        return qtcAbs(dx);
+        return std::abs(dx);
     }
-    return square ? qtcMax(qtcAbs(dx), qtcAbs(dy)) : sqrtf(dx * dx + dy * dy);
+    return (square ? qtcMax(std::abs(dx), std::abs(dy)) :
+            sqrtf(dx * dx + dy * dy));
 }
 
 static inline float

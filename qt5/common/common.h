@@ -140,7 +140,7 @@ enum {
 #define MAX_GB_FACTOR  50
 #define DEF_GB_FACTOR  -3
 
-#define TO_ALPHA(A) (qtcAbs(A) / 100.0)
+#define TO_ALPHA(A) (std::abs(A) / 100.0)
 #define DEF_COLOR_SEL_TAB_FACTOR  25
 #define MIN_COLOR_SEL_TAB_FACTOR   0
 #define MAX_COLOR_SEL_TAB_FACTOR 100

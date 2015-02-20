@@ -322,8 +322,8 @@ motion(GtkWidget *widget, GdkEventMotion *event, void*)
 {
     if (dragWidget == widget) {
         // check displacement with respect to drag start
-        const int distance = (qtcAbs(lastX - event->x_root) +
-                              qtcAbs(lastY - event->y_root));
+        const int distance = (std::abs(lastX - event->x_root) +
+                              std::abs(lastY - event->y_root));
 
         if (distance > 0)
             stopTimer();

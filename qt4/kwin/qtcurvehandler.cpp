@@ -130,8 +130,8 @@ void QtCurveHandler::setStyle()
 bool QtCurveHandler::reset(unsigned long changed)
 {
     bool styleChanged = false;
-    if (qtcAbs(m_timeStamp - getTimeStamp(xdgConfigFolder() +
-                                          "/qtcurve/stylerc")) > 2) {
+    if (std::abs(m_timeStamp - getTimeStamp(xdgConfigFolder() +
+                                            "/qtcurve/stylerc")) > 2) {
         delete m_style;
         m_style = nullptr;
         setStyle();

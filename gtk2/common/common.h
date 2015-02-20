@@ -135,7 +135,7 @@ enum {
 #define MAX_GB_FACTOR  50
 #define DEF_GB_FACTOR  -3
 
-#define TO_ALPHA(A) (qtcAbs(A) / 100.0)
+#define TO_ALPHA(A) (std::abs(A) / 100.0)
 #define DEF_COLOR_SEL_TAB_FACTOR  25
 #define MIN_COLOR_SEL_TAB_FACTOR   0
 #define MAX_COLOR_SEL_TAB_FACTOR 100
@@ -794,7 +794,7 @@ sbSliderMOLen(const Options &opts, int len)
 #define SLIGHT_ETCH_RADIUS   3
 
 #define MAX_RADIUS_INTERNAL 9.0
-#define MAX_RADIUS_EXTERNAL (MAX_RADIUS_INTERNAL+2.0)
+#define MAX_RADIUS_EXTERNAL (MAX_RADIUS_INTERNAL + 2.0)
 
 ERound qtcGetWidgetRound(const Options *opts, int w, int h, EWidget widget);
 double qtcGetRadius(const Options *opts, int w, int h, EWidget widget,

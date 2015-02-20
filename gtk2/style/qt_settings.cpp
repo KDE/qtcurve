@@ -1844,18 +1844,15 @@ qtSettingsInit()
                 gtk_rc_parse_string("style \"" RC_SETTING "Spl\" { GtkPaned::handle_size=7 GtkPaned::handle_width = 7 } "
                                     "class \"*GtkWidget\" style \"" RC_SETTING "Spl\"");
 
-            if (IMG_PLAIN_RINGS == opts.bgndImage.type ||
-                IMG_BORDERED_RINGS == opts.bgndImage.type ||
-                IMG_SQUARE_RINGS == opts.bgndImage.type ||
-                IMG_PLAIN_RINGS == opts.menuBgndImage.type ||
-                IMG_BORDERED_RINGS == opts.menuBgndImage.type ||
-                IMG_SQUARE_RINGS == opts.menuBgndImage.type) {
-                qtcCalcRingAlphas(
-                    &qtSettings.colors[PAL_ACTIVE][COLOR_WINDOW]);
+            if (oneOf(opts.bgndImage.type, IMG_PLAIN_RINGS,
+                      IMG_BORDERED_RINGS, IMG_SQUARE_RINGS) ||
+                oneOf(opts.menuBgndImage.type, IMG_PLAIN_RINGS,
+                      IMG_BORDERED_RINGS, IMG_SQUARE_RINGS)) {
+                qtcCalcRingAlphas(&qtSettings.colors[PAL_ACTIVE][COLOR_WINDOW]);
             }
 
-            if(isMozilla())
-                opts.crSize=CR_SMALL_SIZE;
+            if (isMozilla())
+                opts.crSize = CR_SMALL_SIZE;
 
             if (opts.crSize != CR_LARGE_SIZE) {
                 constStrFormat =
