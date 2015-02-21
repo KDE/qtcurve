@@ -1,5 +1,6 @@
 [Misc]
 Name=QtCurve
+Name[bs]=QtCurve
 Name[cs]=QtCurve
 Name[de]=QtCurve
 Name[es]=QtCurve
@@ -15,6 +16,7 @@ Name[sv]=QtCurve
 Name[uk]=QtCurve
 Name[x-test]=xxQtCurvexx
 Comment=Highly configurable style
+Comment[bs]=Visoko konfigurabilan stil
 Comment[cs]=Vysoce přizpůsobitelný styl
 Comment[de]=Sehr anpassbarer Stil
 Comment[es]=Estilo extremadamente configurable
