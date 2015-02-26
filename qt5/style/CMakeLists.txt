@@ -70,6 +70,12 @@ target_link_libraries(qtcurve-qt5 ${QTC_QT5_LINK_LIBS} qtcurve-utils)
 install(TARGETS qtcurve-qt5 LIBRARY DESTINATION ${QTCURVE_STYLE_DIR})
 
 if(QTC_QT5_ENABLE_KDE)
+  foreach(dir DATA_INSTALL_DIR KDE_INSTALL_DATADIR CMAKE_INSTALL_DATADIR
+      SHARE_INSTALL_PREFIX KDE_INSTALL_DATAROOTDIR CMAKE_INSTALL_DATAROOTDIR)
+    unset(${dir})
+    unset(${dir} CACHE)
+  endforeach()
   include(KDEInstallDirs)
-  install(FILES qtcurve.themerc DESTINATION ${DATA_INSTALL_DIR}/kstyle/themes)
+  install(FILES qtcurve.themerc
+    DESTINATION ${KDE_INSTALL_DATADIR}/kstyle/themes)
 endif()
