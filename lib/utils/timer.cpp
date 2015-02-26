@@ -24,8 +24,6 @@
 #include <chrono>
 #include <vector>
 
-static thread_local std::vector<uint64_t> qtc_tics;
-
 namespace QtCurve {
 
 QTC_EXPORT uint64_t
@@ -42,11 +40,13 @@ getElapse(uint64_t prev)
     return getTime() - prev;
 }
 
+static thread_local std::vector<uint64_t> tics_list;
+
 QTC_EXPORT void
 tic()
 {
-    qtc_tics.push_back(0);
-    auto &back = qtc_tics.back();
+    tics_list.push_back(0);
+    auto &back = tics_list.back();
     back = getTime();
 }
 
@@ -54,11 +54,11 @@ QTC_EXPORT uint64_t
 toc()
 {
     uint64_t cur_time = getTime();
-    if (!qtc_tics.size()) {
+    if (!tics_list.size()) {
         return 0;
     }
-    uint64_t old_time = qtc_tics.back();
-    qtc_tics.pop_back();
+    uint64_t old_time = tics_list.back();
+    tics_list.pop_back();
     return cur_time - old_time;
 }
 
