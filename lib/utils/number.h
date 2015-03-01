@@ -24,6 +24,7 @@
 #include "utils.h"
 
 #include <cmath>
+#include <cstdlib>
 
 template <typename T1, typename T2>
 static inline auto

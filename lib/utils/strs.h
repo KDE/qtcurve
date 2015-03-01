@@ -28,6 +28,7 @@
 #include <array>
 #include <numeric>
 #include <functional>
+#include <string>
 
 namespace QtCurve {
 

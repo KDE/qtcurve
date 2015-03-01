@@ -22,6 +22,8 @@
 #include "shadow_p.h"
 #include "log.h"
 
+#include <cstdlib>
+
 static void
 qtcCreateShadowGradient(float *buff, size_t size)
 {
