@@ -46,7 +46,10 @@ Info::Info(GtkWidget *notebook)
 
 class TabMap: public std::unordered_map<GtkWidget*, Info> {
 public:
-    using std::unordered_map<GtkWidget*, Info>::unordered_map;
+    // TODO Use constructor inheritance when we drop gcc 4.7 support
+    TabMap()
+        : std::unordered_map<GtkWidget*, Info>()
+    {}
     Info*
     lookup(GtkWidget *hash, bool create=false)
     {

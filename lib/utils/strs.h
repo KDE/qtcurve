@@ -34,7 +34,8 @@ namespace QtCurve {
 
 class uniqueStr : public uniqueCPtr<char> {
 public:
-    using uniqueCPtr<char>::uniqueCPtr;
+    // TODO add back when when we drop gcc 4.7 support.
+    // using uniqueCPtr<char>::uniqueCPtr;
     uniqueStr(char *p)
         : uniqueCPtr<char>(p)
     {

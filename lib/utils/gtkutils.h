@@ -135,10 +135,7 @@ public:
 };
 
 template<typename ObjType=GObject>
-class GObjPtr: public RefPtr<ObjType, GObjectDeleter> {
-public:
-    using RefPtr<ObjType, GObjectDeleter>::RefPtr;
-};
+using GObjPtr = RefPtr<ObjType, GObjectDeleter>;
 
 }
 
