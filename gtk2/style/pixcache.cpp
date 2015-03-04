@@ -59,14 +59,24 @@ struct PixEqual {
 
 static std::unordered_map<PixKey, GObjPtr<GdkPixbuf>,
                           PixHash, PixEqual> pixbufMap;
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+// Replacement isn't available until the version it is deprecated
+// (gdk-pixbuf-2.0 2.32)
 static GObjPtr<GdkPixbuf> blankPixbuf =
     gdk_pixbuf_new_from_inline(-1, blank16x16, true, nullptr);
+#pragma GCC diagnostic pop
 
 static GdkPixbuf*
 pixbufCacheValueNew(const PixKey &key)
 {
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+    // Replacement isn't available until the version it is deprecated
+    // (gdk-pixbuf-2.0 2.32)
     GdkPixbuf *res = gdk_pixbuf_new_from_inline(-1, opts.xCheck ? check_x_on :
                                                 check_on, true, nullptr);
+#pragma GCC diagnostic pop
     qtcAdjustPix(gdk_pixbuf_get_pixels(res), gdk_pixbuf_get_n_channels(res),
                  gdk_pixbuf_get_width(res), gdk_pixbuf_get_height(res),
                  gdk_pixbuf_get_rowstride(res),
