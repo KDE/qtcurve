@@ -1735,7 +1735,7 @@ drawSliderGroove(cairo_t *cr, GtkStyle *style, GtkStateType state,
 
     if (state == GTK_STATE_INSENSITIVE) {
         bgndcol = &bgndcols[ORIGINAL_SHADE];
-    } else if (strcmp(detail, "trough-lower") == 0 && opts.fillSlider) {
+    } else if (oneOf(detail, "trough-lower") && opts.fillSlider) {
         bgndcols = usedcols;
         bgndcol = &usedcols[ORIGINAL_SHADE];
         wid = WIDGET_FILLED_SLIDER_TROUGH;
@@ -1745,8 +1745,8 @@ drawSliderGroove(cairo_t *cr, GtkStyle *style, GtkStateType state,
                               ROUNDED_ALL), wid, BORDER_FLAT,
                    DF_SUNKEN | DF_DO_BORDER | (horiz ? 0 : DF_VERT), nullptr);
 
-    if (opts.fillSlider && upper != lower && state != GTK_STATE_INSENSITIVE &&
-        strcmp(detail, "trough") == 0) {
+    if (opts.fillSlider && upper != lower &&
+        state != GTK_STATE_INSENSITIVE && oneOf(detail, "trough")) {
         if (horiz) {
             pos += width > 10 && pos < width / 2 ? 3 : 0;
 
@@ -1801,7 +1801,7 @@ drawTriangularSlider(cairo_t *cr, GtkStyle *style, GtkStateType state,
     bool coloredMouseOver = (state == GTK_STATE_PRELIGHT &&
                              opts.coloredMouseOver &&
                              !opts.colorSliderMouseOver);
-    bool horiz = height > width || DETAIL("hscale");
+    bool horiz = height > width || oneOf(detail, "hscale");
     int bgnd = getFill(state, false, opts.shadeSliders == SHADE_DARKEN);
     int xo = horiz ? 8 : 0;
     int yo = horiz ? 0 : 8;
@@ -3242,7 +3242,7 @@ drawCheckBox(cairo_t *cr, GtkStateType state, GtkShadowType shadow,
         oneOf(qtSettings.app, GTK_APP_MOZILLA, GTK_APP_JAVA)) {
         state = GTK_STATE_NORMAL;
     }
-    bool mnu = DETAIL("check");
+    bool mnu = oneOf(detail, "check");
     bool list = !mnu && isList(widget);
     bool on = shadow == GTK_SHADOW_IN;
     bool tri = shadow == GTK_SHADOW_ETCHED_IN;
@@ -3384,7 +3384,7 @@ drawRadioButton(cairo_t *cr, GtkStateType state, GtkShadowType shadow,
         oneOf(qtSettings.app, GTK_APP_MOZILLA, GTK_APP_JAVA)) {
         state = GTK_STATE_NORMAL;
     }
-    bool mnu = DETAIL("option");
+    bool mnu = oneOf(detail, "option");
     bool list = !mnu && isList(widget);
     if ((mnu && state == GTK_STATE_PRELIGHT) ||
         (list && state == GTK_STATE_ACTIVE)) {
@@ -3885,13 +3885,13 @@ drawToolbarBorders(cairo_t *cr, GtkStateType state, int x, int y, int width,
                              opts.shadeMenubars != SHADE_NONE) ?
                             menuColors(isActiveWindowMenubar) :
                             qtcPalette.background);
-    if (DETAIL("menubar")) {
+    if (oneOf(detail, "menubar")) {
         if (all) {
             top = bottom = left = right = true;
         } else {
             bottom = true;
         }
-    } else if (strcmp(detail,"toolbar") == 0) {
+    } else if (oneOf(detail, "toolbar")) {
         if (all) {
             if (width < height) {
                 left = right = bottom = true;
@@ -3905,8 +3905,7 @@ drawToolbarBorders(cairo_t *cr, GtkStateType state, int x, int y, int width,
                 top = bottom = true;
             }
         }
-    } else if (strcmp(detail,"dockitem_bin") == 0 ||
-               strcmp(detail, "handlebox_bin") == 0) {
+    } else if (oneOf(detail,"dockitem_bin", "handlebox_bin")) {
         /* CPD: bit risky - what if only 1 item ??? */
         if (all) {
             if (width < height) {

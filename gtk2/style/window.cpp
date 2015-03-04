@@ -267,7 +267,7 @@ static bool
 canGetChildren(GtkWidget *widget)
 {
     return (qtSettings.app != GTK_APP_GHB ||
-            0 != strcmp(g_type_name(G_OBJECT_TYPE(widget)), "GhbCompositor") ||
+            noneOf(gTypeName(widget), "GhbCompositor") ||
             gtk_widget_get_realized(widget));
 }
 

@@ -30,9 +30,6 @@
 
 namespace QtCurve {
 
-#define DETAIL(xx) ((detail) && (!strcmp(xx, detail)))
-#define DETAILHAS(xx) ((detail) && (strstr(detail, xx)))
-
 #ifndef GTK_IS_COMBO_BOX_ENTRY
 #define GTK_IS_COMBO_BOX_ENTRY(x) 0
 #endif
@@ -100,8 +97,8 @@ isMozillaTab(GtkWidget *widget)
 QTC_ALWAYS_INLINE static inline bool
 isFakeGtk()
 {
-    return (isMozilla() || qtSettings.app == GTK_APP_OPEN_OFFICE ||
-            qtSettings.app == GTK_APP_JAVA);
+    return isMozilla() || oneOf(qtSettings.app, GTK_APP_OPEN_OFFICE,
+                                GTK_APP_JAVA);
 }
 GdkColor *menuColors(bool active);
 EBorder shadowToBorder(GtkShadowType shadow);
@@ -139,8 +136,7 @@ bool isOnMenuItem(GtkWidget *w, int level);
 bool isSpinButton(GtkWidget *widget);
 bool isStatusBarFrame(GtkWidget *widget);
 GtkMenuBar *isMenubar(GtkWidget *w, int level);
-bool isMenuitem(GtkWidget *w, int level);
-#define IS_MENU_ITEM(WIDGET) isMenuitem(WIDGET, 0)
+bool isMenuitem(GtkWidget *w, int level=0);
 bool isMenuWindow(GtkWidget *w);
 #define IS_GROUP_BOX(W) ((W) && GTK_IS_FRAME(W) &&                    \
                          (gtk_frame_get_label(GTK_FRAME(W)) ||        \

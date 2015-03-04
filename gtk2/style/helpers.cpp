@@ -42,10 +42,9 @@ debugDisplayWidget(GtkWidget *widget, int level)
         printf("\n");
         return;
     }
-    const char *type_name = g_type_name(G_OBJECT_TYPE(widget));
     const char *widget_name = gtk_widget_get_name(widget);
-    qtcDebug("%s(%s)[%p] ", type_name, widget_name ? widget_name : "NULL",
-             widget);
+    qtcDebug("%s(%s)[%p] ", gTypeName(widget),
+             widget_name ? widget_name : "NULL", widget);
     debugDisplayWidget(gtk_widget_get_parent(widget), level - 1);
 }
 
@@ -87,20 +86,11 @@ bool
 useButtonColor(const char *detail)
 {
     return (detail &&
-            (strcmp(detail, "optionmenu") == 0 ||
-             strcmp(detail, "button") == 0 ||
-             strcmp(detail, "buttondefault") == 0 ||
-             strcmp(detail, "togglebuttondefault") == 0 ||
-             strcmp(detail, "togglebutton") == 0 ||
-             strcmp(detail, "hscale") == 0 ||
-             strcmp(detail, "vscale") == 0 ||
-             strcmp(detail, "spinbutton") == 0 ||
-             strcmp(detail, "spinbutton_up") == 0 ||
-             strcmp(detail, "spinbutton_down") == 0 ||
-             strcmp(detail, "slider") == 0 ||
-             strcmp(detail, "qtc-slider") == 0 ||
-             (detail[0] && Str::startsWith(detail + 1, "scrollbar")) ||
-             strcmp(detail, "stepper") == 0));
+            (oneOf(detail, "optionmenu", "button", "buttondefault",
+                   "togglebuttondefault", "togglebutton", "hscale", "vscale",
+                   "spinbutton", "spinbutton_up", "spinbutton_down", "slider",
+                   "qtc-slider", "stepper") ||
+             (detail[0] && Str::startsWith(detail + 1, "scrollbar"))));
 }
 
 void
@@ -289,13 +279,13 @@ isList(GtkWidget *widget)
 {
     return widget && (GTK_IS_TREE_VIEW(widget) ||
 #if !GTK_CHECK_VERSION(2, 90, 0)
-            GTK_IS_CLIST(widget) || GTK_IS_LIST(widget) ||
+                      GTK_IS_CLIST(widget) || GTK_IS_LIST(widget) ||
 #ifdef GTK_ENABLE_BROKEN
-            GTK_IS_TREE(widget) ||
+                      GTK_IS_TREE(widget) ||
 #endif
-            GTK_IS_CTREE(widget) ||
+                      GTK_IS_CTREE(widget) ||
 #endif
-            0 == strcmp(g_type_name(G_OBJECT_TYPE(widget)), "GtkSCTree"));
+                      oneOf(gTypeName(widget), "GtkSCTree"));
 }
 
 bool
@@ -305,18 +295,22 @@ isListViewHeader(GtkWidget *widget)
     return widget && GTK_IS_BUTTON(widget) && (parent=gtk_widget_get_parent(widget)) &&
            (isList(parent) ||
             (GTK_APP_GIMP == qtSettings.app && GTK_IS_BOX(parent) &&
-             (parent=gtk_widget_get_parent(parent)) && GTK_IS_EVENT_BOX(parent) &&
-             (parent=gtk_widget_get_parent(parent)) && 0 == strcmp(g_type_name(G_OBJECT_TYPE(parent)), "GimpThumbBox")));
+             (parent=gtk_widget_get_parent(parent)) &&
+             GTK_IS_EVENT_BOX(parent) &&
+             (parent=gtk_widget_get_parent(parent)) &&
+             oneOf(gTypeName(parent), "GimpThumbBox")));
 }
 
 bool
 isEvolutionListViewHeader(GtkWidget *widget, const char *detail)
 {
-    GtkWidget *parent=nullptr;
-    return GTK_APP_EVOLUTION == qtSettings.app && widget && DETAIL("button") &&
-           0 == strcmp(g_type_name(G_OBJECT_TYPE(widget)), "ECanvas") &&
-           (parent=gtk_widget_get_parent(widget)) && (parent=gtk_widget_get_parent(parent)) &&
-           GTK_IS_SCROLLED_WINDOW(parent);
+    GtkWidget *parent = nullptr;
+    return ((qtSettings.app == GTK_APP_EVOLUTION) && widget &&
+            oneOf(detail, "button") &&
+            oneOf(gTypeName(widget), "ECanvas") &&
+            (parent = gtk_widget_get_parent(widget)) &&
+            (parent = gtk_widget_get_parent(parent)) &&
+            GTK_IS_SCROLLED_WINDOW(parent));
 }
 
 bool isOnListViewHeader(GtkWidget *w, int level)
@@ -334,8 +328,8 @@ bool isOnListViewHeader(GtkWidget *w, int level)
 bool
 isPathButton(GtkWidget *widget)
 {
-    return widget && gtk_widget_get_parent(widget) && GTK_IS_BUTTON(widget) &&
-           0 == strcmp(g_type_name(G_OBJECT_TYPE(gtk_widget_get_parent(widget))), "GtkPathBar");
+    return (widget && GTK_IS_BUTTON(widget) &&
+            oneOf(gTypeName(gtk_widget_get_parent(widget)), "GtkPathBar"));
 }
 
 // static gboolean isTabButton(GtkWidget *widget)
@@ -381,17 +375,13 @@ getComboButton(GtkWidget *widget)
 
 bool isSideBarBtn(GtkWidget *widget)
 {
-    GtkWidget *parent = nullptr;
-    return widget && (parent=gtk_widget_get_parent(widget)) &&
-           (0 == strcmp(g_type_name(G_OBJECT_TYPE(parent)), "GdlDockBar") ||
-            (0 == strcmp(g_type_name(G_OBJECT_TYPE(parent)), "GdlSwitcher")/* &&
-             gtk_widget_get_parent(parent) &&
-             0 == strcmp(g_type_name(G_OBJECT_TYPE(parent)), "GdlDockNotebook")*/) );
+    return widget && oneOf(gTypeName(gtk_widget_get_parent(widget)),
+                           "GdlDockBar", "GdlSwitcher");
 }
 
 bool isComboBoxButton(GtkWidget *widget)
 {
-    GtkWidget *parent=nullptr;
+    GtkWidget *parent = nullptr;
     return widget && GTK_IS_BUTTON(widget) && (parent=gtk_widget_get_parent(widget)) &&
            (QTC_COMBO_ENTRY(parent) || QTC_IS_COMBO(parent));
 }
@@ -427,10 +417,10 @@ static gboolean isSwtComboBoxEntry(GtkWidget *widget)
 
 bool isGimpCombo(GtkWidget *widget)
 {
-    GtkWidget *parent=nullptr;
-    return GTK_APP_GIMP == qtSettings.app &&
-           widget && (parent=gtk_widget_get_parent(widget)) && GTK_IS_TOGGLE_BUTTON(widget) &&
-           0 == strcmp(g_type_name(G_OBJECT_TYPE(parent)), "GimpEnumComboBox");
+    return (qtSettings.app == GTK_APP_GIMP && widget &&
+            GTK_IS_TOGGLE_BUTTON(widget) &&
+            oneOf(gTypeName(gtk_widget_get_parent(widget)),
+                  "GimpEnumComboBox"));
 }
 
 bool
@@ -712,15 +702,15 @@ getFill(GtkStateType state, bool set, bool darker)
 bool
 isSbarDetail(const char *detail)
 {
-    return detail && detail[0] && (strcmp(detail, "stepper") == 0 ||
-                                   Str::startsWith(detail + 1, "scrollbar"));
+    return (detail && detail[0] && (oneOf(detail, "stepper") ||
+                                    Str::startsWith(detail + 1, "scrollbar")));
 }
 
 ECornerBits
 getRound(const char *detail, GtkWidget *widget, bool rev)
 {
     if (detail) {
-        if (strcmp(detail, "slider") == 0) {
+        if (oneOf(detail, "slider")) {
 #ifndef SIMPLE_SCROLLBARS
             if (!(opts.square & SQUARE_SB_SLIDER) &&
                 (opts.scrollbarType == SCROLLBAR_NONE ||
@@ -729,16 +719,15 @@ getRound(const char *detail, GtkWidget *widget, bool rev)
             }
 #endif
             return ROUNDED_NONE;
-        } else if (0 == strcmp(detail, "qtc-slider"))
+        } else if (oneOf(detail, "qtc-slider")) {
             return opts.square&SQUARE_SLIDER && (SLIDER_PLAIN == opts.sliderStyle || SLIDER_PLAIN_ROTATED == opts.sliderStyle)
                 ? ROUNDED_NONE : ROUNDED_ALL;
-        else if(0 == strcmp(detail, "splitter") || 0 == strcmp(detail, "optionmenu")  ||
-                0 == strcmp(detail, "togglebutton") || 0 == strcmp(detail, "hscale") ||
-                0 == strcmp(detail, "vscale") )
+        } else if (oneOf(detail, "splitter", "optionmenu", "togglebutton",
+                         "hscale", "vscale")) {
             return ROUNDED_ALL;
-        else if(0 == strcmp(detail, "spinbutton_up"))
+        } else if (oneOf(detail, "spinbutton_up"))
             return rev ? ROUNDED_TOPLEFT : ROUNDED_TOPRIGHT;
-        else if(0 == strcmp(detail, "spinbutton_down"))
+        else if(oneOf(detail, "spinbutton_down"))
             return rev ? ROUNDED_BOTTOMLEFT : ROUNDED_BOTTOMRIGHT;
         else if (isSbarDetail(detail)) {
             // Requires `GtkRange::stepper-position-details = 1`
@@ -748,7 +737,7 @@ getRound(const char *detail, GtkWidget *widget, bool rev)
                 return detail[0] == 'v' ? ROUNDED_BOTTOM : ROUNDED_RIGHT;
             }
             return ROUNDED_NONE;
-        } else if (0 == strcmp(detail, "button")) {
+        } else if (oneOf(detail, "button")) {
             if(isListViewHeader(widget))
                 return ROUNDED_NONE;
             else if(isComboBoxButton(widget))
@@ -784,13 +773,14 @@ isHorizontalProgressbar(GtkWidget *widget)
 bool
 isComboBoxPopupWindow(GtkWidget *widget, int level)
 {
-    if(widget)
-    {
-        if(gtk_widget_get_name(widget) && GTK_IS_WINDOW(widget) &&
-           0 == strcmp(gtk_widget_get_name(widget), "gtk-combobox-popup-window"))
+    if (widget) {
+        if (GTK_IS_WINDOW(widget) && oneOf(gtk_widget_get_name(widget),
+                                           "gtk-combobox-popup-window")) {
             return true;
-        else if(level<4)
-            return isComboBoxPopupWindow(gtk_widget_get_parent(widget), ++level);
+        } else if (level < 4) {
+            return isComboBoxPopupWindow(gtk_widget_get_parent(widget),
+                                         level + 1);
+        }
     }
     return false;
 }
@@ -801,40 +791,43 @@ bool isComboBoxList(GtkWidget *widget)
     return widget && (parent=gtk_widget_get_parent(widget)) && /*GTK_IS_FRAME(widget) && */isComboBoxPopupWindow(parent, 0);
 }
 
-bool isComboPopupWindow(GtkWidget *widget, int level)
+bool
+isComboPopupWindow(GtkWidget *widget, int level)
 {
-    if(widget)
-    {
-        if(gtk_widget_get_name(widget) && GTK_IS_WINDOW(widget) &&
-            0 == strcmp(gtk_widget_get_name(widget), "gtk-combo-popup-window"))
+    if (widget) {
+        if (GTK_IS_WINDOW(widget) && oneOf(gtk_widget_get_name(widget),
+                                           "gtk-combo-popup-window")) {
             return true;
-        else if(level<4)
-            return isComboPopupWindow(gtk_widget_get_parent(widget), ++level);
+        } else if (level < 4) {
+            return isComboPopupWindow(gtk_widget_get_parent(widget), level + 1);
+        }
     }
     return false;
 }
 
 bool isComboList(GtkWidget *widget)
 {
-    GtkWidget *parent=nullptr;
-    return widget && (parent=gtk_widget_get_parent(widget)) && isComboPopupWindow(parent, 0);
+    return widget && isComboPopupWindow(gtk_widget_get_parent(widget), 0);
 }
 
-bool isComboMenu(GtkWidget *widget)
+bool
+isComboMenu(GtkWidget *widget)
 {
-    if(widget && gtk_widget_get_name(widget) && GTK_IS_MENU(widget) && 0 == strcmp(gtk_widget_get_name(widget), "gtk-combobox-popup-menu"))
+    if (widget && gtk_widget_get_name(widget) && GTK_IS_MENU(widget) &&
+        oneOf(gtk_widget_get_name(widget), "gtk-combobox-popup-menu")) {
         return true;
-    else
-    {
-        GtkWidget *top        = gtk_widget_get_toplevel(widget),
-                  *topChild   = top ? gtk_bin_get_child(GTK_BIN(top)) : nullptr,
-                  *transChild = nullptr;
-        GtkWindow *trans      = nullptr;
+    } else {
+        GtkWidget *top = gtk_widget_get_toplevel(widget);
+        GtkWidget *topChild = top ? gtk_bin_get_child(GTK_BIN(top)) : nullptr;
+        GtkWidget *transChild = nullptr;
+        GtkWindow *trans = nullptr;
 
-        return topChild && (isComboBoxPopupWindow(topChild, 0) ||
-                       //GTK_IS_DIALOG(top) || /* Dialogs should not have menus! */
-                       (GTK_IS_WINDOW(top) && (trans=gtk_window_get_transient_for(GTK_WINDOW(top))) &&
-                        (transChild=gtk_bin_get_child(GTK_BIN(trans))) && isComboMenu(transChild)));
+        return (topChild &&
+                (isComboBoxPopupWindow(topChild, 0) ||
+                 (GTK_IS_WINDOW(top) &&
+                  (trans = gtk_window_get_transient_for(GTK_WINDOW(top))) &&
+                  (transChild = gtk_bin_get_child(GTK_BIN(trans))) &&
+                  isComboMenu(transChild))));
     }
 }
 
@@ -854,15 +847,11 @@ bool isFixedWidget(GtkWidget *widget)
 
 bool isGimpDockable(GtkWidget *widget)
 {
-    if(GTK_APP_GIMP == qtSettings.app)
-    {
-        GtkWidget *wid=widget;
-        while(wid)
-        {
-            if(0 == strcmp(g_type_name(G_OBJECT_TYPE(wid)), "GimpDockable") ||
-               0 == strcmp(g_type_name(G_OBJECT_TYPE(wid)), "GimpToolbox"))
+    if (qtSettings.app == GTK_APP_GIMP) {
+        for (GtkWidget *wid = widget;wid;wid = gtk_widget_get_parent(wid)) {
+            if (oneOf(gTypeName(wid), "GimpDockable", "GimpToolbox")) {
                 return true;
-            wid=gtk_widget_get_parent(wid);
+            }
         }
     }
     return false;

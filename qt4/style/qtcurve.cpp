@@ -424,22 +424,25 @@ setStyleRecursive(QWidget *w, QStyle *s, int minSize)
     }
 }
 
-static bool isA(const QObject *w, const char *type)
+static bool
+isA(const QObject *w, const char *type)
 {
-    return w && (0==strcmp(w->metaObject()->className(), type) || (w->parent() && 0==strcmp(w->parent()->metaObject()->className(), type)));
+    return w && (oneOf(w->metaObject()->className(), type) ||
+                 (w->parent() &&
+                  oneOf(w->parent()->metaObject()->className(), type)));
 }
 
-static bool isInQAbstractItemView(const QObject *w)
+static bool
+isInQAbstractItemView(const QObject *w)
 {
-    int level=8;
+    int level = 8;
 
-    while(w && --level>0)
-    {
-        if(qobject_cast<const QAbstractItemView*>(w))
+    while (w && --level > 0) {
+        if (qobject_cast<const QAbstractItemView*>(w))
             return true;
-        if(qobject_cast<const QDialog*>(w)/* || qobject_cast<const QMainWindow*>(w)*/)
+        if (qobject_cast<const QDialog*>(w)/* || qobject_cast<const QMainWindow*>(w)*/)
             return false;
-        w=w->parent();
+        w = w->parent();
     }
 
     return false;
@@ -893,18 +896,17 @@ Style::Style()
         , m_name(name)
 #endif
 {
-    const char *env=getenv(QTCURVE_PREVIEW_CONFIG);
-    if(env && 0==strcmp(env, QTCURVE_PREVIEW_CONFIG))
-    {
+    const char *env = getenv(QTCURVE_PREVIEW_CONFIG);
+    if (oneOf(env, QTCURVE_PREVIEW_CONFIG)) {
         // To enable preview of QtCurve settings, the style config module will set QTCURVE_PREVIEW_CONFIG
         // and use CE_QtC_SetOptions to set options. If this is set, we do not use the QPixmapCache as it
         // will interfere with that of the kcm's widgets!
-        m_isPreview=PREVIEW_MDI;
-        m_usePixmapCache=false;
-    } else if(env && 0==strcmp(env, QTCURVE_PREVIEW_CONFIG_FULL)) {
+        m_isPreview = PREVIEW_MDI;
+        m_usePixmapCache = false;
+    } else if (oneOf(env, QTCURVE_PREVIEW_CONFIG_FULL)) {
         // As above, but preview is in window - so can use opacity settings!
-        m_isPreview=PREVIEW_WINDOW;
-        m_usePixmapCache=false;
+        m_isPreview = PREVIEW_WINDOW;
+        m_usePixmapCache = false;
     } else {
         init(true);
     }
@@ -1922,27 +1924,24 @@ Style::polish(QWidget *widget)
     //
     // QWidget QComboBoxListView QComboBoxPrivateContainer SearchBarCombo KToolBar KonqMainWindow
     // QWidget KCompletionBox KLineEdit SearchBarCombo KToolBar KonqMainWindow
-    if(strcmp(widget->metaObject()->className(), "QWidget"))
-    {
-        QWidget *wid=widget ? widget->parentWidget() : 0L;
-
+    if (noneOf(widget->metaObject()->className(), "QWidget")) {
+        QWidget *wid = widget ? widget->parentWidget() : nullptr;
         while (wid && !parentIsToolbar) {
-            parentIsToolbar=qobject_cast<QToolBar*>(wid) || wid->inherits("Q3ToolBar");
-            wid=wid->parentWidget();
+            parentIsToolbar = (qobject_cast<QToolBar*>(wid) ||
+                               wid->inherits("Q3ToolBar"));
+            wid = wid->parentWidget();
         }
     }
 
-    if (APP_QTCREATOR == theThemedApp &&
+    if (theThemedApp == APP_QTCREATOR &&
         qobject_cast<QMainWindow*>(widget) &&
-        static_cast<QMainWindow*>(widget)->menuWidget())
+        static_cast<QMainWindow*>(widget)->menuWidget()) {
         static_cast<QMainWindow*>(widget)->menuWidget()->setStyle(this);
+    }
 
-    if (APP_QTCREATOR == theThemedApp && qobject_cast<QDialog*>(widget) &&
+    if (theThemedApp == APP_QTCREATOR && qobject_cast<QDialog*>(widget) &&
         qtcCheckKDEType(widget, KFileDialog)) {
-        QToolBar *tb = getToolBarChild(widget);
-
-        if(tb)
-        {
+        if (QToolBar *tb = getToolBarChild(widget)) {
             int size = pixelMetric(PM_ToolBarIconSize);
             tb->setIconSize(QSize(size, size));
             tb->setMinimumSize(QSize(size+14, size+14));
@@ -3978,10 +3977,11 @@ void Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option, 
                     }
                     // K3b's Disk usage status bar, etc...
 //                     else if(APP_K3B==theThemedApp && widget && widget->inherits("K3b::FillStatusDisplay"))
-                    else if (fo && fo->lineWidth>0)
-                    {
-                        bool         kwinTab(APP_KWIN==theThemedApp &&  widget && !widget->parentWidget() &&
-                                             0==strcmp(widget->metaObject()->className(), "KWin::TabBox"));
+                    else if (fo && fo->lineWidth > 0) {
+                        bool kwinTab(theThemedApp == APP_KWIN && widget &&
+                                     !widget->parentWidget() &&
+                                     oneOf(widget->metaObject()->className(),
+                                           "KWin::TabBox"));
                         QStyleOption opt(*option);
 
                         painter->save();
@@ -4031,28 +4031,33 @@ void Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option, 
                                                      widget->parentWidget()->inherits("Q3MainWindow")))
             {
                 painter->save();
-                if(!opts.xbar || (!widget || 0!=strcmp("QWidget", widget->metaObject()->className())))
+                if (!opts.xbar ||
+                    (!widget || noneOf(widget->metaObject()->className(),
+                                       "QWidget")))
                     drawMenuOrToolBarBackground(widget, painter, r, option);
-                if(TB_NONE!=opts.toolbarBorders)
-                {
-                    const QColor *use=m_active
-                                        ? m_menubarCols
-                                        : backgroundColors(option);
-                    bool         dark(TB_DARK==opts.toolbarBorders || TB_DARK_ALL==opts.toolbarBorders);
+                if (opts.toolbarBorders != TB_NONE) {
+                    const QColor *use = (m_active ? m_menubarCols :
+                                         backgroundColors(option));
+                    bool dark(oneOf(opts.toolbarBorders, TB_DARK, TB_DARK_ALL));
 
-                    if(TB_DARK_ALL==opts.toolbarBorders || TB_LIGHT_ALL==opts.toolbarBorders)
-                    {
+                    if (oneOf(opts.toolbarBorders, TB_DARK_ALL, TB_LIGHT_ALL)) {
                         painter->setPen(use[0]);
-                        painter->drawLine(r.x(), r.y(), r.x()+r.width()-1, r.y());
-                        painter->drawLine(r.x(), r.y(), r.x(), r.y()+r.height()-1);
+                        painter->drawLine(r.x(), r.y(),
+                                          r.x() + r.width() - 1, r.y());
+                        painter->drawLine(r.x(), r.y(), r.x(),
+                                          r.y() + r.height() - 1);
                         painter->setPen(use[dark ? 3 : 4]);
-                        painter->drawLine(r.x(), r.y()+r.height()-1, r.x()+r.width()-1, r.y()+r.height()-1);
-                        painter->drawLine(r.x()+r.width()-1, r.y(), r.x()+r.width()-1, r.y()+r.height()-1);
-                    }
-                    else
-                    {
+                        painter->drawLine(r.x(), r.y() + r.height() - 1,
+                                          r.x() + r.width() - 1,
+                                          r.y() + r.height() - 1);
+                        painter->drawLine(r.x() + r.width() - 1, r.y(),
+                                          r.x() + r.width() - 1,
+                                          r.y() + r.height() - 1);
+                    } else {
                         painter->setPen(use[dark ? 3 : 4]);
-                        painter->drawLine(r.x(), r.y()+r.height()-1, r.x()+r.width()-1, r.y()+r.height()-1);
+                        painter->drawLine(r.x(), r.y() + r.height() - 1,
+                                          r.x() + r.width() - 1,
+                                          r.y() + r.height() - 1);
                     }
                 }
                 painter->restore();
@@ -4223,18 +4228,18 @@ void Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option, 
                         opt.state^=State_Enabled;
 
                     if (opts.buttonEffect != EFFECT_NONE && opts.etchEntry &&
-                        APP_ARORA==theThemedApp && widget &&
-                       widget->parentWidget() && 0==strcmp(widget->metaObject()->className(), "LocationBar"))
-                    {
-                        const QToolBar *tb=getToolBar(widget->parentWidget()/*, false*/);
-
-                        if(tb)
-                        {
+                        theThemedApp == APP_ARORA && widget &&
+                        widget->parentWidget() &&
+                        oneOf(widget->metaObject()->className(), "LocationBar")) {
+                        if (const QToolBar *tb =
+                            getToolBar(widget->parentWidget()/*, false*/)) {
                             QRect r2(r);
-
-                            struct TB : public QToolBar
-                            {
-                                void initOpt(QStyleOptionToolBar *opt) { initStyleOption(opt); }
+                            struct TB: public QToolBar {
+                                void
+                                initOpt(QStyleOptionToolBar *opt)
+                                {
+                                    initStyleOption(opt);
+                                }
                             };
 
                             QStyleOptionToolBar opt;
@@ -4244,8 +4249,7 @@ void Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option, 
                             painter->save();
 
                             // Only need to adjust coords if toolbar has a gradient...
-                            if(!qtcIsFlat(opts.toolbarAppearance))
-                            {
+                            if (!qtcIsFlat(opts.toolbarAppearance)) {
                                 r2.setY(-widget->mapTo((QWidget*)tb, QPoint(r.x(), r.y())).y());
                                 r2.setHeight(tb->rect().height());
                             }
@@ -6015,7 +6019,9 @@ void Style::drawControl(ControlElement element, const QStyleOption *option, QPai
 
                 painter->save();
 
-                if(!opts.xbar || (!widget || 0!=strcmp("QWidget", widget->metaObject()->className()))) {
+                if (!opts.xbar ||
+                    (!widget || oneOf("QWidget",
+                                      widget->metaObject()->className()))) {
                     drawMenuOrToolBarBackground(widget, painter,
                                                 mbi->menuRect, option);
                 }
@@ -6470,7 +6476,7 @@ void Style::drawControl(ControlElement element, const QStyleOption *option, QPai
         case CE_MenuBarEmptyArea: {
             painter->save();
             if (!opts.xbar ||
-                (!widget || strcmp(widget->metaObject()->className(),
+                (!widget || noneOf(widget->metaObject()->className(),
                                    "QWidget"))) {
                 drawMenuOrToolBarBackground(widget, painter, r, option);
             }

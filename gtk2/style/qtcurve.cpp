@@ -116,7 +116,7 @@ template<typename Widget>
 static inline bool
 widgetIsType(Widget *widget, const char *name)
 {
-    return widget && !strcmp(g_type_name(G_TYPE_FROM_INSTANCE(widget)), name);
+    return oneOf(gTypeName(widget), name);
 }
 
 static void gtkDrawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
@@ -160,7 +160,7 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
     sanitizeSize(window, &width, &height);
 
     if (!opts.gtkButtonOrder && opts.reorderGtkButtons &&
-        GTK_IS_WINDOW(widget) && strcmp(detail, "base") == 0) {
+        GTK_IS_WINDOW(widget) && oneOf(detail, "base")) {
         GtkWidget *topLevel = gtk_widget_get_toplevel(widget);
         GtkWidgetProps topProps(topLevel);
 
@@ -248,7 +248,7 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
         Scrollbar::setup(widget);
     }
 
-    if (qtcIsCustomBgnd(opts) && DETAIL("viewportbin")) {
+    if (qtcIsCustomBgnd(opts) && oneOf(detail, "viewportbin")) {
         GtkRcStyle *st = widget ? gtk_widget_get_modifier_style(widget) : nullptr;
         // if the app hasn't modified bg, draw background gradient
         if (st && !(st->color_flags[state]&GTK_RC_BG)) {
@@ -260,17 +260,17 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                                         widget, _detail, x, y, width, height);
         }
     } else if (qtcIsCustomBgnd(opts) && widget && GTK_IS_WINDOW(widget) &&
-             !isMenuOrToolTipWindow &&
-             drawWindowBgnd(cr, style, (QtcRect*)area, window, widget,
-                            x, y, width, height)) {
+               !isMenuOrToolTipWindow &&
+               drawWindowBgnd(cr, style, (QtcRect*)area, window, widget,
+                              x, y, width, height)) {
         Window::setup(widget, GTK_IS_DIALOG(widget) ? opts.dlgOpacity :
                       opts.bgndOpacity);
-    } else if(widget && GTK_IS_TREE_VIEW(widget)) {
+    } else if (widget && GTK_IS_TREE_VIEW(widget)) {
         bool isCombo = isComboBoxPopupWindow(widget, 0);
         GtkTreeView *treeView = GTK_TREE_VIEW(widget);
         bool checkRules = (opts.forceAlternateLvCols ||
                            gtk_tree_view_get_rules_hint(treeView));
-        bool isEven = checkRules && DETAILHAS("cell_even");
+        bool isEven = checkRules && strstr(detail, "cell_even");
 
         if (qtSettings.app == GTK_APP_JAVA_SWT)
             area = nullptr;
@@ -282,10 +282,10 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
             static GtkWidget *lastWidget = nullptr;
             static int lastEven = -1;
 
-            if (DETAILHAS("cell_even")) {
+            if (strstr(detail, "cell_even")) {
                 lastWidget = widget;
                 lastEven = y;
-            } else if (DETAILHAS("cell_odd")) {
+            } else if (strstr(detail, "cell_odd")) {
                 if (lastWidget == widget) {
                     if (y == lastEven) {
                         isEven = true;
@@ -386,29 +386,32 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                               y, selW, height, round, true, alpha, factor);
             }
         }
-    } else if(strcmp(detail, "checkbutton") == 0) {
+    } else if (oneOf(detail, "checkbutton")) {
         if (state == GTK_STATE_PRELIGHT && opts.crHighlight &&
             width > opts.crSize * 2) {
             GdkColor col=shadeColor(&style->bg[state], TO_FACTOR(opts.crHighlight));
-            drawSelectionGradient(cr, (QtcRect*)area, x, y, width, height, ROUNDED_ALL, false, 1.0, &col, true);
+            drawSelectionGradient(cr, (QtcRect*)area, x, y, width, height,
+                                  ROUNDED_ALL, false, 1.0, &col, true);
         }
-    } else if (strcmp(detail, "expander") == 0) {
+    } else if (oneOf(detail, "expander")) {
         if (state == GTK_STATE_PRELIGHT && opts.expanderHighlight) {
-            GdkColor col=shadeColor(&style->bg[state], TO_FACTOR(opts.expanderHighlight));
-            drawSelectionGradient(cr, (QtcRect*)area, x, y, width, height, ROUNDED_ALL, false, 1.0, &col, true);
+            GdkColor col = shadeColor(&style->bg[state],
+                                      TO_FACTOR(opts.expanderHighlight));
+            drawSelectionGradient(cr, (QtcRect*)area, x, y, width, height,
+                                  ROUNDED_ALL, false, 1.0, &col, true);
         }
-    } else if (DETAIL("tooltip")) {
+    } else if (oneOf(detail, "tooltip")) {
         drawToolTip(cr, widget, (QtcRect*)area, x, y, width, height);
-    } else if (DETAIL("icon_view_item")) {
+    } else if (oneOf(detail, "icon_view_item")) {
         drawSelection(cr, style, state, (QtcRect*)area, widget, x, y,
                       width, height, ROUNDED_ALL, false, 1.0, 0);
     } else if (state != GTK_STATE_SELECTED &&
-               qtcIsCustomBgnd(opts) && DETAIL("eventbox")) {
+               qtcIsCustomBgnd(opts) && oneOf(detail, "eventbox")) {
         drawWindowBgnd(cr, style, nullptr, window, widget, x, y, width, height);
     } else if (!(qtSettings.app == GTK_APP_JAVA && widget &&
                  GTK_IS_LABEL(widget))) {
         if (state != GTK_STATE_PRELIGHT || opts.crHighlight ||
-            strcmp(detail, "checkbutton") != 0) {
+            noneOf(detail, "checkbutton")) {
             parent_class->draw_flat_box(style, window, state, shadow, area,
                                         widget, _detail, x, y, width, height);
         }
@@ -417,7 +420,7 @@ gtkDrawFlatBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
            for etching we need 3. So we fake this by drawing the 3rd lines here...*/
 
 /*
-        if(DO_EFFECT && GTK_STATE_INSENSITIVE!=state && DETAIL("entry_bg") &&
+        if(DO_EFFECT && GTK_STATE_INSENSITIVE!=state && oneOf(detail, "entry_bg") &&
            isSwtComboBoxEntry(widget) && gtk_widget_has_focus(widget))
         {
             Cairo::hLine(cr, x, y, width,
@@ -459,12 +462,12 @@ gtkDrawHandle(GtkStyle *style, GdkWindow *window, GtkStateType state,
         }
     }
 
-    if ((!strcmp(detail, "paned") || !strcmp(detail + 1, "paned"))) {
+    if (oneOf(detail, "paned") || oneOf(detail + 1, "paned")) {
         drawSplitter(cr, state, style, area, x, y, width, height);
-    } else if ((DETAIL("handlebox") &&
+    } else if ((oneOf(detail, "handlebox") &&
                 (qtSettings.app == GTK_APP_JAVA ||
                  (widget && GTK_IS_HANDLE_BOX(widget)))) ||
-               DETAIL("dockitem") || paf) {
+               oneOf(detail, "dockitem") || paf) {
         /* Note: I'm not sure why the 'widget && GTK_IS_HANDLE_BOX(widget)' is in
          * the following 'if' - its been there for a while. But this breaks the
          * toolbar handles for Java Swing apps. I'm leaving it in for non Java
@@ -542,7 +545,7 @@ gtkDrawArrow(GtkStyle *style, GdkWindow *window, GtkStateType state,
     QtcRect *area = (QtcRect*)_area;
     cairo_t *cr = gdk_cairo_create(window);
 
-    if (DETAIL("arrow")) {
+    if (oneOf(detail, "arrow")) {
         bool onComboEntry = isOnComboEntry(widget, 0);
 
         if (isOnComboBox(widget, 0) && !onComboEntry) {
@@ -603,8 +606,8 @@ gtkDrawArrow(GtkStyle *style, GdkWindow *window, GtkStateType state,
                          false, true, opts.vArrows);
         }
     } else {
-        int isSpinButton = DETAIL("spinbutton");
-        bool isMenuItem = DETAIL("menuitem");
+        int isSpinButton = oneOf(detail, "spinbutton");
+        bool isMenuItem = oneOf(detail, "menuitem");
         /* int a_width = LARGE_ARR_WIDTH; */
         /* int a_height = LARGE_ARR_HEIGHT; */
         bool sbar = isSbarDetail(detail);
@@ -710,20 +713,20 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
     QTC_RET_IF_FAIL(GDK_IS_DRAWABLE(window));
     const char *detail = _detail ? _detail : "";
     bool sbar = isSbarDetail(detail);
-    bool pbar = DETAIL("bar"); //  && GTK_IS_PROGRESS_BAR(widget);
-    bool qtcSlider = !pbar && DETAIL("qtc-slider");
-    bool slider = qtcSlider || (!pbar && DETAIL("slider"));
-    bool hscale = !slider && DETAIL("hscale");
-    bool vscale = !hscale && DETAIL("vscale");
-    bool menubar = !vscale && DETAIL("menubar");
-    bool button = !menubar && DETAIL("button");
-    bool togglebutton = !button && DETAIL("togglebutton");
-    bool optionmenu = !togglebutton && DETAIL("optionmenu");
-    bool stepper = !optionmenu && DETAIL("stepper");
+    bool pbar = oneOf(detail, "bar"); //  && GTK_IS_PROGRESS_BAR(widget);
+    bool qtcSlider = !pbar && oneOf(detail, "qtc-slider");
+    bool slider = qtcSlider || (!pbar && oneOf(detail, "slider"));
+    bool hscale = !slider && oneOf(detail, "hscale");
+    bool vscale = !hscale && oneOf(detail, "vscale");
+    bool menubar = !vscale && oneOf(detail, "menubar");
+    bool button = !menubar && oneOf(detail, "button");
+    bool togglebutton = !button && oneOf(detail, "togglebutton");
+    bool optionmenu = !togglebutton && oneOf(detail, "optionmenu");
+    bool stepper = !optionmenu && oneOf(detail, "stepper");
     bool vscrollbar = (!optionmenu && Str::startsWith(detail, "vscrollbar"));
     bool hscrollbar = (!vscrollbar && Str::startsWith(detail, "hscrollbar"));
-    bool spinUp = !hscrollbar && DETAIL("spinbutton_up");
-    bool spinDown = !spinUp && DETAIL("spinbutton_down");
+    bool spinUp = !hscrollbar && oneOf(detail, "spinbutton_up");
+    bool spinDown = !spinUp && oneOf(detail, "spinbutton_down");
     bool menuScroll = strstr(detail, "menu_scroll_arrow_");
     bool rev = (reverseLayout(widget) ||
                 (widget && reverseLayout(gtk_widget_get_parent(widget))));
@@ -837,7 +840,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                            &btnColors[bgnd], btnColors, round, wid, BORDER_FLAT,
                            DF_DO_BORDER | (sunken ? DF_SUNKEN : 0), widget);
         }
-    } else if (DETAIL("spinbutton")) {
+    } else if (oneOf(detail, "spinbutton")) {
         if (qtcIsFlatBgnd(opts.bgndAppearance) ||
             !(widget && drawWindowBgnd(cr, style, (QtcRect*)area, window,
                                        widget, x, y, width, height))) {
@@ -917,8 +920,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
         }
     } else if (button || togglebutton || optionmenu || sbar ||
                hscale || vscale || stepper || slider) {
-        bool combo = (strcmp(detail, "optionmenu") == 0 ||
-                      isOnComboBox(widget, 0));
+        bool combo = oneOf(detail, "optionmenu") || isOnComboBox(widget, 0);
         bool combo_entry = combo && isOnComboEntry(widget, 0);
         bool horiz_tbar;
         bool tbar_button = isButtonOnToolbar(widget, &horiz_tbar);
@@ -979,10 +981,10 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
             /* Try and guess if this button is a toolbar button... */
             if (oneOf(widgetType, WIDGET_STD_BUTTON, WIDGET_TOGGLE_BUTTON) &&
                 isMozillaWidget(widget) && GTK_IS_BUTTON(widget) &&
-                DETAIL("button") && ((width > 22 && width < 56 &&
-                                      height > 30) || height >= 32 ||
-                                     ((width == 30 || width == 45) &&
-                                      height == 30)))
+                oneOf(detail, "button") && ((width > 22 && width < 56 &&
+                                             height > 30) || height >= 32 ||
+                                            ((width == 30 || width == 45) &&
+                                             height == 30)))
                 widgetType = (opts.coloredTbarMo ? WIDGET_TOOLBAR_BUTTON :
                               WIDGET_UNCOLOURED_MO_BUTTON);
 
@@ -1420,9 +1422,8 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 }
             }
         }
-    } else if (strcmp(detail, "buttondefault") == 0 ||
-               strcmp(detail, "togglebuttondefault") == 0) {
-    } else if (widget && (strcmp(detail, "trough") == 0 ||
+    } else if (oneOf(detail, "buttondefault", "togglebuttondefault")) {
+    } else if (widget && (oneOf(detail, "trough") ||
                           Str::startsWith(detail, "trough-"))) {
         bool list = isList(widget);
         bool pbar = list || GTK_IS_PROGRESS_BAR(widget);
@@ -1441,20 +1442,18 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
             drawScrollbarGroove(cr, style, state, widget, (QtcRect*)area,
                                 x, y, width, height, horiz);
         }
-    } else if (DETAIL("entry-progress")) {
+    } else if (oneOf(detail, "entry-progress")) {
         int adjust = (opts.fillProgress ? 4 : 3) - (opts.etchEntry ? 1 : 0);
         drawProgress(cr, style, state, widget, (QtcRect*)area, x - adjust,
                      y - adjust, width + adjust, height + 2 * adjust,
                      rev, true);
-    } else if (strcmp(detail,"dockitem") == 0 ||
-               strcmp(detail,"dockitem_bin") == 0) {
+    } else if (oneOf(detail, "dockitem", "dockitem_bin")) {
         if (qtcIsCustomBgnd(opts) && widget) {
             drawWindowBgnd(cr, style, (QtcRect*)area, window, widget,
                            x, y, width, height);
         }
-    } else if (widget && ((menubar || strcmp(detail, "toolbar") == 0 ||
-                           strcmp(detail, "handlebox") == 0 ||
-                           strcmp(detail,"handlebox_bin") == 0) ||
+    } else if (widget && ((menubar || oneOf(detail, "toolbar", "handlebox",
+                                            "handlebox_bin")) ||
                           widgetIsType(widget, "PanelAppletFrame"))) {
         //if(GTK_SHADOW_NONE!=shadow)
         {
@@ -1490,7 +1489,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
             if (drawGradient) {
                 drawBevelGradient(cr, (QtcRect*)area, x, y - menuBarAdjust, width,
                                   height + menuBarAdjust, col,
-                                  (menubar ? true : DETAIL("handlebox") ?
+                                  (menubar ? true : oneOf(detail, "handlebox") ?
                                    width < height : width > height),
                                   false, MODIFY_AGUA(app), WIDGET_OTHER, alpha);
             } else if (fillBackground) {
@@ -1505,10 +1504,10 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
     } else if (widget && pbar) {
         drawProgress(cr, style, state, widget, (QtcRect*)area,
                      x, y, width, height, rev, false);
-    } else if(DETAIL("menuitem")) {
+    } else if (oneOf(detail, "menuitem")) {
         drawMenuItem(cr, state, style, widget, (QtcRect*)area,
                      x, y, width, height);
-    } else if(DETAIL("menu")) {
+    } else if (oneOf(detail, "menu")) {
         drawMenu(cr, widget, (QtcRect*)area, x, y, width, height);
     } else if ((!strcmp(detail, "paned") || !strcmp(detail + 1, "paned"))) {
         gtkDrawHandle(style, window, state, shadow, area, widget, detail,
@@ -1527,7 +1526,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
 //             if(widget && IMG_NONE!=opts.bgndImage.type)
 //                 drawWindowBgnd(cr, style, area, widget, x, y, width, height);
 //        }
-    } else if (DETAIL("hseparator")) {
+    } else if (oneOf(detail, "hseparator")) {
         bool isMenuItem = widget && GTK_IS_MENU_ITEM(widget);
         const GdkColor *cols=qtcPalette.background;
         int offset=opts.menuStripe && (isMozilla() || isMenuItem) ? 20 : 0;
@@ -1542,7 +1541,7 @@ drawBox(GtkStyle *style, GdkWindow *window, GtkStateType state,
         drawFadedLine(cr, x + 1 + offset, y + height / 2, width - (1 + offset),
                       1, &cols[isMenuItem ? MENU_SEP_SHADE : QTC_STD_BORDER],
                       (QtcRect*)area, nullptr, true, true, true);
-    } else if (DETAIL("vseparator")) {
+    } else if (oneOf(detail, "vseparator")) {
         drawFadedLine(cr, x + width / 2, y, 1, height,
                       &qtcPalette.background[QTC_STD_BORDER], (QtcRect*)area,
                       nullptr, true, true, false);
@@ -1605,7 +1604,7 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
         bool square = opts.square & SQUARE_POPUP_MENUS;
 
         if ((!square || opts.popupBorder) &&
-            (!comboList || !DETAIL("viewport"))) {
+            (!comboList || noneOf(detail, "viewport"))) {
             bool nonGtk = square || isFakeGtk();
             bool composActive = !nonGtk && compositingActive(widget);
             bool isAlphaWidget = (!nonGtk && composActive &&
@@ -1694,9 +1693,7 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
 
         WidgetMap::setup(parent, widget, 1);
         ComboBox::setup(widget, parent);
-    }
-    else if(DETAIL("entry") || DETAIL("text"))
-    {
+    } else if (oneOf(detail, "entry", "text")) {
         GtkWidget *parent=widget ? gtk_widget_get_parent(widget) : nullptr;
         if (parent && isList(parent)) {
             // Dont draw shadow for entries in listviews...
@@ -1756,7 +1753,7 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
         }
     } else {
         bool frame = !_detail || strcmp(detail, "frame") == 0;
-        bool scrolledWindow = DETAIL("scrolled_window");
+        bool scrolledWindow = oneOf(detail, "scrolled_window");
         bool viewport = !scrolledWindow && strstr(detail, "viewport");
         bool drawSquare = ((frame && opts.square & SQUARE_FRAME) ||
                            (!viewport && !scrolledWindow &&
@@ -2026,11 +2023,11 @@ gtkDrawLayout(GtkStyle *style, GdkWindow *window, GtkStateType state,
     const char *detail = _detail ? _detail : "";
     const QtcRect *area = (QtcRect*)_area;
     cairo_t *cr = gdk_cairo_create(window);
-    if (GTK_IS_PROGRESS(widget) || DETAIL("progressbar")) {
+    if (GTK_IS_PROGRESS(widget) || oneOf(detail, "progressbar")) {
         drawLayout(cr, style, state, use_text, area, x, y, layout);
     } else {
         Style *qtc_style = (Style*)style;
-        bool isMenuItem = IS_MENU_ITEM(widget);
+        bool isMenuItem = isMenuitem(widget);
         GtkMenuBar *mb = isMenuItem ? isMenubar(widget, 0) : nullptr;
         bool activeMb = mb ? GTK_MENU_SHELL(mb)->active : false;
         bool selectedText = ((opts.useHighlightForMenu ||
@@ -2054,11 +2051,11 @@ gtkDrawLayout(GtkStyle *style, GdkWindow *window, GtkStateType state,
         if (qtSettings.debug == DEBUG_ALL) {
             printf(DEBUG_PREFIX "%s %s %d %d %d %d %d %s  ", __FUNCTION__,
                    pango_layout_get_text(layout), x, y, state, use_text,
-                   IS_MENU_ITEM(widget), _detail);
+                   isMenuitem(widget), _detail);
             debugDisplayWidget(widget, 10);
         }
 
-        if (DETAIL("cellrenderertext") && widget &&
+        if (oneOf(detail, "cellrenderertext") && widget &&
             gtk_widget_get_state(widget) == GTK_STATE_INSENSITIVE)
              state = GTK_STATE_INSENSITIVE;
 
@@ -2068,7 +2065,7 @@ gtkDrawLayout(GtkStyle *style, GdkWindow *window, GtkStateType state,
            if not used, when an item is selected it gets the selected text
            color - but when the window changes focus it gets the normal
            text color! */
-         if (DETAIL("cellrenderertext") && state == GTK_STATE_ACTIVE)
+         if (oneOf(detail, "cellrenderertext") && state == GTK_STATE_ACTIVE)
              state = GTK_STATE_SELECTED;
 #endif
 
@@ -2272,7 +2269,7 @@ gtkDrawBoxGap(GtkStyle *style, GdkWindow *window, GtkStateType state,
                width, height, gapSide, gapX, gapWidth,
                opts.borderTab ? BORDER_LIGHT : BORDER_RAISED, true);
 
-    if (opts.windowDrag > WM_DRAG_MENU_AND_TOOLBAR && DETAIL("notebook")) {
+    if (opts.windowDrag > WM_DRAG_MENU_AND_TOOLBAR && oneOf(detail, "notebook")) {
         WMMove::setup(widget);
     }
 
@@ -2298,7 +2295,7 @@ gtkDrawExtension(GtkStyle *style, GdkWindow *window, GtkStateType state,
     }
     sanitizeSize(window, &width, &height);
 
-    if (DETAIL("tab")) {
+    if (oneOf(detail, "tab")) {
         QtcRect *area = (QtcRect*)_area;
         cairo_t *cr = Cairo::gdkCreateClip(window, area);
         drawTab(cr, state, style, widget, area, x, y, width, height, gapSide);
@@ -2319,7 +2316,7 @@ gtkDrawSlider(GtkStyle *style, GdkWindow *window, GtkStateType state,
     QTC_RET_IF_FAIL(GTK_IS_STYLE(style));
     QTC_RET_IF_FAIL(GDK_IS_DRAWABLE(window));
     const char *detail = _detail ? _detail : "";
-    bool scrollbar = DETAIL("slider");
+    bool scrollbar = oneOf(detail, "slider");
     bool scale = oneOf(detail, "hscale", "vscale");
 
     if (qtSettings.debug == DEBUG_ALL) {
@@ -2506,7 +2503,7 @@ gtkDrawHLine(GtkStyle *style, GdkWindow *window, GtkStateType state,
                 }
             }
         }
-    } else if (DETAIL("label")) {
+    } else if (oneOf(detail, "label")) {
         if (state == GTK_STATE_INSENSITIVE) {
             /* Cairo::hLine(cr, (x1 < x2 ? x1 : x2) + 1, y + 1, abs(x2 - x1), */
             /*              &qtcPalette.background[light]); */
@@ -2519,9 +2516,8 @@ gtkDrawHLine(GtkStyle *style, GdkWindow *window, GtkStateType state,
         drawFadedLine(cr, x1 < x2 ? x1 : x2, y, abs(x2 - x1), 1,
                       &qtcPalette.background[dark], (QtcRect*)area, nullptr,
                       true, true, true);
-    }
-    else if(DETAIL("menuitem") || (widget && DETAIL("hseparator") && IS_MENU_ITEM(widget)))
-    {
+    } else if (oneOf(detail, "menuitem") ||
+               (widget && oneOf(detail, "hseparator") && isMenuitem(widget))) {
         int       offset=opts.menuStripe && (isMozilla() || (widget && GTK_IS_MENU_ITEM(widget))) ? 20 : 0;
         GdkColor *cols=qtcPalette.background;
 
@@ -2568,9 +2564,9 @@ gtkDrawVLine(GtkStyle *style, GdkWindow *window, GtkStateType state,
 
     cairo_t *cr = Cairo::gdkCreateClip(window, area);
 
-    if (!(DETAIL("vseparator") && isOnComboBox(widget, 0))) {
+    if (!(oneOf(detail, "vseparator") && isOnComboBox(widget, 0))) {
          /* CPD: Combo handled in drawBox */
-        bool tbar = DETAIL("toolbar");
+        bool tbar = oneOf(detail, "toolbar");
         int dark = tbar ? 3 : 5;
         int light = 0;
 
@@ -3112,20 +3108,21 @@ rc_style_merge(GtkRcStyle *dest, GtkRcStyle *src)
 {
 
     GtkRcStyle copy;
-    const char *typeName=src ? g_type_name(G_TYPE_FROM_INSTANCE(src)) : nullptr;
     bool destIsQtc = isRcStyle(dest);
     bool srcIsQtc = (!src->name || Str::startsWith(src->name, RC_SETTING) ||
                      Str::startsWith(src->name, getProgName()));
-    bool isQtCNoteBook=0!=opts.tabBgnd && src->name && 0==strcmp(src->name, "qtcurve-notebook_bg"),
-                dontChangeColors=destIsQtc && !srcIsQtc && !isQtCNoteBook &&
-                                 // Only allow GtkRcStyle and QtCurve::RcStyle to change colours
-                                 // ...this should catch most cases whre another themes gtkrc is in the
-                                 // GTK2_RC_FILES path
-                                ( (typeName && strcmp(typeName, "GtkRcStyle") && strcmp(typeName, "QtCurveRcStyle")) ||
-                                 // If run as root (probably via kdesu/kdesudo) then dont allow KDE settings to take
-                                 // effect - as these are sometimes from the user's settings, not roots!
-                                  (0==getuid() && src && src->name && (0==strcmp(src->name, "ToolTip") ||
-                                                                      0==strcmp(src->name, "default"))));
+    bool isQtCNoteBook = (opts.tabBgnd != 0 && src->name &&
+                          oneOf(src->name, "qtcurve-notebook_bg"));
+    bool dontChangeColors = destIsQtc && !srcIsQtc && !isQtCNoteBook &&
+        // Only allow GtkRcStyle and QtCurve::RcStyle to change colours
+        // ...this should catch most cases whre another themes gtkrc is in the
+        // GTK2_RC_FILES path
+        (noneOf(gTypeName(src), "GtkRcStyle", "QtCurveRcStyle") ||
+         // If run as root (probably via kdesu/kdesudo) then dont allow KDE
+         // settings to take effect - as these are sometimes from the user's
+         // settings, not roots!
+         (getuid() == 0 && src && src->name &&
+          oneOf(src->name, "ToolTip", "default")));
 
     if (isQtCNoteBook) {
         qtcShade(&qtcPalette.background[ORIGINAL_SHADE],

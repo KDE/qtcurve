@@ -662,8 +662,8 @@ void Style::init(bool initial)
     }
 
     m_blurHelper->setEnabled(opts.bgndOpacity != 100 ||
-                              opts.dlgOpacity != 100 ||
-                              opts.menuBgndOpacity != 100);
+                             opts.dlgOpacity != 100 ||
+                             opts.menuBgndOpacity != 100);
 
 #ifdef QTC_QT5_ENABLE_KDE
     // We need to set the decoration colours for the preview now...

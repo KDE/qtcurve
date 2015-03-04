@@ -88,6 +88,15 @@ qtcIsProgressBar(GtkWidget *w)
     return alloc.x != -1 && alloc.y != -1;
 }
 
+template<typename T>
+static inline const char*
+gTypeName(T *obj)
+{
+    if (qtcUnlikely(!obj))
+        return "";
+    return qtcDefault(G_OBJECT_TYPE_NAME(obj), "");
+}
+
 struct GObjectDeleter {
     template<typename T>
     inline void

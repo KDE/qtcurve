@@ -161,12 +161,9 @@ setup(GtkWidget *widget)
             if (GTK_IS_TREE_VIEW(child) || GTK_IS_TEXT_VIEW(child) ||
                 GTK_IS_ICON_VIEW(child)) {
                 setupConnections(child, widget);
-            } else {
-                const char *type = g_type_name(G_OBJECT_TYPE(child));
-                if (type && (strcmp(type, "ExoIconView") == 0 ||
-                             strcmp(type, "FMIconContainer") == 0)) {
-                    setupConnections(child, widget);
-                }
+            } else if (oneOf(gTypeName(child), "ExoIconView",
+                             "FMIconContainer")) {
+                setupConnections(child, widget);
             }
         }
         props->scrolledWindowHacked = true;

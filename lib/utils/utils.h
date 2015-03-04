@@ -116,7 +116,7 @@ struct _oneOfCmp<T1, T2, typename std::enable_if<_isCharStr<T1>::value &&
                                       _isCharStr<T2>::value>::type> {
     inline bool operator()(T1 &&v1, T2 &&v2)
     {
-        return strcmp(v1, v2) == 0;
+        return v1 && strcmp(v1, v2) == 0;
     }
 };
 
@@ -124,7 +124,7 @@ template<typename...>
 struct CaseCmp {
     inline bool operator()(const char *str1, const char *str2)
     {
-        return strcasecmp(str1, str2) == 0;
+        return str1 && strcasecmp(str1, str2) == 0;
     }
 };
 

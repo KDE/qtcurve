@@ -1221,18 +1221,19 @@ bool qtcReadConfig(const char *file, Options *opts, Options *defOpts)
             {
                 CFG_READ_INT(thin);
             }
-            if(opts->version<qtcMakeVersion(1, 6))
-                opts->square|=SQUARE_TOOLTIPS;
-            if(opts->version<qtcMakeVersion(1, 6, 1))
-                opts->square|=SQUARE_POPUP_MENUS;
-            if(opts->version<qtcMakeVersion(1, 2))
-                def->crSize=CR_SMALL_SIZE;
-            if(opts!=def)
-            {
-                opts->customShades[0]=0;
-                opts->customAlphas[0]=0;
-                if(USE_CUSTOM_SHADES(*def))
-                    memcpy(opts->customShades, def->customShades, sizeof(double)*QTC_NUM_STD_SHADES);
+            if (opts->version < qtcMakeVersion(1, 6))
+                opts->square |= SQUARE_TOOLTIPS;
+            if (opts->version < qtcMakeVersion(1, 6, 1))
+                opts->square |= SQUARE_POPUP_MENUS;
+            if (opts->version < qtcMakeVersion(1, 2))
+                def->crSize = CR_SMALL_SIZE;
+            if (opts != def) {
+                opts->customShades[0] = 0;
+                opts->customAlphas[0] = 0;
+                if (USE_CUSTOM_SHADES(*def)) {
+                    memcpy(opts->customShades, def->customShades,
+                           sizeof(double) * QTC_NUM_STD_SHADES);
+                }
             }
 
             CFG_READ_INT(gbFactor);
@@ -1244,13 +1245,10 @@ bool qtcReadConfig(const char *file, Options *opts, Options *defOpts)
             CFG_READ_INT(tabBgnd);
             CFG_READ_TB_BORDER(toolbarBorders);
             CFG_READ_APPEARANCE(appearance, APP_ALLOW_BASIC);
-            if(opts->version<qtcMakeVersion(1, 8))
-            {
-                opts->tbarBtnAppearance=APPEARANCE_NONE;
-                opts->tbarBtnEffect=EFFECT_NONE;
-            }
-            else
-            {
+            if (opts->version<qtcMakeVersion(1, 8)) {
+                opts->tbarBtnAppearance = APPEARANCE_NONE;
+                opts->tbarBtnEffect = EFFECT_NONE;
+            } else {
                 CFG_READ_APPEARANCE(tbarBtnAppearance, APP_ALLOW_NONE);
                 CFG_READ_EFFECT(tbarBtnEffect);
             }
@@ -1262,8 +1260,11 @@ bool qtcReadConfig(const char *file, Options *opts, Options *defOpts)
             CFG_READ_APPEARANCE_PIXMAP(menuBgndAppearance, APP_ALLOW_STRIPED,
                                        &opts->menuBgndPixmap, checkImages);
 
-            if(APPEARANCE_FLAT==opts->menuBgndAppearance && 0==opts->lighterPopupMenuBgnd && opts->version<qtcMakeVersion(1, 7))
-                opts->menuBgndAppearance=APPEARANCE_RAISED;
+            if (opts->menuBgndAppearance == APPEARANCE_FLAT &&
+                opts->lighterPopupMenuBgnd == 0 &&
+                opts->version<qtcMakeVersion(1, 7)) {
+                opts->menuBgndAppearance = APPEARANCE_RAISED;
+            }
 
             CFG_READ_STRIPE(stripedProgress);
             CFG_READ_SLIDER(sliderStyle);
@@ -1276,12 +1277,16 @@ bool qtcReadConfig(const char *file, Options *opts, Options *defOpts)
             CFG_READ_INT_BOOL(colorSelTab, DEF_COLOR_SEL_TAB_FACTOR);
             CFG_READ_BOOL(roundAllTabs);
             CFG_READ_TAB_MO(tabMouseOver);
-            CFG_READ_SHADE(shadeSliders, true, false, &opts->customSlidersColor);
-            CFG_READ_SHADE(shadeMenubars, true, false, &opts->customMenubarsColor);
-            CFG_READ_SHADE(shadeCheckRadio, false, false, &opts->customCheckRadioColor);
+            CFG_READ_SHADE(shadeSliders, true, false,
+                           &opts->customSlidersColor);
+            CFG_READ_SHADE(shadeMenubars, true, false,
+                           &opts->customMenubarsColor);
+            CFG_READ_SHADE(shadeCheckRadio, false, false,
+                           &opts->customCheckRadioColor);
             CFG_READ_SHADE(sortedLv, true, false, &opts->customSortedLvColor);
             CFG_READ_SHADE(crColor,  true, false, &opts->customCrBgndColor);
-            CFG_READ_SHADE(progressColor, false, false, &opts->customProgressColor);
+            CFG_READ_SHADE(progressColor, false, false,
+                           &opts->customProgressColor);
             CFG_READ_APPEARANCE(menubarAppearance, APP_ALLOW_BASIC);
             CFG_READ_APPEARANCE(menuitemAppearance, APP_ALLOW_FADE);
             CFG_READ_APPEARANCE(toolbarAppearance, APP_ALLOW_BASIC);
@@ -1307,10 +1312,9 @@ bool qtcReadConfig(const char *file, Options *opts, Options *defOpts)
             CFG_READ_APPEARANCE(grooveAppearance, APP_ALLOW_BASIC);
             CFG_READ_APPEARANCE(sunkenAppearance, APP_ALLOW_BASIC);
             CFG_READ_APPEARANCE(sbarBgndAppearance, APP_ALLOW_BASIC);
-            if(opts->version<qtcMakeVersion(1, 6))
-                opts->tooltipAppearance=APPEARANCE_FLAT;
-            else
-            {
+            if (opts->version < qtcMakeVersion(1, 6)) {
+                opts->tooltipAppearance = APPEARANCE_FLAT;
+            } else {
                 CFG_READ_APPEARANCE(tooltipAppearance, APP_ALLOW_BASIC);
             }
 

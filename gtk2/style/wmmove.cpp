@@ -370,9 +370,9 @@ setup(GtkWidget *widget)
       means that it does something with such events, in which case we should
       not use them for grabbing
     */
-    if (0 == strcmp(g_type_name(G_OBJECT_TYPE(widget)), "GtkWindow") &&
-       (gtk_widget_get_events(widget) &
-        (GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK)))
+    if (oneOf(gTypeName(widget), "GtkWindow") &&
+        (gtk_widget_get_events(widget) &
+         (GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK)))
         return;
 
     GtkWidgetProps props(widget);
