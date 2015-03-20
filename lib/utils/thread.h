@@ -1,5 +1,5 @@
 /*****************************************************************************
- *   Copyright 2013 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
+ *   Copyright 2015 - 2015 Yichao Yu <yyc1992@gmail.com>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU Lesser General Public License as          *
@@ -19,48 +19,41 @@
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
 
-#include "timer.h"
-#include "thread.h"
+#ifndef _QTC_UTILS_THREAD_H_
+#define _QTC_UTILS_THREAD_H_
 
-#include <chrono>
-#include <vector>
+#include <pthread.h>
 
-namespace QtCurve {
-
-QTC_EXPORT uint64_t
-getTime()
-{
-    using namespace std::chrono;
-    return time_point_cast<nanoseconds>(high_resolution_clock::now())
-        .time_since_epoch().count();
-}
-
-QTC_EXPORT uint64_t
-getElapse(uint64_t prev)
-{
-    return getTime() - prev;
-}
-
-static ThreadLocal<std::vector<uint64_t> > tics_list;
-
-QTC_EXPORT void
-tic()
-{
-    tics_list->push_back(0);
-    auto &back = tics_list->back();
-    back = getTime();
-}
-
-QTC_EXPORT uint64_t
-toc()
-{
-    uint64_t cur_time = getTime();
-    if (!tics_list->size()) {
-        return 0;
+// Replaces thread_local since clang on OSX doesn't really support it.
+template<typename T>
+class ThreadLocal {
+    pthread_key_t m_key;
+public:
+    ThreadLocal()
+    {
+        pthread_key_create(&m_key, [] (void *ptr) {
+                delete reinterpret_cast<T*>(ptr);
+            });
     }
-    uint64_t old_time = tics_list->back();
-    tics_list->pop_back();
-    return cur_time - old_time;
-}
+    ~ThreadLocal()
+    {
+        pthread_key_delete(m_key);
+    }
+    T*
+    get() const
+    {
+        T *v = reinterpret_cast<T*>(pthread_getspecific(m_key));
+        if (!v) {
+            v = new T();
+            pthread_setspecific(m_key, reinterpret_cast<void*>(v));
+        }
+        return v;
+    }
+    T*
+    operator->() const
+    {
+        return get();
+    }
+};
 
-}
+#endif

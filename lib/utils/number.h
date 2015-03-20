@@ -79,7 +79,7 @@ qtcSum(First &&first)
 
 template<typename First, typename... Rest>
 static inline auto
-qtcSum(First &&first, Rest &&...rest...)
+qtcSum(First &&first, Rest &&...rest)
     -> decltype(first + qtcSum(std::forward<Rest>(rest)...))
 {
     return first + qtcSum(std::forward<Rest>(rest)...);

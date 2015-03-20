@@ -38,7 +38,7 @@ template <typename Ret, typename Cookie, typename... Args, typename... Args2>
 static inline Ret*
 _qtcX11Call(Cookie (*func)(xcb_connection_t*, Args...),
             Ret *(reply_func)(xcb_connection_t*, Cookie, xcb_generic_error_t**),
-            Args2... args...)
+            Args2... args)
 {
     xcb_connection_t *conn = qtc_xcb_conn;
     QTC_RET_IF_FAIL(conn, nullptr);
@@ -51,7 +51,7 @@ _qtcX11Call(Cookie (*func)(xcb_connection_t*, Args...),
 template <typename... Args, typename... Args2>
 static inline xcb_void_cookie_t
 _qtcX11CallVoid(xcb_void_cookie_t (*func)(xcb_connection_t*, Args...),
-                Args2... args...)
+                Args2... args)
 {
     xcb_connection_t *conn = qtc_xcb_conn;
     QTC_RET_IF_FAIL(conn, xcb_void_cookie_t());

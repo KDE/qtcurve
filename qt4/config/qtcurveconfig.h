@@ -105,7 +105,7 @@ public:
     QtCurveConfig(QWidget *parent);
     ~QtCurveConfig() override;
 
-    QSize sizeHint() const;
+    QSize sizeHint() const override;
     Shading currentShading() const
     {
         return (Shading)shading->currentIndex();

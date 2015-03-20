@@ -191,8 +191,12 @@ cmake_c_add_flags(CMAKE_C_FLAGS -Wall -Wextra -Wno-cast-align
 # Register storage class is deprecated in C++11 but is still used in Qt.
 # Use compiler option (-Wno-deprecated-register) to suppress
 # the warning in clang++.
+# We use `override` in certain Qt Classes but the QObject macro does not use it
+# Use compiler option (-Wno-inconsistent-missing-override) to suppress
+# the warning in clang++ 3.6+.
 cmake_c_add_flags(CMAKE_CXX_FLAGS -Wall -Wextra
-  -Wno-deprecated-register -Wno-cast-align)
+  -Wno-deprecated-register -Wno-cast-align
+  -Wno-inconsistent-missing-override)
 if(NOT APPLE)
   # -std=c++0x is deprecated but gcc < 4.7 do not recognise c++11 ....
   cmake_c_add_flags(CMAKE_CXX_FLAGS -std=c++0x -D_DEFAULT_SOURCE)
