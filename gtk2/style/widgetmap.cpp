@@ -24,10 +24,13 @@
 
 #include <qtcurve-utils/gtkprops.h>
 
+#include <unordered_map>
+
 namespace QtCurve {
 namespace WidgetMap {
 
-static GHashTable *hashTable[2] = {nullptr, nullptr};
+typedef std::unordered_map<GtkWidget*, GObjWeakRef> WidgetMap;
+static WidgetMap widget_map[2];
 
 template<typename Id>
 static inline bool
@@ -44,30 +47,25 @@ setMapHacked(const GtkWidgetProps &props, Id &id)
 }
 
 static GtkWidget*
-lookupHash(void *hash, void *value, int map)
+lookupHash(GtkWidget *hash, GtkWidget *value, int map)
 {
-    GtkWidget *rv = nullptr;
-
-    if (!hashTable[map])
-        hashTable[map] =
-            g_hash_table_new(g_direct_hash, g_direct_equal);
-
-    rv = (GtkWidget*)g_hash_table_lookup(hashTable[map], hash);
-
+    auto it = widget_map[map].find(hash);
+    GtkWidget *rv = (it != widget_map[map].end() ?
+                     (*it).second.get<GtkWidget>() : nullptr);
     if (!rv && value) {
-        g_hash_table_insert(hashTable[map], hash, value);
-        rv = (GtkWidget*)value;
+        widget_map[map].emplace(std::piecewise_construct,
+                                std::forward_as_tuple(hash),
+                                std::forward_as_tuple(value));
+        rv = value;
     }
     return rv;
 }
 
 static void
-removeHash(void *hash)
+removeHash(GtkWidget *hash)
 {
     for (int i = 0;i < 2;++i) {
-        if (hashTable[i]) {
-            g_hash_table_remove(hashTable[i], hash);
-        }
+        widget_map[i].erase(hash);
     }
 }
 

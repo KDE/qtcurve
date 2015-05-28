@@ -146,6 +146,39 @@ public:
 template<typename ObjType=GObject>
 using GObjPtr = RefPtr<ObjType, GObjectDeleter>;
 
+class GObjWeakRef {
+    GObjWeakRef() = delete;
+    GObjWeakRef(const GObjWeakRef&) = delete;
+    GObject *m_obj;
+    static void
+    destroyCb(void *_that, GObject*)
+    {
+        GObjWeakRef *that = (GObjWeakRef*)_that;
+        that->m_obj = nullptr;
+    }
+public:
+    template<typename T>
+    GObjWeakRef(T *obj)
+        : m_obj((GObject*)obj)
+    {
+        if (m_obj) {
+            g_object_weak_ref(m_obj, destroyCb, this);
+        }
+    }
+    ~GObjWeakRef()
+    {
+        if (m_obj) {
+            g_object_weak_unref(m_obj, destroyCb, this);
+        }
+    }
+    template<typename T=GObject>
+    inline T*
+    get()
+    {
+        return (T*)m_obj;
+    }
+};
+
 }
 
 #endif
