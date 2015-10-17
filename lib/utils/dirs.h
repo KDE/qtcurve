@@ -31,6 +31,8 @@
 #include "utils.h"
 
 #include <string>
+#include <map>
+#include <utility>
 
 #include <unistd.h>
 #include <sys/stat.h>
@@ -122,6 +124,8 @@ isSymLink(const char *path)
     struct stat stats;
     return lstat(path, &stats) == 0 && S_ISLNK(stats.st_mode);
 }
+
+std::map<std::string, std::string> getPresets();
 
 }
 

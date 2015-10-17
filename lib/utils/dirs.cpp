@@ -25,9 +25,13 @@
 
 #include <config.h>
 
+#include <forward_list>
+
 #include <sys/types.h>
 #include <pwd.h>
-#include <forward_list>
+#include <sys/types.h>
+#include <dirent.h>
+#include <libgen.h>
 
 namespace QtCurve {
 
@@ -157,6 +161,84 @@ getConfFile(const char *file, char *buff)
     if (file[0] == '/')
         return Str::fill(buff, file);
     return Str::fill(buff, getConfDir(), file);
+}
+
+static const std::forward_list<std::string>&
+getPresetDirs()
+{
+    static const std::forward_list<std::string> dirs = [] {
+        std::forward_list<std::string> res;
+        auto add_dir = [&] (const char *dir, bool needfree=true) {
+            if (isDir(dir)) {
+                res.emplace_front(dir);
+            }
+            if (needfree) {
+                free(const_cast<char*>(dir));
+            }
+        };
+        for (auto &kde_home: getKDE4Home()) {
+            add_dir(Str::cat(kde_home.get(), "share/apps/QtCurve/"));
+        }
+        if (auto xdg_data_dirs = getenv("XDG_DATA_DIRS")) {
+            while (true) {
+                auto delim = strchr(xdg_data_dirs, ':');
+                if (delim) {
+                    auto origin = xdg_data_dirs;
+                    xdg_data_dirs = delim + 1;
+                    if (origin[0] != '/')
+                        continue;
+                    std::string dir(origin, delim - origin);
+                    dir += "/QtCurve/";
+                    if (isDir(dir.c_str())) {
+                        res.push_front(std::move(dir));
+                    }
+                } else if (xdg_data_dirs[0] == '/') {
+                    std::string dir(xdg_data_dirs);
+                    dir += "/QtCurve/";
+                    if (isDir(dir.c_str()))
+                        res.push_front(std::move(dir));
+                    break;
+                } else {
+                    break;
+                }
+            }
+        } else {
+            add_dir("/usr/local/share/QtCurve/", false);
+            add_dir("/usr/share/QtCurve/", false);
+        }
+        auto xdg_home = Str::cat(getXDGDataHome(), "QtCurve/");
+        makePath(xdg_home, 0700);
+        add_dir(xdg_home);
+        return res;
+    }();
+    return dirs;
+}
+
+QTC_EXPORT std::map<std::string, std::string>
+getPresets()
+{
+    std::map<std::string, std::string> presets;
+
+    for (auto &dir_name: getPresetDirs()) {
+        DIR *dir = opendir(dir_name.c_str());
+        if (!dir)
+            continue;
+        while (auto ent = readdir(dir)) {
+            auto fname = ent->d_name;
+            // Non preset files
+            if (!Str::endsWith(fname, ".qtcurve"))
+                continue;
+            size_t name_len = strlen(fname) - strlen(".qtcurve");
+            std::string name(fname, name_len);
+            // preset already loaded
+            if (presets.find(name) != presets.end())
+                continue;
+            presets[name] = dir_name + fname;
+        }
+        closedir(dir);
+    }
+
+    return presets;
 }
 
 }
