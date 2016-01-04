@@ -42,6 +42,11 @@
 #include "utils.h"
 #include <common/config_file.h>
 
+#ifdef QTC_QT5_ENABLE_KDE
+#include <KDE/KIcon>
+#include <KDE/KTitleWidget>
+#endif
+
 namespace QtCurve {
 bool
 Style::drawPrimitiveIndicatorTabClose(PrimitiveElement,

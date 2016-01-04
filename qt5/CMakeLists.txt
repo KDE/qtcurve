@@ -3,6 +3,9 @@ if(QTC_QT5_ENABLE_QTQUICK2)
 else()
   set(QTC_QT5_MODULES Qt5Core Qt5Gui Qt5Widgets Qt5Svg Qt5DBus)
 endif()
+if(QTC_QT5_ENABLE_KDE)
+  set(QTC_QT5_MODULES ${QTC_QT5_MODULES} Qt5PrintSupport)
+endif()
 
 if(ENABLE_QT5 AND NOT ENABLE_QT5_DEFINED)
   # ENABLE_QT5 is not defined on the command line
@@ -66,10 +69,12 @@ if(ENABLE_QT5)
       I18n
       KDELibs4Support
       KIO
+      GuiAddons
+      IconThemes
       WidgetsAddons
       XmlGui)
 
-    # add_definitions(-DQTC_QT5_ENABLE_KDE)
+    add_definitions(-DQTC_QT5_ENABLE_KDE)
     include(KDEInstallDirs)
     include(KDECMakeSettings)
     include(KDECompilerSettings)

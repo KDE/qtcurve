@@ -74,6 +74,7 @@
 #ifdef QTC_QT5_ENABLE_KDE
 #include <KDE/KApplication>
 #include <KDE/KAboutData>
+#include <KDE/KGlobal>
 #include <KDE/KGlobalSettings>
 #include <KDE/KConfig>
 #include <KDE/KConfigGroup>
@@ -364,17 +365,13 @@ void Style::init(bool initial)
 
 #ifdef QTC_QT5_ENABLE_KDE
     if (initial) {
-        if (KGlobal::hasMainComponent()) {
-            m_componentData = KGlobal::mainComponent();
-        } else {
-            QString name(QApplication::applicationName());
+        QString name(QApplication::applicationName());
 
-            if(name.isEmpty())
-                name = qAppName();
+        if(name.isEmpty())
+            name = qAppName();
 
-            if(name.isEmpty())
-                name = "QtApp";
-        }
+        if(name.isEmpty())
+            name = "QtApp";
     }
 #endif
 

@@ -67,6 +67,21 @@
 
 #include <QDebug>
 
+#ifdef QTC_QT5_ENABLE_KDE
+#include <QPrintDialog>
+#include <KDE/KApplication> 
+#include <KDE/KGlobal> 
+#include <KDE/KGlobalSettings> 
+#include <KDE/KIconLoader> 
+#include <KDE/KIcon> 
+#include <KDE/KTitleWidget> 
+#include <KDE/KTabBar> 
+#include <KDE/KFileDialog> 
+#include <KDE/KAboutApplicationDialog>
+#endif
+
+#include <qtcurve-utils/color.h>
+
 namespace QtCurve {
 
 void
@@ -1883,7 +1898,7 @@ Style::styleHint(StyleHint hint, const QStyleOption *option,
         if (hint >= SH_CustomBase && widget) {
             if (widget->objectName() == "CE_CapacityBar") {
                 if (opts.boldProgress) {
-                    setBold(const_cast<QWidget*>widget);
+                    setBold(const_cast<QWidget*>(widget));
                 }
                 return CE_QtC_KCapacityBar;
             }
@@ -1895,12 +1910,7 @@ Style::styleHint(StyleHint hint, const QStyleOption *option,
 
 QPalette Style::standardPalette() const
 {
-#ifndef QTC_QT5_ENABLE_KDE
     return QCommonStyle::standardPalette();
-#else
-    return KGlobalSettings::createApplicationPalette(
-        KSharedConfig::openConfig(m_componentData));
-#endif
 }
 
 void

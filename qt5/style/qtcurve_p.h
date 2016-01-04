@@ -32,6 +32,9 @@
 #include <QWidget>
 #include <QSplitter>
 #include <QStatusBar>
+#ifdef QTC_QT5_ENABLE_KDE
+#include <kiconeffect.h>
+#endif
 
 class QToolBar;
 
