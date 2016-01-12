@@ -286,4 +286,17 @@ bool isA(const QObject *w, const char *type);
 
 }
 
+// **** experiments (deactivated) to hunt down the cause of the issues drawing round(ed) objects in Qt5 **** //
+
+// It has been suggested to me that Qt5 might not observe AA settings when drawing lines with width 1 (exact);
+// the effect of using widths slightly different from 1 can be tested by setting QPENWIDTH1 to a sligtly
+// different value (e.g. #define QPENWIDTH1 1.01)
+#define QPENWIDTH1  1
+
+// Macros that allow leaving antialiasing on everywhere instead of turning it off in certain locations when
+// #define QPAINTER_ANTIALIAS_MAYBE_ON true
+#define QPAINTER_ANTIALIAS_MAYBE_ON false
+#define QPAINTER_RENDERHIT_AA_MAYBE_OFF(p) \
+    if(!QPAINTER_ANTIALIAS_MAYBE_ON) { (p)->setRenderHint(QPainter::Antialiasing, QPAINTER_ANTIALIAS_MAYBE_ON); }
+
 #endif

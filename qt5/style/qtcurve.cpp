@@ -98,6 +98,11 @@
 
 namespace QtCurve {
 
+static inline void setPainterPen(QPainter *p, const QColor &col, const qreal width=1.0)
+{
+    p->setPen(QPen(col, width));
+}
+
 static Style::Icon
 pix2Icon(QStyle::StandardPixmap pix)
 {
@@ -1193,7 +1198,7 @@ Style::drawFadedLine(QPainter *p, const QRect &r, const QColor &col,
         if(fadeSizeEnd>=0 && fadeSizeEnd<=1.0)
             grad.setColorAt(1.0-fadeSizeEnd, col);
         grad.setColorAt(1, fadeEnd && opts.fadeLines ? fade : col);
-        p->setPen(QPen(QBrush(grad), 1));
+        p->setPen(QPen(QBrush(grad), QPENWIDTH1));
     }
     else
         p->setPen(col);
@@ -1211,8 +1216,8 @@ void Style::drawLines(QPainter *p, const QRect &r, bool horiz, int nLines, int o
         x2(r.x()+r.width()-1),
         y2(r.y()+r.height()-1),
         i;
-    QPen dp(cols[dark], 1),
-        lp(cols[0], 1);
+    QPen dp(cols[dark], QPENWIDTH1),
+        lp(cols[0], QPENWIDTH1);
 
     if(opts.fadeLines && (horiz ? r.width() : r.height())>16)
     {
@@ -1225,7 +1230,7 @@ void Style::drawLines(QPainter *p, const QRect &r, bool horiz, int nLines, int o
         grad.setColorAt(0.6, cols[dark]);
         grad.setColorAt(1, fade);
 
-        dp=QPen(QBrush(grad), 1);
+        dp=QPen(QBrush(grad), QPENWIDTH1);
 
         if(LINE_FLAT!=type)
         {
@@ -1236,7 +1241,7 @@ void Style::drawLines(QPainter *p, const QRect &r, bool horiz, int nLines, int o
             grad.setColorAt(0.4, cols[0]);
             grad.setColorAt(0.6, cols[0]);
             grad.setColorAt(1, fade);
-            lp=QPen(QBrush(grad), 1);
+            lp=QPen(QBrush(grad), QPENWIDTH1);
         }
     }
 
@@ -1277,7 +1282,7 @@ void Style::drawLines(QPainter *p, const QRect &r, bool horiz, int nLines, int o
                 drawAaLine(p, x+i, y+offset, x+i, y2-offset);
         }
     }
-    p->setRenderHint(QPainter::Antialiasing, false);
+    QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
 }
 
 void Style::drawProgressBevelGradient(QPainter *p, const QRect &origRect, const QStyleOption *option, bool horiz, EAppearance bevApp,
@@ -1613,22 +1618,19 @@ Style::drawLightBevel(QPainter *p, const QRect &r, const QStyleOption *option,
                         round, (int)realRound, pixSize.width(), pixSize.height(),
                         state, fill.rgba(), (int)(radius * 100));
             if (!m_usePixmapCache || !QPixmapCache::find(key, pix)) {
-                const float scale = ((int(pixSize.width() * 1.2) + 1.0) /
-                                     pixSize.width());
-                pix = QPixmap(pixSize * scale);
+                pix = QPixmap(pixSize);
                 pix.fill(Qt::transparent);
 
                 QPainter pixPainter(&pix);
-                pixPainter.scale(scale, scale);
                 ERound oldRound = opts.round;
                 opts.round = realRound;
+                pixPainter.setRenderHint(QPainter::Antialiasing, true);
                 drawLightBevelReal(&pixPainter, QRect(0, 0, pixSize.width(),
                                                       pixSize.height()), option,
                                    widget, round, fill, custom, doBorder, w,
                                    false, realRound, onToolbar);
                 opts.round = oldRound;
                 pixPainter.end();
-                pix = pix.scaled(pixSize);
 
                 if (m_usePixmapCache) {
                     QPixmapCache::insert(key, pix);
@@ -1770,7 +1772,7 @@ Style::drawLightBevelReal(QPainter *p, const QRect &rOrig,
                         bool horizontal((horiz && WIDGET_SB_BUTTON!=w)|| (!horiz && WIDGET_SB_BUTTON==w)),
                             thin(WIDGET_SB_BUTTON==w || WIDGET_SPIN==w || ((horiz ? r.height() : r.width())<16));
 
-                        p->setPen(m_mouseOverCols[MO_PLASTIK_DARK(w)]);
+                        setPainterPen(p, m_mouseOverCols[MO_PLASTIK_DARK(w)], QPENWIDTH1);
                         if(horizontal)
                         {
                             drawAaLine(p, r.x()+1, r.y()+1, r.x()+r.width()-2, r.y()+1);
@@ -1783,7 +1785,7 @@ Style::drawLightBevelReal(QPainter *p, const QRect &rOrig,
                         }
                         if(!thin)
                         {
-                            p->setPen(m_mouseOverCols[MO_PLASTIK_LIGHT(w)]);
+                            setPainterPen(p, m_mouseOverCols[MO_PLASTIK_LIGHT(w)], QPENWIDTH1);
                             if(horizontal)
                             {
                                 drawAaLine(p, r.x()+1, r.y()+2, r.x()+r.width()-2, r.y()+2);
@@ -1889,7 +1891,7 @@ Style::drawLightBevelReal(QPainter *p, const QRect &rOrig,
     }
 
     if (!colouredMouseOver && lightBorder) {
-        p->setPen(cols[LIGHT_BORDER(app)]);
+        setPainterPen(p, cols[LIGHT_BORDER(app)], QPENWIDTH1);
         p->drawPath(buildPath(r, w, round,
                               qtcGetRadius(&opts, r.width(),
                                            r.height(), w, RADIUS_INTERNAL)));
@@ -1901,17 +1903,17 @@ Style::drawLightBevelReal(QPainter *p, const QRect &rOrig,
         buildSplitPath(r, round, qtcGetRadius(&opts, r.width(), r.height(), w, RADIUS_INTERNAL),
                        innerTlPath, innerBrPath);
 
-        p->setPen(border[colouredMouseOver ? MO_STD_LIGHT(w, sunken) : (sunken ? dark : 0)]);
+        setPainterPen(p, border[colouredMouseOver ? MO_STD_LIGHT(w, sunken) : (sunken ? dark : 0)], QPENWIDTH1);
         p->drawPath(innerTlPath);
         if(colouredMouseOver || bevelledButton || draw3dfull)
         {
-            p->setPen(border[colouredMouseOver ? MO_STD_DARK(w) : (sunken ? 0 : dark)]);
+            setPainterPen(p, border[colouredMouseOver ? MO_STD_DARK(w) : (sunken ? 0 : dark)], QPENWIDTH1);
             p->drawPath(innerBrPath);
         }
     }
     if(plastikMouseOver && (!sunken  || sunkenToggleMo))
         p->restore();
-    p->setRenderHint(QPainter::Antialiasing, false);
+    QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
 
     if(doEtch || glowFocus)
     {
@@ -1967,9 +1969,9 @@ void Style::drawGlow(QPainter *p, const QRect &r, EWidget w, const QColor *cols)
     col.setAlphaF(GLOW_ALPHA(defShade));
     p->setBrush(Qt::NoBrush);
     p->setRenderHint(QPainter::Antialiasing, true);
-    p->setPen(col);
+    setPainterPen(p, col, QPENWIDTH1);
     p->drawPath(buildPath(r, w, ROUNDED_ALL, qtcGetRadius(&opts, r.width(), r.height(), w, RADIUS_ETCH)));
-    p->setRenderHint(QPainter::Antialiasing, false);
+    QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
 }
 
 void Style::drawEtch(QPainter *p, const QRect &r, const QWidget *widget,  EWidget w, bool raised, int round) const
@@ -1986,7 +1988,7 @@ void Style::drawEtch(QPainter *p, const QRect &r, const QWidget *widget,  EWidge
     col.setAlphaF(USE_CUSTOM_ALPHAS(opts) ? opts.customAlphas[ALPHA_ETCH_DARK] : ETCH_TOP_ALPHA);
     p->setBrush(Qt::NoBrush);
     p->setRenderHint(QPainter::Antialiasing, true);
-    p->setPen(col);
+    setPainterPen(p, col, QPENWIDTH1);
 
     if(!raised && WIDGET_SLIDER!=w)
     {
@@ -1995,14 +1997,14 @@ void Style::drawEtch(QPainter *p, const QRect &r, const QWidget *widget,  EWidge
         {
             QColor col(Qt::white);
             col.setAlphaF(USE_CUSTOM_ALPHAS(opts) ? opts.customAlphas[ALPHA_ETCH_LIGHT] : ETCH_BOTTOM_ALPHA); // 0.25);
-            p->setPen(col);
+            setPainterPen(p, col, QPENWIDTH1);
         }
         else
-            p->setPen(getLowerEtchCol(widget));
+            setPainterPen(p, getLowerEtchCol(widget), QPENWIDTH1);
     }
 
     p->drawPath(br);
-    p->setRenderHint(QPainter::Antialiasing, false);
+    QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
 }
 
 void Style::drawBgndRing(QPainter &painter, int x, int y, int size, int size2, bool isWindow) const
@@ -2012,13 +2014,16 @@ void Style::drawBgndRing(QPainter &painter, int x, int y, int size, int size2, b
     QColor col(Qt::white);
 
     col.setAlphaF(RINGS_INNER_ALPHA(isWindow ? opts.bgndImage.type : opts.menuBgndImage.type));
+    if (width == 1) {
+        width = QPENWIDTH1;
+    }
     painter.setPen(QPen(col, width));
     painter.drawEllipse(QRectF(x+width2, y+width2, size-width, size-width));
 
     if(IMG_BORDERED_RINGS==(isWindow ? opts.bgndImage.type : opts.menuBgndImage.type))
     {
         col.setAlphaF(RINGS_OUTER_ALPHA);
-        painter.setPen(QPen(col, 1));
+        painter.setPen(QPen(col, QPENWIDTH1));
         painter.drawEllipse(QRectF(x, y, size, size));
         if(size2)
             painter.drawEllipse(QRectF(x+width, y+width, size2, size2));
@@ -2048,23 +2053,23 @@ QPixmap Style::drawStripes(const QColor &color, int opacity) const
         if(100!=opacity)
         {
             col2.setAlphaF(opacity/100.0);
-            pixPainter.setPen(col);
+            pixPainter.setPen(QPen(col, QPENWIDTH1));
             for(int i=0; i<pix.height(); i+=4)
                 pixPainter.drawLine(0, i, pix.width()-1, i);
         }
         else
             pixPainter.fillRect(pix.rect(), col);
-        pixPainter.setPen(QColor((3*col.red()+col2.red())/4,
+        pixPainter.setPen(QPen(QColor((3*col.red()+col2.red())/4,
                                  (3*col.green()+col2.green())/4,
                                  (3*col.blue()+col2.blue())/4,
-                                 100!=opacity ? col2.alpha() : 255));
+                                 100!=opacity ? col2.alpha() : 255), QPENWIDTH1));
 
         for(int i=1; i<pix.height(); i+=4)
         {
             pixPainter.drawLine(0, i, pix.width()-1, i);
             pixPainter.drawLine(0, i+2, pix.width()-1, i+2);
         }
-        pixPainter.setPen(col2);
+        pixPainter.setPen(QPen(col2, QPENWIDTH1));
         for(int i=2; i<pix.height()-1; i+=4)
             pixPainter.drawLine(0, i, pix.width()-1, i);
 
@@ -2554,24 +2559,24 @@ Style::drawBorder(QPainter *p, const QRect &r, const QStyleOption *option,
 
             buildSplitPath(inner, round, qtcGetRadius(&opts, inner.width(), inner.height(), w, RADIUS_INTERNAL), topPath, botPath);
 
-            p->setPen((enabled || BORDER_SUNKEN==borderProfile) /*&&
+            setPainterPen(p, (enabled || BORDER_SUNKEN==borderProfile) /*&&
                                                                   (BORDER_RAISED==borderProfile || BORDER_LIGHT==borderProfile || hasFocus || APPEARANCE_FLAT!=app)*/
                       ? tl
-                      : option->palette.background().color());
+                      : option->palette.background().color(), QPENWIDTH1);
             p->drawPath(topPath);
             if(WIDGET_SCROLLVIEW==w || // Because of list view headers, need to draw dark line on right!
                (! ( (WIDGET_ENTRY==w && !hasFocus && !hasMouseOver) ||
                     (WIDGET_ENTRY!=w && doBlend && BORDER_SUNKEN==borderProfile) ) ) )
             {
                 if(!hasFocus && !hasMouseOver && BORDER_LIGHT!=borderProfile && WIDGET_SCROLLVIEW!=w)
-                    p->setPen(/*WIDGET_SCROLLVIEW==w && !hasFocus
+                    setPainterPen(p, /*WIDGET_SCROLLVIEW==w && !hasFocus
                                 ? checkColour(option, QPalette::Window)
                                 : WIDGET_ENTRY==w && !hasFocus
                                 ? checkColour(option, QPalette::Base)
                                 : */enabled && (BORDER_SUNKEN==borderProfile || hasFocus || /*APPEARANCE_FLAT!=app ||*/
                                                 WIDGET_TAB_TOP==w || WIDGET_TAB_BOT==w)
                                 ? br
-                                : checkColour(option, QPalette::Window));
+                                : checkColour(option, QPalette::Window), QPENWIDTH1);
                 p->drawPath(botPath);
             }
         }
@@ -2586,7 +2591,7 @@ Style::drawBorder(QPainter *p, const QRect &r, const QStyleOption *option,
 
         col.setAlphaF(LOWER_BORDER_ALPHA);
         buildSplitPath(r, round, qtcGetRadius(&opts, r.width(), r.height(), w, RADIUS_EXTERNAL), topPath, botPath);
-        p->setPen(/*enabled ? */border/* : col*/);
+        p->setPen(QPen(/*enabled ? */border/* : col*/, QPENWIDTH1));
         p->drawPath(topPath);
 //         if(enabled)
         p->setPen(col);
@@ -2594,11 +2599,11 @@ Style::drawBorder(QPainter *p, const QRect &r, const QStyleOption *option,
     }
     else
     {
-        p->setPen(border);
+        p->setPen(QPen(border, QPENWIDTH1));
         p->drawPath(buildPath(r, w, round, qtcGetRadius(&opts, r.width(), r.height(), w, RADIUS_EXTERNAL)));
     }
 
-    p->setRenderHint(QPainter::Antialiasing, false);
+    QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
 }
 
 void Style::drawMdiControl(QPainter *p, const QStyleOptionTitleBar *titleBar, SubControl sc, const QWidget *widget,
@@ -2837,7 +2842,7 @@ void Style::drawEntryField(QPainter *p, const QRect &rx,  const QWidget *widget,
         p->drawPath(buildPath(r.adjusted(1, 1, -1, -1), WIDGET_SCROLLVIEW==w ? w : WIDGET_ENTRY, round,
                               qtcGetRadius(&opts, r.width()-2, r.height()-2, WIDGET_SCROLLVIEW==w ? w : WIDGET_ENTRY, RADIUS_INTERNAL)));
     }
-    p->setRenderHint(QPainter::Antialiasing, false);
+    QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
 
     if(doEtch && opts.etchEntry)
         drawEtch(p, rx, widget, WIDGET_SCROLLVIEW==w ? w : WIDGET_ENTRY, false);
@@ -3257,7 +3262,7 @@ void Style::drawSliderHandle(QPainter *p, const QRect &r, const QStyleOptionSlid
             path.lineTo(xd+10, yd+9);
             path.arcTo(xd+10-diameter, yd, diameter, diameter, 0, 90);
             p->drawPath(path);
-            p->setRenderHint(QPainter::Antialiasing, false);
+            QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
             if(drawLight)
             {
                 p->setPen(use[APPEARANCE_DULL_GLASS==opts.sliderAppearance ? 1 : 0]);
@@ -3286,7 +3291,7 @@ void Style::drawSliderHandle(QPainter *p, const QRect &r, const QStyleOptionSlid
             path.lineTo(xd+5, yd);
             path.lineTo(xd, yd+5);
             p->drawPath(path);
-            p->setRenderHint(QPainter::Antialiasing, false);
+            QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
             if(drawLight)
             {
                 p->setPen(use[APPEARANCE_DULL_GLASS==opts.sliderAppearance ? 1 : 0]);
@@ -3315,7 +3320,7 @@ void Style::drawSliderHandle(QPainter *p, const QRect &r, const QStyleOptionSlid
             path.lineTo(xd, yd+5);
             path.lineTo(xd+5, yd+10);
             p->drawPath(path);
-            p->setRenderHint(QPainter::Antialiasing, false);
+            QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
             if(drawLight)
             {
                 p->setPen(use[APPEARANCE_DULL_GLASS==opts.sliderAppearance ? 1 : 0]);
@@ -3344,7 +3349,7 @@ void Style::drawSliderHandle(QPainter *p, const QRect &r, const QStyleOptionSlid
             path.lineTo(xd+14, yd+5);
             path.lineTo(xd+9, yd);
             p->drawPath(path);
-            p->setRenderHint(QPainter::Antialiasing, false);
+            QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
             if(drawLight)
             {
                 p->setPen(use[APPEARANCE_DULL_GLASS==opts.sliderAppearance ? 1 : 0]);

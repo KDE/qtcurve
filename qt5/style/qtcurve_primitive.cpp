@@ -48,6 +48,12 @@
 #endif
 
 namespace QtCurve {
+
+static inline void setPainterPen(QPainter *p, const QColor &col, const qreal width=1.0)
+{
+    p->setPen(QPen(col, width));
+}
+
 bool
 Style::drawPrimitiveIndicatorTabClose(PrimitiveElement,
                                       const QStyleOption*option,
@@ -493,7 +499,7 @@ Style::drawPrimitiveFrameGroupBox(PrimitiveElement,
                     col.setAlphaF(0.0);
                     grad.setColorAt(1, col);
                     painter->setRenderHint(QPainter::Antialiasing, true);
-                    painter->setPen(QPen(QBrush(grad), 1));
+                    painter->setPen(QPen(QBrush(grad), QPENWIDTH1));
                     painter->drawPath(path);
                 }
                 if (opts.gbLabel & (GB_LBL_INSIDE | GB_LBL_OUTSIDE)) {
@@ -560,7 +566,7 @@ Style::drawPrimitiveFrame(PrimitiveElement,
                                     0 : QTC_STD_BORDER];
             }
             border.setAlphaF(1.0);
-            painter->setRenderHint(QPainter::Antialiasing, false);
+            QPAINTER_RENDERHIT_AA_MAYBE_OFF(painter);
             painter->setPen(border);
             drawRect(painter, r);
         } else {
@@ -653,7 +659,7 @@ Style::drawPrimitiveFrame(PrimitiveElement,
                                                r.height() - 2,
                                                WIDGET_SCROLLVIEW,
                                                RADIUS_INTERNAL)));
-                    painter->setRenderHint(QPainter::Antialiasing, false);
+                    QPAINTER_RENDERHIT_AA_MAYBE_OFF(painter);
                 }
                 drawBorder(painter, r, &opt,
                            opts.round ? getFrameRound(widget) : ROUND_NONE,
@@ -1047,7 +1053,7 @@ Style::drawPrimitiveFrameWindow(PrimitiveElement,
     }
     if (opts.round < ROUND_SLIGHT || !isKWin ||
         (state & QtC_StateKWinNotFull && state & QtC_StateKWin)) {
-        painter->setRenderHint(QPainter::Antialiasing, false);
+        QPAINTER_RENDERHIT_AA_MAYBE_OFF(painter);
         if (addLight) {
             painter->setPen(light);
             painter->drawLine(r.x() + 1, r.y(), r.x() + 1,
@@ -1057,7 +1063,7 @@ Style::drawPrimitiveFrameWindow(PrimitiveElement,
         drawRect(painter, r);
     } else {
         if (addLight) {
-            painter->setRenderHint(QPainter::Antialiasing, false);
+            QPAINTER_RENDERHIT_AA_MAYBE_OFF(painter);
             painter->setPen(light);
             painter->drawLine(r.x() + 1, r.y(), r.x() + 1,
                               r.y() + r.height() -
@@ -1073,7 +1079,7 @@ Style::drawPrimitiveFrameWindow(PrimitiveElement,
             QColor col(opts.windowBorder & WINDOW_BORDER_COLOR_TITLEBAR_ONLY ?
                        backgroundColors(option)[QTC_STD_BORDER] :
                        buttonColors(option)[QTC_STD_BORDER]);
-            painter->setRenderHint(QPainter::Antialiasing, false);
+            QPAINTER_RENDERHIT_AA_MAYBE_OFF(painter);
             painter->setPen(col);
             painter->drawPoint(r.x() + 2, r.y() + r.height() - 3);
             painter->drawPoint(r.x() + r.width() - 3, r.y() + r.height() - 3);
@@ -1234,10 +1240,10 @@ Style::drawPrimitiveButton(PrimitiveElement element, const QStyleOption *option,
             path.lineTo(xd + offset + etchOffset, yd + offset + 6 + etchOffset);
             path.lineTo(xd + offset + etchOffset, yd + offset + etchOffset);
             painter->setBrush(cols[isDown ? 0 : 4]);
-            painter->setPen(cols[isDown ? 0 : 4]);
+            setPainterPen(painter, cols[isDown ? 0 : 4], QPENWIDTH1);
             painter->setRenderHint(QPainter::Antialiasing, true);
             painter->drawPath(path);
-            painter->setRenderHint(QPainter::Antialiasing, false);
+            QPAINTER_RENDERHIT_AA_MAYBE_OFF(painter);
             break;
         }
         case IND_COLORED: {
@@ -1267,7 +1273,7 @@ Style::drawPrimitivePanelMenu(PrimitiveElement, const QStyleOption *option,
         painter->setRenderHint(QPainter::Antialiasing, true);
         painter->setPen(use[ORIGINAL_SHADE]);
         painter->drawPath(buildPath(r, WIDGET_OTHER, ROUNDED_ALL, radius));
-        painter->setRenderHint(QPainter::Antialiasing, false);
+        QPAINTER_RENDERHIT_AA_MAYBE_OFF(painter);
     }
     if (!(opts.square & SQUARE_POPUP_MENUS)) {
         painter->setClipRegion(windowMask(r, opts.round > ROUND_SLIGHT),
@@ -1541,6 +1547,7 @@ Style::drawPrimitiveIndicatorRadioButton(PrimitiveElement,
             if (opts.crSize != CR_SMALL_SIZE && menu) {
                 y -= 2;
             }
+            painter->setRenderHint(QPainter::Antialiasing, true);
             drawLightBevel(painter, rect, &opt, widget, ROUNDED_ALL,
                            getFill(&opt, use, true, false), use, true,
                            WIDGET_RADIO_BUTTON);
@@ -1580,7 +1587,7 @@ Style::drawPrimitiveIndicatorRadioButton(PrimitiveElement,
             painter->setRenderHint(QPainter::Antialiasing, true);
             if (coloredMo) {
                 painter->setBrush(Qt::NoBrush);
-                painter->setPen(use[CR_MO_FILL]);
+                setPainterPen(painter, use[CR_MO_FILL], QPENWIDTH1);
                 painter->drawArc(QRectF(x + 1, y + 1, opts.crSize - 2,
                                         opts.crSize - 2), 0, 360 * 16);
                 painter->drawArc(QRectF(x + 2, y + 2, opts.crSize - 4,
@@ -1593,7 +1600,7 @@ Style::drawPrimitiveIndicatorRadioButton(PrimitiveElement,
                 if (!glow) {
                     topCol.setAlphaF(ETCH_RADIO_TOP_ALPHA);
                 }
-                painter->setPen(topCol);
+                setPainterPen(painter, topCol, QPENWIDTH1);
                 painter->drawArc(QRectF(x - 0.5, y - 0.5, opts.crSize + 1,
                                         opts.crSize + 1), 45 * 16, 180 * 16);
                 if (!glow) {
@@ -1602,11 +1609,11 @@ Style::drawPrimitiveIndicatorRadioButton(PrimitiveElement,
                 painter->drawArc(QRectF(x - 0.5, y - 0.5, opts.crSize + 1,
                                         opts.crSize + 1), 225 * 16, 180 * 16);
             }
-            painter->setPen(use[BORDER_VAL(state & State_Enabled)]);
+            setPainterPen(painter, use[BORDER_VAL(state & State_Enabled)], QPENWIDTH1);
             painter->drawArc(QRectF(x + 0.25, y + 0.25, opts.crSize - 0.5,
                                     opts.crSize - 0.5), 0, 360 * 16);
             if (!coloredMo) {
-                painter->setPen(btn[state & State_MouseOver ? 3 : 4]);
+                setPainterPen(painter, btn[state & State_MouseOver ? 3 : 4], QPENWIDTH1);
                 painter->drawArc(QRectF(x + 0.75, y + 0.75, opts.crSize - 1.5,
                                         opts.crSize - 1.5),
                                  lightBorder ? 0 : 45 * 16,
@@ -1661,8 +1668,8 @@ Style::drawPrimitiveIndicatorCheckBox(PrimitiveElement element,
         if (r == QRect(0, 0, 14, 15)) { // OO.o 3.2 =14x15?
             rect.adjust(-1, -1, -1, -1);
         }
-        painter->setPen(option ? option->palette.text().color() :
-                        QApplication::palette().text().color());
+        setPainterPen(painter, option ? option->palette.text().color() :
+                        QApplication::palette().text().color(), QPENWIDTH1);
         drawRect(painter, r);
         // LibreOffice its 15x15 - and arrow is not centred, so adjust this...
         if (r == QRect(0, 0, 15, 15)) {
@@ -1692,6 +1699,7 @@ Style::drawPrimitiveIndicatorCheckBox(PrimitiveElement element,
             opt.state &= ~State_On;
             opt.state |= State_Raised;
             opt.rect = rect;
+            painter->setRenderHint(QPainter::Antialiasing, true);
             drawLightBevel(painter, rect, &opt, widget, ROUNDED_ALL,
                            getFill(&opt, use, true, false),
                            use, true, WIDGET_CHECKBOX);
@@ -1721,13 +1729,13 @@ Style::drawPrimitiveIndicatorCheckBox(PrimitiveElement element,
 
             if (opts.coloredMouseOver != MO_NONE && !glow && mo) {
                 painter->setRenderHint(QPainter::Antialiasing, true);
-                painter->setPen(use[CR_MO_FILL]);
+                setPainterPen(painter, use[CR_MO_FILL], QPENWIDTH1);
                 drawAaRect(painter, rect.adjusted(1, 1, -1, -1));
-                painter->setRenderHint(QPainter::Antialiasing, false);
+                QPAINTER_RENDERHIT_AA_MAYBE_OFF(painter);
             } else {
-                painter->setPen(midColor(state & State_Enabled ?
+                setPainterPen(painter, midColor(state & State_Enabled ?
                                          palette.base().color() :
-                                         palette.background().color(), use[3]));
+                                         palette.background().color(), use[3]), QPENWIDTH1);
                 if (lightBorder) {
                     drawRect(painter, rect.adjusted(1, 1, -1, -1));
                 } else {
@@ -1740,6 +1748,7 @@ Style::drawPrimitiveIndicatorCheckBox(PrimitiveElement element,
                 }
             }
 
+            painter->setRenderHint(QPainter::Antialiasing, true);
             if (doEtch && !view) {
                 if (glow && !(opts.thin & THIN_FRAMES)) {
                     drawGlow(painter, r, WIDGET_CHECKBOX);
@@ -1751,6 +1760,7 @@ Style::drawPrimitiveIndicatorCheckBox(PrimitiveElement element,
             }
             drawBorder(painter, rect, option, ROUNDED_ALL, use,
                        WIDGET_CHECKBOX);
+            painter->setRenderHint(QPainter::Antialiasing, QPAINTER_ANTIALIAS_MAYBE_ON);
         }
     }
     if (state & State_On || selectedOOMenu) {
@@ -1762,7 +1772,7 @@ Style::drawPrimitiveIndicatorCheckBox(PrimitiveElement element,
         // tri-state
         int x(rect.center().x()), y(rect.center().y());
 
-        painter->setPen(checkRadioCol(option));
+        setPainterPen(painter, checkRadioCol(option), QPENWIDTH1);
         painter->drawLine(x - 3, y, x + 3, y);
         painter->drawLine(x - 3, y + 1, x + 3, y + 1);
     }

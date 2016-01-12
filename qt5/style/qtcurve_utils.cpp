@@ -341,7 +341,7 @@ drawDots(QPainter *p, const QRect &r, bool horiz, int nLines, int offset,
             for(j=0; j<numDots; j++)
                 drawAaPoint(p, x+i, y+offset+1+(3*j));
     }
-    p->setRenderHint(QPainter::Antialiasing, false);
+    QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
 }
 
 bool
