@@ -177,7 +177,7 @@ QTC_EXPORT void
 _qtcColorTint(const QtcColor *base, const QtcColor *col,
               double amount, QtcColor *out)
 {
-    if (qtcUnlikely(amount <= 0.0 || isnan(amount))) {
+    if (qtcUnlikely(amount <= 0.0 || std::isnan(amount))) {
         *out = *base;
         return;
     }
@@ -205,7 +205,7 @@ _qtcColorTint(const QtcColor *base, const QtcColor *col,
 QTC_EXPORT void
 _qtcColorMix(const QtcColor *c1, const QtcColor *c2, double bias, QtcColor *out)
 {
-    if (qtcUnlikely(bias <= 0.0 || isnan(bias))) {
+    if (qtcUnlikely(bias <= 0.0 || std::isnan(bias))) {
         *out = *c1;
         return;
     }

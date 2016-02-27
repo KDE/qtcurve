@@ -467,7 +467,7 @@ setFont(QtFontDetails *font, int f)
 #define MIX(a, b, bias) (a + ((b - a) * bias))
 GdkColor mixColors(const GdkColor *c1, const GdkColor *c2, double bias)
 {
-    if (bias <= 0.0 || isnan(bias))
+    if (bias <= 0.0 || std::isnan(bias))
         return *c1;
     if (bias >= 1.0)
         return *c2;
