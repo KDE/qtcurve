@@ -27,6 +27,7 @@
 #include <qtcurve-utils/qtprops.h>
 #include <qtcurve-utils/x11shadow.h>
 #include <qtcurve-utils/x11blur.h>
+#include <qtcurve-utils/log.h>
 
 #include <QApplication>
 
@@ -42,6 +43,49 @@
 #include <QDebug>
 
 namespace QtCurve {
+
+// Using a `std::set` somehow result in a segfault in glibc (maybe realated to
+// this function being called in the exit handler?) so use a home made solution
+// instead...
+struct CleanupCallback {
+    void (*func)(void*);
+    void *data;
+    CleanupCallback *next;
+    CleanupCallback **prev;
+};
+
+static CleanupCallback *cleanup_callbacks = nullptr;
+
+void*
+registerCleanup(void (*func)(void*), void *data)
+{
+    auto cb = new CleanupCallback{func, data, cleanup_callbacks,
+                                  &cleanup_callbacks};
+    if (cleanup_callbacks)
+        cleanup_callbacks->prev = &cb->next;
+    cleanup_callbacks = cb;
+    return cb;
+}
+
+void
+unregisterCleanup(void *_cb)
+{
+    auto cb = (CleanupCallback*)_cb;
+    if (cb->next)
+        cb->next->prev = cb->prev;
+    *cb->prev = cb->next;
+    delete cb;
+}
+
+static void
+runAllCleanups()
+{
+    while (cleanup_callbacks) {
+        auto func = cleanup_callbacks->func;
+        auto data = cleanup_callbacks->data;
+        func(data);
+    }
+}
 
 __attribute__((hot)) static void
 polishQuickControl(QObject *obj)
@@ -120,6 +164,7 @@ StylePlugin::create(const QString &key)
 
 StylePlugin::~StylePlugin()
 {
+    runAllCleanups();
     QInternal::unregisterCallback(QInternal::EventNotifyCallback,
                                   qtcEventCallback);
 }
@@ -140,4 +185,5 @@ StylePlugin::init()
 #endif
         });
 }
+
 }

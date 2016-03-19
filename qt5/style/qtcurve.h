@@ -509,6 +509,7 @@ private:
                                       const QStyleOption *option,
                                       QPainter *painter,
                                       const QWidget *widget) const;
+    static void dbusCleanupCallback(void*);
 
 private:
     mutable Options opts;
@@ -559,7 +560,7 @@ private:
     WindowManager *m_windowManager;
     BlurHelper *m_blurHelper;
     ShortcutHandler *m_shortcutHandler;
-    bool m_dbusConnected;
+    void *m_dbusConnected;
 };
 }
 

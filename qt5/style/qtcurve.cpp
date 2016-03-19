@@ -21,6 +21,7 @@
  *****************************************************************************/
 
 #include "qtcurve_p.h"
+#include "qtcurve_plugin.h"
 #include <qtcurve-utils/qtprops.h>
 
 #include <QDBusConnection>
@@ -346,7 +347,7 @@ Style::Style() :
     m_windowManager(new WindowManager(this)),
     m_blurHelper(new BlurHelper(this)),
     m_shortcutHandler(new ShortcutHandler(this)),
-    m_dbusConnected(false)
+    m_dbusConnected(nullptr)
 {
     const char *env = getenv(QTCURVE_PREVIEW_CONFIG);
     if (env && strcmp(env, QTCURVE_PREVIEW_CONFIG) == 0) {
@@ -658,7 +659,10 @@ void Style::connectDBus()
 {
     if (m_dbusConnected)
         return;
-    m_dbusConnected = true;
+    m_dbusConnected = registerCleanup([] (void *data) {
+            reinterpret_cast<Style*>(data)->disconnectDBus();
+        }, this);
+    return;
     auto bus = QDBusConnection::sessionBus();
     bus.connect(QString(), "/KGlobalSettings", "org.kde.KGlobalSettings",
                 "notifyChange", this, SLOT(kdeGlobalSettingsChange(int, int)));
@@ -685,28 +689,24 @@ void Style::disconnectDBus()
 {
     if (!m_dbusConnected)
         return;
-    m_dbusConnected = false;
+    void *cb = m_dbusConnected;
+    m_dbusConnected = nullptr;
+    unregisterCleanup(cb);
+    return;
     auto bus = QDBusConnection::sessionBus();
     bus.disconnect(QString(), "/KGlobalSettings", "org.kde.KGlobalSettings",
                    "notifyChange",
                    this, SLOT(kdeGlobalSettingsChange(int, int)));
     bus.disconnect("org.kde.kwin", "/KWin", "org.kde.KWin", "compositingToggled",
                    this, SLOT(compositingToggled()));
-
-    if (!qApp || qApp->arguments()[0] != "kwin") {
-        bus.disconnect("org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
-                    "borderSizesChanged", this, SLOT(borderSizesChanged()));
-        if (opts.menubarHiding & HIDE_KWIN)
-            bus.disconnect("org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
-                           "toggleMenuBar",
-                           this, SLOT(toggleMenuBar(unsigned int)));
-
-        if (opts.statusbarHiding & HIDE_KWIN) {
-            bus.disconnect("org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
-                           "toggleStatusBar",
-                           this, SLOT(toggleStatusBar(unsigned int)));
-        }
-    }
+    bus.disconnect("org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
+                   "borderSizesChanged", this, SLOT(borderSizesChanged()));
+    bus.disconnect("org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
+                   "toggleMenuBar",
+                   this, SLOT(toggleMenuBar(unsigned int)));
+    bus.disconnect("org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
+                   "toggleStatusBar",
+                   this, SLOT(toggleStatusBar(unsigned int)));
 }
 
 Style::~Style()

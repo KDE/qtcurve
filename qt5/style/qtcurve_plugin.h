@@ -36,6 +36,10 @@ private:
     void init();
     std::once_flag m_ref_flag;
 };
+
+void *registerCleanup(void (*func)(void*), void *data);
+void unregisterCleanup(void *handle);
+
 }
 
 #endif
