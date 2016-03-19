@@ -173,6 +173,8 @@ public:
 
 private:
     void init(bool initial);
+    void connectDBus();
+    void disconnectDBus();
     void freeColor(QSet<QColor*> &freedColors, QColor **cols);
     void freeColors();
     void polishFormLayout(QFormLayout *layout);
@@ -557,6 +559,7 @@ private:
     WindowManager *m_windowManager;
     BlurHelper *m_blurHelper;
     ShortcutHandler *m_shortcutHandler;
+    bool m_dbusConnected;
 };
 }
 

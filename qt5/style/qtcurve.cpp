@@ -345,7 +345,8 @@ Style::Style() :
     m_sViewSBar(0L),
     m_windowManager(new WindowManager(this)),
     m_blurHelper(new BlurHelper(this)),
-    m_shortcutHandler(new ShortcutHandler(this))
+    m_shortcutHandler(new ShortcutHandler(this)),
+    m_dbusConnected(false)
 {
     const char *env = getenv(QTCURVE_PREVIEW_CONFIG);
     if (env && strcmp(env, QTCURVE_PREVIEW_CONFIG) == 0) {
@@ -388,29 +389,7 @@ void Style::init(bool initial)
         qtcReadConfig(QString(), &opts);
 
         if (initial) {
-            QDBusConnection::sessionBus().connect(
-                QString(), "/KGlobalSettings", "org.kde.KGlobalSettings",
-                "notifyChange", this, SLOT(kdeGlobalSettingsChange(int, int)));
-            QDBusConnection::sessionBus().connect(
-                "org.kde.kwin", "/KWin", "org.kde.KWin", "compositingToggled",
-                this, SLOT(compositingToggled()));
-
-            if (!qApp || qApp->arguments()[0] != "kwin") {
-                QDBusConnection::sessionBus().connect(
-                    "org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
-                    "borderSizesChanged", this, SLOT(borderSizesChanged()));
-                if (opts.menubarHiding & HIDE_KWIN)
-                    QDBusConnection::sessionBus().connect(
-                        "org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
-                        "toggleMenuBar",
-                        this, SLOT(toggleMenuBar(unsigned int)));
-
-                if(opts.statusbarHiding & HIDE_KWIN)
-                    QDBusConnection::sessionBus().connect(
-                        "org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
-                        "toggleStatusBar",
-                        this, SLOT(toggleStatusBar(unsigned int)));
-            }
+            connectDBus();
         }
     }
 
@@ -675,8 +654,64 @@ void Style::init(bool initial)
 #endif
 }
 
+void Style::connectDBus()
+{
+    if (m_dbusConnected)
+        return;
+    m_dbusConnected = true;
+    auto bus = QDBusConnection::sessionBus();
+    bus.connect(QString(), "/KGlobalSettings", "org.kde.KGlobalSettings",
+                "notifyChange", this, SLOT(kdeGlobalSettingsChange(int, int)));
+    bus.connect("org.kde.kwin", "/KWin", "org.kde.KWin", "compositingToggled",
+                this, SLOT(compositingToggled()));
+
+    if (!qApp || qApp->arguments()[0] != "kwin") {
+        bus.connect("org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
+                    "borderSizesChanged", this, SLOT(borderSizesChanged()));
+        if (opts.menubarHiding & HIDE_KWIN)
+            bus.connect("org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
+                        "toggleMenuBar",
+                        this, SLOT(toggleMenuBar(unsigned int)));
+
+        if (opts.statusbarHiding & HIDE_KWIN) {
+            bus.connect("org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
+                        "toggleStatusBar",
+                        this, SLOT(toggleStatusBar(unsigned int)));
+        }
+    }
+}
+
+void Style::disconnectDBus()
+{
+    if (!m_dbusConnected)
+        return;
+    m_dbusConnected = false;
+    auto bus = QDBusConnection::sessionBus();
+    bus.disconnect(QString(), "/KGlobalSettings", "org.kde.KGlobalSettings",
+                   "notifyChange",
+                   this, SLOT(kdeGlobalSettingsChange(int, int)));
+    bus.disconnect("org.kde.kwin", "/KWin", "org.kde.KWin", "compositingToggled",
+                   this, SLOT(compositingToggled()));
+
+    if (!qApp || qApp->arguments()[0] != "kwin") {
+        bus.disconnect("org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
+                    "borderSizesChanged", this, SLOT(borderSizesChanged()));
+        if (opts.menubarHiding & HIDE_KWIN)
+            bus.disconnect("org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
+                           "toggleMenuBar",
+                           this, SLOT(toggleMenuBar(unsigned int)));
+
+        if (opts.statusbarHiding & HIDE_KWIN) {
+            bus.disconnect("org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
+                           "toggleStatusBar",
+                           this, SLOT(toggleStatusBar(unsigned int)));
+        }
+    }
+}
+
 Style::~Style()
 {
+    disconnectDBus();
     freeColors();
     if (m_dBus) {
         delete m_dBus;

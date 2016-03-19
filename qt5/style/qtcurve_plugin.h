@@ -23,6 +23,7 @@
 #define __QTCURVE_PLUTIN_H__
 
 #include <QStylePlugin>
+#include <mutex>
 
 namespace QtCurve {
 class StylePlugin: public QStylePlugin {
@@ -30,8 +31,10 @@ class StylePlugin: public QStylePlugin {
     Q_PLUGIN_METADATA(IID QStyleFactoryInterface_iid FILE "qtcurvestyle.json")
 public:
     QStyle *create(const QString &key) override;
+    ~StylePlugin();
 private:
     void init();
+    std::once_flag m_ref_flag;
 };
 }
 

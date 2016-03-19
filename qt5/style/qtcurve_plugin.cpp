@@ -41,8 +41,6 @@
 #endif
 #include <QDebug>
 
-#include <mutex>
-
 namespace QtCurve {
 
 __attribute__((hot)) static void
@@ -120,11 +118,16 @@ StylePlugin::create(const QString &key)
     return key.toLower() == "qtcurve" ? new Style : nullptr;
 }
 
+StylePlugin::~StylePlugin()
+{
+    QInternal::unregisterCallback(QInternal::EventNotifyCallback,
+                                  qtcEventCallback);
+}
+
 void
 StylePlugin::init()
 {
-    static std::once_flag ref_flag;
-    std::call_once(ref_flag, [] {
+    std::call_once(m_ref_flag, [] {
             QInternal::registerCallback(QInternal::EventNotifyCallback,
                                         qtcEventCallback);
 #ifdef QTC_QT5_ENABLE_QTQUICK2
