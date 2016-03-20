@@ -662,7 +662,6 @@ void Style::connectDBus()
     m_dbusConnected = registerCleanup([] (void *data) {
             reinterpret_cast<Style*>(data)->disconnectDBus();
         }, this);
-    return;
     auto bus = QDBusConnection::sessionBus();
     bus.connect(QString(), "/KGlobalSettings", "org.kde.KGlobalSettings",
                 "notifyChange", this, SLOT(kdeGlobalSettingsChange(int, int)));
@@ -692,7 +691,6 @@ void Style::disconnectDBus()
     void *cb = m_dbusConnected;
     m_dbusConnected = nullptr;
     unregisterCleanup(cb);
-    return;
     auto bus = QDBusConnection::sessionBus();
     bus.disconnect(QString(), "/KGlobalSettings", "org.kde.KGlobalSettings",
                    "notifyChange",
