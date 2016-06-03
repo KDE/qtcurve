@@ -60,3 +60,4 @@ target_link_libraries(kstyle_qtcurve5_config
 target_link_libraries(kstyle_qtcurve5_config qtcurve-utils)
 
 install(TARGETS kstyle_qtcurve5_config DESTINATION ${_Qt5_PLUGIN_INSTALL_DIR})
+install(FILES QtCurveui.rc  DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/QtCurve)
