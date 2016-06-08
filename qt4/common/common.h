@@ -886,6 +886,7 @@ typedef struct {
                      useQtFileDialogApps,
                      windowDragWhiteList,
                      windowDragBlackList;
+    bool             onlyTicksInMenu;
 } Options;
 
 void qtcSetupGradient(Gradient *grad, EGradientBorder border, int numStops, ...);

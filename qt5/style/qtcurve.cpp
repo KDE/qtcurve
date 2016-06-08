@@ -647,6 +647,9 @@ void Style::init(bool initial)
                              opts.dlgOpacity != 100 ||
                              opts.menuBgndOpacity != 100);
 
+    opts.fontTickWidth=-1;
+    opts.menuTick=QString(QChar(0x2713));
+
 #ifdef QTC_QT5_ENABLE_KDE
     // We need to set the decoration colours for the preview now...
     if (m_isPreview) {

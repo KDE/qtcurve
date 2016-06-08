@@ -44,6 +44,7 @@
 #include <map>
 #include <set>
 #include <QString>
+#include <QFont>
 #include <QPixmap>
 #include <QSet>
 
@@ -878,6 +879,11 @@ typedef struct {
                      useQtFileDialogApps,
                      windowDragWhiteList,
                      windowDragBlackList;
+    bool             onlyTicksInMenu;
+    // these are runtime constants for the user-option "onlyTicksInMenu":
+    QFont            tickFont;
+    QString          menuTick;
+    int              fontTickWidth;
 } Options;
 
 void qtcSetupGradient(Gradient *grad, EGradientBorder border, int numStops, ...);

@@ -1277,6 +1277,7 @@ bool qtcReadConfig(const QString &file, Options *opts, Options *defOpts, bool ch
             CFG_READ_BOOL(thinSbarGroove);
             CFG_READ_BOOL(colorSliderMouseOver);
             CFG_READ_BOOL(menuIcons);
+            CFG_READ_BOOL(onlyTicksInMenu);
             CFG_READ_BOOL(forceAlternateLvCols);
             CFG_READ_BOOL(invertBotTab);
             CFG_READ_INT_BOOL(menubarHiding, HIDE_KEYBOARD);
@@ -1567,6 +1568,11 @@ void qtcDefaultSettings(Options *opts)
     opts->thinSbarGroove=true;
     opts->colorSliderMouseOver=false;
     opts->menuIcons=true;
+#ifdef Q_OS_OSX
+    opts->onlyTicksInMenu=true;
+#else
+    opts->onlyTicksInMenu=false;
+#endif
     opts->forceAlternateLvCols=false;
     opts->invertBotTab=true;
     opts->menubarHiding=HIDE_NONE;
@@ -2295,6 +2301,7 @@ bool qtcWriteConfig(KConfig *cfg, const Options &opts, const Options &def, bool 
         CFG_WRITE_ENTRY(thinSbarGroove);
         CFG_WRITE_ENTRY(colorSliderMouseOver);
         CFG_WRITE_ENTRY(menuIcons);
+        CFG_WRITE_ENTRY(onlyTicksInMenu);
         CFG_WRITE_ENTRY(forceAlternateLvCols);
         CFG_WRITE_ENTRY_NUM(square);
         CFG_WRITE_ENTRY(invertBotTab);

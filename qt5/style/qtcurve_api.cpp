@@ -47,6 +47,7 @@
 #include <QCheckBox>
 #include <QRadioButton>
 #include <QTextEdit>
+#include <QFontMetrics>
 #include <QDial>
 #include <QLabel>
 #include <QStackedLayout>
@@ -1913,6 +1914,35 @@ QPalette Style::standardPalette() const
     return QCommonStyle::standardPalette();
 }
 
+static bool initFontTickData(Options &opts, QFont font, const QWidget *widget=0)
+{
+    if (opts.onlyTicksInMenu && opts.fontTickWidth <= 0) {
+        opts.tickFont = font;
+#ifndef Q_OS_OSX
+        opts.tickFont.setBold(true);
+#else
+        opts.tickFont.setFamily(QStringLiteral("Apple Symbols"));
+        opts.tickFont.setBold(false);
+#endif
+        // adjust the size so the tickmark looks just about right
+        opts.tickFont.setPointSizeF(opts.tickFont.pointSizeF() * 1.3);
+        opts.fontTickWidth = QFontMetrics(opts.tickFont).width(opts.menuTick);
+        // qDebug() << widget << "font->tickFont:" << font.toString() << opts.tickFont.toString() << "tickMark:" << opts.menuTick
+        //    << "width=" << opts.fontTickWidth << "/" << QFontMetrics(opts.tickFont).boundingRect(opts.menuTick).width();
+        return true;
+    }
+    return false;
+}
+
+static bool menuTickCompensation(const Options &opts, int refWidth, int &dx)
+{
+    if (opts.onlyTicksInMenu && opts.fontTickWidth > refWidth) {
+        dx = opts.fontTickWidth - refWidth;
+        return true;
+    }
+    return false;
+}
+
 void
 Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option,
                      QPainter *painter, const QWidget *widget) const
@@ -1968,6 +1998,7 @@ Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option,
         break;
     case PE_FrameStatusBar:
     case PE_FrameMenu:
+        initFontTickData(opts, widget->font(), widget);
         drawFunc = &Style::drawPrimitiveFrameStatusBarOrMenu;
         break;
     case PE_FrameDockWidget:
@@ -2024,6 +2055,7 @@ Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option,
         drawFunc = &Style::drawPrimitivePanelTipLabel;
         break;
     case PE_PanelMenu:
+        initFontTickData(opts, widget->font(), widget);
         drawFunc = &Style::drawPrimitivePanelMenu;
         break;
     default:
@@ -2922,7 +2954,6 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
                               theThemedApp == APP_OPENOFFICE) ?
                              (m_ooMenuCols ? m_ooMenuCols :
                               m_highlightCols) : m_backgroundCols);
-
             if (!pix.isNull()) {
                 drawItemPixmap(painter, mbi->rect, alignment, pix);
             } else {
@@ -3018,6 +3049,14 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
             bool checked = menuItem->checked;
             bool enabled = state & State_Enabled;
 
+            // check if the font tick is wider than the current margin
+            // and adjust if necessary
+            initFontTickData(opts, menuItem->font, widget);
+            int dx = 0;
+            if (menuTickCompensation(opts, checkcol, dx)) {
+                r.adjust(-dx, 0, dx, 0);
+                checkcol += dx;
+            }
             if (opts.menuStripe && !comboMenu)
                 drawBevelGradient(menuStripeCol(), painter,
                                   QRect(reverse ? r.right()-stripeWidth : r.x(),
@@ -3025,13 +3064,14 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
                                   false, false, opts.menuStripeAppearance,
                                   WIDGET_OTHER);
 
-            if (selected && enabled)
+            if (selected && enabled) {
                 drawMenuItem(painter, r, option,
                              /*comboMenu ? MENU_COMBO : */MENU_POPUP,
                              ROUNDED_ALL,
                              opts.useHighlightForMenu ?
                              (m_ooMenuCols ? m_ooMenuCols :
                               m_highlightCols) : use);
+            }
 
             if (comboMenu) {
                 if (menuItem->icon.isNull()) {
@@ -3046,7 +3086,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
                 checkRect = visualRect(menuItem->direction, menuItem->rect,
                                        checkRect);
                 if (checkable) {
-                    if ((menuItem->checkType &
+                    if (!opts.onlyTicksInMenu && (menuItem->checkType &
                          QStyleOptionMenuItem::Exclusive) &&
                         menuItem->icon.isNull()) {
                         QStyleOptionButton button;
@@ -3065,7 +3105,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
                             if (checked)
                                 button.state |= State_On;
                             button.palette = palette;
-                            drawPrimitive(PE_IndicatorCheckBox, &button,
+                            drawPrimitive(PE_IndicatorMenuCheckMark, &button,
                                           painter, widget);
                         } else if (checked) {
                             int iconSize = qMax(menuItem->maxIconWidth, 20);
@@ -3078,9 +3118,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
                             sunkenRect = visualRect(menuItem->direction,
                                                     menuItem->rect, sunkenRect);
                             opt.state = menuItem->state;
-                            opt.state |= State_Raised | State_Horizontal;
-                            if (checked)
-                                opt.state |= State_On;
+                            opt.state |= State_Raised | State_Horizontal | State_On;
                             drawLightBevel(painter, sunkenRect, &opt, widget,
                                            ROUNDED_ALL,
                                            getFill(&opt, m_buttonCols),
@@ -3157,7 +3195,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
                 {
                     QRect vShortcutRect(visualRect(option->direction, menuItem->rect,
                                                    QRect(textRect.topRight(), QPoint(menuItem->rect.right(), textRect.bottom()))));
-
+                    vShortcutRect.adjust(dx, 0, dx, 0);
                     painter->drawText(vShortcutRect, textFlags, s.mid(t + 1));
                     s = s.left(t);
                 }
@@ -6211,23 +6249,26 @@ QSize Style::sizeFromContents(ContentsType type, const QStyleOption *option, con
     }
     case CT_MenuItem:
         if (auto mi = styleOptCast<QStyleOptionMenuItem>(option)) {
+            initFontTickData(opts, mi->font, widget);
             // Taken from QWindowStyle...
             int w = size.width();
 
-            if (QStyleOptionMenuItem::Separator==mi->menuItemType)
+            if (QStyleOptionMenuItem::Separator==mi->menuItemType) {
                 newSize = QSize(10, windowsSepHeight);
-            else if (mi->icon.isNull())
-            {
-                newSize.setHeight(newSize.height() - 2);
-                w -= 6;
-            }
-
-            if (QStyleOptionMenuItem::Separator!=mi->menuItemType && !mi->icon.isNull())
-            {
-                int iconExtent = pixelMetric(PM_SmallIconSize, option, widget);
-                newSize.setHeight(qMax(newSize.height(),
-                                       mi->icon.actualSize(QSize(iconExtent, iconExtent)).height()
-                                       + 2 * windowsItemFrame));
+            } else {
+                if (mi->icon.isNull()) {
+                    newSize.setHeight(newSize.height() - 2);
+                    w -= 6;
+                } else {
+                    int iconExtent = pixelMetric(PM_SmallIconSize, option, widget);
+                    newSize.setHeight(qMax(newSize.height(),
+                                        mi->icon.actualSize(QSize(iconExtent, iconExtent)).height()
+                                        + 2 * windowsItemFrame));
+                }
+                int dx;
+                if (menuTickCompensation(opts, 20, dx)) {
+                    w += dx;
+                }
             }
             int maxpmw = mi->maxIconWidth,
                 tabSpacing = 20;

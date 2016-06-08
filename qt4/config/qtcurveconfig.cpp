@@ -38,6 +38,7 @@
 #include <QFrame>
 #include <QTabWidget>
 #include <QFileInfo>
+#include <QActionGroup>
 #include <QBoxLayout>
 #include <QGridLayout>
 #include <QTreeWidget>
@@ -253,6 +254,13 @@ CStylePreview::CStylePreview(QWidget *parent)
     statusBar()->setSizeGripEnabled(true);
     toolBar()->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     setCaption(i18n("Preview Window"));
+    // implement the exclusive nature of the items supposed to be mutually exclusive
+    // This can still be done in .ui files but would have to be maintained by hand
+    // as Qt's Designer no longer supports QActionGroups.
+    QActionGroup *aGroup = new QActionGroup(menu2SubMenu);
+    aGroup->addAction(exclusiveItem1);
+    aGroup->addAction(exclusiveItem2);
+    aGroup->addAction(exclusiveItem3);
 }
 
 CStylePreview::~CStylePreview()
@@ -1125,6 +1133,7 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
     connect(gbLabel_centred, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(fadeLines, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(menuIcons, SIGNAL(toggled(bool)), SLOT(updateChanged()));
+    connect(onlyTicksInMenu, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(stdBtnSizes, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(forceAlternateLvCols, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(titlebarAlignment, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
@@ -3085,6 +3094,7 @@ void QtCurveConfig::setOptions(Options &opts)
     opts.gbLabel=getGroupBoxLabelFlags();
     opts.fadeLines=fadeLines->isChecked();
     opts.menuIcons=menuIcons->isChecked();
+    opts.onlyTicksInMenu=onlyTicksInMenu->isChecked();
     opts.stdBtnSizes=stdBtnSizes->isChecked();
     opts.boldProgress=boldProgress->isChecked();
     opts.coloredTbarMo=coloredTbarMo->isChecked();
@@ -3344,6 +3354,7 @@ void QtCurveConfig::setWidgetOptions(const Options &opts)
                                             : GBV_STANDARD);
     fadeLines->setChecked(opts.fadeLines);
     menuIcons->setChecked(opts.menuIcons);
+    onlyTicksInMenu->setChecked(opts.onlyTicksInMenu);
     stdBtnSizes->setChecked(opts.stdBtnSizes);
     boldProgress->setChecked(opts.boldProgress);
     boldProgress_false->setChecked(!opts.boldProgress);

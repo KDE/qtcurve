@@ -174,7 +174,16 @@
           <item>
            <widget class="QWidget" name="previewWidget" native="true">
             <layout class="QGridLayout" name="gridLayout_5">
-             <property name="margin">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
               <number>0</number>
              </property>
              <item row="0" column="0" colspan="2">
@@ -1597,7 +1606,16 @@
           <property name="spacing">
            <number>0</number>
           </property>
-          <property name="margin">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
            <number>0</number>
           </property>
           <item>
@@ -1657,7 +1675,16 @@
           <property name="spacing">
            <number>0</number>
           </property>
-          <property name="margin">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
            <number>0</number>
           </property>
           <item>
@@ -1714,7 +1741,16 @@
           <property name="spacing">
            <number>0</number>
           </property>
-          <property name="margin">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
            <number>0</number>
           </property>
           <item>
@@ -1768,7 +1804,16 @@
           <property name="spacing">
            <number>0</number>
           </property>
-          <property name="margin">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
            <number>0</number>
           </property>
           <item>
@@ -1819,7 +1864,16 @@
           <property name="spacing">
            <number>0</number>
           </property>
-          <property name="margin">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
            <number>0</number>
           </property>
           <item>
@@ -1870,7 +1924,16 @@
           <property name="spacing">
            <number>0</number>
           </property>
-          <property name="margin">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
            <number>0</number>
           </property>
           <item>
@@ -1961,7 +2024,16 @@
           <property name="spacing">
            <number>0</number>
           </property>
-          <property name="margin">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
            <number>0</number>
           </property>
           <item>
@@ -2018,7 +2090,16 @@
           <property name="spacing">
            <number>0</number>
           </property>
-          <property name="margin">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
            <number>0</number>
           </property>
           <item>
@@ -3143,14 +3224,24 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="0">
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="onlyTicksInMenu">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, checked menu items get only a check mark instead of a checkbox or radiobutton.</string>
+         </property>
+         <property name="text">
+          <string>Check marks only</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
         <widget class="QLabel" name="label_26">
          <property name="text">
           <string>Shade background by:</string>
          </property>
         </widget>
        </item>
-       <item row="4" column="1">
+       <item row="5" column="1">
         <widget class="QSpinBox" name="lighterPopupMenuBgnd">
          <property name="toolTip">
           <string>&lt;p&gt;Defines the amount by which the popup menu background will be lightened (or darkened).</string>
@@ -3160,14 +3251,14 @@
          </property>
         </widget>
        </item>
-       <item row="5" column="0">
+       <item row="6" column="0">
         <widget class="QLabel" name="label_75">
          <property name="text">
           <string>Background appearance:</string>
          </property>
         </widget>
        </item>
-       <item row="5" column="1">
+       <item row="6" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_6">
          <item>
           <widget class="QComboBox" name="menuBgndAppearance">
@@ -3185,7 +3276,7 @@
          </item>
         </layout>
        </item>
-       <item row="6" column="1">
+       <item row="7" column="1">
         <widget class="QComboBox" name="menuBgndGrad">
          <property name="toolTip">
           <string>&lt;p&gt;Defines background gradient orientation.</string>
@@ -3199,7 +3290,7 @@
          </property>
         </widget>
        </item>
-       <item row="7" column="1">
+       <item row="8" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_7">
          <item>
           <widget class="QComboBox" name="menuBgndImage">
@@ -3218,14 +3309,14 @@
          </item>
         </layout>
        </item>
-       <item row="8" column="0">
+       <item row="9" column="0">
         <widget class="QLabel" name="label_45">
          <property name="text">
           <string>Sub-menu delay:</string>
          </property>
         </widget>
        </item>
-       <item row="8" column="1">
+       <item row="9" column="1">
         <widget class="QSpinBox" name="menuDelay">
          <property name="toolTip">
           <string>&lt;p&gt;Defines the delay before a sub-menu appears.</string>
@@ -3238,21 +3329,21 @@
          </property>
         </widget>
        </item>
-       <item row="9" column="0">
+       <item row="10" column="0">
         <widget class="QLabel" name="label_44">
          <property name="text">
           <string>Stripe:</string>
          </property>
         </widget>
        </item>
-       <item row="9" column="1">
+       <item row="10" column="1">
         <widget class="QComboBox" name="menuStripe">
          <property name="toolTip">
           <string>&lt;p&gt;Defines the coloration of the menu-stripe that will be drawn on the left of popup menus - but only if this option is not set to 'none'.</string>
          </property>
         </widget>
        </item>
-       <item row="10" column="1">
+       <item row="11" column="1">
         <widget class="KColorButton" name="customMenuStripeColor">
          <property name="enabled">
           <bool>false</bool>
@@ -3268,7 +3359,7 @@
          </property>
         </widget>
        </item>
-       <item row="11" column="1">
+       <item row="12" column="1">
         <widget class="QComboBox" name="menuStripeAppearance">
          <property name="enabled">
           <bool>false</bool>
@@ -3278,14 +3369,14 @@
          </property>
         </widget>
        </item>
-       <item row="12" column="0">
+       <item row="13" column="0">
         <widget class="QLabel" name="label_61">
          <property name="text">
           <string>Border popupmenus:</string>
          </property>
         </widget>
        </item>
-       <item row="12" column="1">
+       <item row="13" column="1">
         <widget class="QCheckBox" name="popupBorder">
          <property name="toolTip">
           <string>&lt;p&gt;If enabled, the whole popup menu will have a border, otherwise no border will be drawn. This option should be enabled unless you have also enabled shadows in your window manager.</string>
@@ -3295,14 +3386,14 @@
          </property>
         </widget>
        </item>
-       <item row="13" column="0">
+       <item row="14" column="0">
         <widget class="QLabel" name="label_97">
          <property name="text">
           <string>Use menubar colour settings:</string>
          </property>
         </widget>
        </item>
-       <item row="13" column="1">
+       <item row="14" column="1">
         <widget class="QCheckBox" name="shadePopupMenu">
          <property name="text">
           <string>Enabled</string>
@@ -4029,11 +4120,11 @@
                   <property name="toolTip">
                    <string>&lt;p&gt;Set the position of the gradient value. 0% means the top of horizontal gradients, and the left for vertical gradients.</string>
                   </property>
-                  <property name="maximum">
-                   <number>100</number>
-                  </property>
                   <property name="suffix">
                    <string>%</string>
+                  </property>
+                  <property name="maximum">
+                   <number>100</number>
                   </property>
                  </widget>
                 </item>
@@ -4048,11 +4139,11 @@
                   <property name="toolTip">
                    <string>&lt;p&gt;Sets the strength of the gradient at the defined position. 110% would lighten a color by 10%, 90% would darken it by 10%, and 100% would be the original color.</string>
                   </property>
-                  <property name="maximum">
-                   <number>200</number>
-                  </property>
                   <property name="suffix">
                    <string>%</string>
+                  </property>
+                  <property name="maximum">
+                   <number>200</number>
                   </property>
                  </widget>
                 </item>
@@ -4067,11 +4158,11 @@
                   <property name="toolTip">
                    <string>&lt;p&gt;Sets the alpha value of the gradient at the defined position.</string>
                   </property>
-                  <property name="maximum">
-                   <number>100</number>
-                  </property>
                   <property name="suffix">
                    <string>%</string>
+                  </property>
+                  <property name="maximum">
+                   <number>100</number>
                   </property>
                  </widget>
                 </item>
@@ -4667,12 +4758,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>352</x>
-     <y>398</y>
+     <x>367</x>
+     <y>57</y>
     </hint>
     <hint type="destinationlabel">
-     <x>355</x>
-     <y>315</y>
+     <x>367</x>
+     <y>57</y>
     </hint>
    </hints>
   </connection>
@@ -4683,7 +4774,7 @@
    <slot>exportKDE3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>266</x>
+     <x>367</x>
      <y>57</y>
     </hint>
     <hint type="destinationlabel">
@@ -4699,8 +4790,8 @@
    <slot>exportQt()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>434</x>
-     <y>89</y>
+     <x>367</x>
+     <y>57</y>
     </hint>
     <hint type="destinationlabel">
      <x>532</x>
@@ -4715,12 +4806,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>440</x>
-     <y>264</y>
+     <x>367</x>
+     <y>57</y>
     </hint>
     <hint type="destinationlabel">
-     <x>440</x>
-     <y>290</y>
+     <x>367</x>
+     <y>57</y>
     </hint>
    </hints>
   </connection>
@@ -4731,12 +4822,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>473</x>
-     <y>261</y>
+     <x>367</x>
+     <y>57</y>
     </hint>
     <hint type="destinationlabel">
-     <x>425</x>
-     <y>322</y>
+     <x>367</x>
+     <y>57</y>
     </hint>
    </hints>
   </connection>

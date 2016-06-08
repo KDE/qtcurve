@@ -3160,14 +3160,24 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="0">
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="onlyTicksInMenu">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, checked menu items get only a check mark instead of a checkbox or radiobutton.</string>
+         </property>
+         <property name="text">
+          <string>Check marks only</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
         <widget class="QLabel" name="label_26">
          <property name="text">
           <string>Shade background by:</string>
          </property>
         </widget>
        </item>
-       <item row="4" column="1">
+       <item row="5" column="1">
         <widget class="KIntNumInput" name="lighterPopupMenuBgnd">
          <property name="toolTip">
           <string>&lt;p&gt;Defines the amount by which the popup menu background will be lightened (or darkened).</string>
@@ -3177,14 +3187,14 @@
          </property>
         </widget>
        </item>
-       <item row="5" column="0">
+       <item row="6" column="0">
         <widget class="QLabel" name="label_75">
          <property name="text">
           <string>Background appearance:</string>
          </property>
         </widget>
        </item>
-       <item row="5" column="1">
+       <item row="6" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_6">
          <item>
           <widget class="QComboBox" name="menuBgndAppearance">
@@ -3202,21 +3212,21 @@
          </item>
         </layout>
        </item>
-       <item row="6" column="1">
+       <item row="7" column="1">
         <widget class="QComboBox" name="menuBgndGrad">
          <property name="toolTip">
           <string>&lt;p&gt;Defines background gradient orientation.</string>
          </property>
         </widget>
        </item>
-       <item row="7" column="0">
+       <item row="8" column="0">
         <widget class="QLabel" name="label_xx">
          <property name="text">
           <string>Background image:</string>
          </property>
         </widget>
        </item>
-       <item row="7" column="1">
+       <item row="8" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_7">
          <item>
           <widget class="QComboBox" name="menuBgndImage">
@@ -3235,14 +3245,14 @@
          </item>
         </layout>
        </item>
-       <item row="8" column="0">
+       <item row="9" column="0">
         <widget class="QLabel" name="label_45">
          <property name="text">
           <string>Sub-menu delay:</string>
          </property>
         </widget>
        </item>
-       <item row="8" column="1">
+       <item row="9" column="1">
         <widget class="KIntNumInput" name="menuDelay">
          <property name="toolTip">
           <string>&lt;p&gt;Defines the delay before a sub-menu appears.</string>
@@ -3255,21 +3265,21 @@
          </property>
         </widget>
        </item>
-       <item row="9" column="0">
+       <item row="10" column="0">
         <widget class="QLabel" name="label_44">
          <property name="text">
           <string>Stripe:</string>
          </property>
         </widget>
        </item>
-       <item row="9" column="1">
+       <item row="10" column="1">
         <widget class="QComboBox" name="menuStripe">
          <property name="toolTip">
           <string>&lt;p&gt;Defines the coloration of the menu-stripe that will be drawn on the left of popup menus - but only if this option is not set to 'none'.</string>
          </property>
         </widget>
        </item>
-       <item row="10" column="1">
+       <item row="11" column="1">
         <widget class="KColorButton" name="customMenuStripeColor">
          <property name="enabled">
           <bool>false</bool>
@@ -3285,7 +3295,7 @@
          </property>
         </widget>
        </item>
-       <item row="11" column="1">
+       <item row="12" column="1">
         <widget class="QComboBox" name="menuStripeAppearance">
          <property name="enabled">
           <bool>false</bool>
@@ -3295,14 +3305,14 @@
          </property>
         </widget>
        </item>
-       <item row="12" column="0">
+       <item row="13" column="0">
         <widget class="QLabel" name="label_61">
          <property name="text">
           <string>Border popupmenus:</string>
          </property>
         </widget>
        </item>
-       <item row="12" column="1">
+       <item row="13" column="1">
         <widget class="QCheckBox" name="popupBorder">
          <property name="toolTip">
           <string>&lt;p&gt;If enabled, the whole popup menu will have a border, otherwise no border will be drawn. This option should be enabled unless you have also enabled shadows in your window manager.</string>
@@ -3312,14 +3322,14 @@
          </property>
         </widget>
        </item>
-       <item row="13" column="0">
+       <item row="14" column="0">
         <widget class="QLabel" name="label_97">
          <property name="text">
           <string>Use menubar colour settings:</string>
          </property>
         </widget>
        </item>
-       <item row="13" column="1">
+       <item row="14" column="1">
         <widget class="QCheckBox" name="shadePopupMenu">
          <property name="text">
           <string>Enabled</string>

@@ -65,6 +65,7 @@
 #include <QTemporaryDir>
 #include <QTemporaryFile>
 #include <QStatusBar>
+#include <QActionGroup>
 
 // KDE
 #include <klocalizedstring.h>
@@ -243,7 +244,7 @@ CStylePreview::CStylePreview(QWidget *parent)
                                  i18n("(C) Craig Drummond, 2003-2011 & "
                                       "Yichao Yu, 2013-2015")))
 {
-    setWindowIcon(QIcon::fromTheme("preferences-desktop-theme"));
+    setWindowIcon(QIcon::fromTheme("preferences-desktop-theme", qApp->windowIcon()));
 
     QWidget *main = new QWidget(this);
     setObjectName("QtCurvePreview");
@@ -256,6 +257,13 @@ CStylePreview::CStylePreview(QWidget *parent)
     statusBar()->setSizeGripEnabled(true);
     toolBar()->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     setCaption(i18n("Preview Window"));
+    // implement the exclusive nature of the items supposed to be mutually exclusive
+    // This can still be done in .ui files but would have to be maintained by hand
+    // as Qt's Designer no longer supports QActionGroups.
+    QActionGroup *aGroup = new QActionGroup(menu2SubMenu);
+    aGroup->addAction(exclusiveItem1);
+    aGroup->addAction(exclusiveItem2);
+    aGroup->addAction(exclusiveItem3);
 }
 
 CStylePreview::~CStylePreview()
@@ -1024,7 +1032,7 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
                 dwtTextAsPerTitleBar, dwtEffectAsPerTitleBar, dwtRoundTopOnly,
                 smallRadio, gtkComboMenus, mapKdeIcons, colorMenubarMouseOver,
                 useHighlightForMenu, gbLabel_bold, gbLabel_centred, fadeLines,
-                menuIcons, stdBtnSizes, forceAlternateLvCols, boldProgress,
+                menuIcons, onlyTicksInMenu, stdBtnSizes, forceAlternateLvCols, boldProgress,
                 coloredTbarMo, borderSelection, squareEntry, squareLvSelection,
                 squareScrollViews, squareFrame, squareTabFrame, squareSlider,
                 squareScrollbarSlider, squareWindows, squareTooltips,
@@ -3061,6 +3069,7 @@ void QtCurveConfig::setOptions(Options &opts)
     opts.gbLabel=getGroupBoxLabelFlags();
     opts.fadeLines=fadeLines->isChecked();
     opts.menuIcons=menuIcons->isChecked();
+    opts.onlyTicksInMenu=onlyTicksInMenu->isChecked();
     opts.stdBtnSizes=stdBtnSizes->isChecked();
     opts.boldProgress=boldProgress->isChecked();
     opts.coloredTbarMo=coloredTbarMo->isChecked();
@@ -3320,6 +3329,7 @@ void QtCurveConfig::setWidgetOptions(const Options &opts)
                                             : GBV_STANDARD);
     fadeLines->setChecked(opts.fadeLines);
     menuIcons->setChecked(opts.menuIcons);
+    onlyTicksInMenu->setChecked(opts.onlyTicksInMenu);
     stdBtnSizes->setChecked(opts.stdBtnSizes);
     boldProgress->setChecked(opts.boldProgress);
     boldProgress_false->setChecked(!opts.boldProgress);
@@ -3709,6 +3719,7 @@ bool QtCurveConfig::settingsChanged(const Options &opts)
          getGroupBoxLabelFlags()!=opts.gbLabel ||
          fadeLines->isChecked()!=opts.fadeLines ||
          menuIcons->isChecked()!=opts.menuIcons ||
+         onlyTicksInMenu->isChecked()!=opts.onlyTicksInMenu ||
          stdBtnSizes->isChecked()!=opts.stdBtnSizes ||
          boldProgress->isChecked()!=opts.boldProgress ||
          coloredTbarMo->isChecked()!=opts.coloredTbarMo ||

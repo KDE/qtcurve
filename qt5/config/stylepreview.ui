@@ -28,6 +28,42 @@
       </attribute>
       <layout class="QVBoxLayout">
        <item>
+        <widget class="QMenuBar" name="menuBarPreview">
+         <property name="nativeMenuBar">
+          <bool>false</bool>
+         </property>
+         <widget class="QMenu" name="menuMenu_1">
+          <property name="title">
+           <string>&amp;Menu 1</string>
+          </property>
+          <addaction name="separator"/>
+          <addaction name="actionRegular_item_1"/>
+          <addaction name="separator"/>
+          <addaction name="actionRegular_item_2"/>
+         </widget>
+         <widget class="QMenu" name="menuMenu_2">
+          <property name="title">
+           <string>Menu &amp;2</string>
+          </property>
+          <widget class="QMenu" name="menu2SubMenu">
+           <property name="title">
+            <string>&amp;Submenu</string>
+           </property>
+           <addaction name="actionRegular_submenu_item"/>
+          </widget>
+          <addaction name="actionCheckable_item"/>
+          <addaction name="separator"/>
+          <addaction name="menu2SubMenu"/>
+          <addaction name="separator"/>
+          <addaction name="exclusiveItem1"/>
+          <addaction name="exclusiveItem2"/>
+          <addaction name="exclusiveItem3"/>
+         </widget>
+         <addaction name="menuMenu_1"/>
+         <addaction name="menuMenu_2"/>
+        </widget>
+       </item>
+       <item>
         <layout class="QHBoxLayout">
          <item>
           <layout class="QVBoxLayout" name="verticalLayout">
@@ -40,7 +76,7 @@
               <item>
                <widget class="QRadioButton" name="RadioButton1">
                 <property name="text">
-                 <string>Radio button</string>
+                 <string>&amp;Radio button</string>
                 </property>
                 <property name="checked">
                  <bool>true</bool>
@@ -50,7 +86,7 @@
               <item>
                <widget class="QRadioButton" name="RadioButton2">
                 <property name="text">
-                 <string>Radio button</string>
+                 <string>Radio &amp;button</string>
                 </property>
                </widget>
               </item>
@@ -236,7 +272,7 @@
            </sizepolicy>
           </property>
           <property name="windowTitle">
-           <string>Dock Widget</string>
+           <string>&amp;Dock Widget</string>
           </property>
           <widget class="QWidget" name="dockWidgetContents">
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -263,12 +299,6 @@
               <property name="allColumnsShowFocus">
                <bool>true</bool>
               </property>
-              <attribute name="headerDefaultSectionSize">
-               <number>80</number>
-              </attribute>
-              <attribute name="headerMinimumSectionSize">
-               <number>32</number>
-              </attribute>
               <attribute name="headerDefaultSectionSize">
                <number>80</number>
               </attribute>
@@ -511,6 +541,86 @@ Come to wash my sins away...</string>
     </widget>
    </item>
   </layout>
+  <action name="actionRegular_item_1">
+   <property name="text">
+    <string>&amp;Regular item 1</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+1</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::WidgetWithChildrenShortcut</enum>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionRegular_item_2">
+   <property name="text">
+    <string>Regular &amp;item 2</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+2</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::WidgetWithChildrenShortcut</enum>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionCheckable_item">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Checkable item</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="exclusiveItem1">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Exclusive item 1</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="exclusiveItem2">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Exclusive &amp;item 2</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="exclusiveItem3">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Exclusive item &amp;3</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionRegular_submenu_item">
+   <property name="text">
+    <string>&amp;regular submenu item</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections>

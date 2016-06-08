@@ -4315,6 +4315,8 @@ void Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option, 
                                 ((State_Sunken|State_Enabled)==state || (State_Sunken|State_Enabled|State_Selected)==state));
             int   crSize(opts.crSize+(doEtch ? 2 : 0));
             QRect rect(r.x(), r.y()+(view ? -1 : 0), crSize, crSize);
+            // render checkable menu items with only a tick; should become an option
+            bool onlyTicksInMenu = menu && opts.onlyTicksInMenu;
 
             painter->save();
 
@@ -4332,7 +4334,7 @@ void Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option, 
                 if(r==QRect(0, 0, 15, 15))
                     rect.adjust(-1, -1, -1, -1);
             }
-            else
+            else if (!onlyTicksInMenu)
             {
                 if(isOO && r==QRect(0, 0, opts.crSize, opts.crSize))
                     rect.adjust(0, -1, 0, -1);
@@ -4414,9 +4416,34 @@ void Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option, 
 
             if(state&State_On || selectedOOMenu)
             {
-                QPixmap *pix(getPixmap(checkRadioCol(option), PIX_CHECK, 1.0));
-
-                painter->drawPixmap(rect.center().x()-(pix->width()/2), rect.center().y()-(pix->height()/2), *pix);
+                if (onlyTicksInMenu) {
+                    // only tickmarks (= without the box) in menu; adjust its horizontal position
+                    rect.adjust(6, 0, 0, 0);
+                    // get the font for adjusting; widget will be the menu holding the menuitem
+                    // but that uses the same font as the menuitem.
+                    QFont font(widget->font());
+#ifndef Q_OS_OSX
+                    font.setBold(true);
+#else
+                    // not that there is much variation in the CheckMark symbol on OS X, but
+                    // we pick one from a font that's always supposed to be there and that's
+                    // a good choice functionally speaking.
+                    font.setFamily(QStringLiteral("Apple Symbols"));
+#endif
+                    // adjust the size so the tickmark looks just about right
+                    font.setPointSizeF(font.pointSizeF() * 1.3);
+                    painter->save();
+                    painter->setFont(font);
+                    // render the tickmark using the Unicode "Check Mark" symbol (✓)
+                    drawItemTextWithRole(painter, rect, Qt::AlignHCenter|Qt::AlignVCenter, palette, true,
+                                     QString(QChar(0x2713)), QPalette::Text);
+                    painter->restore();
+                }
+                else
+                {
+                        QPixmap *pix(getPixmap(checkRadioCol(option), PIX_CHECK, 1.0));
+                        painter->drawPixmap(rect.center().x()-(pix->width()/2), rect.center().y()-(pix->height()/2), *pix);
+                }
             }
             else if (state&State_NoChange)    // tri-state
             {
@@ -6146,7 +6173,7 @@ void Style::drawControl(ControlElement element, const QStyleOption *option, QPai
                     checkRect = visualRect(menuItem->direction, menuItem->rect, checkRect);
                     if (checkable)
                     {
-                        if ((menuItem->checkType & QStyleOptionMenuItem::Exclusive) && menuItem->icon.isNull())
+                        if (!opts.onlyTicksInMenu && (menuItem->checkType & QStyleOptionMenuItem::Exclusive) && menuItem->icon.isNull())
                         {
                             QStyleOptionButton button;
                             button.rect = checkRect;
@@ -6166,7 +6193,7 @@ void Style::drawControl(ControlElement element, const QStyleOption *option, QPai
                                 if (checked)
                                     button.state |= State_On;
                                 button.palette = palette;
-                                drawPrimitive(PE_IndicatorCheckBox, &button, painter, widget);
+                                drawPrimitive(PE_IndicatorMenuCheckMark, &button, painter, widget);
                             }
                             else if (checked)
                             {
@@ -6177,9 +6204,7 @@ void Style::drawControl(ControlElement element, const QStyleOption *option, QPai
 
                                 sunkenRect = visualRect(menuItem->direction, menuItem->rect, sunkenRect);
                                 opt.state = menuItem->state;
-                                opt.state|=State_Raised|State_Horizontal;
-                                if (checked)
-                                    opt.state |= State_On;
+                                opt.state|=State_Raised|State_Horizontal|State_On;
                                 drawLightBevel(painter, sunkenRect, &opt, widget, ROUNDED_ALL, getFill(&opt, m_buttonCols), m_buttonCols);
                             }
                         }

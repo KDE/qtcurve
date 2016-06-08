@@ -30,6 +30,7 @@
 #include <QSet>
 #include <QCache>
 #include <QColor>
+#include <QFont>
 #include <QStyleOption>
 #include <QtGlobal>
 #include <QCommonStyle>

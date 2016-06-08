@@ -1264,7 +1264,7 @@ bool
 Style::drawPrimitivePanelMenu(PrimitiveElement, const QStyleOption *option,
                               QPainter *painter, const QWidget*) const
 {
-    const QRect &r = option->rect;
+    QRect r = option->rect;
     double radius = opts.round >= ROUND_FULL ? 5.0 : 2.5;
     const QColor *use = popupMenuCols(option);
     painter->setClipRegion(r);
@@ -1658,6 +1658,8 @@ Style::drawPrimitiveIndicatorCheckBox(PrimitiveElement element,
                                  State_Selected));
     int crSize = opts.crSize + (doEtch ? 2 : 0);
     QRect rect(r.x(), r.y() + (view ? -1 : 0), crSize, crSize);
+    // render checkable menu items with only a tick if so requested
+    bool onlyTicksInMenu = menu && opts.onlyTicksInMenu;
 
     // For OO.o 3.2 need to fill widget background!
     if (isOO) {
@@ -1675,7 +1677,8 @@ Style::drawPrimitiveIndicatorCheckBox(PrimitiveElement element,
         if (r == QRect(0, 0, 15, 15)) {
             rect.adjust(-1, -1, -1, -1);
         }
-    } else {
+    } else if (!onlyTicksInMenu) {
+        // don't do this when rendering a regular menu so we get just a tick
         if (isOO && r == QRect(0, 0, opts.crSize, opts.crSize)) {
             rect.adjust(0, -1, 0, -1);
         }
@@ -1764,10 +1767,32 @@ Style::drawPrimitiveIndicatorCheckBox(PrimitiveElement element,
         }
     }
     if (state & State_On || selectedOOMenu) {
-        QPixmap *pix = getPixmap(checkRadioCol(option), PIX_CHECK, 1.0);
+        if (onlyTicksInMenu) {
+            // only tickmarks (= without the box) in menu; adjust its horizontal position
+            // the normal, hardcoded margin is 20 (pixels). If that's too small, compensate,
+            // using a hand-tuned ad-hoc recipe tested over point size range 8 - 32 pt
+            if (opts.fontTickWidth > 20){
+                int dx = (opts.fontTickWidth - 20) + 2;
+                rect.adjust(dx, -dx, 2 * dx + 1, dx);
+            } else if (opts.fontTickWidth > 11){
+                int dx = (opts.fontTickWidth - 11) / 2;
+                rect.adjust(dx + 1, -dx, dx + 1, dx);
+            } else {
+                rect.adjust(6, 0, 0, 0);
+            }
+            QFont font(opts.tickFont);
+            painter->save();
+            painter->setFont(font);
+            // render the tickmark using the Unicode "Check Mark" symbol (✓)
+            drawItemTextWithRole(painter, rect, Qt::AlignHCenter|Qt::AlignVCenter, palette, true,
+                             opts.menuTick, QPalette::Text);
+            painter->restore();
+        } else {
+            QPixmap *pix = getPixmap(checkRadioCol(option), PIX_CHECK, 1.0);
 
-        painter->drawPixmap(rect.center().x() - pix->width() / 2,
-                            rect.center().y() - pix->height() / 2, *pix);
+            painter->drawPixmap(rect.center().x() - pix->width() / 2,
+                                rect.center().y() - pix->height() / 2, *pix);
+        }
     } else if (state & State_NoChange) {
         // tri-state
         int x(rect.center().x()), y(rect.center().y());
@@ -1955,7 +1980,7 @@ Style::drawPrimitiveFrameStatusBarOrMenu(PrimitiveElement element,
     if (element == PE_FrameStatusBar && !opts.drawStatusBarFrames) {
         return true;
     }
-    const QRect &r = option->rect;
+    QRect r = option->rect;
     if ((opts.square & SQUARE_POPUP_MENUS) &&
         (qtcIsFlatBgnd(opts.menuBgndAppearance) ||
          (opts.gtkComboMenus && widget && widget->parent() &&

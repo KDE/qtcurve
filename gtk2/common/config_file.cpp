@@ -1354,6 +1354,7 @@ bool qtcReadConfig(const char *file, Options *opts, Options *defOpts)
             CFG_READ_BOOL(thinSbarGroove);
             CFG_READ_BOOL(colorSliderMouseOver);
             CFG_READ_BOOL(menuIcons);
+            CFG_READ_BOOL(onlyTicksInMenu);
             CFG_READ_BOOL(forceAlternateLvCols);
             CFG_READ_BOOL(invertBotTab);
             CFG_READ_INT_BOOL(menubarHiding, HIDE_KEYBOARD);
@@ -1708,6 +1709,11 @@ void qtcDefaultSettings(Options *opts)
     opts->thinSbarGroove=true;
     opts->colorSliderMouseOver=false;
     opts->menuIcons=true;
+#ifdef Q_OS_OSX
+    opts->onlyTicksInMenu=true;
+#else
+    opts->onlyTicksInMenu=false;
+#endif
     opts->forceAlternateLvCols=false;
     opts->invertBotTab=true;
     opts->menubarHiding=HIDE_NONE;
