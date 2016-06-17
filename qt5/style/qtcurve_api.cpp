@@ -1998,7 +1998,9 @@ Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option,
         break;
     case PE_FrameStatusBar:
     case PE_FrameMenu:
-        initFontTickData(opts, widget->font(), widget);
+        if (widget) {
+            initFontTickData(opts, widget->font(), widget);
+        }
         drawFunc = &Style::drawPrimitiveFrameStatusBarOrMenu;
         break;
     case PE_FrameDockWidget:
@@ -2055,7 +2057,9 @@ Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option,
         drawFunc = &Style::drawPrimitivePanelTipLabel;
         break;
     case PE_PanelMenu:
-        initFontTickData(opts, widget->font(), widget);
+        if (widget) {
+            initFontTickData(opts, widget->font(), widget);
+        }
         drawFunc = &Style::drawPrimitivePanelMenu;
         break;
     default:
