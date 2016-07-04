@@ -3482,10 +3482,16 @@ Style::drawMenuOrToolBarBackground(const QWidget *widget, QPainter *p,
         p->setCompositionMode(QPainter::CompositionMode_Source);
 #endif
         QRect rx(r);
+#ifdef Q_OS_OSX
+        QColor col(menu ?
+                   menuColors(option, m_active)[ORIGINAL_SHADE] :
+                   option->palette.background().color());
+#else
         QColor col(menu && (option->state & State_Enabled ||
                             opts.shadeMenubars != SHADE_NONE) ?
                    menuColors(option, m_active)[ORIGINAL_SHADE] :
                    option->palette.background().color());
+#endif
         // TODO: QtQuick
         int opacity = qtcGetOpacity(widget ? widget : getWidget(p));
 
@@ -3797,11 +3803,19 @@ void Style::setMenuTextColors(QWidget *widget, bool isMenuBar) const
 
 const QColor * Style::menuColors(const QStyleOption *option, bool active) const
 {
-    return SHADE_WINDOW_BORDER==opts.shadeMenubars
-        ? getMdiColors(option, active)
-        : SHADE_NONE==opts.shadeMenubars || (opts.shadeMenubarOnlyWhenActive && !active)
-        ? backgroundColors(option)
-        : m_menubarCols;
+    if(SHADE_WINDOW_BORDER == opts.shadeMenubars)
+    {
+        return getMdiColors(option, active);
+    }
+#ifdef Q_OS_OSX
+    else if(opts.shadeMenubarOnlyWhenActive && !active)
+#else
+    else if(opts.shadeMenubars == SHADE_NONE || (opts.shadeMenubarOnlyWhenActive && !active))
+#endif
+    {
+        return backgroundColors(option);
+    }
+    return m_menubarCols;
 }
 
 bool
