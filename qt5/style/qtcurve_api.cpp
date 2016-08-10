@@ -707,7 +707,7 @@ void Style::polish(QWidget *widget)
     }
 
     if (APP_QTCREATOR == theThemedApp && qobject_cast<QDialog*>(widget) &&
-        qtcCheckKDEType(widget, KFileDialog)) {
+        qtcCheckKDEType(widget, QFileDialog)) {
 
         QToolBar *tb = getToolBarChild(widget);
         if (tb) {
@@ -780,7 +780,7 @@ void Style::polish(QWidget *widget)
         qobject_cast<QToolButton*>(widget) &&
         qobject_cast<QGroupBox*>(widget->parentWidget()) &&
         static_cast<QToolButton*>(widget)->text() == QLatin1String("...")) {
-        static_cast<QToolButton*>(widget)->setIcon(KIcon("document-open"));
+        static_cast<QToolButton*>(widget)->setIcon(QIcon::fromTheme(QStringLiteral("document-open")));
         static_cast<QToolButton*>(widget)->setAutoRaise(false);
     }
 #endif
@@ -1693,18 +1693,20 @@ Style::pixelMetric(PixelMetric metric, const QStyleOption *option,
     case QtC_TitleBarApp:
         return (!option || option->state & State_Active ?
                 opts.titlebarAppearance : opts.inactiveTitlebarAppearance);
-        // The following is a somewhat hackyish fix for konqueror's show close
+        // The following was a somewhat hackyish fix for konqueror's show close
         // button on tab setting...... its hackish in the way that I'm assuming
         // when KTabBar is positioning the close button and it asks for these
         // options, it only passes in a QStyleOption  not a QStyleOptionTab
+        // Now that KTabBar is deprecated and (KF5) code should use QTabBar instead
+        // it isn't certain these hacks ought to be preserved.
     case PM_TabBarBaseHeight:
-        if (qtcCheckKDEType(widget, KTabBar) &&
+        if (qtcCheckKDEType(widget, QTabBar) &&
             !styleOptCast<QStyleOptionTab>(option)) {
             return 10;
         }
         return QCommonStyle::pixelMetric(metric, option, widget);
     case PM_TabBarBaseOverlap:
-        if (qtcCheckKDEType(widget, KTabBar) &&
+        if (qtcCheckKDEType(widget, QTabBar) &&
             !styleOptCast<QStyleOptionTab>(option)) {
             return 0;
         }
@@ -1888,10 +1890,14 @@ Style::styleHint(StyleHint hint, const QStyleOption *option,
     case SH_FormLayoutWrapPolicy:
         return QFormLayout::DontWrapRows;
 #ifdef QTC_QT5_ENABLE_KDE
-    case SH_DialogButtonBox_ButtonsHaveIcons:
-        return KGlobalSettings::showIconsOnPushButtons();
-    case SH_ItemView_ActivateItemOnSingleClick:
-        return KGlobalSettings::singleClick();
+    case SH_DialogButtonBox_ButtonsHaveIcons:{
+        KConfigGroup cg(m_kdeGlobals, "KDE");
+        return cg.readEntry("ShowIconsOnPushButtons", false);
+    }
+    case SH_ItemView_ActivateItemOnSingleClick:{
+        KConfigGroup cg(m_kdeGlobals, "KDE");
+        return cg.readEntry("SingleClick", false);
+    }
 #endif
     default:
 #ifdef QTC_QT5_ENABLE_KDE

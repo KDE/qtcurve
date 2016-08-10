@@ -34,6 +34,11 @@
 #include <QStyleOption>
 #include <QtGlobal>
 #include <QCommonStyle>
+#ifdef QTC_QT5_ENABLE_KDE
+#include <KConfigCore/KSharedConfig>
+#include <KConfigCore/KConfigGroup>
+#endif
+
 typedef qulonglong QtcKey;
 #include <common/common.h>
 
@@ -562,6 +567,10 @@ private:
     BlurHelper *m_blurHelper;
     ShortcutHandler *m_shortcutHandler;
     void *m_dbusConnected;
+#ifdef QTC_QT5_ENABLE_KDE
+    KSharedConfigPtr m_configFile;
+    KSharedConfigPtr m_kdeGlobals;
+#endif
 };
 }
 

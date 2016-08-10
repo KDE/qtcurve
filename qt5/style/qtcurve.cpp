@@ -73,14 +73,13 @@
 #include <sys/time.h>
 
 #ifdef QTC_QT5_ENABLE_KDE
+// KDE4 support headers
 #include <KDE/KApplication>
 #include <KDE/KAboutData>
 #include <KDE/KGlobal>
 #include <KDE/KGlobalSettings>
 #include <KDE/KConfig>
 #include <KDE/KConfigGroup>
-#include <KDE/KIconLoader>
-#include <KDE/KIcon>
 #include <KDE/KColorScheme>
 #include <KDE/KStandardDirs>
 #include <KDE/KTitleWidget>
@@ -90,9 +89,10 @@
 #include <KDE/KXmlGuiWindow>
 #include <KDE/KStandardAction>
 #include <KDE/KActionCollection>
-#include <KDE/KIconEffect>
 #include <KDE/KMenu>
 #include <KDE/KAboutApplicationDialog>
+// KF5 headers
+#include <KConfigCore/KSharedConfig>
 #endif
 
 #include <qtcurve-utils/color.h>
@@ -350,6 +350,10 @@ Style::Style() :
     m_dbusConnected(nullptr)
 {
     const char *env = getenv(QTCURVE_PREVIEW_CONFIG);
+#ifdef QTC_QT5_ENABLE_KDE
+    m_configFile = KSharedConfig::openConfig();
+    m_kdeGlobals = KSharedConfig::openConfig(QStringLiteral("kdeglobals"), KConfig::NoGlobals);
+#endif
     if (env && strcmp(env, QTCURVE_PREVIEW_CONFIG) == 0) {
         // To enable preview of QtCurve settings, the style config module will set QTCURVE_PREVIEW_CONFIG
         // and use CE_QtC_SetOptions to set options. If this is set, we do not use the QPixmapCache as it
@@ -980,120 +984,120 @@ QIcon Style::standardIcon(StandardPixmap pix, const QStyleOption *option,
 */
 #else
     case SP_MessageBoxInformation:
-        return KIcon("dialog-information");
+        return QIcon::fromTheme(QStringLiteral("dialog-information"));
     case SP_MessageBoxWarning:
-        return KIcon("dialog-warning");
+        return QIcon::fromTheme(QStringLiteral("dialog-warning"));
     case SP_MessageBoxCritical:
-        return KIcon("dialog-error");
+        return QIcon::fromTheme(QStringLiteral("dialog-error"));
     case SP_MessageBoxQuestion:
-        return KIcon("dialog-information");
+        return QIcon::fromTheme(QStringLiteral("dialog-information"));
     case SP_DesktopIcon:
-        return KIcon("user-desktop");
+        return QIcon::fromTheme(QStringLiteral("user-desktop"));
     case SP_TrashIcon:
-        return KIcon("user-trash");
+        return QIcon::fromTheme(QStringLiteral("user-trash"));
     case SP_ComputerIcon:
-        return KIcon("computer");
+        return QIcon::fromTheme(QStringLiteral("computer"));
     case SP_DriveFDIcon:
-        return KIcon("media-floppy");
+        return QIcon::fromTheme(QStringLiteral("media-floppy"));
     case SP_DriveHDIcon:
-        return KIcon("drive-harddisk");
+        return QIcon::fromTheme(QStringLiteral("drive-harddisk"));
     case SP_DriveCDIcon:
     case SP_DriveDVDIcon:
-        return KIcon("media-optical");
+        return QIcon::fromTheme(QStringLiteral("media-optical"));
     case SP_DriveNetIcon:
-        return KIcon("network-server");
+        return QIcon::fromTheme(QStringLiteral("network-server"));
     case SP_DirOpenIcon:
-        return KIcon("document-open");
+        return QIcon::fromTheme(QStringLiteral("document-open"));
     case SP_DirIcon:
     case SP_DirClosedIcon:
-        return KIcon("folder");
+        return QIcon::fromTheme(QStringLiteral("folder"));
     // case SP_DirLinkIcon:
     case SP_FileIcon:
-        return KIcon("application-x-zerosize");
+        return QIcon::fromTheme(QStringLiteral("application-x-zerosize"));
     // case SP_FileLinkIcon:
     case SP_FileDialogStart:
-        return KIcon(QApplication::layoutDirection() == Qt::RightToLeft ?
-                     "go-edn" : "go-first");
+        return QIcon::fromTheme(QApplication::layoutDirection() == Qt::RightToLeft ?
+                     QStringLiteral("go-edn") : QStringLiteral("go-first"));
     case SP_FileDialogEnd:
-        return KIcon(QApplication::layoutDirection() == Qt::RightToLeft ?
-                     "go-first" : "go-end");
+        return QIcon::fromTheme(QApplication::layoutDirection() == Qt::RightToLeft ?
+                     QStringLiteral("go-first") : QStringLiteral("go-end"));
     case SP_FileDialogToParent:
-        return KIcon("go-up");
+        return QIcon::fromTheme(QStringLiteral("go-up"));
     case SP_FileDialogNewFolder:
-        return KIcon("folder-new");
+        return QIcon::fromTheme(QStringLiteral("folder-new"));
     case SP_FileDialogDetailedView:
-        return KIcon("view-list-details");
+        return QIcon::fromTheme(QStringLiteral("view-list-details"));
     // case SP_FileDialogInfoView:
-    //     return KIcon("dialog-ok");
+    //     return QIcon::fromTheme(QStringLiteral("dialog-ok"));
     // case SP_FileDialogContentsView:
-    //     return KIcon("dialog-ok");
+    //     return QIcon::fromTheme(QStringLiteral("dialog-ok"));
     case SP_FileDialogListView:
-        return KIcon("view-list-icons");
+        return QIcon::fromTheme(QStringLiteral("view-list-icons"));
     case SP_FileDialogBack:
-        return KIcon(QApplication::layoutDirection() == Qt::RightToLeft ?
-                     "go-next" : "go-previous");
+        return QIcon::fromTheme(QApplication::layoutDirection() == Qt::RightToLeft ?
+                     QStringLiteral("go-next") : QStringLiteral("go-previous"));
     case SP_DialogOkButton:
-        return KIcon("dialog-ok");
+        return QIcon::fromTheme(QStringLiteral("dialog-ok"));
     case SP_DialogCancelButton:
-        return KIcon("dialog-cancel");
+        return QIcon::fromTheme(QStringLiteral("dialog-cancel"));
     case SP_DialogHelpButton:
-        return KIcon("help-contents");
+        return QIcon::fromTheme(QStringLiteral("help-contents"));
     case SP_DialogOpenButton:
-        return KIcon("document-open");
+        return QIcon::fromTheme(QStringLiteral("document-open"));
     case SP_DialogSaveButton:
-        return KIcon("document-save");
+        return QIcon::fromTheme(QStringLiteral("document-save"));
     case SP_DialogCloseButton:
-        return KIcon("dialog-close");
+        return QIcon::fromTheme(QStringLiteral("dialog-close"));
     case SP_DialogApplyButton:
-        return KIcon("dialog-ok-apply");
+        return QIcon::fromTheme(QStringLiteral("dialog-ok-apply"));
     case SP_DialogResetButton:
-        return KIcon("document-revert");
+        return QIcon::fromTheme(QStringLiteral("document-revert"));
     // case SP_DialogDiscardButton:
-    //     return KIcon("dialog-cancel");
+    //     return QIcon::fromTheme(QStringLiteral("dialog-cancel"));
     case SP_DialogYesButton:
-        return KIcon("dialog-ok");
+        return QIcon::fromTheme(QStringLiteral("dialog-ok"));
     case SP_DialogNoButton:
-        return KIcon("dialog-cancel");
+        return QIcon::fromTheme(QStringLiteral("dialog-cancel"));
     case SP_ArrowUp:
-        return KIcon("arrow-up");
+        return QIcon::fromTheme(QStringLiteral("arrow-up"));
     case SP_ArrowDown:
-        return KIcon("arrow-down");
+        return QIcon::fromTheme(QStringLiteral("arrow-down"));
     case SP_ArrowLeft:
-        return KIcon("arrow-left");
+        return QIcon::fromTheme(QStringLiteral("arrow-left"));
     case SP_ArrowRight:
-        return KIcon("arrow-right");
+        return QIcon::fromTheme(QStringLiteral("arrow-right"));
     case SP_ArrowBack:
-        return KIcon(QApplication::layoutDirection() == Qt::RightToLeft ?
-                     "go-next" : "go-previous");
+        return QIcon::fromTheme(QApplication::layoutDirection() == Qt::RightToLeft ?
+                     QStringLiteral("go-next") : QStringLiteral("go-previous"));
     case SP_ArrowForward:
-        return KIcon(QApplication::layoutDirection() == Qt::RightToLeft ?
-                     "go-previous" : "go-next");
+        return QIcon::fromTheme(QApplication::layoutDirection() == Qt::RightToLeft ?
+                     QStringLiteral("go-previous") : QStringLiteral("go-next"));
     case SP_DirHomeIcon:
-        return KIcon("user-home");
+        return QIcon::fromTheme(QStringLiteral("user-home"));
     // case SP_CommandLink:
     // case SP_VistaShield:
     case SP_BrowserReload:
-        return KIcon("view-refresh");
+        return QIcon::fromTheme(QStringLiteral("view-refresh"));
     case SP_BrowserStop:
-        return KIcon("process-stop");
+        return QIcon::fromTheme(QStringLiteral("process-stop"));
     case SP_MediaPlay:
-        return KIcon("media-playback-start");
+        return QIcon::fromTheme(QStringLiteral("media-playback-start"));
     case SP_MediaStop:
-        return KIcon("media-playback-stop");
+        return QIcon::fromTheme(QStringLiteral("media-playback-stop"));
     case SP_MediaPause:
-        return KIcon("media-playback-pause");
+        return QIcon::fromTheme(QStringLiteral("media-playback-pause"));
     case SP_MediaSkipForward:
-        return KIcon("media-skip-forward");
+        return QIcon::fromTheme(QStringLiteral("media-skip-forward"));
     case SP_MediaSkipBackward:
-        return KIcon("media-skip-backward");
+        return QIcon::fromTheme(QStringLiteral("media-skip-backward"));
     case SP_MediaSeekForward:
-        return KIcon("media-seek-forward");
+        return QIcon::fromTheme(QStringLiteral("media-seek-forward"));
     case SP_MediaSeekBackward:
-        return KIcon("media-seek-backward");
+        return QIcon::fromTheme(QStringLiteral("media-seek-backward"));
     case SP_MediaVolume:
-        return KIcon("player-volume");
+        return QIcon::fromTheme(QStringLiteral("player-volume"));
     case SP_MediaVolumeMuted:
-        return KIcon("player-volume-muted");
+        return QIcon::fromTheme(QStringLiteral("player-volume-muted"));
 #endif
     default:
         break;
@@ -3881,22 +3885,27 @@ Style::getMdiColors(const QStyleOption *option, bool active) const
         }
 #else
         Q_UNUSED(option);
+        KConfigGroup cg(m_kdeGlobals, "WM");
 
-        QColor col = KGlobalSettings::activeTitleColor();
+//         QColor col = KGlobalSettings::activeTitleColor();
+        QColor col = cg.readEntry("activeBackground", QColor(48, 174, 232));
 
         if (col != m_backgroundCols[ORIGINAL_SHADE]) {
             m_activeMdiColors = new QColor[TOTAL_SHADES + 1];
             shadeColors(col, m_activeMdiColors);
         }
 
-        col = KGlobalSettings::inactiveTitleColor();
+//         col = KGlobalSettings::inactiveTitleColor();
+        col = cg.readEntry("inactiveBackground", QColor(224, 223, 222));;
         if (col != m_backgroundCols[ORIGINAL_SHADE]) {
             m_mdiColors = new QColor[TOTAL_SHADES+1];
             shadeColors(col, m_mdiColors);
         }
 
-        m_activeMdiTextColor = KGlobalSettings::activeTextColor();
-        m_mdiTextColor = KGlobalSettings::inactiveTextColor();
+//         m_activeMdiTextColor = KGlobalSettings::activeTextColor();
+//         m_mdiTextColor = KGlobalSettings::inactiveTextColor();
+        m_activeMdiTextColor = cg.readEntry("inactiveForeground", QColor(75, 71, 67));
+        m_mdiTextColor = cg.readEntry("activeForeground", QColor(255, 255, 255));
 #endif
 
         if(!m_activeMdiColors)
@@ -4209,7 +4218,7 @@ void Style::applyKdeSettings(bool pal)
     }
     else
     {
-        KConfigGroup g(KGlobal::config(), "General");
+        KConfigGroup g(m_configFile, "General");
         QFont        mnu=g.readEntry("menuFont", QApplication::font());
 
         QApplication::setFont(g.readEntry("font", QApplication::font()));
@@ -4228,7 +4237,7 @@ void Style::kdeGlobalSettingsChange(int type, int)
 #else
     switch(type) {
     case KGlobalSettings::StyleChanged: {
-        KGlobal::config()->reparseConfiguration();
+        m_configFile->reparseConfiguration();
         if (m_usePixmapCache)
             QPixmapCache::clear();
         init(false);
@@ -4239,13 +4248,13 @@ void Style::kdeGlobalSettingsChange(int type, int)
         break;
     }
     case KGlobalSettings::PaletteChanged:
-        KGlobal::config()->reparseConfiguration();
+        m_configFile->reparseConfiguration();
         applyKdeSettings(true);
         if (m_usePixmapCache)
             QPixmapCache::clear();
         break;
     case KGlobalSettings::FontChanged:
-        KGlobal::config()->reparseConfiguration();
+        m_configFile->reparseConfiguration();
         applyKdeSettings(false);
         break;
     }

@@ -81,10 +81,6 @@
 #include <QTextStream>
 #include <QTextDocument>
 
-#ifdef QTC_QT5_ENABLE_KDE
-#  include <KDE/KGlobalSettings>
-#endif
-
 #include <qtcurve-utils/x11wmmove.h>
 
 namespace QtCurve {
@@ -94,11 +90,7 @@ WindowManager::WindowManager( QObject* parent ):
     _enabled(true),
     _useWMMoveResize(qtcX11Enabled()),
     _dragMode(WM_DRAG_NONE),
-#ifndef QTC_QT5_ENABLE_KDE
     _dragDistance(QApplication::startDragDistance()),
-#else
-    _dragDistance(KGlobalSettings::dndEventDelay()),
-#endif
     _dragDelay(QApplication::startDragTime()),
     _dragAboutToStart(false),
     _dragInProgress(false),
@@ -118,7 +110,7 @@ void WindowManager::initialize( int windowDrag, const QStringList &whiteList, co
 //CPD: Why???        setUseWMMoveResize( OxygenStyleConfigData::useWMMoveResize() );
 
 #ifdef QTC_QT5_ENABLE_KDE
-    setDragDistance(KGlobalSettings::dndEventDelay());
+    setDragDistance(QApplication::startDragDistance());
 #endif
     setDragDelay(QApplication::startDragTime());
 

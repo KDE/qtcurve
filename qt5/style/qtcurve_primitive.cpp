@@ -70,7 +70,7 @@ Style::drawPrimitiveIndicatorTabClose(PrimitiveElement,
         mode = QIcon::Disabled;
     }
     drawItemPixmap(painter, option->rect, Qt::AlignCenter,
-                   KIcon("dialog-close").pixmap(size, mode,
+                   QIcon::fromTheme(QStringLiteral("dialog-close")).pixmap(size, mode,
                                                 state & State_Sunken ?
                                                 QIcon::On : QIcon::Off));
     return true;
