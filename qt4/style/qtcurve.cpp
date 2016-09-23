@@ -4435,7 +4435,7 @@ void Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option, 
                     // not that there is much variation in the CheckMark symbol on OS X, but
                     // we pick one from a font that's always supposed to be there and that's
                     // a good choice functionally speaking.
-                    font.setFamily(QStringLiteral("Apple Symbols"));
+                    font.setFamily("Apple Symbols");
 #endif
                     // adjust the size so the tickmark looks just about right
                     font.setPointSizeF(font.pointSizeF() * 1.3);
