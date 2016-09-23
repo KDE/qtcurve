@@ -1568,7 +1568,7 @@ void qtcDefaultSettings(Options *opts)
     opts->thinSbarGroove=true;
     opts->colorSliderMouseOver=false;
     opts->menuIcons=true;
-#ifdef Q_OS_OSX
+#ifdef Q_OS_MAC
     opts->onlyTicksInMenu=true;
 #else
     opts->onlyTicksInMenu=false;
