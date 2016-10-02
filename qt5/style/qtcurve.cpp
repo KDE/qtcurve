@@ -374,18 +374,6 @@ void Style::init(bool initial)
     if(!initial)
         freeColors();
 
-#ifdef QTC_QT5_ENABLE_KDE
-    if (initial) {
-        QString name(QApplication::applicationName());
-
-        if(name.isEmpty())
-            name = qAppName();
-
-        if(name.isEmpty())
-            name = "QtApp";
-    }
-#endif
-
     if (m_isPreview) {
         if (m_isPreview != PREVIEW_WINDOW) {
             opts.bgndOpacity = opts.dlgOpacity = opts.menuBgndOpacity = 100;
@@ -394,6 +382,11 @@ void Style::init(bool initial)
         qtcReadConfig(QString(), &opts);
 
         if (initial) {
+#ifdef Q_OS_OSX
+            if (opts.nonnativeMenubarApps.contains("kde") || opts.nonnativeMenubarApps.contains(appName)) {
+                QCoreApplication::setAttribute(Qt::AA_DontUseNativeMenuBar);
+            }
+#endif
             connectDBus();
         }
     }

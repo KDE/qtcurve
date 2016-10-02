@@ -963,6 +963,11 @@ void Style::init(bool initial)
 #endif
 
         if (initial) {
+#ifdef Q_OS_MAC
+            if (opts.nonnativeMenubarApps.contains("kde") || opts.nonnativeMenubarApps.contains(appName)) {
+                QCoreApplication::setAttribute(Qt::AA_DontUseNativeMenuBar);
+            }
+#endif
             QDBusConnection::sessionBus().connect(
                 QString(), "/KGlobalSettings", "org.kde.KGlobalSettings",
                 "notifyChange", this, SLOT(kdeGlobalSettingsChange(int, int)));
@@ -2507,9 +2512,22 @@ bool Style::eventFilter(QObject *object, QEvent *event)
             }
             break;
         case QEvent::ShowToParent:
-            if(opts.menubarHiding && m_saveMenuBarStatus && qobject_cast<QMenuBar*>(object) &&
-               qtcMenuBarHidden(appName))
-                static_cast<QMenuBar*>(object)->setHidden(true);
+            if(qobject_cast<QMenuBar*>(object)) {
+                if(opts.menubarHiding && m_saveMenuBarStatus && qtcMenuBarHidden(appName))
+                    static_cast<QMenuBar*>(object)->setHidden(true);
+#ifdef Q_OS_MAC
+                if (opts.nonnativeMenubarApps.contains(appName)) {
+                    QMenuBar *mnb = static_cast<QMenuBar*>(object);
+                    if (mnb->isNativeMenuBar()) {
+                        mnb->setNativeMenuBar(false);
+                        mnb->setHidden(false);
+                        mnb->setVisible(true);
+                    }
+                } else {
+                    static_cast<QMenuBar*>(object)->setNativeMenuBar(true);
+                }
+#endif
+            }
             if(opts.statusbarHiding && m_saveStatusBarStatus && qobject_cast<QStatusBar*>(object) &&
                qtcStatusBarHidden(appName))
                 static_cast<QStatusBar*>(object)->setHidden(true);
@@ -4429,7 +4447,7 @@ void Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option, 
                     // get the font for adjusting; widget will be the menu holding the menuitem
                     // but that uses the same font as the menuitem.
                     QFont font(widget->font());
-#ifndef Q_OS_OSX
+#ifndef Q_OS_MAC
                     font.setBold(true);
 #else
                     // not that there is much variation in the CheckMark symbol on OS X, but

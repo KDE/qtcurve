@@ -878,7 +878,8 @@ typedef struct {
                      statusbarApps,
                      useQtFileDialogApps,
                      windowDragWhiteList,
-                     windowDragBlackList;
+                     windowDragBlackList,
+                     nonnativeMenubarApps;
     bool             onlyTicksInMenu;
     // these are runtime constants for the user-option "onlyTicksInMenu":
     QFont            tickFont;

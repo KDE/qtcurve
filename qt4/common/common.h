@@ -885,7 +885,8 @@ typedef struct {
                      statusbarApps,
                      useQtFileDialogApps,
                      windowDragWhiteList,
-                     windowDragBlackList;
+                     windowDragBlackList,
+                     nonnativeMenubarApps;
     bool             onlyTicksInMenu;
 } Options;
 

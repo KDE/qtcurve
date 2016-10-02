@@ -1343,6 +1343,7 @@ bool qtcReadConfig(const QString &file, Options *opts, Options *defOpts, bool ch
             CFG_READ_STRING_LIST(menubarApps);
             CFG_READ_STRING_LIST(statusbarApps);
             CFG_READ_STRING_LIST(useQtFileDialogApps);
+            CFG_READ_STRING_LIST(nonnativeMenubarApps);
             CFG_READ_STRING_LIST(windowDragWhiteList);
             CFG_READ_STRING_LIST(windowDragBlackList);
             readDoubleList(cfg, "customShades", opts->customShades, QTC_NUM_STD_SHADES);
@@ -2368,6 +2369,7 @@ bool qtcWriteConfig(KConfig *cfg, const Options &opts, const Options &def, bool 
         CFG_WRITE_STRING_LIST_ENTRY(menubarApps);
         CFG_WRITE_STRING_LIST_ENTRY(statusbarApps);
         CFG_WRITE_STRING_LIST_ENTRY(useQtFileDialogApps);
+        CFG_WRITE_STRING_LIST_ENTRY(nonnativeMenubarApps);
 
         for(int i=APPEARANCE_CUSTOM1; i<(APPEARANCE_CUSTOM1+NUM_CUSTOM_GRAD); ++i)
         {

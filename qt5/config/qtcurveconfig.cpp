@@ -1077,7 +1077,7 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
 
     for (auto *w: {noBgndGradientApps, noBgndOpacityApps,
                 noMenuBgndOpacityApps, noBgndImageApps, useQtFileDialogApps,
-                menubarApps, statusbarApps, noMenuStripeApps}) {
+                menubarApps, statusbarApps, noMenuStripeApps, nonnativeMenubarApps}) {
         connect(qtcSlot(w, editingFinished), qtcSlot(this, updateChanged));
     }
 
@@ -3150,6 +3150,7 @@ void QtCurveConfig::setOptions(Options &opts)
     opts.menubarApps=toSet(menubarApps->text());
     opts.statusbarApps=toSet(statusbarApps->text());
     opts.noMenuStripeApps=toSet(noMenuStripeApps->text());
+    opts.nonnativeMenubarApps=toSet(nonnativeMenubarApps->text());
 
     if(IMG_FILE==opts.bgndImage.type)
     {
@@ -3501,6 +3502,7 @@ void QtCurveConfig::setWidgetOptions(const Options &opts)
     menubarApps->setText(toString(opts.menubarApps));
     statusbarApps->setText(toString(opts.statusbarApps));
     noMenuStripeApps->setText(toString(opts.noMenuStripeApps));
+    nonnativeMenubarApps->setText(toString(opts.nonnativeMenubarApps));
 
     bgndImageDlg->set(getThemeFile(opts.bgndImage.pixmap.file), opts.bgndImage.width, opts.bgndImage.height,
                       opts.bgndImage.pos, opts.bgndImage.onBorder);
@@ -3804,6 +3806,7 @@ bool QtCurveConfig::settingsChanged(const Options &opts)
          toSet(menubarApps->text())!=opts.menubarApps ||
          toSet(statusbarApps->text())!=opts.statusbarApps ||
          toSet(noMenuStripeApps->text())!=opts.noMenuStripeApps ||
+         toSet(nonnativeMenubarApps->text())!=opts.nonnativeMenubarApps ||
 
          diffShades(opts) ||
 

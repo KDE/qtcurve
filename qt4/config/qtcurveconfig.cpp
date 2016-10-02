@@ -1209,6 +1209,7 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
     connect(menubarApps, SIGNAL(editingFinished()), SLOT(updateChanged()));
     connect(statusbarApps, SIGNAL(editingFinished()), SLOT(updateChanged()));
     connect(noMenuStripeApps, SIGNAL(editingFinished()), SLOT(updateChanged()));
+    connect(nonnativeMenubarApps, SIGNAL(editingFinished()), SLOT(updateChanged()));
 
     menubarBlend->setIcon(KIcon("configure"));
     connect(menubarBlend, SIGNAL(clicked(bool)), SLOT(menubarTitlebarBlend()));
@@ -3175,6 +3176,7 @@ void QtCurveConfig::setOptions(Options &opts)
     opts.menubarApps=toSet(menubarApps->text());
     opts.statusbarApps=toSet(statusbarApps->text());
     opts.noMenuStripeApps=toSet(noMenuStripeApps->text());
+    opts.nonnativeMenubarApps=toSet(nonnativeMenubarApps->text());
 
     if(IMG_FILE==opts.bgndImage.type)
     {
@@ -3524,6 +3526,7 @@ void QtCurveConfig::setWidgetOptions(const Options &opts)
     noMenuBgndOpacityApps->setText(toString(opts.noMenuBgndOpacityApps));
     noBgndImageApps->setText(toString(opts.noBgndImageApps));
     useQtFileDialogApps->setText(toString(opts.useQtFileDialogApps));
+    nonnativeMenubarApps->setText(toString(opts.nonnativeMenubarApps));
     menubarApps->setText(toString(opts.menubarApps));
     statusbarApps->setText(toString(opts.statusbarApps));
     noMenuStripeApps->setText(toString(opts.noMenuStripeApps));
@@ -3830,6 +3833,7 @@ bool QtCurveConfig::settingsChanged(const Options &opts)
          toSet(menubarApps->text())!=opts.menubarApps ||
          toSet(statusbarApps->text())!=opts.statusbarApps ||
          toSet(noMenuStripeApps->text())!=opts.noMenuStripeApps ||
+         toSet(nonnativeMenubarApps->text())!=opts.nonnativeMenubarApps ||
 
          diffShades(opts) ||
 

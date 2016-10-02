@@ -1125,9 +1125,22 @@ bool Style::eventFilter(QObject *object, QEvent *event)
         }
         break;
     case QEvent::ShowToParent:
-        if(opts.menubarHiding && m_saveMenuBarStatus && qobject_cast<QMenuBar *>(object) &&
-           qtcMenuBarHidden(appName))
-            static_cast<QMenuBar *>(object)->setHidden(true);
+        if (qobject_cast<QMenuBar *>(object)) {
+            if(opts.menubarHiding && m_saveMenuBarStatus && qtcMenuBarHidden(appName))
+                static_cast<QMenuBar *>(object)->setHidden(true);
+#ifdef Q_OS_OSX
+                if (opts.nonnativeMenubarApps.contains(appName)) {
+                    QMenuBar *mnb = static_cast<QMenuBar*>(object);
+                    if (mnb->isNativeMenuBar()) {
+                        mnb->setNativeMenuBar(false);
+                        mnb->setHidden(false);
+                        mnb->setVisible(true);
+                    }
+                } else if (QGuiApplication::platformName().contains(QLatin1String("cocoa"))) {
+                    static_cast<QMenuBar*>(object)->setNativeMenuBar(true);
+                }
+#endif
+        }
         if(opts.statusbarHiding && m_saveStatusBarStatus && qobject_cast<QStatusBar *>(object) &&
            qtcStatusBarHidden(appName))
             static_cast<QStatusBar *>(object)->setHidden(true);
