@@ -67,7 +67,9 @@ getKdeHome()
         if ((res = getenv(getuid() ? "KDEHOME" : "KDEROOTHOME"))) {
             return strdup(res);
         }
-        return Str::cat(getHome(), ".kde4");
+        // according to kdecore/kernel/kstandarddirs.h, ~/.kde is the default for KDEHOME
+        // distributions using the default should not have to patch this code.
+        return Str::cat(getHome(), ".kde");
     };
     return dir.get();
 }
@@ -80,9 +82,16 @@ kdeFile(const char *f)
 }
 
 static const char*
-kdeGlobals()
+kde4Globals()
 {
     return kdeFile(KDEGLOBALS_FILE);
+}
+
+static const char*
+kde5Globals()
+{
+    static Str::Buff<1024> buff;
+    return buff.cat(getHome(), ".config/", KDEGLOBALS_FILE);;
 }
 
 static const char*
@@ -460,7 +469,7 @@ setFont(QtFontDetails *font, int f)
                 weightStr(WEIGHT_BOLD), italicStr(font->italic), font->size);
     }
     if (qtSettings.debug) {
-        printf(DEBUG_PREFIX"Font[%d] - %s\n", f, qtSettings.fonts[f]);
+        fprintf(stderr, DEBUG_PREFIX"Font[%d] - %s\n", f, qtSettings.fonts[f]);
     }
 }
 
@@ -492,7 +501,7 @@ static void readKwinrc()
         char line[MAX_CONFIG_INPUT_LINE_LEN + 1];
 
         if (qtSettings.debug)
-            printf(DEBUG_PREFIX "Reading kwinrc\n");
+            fprintf(stderr, DEBUG_PREFIX "Reading kwinrc\n");
 
         while(nullptr!=fgets(line, MAX_CONFIG_INPUT_LINE_LEN, f))
             if(line[0]=='[')
@@ -574,7 +583,7 @@ static void readKdeGlobals(const char *rc, int rd, bool first)
         int section=SECT_NONE;
 
         if(qtSettings.debug)
-            printf(DEBUG_PREFIX"Reading kdeglobals - %s\n", rc);
+            fprintf(stderr, DEBUG_PREFIX"Reading kdeglobals - %s\n", rc);
 
         while(found!=rd && nullptr!=fgets(line, MAX_CONFIG_INPUT_LINE_LEN, f))
             if(line[0]=='[')
@@ -829,6 +838,11 @@ static void readKdeGlobals(const char *rc, int rd, bool first)
 
         fclose(f);
     }
+    else if (!first)
+    {
+        // don't repeat the settings below, as that would probably override settings read from file.
+        return;
+    }
 
     int eff = 0;
     double contrast = 0.1 * opts.contrast;
@@ -996,7 +1010,7 @@ getIconPath()
     }
     buff.append("\"");
     if (qtSettings.debug) {
-        printf(DEBUG_PREFIX "%s\n", buff.get());
+        fprintf(stderr, DEBUG_PREFIX "%s\n", buff.get());
     }
     return buff.get();
 }
@@ -1134,7 +1148,8 @@ qtSettingsInit()
                                  QTC_KDE4_PREFIX KDE4_SYS_CFG_DIR KDEGLOBALS_FILE,
                                  QTC_KDE4_PREFIX KDE4_SYS_CFG_DIR
                                  KDEGLOBALS_SYS_FILE,
-                                 kdeGlobals(),
+                                 kde4Globals(),
+                                 kde5Globals(),
                                  nullptr};
 
             for(f=0; 0!=files[f]; ++f)
@@ -1231,7 +1246,7 @@ qtSettingsInit()
             }
 
             if(qtSettings.debug)
-                printf(DEBUG_PREFIX"Application name: \"%s\"\n", qtSettings.appName ? qtSettings.appName : "<unknown>");
+                fprintf(stderr, DEBUG_PREFIX"Application name: \"%s\"\n", qtSettings.appName ? qtSettings.appName : "<unknown>");
 
             /* Eclipse sets a application name, so if this is set then we're not a Swing java app */
             if(GTK_APP_JAVA==qtSettings.app && g_get_application_name() && 0!=strcmp(g_get_application_name(), "<unknown>"))
@@ -1429,10 +1444,10 @@ qtSettingsInit()
                     g_object_set(settings, "gtk-font-name", qtSettings.fonts[FONT_GENERAL], nullptr);
 
                 gtk_settings_set_long_property(settings, "gtk-toolbar-style", qtSettings.toolbarStyle, "KDE-Settings");
-                if(qtSettings.debug) printf(DEBUG_PREFIX "gtk-toolbar-style %d\n", qtSettings.toolbarStyle);
+                if(qtSettings.debug) fprintf(stderr, DEBUG_PREFIX "gtk-toolbar-style %d\n", qtSettings.toolbarStyle);
                 if (gtk_check_version(2, 4, 0) == nullptr) {
                     /* The following settings only apply for GTK>=2.4.0 */
-                    if(qtSettings.debug) printf(DEBUG_PREFIX "gtk-button-images %d\n", qtSettings.buttonIcons);
+                    if(qtSettings.debug) fprintf(stderr, DEBUG_PREFIX "gtk-button-images %d\n", qtSettings.buttonIcons);
                     gtk_settings_set_long_property(settings, "gtk-button-images", qtSettings.buttonIcons, "KDE-Settings");
 #if 0
                     if(opts.drawStatusBarFrames)
