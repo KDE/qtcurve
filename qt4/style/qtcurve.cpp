@@ -1285,8 +1285,10 @@ void Style::freeColor(QSet<QColor*> &freedColors, QColor **cols)
 
 void Style::freeColors()
 {
-    if(0!=m_progressBarAnimateTimer)
+    if(0!=m_progressBarAnimateTimer) {
         killTimer(m_progressBarAnimateTimer);
+        m_progressBarAnimateTimer = 0;
+    }
 
     QSet<QColor*> freedColors;
 
@@ -2755,7 +2757,7 @@ bool Style::eventFilter(QObject *object, QEvent *event)
             if(object && !m_progressBars.isEmpty())
             {
                 m_progressBars.remove(reinterpret_cast<QProgressBar*>(object));
-                if (m_progressBars.isEmpty())
+                if (m_progressBars.isEmpty() && m_progressBarAnimateTimer)
                 {
                     killTimer(m_progressBarAnimateTimer);
                     m_progressBarAnimateTimer = 0;

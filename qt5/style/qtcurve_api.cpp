@@ -1364,7 +1364,7 @@ bool Style::eventFilter(QObject *object, QEvent *event)
         // So we have to check on object.
         if (object && !m_progressBars.isEmpty()) {
             m_progressBars.remove(reinterpret_cast<QProgressBar*>(object));
-            if (m_progressBars.isEmpty()) {
+            if (m_progressBars.isEmpty() && m_progressBarAnimateTimer) {
                 killTimer(m_progressBarAnimateTimer);
                 m_progressBarAnimateTimer = 0;
             }

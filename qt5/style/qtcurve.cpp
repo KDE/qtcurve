@@ -736,8 +736,10 @@ void Style::freeColor(QSet<QColor *> &freedColors, QColor **cols)
 
 void Style::freeColors()
 {
-    if(0!=m_progressBarAnimateTimer)
+    if(0!=m_progressBarAnimateTimer) {
         killTimer(m_progressBarAnimateTimer);
+        m_progressBarAnimateTimer = 0;
+    }
 
     QSet<QColor*> freedColors;
 
