@@ -3899,8 +3899,8 @@ Style::getMdiColors(const QStyleOption *option, bool active) const
 
 //         m_activeMdiTextColor = KGlobalSettings::activeTextColor();
 //         m_mdiTextColor = KGlobalSettings::inactiveTextColor();
-        m_activeMdiTextColor = cg.readEntry("inactiveForeground", QColor(75, 71, 67));
-        m_mdiTextColor = cg.readEntry("activeForeground", QColor(255, 255, 255));
+        m_activeMdiTextColor = cg.readEntry("activeForeground", QColor(255, 255, 255));
+        m_mdiTextColor = cg.readEntry("inactiveForeground", QColor(75, 71, 67));
 #endif
 
         if(!m_activeMdiColors)
