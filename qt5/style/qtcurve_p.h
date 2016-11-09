@@ -296,7 +296,7 @@ bool isA(const QObject *w, const char *type);
 // Macros that allow leaving antialiasing on everywhere instead of turning it off in certain locations when
 // #define QPAINTER_ANTIALIAS_MAYBE_ON true
 #define QPAINTER_ANTIALIAS_MAYBE_ON false
-#define QPAINTER_RENDERHIT_AA_MAYBE_OFF(p) \
+#define QPAINTER_RENDERHINT_AA_MAYBE_OFF(p) \
     if(!QPAINTER_ANTIALIAS_MAYBE_ON) { (p)->setRenderHint(QPainter::Antialiasing, QPAINTER_ANTIALIAS_MAYBE_ON); }
 
 #endif

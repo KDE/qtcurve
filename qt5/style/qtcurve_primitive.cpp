@@ -566,7 +566,7 @@ Style::drawPrimitiveFrame(PrimitiveElement,
                                     0 : QTC_STD_BORDER];
             }
             border.setAlphaF(1.0);
-            QPAINTER_RENDERHIT_AA_MAYBE_OFF(painter);
+            QPAINTER_RENDERHINT_AA_MAYBE_OFF(painter);
             painter->setPen(border);
             drawRect(painter, r);
         } else {
@@ -659,7 +659,7 @@ Style::drawPrimitiveFrame(PrimitiveElement,
                                                r.height() - 2,
                                                WIDGET_SCROLLVIEW,
                                                RADIUS_INTERNAL)));
-                    QPAINTER_RENDERHIT_AA_MAYBE_OFF(painter);
+                    QPAINTER_RENDERHINT_AA_MAYBE_OFF(painter);
                 }
                 drawBorder(painter, r, &opt,
                            opts.round ? getFrameRound(widget) : ROUND_NONE,
@@ -1053,7 +1053,7 @@ Style::drawPrimitiveFrameWindow(PrimitiveElement,
     }
     if (opts.round < ROUND_SLIGHT || !isKWin ||
         (state & QtC_StateKWinNotFull && state & QtC_StateKWin)) {
-        QPAINTER_RENDERHIT_AA_MAYBE_OFF(painter);
+        QPAINTER_RENDERHINT_AA_MAYBE_OFF(painter);
         if (addLight) {
             painter->setPen(light);
             painter->drawLine(r.x() + 1, r.y(), r.x() + 1,
@@ -1063,7 +1063,7 @@ Style::drawPrimitiveFrameWindow(PrimitiveElement,
         drawRect(painter, r);
     } else {
         if (addLight) {
-            QPAINTER_RENDERHIT_AA_MAYBE_OFF(painter);
+            QPAINTER_RENDERHINT_AA_MAYBE_OFF(painter);
             painter->setPen(light);
             painter->drawLine(r.x() + 1, r.y(), r.x() + 1,
                               r.y() + r.height() -
@@ -1079,7 +1079,7 @@ Style::drawPrimitiveFrameWindow(PrimitiveElement,
             QColor col(opts.windowBorder & WINDOW_BORDER_COLOR_TITLEBAR_ONLY ?
                        backgroundColors(option)[QTC_STD_BORDER] :
                        buttonColors(option)[QTC_STD_BORDER]);
-            QPAINTER_RENDERHIT_AA_MAYBE_OFF(painter);
+            QPAINTER_RENDERHINT_AA_MAYBE_OFF(painter);
             painter->setPen(col);
             painter->drawPoint(r.x() + 2, r.y() + r.height() - 3);
             painter->drawPoint(r.x() + r.width() - 3, r.y() + r.height() - 3);
@@ -1243,7 +1243,7 @@ Style::drawPrimitiveButton(PrimitiveElement element, const QStyleOption *option,
             setPainterPen(painter, cols[isDown ? 0 : 4], QPENWIDTH1);
             painter->setRenderHint(QPainter::Antialiasing, true);
             painter->drawPath(path);
-            QPAINTER_RENDERHIT_AA_MAYBE_OFF(painter);
+            QPAINTER_RENDERHINT_AA_MAYBE_OFF(painter);
             break;
         }
         case IND_COLORED: {
@@ -1273,7 +1273,7 @@ Style::drawPrimitivePanelMenu(PrimitiveElement, const QStyleOption *option,
         painter->setRenderHint(QPainter::Antialiasing, true);
         painter->setPen(use[ORIGINAL_SHADE]);
         painter->drawPath(buildPath(r, WIDGET_OTHER, ROUNDED_ALL, radius));
-        QPAINTER_RENDERHIT_AA_MAYBE_OFF(painter);
+        QPAINTER_RENDERHINT_AA_MAYBE_OFF(painter);
     }
     if (!(opts.square & SQUARE_POPUP_MENUS)) {
         painter->setClipRegion(windowMask(r, opts.round > ROUND_SLIGHT),
@@ -1734,7 +1734,7 @@ Style::drawPrimitiveIndicatorCheckBox(PrimitiveElement element,
                 painter->setRenderHint(QPainter::Antialiasing, true);
                 setPainterPen(painter, use[CR_MO_FILL], QPENWIDTH1);
                 drawAaRect(painter, rect.adjusted(1, 1, -1, -1));
-                QPAINTER_RENDERHIT_AA_MAYBE_OFF(painter);
+                QPAINTER_RENDERHINT_AA_MAYBE_OFF(painter);
             } else {
                 setPainterPen(painter, midColor(state & State_Enabled ?
                                          palette.base().color() :
