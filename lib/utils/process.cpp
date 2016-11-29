@@ -23,9 +23,7 @@
 #include "fd_utils.h"
 #include "timer.h"
 #include <unistd.h>
-#if !defined(__APPLE__) && !defined(__MACH__)
-#  include <wait.h>
-#endif
+#include <sys/wait.h>
 #include <signal.h>
 #include <sys/stat.h>
 #include <sys/socket.h>

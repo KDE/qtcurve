@@ -1317,7 +1317,7 @@ void Style::drawLines(QPainter *p, const QRect &r, bool horiz, int nLines, int o
                 drawAaLine(p, x+i, y+offset, x+i, y2-offset);
         }
     }
-    QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
+    QPAINTER_RENDERHINT_AA_MAYBE_OFF(p);
 }
 
 void Style::drawProgressBevelGradient(QPainter *p, const QRect &origRect, const QStyleOption *option, bool horiz, EAppearance bevApp,
@@ -1948,7 +1948,7 @@ Style::drawLightBevelReal(QPainter *p, const QRect &rOrig,
     }
     if(plastikMouseOver && (!sunken  || sunkenToggleMo))
         p->restore();
-    QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
+    QPAINTER_RENDERHINT_AA_MAYBE_OFF(p);
 
     if(doEtch || glowFocus)
     {
@@ -2006,7 +2006,7 @@ void Style::drawGlow(QPainter *p, const QRect &r, EWidget w, const QColor *cols)
     p->setRenderHint(QPainter::Antialiasing, true);
     setPainterPen(p, col, QPENWIDTH1);
     p->drawPath(buildPath(r, w, ROUNDED_ALL, qtcGetRadius(&opts, r.width(), r.height(), w, RADIUS_ETCH)));
-    QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
+    QPAINTER_RENDERHINT_AA_MAYBE_OFF(p);
 }
 
 void Style::drawEtch(QPainter *p, const QRect &r, const QWidget *widget,  EWidget w, bool raised, int round) const
@@ -2039,7 +2039,7 @@ void Style::drawEtch(QPainter *p, const QRect &r, const QWidget *widget,  EWidge
     }
 
     p->drawPath(br);
-    QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
+    QPAINTER_RENDERHINT_AA_MAYBE_OFF(p);
 }
 
 void Style::drawBgndRing(QPainter &painter, int x, int y, int size, int size2, bool isWindow) const
@@ -2638,7 +2638,7 @@ Style::drawBorder(QPainter *p, const QRect &r, const QStyleOption *option,
         p->drawPath(buildPath(r, w, round, qtcGetRadius(&opts, r.width(), r.height(), w, RADIUS_EXTERNAL)));
     }
 
-    QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
+    QPAINTER_RENDERHINT_AA_MAYBE_OFF(p);
 }
 
 void Style::drawMdiControl(QPainter *p, const QStyleOptionTitleBar *titleBar, SubControl sc, const QWidget *widget,
@@ -2877,7 +2877,7 @@ void Style::drawEntryField(QPainter *p, const QRect &rx,  const QWidget *widget,
         p->drawPath(buildPath(r.adjusted(1, 1, -1, -1), WIDGET_SCROLLVIEW==w ? w : WIDGET_ENTRY, round,
                               qtcGetRadius(&opts, r.width()-2, r.height()-2, WIDGET_SCROLLVIEW==w ? w : WIDGET_ENTRY, RADIUS_INTERNAL)));
     }
-    QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
+    QPAINTER_RENDERHINT_AA_MAYBE_OFF(p);
 
     if(doEtch && opts.etchEntry)
         drawEtch(p, rx, widget, WIDGET_SCROLLVIEW==w ? w : WIDGET_ENTRY, false);
@@ -3297,7 +3297,7 @@ void Style::drawSliderHandle(QPainter *p, const QRect &r, const QStyleOptionSlid
             path.lineTo(xd+10, yd+9);
             path.arcTo(xd+10-diameter, yd, diameter, diameter, 0, 90);
             p->drawPath(path);
-            QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
+            QPAINTER_RENDERHINT_AA_MAYBE_OFF(p);
             if(drawLight)
             {
                 p->setPen(use[APPEARANCE_DULL_GLASS==opts.sliderAppearance ? 1 : 0]);
@@ -3326,7 +3326,7 @@ void Style::drawSliderHandle(QPainter *p, const QRect &r, const QStyleOptionSlid
             path.lineTo(xd+5, yd);
             path.lineTo(xd, yd+5);
             p->drawPath(path);
-            QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
+            QPAINTER_RENDERHINT_AA_MAYBE_OFF(p);
             if(drawLight)
             {
                 p->setPen(use[APPEARANCE_DULL_GLASS==opts.sliderAppearance ? 1 : 0]);
@@ -3355,7 +3355,7 @@ void Style::drawSliderHandle(QPainter *p, const QRect &r, const QStyleOptionSlid
             path.lineTo(xd, yd+5);
             path.lineTo(xd+5, yd+10);
             p->drawPath(path);
-            QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
+            QPAINTER_RENDERHINT_AA_MAYBE_OFF(p);
             if(drawLight)
             {
                 p->setPen(use[APPEARANCE_DULL_GLASS==opts.sliderAppearance ? 1 : 0]);
@@ -3384,7 +3384,7 @@ void Style::drawSliderHandle(QPainter *p, const QRect &r, const QStyleOptionSlid
             path.lineTo(xd+14, yd+5);
             path.lineTo(xd+9, yd);
             p->drawPath(path);
-            QPAINTER_RENDERHIT_AA_MAYBE_OFF(p);
+            QPAINTER_RENDERHINT_AA_MAYBE_OFF(p);
             if(drawLight)
             {
                 p->setPen(use[APPEARANCE_DULL_GLASS==opts.sliderAppearance ? 1 : 0]);
