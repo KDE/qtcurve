@@ -1309,14 +1309,10 @@ bool qtcReadConfig(const QString &file, Options *opts, Options *defOpts, bool ch
             CFG_READ_ALIGN(titlebarAlignment);
             CFG_READ_EFFECT(titlebarEffect);
             CFG_READ_BOOL(centerTabText);
-#if defined CONFIG_DIALOG
             CFG_READ_INT(expanderHighlight);
             CFG_READ_BOOL(mapKdeIcons);
-#endif
             CFG_READ_BOOL(gtkButtonOrder);
-#if defined CONFIG_DIALOG
             CFG_READ_BOOL(reorderGtkButtons);
-#endif
             CFG_READ_APPEARANCE(titlebarAppearance, APP_ALLOW_NONE);
             CFG_READ_APPEARANCE(inactiveTitlebarAppearance, APP_ALLOW_NONE);
 
@@ -1341,10 +1337,8 @@ bool qtcReadConfig(const QString &file, Options *opts, Options *defOpts, bool ch
             CFG_READ_STRING_LIST(noBgndOpacityApps);
             CFG_READ_STRING_LIST(noMenuBgndOpacityApps);
             CFG_READ_STRING_LIST(noBgndImageApps);
-#ifdef CONFIG_DIALOG
             if(opts->version<qtcMakeVersion(1, 7, 2))
                 opts->noMenuBgndOpacityApps << "gtk";
-#endif
             CFG_READ_STRING_LIST(menubarApps);
             CFG_READ_STRING_LIST(statusbarApps);
             CFG_READ_STRING_LIST(useQtFileDialogApps);
@@ -1354,27 +1348,24 @@ bool qtcReadConfig(const QString &file, Options *opts, Options *defOpts, bool ch
             readDoubleList(cfg, "customShades", opts->customShades, QTC_NUM_STD_SHADES);
             readDoubleList(cfg, "customAlphas", opts->customAlphas, NUM_STD_ALPHAS);
 
-            if (opts->titlebarButtons & TITLEBAR_BUTTON_COLOR ||
-                opts->titlebarButtons & TITLEBAR_BUTTON_ICON_COLOR) {
-                QStringList cols(readStringEntry(cfg, "titlebarButtonColors").split(',', QString::SkipEmptyParts));
-                if(cols.count() && 0==(cols.count()%NUM_TITLEBAR_BUTTONS) && cols.count()<=(NUM_TITLEBAR_BUTTONS*3))
-                {
-                    QStringList::ConstIterator it(cols.begin()),
-                                               end(cols.end());
+            QStringList cols(readStringEntry(cfg, "titlebarButtonColors").split(',', QString::SkipEmptyParts));
+            if(cols.count() && 0==(cols.count()%NUM_TITLEBAR_BUTTONS) && cols.count()<=(NUM_TITLEBAR_BUTTONS*3))
+            {
+                QStringList::ConstIterator it(cols.begin()),
+                                           end(cols.end());
 
-                    for (int i = 0;it != end;++it, ++i) {
-                        QColor col;
-                        qtcSetRgb(&col, TO_LATIN1((*it)));
-                        opts->titlebarButtonColors[i]=col;
-                    }
-                    if(cols.count()<(NUM_TITLEBAR_BUTTONS+1))
-                        opts->titlebarButtons&=~TITLEBAR_BUTTON_ICON_COLOR;
+                for (int i = 0;it != end;++it, ++i) {
+                    QColor col;
+                    qtcSetRgb(&col, TO_LATIN1((*it)));
+                    opts->titlebarButtonColors[i]=col;
                 }
-                else
-                {
-                    opts->titlebarButtons&=~TITLEBAR_BUTTON_COLOR;
+                if(cols.count()<(NUM_TITLEBAR_BUTTONS+1))
                     opts->titlebarButtons&=~TITLEBAR_BUTTON_ICON_COLOR;
-                }
+            }
+            else
+            {
+                opts->titlebarButtons&=~TITLEBAR_BUTTON_COLOR;
+                opts->titlebarButtons&=~TITLEBAR_BUTTON_ICON_COLOR;
             }
 
             for(i=APPEARANCE_CUSTOM1; i<(APPEARANCE_CUSTOM1+NUM_CUSTOM_GRAD); ++i)
@@ -1476,9 +1467,7 @@ void qtcDefaultSettings(Options *opts)
     opts->round=ROUND_EXTRA;
     opts->gtkButtonOrder=false;
     opts->dwtAppearance=APPEARANCE_CUSTOM1;
-#if defined CONFIG_DIALOG
     opts->reorderGtkButtons=false;
-#endif
     opts->bgndImage.type=IMG_NONE;
     opts->bgndImage.width=opts->bgndImage.height=0;
     opts->bgndImage.onBorder=false;
@@ -1624,10 +1613,8 @@ void qtcDefaultSettings(Options *opts)
                             << "vmplayer";
     opts->noMenuStripeApps << "gtk" << "soffice.bin";
 
-#if defined CONFIG_DIALOG
     opts->mapKdeIcons=true;
     opts->expanderHighlight=DEFAULT_EXPANDER_HIGHLIGHT_FACTOR;
-#endif
     opts->titlebarAppearance=APPEARANCE_CUSTOM1;
     opts->inactiveTitlebarAppearance=APPEARANCE_CUSTOM1;
     opts->titlebarButtonAppearance=APPEARANCE_GRADIENT;
@@ -2326,9 +2313,7 @@ bool qtcWriteConfig(KConfig *cfg, const Options &opts, const Options &def, bool 
         CFG_WRITE_ENTRY_NUM(titlebarButtons);
         CFG_WRITE_ENTRY(titlebarIcon);
 
-        if ((opts.titlebarButtons & TITLEBAR_BUTTON_COLOR ||
-             opts.titlebarButtons & TITLEBAR_BUTTON_ICON_COLOR) &&
-            opts.titlebarButtonColors.size() &&
+        if (opts.titlebarButtonColors.size() &&
             !(opts.titlebarButtonColors.size() % NUM_TITLEBAR_BUTTONS)) {
             QString val;
             QTextStream str(&val);
@@ -2357,9 +2342,7 @@ bool qtcWriteConfig(KConfig *cfg, const Options &opts, const Options &def, bool 
         CFG_WRITE_ENTRY(gtkComboMenus);
         CFG_WRITE_ENTRY(doubleGtkComboArrow);
         CFG_WRITE_ENTRY(gtkButtonOrder);
-#if defined CONFIG_DIALOG
         CFG_WRITE_ENTRY(reorderGtkButtons);
-#endif
         CFG_WRITE_ENTRY(mapKdeIcons);
         CFG_WRITE_ENTRY(shading);
         CFG_WRITE_ENTRY(titlebarAlignment);

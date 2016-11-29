@@ -3919,6 +3919,17 @@ Style::getMdiColors(const QStyleOption *option, bool active) const
 void Style::readMdiPositions() const
 {
     if (0==m_mdiButtons[0].size() && 0==m_mdiButtons[1].size()) {
+#ifdef Q_OS_OSX
+        // no control over where the system menu appears, so we have little choice
+        // but to keep it at its default position. The user can still override this.
+        m_mdiButtons[0].append(SC_TitleBarSysMenu);
+        m_mdiButtons[0].append(SC_TitleBarCloseButton);
+        m_mdiButtons[0].append(SC_TitleBarMinButton);
+        m_mdiButtons[0].append(SC_TitleBarMaxButton);
+
+        m_mdiButtons[1].append(SC_TitleBarShadeButton);
+        m_mdiButtons[1].append(SC_TitleBarContextHelpButton);
+#else
         // Set defaults...
         m_mdiButtons[0].append(SC_TitleBarSysMenu);
         m_mdiButtons[0].append(SC_TitleBarShadeButton);
@@ -3928,45 +3939,43 @@ void Style::readMdiPositions() const
         m_mdiButtons[1].append(SC_TitleBarMaxButton);
         m_mdiButtons[1].append(WINDOWTITLE_SPACER);
         m_mdiButtons[1].append(SC_TitleBarCloseButton);
+#endif
 
 #ifdef QTC_QT5_ENABLE_KDE
-        KConfig      cfg("kwinrc");
-        KConfigGroup grp(&cfg, "Style");
+        KSharedConfigPtr cfg = KSharedConfig::openConfig("kwinrc");
+        KConfigGroup grp = cfg->group("org.kde.kdecoration2");
 
-        if(grp.readEntry("CustomButtonPositions", false))
-        {
-            QString left=grp.readEntry("ButtonsOnLeft"),
-                right=grp.readEntry("ButtonsOnRight");
+        QString left=grp.readEntry("ButtonsOnLeft", QString()),
+            right=grp.readEntry("ButtonsOnRight", QString());
 
-            if(!left.isEmpty() || !right.isEmpty())
-                m_mdiButtons[0].clear(), m_mdiButtons[1].clear();
+        if(!left.isEmpty() || !right.isEmpty())
+            m_mdiButtons[0].clear(), m_mdiButtons[1].clear();
 
-            if(!left.isEmpty())
-                parseWindowLine(left, m_mdiButtons[0]);
+        if(!left.isEmpty())
+            parseWindowLine(left, m_mdiButtons[0]);
 
-            if(!right.isEmpty())
-                parseWindowLine(right, m_mdiButtons[1]);
+        if(!right.isEmpty())
+            parseWindowLine(right, m_mdiButtons[1]);
 
-            // Designer uses shade buttons, not min/max - so if we dont have shade in our kwin config. then add this button near the max button...
-            if(-1==m_mdiButtons[0].indexOf(SC_TitleBarShadeButton) && -1==m_mdiButtons[1].indexOf(SC_TitleBarShadeButton))
+        // Designer uses shade buttons, not min/max - so if we don't have shade in our kwin config. 
+        // then add this button near the max button...
+        if (-1==m_mdiButtons[0].indexOf(SC_TitleBarShadeButton) && -1==m_mdiButtons[1].indexOf(SC_TitleBarShadeButton)) {
+            int maxPos=m_mdiButtons[0].indexOf(SC_TitleBarMaxButton);
+
+            if(-1==maxPos) // Left doesnt have max button, assume right does and add shade there
             {
-                int maxPos=m_mdiButtons[0].indexOf(SC_TitleBarMaxButton);
+                int minPos=m_mdiButtons[1].indexOf(SC_TitleBarMinButton);
+                maxPos=m_mdiButtons[1].indexOf(SC_TitleBarMaxButton);
 
-                if(-1==maxPos) // Left doesnt have max button, assume right does and add shade there
-                {
-                    int minPos=m_mdiButtons[1].indexOf(SC_TitleBarMinButton);
-                    maxPos=m_mdiButtons[1].indexOf(SC_TitleBarMaxButton);
+                m_mdiButtons[1].insert(minPos<maxPos ? (minPos==-1 ? 0 : minPos)
+                                        : (maxPos==-1 ? 0 : maxPos), SC_TitleBarShadeButton);
+            }
+            else // Add to left button
+            {
+                int minPos=m_mdiButtons[0].indexOf(SC_TitleBarMinButton);
 
-                    m_mdiButtons[1].insert(minPos<maxPos ? (minPos==-1 ? 0 : minPos)
-                                            : (maxPos==-1 ? 0 : maxPos), SC_TitleBarShadeButton);
-                }
-                else // Add to left button
-                {
-                    int minPos=m_mdiButtons[0].indexOf(SC_TitleBarMinButton);
-
-                    m_mdiButtons[1].insert(minPos>maxPos ? (minPos==-1 ? 0 : minPos)
-                                            : (maxPos==-1 ? 0 : maxPos), SC_TitleBarShadeButton);
-                }
+                m_mdiButtons[1].insert(minPos>maxPos ? (minPos==-1 ? 0 : minPos)
+                                        : (maxPos==-1 ? 0 : maxPos), SC_TitleBarShadeButton);
             }
         }
 #endif

@@ -31,6 +31,14 @@
 #include <QTextStream>
 #include <QSvgRenderer>
 #include <QPainter>
+#include <QDebug>
+
+//
+// NB!
+// This file is built twice (for targets kstyle_qtcurve5_config and qtcurve-qt5),
+// and the CONFIG_WRITE and CONFIG_DIALOG tokens are likely to have different values
+// each time.
+//
 
 #define CONFIG_FILE "stylerc"
 #define OLD_CONFIG_FILE "qtcurvestylerc"
@@ -1306,14 +1314,14 @@ bool qtcReadConfig(const QString &file, Options *opts, Options *defOpts, bool ch
             CFG_READ_ALIGN(titlebarAlignment);
             CFG_READ_EFFECT(titlebarEffect);
             CFG_READ_BOOL(centerTabText);
-#if defined CONFIG_DIALOG
+// #if defined CONFIG_DIALOG
             CFG_READ_INT(expanderHighlight);
             CFG_READ_BOOL(mapKdeIcons);
-#endif
+// #endif
             CFG_READ_BOOL(gtkButtonOrder);
-#if defined CONFIG_DIALOG
+// #if defined CONFIG_DIALOG
             CFG_READ_BOOL(reorderGtkButtons);
-#endif
+// #endif
             CFG_READ_APPEARANCE(titlebarAppearance, APP_ALLOW_NONE);
             CFG_READ_APPEARANCE(inactiveTitlebarAppearance, APP_ALLOW_NONE);
 
@@ -1336,10 +1344,8 @@ bool qtcReadConfig(const QString &file, Options *opts, Options *defOpts, bool ch
             CFG_READ_STRING_LIST(noBgndOpacityApps);
             CFG_READ_STRING_LIST(noMenuBgndOpacityApps);
             CFG_READ_STRING_LIST(noBgndImageApps);
-#ifdef CONFIG_DIALOG
             if (opts->version < qtcMakeVersion(1, 7, 2))
                 opts->noMenuBgndOpacityApps << "gtk";
-#endif
             CFG_READ_STRING_LIST(menubarApps);
             CFG_READ_STRING_LIST(statusbarApps);
             CFG_READ_STRING_LIST(useQtFileDialogApps);
@@ -1349,28 +1355,27 @@ bool qtcReadConfig(const QString &file, Options *opts, Options *defOpts, bool ch
             readDoubleList(cfg, "customShades", opts->customShades, QTC_NUM_STD_SHADES);
             readDoubleList(cfg, "customAlphas", opts->customAlphas, NUM_STD_ALPHAS);
 
-            if (opts->titlebarButtons & TITLEBAR_BUTTON_COLOR ||
-                opts->titlebarButtons & TITLEBAR_BUTTON_ICON_COLOR) {
-                QStringList cols(readStringEntry(cfg, "titlebarButtonColors")
-                                 .split(',', QString::SkipEmptyParts));
-                if (cols.count() &&
-                    0 == (cols.count() % NUM_TITLEBAR_BUTTONS) &&
-                    cols.count() <= (NUM_TITLEBAR_BUTTONS * 3)) {
-                    QStringList::ConstIterator it(cols.begin());
-                    QStringList::ConstIterator end(cols.end());
+            // as with saving, we should always read the titleButtonColor values
+            // so that they can be saved again without losing the information.
+            QStringList cols(readStringEntry(cfg, "titlebarButtonColors")
+                             .split(',', QString::SkipEmptyParts));
+            if (cols.count() &&
+                0 == (cols.count() % NUM_TITLEBAR_BUTTONS) &&
+                cols.count() <= (NUM_TITLEBAR_BUTTONS * 3)) {
+                QStringList::ConstIterator it(cols.begin());
+                QStringList::ConstIterator end(cols.end());
 
-                    for (int i = 0;it != end;++it, ++i) {
-                        QColor col;
-                        qtcSetRgb(&col, TO_LATIN1((*it)));
-                        opts->titlebarButtonColors[i]=col;
-                    }
-                    if (cols.count() < (NUM_TITLEBAR_BUTTONS + 1)) {
-                        opts->titlebarButtons &= ~TITLEBAR_BUTTON_ICON_COLOR;
-                    }
-                } else {
-                    opts->titlebarButtons &= ~TITLEBAR_BUTTON_COLOR;
+                for (int i = 0;it != end;++it, ++i) {
+                    QColor col;
+                    qtcSetRgb(&col, TO_LATIN1((*it)));
+                    opts->titlebarButtonColors[i]=col;
+                }
+                if (cols.count() < (NUM_TITLEBAR_BUTTONS + 1)) {
                     opts->titlebarButtons &= ~TITLEBAR_BUTTON_ICON_COLOR;
                 }
+            } else {
+                opts->titlebarButtons &= ~TITLEBAR_BUTTON_COLOR;
+                opts->titlebarButtons &= ~TITLEBAR_BUTTON_ICON_COLOR;
             }
 
             for(i=APPEARANCE_CUSTOM1; i<(APPEARANCE_CUSTOM1+NUM_CUSTOM_GRAD); ++i)
@@ -1477,9 +1482,7 @@ void qtcDefaultSettings(Options *opts)
     opts->round=ROUND_EXTRA;
     opts->gtkButtonOrder=false;
     opts->dwtAppearance=APPEARANCE_CUSTOM1;
-#if defined CONFIG_DIALOG
     opts->reorderGtkButtons=false;
-#endif
     opts->bgndImage.type=IMG_NONE;
     opts->bgndImage.width=opts->bgndImage.height=0;
     opts->bgndImage.onBorder=false;
@@ -1619,10 +1622,8 @@ void qtcDefaultSettings(Options *opts)
                             << "vmplayer";
     opts->noMenuStripeApps << "gtk" << "soffice.bin";
 
-#if defined CONFIG_DIALOG
     opts->mapKdeIcons=true;
     opts->expanderHighlight=DEFAULT_EXPANDER_HIGHLIGHT_FACTOR;
-#endif
     opts->titlebarAppearance=APPEARANCE_CUSTOM1;
     opts->inactiveTitlebarAppearance=APPEARANCE_CUSTOM1;
     opts->titlebarButtonAppearance=APPEARANCE_GRADIENT;
@@ -2323,9 +2324,10 @@ bool qtcWriteConfig(KConfig *cfg, const Options &opts, const Options &def, bool 
         CFG_WRITE_ENTRY_NUM(titlebarButtons);
         CFG_WRITE_ENTRY(titlebarIcon);
 
-        if((opts.titlebarButtons&TITLEBAR_BUTTON_COLOR || opts.titlebarButtons&TITLEBAR_BUTTON_ICON_COLOR) &&
-            opts.titlebarButtonColors.size() && 0==(opts.titlebarButtonColors.size()%NUM_TITLEBAR_BUTTONS))
-        {
+        // Why would we only write the button colours when the info is actually being used? This
+        // makes it impossible to deactivate the feature and then reactivate it without losing
+        // custom colours.
+        if (opts.titlebarButtonColors.size() && 0==(opts.titlebarButtonColors.size()%NUM_TITLEBAR_BUTTONS)) {
             QString     val;
             QTextStream str(&val);
             for(unsigned int i=0; i<opts.titlebarButtonColors.size(); ++i)
@@ -2354,9 +2356,7 @@ bool qtcWriteConfig(KConfig *cfg, const Options &opts, const Options &def, bool 
         CFG_WRITE_ENTRY(gtkComboMenus);
         CFG_WRITE_ENTRY(doubleGtkComboArrow);
         CFG_WRITE_ENTRY(gtkButtonOrder);
-#if defined CONFIG_DIALOG
         CFG_WRITE_ENTRY(reorderGtkButtons);
-#endif
         CFG_WRITE_ENTRY(mapKdeIcons);
         CFG_WRITE_ENTRY(shading);
         CFG_WRITE_ENTRY(titlebarAlignment);

@@ -13016,6 +13016,17 @@ void Style::readMdiPositions() const
 {
     if(0==m_mdiButtons[0].size() && 0==m_mdiButtons[1].size())
     {
+#ifdef Q_OS_MAC
+        // no control over where the system menu appears, so we have little choice
+        // but to keep it at its default position. The user can still override this.
+        m_mdiButtons[0].append(SC_TitleBarSysMenu);
+        m_mdiButtons[0].append(SC_TitleBarCloseButton);
+        m_mdiButtons[0].append(SC_TitleBarMinButton);
+        m_mdiButtons[0].append(SC_TitleBarMaxButton);
+
+        m_mdiButtons[1].append(SC_TitleBarShadeButton);
+        m_mdiButtons[1].append(SC_TitleBarContextHelpButton);
+#else
         // Set defaults...
         m_mdiButtons[0].append(SC_TitleBarSysMenu);
         m_mdiButtons[0].append(SC_TitleBarShadeButton);
@@ -13025,10 +13036,11 @@ void Style::readMdiPositions() const
         m_mdiButtons[1].append(SC_TitleBarMaxButton);
         m_mdiButtons[1].append(WINDOWTITLE_SPACER);
         m_mdiButtons[1].append(SC_TitleBarCloseButton);
+#endif
 
 #ifdef QTC_QT4_ENABLE_KDE
-        KConfig      cfg("kwinrc");
-        KConfigGroup grp(&cfg, "Style");
+        KSharedConfigPtr cfg = KSharedConfig::openConfig("kwinrc");
+        KConfigGroup grp = cfg->group("Style");
 
         if(grp.readEntry("CustomButtonPositions", false))
         {
@@ -13044,7 +13056,8 @@ void Style::readMdiPositions() const
             if(!right.isEmpty())
                 parseWindowLine(right, m_mdiButtons[1]);
 
-            // Designer uses shade buttons, not min/max - so if we dont have shade in our kwin config. then add this button near the max button...
+            // Designer uses shade buttons, not min/max - so if we don't have shade in our kwin config.
+            // then add this button near the max button...
             if(-1==m_mdiButtons[0].indexOf(SC_TitleBarShadeButton) && -1==m_mdiButtons[1].indexOf(SC_TitleBarShadeButton))
             {
                 int maxPos=m_mdiButtons[0].indexOf(SC_TitleBarMaxButton);

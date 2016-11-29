@@ -1220,20 +1220,6 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
         titleLabel->setVisible(false);
         stackList->setVisible(false);
     }
-    // KMainWindow dereferences KGlobal when it closes. When KGlobal's refs get
-    // to 0 it quits! ...running kcmshell4 style does not seem to increase ref
-    // count of KGlobal - therefore we do it here - otherwse kcmshell4 would
-    // exit immediately after QtCurve's config dialog was closed :-(
-    if (QCoreApplication::applicationName() == QLatin1String("kcmshell")) {
-        static std::once_flag ref_flag;
-        std::call_once(ref_flag, [] {
-        // TODO figure out if it is still necessary
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-                KGlobal::ref();
-#pragma GCC diagnostic pop
-            });
-    }
 }
 
 QtCurveConfig::~QtCurveConfig()
@@ -1287,7 +1273,8 @@ void QtCurveConfig::save()
     else
         removeInstalledThemeFile(BGND_FILE MENU_FILE);
 
-    qtcWriteConfig(nullptr, opts, presets[defaultText].opts);
+    // avoid surprises and always save the full config
+    qtcWriteConfig(nullptr, opts, presets[defaultText].opts, true);
 
     // This is only read by KDE3...
     KConfig      k3globals(kdeHome(true)+"/share/config/kdeglobals", KConfig::CascadeConfig);
@@ -3104,43 +3091,39 @@ void QtCurveConfig::setOptions(Options &opts)
         opts.customAlphas[0]=0;
 
     opts.titlebarButtons=getTitleBarButtonFlags();
-    opts.titlebarButtonColors.clear();
-    if(opts.titlebarButtons&TITLEBAR_BUTTON_COLOR || opts.titlebarButtons&TITLEBAR_BUTTON_ICON_COLOR)
-    {
-        opts.titlebarButtonColors[TITLEBAR_CLOSE]=titlebarButtons_colorClose->color();
-        opts.titlebarButtonColors[TITLEBAR_MIN]=titlebarButtons_colorMin->color();
-        opts.titlebarButtonColors[TITLEBAR_MAX]=titlebarButtons_colorMax->color();
-        opts.titlebarButtonColors[TITLEBAR_KEEP_ABOVE]=titlebarButtons_colorKeepAbove->color();
-        opts.titlebarButtonColors[TITLEBAR_KEEP_BELOW]=titlebarButtons_colorKeepBelow->color();
-        opts.titlebarButtonColors[TITLEBAR_HELP]=titlebarButtons_colorHelp->color();
-        opts.titlebarButtonColors[TITLEBAR_MENU]=titlebarButtons_colorMenu->color();
-        opts.titlebarButtonColors[TITLEBAR_SHADE]=titlebarButtons_colorShade->color();
-        opts.titlebarButtonColors[TITLEBAR_ALL_DESKTOPS]=titlebarButtons_colorAllDesktops->color();
+    // don't clear the options since we may not be setting all of them again
+    // for the same reason we always update opts.titlebarButtonColors; they may not be
+    // used but the colour info shouldn't be lost.
+    opts.titlebarButtonColors[TITLEBAR_CLOSE]=titlebarButtons_colorClose->color();
+    opts.titlebarButtonColors[TITLEBAR_MIN]=titlebarButtons_colorMin->color();
+    opts.titlebarButtonColors[TITLEBAR_MAX]=titlebarButtons_colorMax->color();
+    opts.titlebarButtonColors[TITLEBAR_KEEP_ABOVE]=titlebarButtons_colorKeepAbove->color();
+    opts.titlebarButtonColors[TITLEBAR_KEEP_BELOW]=titlebarButtons_colorKeepBelow->color();
+    opts.titlebarButtonColors[TITLEBAR_HELP]=titlebarButtons_colorHelp->color();
+    opts.titlebarButtonColors[TITLEBAR_MENU]=titlebarButtons_colorMenu->color();
+    opts.titlebarButtonColors[TITLEBAR_SHADE]=titlebarButtons_colorShade->color();
+    opts.titlebarButtonColors[TITLEBAR_ALL_DESKTOPS]=titlebarButtons_colorAllDesktops->color();
 
-        if(opts.titlebarButtons&TITLEBAR_BUTTON_ICON_COLOR)
-        {
-            int offset=NUM_TITLEBAR_BUTTONS;
-            opts.titlebarButtonColors[TITLEBAR_CLOSE+offset]=titlebarButtons_colorCloseIcon->color();
-            opts.titlebarButtonColors[TITLEBAR_MIN+offset]=titlebarButtons_colorMinIcon->color();
-            opts.titlebarButtonColors[TITLEBAR_MAX+offset]=titlebarButtons_colorMaxIcon->color();
-            opts.titlebarButtonColors[TITLEBAR_KEEP_ABOVE+offset]=titlebarButtons_colorKeepAboveIcon->color();
-            opts.titlebarButtonColors[TITLEBAR_KEEP_BELOW+offset]=titlebarButtons_colorKeepBelowIcon->color();
-            opts.titlebarButtonColors[TITLEBAR_HELP+offset]=titlebarButtons_colorHelpIcon->color();
-            opts.titlebarButtonColors[TITLEBAR_MENU+offset]=titlebarButtons_colorMenuIcon->color();
-            opts.titlebarButtonColors[TITLEBAR_SHADE+offset]=titlebarButtons_colorShadeIcon->color();
-            opts.titlebarButtonColors[TITLEBAR_ALL_DESKTOPS+offset]=titlebarButtons_colorAllDesktopsIcon->color();
-            offset+=NUM_TITLEBAR_BUTTONS;
-            opts.titlebarButtonColors[TITLEBAR_CLOSE+offset]=titlebarButtons_colorCloseInactiveIcon->color();
-            opts.titlebarButtonColors[TITLEBAR_MIN+offset]=titlebarButtons_colorMinInactiveIcon->color();
-            opts.titlebarButtonColors[TITLEBAR_MAX+offset]=titlebarButtons_colorMaxInactiveIcon->color();
-            opts.titlebarButtonColors[TITLEBAR_KEEP_ABOVE+offset]=titlebarButtons_colorKeepAboveInactiveIcon->color();
-            opts.titlebarButtonColors[TITLEBAR_KEEP_BELOW+offset]=titlebarButtons_colorKeepBelowInactiveIcon->color();
-            opts.titlebarButtonColors[TITLEBAR_HELP+offset]=titlebarButtons_colorHelpInactiveIcon->color();
-            opts.titlebarButtonColors[TITLEBAR_MENU+offset]=titlebarButtons_colorMenuInactiveIcon->color();
-            opts.titlebarButtonColors[TITLEBAR_SHADE+offset]=titlebarButtons_colorShadeInactiveIcon->color();
-            opts.titlebarButtonColors[TITLEBAR_ALL_DESKTOPS+offset]=titlebarButtons_colorAllDesktopsInactiveIcon->color();
-        }
-    }
+    int offset=NUM_TITLEBAR_BUTTONS;
+    opts.titlebarButtonColors[TITLEBAR_CLOSE+offset]=titlebarButtons_colorCloseIcon->color();
+    opts.titlebarButtonColors[TITLEBAR_MIN+offset]=titlebarButtons_colorMinIcon->color();
+    opts.titlebarButtonColors[TITLEBAR_MAX+offset]=titlebarButtons_colorMaxIcon->color();
+    opts.titlebarButtonColors[TITLEBAR_KEEP_ABOVE+offset]=titlebarButtons_colorKeepAboveIcon->color();
+    opts.titlebarButtonColors[TITLEBAR_KEEP_BELOW+offset]=titlebarButtons_colorKeepBelowIcon->color();
+    opts.titlebarButtonColors[TITLEBAR_HELP+offset]=titlebarButtons_colorHelpIcon->color();
+    opts.titlebarButtonColors[TITLEBAR_MENU+offset]=titlebarButtons_colorMenuIcon->color();
+    opts.titlebarButtonColors[TITLEBAR_SHADE+offset]=titlebarButtons_colorShadeIcon->color();
+    opts.titlebarButtonColors[TITLEBAR_ALL_DESKTOPS+offset]=titlebarButtons_colorAllDesktopsIcon->color();
+    offset+=NUM_TITLEBAR_BUTTONS;
+    opts.titlebarButtonColors[TITLEBAR_CLOSE+offset]=titlebarButtons_colorCloseInactiveIcon->color();
+    opts.titlebarButtonColors[TITLEBAR_MIN+offset]=titlebarButtons_colorMinInactiveIcon->color();
+    opts.titlebarButtonColors[TITLEBAR_MAX+offset]=titlebarButtons_colorMaxInactiveIcon->color();
+    opts.titlebarButtonColors[TITLEBAR_KEEP_ABOVE+offset]=titlebarButtons_colorKeepAboveInactiveIcon->color();
+    opts.titlebarButtonColors[TITLEBAR_KEEP_BELOW+offset]=titlebarButtons_colorKeepBelowInactiveIcon->color();
+    opts.titlebarButtonColors[TITLEBAR_HELP+offset]=titlebarButtons_colorHelpInactiveIcon->color();
+    opts.titlebarButtonColors[TITLEBAR_MENU+offset]=titlebarButtons_colorMenuInactiveIcon->color();
+    opts.titlebarButtonColors[TITLEBAR_SHADE+offset]=titlebarButtons_colorShadeInactiveIcon->color();
+    opts.titlebarButtonColors[TITLEBAR_ALL_DESKTOPS+offset]=titlebarButtons_colorAllDesktopsInactiveIcon->color();
 
     opts.noBgndGradientApps=toSet(noBgndGradientApps->text());
     opts.noBgndOpacityApps=toSet(noBgndOpacityApps->text());
@@ -3402,78 +3385,68 @@ void QtCurveConfig::setWidgetOptions(const Options &opts)
     squareTooltips->setChecked(opts.square&SQUARE_TOOLTIPS);
     squarePopupMenus->setChecked(opts.square&SQUARE_POPUP_MENUS);
 
-    if(opts.titlebarButtons&TITLEBAR_BUTTON_COLOR)
-    {
-        titlebarButtons_colorClose->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_CLOSE));
-        titlebarButtons_colorMin->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_MIN));
-        titlebarButtons_colorMax->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_MAX));
-        titlebarButtons_colorKeepAbove->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_KEEP_ABOVE));
-        titlebarButtons_colorKeepBelow->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_KEEP_BELOW));
-        titlebarButtons_colorHelp->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_HELP));
-        titlebarButtons_colorMenu->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_MENU));
-        titlebarButtons_colorShade->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_SHADE));
-        titlebarButtons_colorAllDesktops->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_ALL_DESKTOPS));
-    }
-    else
-    {
-        QColor col(palette().color(QPalette::Active, QPalette::Button));
-
-        titlebarButtons_colorClose->setColor(col);
-        titlebarButtons_colorMin->setColor(col);
-        titlebarButtons_colorMax->setColor(col);
-        titlebarButtons_colorKeepAbove->setColor(col);
-        titlebarButtons_colorKeepBelow->setColor(col);
-        titlebarButtons_colorHelp->setColor(col);
-        titlebarButtons_colorMenu->setColor(col);
-        titlebarButtons_colorShade->setColor(col);
-        titlebarButtons_colorAllDesktops->setColor(col);
+    // Always set all colours in the dialog, even if they're not used.
+    titlebarButtons_colorClose->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_CLOSE));
+    titlebarButtons_colorMin->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_MIN));
+    titlebarButtons_colorMax->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_MAX));
+    titlebarButtons_colorKeepAbove->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_KEEP_ABOVE));
+    titlebarButtons_colorKeepBelow->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_KEEP_BELOW));
+    titlebarButtons_colorHelp->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_HELP));
+    titlebarButtons_colorMenu->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_MENU));
+    titlebarButtons_colorShade->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_SHADE));
+    titlebarButtons_colorAllDesktops->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_ALL_DESKTOPS));
+    // however, we can disable the widgets when their info isn't used.
+    if (!(opts.titlebarButtons&TITLEBAR_BUTTON_COLOR)) {
+        titlebarButtons_colorClose->setEnabled(false);
+        titlebarButtons_colorMin->setEnabled(false);
+        titlebarButtons_colorMax->setEnabled(false);
+        titlebarButtons_colorKeepAbove->setEnabled(false);
+        titlebarButtons_colorKeepBelow->setEnabled(false);
+        titlebarButtons_colorHelp->setEnabled(false);
+        titlebarButtons_colorMenu->setEnabled(false);
+        titlebarButtons_colorShade->setEnabled(false);
+        titlebarButtons_colorAllDesktops->setEnabled(false);
     }
 
-    if(opts.titlebarButtons&TITLEBAR_BUTTON_ICON_COLOR)
-    {
-        titlebarButtons_colorCloseIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_CLOSE, 1));
-        titlebarButtons_colorMinIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_MIN, 1));
-        titlebarButtons_colorMaxIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_MAX, 1));
-        titlebarButtons_colorKeepAboveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_KEEP_ABOVE, 1));
-        titlebarButtons_colorKeepBelowIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_KEEP_BELOW, 1));
-        titlebarButtons_colorHelpIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_HELP, 1));
-        titlebarButtons_colorMenuIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_MENU, 1));
-        titlebarButtons_colorShadeIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_SHADE, 1));
-        titlebarButtons_colorAllDesktopsIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_ALL_DESKTOPS, 1));
+    titlebarButtons_colorCloseIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_CLOSE, 1));
+    titlebarButtons_colorMinIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_MIN, 1));
+    titlebarButtons_colorMaxIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_MAX, 1));
+    titlebarButtons_colorKeepAboveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_KEEP_ABOVE, 1));
+    titlebarButtons_colorKeepBelowIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_KEEP_BELOW, 1));
+    titlebarButtons_colorHelpIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_HELP, 1));
+    titlebarButtons_colorMenuIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_MENU, 1));
+    titlebarButtons_colorShadeIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_SHADE, 1));
+    titlebarButtons_colorAllDesktopsIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_ALL_DESKTOPS, 1));
 
-        titlebarButtons_colorCloseInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_CLOSE, 2));
-        titlebarButtons_colorMinInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_MIN, 2));
-        titlebarButtons_colorMaxInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_MAX, 2));
-        titlebarButtons_colorKeepAboveInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_KEEP_ABOVE, 2));
-        titlebarButtons_colorKeepBelowInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_KEEP_BELOW, 2));
-        titlebarButtons_colorHelpInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_HELP, 2));
-        titlebarButtons_colorMenuInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_MENU, 2));
-        titlebarButtons_colorShadeInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_SHADE, 2));
-        titlebarButtons_colorAllDesktopsInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_ALL_DESKTOPS, 2));
-    } else {
-        QColor col = KColorScheme(QPalette::Active, KColorScheme::Window)
-            .foreground(KColorScheme::ActiveText).color();
-        titlebarButtons_colorCloseIcon->setColor(col);
-        titlebarButtons_colorMinIcon->setColor(col);
-        titlebarButtons_colorMaxIcon->setColor(col);
-        titlebarButtons_colorKeepAboveIcon->setColor(col);
-        titlebarButtons_colorKeepBelowIcon->setColor(col);
-        titlebarButtons_colorHelpIcon->setColor(col);
-        titlebarButtons_colorMenuIcon->setColor(col);
-        titlebarButtons_colorShadeIcon->setColor(col);
-        titlebarButtons_colorAllDesktopsIcon->setColor(col);
+    titlebarButtons_colorCloseInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_CLOSE, 2));
+    titlebarButtons_colorMinInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_MIN, 2));
+    titlebarButtons_colorMaxInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_MAX, 2));
+    titlebarButtons_colorKeepAboveInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_KEEP_ABOVE, 2));
+    titlebarButtons_colorKeepBelowInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_KEEP_BELOW, 2));
+    titlebarButtons_colorHelpInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_HELP, 2));
+    titlebarButtons_colorMenuInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_MENU, 2));
+    titlebarButtons_colorShadeInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_SHADE, 2));
+    titlebarButtons_colorAllDesktopsInactiveIcon->setColor(getColor(opts.titlebarButtonColors, TITLEBAR_ALL_DESKTOPS, 2));
+    if (!(opts.titlebarButtons&TITLEBAR_BUTTON_ICON_COLOR)) {
+        titlebarButtons_colorCloseIcon->setEnabled(false);
+        titlebarButtons_colorMinIcon->setEnabled(false);
+        titlebarButtons_colorMaxIcon->setEnabled(false);
+        titlebarButtons_colorKeepAboveIcon->setEnabled(false);
+        titlebarButtons_colorKeepBelowIcon->setEnabled(false);
+        titlebarButtons_colorHelpIcon->setEnabled(false);
+        titlebarButtons_colorMenuIcon->setEnabled(false);
+        titlebarButtons_colorShadeIcon->setEnabled(false);
+        titlebarButtons_colorAllDesktopsIcon->setEnabled(false);
 
-        col = KColorScheme(QPalette::Inactive, KColorScheme::Window)
-            .foreground().color();
-        titlebarButtons_colorCloseInactiveIcon->setColor(col);
-        titlebarButtons_colorMinInactiveIcon->setColor(col);
-        titlebarButtons_colorMaxInactiveIcon->setColor(col);
-        titlebarButtons_colorKeepAboveInactiveIcon->setColor(col);
-        titlebarButtons_colorKeepBelowInactiveIcon->setColor(col);
-        titlebarButtons_colorHelpInactiveIcon->setColor(col);
-        titlebarButtons_colorMenuInactiveIcon->setColor(col);
-        titlebarButtons_colorShadeInactiveIcon->setColor(col);
-        titlebarButtons_colorAllDesktopsInactiveIcon->setColor(col);
+        titlebarButtons_colorCloseInactiveIcon->setEnabled(false);
+        titlebarButtons_colorMinInactiveIcon->setEnabled(false);
+        titlebarButtons_colorMaxInactiveIcon->setEnabled(false);
+        titlebarButtons_colorKeepAboveInactiveIcon->setEnabled(false);
+        titlebarButtons_colorKeepBelowInactiveIcon->setEnabled(false);
+        titlebarButtons_colorHelpInactiveIcon->setEnabled(false);
+        titlebarButtons_colorMenuInactiveIcon->setEnabled(false);
+        titlebarButtons_colorShadeInactiveIcon->setEnabled(false);
+        titlebarButtons_colorAllDesktopsInactiveIcon->setEnabled(false);
     }
 
     titlebarButtons_button->setChecked(opts.titlebarButtons&TITLEBAR_BUTTON_STD_COLOR);
