@@ -1,5 +1,7 @@
 project(QtCurve)
 
+include(FeatureSummary)
+
 ## Temporary
 function(translate_add_sources)
 endfunction()
@@ -221,3 +223,5 @@ if(ENABLE_TEST)
   enable_testing()
   add_subdirectory(test)
 endif()
+
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
