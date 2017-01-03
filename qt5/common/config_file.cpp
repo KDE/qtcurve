@@ -87,21 +87,21 @@ static EDefBtnIndicator
 toInd(const char *str, EDefBtnIndicator def)
 {
     if (str && str[0]) {
-        if(0==memcmp(str, "fontcolor", 9) || 0==memcmp(str, "border", 6))
+        if(0==strncmp(str, "fontcolor", 9) || 0==strncmp(str, "border", 6))
             return IND_FONT_COLOR;
-        if(0==memcmp(str, "none", 4))
+        if(0==strncmp(str, "none", 4))
             return IND_NONE;
-        if(0==memcmp(str, "corner", 6))
+        if(0==strncmp(str, "corner", 6))
             return IND_CORNER;
-        if(0==memcmp(str, "colored", 7))
+        if(0==strncmp(str, "colored", 7))
             return IND_COLORED;
-        if(0==memcmp(str, "tint", 4))
+        if(0==strncmp(str, "tint", 4))
             return IND_TINT;
-        if(0==memcmp(str, "glow", 4))
+        if(0==strncmp(str, "glow", 4))
             return IND_GLOW;
-        if(0==memcmp(str, "darken", 6))
+        if(0==strncmp(str, "darken", 6))
             return IND_DARKEN;
-        if(0==memcmp(str, "origselected", 12))
+        if(0==strncmp(str, "origselected", 12))
             return IND_SELECTED;
     }
     return def;
@@ -111,17 +111,17 @@ static ELine
 toLine(const char *str, ELine def)
 {
     if (str && str[0]) {
-        if(0==memcmp(str, "dashes", 6))
+        if(0==strncmp(str, "dashes", 6))
             return LINE_DASHES;
-        if(0==memcmp(str, "none", 4))
+        if(0==strncmp(str, "none", 4))
             return LINE_NONE;
-        if(0==memcmp(str, "sunken", 6))
+        if(0==strncmp(str, "sunken", 6))
             return LINE_SUNKEN;
-        if(0==memcmp(str, "dots", 4))
+        if(0==strncmp(str, "dots", 4))
             return LINE_DOTS;
-        if(0==memcmp(str, "flat", 4))
+        if(0==strncmp(str, "flat", 4))
             return LINE_FLAT;
-        if(0==memcmp(str, "1dot", 5))
+        if(0==strncmp(str, "1dot", 5))
             return LINE_1DOT;
     }
     return def;
@@ -131,12 +131,12 @@ static ETBarBorder
 toTBarBorder(const char *str, ETBarBorder def)
 {
     if (str && str[0]) {
-        if(0==memcmp(str, "dark", 4))
-            return 0==memcmp(&str[4], "-all", 4) ? TB_DARK_ALL : TB_DARK;
-        if(0==memcmp(str, "none", 4))
+        if(0==strncmp(str, "dark", 4))
+            return 0==strncmp(&str[4], "-all", 4) ? TB_DARK_ALL : TB_DARK;
+        if(0==strncmp(str, "none", 4))
             return TB_NONE;
-        if(0==memcmp(str, "light", 5))
-            return 0==memcmp(&str[5], "-all", 4) ? TB_LIGHT_ALL : TB_LIGHT;
+        if(0==strncmp(str, "light", 5))
+            return 0==strncmp(&str[5], "-all", 4) ? TB_LIGHT_ALL : TB_LIGHT;
     }
     return def;
 }
@@ -145,15 +145,15 @@ static EMouseOver
 toMouseOver(const char *str, EMouseOver def)
 {
     if (str && str[0]) {
-        if(0==memcmp(str, "true", 4) || 0==memcmp(str, "colored", 7))
+        if(0==strncmp(str, "true", 4) || 0==strncmp(str, "colored", 7))
             return MO_COLORED;
-        if(0==memcmp(str, "thickcolored", 12))
+        if(0==strncmp(str, "thickcolored", 12))
             return MO_COLORED_THICK;
-        if(0==memcmp(str, "plastik", 7))
+        if(0==strncmp(str, "plastik", 7))
             return MO_PLASTIK;
-        if(0==memcmp(str, "glow", 4))
+        if(0==strncmp(str, "glow", 4))
             return MO_GLOW;
-        if(0==memcmp(str, "false", 4) || 0==memcmp(str, "none", 4))
+        if(0==strncmp(str, "false", 4) || 0==strncmp(str, "none", 4))
             return MO_NONE;
     }
     return def;
@@ -164,40 +164,40 @@ toAppearance(const char *str, EAppearance def, EAppAllow allow,
              QtCPixmap *pix, bool checkImage)
 {
     if (str && str[0]) {
-        if(0==memcmp(str, "flat", 4))
+        if(0==strncmp(str, "flat", 4))
             return APPEARANCE_FLAT;
-        if(0==memcmp(str, "raised", 6))
+        if(0==strncmp(str, "raised", 6))
             return APPEARANCE_RAISED;
-        if(0==memcmp(str, "dullglass", 9))
+        if(0==strncmp(str, "dullglass", 9))
             return APPEARANCE_DULL_GLASS;
-        if(0==memcmp(str, "glass", 5) || 0==memcmp(str, "shinyglass", 10))
+        if(0==strncmp(str, "glass", 5) || 0==strncmp(str, "shinyglass", 10))
             return APPEARANCE_SHINY_GLASS;
-        if(0==memcmp(str, "agua", 4))
+        if(0==strncmp(str, "agua", 4))
             return APPEARANCE_AGUA;
-        if(0==memcmp(str, "soft", 4))
+        if(0==strncmp(str, "soft", 4))
             return APPEARANCE_SOFT_GRADIENT;
-        if(0==memcmp(str, "gradient", 8) || 0==memcmp(str, "lightgradient", 13))
+        if(0==strncmp(str, "gradient", 8) || 0==strncmp(str, "lightgradient", 13))
             return APPEARANCE_GRADIENT;
-        if(0==memcmp(str, "harsh", 5))
+        if(0==strncmp(str, "harsh", 5))
             return APPEARANCE_HARSH_GRADIENT;
-        if(0==memcmp(str, "inverted", 8))
+        if(0==strncmp(str, "inverted", 8))
             return APPEARANCE_INVERTED;
-        if(0==memcmp(str, "darkinverted", 12))
+        if(0==strncmp(str, "darkinverted", 12))
             return APPEARANCE_DARK_INVERTED;
-        if(0==memcmp(str, "splitgradient", 13))
+        if(0==strncmp(str, "splitgradient", 13))
             return APPEARANCE_SPLIT_GRADIENT;
-        if(0==memcmp(str, "bevelled", 8))
+        if(0==strncmp(str, "bevelled", 8))
             return APPEARANCE_BEVELLED;
-        if(APP_ALLOW_FADE==allow && 0==memcmp(str, "fade", 4))
+        if(APP_ALLOW_FADE==allow && 0==strncmp(str, "fade", 4))
             return APPEARANCE_FADE;
-        if(APP_ALLOW_STRIPED==allow && 0==memcmp(str, "striped", 7))
+        if(APP_ALLOW_STRIPED==allow && 0==strncmp(str, "striped", 7))
             return APPEARANCE_STRIPED;
-        if(APP_ALLOW_NONE==allow && 0==memcmp(str, "none", 4))
+        if(APP_ALLOW_NONE==allow && 0==strncmp(str, "none", 4))
             return APPEARANCE_NONE;
-        if (pix && APP_ALLOW_STRIPED==allow && 0==memcmp(str, "file", 4) && strlen(str)>9)
+        if (pix && APP_ALLOW_STRIPED==allow && 0==strncmp(str, "file", 4) && strlen(str)>9)
             return loadImage(&str[5], pix) || !checkImage ? APPEARANCE_FILE : def;
 
-        if(0==memcmp(str, "customgradient", 14) && strlen(str)>14)
+        if(0==strncmp(str, "customgradient", 14) && strlen(str)>14)
         {
             int i=atoi(&str[14]);
 
@@ -215,22 +215,22 @@ toShade(const char *str, bool allowMenu, EShade def,
 {
     if (str && str[0]) {
         /* true/false is from 0.25... */
-        if((!menuShade && 0==memcmp(str, "true", 4)) || 0==memcmp(str, "selected", 8))
+        if((!menuShade && 0==strncmp(str, "true", 4)) || 0==strncmp(str, "selected", 8))
             return SHADE_BLEND_SELECTED;
-        if(0==memcmp(str, "origselected", 12))
+        if(0==strncmp(str, "origselected", 12))
             return SHADE_SELECTED;
-        if(allowMenu && (0==memcmp(str, "darken", 6) || (menuShade && 0==memcmp(str, "true", 4))))
+        if(allowMenu && (0==strncmp(str, "darken", 6) || (menuShade && 0==strncmp(str, "true", 4))))
             return SHADE_DARKEN;
-        if(allowMenu && 0==memcmp(str, "wborder", 7))
+        if(allowMenu && 0==strncmp(str, "wborder", 7))
             return SHADE_WINDOW_BORDER;
-        if(0==memcmp(str, "custom", 6))
+        if(0==strncmp(str, "custom", 6))
             return SHADE_CUSTOM;
         if('#'==str[0] && col)
         {
             qtcSetRgb(col, str);
             return SHADE_CUSTOM;
         }
-        if(0==memcmp(str, "none", 4))
+        if(0==strncmp(str, "none", 4))
             return SHADE_NONE;
     }
 
@@ -242,15 +242,15 @@ static ERound
 toRound(const char *str, ERound def)
 {
     if (str && str[0]) {
-        if(0==memcmp(str, "none", 4) || 0==memcmp(str, "false", 5))
+        if(0==strncmp(str, "none", 4) || 0==strncmp(str, "false", 5))
             return ROUND_NONE;
-        if(0==memcmp(str, "slight", 6))
+        if(0==strncmp(str, "slight", 6))
             return ROUND_SLIGHT;
-        if(0==memcmp(str, "full", 4))
+        if(0==strncmp(str, "full", 4))
             return ROUND_FULL;
-        if(0==memcmp(str, "extra", 5))
+        if(0==strncmp(str, "extra", 5))
             return ROUND_EXTRA;
-        if(0==memcmp(str, "max", 3))
+        if(0==strncmp(str, "max", 3))
             return ROUND_MAX;
     }
     return def;
@@ -272,11 +272,11 @@ static EEffect
 toEffect(const char *str, EEffect def)
 {
     if (str && str[0]) {
-        if(0==memcmp(str, "none", 4))
+        if(0==strncmp(str, "none", 4))
             return EFFECT_NONE;
-        if(0==memcmp(str, "shadow", 6))
+        if(0==strncmp(str, "shadow", 6))
             return EFFECT_SHADOW;
-        if(0==memcmp(str, "etch", 4))
+        if(0==strncmp(str, "etch", 4))
             return EFFECT_ETCH;
     }
 
@@ -293,13 +293,13 @@ static EStripe
 toStripe(const char *str, EStripe def)
 {
     if (str && str[0]) {
-        if(0==memcmp(str, "plain", 5) || 0==memcmp(str, "true", 4))
+        if(0==strncmp(str, "plain", 5) || 0==strncmp(str, "true", 4))
             return STRIPE_PLAIN;
-        if(0==memcmp(str, "none", 4) || 0==memcmp(str, "false", 5))
+        if(0==strncmp(str, "none", 4) || 0==strncmp(str, "false", 5))
             return STRIPE_NONE;
-        if(0==memcmp(str, "diagonal", 8))
+        if(0==strncmp(str, "diagonal", 8))
             return STRIPE_DIAGONAL;
-        if(0==memcmp(str, "fade", 4))
+        if(0==strncmp(str, "fade", 4))
             return STRIPE_FADE;
     }
 
@@ -310,17 +310,17 @@ static ESliderStyle toSlider(const char *str, ESliderStyle def)
 {
     if(str && 0!=str[0])
     {
-        if(0==memcmp(str, "round", 5))
+        if(0==strncmp(str, "round", 5))
             return SLIDER_ROUND;
-        if(0==memcmp(str, "plain", 5))
+        if(0==strncmp(str, "plain", 5))
             return SLIDER_PLAIN;
-        if(0==memcmp(str, "r-round", 7))
+        if(0==strncmp(str, "r-round", 7))
             return SLIDER_ROUND_ROTATED;
-        if(0==memcmp(str, "r-plain", 7))
+        if(0==strncmp(str, "r-plain", 7))
             return SLIDER_PLAIN_ROTATED;
-        if(0==memcmp(str, "triangular", 10))
+        if(0==strncmp(str, "triangular", 10))
             return SLIDER_TRIANGULAR;
-        if(0==memcmp(str, "circular", 8))
+        if(0==strncmp(str, "circular", 8))
             return SLIDER_CIRCULAR;
     }
 
@@ -331,11 +331,11 @@ static EColor toEColor(const char *str, EColor def)
 {
     if(str && 0!=str[0])
     {
-        if(0==memcmp(str, "base", 4))
+        if(0==strncmp(str, "base", 4))
             return ECOLOR_BASE;
-        if(0==memcmp(str, "dark", 4))
+        if(0==strncmp(str, "dark", 4))
             return ECOLOR_DARK;
-        if(0==memcmp(str, "background", 10))
+        if(0==strncmp(str, "background", 10))
             return ECOLOR_BACKGROUND;
     }
 
@@ -346,19 +346,19 @@ static EFocus toFocus(const char *str, EFocus def)
 {
     if(str && 0!=str[0])
     {
-        if(0==memcmp(str, "standard", 8))
+        if(0==strncmp(str, "standard", 8))
             return FOCUS_STANDARD;
-        if(0==memcmp(str, "rect", 4) || 0==memcmp(str, "highlight", 9))
+        if(0==strncmp(str, "rect", 4) || 0==strncmp(str, "highlight", 9))
             return FOCUS_RECTANGLE;
-        if(0==memcmp(str, "filled", 6))
+        if(0==strncmp(str, "filled", 6))
             return FOCUS_FILLED;
-        if(0==memcmp(str, "full", 4))
+        if(0==strncmp(str, "full", 4))
             return FOCUS_FULL;
-        if(0==memcmp(str, "line", 4))
+        if(0==strncmp(str, "line", 4))
             return FOCUS_LINE;
-        if(0==memcmp(str, "glow", 4))
+        if(0==strncmp(str, "glow", 4))
             return FOCUS_GLOW;
-        if(0==memcmp(str, "none", 4))
+        if(0==strncmp(str, "none", 4))
             return FOCUS_NONE;
     }
 
@@ -369,11 +369,11 @@ static ETabMo toTabMo(const char *str, ETabMo def)
 {
     if(str && 0!=str[0])
     {
-        if(0==memcmp(str, "top", 3))
+        if(0==strncmp(str, "top", 3))
             return TAB_MO_TOP;
-        if(0==memcmp(str, "bot", 3))
+        if(0==strncmp(str, "bot", 3))
             return TAB_MO_BOTTOM;
-        if(0==memcmp(str, "glow", 4))
+        if(0==strncmp(str, "glow", 4))
             return TAB_MO_GLOW;
     }
 
@@ -384,9 +384,9 @@ static EGradType toGradType(const char *str, EGradType def)
 {
     if(str && 0!=str[0])
     {
-        if(0==memcmp(str, "horiz", 5))
+        if(0==strncmp(str, "horiz", 5))
             return GT_HORIZ;
-        if(0==memcmp(str, "vert", 4))
+        if(0==strncmp(str, "vert", 4))
             return GT_VERT;
     }
     return def;
@@ -397,14 +397,14 @@ static bool toLvLines(const char *str, bool def)
     if(str && 0!=str[0])
     {
 #if 0
-        if(0==memcmp(str, "true", 4) || 0==memcmp(str, "new", 3))
+        if(0==strncmp(str, "true", 4) || 0==strncmp(str, "new", 3))
             return LV_NEW;
-        if(0==memcmp(str, "old", 3))
+        if(0==strncmp(str, "old", 3))
             return LV_OLD;
-        if(0==memcmp(str, "false", 5) || 0==memcmp(str, "none", 4))
+        if(0==strncmp(str, "false", 5) || 0==strncmp(str, "none", 4))
             return LV_NONE;
 #else
-        return 0!=memcmp(str, "false", 5);
+        return 0!=strncmp(str, "false", 5);
 #endif
     }
     return def;
@@ -414,15 +414,15 @@ static EGradientBorder toGradientBorder(const char *str, bool *haveAlpha)
 {
     if (str && str[0]) {
         *haveAlpha = strstr(str, "-alpha") ? true : false;
-        if(0==memcmp(str, "light", 5) || 0==memcmp(str, "true", 4))
+        if(0==strncmp(str, "light", 5) || 0==strncmp(str, "true", 4))
             return GB_LIGHT;
-        if(0==memcmp(str, "none", 4))
+        if(0==strncmp(str, "none", 4))
             return GB_NONE;
-        if(0==memcmp(str, "3dfull", 6))
+        if(0==strncmp(str, "3dfull", 6))
             return GB_3D_FULL;
-        if(0==memcmp(str, "3d", 2) || 0==memcmp(str, "false", 5))
+        if(0==strncmp(str, "3d", 2) || 0==strncmp(str, "false", 5))
             return GB_3D;
-        if(0==memcmp(str, "shine", 5))
+        if(0==strncmp(str, "shine", 5))
             return GB_SHINE;
     }
     return GB_3D;
@@ -432,13 +432,13 @@ static EAlign toAlign(const char *str, EAlign def)
 {
     if(str && 0!=str[0])
     {
-        if(0==memcmp(str, "left", 4))
+        if(0==strncmp(str, "left", 4))
             return ALIGN_LEFT;
-        if(0==memcmp(str, "center-full", 11))
+        if(0==strncmp(str, "center-full", 11))
             return ALIGN_FULL_CENTER;
-        if(0==memcmp(str, "center", 6))
+        if(0==strncmp(str, "center", 6))
             return ALIGN_CENTER;
-        if(0==memcmp(str, "right", 5))
+        if(0==strncmp(str, "right", 5))
             return ALIGN_RIGHT;
     }
     return def;
@@ -448,11 +448,11 @@ static ETitleBarIcon toTitlebarIcon(const char *str, ETitleBarIcon def)
 {
     if(str && 0!=str[0])
     {
-        if(0==memcmp(str, "none", 4))
+        if(0==strncmp(str, "none", 4))
             return TITLEBAR_ICON_NONE;
-        if(0==memcmp(str, "menu", 4))
+        if(0==strncmp(str, "menu", 4))
             return TITLEBAR_ICON_MENU_BUTTON;
-        if(0==memcmp(str, "title", 5))
+        if(0==strncmp(str, "title", 5))
             return TITLEBAR_ICON_NEXT_TO_TITLE;
     }
     return def;
@@ -462,15 +462,15 @@ static EImageType toImageType(const char *str, EImageType def)
 {
     if(str && 0!=str[0])
     {
-        if(0==memcmp(str, "none", 4))
+        if(0==strncmp(str, "none", 4))
             return IMG_NONE;
-        if(0==memcmp(str, "plainrings", 10))
+        if(0==strncmp(str, "plainrings", 10))
             return IMG_PLAIN_RINGS;
-        if(0==memcmp(str, "rings", 5))
+        if(0==strncmp(str, "rings", 5))
             return IMG_BORDERED_RINGS;
-        if(0==memcmp(str, "squarerings", 11))
+        if(0==strncmp(str, "squarerings", 11))
             return IMG_SQUARE_RINGS;
-        if(0==memcmp(str, "file", 4))
+        if(0==strncmp(str, "file", 4))
             return IMG_FILE;
     }
     return def;
@@ -480,13 +480,13 @@ static EGlow toGlow(const char *str, EGlow def)
 {
     if(str && 0!=str[0])
     {
-        if(0==memcmp(str, "none", 4))
+        if(0==strncmp(str, "none", 4))
             return GLOW_NONE;
-        if(0==memcmp(str, "start", 5))
+        if(0==strncmp(str, "start", 5))
             return GLOW_START;
-        if(0==memcmp(str, "middle", 6))
+        if(0==strncmp(str, "middle", 6))
             return GLOW_MIDDLE;
-        if(0==memcmp(str, "end", 3))
+        if(0==strncmp(str, "end", 3))
             return GLOW_END;
     }
     return def;
@@ -496,11 +496,11 @@ static ETBarBtn toTBarBtn(const char *str, ETBarBtn def)
 {
     if(str && 0!=str[0])
     {
-        if(0==memcmp(str, "standard", 8))
+        if(0==strncmp(str, "standard", 8))
             return TBTN_STANDARD;
-        if(0==memcmp(str, "raised", 6))
+        if(0==strncmp(str, "raised", 6))
             return TBTN_RAISED;
-        if(0==memcmp(str, "joined", 6))
+        if(0==strncmp(str, "joined", 6))
             return TBTN_JOINED;
     }
     return def;
