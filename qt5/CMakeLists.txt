@@ -8,9 +8,10 @@ if(QTC_QT5_ENABLE_KDE)
 endif()
 
 if(ENABLE_QT5 AND NOT ENABLE_QT5_DEFINED)
+  set(QT_MIN_VERSION "5.3.2")
   # ENABLE_QT5 is not defined on the command line
   foreach(QtModule ${QTC_QT5_MODULES})
-    find_package(${QtModule})
+    find_package(${QT_MIN_VERSION} CONFIG ${QtModule})
     if(NOT ${QtModule}_FOUND)
       message(WARNING "Required Qt5 Module ${QtModule} not found."
         "Disabling Qt5 build")
