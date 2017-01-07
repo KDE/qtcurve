@@ -41,6 +41,7 @@ namespace QtCurve {
 QDialogButtonBox *createDialogButtonBox(QDialog *dialog);
 
 class InputDialog : public QDialog {
+    Q_OBJECT
 public:
     explicit InputDialog(QWidget *parent=nullptr, Qt::WindowFlags=0);
 
@@ -75,11 +76,11 @@ loadKIcon(const QString &name)
 
 // TODO probably merge with utils/dirs
 static inline QString
-saveLocation(QStandardPaths::StandardLocation type, const QString &suffix)
+saveLocation(QStandardPaths::StandardLocation type, const char *suffix)
 {
     QString path = QStandardPaths::writableLocation(type);
     QTC_RET_IF_FAIL(!path.isEmpty(), path);
-    path += '/' + suffix;
+    path += '/' + QString::fromUtf8(suffix);
     QDir().mkpath(path);
     return path;
 }

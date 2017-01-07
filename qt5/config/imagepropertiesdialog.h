@@ -32,6 +32,7 @@
 #include "ui_imageproperties.h"
 
 class CImagePropertiesDialog : public QDialog, public Ui::ImageProperties {
+    Q_OBJECT
 public:
     enum {
         BASIC = 0x00,

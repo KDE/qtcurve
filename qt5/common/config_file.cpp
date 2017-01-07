@@ -650,7 +650,7 @@ static bool readBoolEntry(QtCConfig &cfg, const QString &key, bool def)
 {
     const QString &val(readStringEntry(cfg, key));
 
-    return val.isEmpty() ? def : (val=="true" ? true : false);
+    return val.isEmpty() ? def : (val==QLatin1String("true") ? true : false);
 }
 
 static void readDoubleList(QtCConfig &cfg, const char *key, double *list, int count)

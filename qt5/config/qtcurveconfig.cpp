@@ -120,20 +120,22 @@ static inline QString getFileName(const QString &f)
 
 static QString getThemeFile(const QString &file)
 {
+    QLatin1String doubleSlash("//");
+    QLatin1String slash("/");
     if (file.startsWith(THEME_IMAGE_PREFIX BGND_FILE)) {
         QString f(QtCurve::getConfDir() + file);
 
         if (QFile::exists(f)) {
-            return f.replace("//", "/");
+            return f.replace(doubleSlash, slash);
         }
     }
-    if (!file.startsWith("/")) {
+    if (!file.startsWith(slash)) {
         QString f(QtCurve::qtcSaveDir() + file);
         if (QFile::exists(f)) {
-            return f.replace("//", "/");
+            return f.replace(doubleSlash, slash);
         }
     }
-    return QString(file).replace("//", "/");
+    return QString(file).replace(doubleSlash, slash);
 }
 
 static void removeFile(const QString &f)
@@ -285,6 +287,7 @@ QSize CStylePreview::sizeHint() const
 
 class CWorkspace : public QMdiArea
 {
+    Q_OBJECT
     public:
 
     CWorkspace(QWidget *parent) : QMdiArea(parent)
@@ -305,6 +308,7 @@ class CWorkspace : public QMdiArea
 };
 
 class CharSelectDialog : public QDialog {
+    Q_OBJECT
 public:
     CharSelectDialog(QWidget *parent, int v)
         : QDialog(parent)

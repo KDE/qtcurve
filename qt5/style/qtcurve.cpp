@@ -318,7 +318,7 @@ static void parseWindowLine(const QString &line, QList<int> &data)
 }
 #endif
 
-Style::Style() :
+Style::Style(QObject *parent) :
     m_popupMenuCols(0L),
     m_sliderCols(0L),
     m_defBtnCols(0L),

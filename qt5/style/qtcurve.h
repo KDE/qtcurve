@@ -112,8 +112,8 @@ public:
         ICN_UNSHADE
     };
 
-    Style();
-    ~Style();
+    explicit Style(QObject *parent=0);
+    virtual ~Style();
 
     void polish(QApplication *app) override;
     void polish(QPalette &palette) override;
