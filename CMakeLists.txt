@@ -48,9 +48,18 @@ option(ENABLE_TEST "Enable testing." On)
 option(QTC_ENABLE_X11 "Enable X11" On)
 option(QTC_INSTALL_PO "Install translation files." On)
 
-qtc_option(QTC_QT4_ENABLE_KDE "Building Qt4 style with KDE4 support." On)
-qtc_option(QTC_QT5_ENABLE_KDE
-  "Building Qt5 style with KDE Frameworks 5 support." On)
+if(ENABLE_QT4)
+    qtc_option(QTC_QT4_ENABLE_KDE "Building Qt4 style with KDE4 support." On)
+else()
+    qtc_option(QTC_QT4_ENABLE_KDE "Building Qt4 style with KDE4 support." Off)
+endif()
+if(ENABLE_QT5)
+    qtc_option(QTC_QT5_ENABLE_KDE
+      "Building Qt5 style with KDE Frameworks 5 support." On)
+else()
+    qtc_option(QTC_QT5_ENABLE_KDE
+      "Building Qt5 style with KDE Frameworks 5 support." On)
+endif()
 
 option(QTC_QT4_STYLE_SUPPORT
   "Qt4 support for creating a style for each QtCurve theme." Off)
@@ -73,13 +82,37 @@ else()
   set(QTC_KDE4_DEFAULT_HOME_DEFAULT False)
 endif()
 
-find_package(KDE4 QUIET)
-set(KDE4_KDECONFIG_EXECUTABLE)
-find_program(KDE4_KDECONFIG_EXECUTABLE NAMES kde4-config
-  PATHS "${CMAKE_INSTALL_PREFIX}/bin" ${_KDEDIRS} /opt/kde4/bin
-  NO_DEFAULT_PATH)
-if(NOT KDE4_KDECONFIG_EXECUTABLE)
-  find_program(KDE4_KDECONFIG_EXECUTABLE NAMES kde4-config)
+# set compiler flags earlier to prevent potential failure running find_package(KDE4)
+# glibc 2.20 warns about _BSD_SOURCE if _DEFAULT_SOURCE is not defined.
+cmake_c_add_flags(CMAKE_C_FLAGS -Wall -Wextra -Wno-cast-align
+  -std=gnu99 -D_DEFAULT_SOURCE)
+# Register storage class is deprecated in C++11 but is still used in Qt.
+# Use compiler option (-Wno-deprecated-register) to suppress
+# the warning in clang++.
+# We use `override` in certain Qt Classes but the QObject macro does not use it
+# Use compiler option (-Wno-inconsistent-missing-override) to suppress
+# the warning in clang++ 3.6+.
+cmake_c_add_flags(CMAKE_CXX_FLAGS -Wall -Wextra
+  -Wno-deprecated-register -Wno-cast-align
+  -Wno-inconsistent-missing-override)
+if(NOT APPLE)
+  # -std=c++0x is deprecated but gcc < 4.7 do not recognise c++11 ....
+  cmake_c_add_flags(CMAKE_CXX_FLAGS -std=c++0x -D_DEFAULT_SOURCE)
+  cmake_c_add_flags(CMAKE_SHARED_LINKER_FLAGS -Wl,--as-needed -Wl,--no-undefined)
+  cmake_c_add_flags(CMAKE_MODULE_LINKER_FLAGS -Wl,--as-needed -Wl,--no-undefined)
+else()
+  cmake_c_add_flags(CMAKE_CXX_FLAGS -std=c++11)
+endif()
+
+if(QTC_QT4_ENABLE_KDE)
+    find_package(KDE4 QUIET)
+    set(KDE4_KDECONFIG_EXECUTABLE)
+    find_program(KDE4_KDECONFIG_EXECUTABLE NAMES kde4-config
+      PATHS "${CMAKE_INSTALL_PREFIX}/bin" ${_KDEDIRS} /opt/kde4/bin
+      NO_DEFAULT_PATH)
+    if(NOT KDE4_KDECONFIG_EXECUTABLE)
+      find_program(KDE4_KDECONFIG_EXECUTABLE NAMES kde4-config)
+    endif()
 endif()
 
 function(get_cmd_var varname def cmd)
@@ -188,26 +221,6 @@ configure_file(config.h.in config.h @ONLY)
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 cmake_c_fix_include_path(lib/utils qtcurve-utils)
 cmake_c_fix_include_path(lib/cairo qtcurve-cairo)
-# glibc 2.20 warns about _BSD_SOURCE if _DEFAULT_SOURCE is not defined.
-cmake_c_add_flags(CMAKE_C_FLAGS -Wall -Wextra -Wno-cast-align
-  -std=gnu99 -D_DEFAULT_SOURCE)
-# Register storage class is deprecated in C++11 but is still used in Qt.
-# Use compiler option (-Wno-deprecated-register) to suppress
-# the warning in clang++.
-# We use `override` in certain Qt Classes but the QObject macro does not use it
-# Use compiler option (-Wno-inconsistent-missing-override) to suppress
-# the warning in clang++ 3.6+.
-cmake_c_add_flags(CMAKE_CXX_FLAGS -Wall -Wextra
-  -Wno-deprecated-register -Wno-cast-align
-  -Wno-inconsistent-missing-override)
-if(NOT APPLE)
-  # -std=c++0x is deprecated but gcc < 4.7 do not recognise c++11 ....
-  cmake_c_add_flags(CMAKE_CXX_FLAGS -std=c++0x -D_DEFAULT_SOURCE)
-  cmake_c_add_flags(CMAKE_SHARED_LINKER_FLAGS -Wl,--as-needed -Wl,--no-undefined)
-  cmake_c_add_flags(CMAKE_MODULE_LINKER_FLAGS -Wl,--as-needed -Wl,--no-undefined)
-else()
-  cmake_c_add_flags(CMAKE_CXX_FLAGS -std=c++11)
-endif()
 add_definitions("-D_GNU_SOURCE -pthread")
 
 if(NOT DEFINED LIB_INSTALL_DIR)
