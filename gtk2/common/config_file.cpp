@@ -1577,7 +1577,6 @@ static const char * getSystemConfigFile()
            "/etc/qt3/"OLD_CONFIG_FILE,
            "/etc/qt/"OLD_CONFIG_FILE, */
         "/etc/" OLD_CONFIG_FILE,
-        "/opt/local/etc/xdg/qtcurve/" CONFIG_FILE,
         nullptr};
 
     for (int i = 0;constFiles[i];i++) {
