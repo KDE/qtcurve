@@ -2348,16 +2348,8 @@ static bool updateMenuBarEvent(QMouseEvent *event, QMenuBar *menu)
         }
     };
 
-    struct HackedMenu : public QMenuBar {
-        void
-        send(QMouseEvent *ev)
-        {
-            event(ev);
-        }
-    };
-
     if (((HackEvent*)event)->adjust()) {
-        ((HackedMenu*)menu)->send(event);
+        static_cast<QObject*>(menu)->event(event);
         return true;
     }
     return false;
