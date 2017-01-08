@@ -1135,9 +1135,16 @@ bool Style::eventFilter(QObject *object, QEvent *event)
                         mnb->setNativeMenuBar(false);
                         mnb->setHidden(false);
                         mnb->setVisible(true);
+                        if (!opts.currentNonnativeMenubarApps.contains(appName)) {
+                            opts.currentNonnativeMenubarApps << appName;
+                        }
                     }
-                } else if (QGuiApplication::platformName().contains(QLatin1String("cocoa"))) {
+                } else if ((QGuiApplication::platformName() == QLatin1String("cocoa"))
+                        && opts.currentNonnativeMenubarApps.contains(appName)) {
+                    // only force the native menubar on applications that were forced
+                    // to use something else before!
                     static_cast<QMenuBar*>(object)->setNativeMenuBar(true);
+                    opts.currentNonnativeMenubarApps.remove(appName);
                 }
 #endif
         }

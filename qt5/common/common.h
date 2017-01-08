@@ -880,6 +880,12 @@ typedef struct {
                      windowDragWhiteList,
                      windowDragBlackList,
                      nonnativeMenubarApps;
+#ifdef Q_OS_MACOS
+    // list of apps that have been forced to use a non-native menubar during this process lifetime
+    // should only contain the name of the running executable.
+    // NOT saved to disk!
+    Strings          currentNonnativeMenubarApps;
+#endif
     bool             onlyTicksInMenu;
     // these are runtime constants for the user-option "onlyTicksInMenu":
     QFont            tickFont;

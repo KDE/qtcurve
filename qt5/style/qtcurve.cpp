@@ -385,6 +385,7 @@ void Style::init(bool initial)
 #ifdef Q_OS_MACOS
             if (opts.nonnativeMenubarApps.contains("kde") || opts.nonnativeMenubarApps.contains(appName)) {
                 QCoreApplication::setAttribute(Qt::AA_DontUseNativeMenuBar);
+                opts.currentNonnativeMenubarApps << appName;
             }
 #endif
             connectDBus();
