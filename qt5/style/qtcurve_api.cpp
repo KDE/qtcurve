@@ -1128,7 +1128,7 @@ bool Style::eventFilter(QObject *object, QEvent *event)
         if (qobject_cast<QMenuBar *>(object)) {
             if(opts.menubarHiding && m_saveMenuBarStatus && qtcMenuBarHidden(appName))
                 static_cast<QMenuBar *>(object)->setHidden(true);
-#ifdef Q_OS_OSX
+#ifdef Q_OS_MACOS
                 if (opts.nonnativeMenubarApps.contains(appName)) {
                     QMenuBar *mnb = static_cast<QMenuBar*>(object);
                     if (mnb->isNativeMenuBar()) {
@@ -1937,7 +1937,7 @@ static bool initFontTickData(Options &opts, QFont font, const QWidget *widget=0)
 {
     if (opts.onlyTicksInMenu && opts.fontTickWidth <= 0) {
         opts.tickFont = font;
-#ifndef Q_OS_OSX
+#ifndef Q_OS_MACOS
         opts.tickFont.setBold(true);
 #else
         opts.tickFont.setFamily(QStringLiteral("Apple Symbols"));

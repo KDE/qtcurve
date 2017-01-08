@@ -382,7 +382,7 @@ void Style::init(bool initial)
         qtcReadConfig(QString(), &opts);
 
         if (initial) {
-#ifdef Q_OS_OSX
+#ifdef Q_OS_MACOS
             if (opts.nonnativeMenubarApps.contains("kde") || opts.nonnativeMenubarApps.contains(appName)) {
                 QCoreApplication::setAttribute(Qt::AA_DontUseNativeMenuBar);
             }
@@ -3481,7 +3481,7 @@ Style::drawMenuOrToolBarBackground(const QWidget *widget, QPainter *p,
         p->setCompositionMode(QPainter::CompositionMode_Source);
 #endif
         QRect rx(r);
-#ifdef Q_OS_OSX
+#ifdef Q_OS_MACOS
         QColor col(menu ?
                    menuColors(option, m_active)[ORIGINAL_SHADE] :
                    option->palette.background().color());
@@ -3806,7 +3806,7 @@ const QColor * Style::menuColors(const QStyleOption *option, bool active) const
     {
         return getMdiColors(option, active);
     }
-#ifdef Q_OS_OSX
+#ifdef Q_OS_MACOS
     else if(opts.shadeMenubarOnlyWhenActive && !active)
 #else
     else if(opts.shadeMenubars == SHADE_NONE || (opts.shadeMenubarOnlyWhenActive && !active))
@@ -3919,7 +3919,7 @@ Style::getMdiColors(const QStyleOption *option, bool active) const
 void Style::readMdiPositions() const
 {
     if (0==m_mdiButtons[0].size() && 0==m_mdiButtons[1].size()) {
-#ifdef Q_OS_OSX
+#ifdef Q_OS_MACOS
         // no control over where the system menu appears, so we have little choice
         // but to keep it at its default position. The user can still override this.
         m_mdiButtons[0].append(SC_TitleBarSysMenu);

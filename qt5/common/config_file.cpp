@@ -1627,7 +1627,7 @@ void qtcDefaultSettings(Options *opts)
     opts->titlebarAppearance=APPEARANCE_CUSTOM1;
     opts->inactiveTitlebarAppearance=APPEARANCE_CUSTOM1;
     opts->titlebarButtonAppearance=APPEARANCE_GRADIENT;
-#ifdef Q_OS_OSX
+#ifdef Q_OS_MACOS
     opts->onlyTicksInMenu=true;
 #else
     opts->onlyTicksInMenu=false;
