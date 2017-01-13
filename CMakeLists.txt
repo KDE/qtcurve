@@ -41,6 +41,14 @@ function(qtc_option name doc def_val)
     option("${name}" "${doc}" "${def_val}")
   endif()
 endfunction()
+function(qtc_variable name doc def_val)
+  if(DEFINED "${name}")
+    set("${name}_DEFINED" On PARENT_SCOPE)
+  else()
+    set("${name}_DEFINED" Off PARENT_SCOPE)
+    set("${name}" "${def_val}" PARENT_SCOPE)
+  endif()
+endfunction()
 qtc_option(ENABLE_QT4 "Building Qt4 theme." On)
 qtc_option(ENABLE_QT5 "Building Qt5 theme." On)
 qtc_option(ENABLE_GTK2 "Building Gtk2 theme." On)
@@ -68,8 +76,8 @@ option(QTC_QT4_STYLE_SUPPORT
 ## Common settings.
 # support an infix argument to have different qtcurve-utils libraries, e.g. for
 # GTk2, Qt4 and Qt5
-qtc_option(QTC_UTILSLIB_INFIX "Infix for having multiple qtcurve-utils's" "")
-qtc_option(QTC_KDE4_DEFAULT_HOME
+qtc_variable(QTC_UTILSLIB_INFIX "Infix for having multiple qtcurve-utils's" "")
+qtc_variable(QTC_KDE4_DEFAULT_HOME
   "Path of kde4 home (relative to user home), for reading old theme files only"
   ".kde4")
 
