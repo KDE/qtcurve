@@ -3325,44 +3325,47 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
             if (!styleHint(SH_UnderlineShortcut, button, widget))
                 tf |= Qt::TextHideMnemonic;
 
-            if (!button->icon.isNull()
-                && (styleHint(SH_DialogButtonBox_ButtonsHaveIcons, button, widget) || button->text.isEmpty()))
-            {
-                //Center both icon and text
-                QIcon::Mode mode(button->state&State_Enabled ? QIcon::Normal : QIcon::Disabled);
+            if (!button->icon.isNull() &&
+                (styleHint(SH_DialogButtonBox_ButtonsHaveIcons, button, widget) ||
+                 button->text.isEmpty())) {
+                QIcon::Mode mode(button->state & State_Enabled ? QIcon::Normal : QIcon::Disabled);
 
-                if (QIcon::Normal==mode && button->state&State_HasFocus)
+                if (QIcon::Normal == mode && button->state & State_HasFocus)
                     mode = QIcon::Active;
 
-                QIcon::State state((button->state&State_On) || (button->state&State_Sunken) ? QIcon::On : QIcon::Off);
-                QPixmap      pixmap(getIconPixmap(button->icon, button->iconSize, mode, state));
-                int          labelWidth(pixmap.width()),
-                    labelHeight(pixmap.height()),
-                    iconSpacing (4);//### 4 is currently hardcoded in QPushButton::sizeHint()
+                QIcon::State state((button->state & State_On) || (button->state & State_Sunken) ?
+                                   QIcon::On : QIcon::Off);
 
+                QSize iconSize = button->iconSize;
+                int width = iconSize.width();
+                int height = iconSize.height();
+                int iconSpacing = 4; //### 4 is currently hardcoded in QPushButton::sizeHint()
+
+                // Center both icon and text
+                int xoffset = width;
                 if (!button->text.isEmpty())
-                    labelWidth += (button->fontMetrics.boundingRect(r, tf, button->text).width() + iconSpacing);
+                    xoffset += (button->fontMetrics.boundingRect(r, tf, button->text).width() +
+                                iconSpacing);
+                QRect iconRect(r.x() + (r.width() - xoffset) / 2,
+                               r.y() + (r.height() - height) / 2, width, height);
 
-                QRect iconRect(r.x() + (r.width() - labelWidth) / 2,
-                               r.y() + (r.height() - labelHeight) / 2,
-                               pixmap.width(), pixmap.height());
+                tf |= Qt::AlignLeft; // left align, we adjust the text-rect instead
 
-                iconRect = visualRect(button->direction, r, iconRect);
-
-                tf |= Qt::AlignLeft; //left align, we adjust the text-rect instead
-
-                if (Qt::RightToLeft==button->direction)
+                if (button->direction == Qt::RightToLeft)
                     r.setRight(iconRect.left() - iconSpacing);
                 else
-                    r.setLeft(iconRect.left() + iconRect.width() + iconSpacing);
+                    r.setLeft(iconRect.right() + iconSpacing);
 
                 if (button->state & (State_On|State_Sunken))
                     iconRect.translate(pixelMetric(PM_ButtonShiftHorizontal, option, widget),
                                        pixelMetric(PM_ButtonShiftVertical, option, widget));
+                iconRect = visualRect(option->direction, button->rect, iconRect);
+
+                QPixmap pixmap(getIconPixmap(button->icon, iconRect.size(), mode, state));
                 painter->drawPixmap(iconRect, pixmap);
-            }
-            else
+            } else {
                 tf |= Qt::AlignHCenter;
+            }
 
             if (button->state & (State_On|State_Sunken))
                 r.translate(pixelMetric(PM_ButtonShiftHorizontal, option, widget),
