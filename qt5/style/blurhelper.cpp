@@ -58,6 +58,10 @@
 #include <QProgressBar>
 #include <QPushButton>
 #include <QToolBar>
+#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
+#  include "private/qhighdpiscaling_p.h"
+#endif
+
 #include <qtcurve-utils/qtutils.h>
 #include <qtcurve-utils/x11blur.h>
 
@@ -185,7 +189,12 @@ BlurHelper::update(QWidget *widget) const
         clear(wid);
     } else {
         QVector<uint32_t> data;
-        for (const QRect &rect: region.rects()) {
+        for (const QRect &_rect: region.rects()) {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
+            const auto &rect = QHighDpi::toNativePixels(_rect, widget->window()->windowHandle());
+#else
+            const auto &rect = _rect;
+#endif
             data << rect.x() << rect.y() << rect.width() << rect.height();
         }
         qtcX11BlurTrigger(wid, true, data.size(), data.constData());
