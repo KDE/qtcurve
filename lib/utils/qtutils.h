@@ -28,6 +28,7 @@
 #include <config.h>
 #include <QStyleOption>
 #include <QObject>
+#include <QRect>
 
 namespace QtCurve {
 
@@ -211,6 +212,17 @@ getParent<0>(const QObject *o)
 #define qtcSlot(self, name, types...)                           \
     QTC_SWITCH(types, _qtcSlotWithTypes, _qtcSlotWithoutTypes)  \
     (self, name, ##types)
+
+static inline QRect centerRect(const QRect &rect, int width, int height)
+{
+    return QRect(rect.left() + (rect.width() - width) / 2,
+                 rect.top() + (rect.height() - height) / 2, width, height);
+}
+
+static inline QRect centerRect(const QRect &rect, const QSize &size)
+{
+    return centerRect(rect, size.width(), size.height());
+}
 
 }
 

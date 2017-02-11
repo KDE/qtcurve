@@ -70,14 +70,14 @@
 
 #ifdef QTC_QT5_ENABLE_KDE
 #include <QPrintDialog>
-#include <KDE/KApplication> 
-#include <KDE/KGlobal> 
-#include <KDE/KGlobalSettings> 
-#include <KDE/KIconLoader> 
-#include <KDE/KIcon> 
-#include <KDE/KTitleWidget> 
-#include <KDE/KTabBar> 
-#include <KDE/KFileDialog> 
+#include <KDE/KApplication>
+#include <KDE/KGlobal>
+#include <KDE/KGlobalSettings>
+#include <KDE/KIconLoader>
+#include <KDE/KIcon>
+#include <KDE/KTitleWidget>
+#include <KDE/KTabBar>
+#include <KDE/KFileDialog>
 #include <KDE/KAboutApplicationDialog>
 #endif
 
@@ -3161,34 +3161,25 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
             // Text and icon, ripped from windows style
             bool dis = !(state & State_Enabled);
             bool act = state & State_Selected;
-            QRect vCheckRect(visualRect(option->direction, menuItem->rect,
-                                        QRect(menuItem->rect.x(),
-                                              menuItem->rect.y(), checkcol,
-                                              menuItem->rect.height())));
 
             if (opts.menuIcons && !menuItem->icon.isNull()) {
                 QIcon::Mode mode = dis ? QIcon::Disabled : QIcon::Normal;
-
                 if (act && !dis)
                     mode = QIcon::Active;
+                QIcon::State state = checked ? QIcon::On : QIcon::Off;
 
-                QPixmap pixmap(getIconPixmap(menuItem->icon,
-                                             pixelMetric(PM_SmallIconSize),
-                                             mode, checked ? QIcon::On :
-                                             QIcon::Off));
+                int size = pixelMetric(PM_SmallIconSize, option, widget);
+                QRect iconRect(menuItem->rect.x(),
+                               menuItem->rect.y(), checkcol,
+                               menuItem->rect.height());
+                iconRect = centerRect(iconRect, size, size);
+                iconRect = visualRect(option->direction, menuItem->rect, iconRect);
 
-                int pixw = pixmap.width();
-                int pixh = pixmap.height();
-                QRect pmr(0, 0, pixw, pixh);
-
-                pmr.moveCenter(vCheckRect.center());
+                QPixmap pixmap(getIconPixmap(menuItem->icon, iconRect.size(), mode, state));
                 painter->setPen(palette.text().color());
-                if (checkable && checked) {
-                    painter->drawPixmap(QPoint(pmr.left() + 1, pmr.top() + 1),
-                                        pixmap);
-                } else {
-                    painter->drawPixmap(pmr.topLeft(), pixmap);
-                }
+                if (checkable && checked)
+                    iconRect.adjust(1, 1, 1, 1);
+                painter->drawPixmap(iconRect.topLeft(), pixmap);
             }
 
             painter->setPen(dis ? palette.text().color() :
