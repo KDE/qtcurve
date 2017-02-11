@@ -4224,10 +4224,9 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
         // Taken from QStyle - only required so that we can corectly set the disabled icon!!!
     case CE_ToolButtonLabel:
         if (auto tb = styleOptCast<QStyleOptionToolButton>(option)) {
-            int shiftX = 0,
-                shiftY = 0;
-            if (state & (State_Sunken|State_On))
-            {
+            int shiftX = 0;
+            int shiftY = 0;
+            if (state & (State_Sunken | State_On)) {
                 shiftX = pixelMetric(PM_ButtonShiftHorizontal, tb, widget);
                 shiftY = pixelMetric(PM_ButtonShiftVertical, tb, widget);
             }
@@ -4235,8 +4234,8 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
             // Arrow type always overrules and is always shown
             bool hasArrow = tb->features & QStyleOptionToolButton::Arrow;
 
-            if (((!hasArrow && tb->icon.isNull()) && !tb->text.isEmpty()) || Qt::ToolButtonTextOnly==tb->toolButtonStyle)
-            {
+            if (((!hasArrow && tb->icon.isNull()) && !tb->text.isEmpty()) ||
+                tb->toolButtonStyle == Qt::ToolButtonTextOnly) {
                 int alignment = Qt::AlignCenter|Qt::TextShowMnemonic;
 
                 if (!styleHint(SH_UnderlineShortcut, option, widget))
@@ -4244,48 +4243,35 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
 
                 r.translate(shiftX, shiftY);
 
-                drawItemTextWithRole(painter, r, alignment, palette, state&State_Enabled, tb->text, QPalette::ButtonText);
-            }
-            else
-            {
+                drawItemTextWithRole(painter, r, alignment, palette, state&State_Enabled,
+                                     tb->text, QPalette::ButtonText);
+            } else {
                 QPixmap pm;
-                QSize   pmSize = tb->iconSize;
+                QSize   iconSize = tb->iconSize;
                 QRect   pr = r;
 
-                if (!tb->icon.isNull())
-                {
+                if (!tb->icon.isNull()) {
                     QIcon::State state = tb->state & State_On ? QIcon::On : QIcon::Off;
-                    QIcon::Mode  mode=!(tb->state & State_Enabled)
-                        ? QIcon::Disabled
-                        : (state&State_MouseOver) && (state&State_AutoRaise)
-                        ? QIcon::Active
-                        : QIcon::Normal;
-                    QSize        iconSize = tb->iconSize;
+                    QIcon::Mode mode;
+                    if (!(tb->state & State_Enabled)) {
+                        mode = QIcon::Disabled;
+                    } else if ((state & State_MouseOver) && (state & State_AutoRaise)) {
+                        mode = QIcon::Active;
+                    } else {
+                        mode = QIcon::Normal;
+                    }
 
-                    if (!iconSize.isValid())
-                    {
+                    if (!iconSize.isValid()) {
                         int iconExtent = pixelMetric(PM_ToolBarIconSize);
                         iconSize = QSize(iconExtent, iconExtent);
                     }
-                    /* Not required?
-                       else if(iconSize.width()>iconSize.height())
-                       iconSize.setWidth(iconSize.height());
-                       else if(iconSize.width()<iconSize.height())
-                       iconSize.setHeight(iconSize.width());
-                    */
 
-                    if(iconSize.width()>tb->rect.size().width())
-                        iconSize=QSize(tb->rect.size().width(), tb->rect.size().width());
-                    if(iconSize.height()>tb->rect.size().height())
-                        iconSize=QSize(tb->rect.size().height(), tb->rect.size().height());
+                    if (iconSize.width() > tb->rect.size().width())
+                        iconSize = QSize(tb->rect.size().width(), tb->rect.size().width());
+                    if (iconSize.height() > tb->rect.size().height())
+                        iconSize = QSize(tb->rect.size().height(), tb->rect.size().height());
 
-                    pm=getIconPixmap(tb->icon, iconSize, mode, state);
-                    pmSize = pm.size(); // tb->icon.actualSize(iconSize, mode);
-                    /*if(pmSize.width()<pm.width())
-                      pr.setX(pr.x()+((pm.width()-pmSize.width())));
-                      if(pmSize.height()<pm.height())
-                      pr.setY(pr.y()+((pm.height()-pmSize.height())));
-                    */
+                    pm = getIconPixmap(tb->icon, iconSize, mode, state);
                 }
 
                 if (Qt::ToolButtonIconOnly!=tb->toolButtonStyle)
@@ -4299,7 +4285,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
 
                     if (Qt::ToolButtonTextUnderIcon==tb->toolButtonStyle)
                     {
-                        pr.setHeight(pmSize.height() + 6);
+                        pr.setHeight(iconSize.height() + 6);
 
                         tr.adjust(0, pr.bottom()-3, 0, 0); // -3);
                         pr.translate(shiftX, shiftY);
@@ -4311,7 +4297,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
                     }
                     else
                     {
-                        pr.setWidth(pmSize.width() + 8);
+                        pr.setWidth(iconSize.width() + 8);
                         tr.adjust(pr.right(), 0, 0, 0);
                         pr.translate(shiftX, shiftY);
                         if (hasArrow)
