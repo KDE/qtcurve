@@ -67,7 +67,7 @@ if(ENABLE_QT5)
       "Building Qt5 style with KDE Frameworks 5 support." On)
 else()
     qtc_option(QTC_QT5_ENABLE_KDE
-      "Building Qt5 style with KDE Frameworks 5 support." On)
+      "Building Qt5 style with KDE Frameworks 5 support." Off)
 endif()
 
 option(QTC_QT4_STYLE_SUPPORT
