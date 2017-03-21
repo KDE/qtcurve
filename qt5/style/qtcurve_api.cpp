@@ -1919,6 +1919,10 @@ Style::styleHint(StyleHint hint, const QStyleOption *option,
         return cg.readEntry("SingleClick", false);
     }
 #endif
+    case SH_Widget_Animate:
+        return false;
+    case SH_Menu_SupportsSections:
+        return true;
     default:
 #ifdef QTC_QT5_ENABLE_KDE
         // Tell the calling app that we can handle certain custom widgets...
