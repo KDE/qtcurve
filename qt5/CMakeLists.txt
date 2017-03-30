@@ -69,12 +69,14 @@ if(ENABLE_QT5)
       Archive
       Config
       ConfigWidgets
+      FrameworkIntegration
       I18n
       KDELibs4Support
       KIO
       GuiAddons
       IconThemes
       WidgetsAddons
+      WindowSystem
       XmlGui)
 
     add_definitions(-DQTC_QT5_ENABLE_KDE)

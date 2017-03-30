@@ -37,6 +37,10 @@
 #ifdef QTC_QT5_ENABLE_KDE
 #include <KConfigCore/KSharedConfig>
 #include <KConfigCore/KConfigGroup>
+#include <KStyle/KStyle>
+using ParentStyleClass = KStyle;
+#else
+using ParentStyleClass = QCommonStyle;
 #endif
 
 typedef qulonglong QtcKey;
@@ -59,7 +63,7 @@ class BlurHelper;
 class ShortcutHandler;
 class ShadowHelper;
 
-class Style: public QCommonStyle {
+class Style: public ParentStyleClass {
     Q_OBJECT
     Q_CLASSINFO("X-KDE-CustomElements", "true")
 public:
@@ -112,7 +116,7 @@ public:
         ICN_UNSHADE
     };
 
-    explicit Style(QObject *parent=0);
+    explicit Style();
     virtual ~Style();
 
     void polish(QApplication *app) override;

@@ -90,9 +90,9 @@ Style::polish(QApplication *app)
 {
     // appName = getFile(app->arguments()[0]);
 
-    if (appName == "kwin") {
+    if (appName == "kwin" || appName == "kwin_x11" || appName == "kwin_wayland") {
         theThemedApp = APP_KWIN;
-    } else if (appName == "systemsettings") {
+    } else if (appName == "systemsettings" || appName == "systemsettings5") {
         theThemedApp = APP_SYSTEMSETTINGS;
     } else if ("plasma" == appName || appName.startsWith("plasma-")) {
         theThemedApp = APP_PLASMA;
@@ -160,7 +160,7 @@ Style::polish(QApplication *app)
         opts.menuBgndAppearance = APPEARANCE_FLAT;
     }
 
-    QCommonStyle::polish(app);
+    ParentStyleClass::polish(app);
     if (opts.hideShortcutUnderline) {
         app->installEventFilter(m_shortcutHandler);
     }
@@ -791,7 +791,7 @@ Style::unpolish(QApplication *app)
 {
     if (opts.hideShortcutUnderline)
         app->removeEventFilter(m_shortcutHandler);
-    QCommonStyle::unpolish(app);
+    ParentStyleClass::unpolish(app);
 }
 
 void Style::unpolish(QWidget *widget)
@@ -1414,7 +1414,7 @@ bool Style::eventFilter(QObject *object, QEvent *event)
         break;
     }
 
-    return QCommonStyle::eventFilter(object, event);
+    return ParentStyleClass::eventFilter(object, event);
 }
 
 void Style::timerEvent(QTimerEvent *event)
@@ -1443,7 +1443,7 @@ Style::pixelMetric(PixelMetric metric, const QStyleOption *option,
     case PM_ToolTipLabelFrameWidth:
         if (opts.round != ROUND_NONE && !(opts.square & SQUARE_TOOLTIPS))
             return 3;
-        return QCommonStyle::pixelMetric(metric, option, widget);
+        return ParentStyleClass::pixelMetric(metric, option, widget);
     case PM_MdiSubWindowFrameWidth:
         return 3;
     case PM_DockWidgetTitleMargin:
@@ -1647,7 +1647,7 @@ Style::pixelMetric(PixelMetric metric, const QStyleOption *option,
                 ++size;
             return size;
         }
-        return QCommonStyle::pixelMetric(metric, option, widget);
+        return ParentStyleClass::pixelMetric(metric, option, widget);
     case PM_SliderLength: {
         int glowSize = (opts.buttonEffect != EFFECT_NONE &&
                         opts.coloredMouseOver == MO_GLOW ? 2 : 0);
@@ -1724,7 +1724,7 @@ Style::pixelMetric(PixelMetric metric, const QStyleOption *option,
             !styleOptCast<QStyleOptionTab>(option)) {
             return 10;
         }
-        return QCommonStyle::pixelMetric(metric, option, widget);
+        return ParentStyleClass::pixelMetric(metric, option, widget);
     case PM_TabBarBaseOverlap:
         if (qtcCheckKDEType(widget, QTabBar) &&
             !styleOptCast<QStyleOptionTab>(option)) {
@@ -1732,7 +1732,7 @@ Style::pixelMetric(PixelMetric metric, const QStyleOption *option,
         }
         // Fall through!
     default:
-        return QCommonStyle::pixelMetric(metric, option, widget);
+        return ParentStyleClass::pixelMetric(metric, option, widget);
     }
 }
 
@@ -1746,7 +1746,7 @@ Style::styleHint(StyleHint hint, const QStyleOption *option,
     case SH_Menu_Mask:
         if ((SH_ToolTip_Mask == hint && (opts.square & SQUARE_TOOLTIPS)) ||
             (SH_Menu_Mask == hint && (opts.square & SQUARE_POPUP_MENUS))) {
-            return QCommonStyle::styleHint(hint, option, widget, returnData);
+            return ParentStyleClass::styleHint(hint, option, widget, returnData);
         } else {
             if (!Utils::hasAlphaChannel(widget) &&
                 (!widget || widget->isWindow())) {
@@ -1935,13 +1935,13 @@ Style::styleHint(StyleHint hint, const QStyleOption *option,
             }
         }
 #endif
-        return QCommonStyle::styleHint(hint, option, widget, returnData);
+        return ParentStyleClass::styleHint(hint, option, widget, returnData);
     }
 }
 
 QPalette Style::standardPalette() const
 {
-    return QCommonStyle::standardPalette();
+    return ParentStyleClass::standardPalette();
 }
 
 static bool initFontTickData(Options &opts, QFont font, const QWidget *widget=0)
@@ -2098,7 +2098,7 @@ Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option,
     painter->save();
     if (!drawFunc ||
         qtcUnlikely(!(this->*drawFunc)(element, option, painter, widget))) {
-        QCommonStyle::drawPrimitive(element, option, painter, widget);
+        ParentStyleClass::drawPrimitive(element, option, painter, widget);
     }
     painter->restore();
 }
@@ -4441,12 +4441,12 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
                         drawBevelGradient(shade(palette.background().color(), TO_FACTOR(opts.crHighlight)), painter,
                                           highlightRect, true, false, opts.selectionAppearance, WIDGET_SELECTION);
                 }
-                QCommonStyle::drawControl(element, &copy, painter, widget);
+                ParentStyleClass::drawControl(element, &copy, painter, widget);
                 break;
             }
         // Fall through!
     default:
-        QCommonStyle::drawControl(element, option, painter, widget);
+        ParentStyleClass::drawControl(element, option, painter, widget);
     }
 }
 
@@ -6049,7 +6049,7 @@ void Style::drawComplexControl(ComplexControl control, const QStyleOptionComplex
         }
         break;
     default:
-        QCommonStyle::drawComplexControl(control, option, painter, widget);
+        ParentStyleClass::drawComplexControl(control, option, painter, widget);
         break;
     }
 }
@@ -6067,20 +6067,20 @@ Style::drawItemText(QPainter *painter, const QRect &rect, int flags,
                 p.currentColorGroup() == QPalette::Inactive) {
                 p.setCurrentColorGroup(QPalette::Active);
             }
-            QCommonStyle::drawItemText(painter, rect, flags, p, enabled,
+            ParentStyleClass::drawItemText(painter, rect, flags, p, enabled,
                                        text, QPalette::HighlightedText);
             return;
         }
     }
 
-    QCommonStyle::drawItemText(painter, rect, flags, pal,
+    ParentStyleClass::drawItemText(painter, rect, flags, pal,
                                enabled, text, textRole);
 }
 
 QSize Style::sizeFromContents(ContentsType type, const QStyleOption *option, const QSize &size, const QWidget *widget) const
 {
     prePolish(widget);
-    QSize newSize(QCommonStyle::sizeFromContents(type, option, size, widget));
+    QSize newSize(ParentStyleClass::sizeFromContents(type, option, size, widget));
 
     switch (type)
     {
@@ -6355,7 +6355,7 @@ QRect Style::subElementRect(SubElement element, const QStyleOption *option, cons
         bool verticalTitleBar = dwopt ? dwopt->verticalTitleBar : false;
         int m = pixelMetric(PM_DockWidgetTitleMargin, option, widget);
 
-        rect = QCommonStyle::subElementRect(element, option, widget);
+        rect = ParentStyleClass::subElementRect(element, option, widget);
 
         if (verticalTitleBar)
             rect.adjust(0, 0, 0, -m);
@@ -6366,9 +6366,9 @@ QRect Style::subElementRect(SubElement element, const QStyleOption *option, cons
         return rect;
     }
     case SE_TabBarTabLeftButton:
-        return QCommonStyle::subElementRect(element, option, widget).translated(-2, -1);
+        return ParentStyleClass::subElementRect(element, option, widget).translated(-2, -1);
     case SE_TabBarTabRightButton:
-        return QCommonStyle::subElementRect(element, option, widget).translated(2, -1);
+        return ParentStyleClass::subElementRect(element, option, widget).translated(2, -1);
     case SE_TabBarTabText:
         if (auto _tab = styleOptCast<QStyleOptionTab>(option)) {
             QStyleOptionTab tab(*_tab);
@@ -6459,7 +6459,7 @@ QRect Style::subElementRect(SubElement element, const QStyleOption *option, cons
         break;
     case SE_RadioButtonIndicator:
         rect = visualRect(option->direction, option->rect,
-                          QCommonStyle::subElementRect(element, option, widget)).adjusted(0, 0, 1, 1);
+                          ParentStyleClass::subElementRect(element, option, widget)).adjusted(0, 0, 1, 1);
         break;
     case SE_ProgressBarContents:
         return (opts.fillProgress ? opts.buttonEffect != EFFECT_NONE &&
@@ -6485,14 +6485,14 @@ QRect Style::subElementRect(SubElement element, const QStyleOption *option, cons
                 rect.adjust(-2, -2, 2, 2);
             }
         } else {
-            rect = QCommonStyle::subElementRect(element, option, widget);
+            rect = ParentStyleClass::subElementRect(element, option, widget);
             if (opts.buttonEffect != EFFECT_NONE) {
                 rect.adjust(1, 1, -1, -1);
             }
         }
         return rect;
     default:
-        return QCommonStyle::subElementRect(element, option, widget);
+        return ParentStyleClass::subElementRect(element, option, widget);
     }
 
     return visualRect(option->direction, option->rect, rect);
@@ -6765,7 +6765,7 @@ QRect Style::subControlRect(ComplexControl control, const QStyleOptionComplex *o
                     ret=QRect(0, sliderstart, sbextent, sliderLength);
                 break;
             default:
-                ret = QCommonStyle::subControlRect(control, option, subControl, widget);
+                ret = ParentStyleClass::subControlRect(control, option, subControl, widget);
                 break;
             }
             return visualRect(scrollBar->direction/*Qt::LeftToRight*/, scrollBar->rect, ret);
@@ -6776,7 +6776,7 @@ QRect Style::subControlRect(ComplexControl control, const QStyleOptionComplex *o
             if (SLIDER_TRIANGULAR == opts.sliderStyle) {
                 int tickSize(pixelMetric(PM_SliderTickmarkOffset, option, widget)),
                     mod=MO_GLOW==opts.coloredMouseOver && opts.buttonEffect != EFFECT_NONE ? 2 : 0;
-                QRect rect(QCommonStyle::subControlRect(control, option, subControl, widget));
+                QRect rect(ParentStyleClass::subControlRect(control, option, subControl, widget));
 
                 switch (subControl) {
                 case SC_SliderHandle:
@@ -7024,7 +7024,7 @@ QRect Style::subControlRect(ComplexControl control, const QStyleOptionComplex *o
     default:
         break;
     }
-    return QCommonStyle::subControlRect(control, option, subControl, widget);
+    return ParentStyleClass::subControlRect(control, option, subControl, widget);
 }
 
 QStyle::SubControl
@@ -7066,7 +7066,7 @@ Style::hitTestComplexControl(ComplexControl control,
     default:
         break;
     }
-    return QCommonStyle::hitTestComplexControl(control, option,  pos, widget);
+    return ParentStyleClass::hitTestComplexControl(control, option,  pos, widget);
 }
 
 }

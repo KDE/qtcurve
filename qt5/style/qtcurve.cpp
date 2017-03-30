@@ -93,6 +93,7 @@
 #include <KDE/KAboutApplicationDialog>
 // KF5 headers
 #include <KConfigCore/KSharedConfig>
+#include <KWindowSystem/KWindowSystem>
 #endif
 
 #include <qtcurve-utils/color.h>
@@ -318,7 +319,7 @@ static void parseWindowLine(const QString &line, QList<int> &data)
 }
 #endif
 
-Style::Style(QObject *parent) :
+Style::Style() :
     m_popupMenuCols(0L),
     m_sliderCols(0L),
     m_defBtnCols(0L),
@@ -389,6 +390,9 @@ void Style::init(bool initial)
             }
 #endif
             connectDBus();
+#ifdef QTC_QT5_ENABLE_KDE
+            connect(KWindowSystem::self(), &KWindowSystem::compositingChanged, this, &Style::compositingToggled);
+#endif
         }
     }
 
@@ -666,10 +670,13 @@ void Style::connectDBus()
     auto bus = QDBusConnection::sessionBus();
     bus.connect(QString(), "/KGlobalSettings", "org.kde.KGlobalSettings",
                 "notifyChange", this, SLOT(kdeGlobalSettingsChange(int, int)));
+#ifndef QTC_QT5_ENABLE_KDE
     bus.connect("org.kde.kwin", "/KWin", "org.kde.KWin", "compositingToggled",
                 this, SLOT(compositingToggled()));
+#endif
 
-    if (!qApp || qApp->arguments()[0] != "kwin") {
+    QString arg0 = qApp? qApp->arguments()[0] : QString();
+    if (!qApp || (arg0 != "kwin" && arg0 != "kwin_x11" && arg0 != "kwin_wayland")) {
         bus.connect("org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
                     "borderSizesChanged", this, SLOT(borderSizesChanged()));
         if (opts.menubarHiding & HIDE_KWIN)
@@ -696,8 +703,11 @@ void Style::disconnectDBus()
     bus.disconnect(QString(), "/KGlobalSettings", "org.kde.KGlobalSettings",
                    "notifyChange",
                    this, SLOT(kdeGlobalSettingsChange(int, int)));
+#ifndef QTC_QT5_ENABLE_KDE
     bus.disconnect("org.kde.kwin", "/KWin", "org.kde.KWin", "compositingToggled",
                    this, SLOT(compositingToggled()));
+#endif
+
     bus.disconnect("org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
                    "borderSizesChanged", this, SLOT(borderSizesChanged()));
     bus.disconnect("org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
@@ -1099,7 +1109,7 @@ QIcon Style::standardIcon(StandardPixmap pix, const QStyleOption *option,
         break;
     }
     // TODO ?
-    return QCommonStyle::standardIcon(pix, option, widget);
+    return ParentStyleClass::standardIcon(pix, option, widget);
 }
 
 int Style::layoutSpacing(QSizePolicy::ControlType control1,
@@ -1120,7 +1130,7 @@ Style::drawItemTextWithRole(QPainter *painter, const QRect &rect, int flags,
                             const QString &text,
                             QPalette::ColorRole textRole) const
 {
-    QCommonStyle::drawItemText(painter, rect, flags, pal,
+    ParentStyleClass::drawItemText(painter, rect, flags, pal,
                                enabled, text, textRole);
 }
 
@@ -2888,6 +2898,20 @@ void Style::drawEntryField(QPainter *p, const QRect &rx,  const QWidget *widget,
 
 void Style::drawMenuItem(QPainter *p, const QRect &r, const QStyleOption *option, MenuItemType type, int round, const QColor *cols) const
 {
+    QColor altCols[TOTAL_SHADES+1];
+    if (theThemedApp == APP_KWIN) {
+        QWidget *w = qobject_cast<QWidget*>(option->styleObject);
+        QPalette::ColorRole role = (opts.useHighlightForMenu || (option->state & (State_On|State_Sunken))) ?
+            QPalette::HighlightedText : QPalette::WindowText;
+        if (w && w->palette().color(QPalette::Active, role)
+                != QApplication::palette().color(QPalette::Active, role)) {
+//             qWarning() << "drawMenuItem: widget" << w << "bgCol" << w->palette().color(QPalette::Active, role)
+//                 << "differs from app bgCol" << QApplication::palette().color(QPalette::Active, role);
+            shadeColors(w->palette().color(QPalette::Active, role), altCols);
+            cols = altCols;
+        }
+    }
+
     int fill=opts.useHighlightForMenu && ((MENU_BAR!=type) || m_highlightCols==cols || APP_OPENOFFICE==theThemedApp) ? ORIGINAL_SHADE : 4,
         border=opts.borderMenuitems ? 0 : fill;
 

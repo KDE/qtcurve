@@ -1043,7 +1043,7 @@ Style::drawPrimitiveFrameWindow(PrimitiveElement,
                    borderCols[option &&
                               option->version == TBAR_BORDER_VERSION_HACK ?
                               0 : QTC_STD_BORDER]);
-    bool isKWin = state & QtC_StateKWin;
+    bool isKWin = (theThemedApp == APP_KWIN || (state & QtC_StateKWin));
     bool addLight = (opts.windowBorder & WINDOW_BORDER_ADD_LIGHT_BORDER &&
                      (!isKWin || qtcGetWindowBorderSize(false).sides > 1));
     light.setAlphaF(1.0);
@@ -1125,7 +1125,7 @@ Style::drawPrimitiveButton(PrimitiveElement element, const QStyleOption *option,
     const QColor *use = buttonColors(option);
     bool isDefault = false;
     bool isFlat = false;
-    bool isKWin = state & QtC_StateKWin;
+    bool isKWin = (theThemedApp == APP_KWIN || (state & QtC_StateKWin));
     bool isDown = state & State_Sunken || state & State_On;
     bool isOnListView = (!isKWin && widget &&
                          qobject_cast<const QAbstractItemView*>(widget));
@@ -1262,11 +1262,26 @@ Style::drawPrimitiveButton(PrimitiveElement element, const QStyleOption *option,
 
 bool
 Style::drawPrimitivePanelMenu(PrimitiveElement, const QStyleOption *option,
-                              QPainter *painter, const QWidget*) const
+                              QPainter *painter, const QWidget *w) const
 {
     QRect r = option->rect;
     double radius = opts.round >= ROUND_FULL ? 5.0 : 2.5;
-    const QColor *use = popupMenuCols(option);
+
+    const QColor *use;
+    const QColor *bgCols;
+    QColor altCols[TOTAL_SHADES+1];
+    if (theThemedApp==APP_KWIN && w
+            && w->palette().color(QPalette::Active, QPalette::Background)
+                != QApplication::palette().color(QPalette::Active, QPalette::Background)) {
+//         qWarning() << "drawPrimitivePanelMenu: widget" << w << "bgCol" << w->palette().color(QPalette::Active, QPalette::Background)
+//             << "differs from app bgCol" << QApplication::palette().color(QPalette::Active, QPalette::Background);
+        shadeColors(w->palette().color(QPalette::Active, QPalette::Background), altCols);
+        bgCols = use = altCols;
+    } else {
+        use = popupMenuCols(option);
+        bgCols = popupMenuCols();
+    }
+
     painter->setClipRegion(r);
     painter->setCompositionMode(QPainter::CompositionMode_Source);
     if (!opts.popupBorder) {
@@ -1285,7 +1300,7 @@ Style::drawPrimitivePanelMenu(PrimitiveElement, const QStyleOption *option,
     if (opts.menuBgndOpacity == 100) {
         painter->fillRect(r, option->palette.brush(QPalette::Background));
     }
-    drawBackground(painter, popupMenuCols()[ORIGINAL_SHADE], r,
+    drawBackground(painter, bgCols[ORIGINAL_SHADE], r,
                    opts.menuBgndOpacity, BGND_MENU, opts.menuBgndAppearance);
     // FIXME, workaround only, the non transparent part of the image will have
     // a different overall opacity.

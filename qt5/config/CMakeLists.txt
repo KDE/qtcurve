@@ -56,7 +56,9 @@ target_link_libraries(kstyle_qtcurve5_config
   KF5::KDELibs4Support
   KF5::KIOWidgets
   KF5::WidgetsAddons
-  KF5::XmlGui)
+  KF5::XmlGui
+  KF5::Style
+  KF5::WindowSystem)
 target_link_libraries(kstyle_qtcurve5_config qtcurve-utils)
 
 install(TARGETS kstyle_qtcurve5_config DESTINATION ${_Qt5_PLUGIN_INSTALL_DIR})

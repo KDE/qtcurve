@@ -73,6 +73,8 @@ if(QTC_QT5_ENABLE_KDE)
     KF5::GuiAddons
     KF5::IconThemes
     KF5::KDELibs4Support
+    KF5::Style
+    KF5::WindowSystem
   )
 endif()
 install(TARGETS qtcurve-qt5 LIBRARY DESTINATION ${QTCURVE_STYLE_DIR})
