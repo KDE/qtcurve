@@ -379,7 +379,7 @@ private:
     void emitMenuSize(QWidget *w, unsigned short size, bool force=false);
     void emitStatusBarState(QStatusBar *sb);
     const QColor&
-    MOArrow(QFlags<State> state, const QPalette &palette, bool mo,
+    MOArrow(State state, const QPalette &palette, bool mo,
             QPalette::ColorRole rol) const
     {
         if (!(state & State_Enabled)) {
@@ -391,7 +391,7 @@ private:
         }
     }
     const QColor&
-    MOArrow(QFlags<State> state, const QPalette &palette,
+    MOArrow(State state, const QPalette &palette,
             QPalette::ColorRole rol) const
     {
         return MOArrow(state, palette, state & State_MouseOver, rol);
