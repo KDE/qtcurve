@@ -3043,19 +3043,45 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
                                       opts.menuStripeAppearance, WIDGET_OTHER);
 
                 if (!menuItem->text.isEmpty()) {
-                    QStyleOption opt;
-                    opt.rect = r.adjusted(2, 2, -3, -2);
-                    opt.state = State_Raised | State_Enabled | State_Horizontal;
-                    drawLightBevel(painter, opt.rect, &opt, widget, ROUNDED_ALL,
-                                   getFill(&opt, use), use, true,
-                                   WIDGET_NO_ETCH_BTN);
-
+                    int textAlignment;
                     QFont font(menuItem->font);
+                    QRect textRect;
+                    if (opts.buttonStyleMenuSections) {
+                        QStyleOption opt;
+                        opt.rect = r.adjusted(2, 2, -3, -2);
+                        opt.state = State_Raised | State_Enabled | State_Horizontal;
+                        drawLightBevel(painter, opt.rect, &opt, widget, ROUNDED_ALL,
+                                       getFill(&opt, use), use, true,
+                                       WIDGET_NO_ETCH_BTN);
 
-                    font.setBold(true);
-                    painter->setFont(font);
-                    drawItemTextWithRole(painter, r,
-                                         Qt::AlignHCenter | Qt::AlignVCenter,
+                        font.setBold(true);
+                        painter->setFont(font);
+                        textAlignment = Qt::AlignHCenter | Qt::AlignVCenter;
+                        textRect = r;
+                    } else {
+                        font.setBold(true);
+                        font.setUnderline(true);
+#ifdef Q_OS_MACOS
+                        if (QGuiApplication::platformName() == QLatin1String("cocoa")) {
+                            font.setLetterSpacing(QFont::PercentageSpacing, 95);
+                        }
+#endif
+                        painter->setFont(font);
+                        QRect miRect(menuItem->rect.left() + 5 +
+                                     (!reverse && doStripe ? stripeWidth : 0),
+                                     menuItem->rect.center().y() - painter->fontMetrics().ascent() / 2 - 5,
+                                     menuItem->rect.width() -
+                                     (9 + (doStripe ? stripeWidth : 0)), 1);
+                        QColor lineCol = use[MENU_SEP_SHADE];
+                        if (miRect.y() >= rx.height() / 2) {
+                            drawFadedLine(painter, miRect, lineCol, reverse,
+                                      !reverse, true);
+                        }
+                        textAlignment = Qt::AlignLeft | Qt::AlignBottom;
+                        textRect = r.adjusted(5, 5, -5, -5);
+                    }
+                    drawItemTextWithRole(painter, textRect,
+                                         textAlignment,
                                          palette, state & State_Enabled,
                                          menuItem->text, QPalette::Text);
                 } else {
@@ -6287,7 +6313,15 @@ QSize Style::sizeFromContents(ContentsType type, const QStyleOption *option, con
             int maxpmw = mi->maxIconWidth,
                 tabSpacing = 20;
 
-            if (mi->text.contains(QLatin1Char('\t')))
+            if (!opts.buttonStyleMenuSections && QStyleOptionMenuItem::Separator == mi->menuItemType && !mi->text.isEmpty())
+            {
+                QFont fontBold = mi->font;
+                fontBold.setBold(true);
+                QFontMetrics fmBold(fontBold);
+                // _set_ w, it will have been initialised to something inappropriately small
+                w = fmBold.width(mi->text);
+            }
+            else if (mi->text.contains(QLatin1Char('\t')))
                 w += tabSpacing;
             else if (mi->menuItemType == QStyleOptionMenuItem::SubMenu)
                 w += 2 * windowsArrowHMargin;
@@ -6302,8 +6336,16 @@ QSize Style::sizeFromContents(ContentsType type, const QStyleOption *option, con
                 w += fmBold.width(mi->text) - fm.width(mi->text);
             }
 
-            int checkcol = qMax<int>(maxpmw, windowsCheckMarkWidth); // Windows always shows a check column
-            w += checkcol + windowsRightBorder + 10;
+            if (QStyleOptionMenuItem::Separator != mi->menuItemType || opts.buttonStyleMenuSections)
+            {
+                int checkcol = qMax<int>(maxpmw, windowsCheckMarkWidth); // Windows always shows a check column
+                w += checkcol + windowsRightBorder;
+            }
+            else
+            {
+                w += 5;
+            }
+            w += 10;
             newSize.setWidth(w);
             // ....
 

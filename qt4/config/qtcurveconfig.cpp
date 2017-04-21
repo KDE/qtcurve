@@ -1134,6 +1134,7 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
     connect(fadeLines, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(menuIcons, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(onlyTicksInMenu, SIGNAL(toggled(bool)), SLOT(updateChanged()));
+    connect(buttonStyleMenuSections, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(stdBtnSizes, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(forceAlternateLvCols, SIGNAL(toggled(bool)), SLOT(updateChanged()));
     connect(titlebarAlignment, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
@@ -3097,6 +3098,7 @@ void QtCurveConfig::setOptions(Options &opts)
     opts.fadeLines=fadeLines->isChecked();
     opts.menuIcons=menuIcons->isChecked();
     opts.onlyTicksInMenu=onlyTicksInMenu->isChecked();
+    opts.buttonStyleMenuSections=buttonStyleMenuSections->isChecked();
     opts.stdBtnSizes=stdBtnSizes->isChecked();
     opts.boldProgress=boldProgress->isChecked();
     opts.coloredTbarMo=coloredTbarMo->isChecked();
@@ -3351,6 +3353,7 @@ void QtCurveConfig::setWidgetOptions(const Options &opts)
     fadeLines->setChecked(opts.fadeLines);
     menuIcons->setChecked(opts.menuIcons);
     onlyTicksInMenu->setChecked(opts.onlyTicksInMenu);
+    buttonStyleMenuSections->setChecked(opts.buttonStyleMenuSections);
     stdBtnSizes->setChecked(opts.stdBtnSizes);
     boldProgress->setChecked(opts.boldProgress);
     boldProgress_false->setChecked(!opts.boldProgress);

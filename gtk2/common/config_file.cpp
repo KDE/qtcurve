@@ -1355,6 +1355,7 @@ bool qtcReadConfig(const char *file, Options *opts, Options *defOpts)
             CFG_READ_BOOL(colorSliderMouseOver);
             CFG_READ_BOOL(menuIcons);
             CFG_READ_BOOL(onlyTicksInMenu);
+            CFG_READ_BOOL(buttonStyleMenuSections);
             CFG_READ_BOOL(forceAlternateLvCols);
             CFG_READ_BOOL(invertBotTab);
             CFG_READ_INT_BOOL(menubarHiding, HIDE_KEYBOARD);
@@ -1711,8 +1712,10 @@ void qtcDefaultSettings(Options *opts)
     opts->menuIcons=true;
 #ifdef __APPLE__
     opts->onlyTicksInMenu=true;
+    opts->buttonStyleMenuSections=false;
 #else
     opts->onlyTicksInMenu=false;
+    opts->buttonStyleMenuSections=true;
 #endif
     opts->forceAlternateLvCols=false;
     opts->invertBotTab=true;

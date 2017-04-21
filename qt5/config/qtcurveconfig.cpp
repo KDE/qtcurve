@@ -1036,7 +1036,7 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
                 dwtTextAsPerTitleBar, dwtEffectAsPerTitleBar, dwtRoundTopOnly,
                 smallRadio, gtkComboMenus, mapKdeIcons, colorMenubarMouseOver,
                 useHighlightForMenu, gbLabel_bold, gbLabel_centred, fadeLines,
-                menuIcons, onlyTicksInMenu, stdBtnSizes, forceAlternateLvCols, boldProgress,
+                menuIcons, onlyTicksInMenu, buttonStyleMenuSections, stdBtnSizes, forceAlternateLvCols, boldProgress,
                 coloredTbarMo, borderSelection, squareEntry, squareLvSelection,
                 squareScrollViews, squareFrame, squareTabFrame, squareSlider,
                 squareScrollbarSlider, squareWindows, squareTooltips,
@@ -3061,6 +3061,7 @@ void QtCurveConfig::setOptions(Options &opts)
     opts.fadeLines=fadeLines->isChecked();
     opts.menuIcons=menuIcons->isChecked();
     opts.onlyTicksInMenu=onlyTicksInMenu->isChecked();
+    opts.buttonStyleMenuSections=buttonStyleMenuSections->isChecked();
     opts.stdBtnSizes=stdBtnSizes->isChecked();
     opts.boldProgress=boldProgress->isChecked();
     opts.coloredTbarMo=coloredTbarMo->isChecked();
@@ -3318,6 +3319,7 @@ void QtCurveConfig::setWidgetOptions(const Options &opts)
     fadeLines->setChecked(opts.fadeLines);
     menuIcons->setChecked(opts.menuIcons);
     onlyTicksInMenu->setChecked(opts.onlyTicksInMenu);
+    buttonStyleMenuSections->setChecked(opts.buttonStyleMenuSections);
     stdBtnSizes->setChecked(opts.stdBtnSizes);
     boldProgress->setChecked(opts.boldProgress);
     boldProgress_false->setChecked(!opts.boldProgress);
@@ -3699,6 +3701,7 @@ bool QtCurveConfig::settingsChanged(const Options &opts)
          fadeLines->isChecked()!=opts.fadeLines ||
          menuIcons->isChecked()!=opts.menuIcons ||
          onlyTicksInMenu->isChecked()!=opts.onlyTicksInMenu ||
+         buttonStyleMenuSections->isChecked()!=opts.buttonStyleMenuSections ||
          stdBtnSizes->isChecked()!=opts.stdBtnSizes ||
          boldProgress->isChecked()!=opts.boldProgress ||
          coloredTbarMo->isChecked()!=opts.coloredTbarMo ||

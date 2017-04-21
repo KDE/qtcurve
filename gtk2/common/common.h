@@ -705,6 +705,7 @@ typedef struct {
     Strings          noMenuStripeApps;
     // for completeness:
     bool             onlyTicksInMenu;
+    bool             buttonStyleMenuSections;
 } Options;
 
 void qtcSetupGradient(Gradient *grad, EGradientBorder border, int numStops, ...);

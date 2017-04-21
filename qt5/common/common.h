@@ -891,6 +891,7 @@ typedef struct {
     QFont            tickFont;
     QString          menuTick;
     int              fontTickWidth;
+    bool             buttonStyleMenuSections;
 } Options;
 
 void qtcSetupGradient(Gradient *grad, EGradientBorder border, int numStops, ...);

@@ -894,6 +894,7 @@ typedef struct {
     Strings          currentNonnativeMenubarApps;
 #endif
     bool             onlyTicksInMenu;
+    bool             buttonStyleMenuSections;
 } Options;
 
 void qtcSetupGradient(Gradient *grad, EGradientBorder border, int numStops, ...);
