@@ -165,16 +165,19 @@ StylePlugin::create(const QString &key)
 StylePlugin::~StylePlugin()
 {
     runAllCleanups();
-    QInternal::unregisterCallback(QInternal::EventNotifyCallback,
-                                  qtcEventCallback);
+    if (m_eventNotifyCallbackInstalled) {
+        QInternal::unregisterCallback(QInternal::EventNotifyCallback,
+                                    qtcEventCallback);
+    }
 }
 
 void
 StylePlugin::init()
 {
-    std::call_once(m_ref_flag, [] {
+    std::call_once(m_ref_flag, [this] {
             QInternal::registerCallback(QInternal::EventNotifyCallback,
                                         qtcEventCallback);
+            m_eventNotifyCallbackInstalled = true;
 #ifdef QTC_QT5_ENABLE_QTQUICK2
             QQuickWindow::setDefaultAlphaBuffer(true);
 #endif

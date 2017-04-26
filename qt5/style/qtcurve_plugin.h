@@ -34,6 +34,7 @@ public:
     ~StylePlugin();
 private:
     void init();
+    bool m_eventNotifyCallbackInstalled = false;
     std::once_flag m_ref_flag;
 };
 
