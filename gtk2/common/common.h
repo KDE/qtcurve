@@ -703,9 +703,10 @@ typedef struct {
                      noMenuBgndOpacityApps,
                      noBgndImageApps;
     Strings          noMenuStripeApps;
-    // for completeness:
+    // for completeness, unused:
     bool             onlyTicksInMenu;
     bool             buttonStyleMenuSections;
+    int              menuCloseDelay;
 } Options;
 
 void qtcSetupGradient(Gradient *grad, EGradientBorder border, int numStops, ...);

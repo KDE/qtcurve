@@ -155,6 +155,10 @@ enum {
 #define MIN_MENU_DELAY       1
 #define MAX_MENU_DELAY     500
 
+#define DEFAULT_MENU_CLOSE_DELAY 300
+#define MIN_MENU_CLOSE_DELAY       0
+#define MAX_MENU_CLOSE_DELAY    5000
+
 #define DEFAULT_SLIDER_WIDTH  15
 #define MIN_SLIDER_WIDTH_ROUND 7
 #define MIN_SLIDER_WIDTH_THIN_GROOVE 9
@@ -723,6 +727,7 @@ typedef struct {
                      highlightFactor,
                      lighterPopupMenuBgnd,
                      menuDelay,
+                     menuCloseDelay,
                      sliderWidth,
                      tabBgnd,
                      colorSelTab,

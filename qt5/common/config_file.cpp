@@ -942,6 +942,9 @@ void qtcCheckConfig(Options *opts)
     else if(opts->menuDelay<MIN_MENU_DELAY || opts->menuDelay>MAX_MENU_DELAY)
         opts->menuDelay=DEFAULT_MENU_DELAY;
 
+    if(opts->menuCloseDelay<MIN_MENU_CLOSE_DELAY || opts->menuCloseDelay>MAX_MENU_CLOSE_DELAY)
+        opts->menuCloseDelay=DEFAULT_MENU_CLOSE_DELAY;
+
     if(0==opts->sliderWidth%2)
         opts->sliderWidth++;
 
@@ -1173,6 +1176,7 @@ bool qtcReadConfig(const QString &file, Options *opts, Options *defOpts, bool ch
             CFG_READ_ROUND(round);
             CFG_READ_INT(highlightFactor);
             CFG_READ_INT(menuDelay);
+            CFG_READ_INT(menuCloseDelay);
             CFG_READ_INT(sliderWidth);
             CFG_READ_INT(tabBgnd);
             CFG_READ_TB_BORDER(toolbarBorders);
@@ -1476,6 +1480,7 @@ void qtcDefaultSettings(Options *opts)
     opts->splitterHighlight=DEFAULT_SPLITTER_HIGHLIGHT_FACTOR;
     opts->crSize=CR_LARGE_SIZE;
     opts->menuDelay=DEFAULT_MENU_DELAY;
+    opts->menuCloseDelay=DEFAULT_MENU_CLOSE_DELAY;
     opts->sliderWidth=DEFAULT_SLIDER_WIDTH;
     opts->selectionAppearance=APPEARANCE_HARSH_GRADIENT;
     opts->fadeLines=true;
@@ -2204,6 +2209,7 @@ bool qtcWriteConfig(KConfig *cfg, const Options &opts, const Options &def, bool 
         CFG_WRITE_ENTRY(round);
         CFG_WRITE_ENTRY_NUM(highlightFactor);
         CFG_WRITE_ENTRY_NUM(menuDelay);
+        CFG_WRITE_ENTRY_NUM(menuCloseDelay);
         CFG_WRITE_ENTRY_NUM(sliderWidth);
         CFG_WRITE_ENTRY(toolbarBorders);
         CFG_WRITE_APPEARANCE_ENTRY(appearance, APP_ALLOW_BASIC);

@@ -1241,6 +1241,7 @@ bool qtcReadConfig(const char *file, Options *opts, Options *defOpts)
             CFG_READ_ROUND(round);
             CFG_READ_INT(highlightFactor);
             CFG_READ_INT(menuDelay);
+            CFG_READ_INT(menuCloseDelay);
             CFG_READ_INT(sliderWidth);
             CFG_READ_INT(tabBgnd);
             CFG_READ_TB_BORDER(toolbarBorders);
@@ -1613,6 +1614,7 @@ void qtcDefaultSettings(Options *opts)
     opts->splitterHighlight=DEFAULT_SPLITTER_HIGHLIGHT_FACTOR;
     opts->crSize=CR_LARGE_SIZE;
     opts->menuDelay=DEFAULT_MENU_DELAY;
+    opts->menuCloseDelay=-1; // unused
     opts->sliderWidth=DEFAULT_SLIDER_WIDTH;
     opts->selectionAppearance=APPEARANCE_HARSH_GRADIENT;
     opts->fadeLines=true;

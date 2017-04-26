@@ -948,6 +948,9 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
     menuDelay->setRange(MIN_MENU_DELAY, MAX_MENU_DELAY);
     menuDelay->setValue(DEFAULT_MENU_DELAY);
 
+    menuCloseDelay->setRange(MIN_MENU_CLOSE_DELAY, MAX_MENU_CLOSE_DELAY);
+    menuCloseDelay->setValue(DEFAULT_MENU_CLOSE_DELAY);
+
     gbFactor->setRange(MIN_GB_FACTOR, MAX_GB_FACTOR);
     gbFactor->setValue(DEF_GB_FACTOR);
 
@@ -985,6 +988,7 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
     connect(lighterPopupMenuBgnd, SIGNAL(valueChanged(int)), SLOT(updateChanged()));
     connect(tabBgnd, SIGNAL(valueChanged(int)), SLOT(updateChanged()));
     connect(menuDelay, SIGNAL(valueChanged(int)), SLOT(updateChanged()));
+    connect(menuCloseDelay, SIGNAL(valueChanged(int)), SLOT(updateChanged()));
     connect(sliderWidth, SIGNAL(valueChanged(int)), SLOT(sliderWidthChanged()));
     connect(menuStripe, SIGNAL(currentIndexChanged(int)), SLOT(menuStripeChanged()));
     connect(customMenuStripeColor, SIGNAL(changed(const QColor &)), SLOT(updateChanged()));
@@ -2980,6 +2984,7 @@ void QtCurveConfig::setOptions(Options &opts)
     opts.lighterPopupMenuBgnd=lighterPopupMenuBgnd->value();
     opts.tabBgnd=tabBgnd->value();
     opts.menuDelay=menuDelay->value();
+    opts.menuCloseDelay=menuCloseDelay->value();
     opts.sliderWidth=sliderWidth->value();
     opts.menuStripe=(EShade)menuStripe->currentIndex();
     opts.customMenuStripeColor=customMenuStripeColor->color();
@@ -3222,6 +3227,7 @@ void QtCurveConfig::setWidgetOptions(const Options &opts)
     lighterPopupMenuBgnd->setValue(opts.lighterPopupMenuBgnd);
     tabBgnd->setValue(opts.tabBgnd);
     menuDelay->setValue(opts.menuDelay);
+    menuCloseDelay->setValue(opts.menuCloseDelay);
     sliderWidth->setValue(opts.sliderWidth);
     menuStripe->setCurrentIndex(opts.menuStripe);
     customMenuStripeColor->setColor(opts.customMenuStripeColor);
@@ -3660,6 +3666,7 @@ bool QtCurveConfig::settingsChanged(const Options &opts)
          lighterPopupMenuBgnd->value()!=opts.lighterPopupMenuBgnd ||
          tabBgnd->value()!=opts.tabBgnd ||
          menuDelay->value()!=opts.menuDelay ||
+         menuCloseDelay->value()!=opts.menuCloseDelay ||
          sliderWidth->value()!=opts.sliderWidth ||
          menuStripe->currentIndex()!=opts.menuStripe ||
          menuStripeAppearance->currentIndex()!=opts.menuStripeAppearance ||

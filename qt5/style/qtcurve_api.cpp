@@ -1812,6 +1812,12 @@ Style::styleHint(StyleHint hint, const QStyleOption *option,
     }
     case SH_Menu_SubMenuPopupDelay:
         return opts.menuDelay;
+#if QT_VERSION >= QT_VERSION_CHECK(5,5,0)
+    case SH_Menu_SloppySubMenus:
+        return opts.menuCloseDelay > 0;
+    case SH_Menu_SubMenuSloppyCloseTimeout:
+        return opts.menuCloseDelay;
+#endif
     case SH_ToolButton_PopupDelay:
         return 250;
     case SH_ComboBox_PopupFrameStyle:

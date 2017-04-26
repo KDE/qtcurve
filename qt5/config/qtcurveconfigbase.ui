@@ -3312,7 +3312,7 @@
        <item row="10" column="0">
         <widget class="QLabel" name="label_45">
          <property name="text">
-          <string>Sub-menu delay:</string>
+          <string>Sub-menu open delay:</string>
          </property>
         </widget>
        </item>
@@ -3329,21 +3329,21 @@
          </property>
         </widget>
        </item>
-       <item row="11" column="0">
+       <item row="12" column="0">
         <widget class="QLabel" name="label_44">
          <property name="text">
           <string>Stripe:</string>
          </property>
         </widget>
        </item>
-       <item row="11" column="1">
+       <item row="12" column="1">
         <widget class="QComboBox" name="menuStripe">
          <property name="toolTip">
           <string>&lt;p&gt;Defines the coloration of the menu-stripe that will be drawn on the left of popup menus - but only if this option is not set to 'none'.</string>
          </property>
         </widget>
        </item>
-       <item row="12" column="1">
+       <item row="13" column="1">
         <widget class="KColorButton" name="customMenuStripeColor">
          <property name="enabled">
           <bool>false</bool>
@@ -3359,7 +3359,7 @@
          </property>
         </widget>
        </item>
-       <item row="13" column="1">
+       <item row="14" column="1">
         <widget class="QComboBox" name="menuStripeAppearance">
          <property name="enabled">
           <bool>false</bool>
@@ -3369,14 +3369,14 @@
          </property>
         </widget>
        </item>
-       <item row="14" column="0">
+       <item row="15" column="0">
         <widget class="QLabel" name="label_61">
          <property name="text">
           <string>Border popupmenus:</string>
          </property>
         </widget>
        </item>
-       <item row="14" column="1">
+       <item row="15" column="1">
         <widget class="QCheckBox" name="popupBorder">
          <property name="toolTip">
           <string>&lt;p&gt;If enabled, the whole popup menu will have a border, otherwise no border will be drawn. This option should be enabled unless you have also enabled shadows in your window manager.</string>
@@ -3386,14 +3386,14 @@
          </property>
         </widget>
        </item>
-       <item row="15" column="0">
+       <item row="16" column="0">
         <widget class="QLabel" name="label_97">
          <property name="text">
           <string>Use menubar colour settings:</string>
          </property>
         </widget>
        </item>
-       <item row="15" column="1">
+       <item row="16" column="1">
         <widget class="QCheckBox" name="shadePopupMenu">
          <property name="text">
           <string>Enabled</string>
@@ -3410,6 +3410,23 @@
          </property>
          <property name="checked">
           <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="1">
+        <widget class="QSpinBox" name="menuCloseDelay">
+         <property name="toolTip">
+          <string>Defines the delay before a sub-menu closes. Applicable on Qt5.5 or later</string>
+         </property>
+         <property name="suffix">
+          <string>ms</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="0">
+        <widget class="QLabel" name="label_72">
+         <property name="text">
+          <string>Sub-menu close delay:</string>
          </property>
         </widget>
        </item>
