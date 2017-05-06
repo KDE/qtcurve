@@ -62,6 +62,7 @@ class WindowManager;
 class BlurHelper;
 class ShortcutHandler;
 class ShadowHelper;
+class StylePlugin;
 
 class Style: public ParentStyleClass {
     Q_OBJECT
@@ -184,7 +185,6 @@ public:
 private:
     void init(bool initial);
     void connectDBus();
-    void disconnectDBus();
     void freeColor(QSet<QColor*> &freedColors, QColor **cols);
     void freeColors();
     void polishFormLayout(QFormLayout *layout);
@@ -358,7 +358,8 @@ private:
     QColor getLowerEtchCol(const QWidget *widget) const;
     int getFrameRound(const QWidget *widget) const;
 
-private Q_SLOTS:
+private slots:
+    void disconnectDBus();
     void kdeGlobalSettingsChange(int type, int);
     void borderSizesChanged();
     void toggleMenuBar(unsigned int xid);
@@ -519,7 +520,6 @@ private:
                                       const QStyleOption *option,
                                       QPainter *painter,
                                       const QWidget *widget) const;
-    static void dbusCleanupCallback(void*);
 
 private:
     mutable Options opts;
@@ -570,11 +570,14 @@ private:
     WindowManager *m_windowManager;
     BlurHelper *m_blurHelper;
     ShortcutHandler *m_shortcutHandler;
-    void *m_dbusConnected;
+    bool m_dbusConnected;
 #ifdef QTC_QT5_ENABLE_KDE
     KSharedConfigPtr m_configFile;
     KSharedConfigPtr m_kdeGlobals;
 #endif
+protected:
+    StylePlugin *m_plugin;
+    friend class StylePlugin;
 };
 }
 

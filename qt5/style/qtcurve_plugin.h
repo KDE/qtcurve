@@ -23,9 +23,12 @@
 #define __QTCURVE_PLUTIN_H__
 
 #include <QStylePlugin>
+#include <QList>
 #include <mutex>
 
 namespace QtCurve {
+class Style;
+
 class StylePlugin: public QStylePlugin {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID QStyleFactoryInterface_iid FILE "qtcurvestyle.json")
@@ -36,11 +39,12 @@ private:
     void init();
     bool m_eventNotifyCallbackInstalled = false;
     std::once_flag m_ref_flag;
+private slots:
+    void unregisterCallback();
+protected:
+    QList<Style*> m_styleInstances;
+    friend class Style;
 };
-
-void *registerCleanup(void (*func)(void*), void *data);
-void unregisterCleanup(void *handle);
-
 }
 
 #endif

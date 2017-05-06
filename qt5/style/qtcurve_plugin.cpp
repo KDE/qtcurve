@@ -27,7 +27,6 @@
 #include <qtcurve-utils/qtprops.h>
 #include <qtcurve-utils/x11shadow.h>
 #include <qtcurve-utils/x11blur.h>
-#include <qtcurve-utils/log.h>
 
 #include <QApplication>
 
@@ -42,50 +41,9 @@
 #endif
 #include <QDebug>
 
+#include <qtcurve-utils/log.h>
+
 namespace QtCurve {
-
-// Using a `std::set` somehow result in a segfault in glibc (maybe realated to
-// this function being called in the exit handler?) so use a home made solution
-// instead...
-struct CleanupCallback {
-    void (*func)(void*);
-    void *data;
-    CleanupCallback *next;
-    CleanupCallback **prev;
-};
-
-static CleanupCallback *cleanup_callbacks = nullptr;
-
-void*
-registerCleanup(void (*func)(void*), void *data)
-{
-    auto cb = new CleanupCallback{func, data, cleanup_callbacks,
-                                  &cleanup_callbacks};
-    if (cleanup_callbacks)
-        cleanup_callbacks->prev = &cb->next;
-    cleanup_callbacks = cb;
-    return cb;
-}
-
-void
-unregisterCleanup(void *_cb)
-{
-    auto cb = (CleanupCallback*)_cb;
-    if (cb->next)
-        cb->next->prev = cb->prev;
-    *cb->prev = cb->next;
-    delete cb;
-}
-
-static void
-runAllCleanups()
-{
-    while (cleanup_callbacks) {
-        auto func = cleanup_callbacks->func;
-        auto data = cleanup_callbacks->data;
-        func(data);
-    }
-}
 
 __attribute__((hot)) static void
 polishQuickControl(QObject *obj)
@@ -155,19 +113,54 @@ qtcEventCallback(void **cbdata)
     return false;
 }
 
+static StylePlugin *firstPlInstance = nullptr;
+static QList<Style*> *styleInstances = nullptr;
+
 QStyle*
 StylePlugin::create(const QString &key)
 {
+    if (!firstPlInstance) {
+        firstPlInstance = this;
+        styleInstances = &m_styleInstances;
+    }
+
     init();
-    return key.toLower() == "qtcurve" ? new Style : nullptr;
+    Style *qtc;
+    if (key.toLower() == "qtcurve") {
+        qtc = new Style;
+        qtc->m_plugin = this;
+        m_styleInstances << qtc;
+    } else {
+        qtc = nullptr;
+    }
+    return qtc;
+}
+
+void StylePlugin::unregisterCallback()
+{
+    if (m_eventNotifyCallbackInstalled) {
+        qtcInfo("Unregistering the event notify callback (for plugin %p)\n", this);
+        QInternal::unregisterCallback(QInternal::EventNotifyCallback,
+                                    qtcEventCallback);
+        m_eventNotifyCallbackInstalled = false;
+    }
 }
 
 StylePlugin::~StylePlugin()
 {
-    runAllCleanups();
-    if (m_eventNotifyCallbackInstalled) {
-        QInternal::unregisterCallback(QInternal::EventNotifyCallback,
-                                    qtcEventCallback);
+    qtcInfo("Deleting QtCurve plugin (%p)\n", this);
+    if (!m_styleInstances.isEmpty()) {
+        qtcWarn("there remain(s) %d Style instance(s)\n", m_styleInstances.count());
+        QList<Style*>::Iterator it = m_styleInstances.begin();
+        while (it != m_styleInstances.end()) {
+            Style *that = *it;
+            it = m_styleInstances.erase(it);
+            delete that;
+        }
+    }
+    if (firstPlInstance == this) {
+        firstPlInstance = nullptr;
+        styleInstances = nullptr;
     }
 }
 
@@ -178,6 +171,9 @@ StylePlugin::init()
             QInternal::registerCallback(QInternal::EventNotifyCallback,
                                         qtcEventCallback);
             m_eventNotifyCallbackInstalled = true;
+            if (QCoreApplication::instance()) {
+                connect(QCoreApplication::instance(), &QCoreApplication::aboutToQuit, this, &StylePlugin::unregisterCallback);
+            }
 #ifdef QTC_QT5_ENABLE_QTQUICK2
             QQuickWindow::setDefaultAlphaBuffer(true);
 #endif
@@ -187,6 +183,22 @@ StylePlugin::init()
             }
 #endif
         });
+}
+
+__attribute__((constructor)) int atLibOpen()
+{
+    qtcDebug("Opening QtCurve\n");
+    return 0;
+}
+
+__attribute__((destructor)) int atLibClose()
+{
+    qtcInfo("Closing QtCurve\n");
+    if (firstPlInstance) {
+        qtcInfo("Plugin instance %p still open with %d open Style instance(s)\n",
+            firstPlInstance, styleInstances->count());
+    }
+    return 0;
 }
 
 }
