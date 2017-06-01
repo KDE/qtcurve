@@ -972,6 +972,13 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
     menuBgndOpacity->setRange(0, 100);
     menuBgndOpacity->setSingleStep(5);
     menuBgndOpacity->setValue(100);
+    dropShadowSize->setRange(0, 100);
+    dropShadowSize->setSingleStep(1);
+    dropShadowSize->setValue(qtcX11ShadowSize());
+#ifndef QTC_ENABLE_X11
+    dropShadowSize->setEnabled(false);
+#endif
+
 
     sliderWidth->setRange(MIN_SLIDER_WIDTH, MAX_SLIDER_WIDTH);
     sliderWidth->setSingleStep(2);
@@ -1000,7 +1007,7 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
 
     for (auto *w: {lighterPopupMenuBgnd, tabBgnd, menuDelay, menuCloseDelay, crHighlight,
                 expanderHighlight, colorSelTab, highlightFactor, bgndOpacity,
-                dlgOpacity, menuBgndOpacity, splitterHighlight, gbFactor}) {
+                dlgOpacity, menuBgndOpacity, splitterHighlight, gbFactor, dropShadowSize}) {
         connect(qtcSlot(w, valueChanged, (int)), qtcSlot(this, updateChanged));
     }
 
@@ -3045,6 +3052,8 @@ void QtCurveConfig::setOptions(Options &opts)
     opts.dlgOpacity=dlgOpacity->value();
     opts.menuBgndImage.type=(EImageType)menuBgndImage->currentIndex();
     opts.menuBgndOpacity=menuBgndOpacity->value();
+    opts.shadowSize=dropShadowSize->value();
+    qtcX11SetShadowSize(opts.shadowSize);
     opts.dwtAppearance=(EAppearance)dwtAppearance->currentIndex();
     opts.tooltipAppearance=(EAppearance)tooltipAppearance->currentIndex();
     opts.crColor=(EShade)crColor->currentIndex();
@@ -3357,6 +3366,7 @@ void QtCurveConfig::setWidgetOptions(const Options &opts)
     dlgOpacity->setValue(opts.dlgOpacity);
     menuBgndImage->setCurrentIndex(opts.menuBgndImage.type);
     menuBgndOpacity->setValue(opts.menuBgndOpacity);
+    dropShadowSize->setValue(qtcX11ShadowSize());
     dwtAppearance->setCurrentIndex(opts.dwtAppearance);
     tooltipAppearance->setCurrentIndex(opts.tooltipAppearance);
     dwtBtnAsPerTitleBar->setChecked(opts.dwtSettings&DWT_BUTTONS_AS_PER_TITLEBAR);
@@ -3738,6 +3748,7 @@ bool QtCurveConfig::settingsChanged(const Options &opts)
          dlgOpacity->value()!=opts.dlgOpacity ||
          menuBgndImage->currentIndex()!=opts.menuBgndImage.type ||
          menuBgndOpacity->value()!=opts.menuBgndOpacity ||
+         dropShadowSize->value()!=opts.shadowSize ||
          dwtAppearance->currentIndex()!=opts.dwtAppearance ||
          tooltipAppearance->currentIndex()!=opts.tooltipAppearance ||
          crColor->currentIndex()!=opts.crColor ||

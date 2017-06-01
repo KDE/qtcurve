@@ -1308,6 +1308,8 @@ bool qtcReadConfig(const QString &file, Options *opts, Options *defOpts, bool ch
             CFG_READ_INT(bgndOpacity);
             CFG_READ_INT(menuBgndOpacity);
             CFG_READ_INT(dlgOpacity);
+            CFG_READ_INT(shadowSize);
+            qtcX11SetShadowSize(opts->shadowSize);
             CFG_READ_SHADE(menuStripe, true, true, &opts->customMenuStripeColor);
             CFG_READ_APPEARANCE(menuStripeAppearance, APP_ALLOW_BASIC);
             CFG_READ_SHADE(comboBtn, true, false, &opts->customComboBtnColor);
@@ -1607,6 +1609,7 @@ void qtcDefaultSettings(Options *opts)
     opts->stdSidebarButtons=false;
     opts->toolbarTabs=false;
     opts->bgndOpacity=opts->dlgOpacity=opts->menuBgndOpacity=100;
+    opts->shadowSize = qtcX11ShadowSize();
     opts->gtkComboMenus=false;
     opts->customMenubarsColor.setRgb(0, 0, 0);
     opts->customSlidersColor.setRgb(0, 0, 0);
@@ -2330,6 +2333,7 @@ bool qtcWriteConfig(KConfig *cfg, const Options &opts, const Options &def, bool 
         CFG_WRITE_ENTRY_NUM(bgndOpacity);
         CFG_WRITE_ENTRY_NUM(menuBgndOpacity);
         CFG_WRITE_ENTRY_NUM(dlgOpacity);
+        CFG_WRITE_ENTRY_NUM(shadowSize);
         CFG_WRITE_ENTRY(stdBtnSizes);
         CFG_WRITE_ENTRY_NUM(titlebarButtons);
         CFG_WRITE_ENTRY(titlebarIcon);

@@ -27,6 +27,8 @@
 #include "x11qtc.h"
 #include "x11wrap.h"
 
+static int shadow_size = 30;
+
 #ifdef QTC_ENABLE_X11
 
 #include "log.h"
@@ -75,7 +77,6 @@ qtcX11ShadowCreatePixmap(const QtCurve::Image *data)
 void
 qtcX11ShadowInit()
 {
-    int shadow_size = 30;
     int shadow_radius = 4;
     QtcColor c1 = {0.4, 0.4, 0.4};
     QtcColor c2 = {0.2, 0.2, 0.2};
@@ -328,3 +329,22 @@ qtcX11SetBgnd(xcb_window_t, uint32_t)
 }
 
 #endif
+
+QTC_EXPORT void
+qtcX11SetShadowSize(int size)
+{
+    if (size >= 0 && size != shadow_size) {
+        shadow_size = size;
+#ifdef QTC_ENABLE_X11
+        qtcX11ShadowDestroy();
+        qtcX11ShadowInit();
+#endif
+    }
+}
+
+QTC_EXPORT int
+qtcX11ShadowSize()
+{
+    return shadow_size;
+}
+

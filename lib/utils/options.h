@@ -180,6 +180,15 @@ qtcScrollbarButtonNumSize(EScrollbar type)
     return qtcMax(qtcScrollbarButtonNum(type), 2);
 }
 
+/**
+ * shadow size control for X11.
+ **/
+
+void
+qtcX11SetShadowSize(int);
+int
+qtcX11ShadowSize();
+
 namespace QtCurve {
 namespace Config {
 

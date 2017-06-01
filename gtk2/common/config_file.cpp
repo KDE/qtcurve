@@ -1377,6 +1377,8 @@ bool qtcReadConfig(const char *file, Options *opts, Options *defOpts)
             CFG_READ_INT(bgndOpacity);
             CFG_READ_INT(menuBgndOpacity);
             CFG_READ_INT(dlgOpacity);
+            CFG_READ_INT(shadowSize);
+            qtcX11SetShadowSize(opts->shadowSize);
             CFG_READ_SHADE(menuStripe, true, true, &opts->customMenuStripeColor);
             CFG_READ_APPEARANCE(menuStripeAppearance, APP_ALLOW_BASIC);
             CFG_READ_SHADE(comboBtn, true, false, &opts->customComboBtnColor);
@@ -1749,6 +1751,7 @@ void qtcDefaultSettings(Options *opts)
     opts->stdSidebarButtons=false;
     opts->toolbarTabs=false;
     opts->bgndOpacity = opts->dlgOpacity = opts->menuBgndOpacity = 100;
+    opts->shadowSize = qtcX11ShadowSize();
     opts->gtkComboMenus=false;
     opts->noBgndGradientApps=nullptr;
     opts->noBgndOpacityApps=g_strsplit("sonata,totem,vmware,vmplayer",",", -1);;

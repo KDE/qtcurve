@@ -798,7 +798,8 @@ typedef struct {
                      windowBorder,
                      bgndOpacity,
                      menuBgndOpacity,
-                     dlgOpacity;
+                     dlgOpacity,
+                     shadowSize;
     int              dwtSettings;
     int              titlebarButtons;
     TBCols           titlebarButtonColors;

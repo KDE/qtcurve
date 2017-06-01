@@ -630,7 +630,8 @@ typedef struct {
                      windowBorder,
                      bgndOpacity,
                      menuBgndOpacity,
-                     dlgOpacity;
+                     dlgOpacity,
+                     shadowSize;
     EStripe          stripedProgress;
     ESliderStyle     sliderStyle;
     EMouseOver       coloredMouseOver;
