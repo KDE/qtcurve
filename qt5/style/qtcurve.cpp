@@ -67,6 +67,7 @@
 #include <QSettings>
 #include <QPixmapCache>
 #include <QTextStream>
+#include <QtDebug>
 
 #include "shadowhelper.h"
 #include <qtcurve-utils/x11qtc.h>
