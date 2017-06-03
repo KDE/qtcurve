@@ -1,4 +1,4 @@
-## (WIP)
+## 1.9.0
 1. Fix shadow color
    [QtCurve-Bug](https://github.com/QtCurve/qtcurve/issues/54)
 2. Revert toolbar background
@@ -14,8 +14,11 @@
    Thanks to René J.V. Bertin.
 8. Fix Gtk2 SegFault on mouse-hover
    [QtCurve-Bug](https://bugs.kde.org/show_bug.cgi?id=343704)
-8. Fix Qt right-to-left layout
+9. Fix Qt right-to-left layout
    [QtCurve-Bug](https://bugs.kde.org/show_bug.cgi?id=336668)
+10. Fix screen scaling support
+11. Better maxOS support
+12. Make menu drop shadow size configurable
 
 ## 1.8.18
 1. Gtk2: Remove mozilla version detection.
