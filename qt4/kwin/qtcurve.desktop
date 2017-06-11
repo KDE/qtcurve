@@ -1,21 +1,4 @@
 [Desktop Entry]
 Icon=
 Name=QtCurve
-Name[ast]=QtCurve
-Name[bs]=QtCurve
-Name[cs]=QtCurve
-Name[de]=QtCurve
-Name[es]=QtCurve
-Name[fi]=QtCurve
-Name[fr]=QtCurve
-Name[gl]=QtCurve
-Name[nl]=QtCurve
-Name[pl]=QtCurve
-Name[pt]=QtCurve
-Name[pt_BR]=QtCurve
-Name[ru]=QtCurve
-Name[sk]=QtCurve
-Name[sv]=QtCurve
-Name[uk]=QtCurve
-Name[x-test]=xxQtCurvexx
 X-KDE-Library=kwin3_qtcurve
