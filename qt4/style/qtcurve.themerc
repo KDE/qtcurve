@@ -2,6 +2,7 @@
 Name=QtCurve
 Name[ca]=QtCurve
 Name[ca@valencia]=QtCurve
+Name[es]=QtCurve
 Name[fi]=QtCurve
 Name[fr]=QtCurve
 Name[nl]=QtCurve
@@ -13,6 +14,7 @@ Name[x-test]=xxQtCurvexx
 Comment=Highly configurable style
 Comment[ca]=Estil altament configurable
 Comment[ca@valencia]=Estil altament configurable
+Comment[es]=Estilo extremadamente configurable
 Comment[fi]=Erittäin muokattavissa oleva tyyli
 Comment[fr]=Style hautement configurable
 Comment[nl]=Hoog instelbare stijl
