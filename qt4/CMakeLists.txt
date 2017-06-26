@@ -10,6 +10,13 @@ if(ENABLE_QT4 AND NOT ENABLE_QT4_DEFINED)
   endif()
 endif()
 
+if (QTC_QT4_ENABLE_KDE AND NOT QTC_QT4_ENABLE_KDE_DEFINED)
+    find_package(KDE4)
+    if(NOT KDE4_FOUND)
+        set(QTC_QT4_ENABLE_KDE OFF)
+    endif()
+endif()
+
 add_definitions(-DQTC_UTILS_QT4 -DQTC_UTILS_QT)
 
 if(ENABLE_QT4)
