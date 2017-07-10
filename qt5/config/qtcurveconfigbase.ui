@@ -258,7 +258,7 @@
          <item>
           <widget class="QComboBox" name="bgndAppearance">
            <property name="toolTip">
-            <string>&lt;p&gt;Sets a gradient to be used as the background for windows and dialogs.&lt;/p&gt;&lt;p&gt;&lt;b&gt;NOTE&lt;/b&gt; This is an experimental option, and will (probably) have a detrimental effect on performance.&lt;/p&gt;</string>
+            <string>&lt;p&gt;Sets a gradient to be used as the background for windows and dialogs.&lt;/p&gt;&lt;p&gt;&lt;b&gt;NOTE:&lt;/b&gt; This is an experimental option, and will (probably) have a detrimental effect on performance.&lt;/p&gt;</string>
            </property>
           </widget>
          </item>
@@ -657,7 +657,7 @@
          </property>
          <property name="text">
           <string>&lt;p&gt;&lt;b&gt;NOTE:&lt;/b&gt; &lt;i&gt;Opacity settings are &lt;b&gt;experimental&lt;/b&gt; and can cause certain applications (mainly Gtk2 ones) to crash. If you have an application that crashes, use the &amp;quot;Applications&amp;quot; page to disable opacity settings for that application.&lt;/i&gt;&lt;/p&gt;
-&lt;p&gt;&lt;b&gt;NOTE:&lt;/b&gt;&lt;i&gt;&lt;b&gt;DON'T&lt;/b&gt; use opacity settings when using the compiz window manager.&lt;/i&gt;&lt;/p&gt;</string>
+&lt;p&gt;&lt;b&gt;NOTE:&lt;/b&gt; &lt;i&gt;&lt;b&gt;DON'T&lt;/b&gt; use opacity settings when using the compiz window manager.&lt;/i&gt;&lt;/p&gt;</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -3751,7 +3751,7 @@
        <item row="1" column="1">
         <widget class="QCheckBox" name="reorderGtkButtons">
          <property name="toolTip">
-          <string>&lt;p&gt;If this is enabled and 'Use Gtk button order' is not, QtCurve will attempt to manually set the order of buttons in Gtk dialogs.&lt;/p&gt;&lt;p&gt;&lt;b&gt;NOTE&lt;b&gt; This is experimental, and may produce unexpected results!&lt;/p&gt;</string>
+          <string>&lt;p&gt;If this is enabled and 'Use Gtk button order' is not, QtCurve will attempt to manually set the order of buttons in Gtk dialogs.&lt;/p&gt;&lt;p&gt;&lt;b&gt;NOTE:&lt;/b&gt; This is experimental, and may produce unexpected results!&lt;/p&gt;</string>
          </property>
          <property name="text">
           <string>Manually re-order Gtk buttons</string>
@@ -3833,7 +3833,7 @@
        <item row="6" column="1">
         <widget class="QSpinBox" name="dropShadowSize">
          <property name="toolTip">
-          <string>&lt;p&gt;Sets the base value used for determining drop shadow sizes.&lt;/p&gt;&lt;p&gt;X11 only.</string>
+          <string>&lt;p&gt;Sets the base value used for determining drop shadow sizes.&lt;/p&gt;&lt;p&gt;X11 only.&lt;/p&gt;</string>
          </property>
         </widget>
        </item>
@@ -3898,7 +3898,7 @@
          <item row="3" column="1">
           <widget class="KLineEdit" name="noMenuBgndOpacityApps">
            <property name="toolTip">
-            <string>&lt;p&gt;Comma separated list of names of applications which should not use the menu opacity setting.&lt;p&gt;&lt;i&gt;For Gtk2, this option also disables using an alpha-channel to smoothly round tooltips and popup menus.&lt;/i&gt;&lt;/p&gt;&lt;p&gt;Use &lt;i&gt;gtk&lt;/i&gt; to disable for all Gtk2 applications.&lt;/p&gt;</string>
+            <string>&lt;p&gt;Comma separated list of names of applications which should not use the menu opacity setting.&lt;/p&gt;&lt;p&gt;&lt;i&gt;For Gtk2, this option also disables using an alpha-channel to smoothly round tooltips and popup menus.&lt;/i&gt;&lt;/p&gt;&lt;p&gt;Use &lt;i&gt;gtk&lt;/i&gt; to disable for all Gtk2 applications.&lt;/p&gt;</string>
            </property>
           </widget>
          </item>
@@ -4114,7 +4114,7 @@
 &lt;li&gt;&lt;i&gt;No border&lt;/i&gt; - no inner border is drawn, and the gradient will extend to the outer edges.&lt;/li&gt;
 &lt;li&gt;&lt;i&gt;Light border&lt;/i&gt; - A 'light' line is drawn around all edges.&lt;/li&gt;
 &lt;li&gt;&lt;i&gt;3D border (light only)&lt;/i&gt; - A 'light' line is drawn around the top and left edges.&lt;/li&gt;
-&lt;li&gt;&lt;i&gt;3D border (light only)&lt;/i&gt; - A 'light' line is drawn around the top and left edges, and a darker one around the bottom and right edges.&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;3D border (dark and light)&lt;/i&gt; - A 'light' line is drawn around the top and left edges, and a darker one around the bottom and right edges.&lt;/li&gt;
 &lt;li&gt;&lt;i&gt;Shine&lt;/i&gt; - A shine is added to the top (or left) edge when this gradient is drawn on buttons or scrollbars.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;i&gt;Note: This setting is not used when drawing the preview below.&lt;/i&gt;&lt;/p&gt;
@@ -4488,7 +4488,7 @@
              </sizepolicy>
             </property>
             <property name="text">
-             <string>&lt;i&gt;&lt;p&gt;QtCurve uses dark/light borders to create etch and shadow effects. By default QtCurve tries to lighten (or darken) the parent's background to achieve this - if no parent can be found, then white/black is used with an alpha value set. This behaviour maybe overridden, and alpha values always used, by checking the option above.&lt;/p&gt;</string>
+             <string>&lt;p&gt;&lt;i&gt;QtCurve uses dark/light borders to create etch and shadow effects. By default QtCurve tries to lighten (or darken) the parent's background to achieve this - if no parent can be found, then white/black is used with an alpha value set. This behaviour maybe overridden, and alpha values always used, by checking the option above.&lt;/i&gt;&lt;/p&gt;</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

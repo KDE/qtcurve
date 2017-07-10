@@ -179,7 +179,7 @@
        <item>
         <widget class="QLabel" name="noteLabel">
          <property name="text">
-          <string>&lt;p&gt;&lt;b&gt;NOTE:&lt;/b&gt;&lt;i&gt;This window decoration uses the QtCurve widget style, and shares its configuration. Only the settings that are exclusively used by the window decoration are shown here. To alter settings such as the titlebar gradient, or text alignment, please set the appropriate options in the widget style.&lt;/i&gt;&lt;/p&gt;</string>
+          <string>&lt;p&gt;&lt;b&gt;NOTE:&lt;/b&gt; &lt;i&gt;This window decoration uses the QtCurve widget style, and shares its configuration. Only the settings that are exclusively used by the window decoration are shown here. To alter settings such as the titlebar gradient, or text alignment, please set the appropriate options in the widget style.&lt;/i&gt;&lt;/p&gt;</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -313,7 +313,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>&lt;p&gt;&lt;b&gt;NOTE:&lt;/b&gt;&lt;i&gt;If you set the above values to 100%, then the window titlebar (and border) opacity will be controlled by the style's window and dialog background opacity settings.&lt;/i&gt;&lt;/p&gt;</string>
+          <string>&lt;p&gt;&lt;b&gt;NOTE:&lt;/b&gt; &lt;i&gt;If you set the above values to 100%, then the window titlebar (and border) opacity will be controlled by the style's window and dialog background opacity settings.&lt;/i&gt;&lt;/p&gt;</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

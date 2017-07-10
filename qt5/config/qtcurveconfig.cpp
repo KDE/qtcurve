@@ -2575,7 +2575,7 @@ QtCurveConfig::getPresetName(const QString &cap, QString label, QString def,
 
             if (name == currentText || name == defaultText) {
                 label = i18n("<p>You cannot use the name \"%1\".</p>"
-                             "<p>Please enter a different name:<p>", name);
+                             "<p>Please enter a different name:</p>", name);
                 def = i18n("%1 New", name);
                 name = QString();
             } else {
@@ -2585,18 +2585,18 @@ QtCurveConfig::getPresetName(const QString &cap, QString label, QString def,
                     if ((*it).fileName.indexOf(QDir::homePath()) != 0) {
                         label = i18n("<p>A system defined preset named "
                                      "\"%1\" already exists.</p>"
-                                     "<p>Please enter a new name:<p>", name);
+                                     "<p>Please enter a new name:</p>", name);
                         def = i18n("%1 New", name);
                         name = QString();
                     } else if (name == presetsCombo->currentText() ||
                                KMessageBox::warningYesNo(
                                    this, i18n("<p>A preset named \"%1\" "
                                               "already exists.</p><p>Do you "
-                                              "wish to overwrite this?<p>",
+                                              "wish to overwrite this?</p>",
                                               name)) == KMessageBox::Yes) {
                         return name;
                     } else {
-                        label = i18n("<p>Please enter a new name:<p>");
+                        label = i18n("<p>Please enter a new name:</p>");
                         def = i18n("%1 New", name);
                         name = QString();
                     }
