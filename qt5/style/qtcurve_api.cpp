@@ -1313,10 +1313,15 @@ bool Style::eventFilter(QObject *object, QEvent *event)
         if(bar)
         {
             m_progressBars.insert(bar);
-            if (1==m_progressBars.size())
-            {
-                m_timer.start();
-                m_progressBarAnimateTimer = startTimer(1000 / constProgressBarFps);
+            if (!m_progressBarAnimateTimer) {
+                if (opts.animatedProgress || (0 == bar->minimum() && 0 == bar->maximum())) {
+                    // we know we'll need a timer, start it at once
+                    if (m_timer.isNull()) {
+                        m_timer.start();
+                    }
+                    m_progressBarAnimateFps = constProgressBarFps;
+                    m_progressBarAnimateTimer = startTimer(1000/m_progressBarAnimateFps);
+                }
             }
         } else if (!(opts.square & SQUARE_POPUP_MENUS) &&
                    object->inherits("QComboBoxPrivateContainer")) {
@@ -1351,6 +1356,7 @@ bool Style::eventFilter(QObject *object, QEvent *event)
         }
         break;
     }
+    case QEvent::Close:
     case QEvent::Destroy:
     case QEvent::Hide: {
         if ((BLEND_TITLEBAR ||
@@ -1420,6 +1426,7 @@ bool Style::eventFilter(QObject *object, QEvent *event)
 void Style::timerEvent(QTimerEvent *event)
 {
     if (event->timerId() == m_progressBarAnimateTimer) {
+        bool hasAnimation = false;
         m_animateStep = m_timer.elapsed() / (1000 / constProgressBarFps);
         for (QProgressBar *bar: const_(m_progressBars)) {
             if ((opts.animatedProgress && 0 == m_animateStep % 2 &&
@@ -1427,7 +1434,13 @@ void Style::timerEvent(QTimerEvent *event)
                  bar->value() != bar->maximum()) ||
                 (0 == bar->minimum() && 0 == bar->maximum())) {
                 bar->update();
+                hasAnimation = true;
             }
+        }
+        if (Q_UNLIKELY(!hasAnimation && m_progressBarAnimateFps == constProgressBarFps)) {
+            // go back to "idling frequency" mode.
+            killTimer(m_progressBarAnimateTimer);
+            m_progressBarAnimateTimer = 0;
         }
     }
 
@@ -2815,6 +2828,15 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
                 reverse = !reverse;
 
             painter->save();
+
+            if (!m_progressBarAnimateTimer && (opts.animatedProgress || indeterminate)) {
+                if (m_timer.isNull()) {
+                    m_timer.start();
+                }
+                // now we'll need a timer, start it at the regular frequency
+                m_progressBarAnimateFps = constProgressBarFps;
+                m_progressBarAnimateTimer = const_cast<Style*>(this)->startTimer(1000/m_progressBarAnimateFps);
+            }
 
             if (indeterminate) {
                 //Busy indicator

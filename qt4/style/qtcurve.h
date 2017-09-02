@@ -436,9 +436,10 @@ private:
     mutable const QWidget *m_sbWidget;
     mutable QLabel *m_clickedLabel;
     QSet<QProgressBar*> m_progressBars;
-    int m_progressBarAnimateTimer,
+    mutable int m_progressBarAnimateTimer,
+        m_progressBarAnimateFps,
         m_animateStep;
-    QTime m_timer;
+    mutable QTime m_timer;
     mutable QMap<int, QColor*> m_titleBarButtonsCols;
     mutable QList<int> m_mdiButtons[2]; // 0=left, 1=right
     mutable int m_titlebarHeight;
