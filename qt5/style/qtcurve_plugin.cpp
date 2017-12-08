@@ -129,6 +129,11 @@ StylePlugin::create(const QString &key)
     if (key.toLower() == "qtcurve") {
         qtc = new Style;
         qtc->m_plugin = this;
+        // keep track of all style instances we allocate, for instance
+        // for KLineEdit widgets which apparently insist on overriding
+        // certain things (cf. KLineEditStyle). We want to be able to
+        // delete those instances as properly and as early as
+        // possible during the global destruction phase.
         m_styleInstances << qtc;
     } else {
         qtc = nullptr;
@@ -151,12 +156,14 @@ StylePlugin::~StylePlugin()
     qtcInfo("Deleting QtCurve plugin (%p)\n", this);
     if (!m_styleInstances.isEmpty()) {
         qtcWarn("there remain(s) %d Style instance(s)\n", m_styleInstances.count());
-        QList<Style*>::Iterator it = m_styleInstances.begin();
-        while (it != m_styleInstances.end()) {
-            Style *that = *it;
-            it = m_styleInstances.erase(it);
+        foreach (Style *that, m_styleInstances) {
+            // don't let ~Style() touch m_styleInstances from here.
+            that->m_plugin = nullptr;
+            // each instance should already have disconnected from the D-Bus
+            // and disconnected from receiving select signals.
             delete that;
         }
+        m_styleInstances.clear();
     }
     if (firstPlInstance == this) {
         firstPlInstance = nullptr;

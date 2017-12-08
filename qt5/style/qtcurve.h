@@ -522,6 +522,9 @@ private:
                                       const QWidget *widget) const;
 
 private:
+    class DBusHelper;
+    DBusHelper *m_dBusHelper;
+
     mutable Options opts;
     QColor m_highlightCols[TOTAL_SHADES + 1],
         m_backgroundCols[TOTAL_SHADES + 1],
@@ -564,14 +567,12 @@ private:
     mutable QList<int> m_mdiButtons[2]; // 0=left, 1=right
     mutable int m_titlebarHeight;
 
-    QDBusInterface *m_dBus;
     ShadowHelper *m_shadowHelper;
     mutable QScrollBar *m_sViewSBar;
     mutable QMap<QWidget*, QSet<QWidget*> > m_sViewContainers;
     WindowManager *m_windowManager;
     BlurHelper *m_blurHelper;
     ShortcutHandler *m_shortcutHandler;
-    bool m_dbusConnected;
 #ifdef QTC_QT5_ENABLE_KDE
     KSharedConfigPtr m_configFile;
     KSharedConfigPtr m_kdeGlobals;
