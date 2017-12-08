@@ -24,6 +24,7 @@
 #include "qtcurve_plugin.h"
 #include <qtcurve-utils/qtprops.h>
 
+#include <qglobal.h>
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include "windowmanager.h"
@@ -510,6 +511,7 @@ void Style::init(bool initial)
             m_comboBtnCols = m_sliderCols;
             break;
         }
+        Q_FALLTHROUGH();
     case SHADE_CUSTOM:
         if (opts.shadeSliders == SHADE_CUSTOM &&
             opts.customSlidersColor == opts.customComboBtnColor) {
@@ -546,6 +548,7 @@ void Style::init(bool initial)
             m_sortedLvColors = m_comboBtnCols;
             break;
         }
+        Q_FALLTHROUGH();
     case SHADE_CUSTOM:
         if (opts.shadeSliders == SHADE_CUSTOM &&
             opts.customSlidersColor == opts.customSortedLvColor) {

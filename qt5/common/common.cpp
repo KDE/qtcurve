@@ -23,6 +23,8 @@
 #include <stdarg.h>
 #include "common.h"
 
+#include <qglobal.h>
+
 void
 qtcSetupGradient(Gradient *grad, EGradientBorder border, int numStops, ...)
 {
@@ -237,14 +239,17 @@ qtcGetWidgetRound(const Options *opts, int w, int h, EWidget widget)
              QtCurve::isMaxRoundWidget(widget))) {
             return ROUND_MAX;
         }
+        Q_FALLTHROUGH();
     case ROUND_EXTRA:
         if (CAN_EXTRA_ROUND(2)) {
             return ROUND_EXTRA;
         }
+        Q_FALLTHROUGH();
     case ROUND_FULL:
         if (CAN_FULL_ROUND(2)) {
             return ROUND_FULL;
         }
+        Q_FALLTHROUGH();
     case ROUND_SLIGHT:
         return ROUND_SLIGHT;
     case ROUND_NONE:
@@ -306,6 +311,7 @@ qtcGetRadius(const Options *opts, int w, int h, EWidget widget, ERadius rad)
                 (w > 48 && h > 48)) {
                 return 6.0;
             }
+            Q_FALLTHROUGH();
         case ROUND_FULL:
             /* if( /\*(WIDGET_RUBBER_BAND==widget && w>11 && h>11) || *\/ */
             /*     (w>48 && h>48)) */
@@ -313,11 +319,13 @@ qtcGetRadius(const Options *opts, int w, int h, EWidget widget, ERadius rad)
             if (w > MIN_ROUND_FULL_SIZE && h > MIN_ROUND_FULL_SIZE) {
                 return 3.0;
             }
+            Q_FALLTHROUGH();
         case ROUND_SLIGHT:
             return 2.0;
         case ROUND_NONE:
             return 0;
         }
+        Q_FALLTHROUGH();
     case RADIUS_INTERNAL:
         switch (r) {
         case ROUND_MAX:
@@ -332,19 +340,23 @@ qtcGetRadius(const Options *opts, int w, int h, EWidget widget, ERadius rad)
                 double r = ((w > h ? h : w) - 2.0) / 2.0;
                 return r > 9.5 ? 9.5 : r;
             }
+            Q_FALLTHROUGH();
         case ROUND_EXTRA:
             if (CAN_EXTRA_ROUND(-2)) {
                 return EXTRA_INNER_RADIUS;
             }
+            Q_FALLTHROUGH();
         case ROUND_FULL:
             if (CAN_FULL_ROUND(-2)) {
                 return FULL_INNER_RADIUS;
             }
+            Q_FALLTHROUGH();
         case ROUND_SLIGHT:
             return SLIGHT_INNER_RADIUS;
         case ROUND_NONE:
             return 0;
         }
+        Q_FALLTHROUGH();
     case RADIUS_EXTERNAL:
         switch (r) {
         case ROUND_MAX:
@@ -358,19 +370,23 @@ qtcGetRadius(const Options *opts, int w, int h, EWidget widget, ERadius rad)
                 double r = ((w > h ? h : w) - 2.0) / 2.0;
                 return r > 10.5 ? 10.5 : r;
             }
+            Q_FALLTHROUGH();
         case ROUND_EXTRA:
             if (CAN_EXTRA_ROUND(0)) {
                 return EXTRA_OUTER_RADIUS;
             }
+            Q_FALLTHROUGH();
         case ROUND_FULL:
             if (CAN_FULL_ROUND(0)) {
                 return FULL_OUTER_RADIUS;
             }
+            Q_FALLTHROUGH();
         case ROUND_SLIGHT:
             return SLIGHT_OUTER_RADIUS;
         case ROUND_NONE:
             return 0;
         }
+        Q_FALLTHROUGH();
     case RADIUS_ETCH:
         // **NOTE** MUST KEEP IN SYNC WITH getWidgetRound !!!
         switch (r) {
@@ -386,20 +402,27 @@ qtcGetRadius(const Options *opts, int w, int h, EWidget widget, ERadius rad)
                 double r = ((w > h ? h : w) - 2.0) / 2.0;
                 return r > 11.5 ? 11.5 : r;
             }
+            Q_FALLTHROUGH();
         case ROUND_EXTRA:
             if (CAN_FULL_ROUND(2)) {
                 return EXTRA_ETCH_RADIUS;
             }
+            Q_FALLTHROUGH();
         case ROUND_FULL:
             if (w > (MIN_ROUND_FULL_SIZE + 2) &&
                 h > (MIN_ROUND_FULL_SIZE + 2)) {
                 return FULL_ETCH_RADIUS;
             }
+            Q_FALLTHROUGH();
         case ROUND_SLIGHT:
             return SLIGHT_ETCH_RADIUS;
         case ROUND_NONE:
             return 0;
         }
+        Q_FALLTHROUGH();
+    default:
+        // (empty case required for the fall-through declaration above)
+        break;
     }
     return 0;
 }

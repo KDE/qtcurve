@@ -2533,6 +2533,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
                             }
                             break;
                         }
+                        Q_FALLTHROUGH();
                     case ALIGN_CENTER:
                         textOpt |= Qt::AlignHCenter;
                         break;
@@ -2542,6 +2543,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
                     default:
                     case ALIGN_LEFT:
                         textOpt|=Qt::AlignLeft;
+                        break;
                     }
                 } else {
                     textOpt |= Qt::AlignLeft;
