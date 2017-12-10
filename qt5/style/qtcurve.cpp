@@ -22,6 +22,7 @@
 
 #include "qtcurve_p.h"
 #include "qtcurve_plugin.h"
+#include "qtcurve_fonthelper.h"
 #include <qtcurve-utils/qtprops.h>
 
 #include <qglobal.h>
@@ -343,6 +344,7 @@ static void parseWindowLine(const QString &line, QList<int> &data)
 
 Style::Style() :
     m_dBusHelper(new DBusHelper()),
+    m_fntHelper(new FontHelper()),
     m_popupMenuCols(0L),
     m_sliderCols(0L),
     m_defBtnCols(0L),
@@ -778,6 +780,7 @@ Style::~Style()
         m_plugin->m_styleInstances.removeAll(this);
     }
     freeColors();
+    delete m_fntHelper;
     delete m_dBusHelper;
 }
 

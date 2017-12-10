@@ -524,6 +524,8 @@ private:
 private:
     class DBusHelper;
     DBusHelper *m_dBusHelper;
+    class FontHelper;
+    FontHelper *m_fntHelper;
 
     mutable Options opts;
     QColor m_highlightCols[TOTAL_SHADES + 1],

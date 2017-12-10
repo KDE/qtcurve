@@ -23,6 +23,7 @@
 #include <qtcurve-utils/qtprops.h>
 
 #include "qtcurve_p.h"
+#include "qtcurve_fonthelper.h"
 #include "argbhelper.h"
 #include "utils.h"
 #include "shortcuthandler.h"
@@ -65,6 +66,7 @@
 #include <QTextStream>
 #include <QFileDialog>
 #include <QToolBox>
+#include <QFontDatabase>
 
 #include <QDebug>
 
@@ -84,6 +86,75 @@
 #include <qtcurve-utils/color.h>
 
 namespace QtCurve {
+
+static const char *constBoldProperty = "qtc-set-bold";
+
+Style::FontHelper::FontHelper()
+    : m_fntDB(new QFontDatabase())
+{}
+
+Style::FontHelper::~FontHelper()
+{
+    delete m_fntDB;
+}
+
+QFont Style::FontHelper::fontStripStyleName(const QFont &f) const
+{
+    const QString &styleName = f.styleName();
+    if (styleName.isEmpty()) {
+        // we can simply return the input font
+        return f;
+    } else {
+        // Check for a mismatch between styleString and styleName; when
+        // found the font probably had a style name set directly instead of
+        // receiving it e.g. via the FontDialog. This means its attributes
+        // may still correspond to the original font, not to the current style.
+        // Do a database lookup to get a consistent QFont instance to work with,
+        // so that methods like setWeight(), setStyle() will work as expected.
+        QFont g = (m_fntDB->styleString(f) != styleName) ?
+            m_fntDB->font(f.family(), styleName, f.pointSize())
+            : QFont(f.family(), f.pointSize(), f.weight());
+        if (auto s = f.pixelSize() > 0) {
+            g.setPixelSize(s);
+        }
+        g.setStyleHint(f.styleHint(), f.styleStrategy());
+        g.setStyle(f.style());
+        if (f.underline()) {
+            g.setUnderline(true);
+        }
+        if (f.strikeOut()) {
+            g.setStrikeOut(true);
+        }
+        if (f.fixedPitch()) {
+            g.setFixedPitch(true);
+        }
+        return g;
+    }
+}
+
+void Style::FontHelper::setBold(QWidget *widget)
+{
+    QVariant prop(widget->property(constBoldProperty));
+    if (!prop.isValid() || !prop.toBool()) {
+        QFont font = fontStripStyleName(widget->font());
+        if (!font.bold()) {
+            font.setBold(true);
+            widget->setFont(font);
+            widget->setProperty(constBoldProperty, true);
+        }
+    }
+}
+
+void Style::FontHelper::unSetBold(QWidget *widget)
+{
+    QVariant prop(widget->property(constBoldProperty));
+    if (prop.isValid() && prop.toBool()) {
+        QFont font = fontStripStyleName(widget->font());
+        font.setBold(false);
+        widget->setFont(font);
+        widget->setProperty(constBoldProperty, false);
+    }
+}
 
 void
 Style::polish(QApplication *app)
@@ -537,7 +608,7 @@ void Style::polish(QWidget *widget)
         }
 
         if (opts.boldProgress)
-            setBold(widget);
+            m_fntHelper->setBold(widget);
         widget->installEventFilter(this);
     } else if (qobject_cast<QMenuBar*>(widget)) {
         if (BLEND_TITLEBAR || opts.menubarHiding & HIDE_KWIN ||
@@ -871,7 +942,7 @@ void Style::unpolish(QWidget *widget)
             widget->setAttribute(Qt::WA_OpaquePaintEvent, false);
     } else if (qobject_cast<QProgressBar*>(widget)) {
         if(opts.boldProgress)
-            unSetBold(widget);
+            m_fntHelper->unSetBold(widget);
         m_progressBars.remove((QProgressBar *)widget);
     } else if (qobject_cast<QMenuBar*>(widget)) {
         widget->setAttribute(Qt::WA_Hover, false);
@@ -908,7 +979,7 @@ void Style::unpolish(QWidget *widget)
         delete ((QDockWidget *)widget)->titleBarWidget();
         ((QDockWidget*)widget)->setTitleBarWidget(0L);
     } else if (opts.boldProgress && "CE_CapacityBar"==widget->objectName()) {
-        unSetBold(widget);
+        m_fntHelper->unSetBold(widget);
     }
 
     if (widget->inherits("QTipLabel") && !qtcIsFlat(opts.tooltipAppearance)) {
@@ -1948,7 +2019,7 @@ Style::styleHint(StyleHint hint, const QStyleOption *option,
         if (hint >= SH_CustomBase && widget) {
             if (widget->objectName() == "CE_CapacityBar") {
                 if (opts.boldProgress) {
-                    setBold(const_cast<QWidget*>(widget));
+                    m_fntHelper->setBold(const_cast<QWidget*>(widget));
                 }
                 return CE_QtC_KCapacityBar;
             }
@@ -3074,7 +3145,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
 
                 if (!menuItem->text.isEmpty()) {
                     int textAlignment;
-                    QFont font(menuItem->font);
+                    QFont font = m_fntHelper->fontStripStyleName(menuItem->font);
                     QRect textRect;
                     if (opts.buttonStyleMenuSections) {
                         QStyleOption opt;
@@ -3281,7 +3352,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
                     s = s.left(t);
                 }
 
-                QFont font(menuItem->font);
+                QFont font = m_fntHelper->fontStripStyleName(menuItem->font);
 
                 if (menuItem->menuItemType == QStyleOptionMenuItem::DefaultItem)
                     font.setBold(true);
@@ -4435,7 +4506,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
 
             if (selected && styleHint(QStyle::SH_ToolBox_SelectedPageTitleBold, tb, widget))
             {
-                QFont f(painter->font());
+                QFont f = m_fntHelper->fontStripStyleName(painter->font());
                 f.setBold(true);
                 painter->setFont(f);
             }
@@ -4738,7 +4809,7 @@ void Style::drawComplexControl(ComplexControl control, const QStyleOptionComplex
                         drawFadedLine(painter, QRect(r.x()+3, r.y()+r.height()-1, r.width()-7, 1),
                                       popupMenuCols(option)[MENU_SEP_SHADE], true, true, true);
 #endif
-                    QFont font(toolbutton->font);
+                    QFont font = m_fntHelper->fontStripStyleName(toolbutton->font);
 
                     font.setBold(true);
                     painter->setFont(font);
@@ -4998,7 +5069,7 @@ void Style::drawComplexControl(ComplexControl control, const QStyleOptionComplex
 
                 if(opts.gbLabel&GB_LBL_BOLD)
                 {
-                    QFont font(painter->font());
+                    QFont font = m_fntHelper->fontStripStyleName(painter->font());
 
                     font.setBold(true);
                     painter->save();
@@ -5485,7 +5556,7 @@ void Style::drawComplexControl(ComplexControl control, const QStyleOptionComplex
                                        : captionRect);
 
 #ifndef QTC_QT5_ENABLE_KDE
-                QFont         font(painter->font());
+                QFont         font = m_fntHelper->fontStripStyleName(painter->font());
                 font.setBold(true);
                 painter->setFont(font);
 #else
@@ -6345,7 +6416,7 @@ QSize Style::sizeFromContents(ContentsType type, const QStyleOption *option, con
 
             if (!opts.buttonStyleMenuSections && QStyleOptionMenuItem::Separator == mi->menuItemType && !mi->text.isEmpty())
             {
-                QFont fontBold = mi->font;
+                QFont fontBold = m_fntHelper->fontStripStyleName(mi->font);
                 fontBold.setBold(true);
                 QFontMetrics fmBold(fontBold);
                 // _set_ w, it will have been initialised to something inappropriately small
@@ -6359,8 +6430,8 @@ QSize Style::sizeFromContents(ContentsType type, const QStyleOption *option, con
             {
                 // adjust the font and add the difference in size.
                 // it would be better if the font could be adjusted in the initStyleOption qmenu func!!
-                QFontMetrics fm(mi->font);
-                QFont fontBold = mi->font;
+                QFont fontBold = m_fntHelper->fontStripStyleName(mi->font);
+                QFontMetrics fm(fontBold);
                 fontBold.setBold(true);
                 QFontMetrics fmBold(fontBold);
                 w += fmBold.width(mi->text) - fm.width(mi->text);
@@ -6954,7 +7025,7 @@ QRect Style::subControlRect(ComplexControl control, const QStyleOptionComplex *o
     case CC_GroupBox:
         if (oneOf(subControl, SC_GroupBoxCheckBox, SC_GroupBoxLabel))
             if (auto groupBox = styleOptCast<QStyleOptionGroupBox>(option)) {
-                QFont font = widget ? widget->font() : QApplication::font();
+                QFont font = m_fntHelper->fontStripStyleName(widget ? widget->font() : QApplication::font());
                 font.setBold(opts.gbLabel & GB_LBL_BOLD);
                 QFontMetrics fontMetrics(font);
                 int h = fontMetrics.height();

@@ -225,8 +225,6 @@ toHint(int sc)
     }
 }
 
-void setBold(QWidget *widget);
-void unSetBold(QWidget *widget);
 QWidget *scrollViewFrame(QWidget *widget);
 
 class QtCurveDockWidgetTitleBar: public QWidget {

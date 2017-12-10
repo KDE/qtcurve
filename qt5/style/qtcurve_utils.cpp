@@ -61,8 +61,6 @@
 
 namespace QtCurve {
 
-static const char *constBoldProperty = "qtc-set-bold";
-
 bool
 blendOOMenuHighlight(const QPalette &pal, const QColor &highlight)
 {
@@ -141,32 +139,6 @@ void setSbProp(QWidget *w)
             w->setProperty(constStatusBarProperty, true);
             qtcX11SetStatusBar(wid);
         }
-    }
-}
-
-void
-setBold(QWidget *widget)
-{
-    QVariant prop(widget->property(constBoldProperty));
-    if (!prop.isValid() || !prop.toBool()) {
-        QFont font(widget->font());
-        if (!font.bold()) {
-            font.setBold(true);
-            widget->setFont(font);
-            widget->setProperty(constBoldProperty, true);
-        }
-    }
-}
-
-void
-unSetBold(QWidget *widget)
-{
-    QVariant prop(widget->property(constBoldProperty));
-    if (prop.isValid() && prop.toBool()) {
-        QFont font(widget->font());
-        font.setBold(false);
-        widget->setFont(font);
-        widget->setProperty(constBoldProperty, false);
     }
 }
 
