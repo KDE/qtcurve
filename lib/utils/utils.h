@@ -274,4 +274,14 @@ using qtcPtrType = QtCurve::remove_cvr_t<typename std::remove_pointer<T>::type>;
         }                                       \
     } while (0)
 
+#if defined(__GNUC__) && __GNUC__ >= 7
+#  define QTC_FALLTHROUGH() __attribute__((fallthrough))
+#elif defined(__clang_major__) && defined(__clang_minor__) &&   \
+    (__clang_major__ > 4 || __clang_minor__ >= 5)
+// We require at least clang 3.x for c++11
+#  define QTC_FALLTHROUGH() [[clang::fallthrough]]
+#else
+#  define QTC_FALLTHROUGH()
+#endif
+
 #endif

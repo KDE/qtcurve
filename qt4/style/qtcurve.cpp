@@ -1069,11 +1069,11 @@ void Style::init(bool initial)
             m_comboBtnCols=m_highlightCols;
             break;
         case SHADE_BLEND_SELECTED:
-            if(opts.shadeSliders==SHADE_BLEND_SELECTED)
-            {
+            if (opts.shadeSliders==SHADE_BLEND_SELECTED) {
                 m_comboBtnCols=m_sliderCols;
                 break;
             }
+            QTC_FALLTHROUGH();
         case SHADE_CUSTOM:
             if(opts.shadeSliders==SHADE_CUSTOM && opts.customSlidersColor==opts.customComboBtnColor)
             {
@@ -1113,6 +1113,7 @@ void Style::init(bool initial)
                 m_sortedLvColors=m_comboBtnCols;
                 break;
             }
+            QTC_FALLTHROUGH();
         case SHADE_CUSTOM:
             if(opts.shadeSliders==SHADE_CUSTOM && opts.customSlidersColor==opts.customSortedLvColor)
             {
@@ -4147,6 +4148,7 @@ void Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option, 
         case PE_FrameStatusBar:
             if(!opts.drawStatusBarFrames)
                 break;
+            QTC_FALLTHROUGH();
         case PE_FrameMenu:
             if(POPUP_MENUS_SQUARE(opts) &&
                 (qtcIsFlatBgnd(opts.menuBgndAppearance) ||
@@ -4206,6 +4208,7 @@ void Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option, 
                 }
                 break;
             }
+            QTC_FALLTHROUGH();
         case PE_IndicatorButtonDropDown: // This should never be called, but just in case - draw as a normal toolbutton...
         {
             bool dwt(widget && widget->inherits("QDockWidgetTitleButton")),
@@ -4334,6 +4337,7 @@ void Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option, 
             r.setY(r.y()+((r.height()-opts.crSize)/2)-1);
             r.setWidth(opts.crSize);
             r.setHeight(opts.crSize);
+            QTC_FALLTHROUGH();
         case PE_IndicatorMenuCheckMark:
         case PE_IndicatorCheckBox:
         {
@@ -4507,6 +4511,7 @@ void Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option, 
             r.setY(r.y()+((r.height()-opts.crSize)/2)-1);
             r.setWidth(opts.crSize);
             r.setHeight(opts.crSize);
+            QTC_FALLTHROUGH();
         case PE_IndicatorRadioButton:
         {
             bool isOO(isOOWidget(widget)),
@@ -5621,8 +5626,7 @@ void Style::drawControl(ControlElement element, const QStyleOption *option, QPai
                         switch(opts.titlebarAlignment)
                         {
                             case ALIGN_FULL_CENTER:
-                                if(!verticalTitleBar && !reverse)
-                                {
+                                if (!verticalTitleBar && !reverse) {
                                     QFontMetrics fm(painter->fontMetrics());
                                     int          width=fm.boundingRect(title).width();
 
@@ -5635,6 +5639,7 @@ void Style::drawControl(ControlElement element, const QStyleOption *option, QPai
                                         textOpt|=Qt::AlignRight;
                                     break;
                                 }
+                                QTC_FALLTHROUGH();
                             case ALIGN_CENTER:
                                 textOpt|=Qt::AlignHCenter;
                                 break;

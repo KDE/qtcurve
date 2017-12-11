@@ -513,7 +513,7 @@ void Style::init(bool initial)
             m_comboBtnCols = m_sliderCols;
             break;
         }
-        Q_FALLTHROUGH();
+        QTC_FALLTHROUGH();
     case SHADE_CUSTOM:
         if (opts.shadeSliders == SHADE_CUSTOM &&
             opts.customSlidersColor == opts.customComboBtnColor) {
@@ -550,7 +550,7 @@ void Style::init(bool initial)
             m_sortedLvColors = m_comboBtnCols;
             break;
         }
-        Q_FALLTHROUGH();
+        QTC_FALLTHROUGH();
     case SHADE_CUSTOM:
         if (opts.shadeSliders == SHADE_CUSTOM &&
             opts.customSlidersColor == opts.customSortedLvColor) {
