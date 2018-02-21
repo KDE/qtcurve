@@ -4311,7 +4311,7 @@ void Style::applyKdeSettings(bool pal)
         QApplication::setFont(mnu, "QMenuBar");
         QApplication::setFont(mnu, "QMenu");
         QApplication::setFont(mnu, "KPopupTitle");
-        QApplication::setFont(KGlobalSettings::toolBarFont(), "QToolBar");
+        QApplication::setFont(g.readEntry("toolBarFont", QApplication::font()), "QToolBar");
     }
 }
 #endif

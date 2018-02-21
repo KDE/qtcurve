@@ -2570,7 +2570,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
                 }
 #ifdef QTC_QT5_ENABLE_KDE
                 if (opts.dwtSettings & DWT_FONT_AS_PER_TITLEBAR) {
-                    painter->setFont(KGlobalSettings::windowTitleFont());
+                    painter->setFont(QFontDatabase::systemFont(QFontDatabase::TitleFont));
                 }
 #endif
                 QFontMetrics fm(painter->fontMetrics());
@@ -5560,7 +5560,7 @@ void Style::drawComplexControl(ComplexControl control, const QStyleOptionComplex
                 font.setBold(true);
                 painter->setFont(font);
 #else
-                painter->setFont(KGlobalSettings::windowTitleFont());
+                painter->setFont(QFontDatabase::systemFont(QFontDatabase::TitleFont));
 #endif
 
                 QFontMetrics fm(painter->fontMetrics());
