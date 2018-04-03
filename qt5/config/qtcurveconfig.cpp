@@ -42,6 +42,7 @@
 #include <qtcurve-utils/dirs.h>
 #include <qtcurve-utils/process.h>
 #include <qtcurve-utils/qtutils.h>
+#include <qtcurve-utils/x11base.h>
 
 // Qt
 #include <QCheckBox>
@@ -975,9 +976,9 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
     dropShadowSize->setRange(0, 100);
     dropShadowSize->setSingleStep(1);
     dropShadowSize->setValue(qtcX11ShadowSize());
-#ifndef QTC_ENABLE_X11
-    dropShadowSize->setEnabled(false);
-#endif
+    if (!qtcX11Enabled()) {
+        dropShadowSize->setEnabled(false);
+    }
 
 
     sliderWidth->setRange(MIN_SLIDER_WIDTH, MAX_SLIDER_WIDTH);
