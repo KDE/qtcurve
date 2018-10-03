@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # call with
 # $ gen-version.sh <output file> <orig version> <git executable>
