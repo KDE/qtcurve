@@ -3539,6 +3539,11 @@ int Style::layoutSpacingImplementation(QSizePolicy::ControlType control1, QSizeP
 
 void Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option, QPainter *painter, const QWidget *widget) const
 {
+    // this can happen in LibreOffice: see http://crashreport.libreoffice.org/stats/signature/qtcurve.so
+    if (!widget) {
+        return;
+    }
+
     prePolish(widget);
     QRect r(option->rect);
     QFlags<State> state(option->state);

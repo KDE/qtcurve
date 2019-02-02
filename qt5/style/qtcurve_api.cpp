@@ -2067,6 +2067,11 @@ void
 Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option,
                      QPainter *painter, const QWidget *widget) const
 {
+    // this can happen in LibreOffice: see http://crashreport.libreoffice.org/stats/signature/qtcurve.so
+    if (!widget) {
+        return;
+    }
+
     prePolish(widget);
     bool (Style::*drawFunc)(PrimitiveElement, const QStyleOption*,
                             QPainter*, const QWidget*) const = nullptr;
