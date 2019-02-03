@@ -2036,6 +2036,7 @@ QPalette Style::standardPalette() const
 
 static bool initFontTickData(Options &opts, QFont font, const QWidget *widget=0)
 {
+    Q_UNUSED(widget);
     if (opts.onlyTicksInMenu && opts.fontTickWidth <= 0) {
         opts.tickFont = font;
 #ifndef Q_OS_MACOS
@@ -2047,8 +2048,6 @@ static bool initFontTickData(Options &opts, QFont font, const QWidget *widget=0)
         // adjust the size so the tickmark looks just about right
         opts.tickFont.setPointSizeF(opts.tickFont.pointSizeF() * 1.3);
         opts.fontTickWidth = QFontMetrics(opts.tickFont).width(opts.menuTick);
-        // qDebug() << widget << "font->tickFont:" << font.toString() << opts.tickFont.toString() << "tickMark:" << opts.menuTick
-        //    << "width=" << opts.fontTickWidth << "/" << QFontMetrics(opts.tickFont).boundingRect(opts.menuTick).width();
         return true;
     }
     return false;
@@ -2067,11 +2066,6 @@ void
 Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option,
                      QPainter *painter, const QWidget *widget) const
 {
-    // this can happen in LibreOffice: see http://crashreport.libreoffice.org/stats/signature/qtcurve.so
-    if (!widget) {
-        return;
-    }
-
     prePolish(widget);
     bool (Style::*drawFunc)(PrimitiveElement, const QStyleOption*,
                             QPainter*, const QWidget*) const = nullptr;
@@ -2123,9 +2117,7 @@ Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option,
         break;
     case PE_FrameStatusBar:
     case PE_FrameMenu:
-        if (widget) {
-            initFontTickData(opts, widget->font(), widget);
-        }
+        initFontTickData(opts, widget ? widget->font() : QApplication::font("QMenu"), widget);
         drawFunc = &Style::drawPrimitiveFrameStatusBarOrMenu;
         break;
     case PE_FrameDockWidget:
@@ -2182,9 +2174,7 @@ Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option,
         drawFunc = &Style::drawPrimitivePanelTipLabel;
         break;
     case PE_PanelMenu:
-        if (widget) {
-            initFontTickData(opts, widget->font(), widget);
-        }
+        initFontTickData(opts, widget ? widget->font() : QApplication::font("QMenu"), widget);
         drawFunc = &Style::drawPrimitivePanelMenu;
         break;
     default:

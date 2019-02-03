@@ -3539,11 +3539,6 @@ int Style::layoutSpacingImplementation(QSizePolicy::ControlType control1, QSizeP
 
 void Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option, QPainter *painter, const QWidget *widget) const
 {
-    // this can happen in LibreOffice: see http://crashreport.libreoffice.org/stats/signature/qtcurve.so
-    if (!widget) {
-        return;
-    }
-
     prePolish(widget);
     QRect r(option->rect);
     QFlags<State> state(option->state);
@@ -4457,12 +4452,23 @@ void Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option, 
 
             if(state&State_On || selectedOOMenu)
             {
-                if (onlyTicksInMenu) {
+                // widget can be NULL in LibreOffice: see http://crashreport.libreoffice.org/stats/signature/qtcurve.so
+                // In a pure Qt build we don't really have a way of knowing what font to use without a widget,
+                // but in a KDE build we can use KGlobalSettings::menuFont()
+                if (onlyTicksInMenu
+#ifndef QTC_QT4_ENABLE_KDE
+                    && widget
+#endif
+                ) {
                     // only tickmarks (= without the box) in menu; adjust its horizontal position
                     rect.adjust(6, 0, 0, 0);
                     // get the font for adjusting; widget will be the menu holding the menuitem
                     // but that uses the same font as the menuitem.
+#ifdef QTC_QT4_ENABLE_KDE
+                    QFont font(widget ? widget->font() : KGlobalSettings::menuFont());
+#else
                     QFont font(widget->font());
+#endif
 #ifndef Q_OS_MAC
                     font.setBold(true);
 #else
