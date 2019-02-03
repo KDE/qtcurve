@@ -520,6 +520,7 @@ private:
                                       const QStyleOption *option,
                                       QPainter *painter,
                                       const QWidget *widget) const;
+    void initFontTickData(const QFont &font, const QWidget *widget=0) const;
 
 private:
     class DBusHelper;
