@@ -74,7 +74,7 @@ class GtkWidgetProps {
         };
 #define DEF_WIDGET_SIG_CONN_PROPS(name)                                 \
         struct _SigConn_##name##_ObjGetter {                            \
-            constexpr inline GObject*                                   \
+            inline GObject*                                             \
             operator()(SigConn<_SigConn_##name##_ObjGetter> *p) const   \
             {                                                           \
                 return (GObject*)qtcContainerOf(p, Props, name)->m_w;   \
