@@ -174,7 +174,13 @@ subControlToIcon(QStyle::SubControl sc)
 QtcThemedApp theThemedApp = APP_OTHER;
 
 static QString getFile(const QString &f);
-QString appName = getFile(qApp->arguments()[0]);
+// do not initialise the variable here by calling qApp->arguments(). Normally it will
+// be safe when we're loaded as a style plugin in a Qt application (which happens during
+// the Q*Application initialisation phase so the qApp instance exists). However, when
+// we're loaded in a different context this can happen:
+// `QCoreApplication::arguments: Please instantiate the QApplication object first`
+// `Segmentation fault`
+QString appName;
 
 static QColor
 checkColour(const QStyleOption *option, QPalette::ColorRole role)
@@ -406,6 +412,10 @@ void Style::init(bool initial)
         qtcReadConfig(QString(), &opts);
 
         if (initial) {
+            if (QCoreApplication::instance()) {
+                // we can obtain the application name safely.
+                appName = getFile(QCoreApplication::instance()->arguments()[0]);
+            }
 #ifdef Q_OS_MACOS
             if (opts.nonnativeMenubarApps.contains("kde") || opts.nonnativeMenubarApps.contains(appName)) {
                 QCoreApplication::setAttribute(Qt::AA_DontUseNativeMenuBar);
