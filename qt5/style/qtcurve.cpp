@@ -173,7 +173,6 @@ subControlToIcon(QStyle::SubControl sc)
 
 QtcThemedApp theThemedApp = APP_OTHER;
 
-static QString getFile(const QString &f);
 // do not initialise the variable here by calling qApp->arguments(). Normally it will
 // be safe when we're loaded as a style plugin in a Qt application (which happens during
 // the Q*Application initialisation phase so the qApp instance exists). However, when
@@ -414,7 +413,7 @@ void Style::init(bool initial)
         if (initial) {
             if (QCoreApplication::instance()) {
                 // we can obtain the application name safely.
-                appName = getFile(QCoreApplication::instance()->arguments()[0]);
+                appName = QFileInfo(QCoreApplication::instance()->arguments()[0]).fileName();
             }
 #ifdef Q_OS_MACOS
             if (opts.nonnativeMenubarApps.contains("kde") || opts.nonnativeMenubarApps.contains(appName)) {
@@ -726,8 +725,7 @@ void Style::connectDBus()
                     this, SLOT(compositingToggled()));
 #endif
 
-        QString arg0 = qApp? qApp->arguments()[0] : QString();
-        if (!qApp || (arg0 != "kwin" && arg0 != "kwin_x11" && arg0 != "kwin_wayland")) {
+        if (!qApp || (appName != "kwin" && appName != "kwin_x11" && appName != "kwin_wayland")) {
             // don't connect to signals if we know we're sending them out ourselves
             bus.connect("org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
                         "borderSizesChanged", this, SLOT(borderSizesChanged()));
@@ -765,8 +763,7 @@ void Style::disconnectDBus()
                    this, SLOT(compositingToggled()));
 #endif
 
-    QString arg0 = qApp? qApp->arguments()[0] : QString();
-    if (!qApp || (arg0 != "kwin" && arg0 != "kwin_x11" && arg0 != "kwin_wayland")) {
+    if (!qApp || (appName != "kwin" && appName != "kwin_x11" && appName != "kwin_wayland")) {
         bus.disconnect("org.kde.kwin", "/QtCurve", "org.kde.QtCurve",
                     "borderSizesChanged", this, SLOT(borderSizesChanged()));
         if (opts.menubarHiding & HIDE_KWIN)
@@ -842,18 +839,6 @@ void Style::freeColors()
         delete []m_ooMenuCols;
         m_ooMenuCols = 0L;
     }
-}
-
-static QString getFile(const QString &f)
-{
-    QString d(f);
-
-    int slashPos(d.lastIndexOf('/'));
-
-    if(slashPos!=-1)
-        d.remove(0, slashPos+1);
-
-    return d;
 }
 
 #if 1
