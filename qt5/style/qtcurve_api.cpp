@@ -87,6 +87,17 @@
 
 namespace QtCurve {
 
+template<typename T>
+static inline int
+horizontalAdvance(const QFontMetrics &fm, T &&text)
+{
+#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
+    return fm.horizontalAdvance(std::forward<T>(text));
+#else
+    return fm.width(std::forward<T>(text));
+#endif
+}
+
 static const char *constBoldProperty = "qtc-set-bold";
 
 Style::FontHelper::FontHelper()
@@ -2046,7 +2057,7 @@ void Style::initFontTickData(const QFont &font, const QWidget*) const
 #endif
         // adjust the size so the tickmark looks just about right
         opts.tickFont.setPointSizeF(opts.tickFont.pointSizeF() * 1.3);
-        opts.fontTickWidth = QFontMetrics(opts.tickFont).width(opts.menuTick);
+        opts.fontTickWidth = horizontalAdvance(QFontMetrics(opts.tickFont), opts.menuTick);
     }
 }
 
@@ -6412,7 +6423,7 @@ QSize Style::sizeFromContents(ContentsType type, const QStyleOption *option, con
                 fontBold.setBold(true);
                 QFontMetrics fmBold(fontBold);
                 // _set_ w, it will have been initialised to something inappropriately small
-                w = fmBold.width(mi->text);
+                w = horizontalAdvance(fmBold, mi->text);
             }
             else if (mi->text.contains(QLatin1Char('\t')))
                 w += tabSpacing;
@@ -6426,7 +6437,7 @@ QSize Style::sizeFromContents(ContentsType type, const QStyleOption *option, con
                 QFontMetrics fm(fontBold);
                 fontBold.setBold(true);
                 QFontMetrics fmBold(fontBold);
-                w += fmBold.width(mi->text) - fm.width(mi->text);
+                w += horizontalAdvance(fmBold, mi->text) - horizontalAdvance(fm, mi->text);
             }
 
             if (QStyleOptionMenuItem::Separator != mi->menuItemType || opts.buttonStyleMenuSections)

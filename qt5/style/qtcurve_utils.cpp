@@ -240,15 +240,19 @@ windowMask(const QRect &r, bool full)
 const QWidget*
 getWidget(const QPainter *p)
 {
-    if(p) {
-        if (QInternal::Widget==p->device()->devType()) {
-            return static_cast<const QWidget *>(p->device());
-        } else {
+    if (p) {
+        if (p->device()->devType() == QInternal::Widget) {
+            return static_cast<const QWidget*>(p->device());
+        }
+#if QT_VERSION < QT_VERSION_CHECK(5, 13, 0)
+        // No-op on 5.13+.
+        else {
             QPaintDevice *dev = QPainter::redirected(p->device());
-            if (dev && QInternal::Widget==dev->devType()) {
-                return static_cast<const QWidget *>(dev);
+            if (dev && dev->devType() == QInternal::Widget) {
+                return static_cast<const QWidget*>(dev);
             }
         }
+#endif
     }
     return nullptr;
 }
