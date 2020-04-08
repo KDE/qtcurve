@@ -324,7 +324,7 @@ Style::drawPrimitiveIndicatorArrow(PrimitiveElement element,
         }
         if (col.alpha() < 255 && element == PE_IndicatorArrowRight &&
             widget && widget->inherits("KUrlButton")) {
-            col = blendColors(col, palette.background().color(), col.alphaF());
+            col = blendColors(col, palette.window().color(), col.alphaF());
         }
         drawArrow(painter, r, element, col, false, false);
     }
@@ -637,11 +637,11 @@ Style::drawPrimitiveFrame(PrimitiveElement,
                 if (opts.round && qtcIsFlatBgnd(opts.bgndAppearance) &&
                     opts.bgndOpacity == 100 && widget &&
                     widget->parentWidget() && !inQAbstractItemView // &&
-                    // widget->palette().background().color() !=
-                    // widget->parentWidget()->palette().background().color()
+                    // widget->palette().window().color() !=
+                    // widget->parentWidget()->palette().window().color()
                     ) {
                     painter->setPen(widget->parentWidget()->palette()
-                                    .background().color());
+                                    .window().color());
                     painter->drawRect(r);
                     painter->drawRect(r.adjusted(1, 1, -1, -1));
                 }
@@ -1592,7 +1592,7 @@ Style::drawPrimitiveIndicatorRadioButton(PrimitiveElement,
                                !opts.crHighlight && mo ?
                                use[CR_MO_FILL] :
                                palette.base().color() :
-                               palette.background().color());
+                               palette.window().color());
             QPainterPath path;
 
             path.addEllipse(QRectF(rect).adjusted(0.5, 0.5, -1.0, -1.0));
@@ -1733,7 +1733,7 @@ Style::drawPrimitiveIndicatorCheckBox(PrimitiveElement element,
                                opts.coloredMouseOver == MO_NONE &&
                                !opts.crHighlight && mo ? use[CR_MO_FILL] :
                                palette.base().color() :
-                               palette.background().color());
+                               palette.window().color());
             bool lightBorder = DRAW_LIGHT_BORDER(false, WIDGET_TROUGH,
                                                  APPEARANCE_INVERTED);
             rect = QRect(doEtch ? rect.adjusted(1, 1, -1, -1) : rect);
@@ -1753,7 +1753,7 @@ Style::drawPrimitiveIndicatorCheckBox(PrimitiveElement element,
             } else {
                 setPainterPen(painter, midColor(state & State_Enabled ?
                                          palette.base().color() :
-                                         palette.background().color(), use[3]), QPENWIDTH1);
+                                         palette.window().color(), use[3]), QPENWIDTH1);
                 if (lightBorder) {
                     drawRect(painter, rect.adjusted(1, 1, -1, -1));
                 } else {
@@ -2078,7 +2078,7 @@ Style::drawPrimitiveFrameTabBarBase(PrimitiveElement,
             drawFadedLine(painter, QRect(topLine.p1(), topLine.p2()),
                           tbb->shape == QTabBar::RoundedSouth &&
                           opts.appearance == APPEARANCE_FLAT ?
-                          option->palette.background().color() :
+                          option->palette.window().color() :
                           use[tbb->shape == QTabBar::RoundedNorth ?
                               QTC_STD_BORDER :
                               (opts.borderTab ? 0 : FRAME_DARK_SHADOW)],

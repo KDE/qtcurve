@@ -1208,7 +1208,7 @@ void Style::drawSideBarButton(QPainter *painter, const QRect &r, const QStyleOpt
                        getFill(&opt, use), use, false, WIDGET_MENU_ITEM);
     }
     else
-        painter->fillRect(r2, palette.background().color());
+        painter->fillRect(r2, palette.window().color());
 
     if (opt.state & State_MouseOver && opts.coloredMouseOver) {
         r2 = r;
@@ -2660,7 +2660,7 @@ Style::drawBorder(QPainter *p, const QRect &r, const QStyleOption *option,
             setPainterPen(p, (enabled || BORDER_SUNKEN==borderProfile) /*&&
                                                                   (BORDER_RAISED==borderProfile || BORDER_LIGHT==borderProfile || hasFocus || APPEARANCE_FLAT!=app)*/
                       ? tl
-                      : option->palette.background().color(), QPENWIDTH1);
+                      : option->palette.window().color(), QPENWIDTH1);
             p->drawPath(topPath);
             if(WIDGET_SCROLLVIEW==w || // Because of list view headers, need to draw dark line on right!
                (! ( (WIDGET_ENTRY==w && !hasFocus && !hasMouseOver) ||
@@ -3561,12 +3561,12 @@ Style::drawMenuOrToolBarBackground(const QWidget *widget, QPainter *p,
 #ifdef Q_OS_MACOS
         QColor col(menu ?
                    menuColors(option, m_active)[ORIGINAL_SHADE] :
-                   option->palette.background().color());
+                   option->palette.window().color());
 #else
         QColor col(menu && (option->state & State_Enabled ||
                             opts.shadeMenubars != SHADE_NONE) ?
                    menuColors(option, m_active)[ORIGINAL_SHADE] :
-                   option->palette.background().color());
+                   option->palette.window().color());
 #endif
         // TODO: QtQuick
         int opacity = qtcGetOpacity(widget ? widget : getWidget(p));
@@ -3632,7 +3632,7 @@ void Style::fillTab(QPainter *p, const QRect &r, const QStyleOption *option, con
                     bool tabOnly) const
 {
     bool   invertedSel=option->state&State_Selected && APPEARANCE_INVERTED==opts.appearance;
-    QColor col(invertedSel ? option->palette.background().color() : fill);
+    QColor col(invertedSel ? option->palette.window().color() : fill);
 
     if(opts.tabBgnd && !tabOnly)
         col=shade(col, TO_FACTOR(opts.tabBgnd));

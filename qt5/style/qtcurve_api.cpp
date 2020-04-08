@@ -1047,7 +1047,7 @@ bool Style::eventFilter(QObject *object, QEvent *event)
         object->inherits("KFilePlacesView")) {
         QWidget *view = ((QAbstractScrollArea*)object)->viewport();
         QPalette palette = view->palette();
-        QColor color = ((QWidget*)object)->palette().background().color();
+        QColor color = ((QWidget*)object)->palette().window().color();
 
         if (qtcIsCustomBgnd(opts))
             color.setAlphaF(0.0);
@@ -2347,7 +2347,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
                         qtcGetRadius(&opts, r.width(), r.height(),
                                      WIDGET_OTHER, RADIUS_SELECTION);
 
-                    drawBevelGradient(shade(palette.background().color(),
+                    drawBevelGradient(shade(palette.window().color(),
                                             TO_FACTOR(opts.splitterHighlight)),
                                       painter, r,
                                       buildPath(QRectF(r), WIDGET_OTHER,
@@ -2357,7 +2357,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
                                       WIDGET_SELECTION, false);
                     painter->restore();
                 } else {
-                    drawBevelGradient(shade(palette.background().color(),
+                    drawBevelGradient(shade(palette.window().color(),
                                             TO_FACTOR(opts.splitterHighlight)),
                                       painter, r, !(state & State_Horizontal),
                                       false, opts.selectionAppearance,
@@ -2515,7 +2515,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
                 QColor col((opts.dwtSettings & DWT_COLOR_AS_PER_TITLEBAR) ?
                            getMdiColors(option,
                                         state&State_Active)[ORIGINAL_SHADE] :
-                           palette.background().color());
+                           palette.window().color());
                 if (opts.round < ROUND_FULL) {
                     drawBevelGradient(col, painter, fillRect, !verticalTitleBar,
                                       false, opts.dwtAppearance,
@@ -2834,7 +2834,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
             col = palette.base().color();
             break;
         case ECOLOR_BACKGROUND:
-            col = palette.background().color();
+            col = palette.window().color();
             break;
         case ECOLOR_DARK:
             col = m_backgroundCols[2];
@@ -4269,7 +4269,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
         painter->save();
 #ifndef SIMPLE_SCROLLBARS
         if (opts.round != ROUND_NONE && (SCROLLBAR_NONE==opts.scrollbarType || opts.flatSbarButtons))
-            painter->fillRect(r, palette.background().color());
+            painter->fillRect(r, palette.window().color());
 #endif
 
         switch(opts.scrollbarType)
@@ -4550,14 +4550,14 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
                         double   radius(qtcGetRadius(&opts, highlightRect.width(), highlightRect.height(),
                                                      WIDGET_OTHER, RADIUS_SELECTION));
 
-                        drawBevelGradient(shade(palette.background().color(), TO_FACTOR(opts.crHighlight)),
+                        drawBevelGradient(shade(palette.window().color(), TO_FACTOR(opts.crHighlight)),
                                           painter, highlightRect,
                                           buildPath(QRectF(highlightRect), WIDGET_OTHER, ROUNDED_ALL, radius), true,
                                           false, opts.selectionAppearance, WIDGET_SELECTION, false);
                         painter->restore();
                     }
                     else
-                        drawBevelGradient(shade(palette.background().color(), TO_FACTOR(opts.crHighlight)), painter,
+                        drawBevelGradient(shade(palette.window().color(), TO_FACTOR(opts.crHighlight)), painter,
                                           highlightRect, true, false, opts.selectionAppearance, WIDGET_SELECTION);
                 }
                 ParentStyleClass::drawControl(element, &copy, painter, widget);
@@ -5404,7 +5404,7 @@ void Style::drawComplexControl(ComplexControl control, const QStyleOptionComplex
             if(kwin && (state&QtC_StateKWinFillBgnd))
                 drawBevelGradient(titleCols[ORIGINAL_SHADE], painter, tr, path, true, false, APPEARANCE_FLAT, WIDGET_MDI_WINDOW, false);
             if((!kwin && !m_isPreview) ||
-               (APPEARANCE_NONE!=app && (!qtcIsFlat(app) || (titleCols[ORIGINAL_SHADE]!=QApplication::palette().background().color()))))
+               (APPEARANCE_NONE!=app && (!qtcIsFlat(app) || (titleCols[ORIGINAL_SHADE]!=QApplication::palette().window().color()))))
                 drawBevelGradient(titleCols[ORIGINAL_SHADE], painter, tr, path, true, false, app, WIDGET_MDI_WINDOW, false);
 
             if(!(state&QtC_StateKWinNoBorder))

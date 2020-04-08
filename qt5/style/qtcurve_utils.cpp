@@ -119,7 +119,7 @@ setBgndProp(QWidget *w, EAppearance app, bool haveBgndImage)
         uint32_t prop = (((qtcIsFlatBgnd(app) ?
                            (haveBgndImage ? APPEARANCE_RAISED :
                             APPEARANCE_FLAT) : app) & 0xFF) |
-                         (w->palette().background().color().rgb() &
+                         (w->palette().window().color().rgb() &
                           0x00FFFFFF) << 8);
         qtcX11SetBgnd(wid, prop);
     }

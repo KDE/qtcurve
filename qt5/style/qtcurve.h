@@ -325,7 +325,7 @@ private:
     backgroundColors(const QStyleOption *option) const
     {
         return (option ?
-                backgroundColors(option->palette.background().color()) :
+                backgroundColors(option->palette.window().color()) :
                 m_backgroundCols);
     }
     const QColor *highlightColors(const QColor &col) const;
