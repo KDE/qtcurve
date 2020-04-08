@@ -6701,32 +6701,36 @@ QRect Style::subControlRect(ComplexControl control, const QStyleOptionComplex *o
             bs = bs.expandedTo(QApplication::globalStrut());
 
             int y = 0;
-            int x = reverse ? 0 : r.width() - bs.width();
+            int x = reverse ? (0 + fw) : (r.width() - bs.width() - fw + r.x());
 
             switch (subControl) {
             case SC_SpinBoxUp:
                 if (spinbox->buttonSymbols == QAbstractSpinBox::NoButtons)
                     return QRect();
-                return QRect(x, y, bs.width(), bs.height());
+                r = QRect(x, y, bs.width(), bs.height());
+                break;
             case SC_SpinBoxDown:
                 if (spinbox->buttonSymbols == QAbstractSpinBox::NoButtons)
                     return QRect();
-                return QRect(x, y + bs.height(), bs.width(),
-                             bs.height() + (bs.height() * 2 == r.height() ? 0 : 1));
+                r = QRect(x, y + bs.height(), bs.width(),
+                          bs.height() + (bs.height() * 2 == r.height() ? 0 : 1));
+                break;
             case SC_SpinBoxEditField: {
                 int pad = opts.round > ROUND_FULL ? 2 : 0;
                 if (spinbox->buttonSymbols == QAbstractSpinBox::NoButtons) {
-                    return QRect(fw, fw, (x - fw * 2) - pad, r.height() - 2 * fw);
+                    r = QRect(fw, fw, (x - fw * 2) - pad, r.height() - 2 * fw);
                 }
                 else {
-                    return QRect(fw + (reverse ? bs.width() : 0), fw,
-                                 (x - fw * 2) - pad, r.height() - 2 * fw);
+                    r = QRect(fw + (reverse ? bs.width() : 0), fw,
+                              (x - fw * 2) - pad, r.height() - 2 * fw);
                 }
+                break;
             }
             case SC_SpinBoxFrame:
             default:
-                return visualRect(spinbox->direction, spinbox->rect, r);
+                break;
             }
+            return visualRect(spinbox->direction, spinbox->rect, r);
         }
         break;
     case CC_ScrollBar:
