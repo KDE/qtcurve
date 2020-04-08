@@ -6690,41 +6690,42 @@ QRect Style::subControlRect(ComplexControl control, const QStyleOptionComplex *o
         break;
     case CC_SpinBox:
         if (auto spinbox = styleOptCast<QStyleOptionSpinBox>(option)) {
-            int fw(spinbox->frame ? pixelMetric(PM_SpinBoxFrameWidth, spinbox, widget) : 0);
             QSize bs;
+            int fw = spinbox->frame ? pixelMetric(PM_SpinBoxFrameWidth, spinbox, widget) : 0;
 
-            bs.setHeight(r.height()>>1);
-            if(bs.height()< 8)
+            bs.setHeight(r.height() >> 1);
+            if (bs.height() < 8)
                 bs.setHeight(8);
             bs.setWidth(opts.buttonEffect != EFFECT_NONE && opts.etchEntry ?
                         16 : 15);
-            bs=bs.expandedTo(QApplication::globalStrut());
+            bs = bs.expandedTo(QApplication::globalStrut());
 
-            int y(0), x(reverse ? 0 : r.width()-bs.width());
+            int y = 0;
+            int x = reverse ? 0 : r.width() - bs.width();
 
-            switch(subControl)
-            {
+            switch (subControl) {
             case SC_SpinBoxUp:
-                return QAbstractSpinBox::NoButtons==spinbox->buttonSymbols
-                    ? QRect()
-                    : QRect(x, y, bs.width(), bs.height());
-            case SC_SpinBoxDown:
-                if(QAbstractSpinBox::NoButtons==spinbox->buttonSymbols)
+                if (spinbox->buttonSymbols == QAbstractSpinBox::NoButtons)
                     return QRect();
-                else
-                    return QRect(x, y+bs.height(), bs.width(), bs.height()+(bs.height()*2==r.height() ? 0 : 1));
-            case SC_SpinBoxEditField:
-            {
-                int pad=opts.round>ROUND_FULL ? 2 : 0;
-
-                if (QAbstractSpinBox::NoButtons==spinbox->buttonSymbols)
-                    return QRect(fw, fw, (x-fw*2)-pad, r.height()-2*fw);
-                else
-                    return QRect(fw+(reverse ? bs.width() : 0), fw, (x-fw*2)-pad, r.height()-2*fw);
+                return QRect(x, y, bs.width(), bs.height());
+            case SC_SpinBoxDown:
+                if (spinbox->buttonSymbols == QAbstractSpinBox::NoButtons)
+                    return QRect();
+                return QRect(x, y + bs.height(), bs.width(),
+                             bs.height() + (bs.height() * 2 == r.height() ? 0 : 1));
+            case SC_SpinBoxEditField: {
+                int pad = opts.round > ROUND_FULL ? 2 : 0;
+                if (spinbox->buttonSymbols == QAbstractSpinBox::NoButtons) {
+                    return QRect(fw, fw, (x - fw * 2) - pad, r.height() - 2 * fw);
+                }
+                else {
+                    return QRect(fw + (reverse ? bs.width() : 0), fw,
+                                 (x - fw * 2) - pad, r.height() - 2 * fw);
+                }
             }
             case SC_SpinBoxFrame:
             default:
-                return visualRect(spinbox->direction, spinbox->rect, spinbox->rect);
+                return visualRect(spinbox->direction, spinbox->rect, r);
             }
         }
         break;
