@@ -707,7 +707,7 @@ static void readDoubleList(QtCConfig &cfg, const char *key, double *list, int co
 #define CFG_READ_STRING_LIST(ENTRY) do {                                \
         QString val = readStringEntry(cfg, #ENTRY);                     \
         Strings set = val.isEmpty() ? Strings() :                       \
-            Strings::fromList(val.split(",", QString::SkipEmptyParts)); \
+            QtCurve::qSetFromList(val.split(",", QString::SkipEmptyParts)); \
         opts->ENTRY = set.count() || cfg.hasKey(#ENTRY) ? set : def->ENTRY; \
     } while (0)
 
@@ -2179,7 +2179,7 @@ static const char * toStr(ETBarBtn tb)
     if (!exportingStyle && def.ENTRY==opts.ENTRY) \
         CFG.deleteEntry(#ENTRY); \
     else \
-        CFG.writeEntry(#ENTRY, QStringList(opts.ENTRY.toList()).join(",")); \
+        CFG.writeEntry(#ENTRY, QStringList(opts.ENTRY.values()).join(",")); \
 
 bool qtcWriteConfig(KConfig *cfg, const Options &opts, const Options &def, bool exportingStyle)
 {

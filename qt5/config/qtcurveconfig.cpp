@@ -221,7 +221,7 @@ static const KStandardAction::StandardAction standardAction[] =
 
 static QString toString(const QSet<QString> &set)
 {
-    QStringList list=set.toList();
+    QStringList list=set.values();
 
     qSort(list);
     return list.join(", ");
@@ -236,7 +236,7 @@ static QSet<QString> toSet(const QString &str)
     for(; it!=end; ++it)
         (*it)=(*it).simplified();
 
-    return QSet<QString>::fromList(list);
+    return qSetFromList(list);
 }
 
 CStylePreview::CStylePreview(QWidget *parent)

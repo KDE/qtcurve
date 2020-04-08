@@ -463,7 +463,7 @@ void Style::init(bool initial)
 //    setupKde4();
 //#endif
 
-    m_windowManager->initialize(opts.windowDrag, opts.windowDragWhiteList.toList(), opts.windowDragBlackList.toList());
+    m_windowManager->initialize(opts.windowDrag, opts.windowDragWhiteList.values(), opts.windowDragBlackList.values());
 
     switch(opts.shadeSliders)
     {
@@ -1715,7 +1715,7 @@ Style::drawLightBevel(QPainter *p, const QRect &r, const QStyleOption *option,
             key.sprintf("qtc-%x-%x-%x-%x-%x-%x-%x-%x-%x", w, onToolbar ? 1 : 0,
                         round, (int)realRound, pixSize.width(), pixSize.height(),
                         state, fill.rgba(), (int)(radius * 100));
-            if (!m_usePixmapCache || !QPixmapCache::find(key, pix)) {
+            if (!m_usePixmapCache || !QPixmapCache::find(key, &pix)) {
                 pix = QPixmap(pixSize);
                 pix.fill(Qt::transparent);
 
@@ -2138,7 +2138,7 @@ QPixmap Style::drawStripes(const QColor &color, int opacity) const
         col.setAlphaF(opacity/100.0);
 
     key.sprintf("qtc-stripes-%x", col.rgba());
-    if(!m_usePixmapCache || !QPixmapCache::find(key, pix))
+    if(!m_usePixmapCache || !QPixmapCache::find(key, &pix))
     {
         pix=QPixmap(QSize(64, 64));
 
@@ -2208,7 +2208,7 @@ Style::drawBackground(QPainter *p, const QColor &bgnd, const QRect &r,
                 col.setAlphaF(opacity / 100.0);
 
             key.sprintf("qtc-bgnd-%x-%d-%d", col.rgba(), grad, app);
-            if (!m_usePixmapCache || !QPixmapCache::find(key, pix)) {
+            if (!m_usePixmapCache || !QPixmapCache::find(key, &pix)) {
                 pix = QPixmap(QSize(grad == GT_HORIZ ? constPixmapWidth :
                                     constPixmapHeight, grad == GT_HORIZ ?
                                     constPixmapHeight : constPixmapWidth));
@@ -2248,7 +2248,7 @@ Style::drawBackground(QPainter *p, const QColor &bgnd, const QRect &r,
             int size = qMin(BGND_SHINE_SIZE, qMin(r.height() * 2, r.width()));
             QString key;
             key.sprintf("qtc-radial-%x", size / BGND_SHINE_STEPS);
-            if (!m_usePixmapCache || !QPixmapCache::find(key, pix)) {
+            if (!m_usePixmapCache || !QPixmapCache::find(key, &pix)) {
                 size /= BGND_SHINE_STEPS;
                 size *= BGND_SHINE_STEPS;
                 pix = QPixmap(size, size / 2);

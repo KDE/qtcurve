@@ -974,6 +974,16 @@ sbSliderMOLen(const Options &opts, int len)
     return 6;
 }
 
+template<typename T> static inline QSet<T>
+qSetFromList(const QList<T> &list)
+{
+#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
+    return QSet<T>(list.begin(), list.end());
+#else
+    return QSet<T>::fromList(list);
+#endif
+}
+
 }
 
 #define EXTRA_INNER_RADIUS   3.5

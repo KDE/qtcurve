@@ -3092,9 +3092,9 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
                      opts.customMenuSelTextColor :
                      opts.useHighlightForMenu ?
                      palette.highlightedText().color() :
-                     palette.foreground().color() :
-                     palette.foreground().color() :
-                     palette.foreground().color());
+                     palette.windowText().color() :
+                     palette.windowText().color() :
+                     palette.windowText().color());
 
                 painter->setPen(col);
                 painter->drawText(r, alignment, mbi->text);
@@ -3308,7 +3308,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
             painter->setPen(dis ? palette.text().color() :
                             selected && opts.useHighlightForMenu &&
                             !m_ooMenuCols ? palette.highlightedText().color() :
-                            palette.foreground().color());
+                            palette.windowText().color());
 
             int x;
             int y;

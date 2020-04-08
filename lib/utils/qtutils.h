@@ -142,9 +142,9 @@ getStyle(const C *obj)
 QTC_ALWAYS_INLINE static inline int
 qtcGetBalloonMargin(QWidget *widget, bool *atTop)
 {
-    int topMargin = 0;
-    int bottomMargin = 0;
-    widget->getContentsMargins(nullptr, &topMargin, nullptr, &bottomMargin);
+    auto margins = widget->contentsMargins();
+    int topMargin = margins.top();
+    int bottomMargin = margins.bottom();
     if (topMargin > bottomMargin) {
         *atTop = true;
         return topMargin - bottomMargin;
