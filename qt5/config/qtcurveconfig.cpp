@@ -236,7 +236,7 @@ static QSet<QString> toSet(const QString &str)
     for(; it!=end; ++it)
         (*it)=(*it).simplified();
 
-    return qSetFromList(list);
+    return QtCurve::qSetFromList(list);
 }
 
 CStylePreview::CStylePreview(QWidget *parent)
