@@ -73,7 +73,6 @@ if(ENABLE_QT5)
       I18n
       GuiAddons
       KIO
-      GuiAddons
       IconThemes
       WidgetsAddons
       WindowSystem
