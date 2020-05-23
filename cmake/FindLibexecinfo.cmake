@@ -42,7 +42,7 @@ if(LIBEXECINFO_INCLUDE_DIR)
 endif()
 
 include(FindPackageHandleStandardArgs)
-find_package_handle_standard_args(LibExecinfo
+find_package_handle_standard_args(Libexecinfo
   DEFAULT_MSG LIBEXECINFO_INCLUDE_DIR LIBEXECINFO_LIB_FOUND)
 mark_as_advanced(LIBEXECINFO_INCLUDE_DIR LIBEXECINFO_LIBRARIES
   LIBEXECINFO_LIBC_HAS_LIBEXECINFO_BACKTRACE LIBEXECINFO_LIB_FOUND)
