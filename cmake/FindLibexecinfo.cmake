@@ -1,9 +1,9 @@
-# Try to find LibExecinfo functionality
+# Try to find Libexecinfo functionality
 # Once done this will define
 #
-#  LIBEXECINFO_FOUND - system has LibExecinfo
-#  LIBEXECINFO_INCLUDE_DIR - LibExecinfo include directory
-#  LIBEXECINFO_LIBRARIES - Libraries needed to use LibExecinfo
+#  LIBEXECINFO_FOUND - system has Libexecinfo
+#  LIBEXECINFO_INCLUDE_DIR - Libexecinfo include directory
+#  LIBEXECINFO_LIBRARIES - Libraries needed to use Libexecinfo
 #
 # TODO: This will enable translations only if Gettext functionality is
 # present in libc. Must have more robust system for release, where Gettext
@@ -17,7 +17,7 @@
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 
 if(LIBEXECINFO_INCLUDE_DIR AND LIBEXECINFO_LIB_FOUND)
-  set(LibExecinfo_FIND_QUIETLY TRUE)
+  set(Libexecinfo_FIND_QUIETLY TRUE)
 endif()
 
 unset(LIBEXECINFO_INCLUDE_DIR CACHE)
