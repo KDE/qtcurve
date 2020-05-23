@@ -20,12 +20,9 @@
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
 
-#include <kdeversion.h>
-
-#include <kcolorscheme.h>
-
-#include <KConfig>
-#include <KConfigGroup>
+#include <KConfigCore/KConfig>
+#include <KConfigCore/KConfigGroup>
+#include <KConfigWidgets/KColorScheme>
 #include <QApplication>
 #include "qtcurveshadowconfiguration.h"
 

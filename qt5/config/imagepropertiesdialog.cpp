@@ -25,10 +25,6 @@
 #include <common/common.h>
 #include <common/kf5_utils.h>
 
-#include <KLocale>
-#include <KUrlRequester>
-#include <KFileDialog>
-
 #include <QFile>
 #include <QFileInfo>
 #include <QGridLayout>

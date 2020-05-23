@@ -372,9 +372,9 @@ private:
     void toggleStatusBar(QMainWindow *window);
 
 #ifdef QTC_QT5_ENABLE_KDE
-    void setupKde4();
+    // void setupKde4();
     void setDecorationColors();
-    void applyKdeSettings(bool pal);
+    // void applyKdeSettings(bool pal);
 #endif
     bool isWindowDragWidget(QObject *o);
     void emitMenuSize(QWidget *w, unsigned short size, bool force=false);

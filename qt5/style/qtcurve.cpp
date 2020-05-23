@@ -76,27 +76,12 @@
 #include <sys/time.h>
 
 #ifdef QTC_QT5_ENABLE_KDE
-// KDE4 support headers
-#include <KDE/KApplication>
-#include <KDE/KAboutData>
-#include <KDE/KGlobal>
-#include <KDE/KGlobalSettings>
-#include <KDE/KConfig>
-#include <KDE/KConfigGroup>
-#include <KDE/KColorScheme>
-#include <KDE/KStandardDirs>
-#include <KDE/KTitleWidget>
-#include <KDE/KTabBar>
-#include <KDE/KFileDialog>
-#include <KDE/KPassivePopup>
-#include <KDE/KXmlGuiWindow>
-#include <KDE/KStandardAction>
-#include <KDE/KActionCollection>
-#include <KDE/KMenu>
-#include <KDE/KAboutApplicationDialog>
-// KF5 headers
 #include <KConfigCore/KSharedConfig>
 #include <KWindowSystem/KWindowSystem>
+#include <KConfigWidgets/KColorScheme>
+#include <KConfigWidgets/KStandardAction>
+#include <KXmlGui/KActionCollection>
+#include <KXmlGui/KXmlGuiWindow>
 #endif
 
 #include <qtcurve-utils/color.h>
@@ -3959,7 +3944,6 @@ Style::getMdiColors(const QStyleOption *option, bool active) const
         Q_UNUSED(option);
         KConfigGroup cg(m_kdeGlobals, "WM");
 
-//         QColor col = KGlobalSettings::activeTitleColor();
         QColor col = cg.readEntry("activeBackground", QColor(48, 174, 232));
 
         if (col != m_backgroundCols[ORIGINAL_SHADE]) {
@@ -3967,15 +3951,12 @@ Style::getMdiColors(const QStyleOption *option, bool active) const
             shadeColors(col, m_activeMdiColors);
         }
 
-//         col = KGlobalSettings::inactiveTitleColor();
         col = cg.readEntry("inactiveBackground", QColor(224, 223, 222));;
         if (col != m_backgroundCols[ORIGINAL_SHADE]) {
             m_mdiColors = new QColor[TOTAL_SHADES+1];
             shadeColors(col, m_mdiColors);
         }
 
-//         m_activeMdiTextColor = KGlobalSettings::activeTextColor();
-//         m_mdiTextColor = KGlobalSettings::inactiveTextColor();
         m_activeMdiTextColor = cg.readEntry("activeForeground", QColor(255, 255, 255));
         m_mdiTextColor = cg.readEntry("inactiveForeground", QColor(75, 71, 67));
 #endif
@@ -4268,15 +4249,15 @@ Style::widgetDestroyed(QObject *o)
 }
 
 #ifdef QTC_QT5_ENABLE_KDE
-void Style::setupKde4()
-{
-    if(kapp) {
-        setDecorationColors();
-    } else {
-        applyKdeSettings(true);
-        applyKdeSettings(false);
-    }
-}
+// void Style::setupKde4()
+// {
+//     if(kapp) {
+//         setDecorationColors();
+//     } else {
+//         applyKdeSettings(true);
+//         applyKdeSettings(false);
+//     }
+// }
 
 void
 Style::setDecorationColors()
@@ -4289,57 +4270,57 @@ Style::setDecorationColors()
     shadeColors(kcs.decoration(KColorScheme::FocusColor).color(), m_focusCols);
 }
 
-void Style::applyKdeSettings(bool pal)
-{
-    if(pal)
-    {
-        if(!kapp)
-            QApplication::setPalette(standardPalette());
-        setDecorationColors();
-    }
-    else
-    {
-        KConfigGroup g(m_configFile, "General");
-        QFont        mnu=g.readEntry("menuFont", QApplication::font());
+// void Style::applyKdeSettings(bool pal)
+// {
+//     if(pal)
+//     {
+//         if(!kapp)
+//             QApplication::setPalette(standardPalette());
+//         setDecorationColors();
+//     }
+//     else
+//     {
+//         KConfigGroup g(m_configFile, "General");
+//         QFont        mnu=g.readEntry("menuFont", QApplication::font());
 
-        QApplication::setFont(g.readEntry("font", QApplication::font()));
-        QApplication::setFont(mnu, "QMenuBar");
-        QApplication::setFont(mnu, "QMenu");
-        QApplication::setFont(mnu, "KPopupTitle");
-        QApplication::setFont(g.readEntry("toolBarFont", QApplication::font()), "QToolBar");
-    }
-}
+//         QApplication::setFont(g.readEntry("font", QApplication::font()));
+//         QApplication::setFont(mnu, "QMenuBar");
+//         QApplication::setFont(mnu, "QMenu");
+//         QApplication::setFont(mnu, "KPopupTitle");
+//         QApplication::setFont(g.readEntry("toolBarFont", QApplication::font()), "QToolBar");
+//     }
+// }
 #endif
 
 void Style::kdeGlobalSettingsChange(int type, int)
 {
-#ifndef QTC_QT5_ENABLE_KDE
+    // TODO
+    // KDE5 is not emitting this anymore.
+    // We need our own signal from the configure UI
     Q_UNUSED(type);
-#else
-    switch(type) {
-    case KGlobalSettings::StyleChanged: {
-        m_configFile->reparseConfiguration();
-        if (m_usePixmapCache)
-            QPixmapCache::clear();
-        init(false);
+    // switch(type) {
+    // case KGlobalSettings::StyleChanged: {
+    //     m_configFile->reparseConfiguration();
+    //     if (m_usePixmapCache)
+    //         QPixmapCache::clear();
+    //     init(false);
 
-        for (QWidget *widget: QApplication::topLevelWidgets()) {
-            widget->update();
-        }
-        break;
-    }
-    case KGlobalSettings::PaletteChanged:
-        m_configFile->reparseConfiguration();
-        applyKdeSettings(true);
-        if (m_usePixmapCache)
-            QPixmapCache::clear();
-        break;
-    case KGlobalSettings::FontChanged:
-        m_configFile->reparseConfiguration();
-        applyKdeSettings(false);
-        break;
-    }
-#endif
+    //     for (QWidget *widget: QApplication::topLevelWidgets()) {
+    //         widget->update();
+    //     }
+    //     break;
+    // }
+    // case KGlobalSettings::PaletteChanged:
+    //     m_configFile->reparseConfiguration();
+    //     applyKdeSettings(true);
+    //     if (m_usePixmapCache)
+    //         QPixmapCache::clear();
+    //     break;
+    // case KGlobalSettings::FontChanged:
+    //     m_configFile->reparseConfiguration();
+    //     applyKdeSettings(false);
+    //     break;
+    // }
 
     m_blurHelper->setEnabled(Utils::compositingActive());
     m_windowManager->initialize(opts.windowDrag);

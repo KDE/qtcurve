@@ -58,6 +58,8 @@
 #include <QTextStream>
 #include <QMdiArea>
 #include <QMdiSubWindow>
+#include <QMimeDatabase>
+#include <QMimeType>
 #include <QStyleFactory>
 #include <QCloseEvent>
 #include <QRegExp>
@@ -72,26 +74,16 @@
 #include <klocalizedstring.h>
 #include <kactioncollection.h>
 #include <kguiitem.h>
-#include <kfiledialog.h>
 #include <kmessagebox.h>
 #include <kcharselect.h>
 #include <kstandardaction.h>
 #include <ktoolbar.h>
 #include <kzip.h>
-#include <kmimetype.h>
 #include <kcolorscheme.h>
 #include <ksharedconfig.h>
 #include <kconfig.h>
 #include <kconfiggroup.h>
 #include <kaboutdata.h>
-
-// KDE4 support
-#include <KDE/KGlobal>
-#include <KDE/KStandardDirs>
-
-// system
-#include <mutex>
-#include <initializer_list>
 
 #define EXTENSION ".qtcurve"
 #define VERSION_WITH_KWIN_SETTINGS qtcMakeVersion(1, 5)
@@ -1729,11 +1721,25 @@ QtCurveConfig::setupPresets(const Options &currentStyle,
                             const Options &defaultStyle)
 {
     // TODO custom filter and figure out what directory to use.
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-    QStringList files(KGlobal::dirs()->findAllResources("data", "QtCurve/*" EXTENSION, KStandardDirs::NoDuplicates));
-#pragma GCC diagnostic pop
-
+    QStringList files;
+    {
+        // Make unique list of relative paths
+        QHash<QString, QString> files_map;
+        QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericConfigLocation,
+                                                     QStringLiteral("QtCurve"),
+                                                     QStandardPaths::LocateDirectory);
+        for (const QString &dir: dirs) {
+            const QDir d(dir);
+            const QStringList fileNames = d.entryList(QStringList() << QStringLiteral("*" EXTENSION));
+            for (const QString &file: fileNames) {
+                if (!files_map.contains(file)) {
+                    auto abspath = d.absoluteFilePath(file);
+                    files_map.insert(file, abspath);
+                    files.append(file);
+                }
+            }
+        }
+    }
     files.sort();
 
     QStringList::Iterator it(files.begin()),
@@ -2632,14 +2638,14 @@ void QtCurveConfig::deletePreset()
 
 void QtCurveConfig::importPreset()
 {
-    QString file(KFileDialog::getOpenFileName(
-                     QUrl(), i18n("*" EXTENSION "|QtCurve Settings Files\n"
-                                  THEME_PREFIX "*" THEME_SUFFIX
-                                  "|QtCurve KDE Theme Files"), this));
+    auto file = QFileDialog::getOpenFileName(this, i18n("Open"), QString(),
+                                             i18n("QtCurve Settings Files (*" EXTENSION ");;"
+                                                  "QtCurve KDE Theme Files (" THEME_PREFIX "*" THEME_SUFFIX ")"));
 
     if (!file.isEmpty()) {
-        KMimeType::Ptr mimeType=KMimeType::findByFileContent(file);;
-        bool           compressed(mimeType && !mimeType->is("text/plain"));
+        QMimeDatabase mime_db;
+        auto mimeType = mime_db.mimeTypeForFile(file, QMimeDatabase::MatchContent);
+        bool           compressed(mimeType.isValid() && !mimeType.inherits("text/plain"));
         QString        fileName(getFileName(file)),
                        baseName(fileName.remove(EXTENSION).replace(' ', '_')),
                        name(QString(baseName).replace('_', ' '));
@@ -2790,9 +2796,8 @@ void QtCurveConfig::exportPreset()
 #endif
 
     bool compressed = haveImages();
-    QString file(KFileDialog::getSaveFileName(
-                     QUrl(), i18n("*" EXTENSION "|QtCurve Settings Files"),
-                     this));
+    auto file = QFileDialog::getSaveFileName(this, i18n("Save As"), QString(),
+                                             i18n("QtCurve Settings Files (*" EXTENSION ")"));
 
     if (!file.isEmpty()) {
         bool rv = [&] {

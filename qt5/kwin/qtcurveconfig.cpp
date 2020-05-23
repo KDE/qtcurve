@@ -21,8 +21,8 @@
  *****************************************************************************/
 
 #include "qtcurveconfig.h"
-#include <KDE/KConfig>
-#include <KDE/KConfigGroup>
+#include <KConfigCore/KConfig>
+#include <KConfigCore/KConfigGroup>
 
 namespace QtCurve {
 namespace KWin {

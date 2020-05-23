@@ -70,11 +70,13 @@ add_dependencies(qtcurve-qt5 qtc_qt5_check_on_hdr qtc_qt5_check_x_on_hdr
 target_link_libraries(qtcurve-qt5 ${QTC_QT5_LINK_LIBS} qtcurve-utils)
 if(QTC_QT5_ENABLE_KDE)
   target_link_libraries(qtcurve-qt5
+    KF5::ConfigCore
     KF5::GuiAddons
     KF5::IconThemes
-    KF5::KDELibs4Support
     KF5::Style
+    KF5::WidgetsAddons
     KF5::WindowSystem
+    KF5::XmlGui
   )
 endif()
 install(TARGETS qtcurve-qt5 LIBRARY DESTINATION ${QTCURVE_STYLE_DIR})

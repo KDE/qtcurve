@@ -72,15 +72,9 @@
 
 #ifdef QTC_QT5_ENABLE_KDE
 #include <QPrintDialog>
-#include <KDE/KApplication>
-#include <KDE/KGlobal>
-#include <KDE/KGlobalSettings>
-#include <KDE/KIconLoader>
-#include <KDE/KIcon>
-#include <KDE/KTitleWidget>
-#include <KDE/KTabBar>
-#include <KDE/KFileDialog>
-#include <KDE/KAboutApplicationDialog>
+#include <KIconThemes/KIconLoader>
+#include <KWidgetsAddons/KTitleWidget>
+#include <KXmlGui/KAboutApplicationDialog>
 #endif
 
 #include <qtcurve-utils/color.h>
@@ -438,9 +432,7 @@ void Style::polish(QPalette &palette)
     }
 #ifdef QTC_QT5_ENABLE_KDE
     // Only set palette here...
-    if (kapp) {
-        setDecorationColors();
-    }
+    setDecorationColors();
 #endif
 }
 

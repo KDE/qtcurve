@@ -1657,8 +1657,8 @@ void qtcDefaultSettings(Options *opts)
 }
 
 #ifdef CONFIG_WRITE
-#include <KDE/KConfig>
-#include <KDE/KConfigGroup>
+#include <KConfigCore/KConfig>
+#include <KConfigCore/KConfigGroup>
 
 static const char*
 toStr(EDefBtnIndicator ind)

@@ -52,8 +52,11 @@ add_library(kstyle_qtcurve5_config MODULE ${kstyle_qtcurve5_config_PART_SRCS})
 target_link_libraries(kstyle_qtcurve5_config Qt5::Core Qt5::Gui Qt5::Widgets)
 target_link_libraries(kstyle_qtcurve5_config
   KF5::Archive
+  KF5::ConfigCore
+  KF5::ConfigWidgets
   KF5::I18n
-  KF5::KDELibs4Support
+  KF5::GuiAddons
+  KF5::IconThemes
   KF5::KIOWidgets
   KF5::WidgetsAddons
   KF5::XmlGui

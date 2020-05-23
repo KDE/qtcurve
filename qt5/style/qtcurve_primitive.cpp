@@ -43,8 +43,7 @@
 #include <common/config_file.h>
 
 #ifdef QTC_QT5_ENABLE_KDE
-#include <KDE/KIcon>
-#include <KDE/KTitleWidget>
+#include <KWidgetsAddons/KTitleWidget>
 #endif
 
 namespace QtCurve {

@@ -29,8 +29,7 @@
 #include <QWindow>
 
 #ifdef QTC_QT5_ENABLE_KDE
-#  include <kdeversion.h>
-#  include <KDE/KWindowSystem>
+#  include <kwindowsystem.h>
 #endif
 
 namespace QtCurve {

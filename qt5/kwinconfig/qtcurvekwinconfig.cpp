@@ -28,9 +28,7 @@
 
 #include <qtcurve-utils/qtutils.h>
 
-#include <kconfig.h>
-#include <klocale.h>
-#include <kdeversion.h>
+#include <KConfigCore/KConfig>
 
 #include <QDBusConnection>
 

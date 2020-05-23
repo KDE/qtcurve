@@ -71,7 +71,7 @@ if(ENABLE_QT5)
       ConfigWidgets
       FrameworkIntegration
       I18n
-      KDELibs4Support
+      GuiAddons
       KIO
       GuiAddons
       IconThemes
