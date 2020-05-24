@@ -13,8 +13,8 @@ if(NOT QTC_QT4_ENABLE_KWIN)
   return()
 endif()
 
-include_directories("${CMAKE_CURRENT_BINARY_DIR}"
-  ${KDE4WORKSPACE_INCLUDE_DIR})
+include_directories("${CMAKE_CURRENT_BINARY_DIR}")
+include_directories(SYSTEM ${KDE4WORKSPACE_INCLUDE_DIR})
 set(kwin_qtcurve_config_PART_SRCS
   ${kwin_qtcurve_config_PART_SRCS}
   ../kwin/qtcurveconfig.cpp

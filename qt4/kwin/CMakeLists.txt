@@ -27,8 +27,8 @@ if(NOT QTC_QT4_ENABLE_KWIN)
   return()
 endif()
 
-include_directories(
-  "${CMAKE_CURRENT_BINARY_DIR}"
+include_directories("${CMAKE_CURRENT_BINARY_DIR}")
+include_directories(SYSTEM
   ${QT_QTGUI_INCLUDE_DIR}
   ${QT_QTCORE_INCLUDE_DIR}
   ${KDE4WORKSPACE_INCLUDE_DIR})

@@ -47,7 +47,8 @@ set(qtcurve_SRCS
   ${qtcurve_style_common_SRCS})
 
 add_definitions(-DQT_PLUGIN)
-include_directories("${CMAKE_CURRENT_BINARY_DIR}"
+include_directories("${CMAKE_CURRENT_BINARY_DIR}")
+include_directories(SYSTEM
   "${QT_QTGUI_INCLUDE_DIR}"
   "${QT_QTCORE_INCLUDE_DIR}"
   "${QT_QTDBUS_INCLUDE_DIR}"

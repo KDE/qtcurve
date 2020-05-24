@@ -47,9 +47,8 @@ set(qtcurve_style_common_SRCS
   ../common/common.cpp
   ../common/config_file.cpp)
 
-include_directories(
-  ${GTK2_INCLUDE_DIRS}
-  ${CMAKE_CURRENT_BINARY_DIR})
+include_directories(SYSTEM ${GTK2_INCLUDE_DIRS})
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 add_definitions(${GTK2_CFLAGS})
 

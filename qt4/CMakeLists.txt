@@ -46,12 +46,12 @@ if(ENABLE_QT4)
   add_definitions(${QT_DEFINITIONS})
   include_directories(
     "${CMAKE_CURRENT_BINARY_DIR}"
-    "${CMAKE_CURRENT_SOURCE_DIR}"
-    "${QT_INCLUDE_DIR}")
+    "${CMAKE_CURRENT_SOURCE_DIR}")
+  include_directories(SYSTEM "${QT_INCLUDE_DIR}")
 
   if(QTC_QT4_ENABLE_KDE)
     add_definitions(${KDE4_DEFINITIONS} -DQTC_QT4_ENABLE_KDE)
-    include_directories(${KDE4_INCLUDES})
+    include_directories(SYSTEM ${KDE4_INCLUDES})
   endif()
 else()
   set(QTC_QT4_ENABLE_KDE Off)
