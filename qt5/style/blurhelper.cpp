@@ -189,7 +189,12 @@ BlurHelper::update(QWidget *widget) const
         clear(wid);
     } else {
         QVector<uint32_t> data;
-        for (const QRect &_rect: region.rects()) {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
+        const auto &rects = region;
+#else
+        const auto &rects = region.rects();
+#endif
+        for (const QRect &_rect: rects) {
 #if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
             const auto &rect = QHighDpi::toNativePixels(_rect, widget->window()->windowHandle());
 #else
