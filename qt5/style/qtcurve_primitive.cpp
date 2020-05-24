@@ -850,8 +850,9 @@ Style::drawPrimitivePanelItemViewItem(PrimitiveElement,
                               opts.selectionAppearance, WIDGET_SELECTION);
         } else {
             QPixmap pix;
-            QString key;
-            key.sprintf("qtc-sel-%x-%x", r.height(), color.rgba());
+            QString key = QStringLiteral("qtc-sel-%1-%2")
+                .arg(r.height(), 0, 16)
+                .arg(color.rgba(), 0, 16);
             if (!m_usePixmapCache || !QPixmapCache::find(key, &pix)) {
                 pix = QPixmap(QSize(24, r.height()));
                 pix.fill(Qt::transparent);

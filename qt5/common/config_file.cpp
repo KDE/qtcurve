@@ -1385,11 +1385,9 @@ bool qtcReadConfig(const QString &file, Options *opts, Options *defOpts, bool ch
                 opts->titlebarButtons &= ~TITLEBAR_BUTTON_ICON_COLOR;
             }
 
-            for(i=APPEARANCE_CUSTOM1; i<(APPEARANCE_CUSTOM1+NUM_CUSTOM_GRAD); ++i)
-            {
+            for (i = APPEARANCE_CUSTOM1; i < (APPEARANCE_CUSTOM1 + NUM_CUSTOM_GRAD); ++i) {
                 QString gradKey;
-
-                gradKey.sprintf("customgradient%d", (i-APPEARANCE_CUSTOM1)+1);
+                QTextStream(&gradKey) << "customgradient" << i - APPEARANCE_CUSTOM1 + 1;
 
                 QStringList vals(readStringEntry(cfg, gradKey)
                                  .split(',', QString::SkipEmptyParts));
@@ -1782,7 +1780,7 @@ static QString toStr(EAppearance exp, EAppAllow allow, const QtCPixmap *pix)
         }
     default: {
         QString app;
-        app.sprintf("customgradient%d", (exp-APPEARANCE_CUSTOM1)+1);
+        QTextStream(&app) << "customgradient" << exp - APPEARANCE_CUSTOM1 + 1;
         return app;
     }
     }
@@ -1790,10 +1788,10 @@ static QString toStr(EAppearance exp, EAppAllow allow, const QtCPixmap *pix)
 
 static QString toStr(const QColor &col)
 {
-    QString colorStr;
-
-    colorStr.sprintf("#%02X%02X%02X", col.red(), col.green(), col.blue());
-    return colorStr;
+    return QStringLiteral("#%1%2%3")
+        .arg(col.red(), 2, 16, QLatin1Char('0'))
+        .arg(col.green(), 2, 16, QLatin1Char('0'))
+        .arg(col.blue(), 2, 16, QLatin1Char('0')).toUpper();
 }
 
 static QString toStr(EShade exp, const QColor &col)
@@ -2382,17 +2380,16 @@ bool qtcWriteConfig(KConfig *cfg, const Options &opts, const Options &def, bool 
         CFG_WRITE_STRING_LIST_ENTRY(useQtFileDialogApps);
         CFG_WRITE_STRING_LIST_ENTRY(nonnativeMenubarApps);
 
-        for(int i=APPEARANCE_CUSTOM1; i<(APPEARANCE_CUSTOM1+NUM_CUSTOM_GRAD); ++i)
-        {
+        for (int i = APPEARANCE_CUSTOM1; i < APPEARANCE_CUSTOM1 + NUM_CUSTOM_GRAD; ++i) {
             GradientCont::const_iterator cg(opts.customGradient.find((EAppearance)i));
-            QString                      gradKey;
+            QString gradKey;
 
-            gradKey.sprintf("customgradient%d", (i-APPEARANCE_CUSTOM1)+1);
+            QTextStream(&gradKey) << "customgradient" << i - APPEARANCE_CUSTOM1 + 1;
 
-            if(cg==opts.customGradient.end())
+            if (cg == opts.customGradient.end()) {
                 CFG.deleteEntry(gradKey);
-            else
-            {
+            }
+            else {
                 GradientCont::const_iterator d;
 
                 if(exportingStyle || (d=def.customGradient.find((EAppearance)i))==def.customGradient.end() || !((*d)==(*cg)))
