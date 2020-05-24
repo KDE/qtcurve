@@ -85,6 +85,8 @@
 #include <kconfiggroup.h>
 #include <kaboutdata.h>
 
+#include <algorithm>
+
 #define EXTENSION ".qtcurve"
 #define VERSION_WITH_KWIN_SETTINGS qtcMakeVersion(1, 5)
 
@@ -213,9 +215,9 @@ static const KStandardAction::StandardAction standardAction[] =
 
 static QString toString(const QSet<QString> &set)
 {
-    QStringList list=set.values();
+    QStringList list = set.values();
 
-    qSort(list);
+    std::sort(list.begin(), list.end());
     return list.join(", ");
 }
 
@@ -296,7 +298,7 @@ class CWorkspace : public QMdiArea
     void paintEvent(QPaintEvent *) override
     {
         QPainter p(viewport());
-        p.fillRect(rect(), palette().color(backgroundRole()).dark(110));
+        p.fillRect(rect(), palette().color(backgroundRole()).darker(110));
     }
 };
 
@@ -453,9 +455,9 @@ void CGradientPreview::setColor(const QColor &col)
 
 static QString readEnvPath(const char *env)
 {
-   const char *path=getenv(env);
+   const char *path = getenv(env);
 
-   return path ? QFile::decodeName(path) : QString::null;
+   return path ? QFile::decodeName(path) : QString();
 }
 
 static QString
@@ -501,8 +503,7 @@ static int getHideFlags(const QCheckBox *kbd, const QCheckBox *kwin)
            (kwin->isChecked() ? HIDE_KWIN : HIDE_NONE);
 }
 
-enum ShadeWidget
-{
+enum ShadeWidget {
     SW_MENUBAR,
     SW_SLIDER,
     SW_CHECK_RADIO,
@@ -515,36 +516,35 @@ enum ShadeWidget
 
 static QString uiString(EShade shade, ShadeWidget sw)
 {
-    switch(shade)
-    {
-        case SHADE_NONE:
-            switch(sw)
-            {
-                case SW_MENUBAR:
-                case SW_PROGRESS:
-                    return i18n("Background");
-                case SW_COMBO:
-                case SW_SLIDER:
-                    return i18n("Button");
-                case SW_CHECK_RADIO:
-                    return i18n("Text");
-                case SW_CR_BGND:
-                case SW_LV_HEADER:
-                case SW_MENU_STRIPE:
-                    return i18n("None");
-            }
+    switch (shade) {
+    case SHADE_NONE:
+        switch(sw) {
+        case SW_MENUBAR:
+        case SW_PROGRESS:
+            return i18n("Background");
+        case SW_COMBO:
+        case SW_SLIDER:
+            return i18n("Button");
+        case SW_CHECK_RADIO:
+            return i18n("Text");
+        case SW_CR_BGND:
+        case SW_LV_HEADER:
+        case SW_MENU_STRIPE:
         default:
-            return i18n("<unknown>");
-        case SHADE_CUSTOM:
-            return i18n("Custom:");
-        case SHADE_SELECTED:
-            return i18n("Selected background");
-        case SHADE_BLEND_SELECTED:
-            return i18n("Blended selected background");
-        case SHADE_DARKEN:
-            return SW_MENU_STRIPE==sw ? i18n("Menu background") : i18n("Darken");
-        case SHADE_WINDOW_BORDER:
-            return i18n("Titlebar");
+            return i18n("None");
+        }
+    default:
+        return i18n("<unknown>");
+    case SHADE_CUSTOM:
+        return i18n("Custom:");
+    case SHADE_SELECTED:
+        return i18n("Selected background");
+    case SHADE_BLEND_SELECTED:
+        return i18n("Blended selected background");
+    case SHADE_DARKEN:
+        return SW_MENU_STRIPE==sw ? i18n("Menu background") : i18n("Darken");
+    case SHADE_WINDOW_BORDER:
+        return i18n("Titlebar");
     }
 }
 
