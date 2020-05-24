@@ -288,12 +288,12 @@ class CWorkspace : public QMdiArea
         setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     }
 
-    QSize sizeHint() const
+    QSize sizeHint() const override
     {
         return QSize(200, 200);
     }
 
-    void paintEvent(QPaintEvent *)
+    void paintEvent(QPaintEvent *) override
     {
         QPainter p(viewport());
         p.fillRect(rect(), palette().color(backgroundRole()).dark(110));
@@ -343,8 +343,7 @@ public:
         setFlags(flags()|Qt::ItemIsEditable);
     }
 
-    bool
-    operator<(const QTreeWidgetItem &i) const
+    bool operator<(const QTreeWidgetItem &i) const override
     {
         return (text(0).toDouble() < i.text(0).toDouble() ||
                 (qtcEqual(text(0).toDouble(), i.text(0).toDouble()) &&
@@ -377,8 +376,7 @@ public:
         setTextAlignment(0, Qt::AlignRight);
     }
 
-    bool
-    operator<(const QTreeWidgetItem &o) const
+    bool operator<(const QTreeWidgetItem &o) const override
     {
         return stackId < ((CStackItem&)o).stackId;
     }

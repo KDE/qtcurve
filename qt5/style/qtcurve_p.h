@@ -231,7 +231,7 @@ class QtCurveDockWidgetTitleBar: public QWidget {
     Q_OBJECT
 public:
     QtCurveDockWidgetTitleBar(QWidget* parent) : QWidget(parent) {}
-    QSize sizeHint() const
+    QSize sizeHint() const override
     {
         return QSize(0, 0);
     }

@@ -57,9 +57,9 @@ public:
     CGradientPreview(QtCurveConfig *c, QWidget *p);
     ~CGradientPreview();
 
-    QSize sizeHint() const;
-    QSize minimumSizeHint() const;
-    void paintEvent(QPaintEvent *);
+    QSize sizeHint() const override;
+    QSize minimumSizeHint() const override;
+    void paintEvent(QPaintEvent *) override;
     void setGrad(const Gradient &g);
 
 public Q_SLOTS:
@@ -88,8 +88,8 @@ public:
     CStylePreview(QWidget *parent = 0);
     ~CStylePreview();
 
-    void closeEvent(QCloseEvent *e);
-    QSize sizeHint() const;
+    void closeEvent(QCloseEvent *e) override;
+    QSize sizeHint() const override;
 
 Q_SIGNALS:
     void closePressed();
@@ -143,7 +143,7 @@ public:
     bool settingsChanged(const Options &opts);
     bool settingsChanged();
 
-    QSize sizeHint() const;
+    QSize sizeHint() const override;
     Shading currentShading() const;
 
 private:

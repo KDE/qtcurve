@@ -43,7 +43,7 @@ public:
 
 protected:
     void updateWidget(QWidget *w);
-    bool eventFilter(QObject *watched, QEvent *event);
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     bool m_altDown;
