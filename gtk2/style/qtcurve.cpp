@@ -1881,11 +1881,10 @@ gtkDrawShadow(GtkStyle *style, GdkWindow *window, GtkStateType state,
 
             switch(shadow) {
             case GTK_SHADOW_NONE:
-                if (statusBar) {
-                    shadow = GTK_SHADOW_IN;
-                } else {
+                if (!statusBar)
                     break;
-                }
+                shadow = GTK_SHADOW_IN;
+                /* FALLTHROUGH */
             case GTK_SHADOW_IN:
             case GTK_SHADOW_ETCHED_IN:
                 c1 = 0;
@@ -3040,9 +3039,9 @@ style_init_from_rc(GtkStyle *style, GtkRcStyle *rc_style)
     parent_class->init_from_rc(style, rc_style);
 }
 
-static void
-style_class_init(StyleClass *klass)
+static void style_class_init(void *_klass, void*)
 {
+    StyleClass *klass = (StyleClass*)_klass;
     GtkStyleClass *style_class = GTK_STYLE_CLASS(klass);
 
     parent_class = (GtkStyleClass*)g_type_class_peek_parent(klass);
@@ -3161,7 +3160,7 @@ rc_style_create_style(GtkRcStyle *rc_style)
     return style;
 }
 
-static void style_init(Style*)
+static void style_init(void*, void*)
 {
     Shadow::initialize();
 }
@@ -3224,7 +3223,7 @@ style_set_hook(GSignalInvocationHint*, unsigned, const GValue *argv, void*)
 }
 
 static void
-rc_style_init(RcStyle*)
+rc_style_init(void*, void*s)
 {
 #ifdef INCREASE_SB_SLIDER
     lastSlider.widget = nullptr;
@@ -3250,8 +3249,9 @@ rc_style_finalize(GObject *object)
 }
 
 static void
-rc_style_class_init(RcStyleClass *klass)
+rc_style_class_init(void *_klass, void*)
 {
+    RcStyleClass *klass = (RcStyleClass*)_klass;
     GtkRcStyleClass *rc_style_class = GTK_RC_STYLE_CLASS(klass);
     GObjectClass *object_class = G_OBJECT_CLASS(klass);
 
