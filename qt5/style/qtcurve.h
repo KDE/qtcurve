@@ -23,7 +23,7 @@
 #ifndef __QTCURVE_H__
 #define __QTCURVE_H__
 
-#include <QTime>
+#include <QElapsedTimer>
 #include <QPalette>
 #include <QMap>
 #include <QList>
@@ -565,7 +565,7 @@ private:
     mutable int m_progressBarAnimateTimer,
         m_progressBarAnimateFps,
         m_animateStep;
-    mutable QTime m_timer;
+    mutable QElapsedTimer m_timer;
     mutable QMap<int, QColor*> m_titleBarButtonsCols;
     mutable QList<int> m_mdiButtons[2]; // 0=left, 1=right
     mutable int m_titlebarHeight;

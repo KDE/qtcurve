@@ -1390,9 +1390,8 @@ bool Style::eventFilter(QObject *object, QEvent *event)
             if (!m_progressBarAnimateTimer) {
                 if (opts.animatedProgress || (0 == bar->minimum() && 0 == bar->maximum())) {
                     // we know we'll need a timer, start it at once
-                    if (m_timer.isNull()) {
+                    if (!m_timer.isValid())
                         m_timer.start();
-                    }
                     m_progressBarAnimateFps = constProgressBarFps;
                     m_progressBarAnimateTimer = startTimer(1000/m_progressBarAnimateFps);
                 }
@@ -2898,9 +2897,8 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
             painter->save();
 
             if (!m_progressBarAnimateTimer && (opts.animatedProgress || indeterminate)) {
-                if (m_timer.isNull()) {
+                if (!m_timer.isValid())
                     m_timer.start();
-                }
                 // now we'll need a timer, start it at the regular frequency
                 m_progressBarAnimateFps = constProgressBarFps;
                 m_progressBarAnimateTimer = const_cast<Style*>(this)->startTimer(1000/m_progressBarAnimateFps);
