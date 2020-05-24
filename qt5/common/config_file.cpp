@@ -594,7 +594,7 @@ public:
 
     bool ok() const {return values.count() > 0;}
     bool hasKey(const QString &key) {return values.contains(key);}
-    QString readEntry(const QString &key, const QString &def=QString::null);
+    QString readEntry(const QString &key, const QString &def=QString());
 private:
     QMap<QString, QString> values;
 };
@@ -1738,56 +1738,53 @@ static const char *toStr(EMouseOver mo)
 
 static QString toStr(EAppearance exp, EAppAllow allow, const QtCPixmap *pix)
 {
-    switch(exp)
-    {
-        case APPEARANCE_FLAT:
-            return "flat";
-        case APPEARANCE_RAISED:
-            return "raised";
-        case APPEARANCE_DULL_GLASS:
-            return "dullglass";
-        case APPEARANCE_SHINY_GLASS:
-            return "shinyglass";
-        case APPEARANCE_AGUA:
-            return "agua";
-        case APPEARANCE_SOFT_GRADIENT:
-            return "soft";
-        case APPEARANCE_GRADIENT:
-            return "gradient";
-        case APPEARANCE_HARSH_GRADIENT:
-            return "harsh";
-        case APPEARANCE_INVERTED:
-            return "inverted";
-        case APPEARANCE_DARK_INVERTED:
-            return "darkinverted";
-        case APPEARANCE_SPLIT_GRADIENT:
-            return "splitgradient";
-        case APPEARANCE_BEVELLED:
-            return "bevelled";
-        case APPEARANCE_FILE:
-            // When savng, strip users config dir from location.
-            return QLatin1String("file:")+
-                    (pix->file.startsWith(QtCurve::getConfDir())
-                        ? pix->file.mid(strlen(QtCurve::getConfDir())+1)
-                        : pix->file);
-        case APPEARANCE_FADE:
-            switch(allow)
-            {
-                case APP_ALLOW_BASIC: // Should not get here!
-                case APP_ALLOW_FADE:
-                    return "fade";
-                case APP_ALLOW_STRIPED:
-                    return "striped";
-                case APP_ALLOW_NONE:
-                    return "none";
-            }
+    switch (exp) {
+    case APPEARANCE_FLAT:
+        return "flat";
+    case APPEARANCE_RAISED:
+        return "raised";
+    case APPEARANCE_DULL_GLASS:
+        return "dullglass";
+    case APPEARANCE_SHINY_GLASS:
+        return "shinyglass";
+    case APPEARANCE_AGUA:
+        return "agua";
+    case APPEARANCE_SOFT_GRADIENT:
+        return "soft";
+    case APPEARANCE_GRADIENT:
+        return "gradient";
+    case APPEARANCE_HARSH_GRADIENT:
+        return "harsh";
+    case APPEARANCE_INVERTED:
+        return "inverted";
+    case APPEARANCE_DARK_INVERTED:
+        return "darkinverted";
+    case APPEARANCE_SPLIT_GRADIENT:
+        return "splitgradient";
+    case APPEARANCE_BEVELLED:
+        return "bevelled";
+    case APPEARANCE_FILE:
+        // When savng, strip users config dir from location.
+        return QLatin1String("file:")+
+            (pix->file.startsWith(QtCurve::getConfDir())
+             ? pix->file.mid(strlen(QtCurve::getConfDir())+1)
+             : pix->file);
+    case APPEARANCE_FADE:
+        switch (allow) {
+        case APP_ALLOW_BASIC: // Should not get here!
+        case APP_ALLOW_FADE:
+            return "fade";
+        case APP_ALLOW_STRIPED:
+            return "striped";
+        case APP_ALLOW_NONE:
         default:
-        {
-            QString app;
-
-            app.sprintf("customgradient%d", (exp-APPEARANCE_CUSTOM1)+1);
-            return app;
+            return "none";
         }
+    default: {
+        QString app;
+        app.sprintf("customgradient%d", (exp-APPEARANCE_CUSTOM1)+1);
+        return app;
+    }
     }
 }
 

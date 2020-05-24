@@ -494,8 +494,7 @@ typedef enum
     WIDGET_OTHER
 } EWidget;
 
-typedef enum
-{
+typedef enum {
     APP_ALLOW_BASIC,
     APP_ALLOW_FADE,
     APP_ALLOW_STRIPED,

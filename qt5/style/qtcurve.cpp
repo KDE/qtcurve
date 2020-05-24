@@ -3766,10 +3766,9 @@ const QColor * Style::getSidebarButtons() const
 
 void Style::setMenuColors(const QColor &bgnd)
 {
-    switch(opts.shadeMenubars)
-    {
+    switch (opts.shadeMenubars) {
     case SHADE_NONE:
-        memcpy(m_menubarCols, m_backgroundCols, sizeof(QColor)*(TOTAL_SHADES+1));
+        std::copy(m_backgroundCols, m_backgroundCols + TOTAL_SHADES + 1, m_menubarCols);
         break;
     case SHADE_BLEND_SELECTED:
         shadeColors(midColor(m_highlightCols[ORIGINAL_SHADE], m_backgroundCols[ORIGINAL_SHADE]), m_menubarCols);
