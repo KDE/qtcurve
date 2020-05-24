@@ -1688,7 +1688,6 @@ Style::drawLightBevel(QPainter *p, const QRect &r, const QStyleOption *option,
             drawLightBevelReal(p, r, option, widget, round, fill, custom,
                                doBorder, w, true, realRound, onToolbar);
         } else {
-            QString key;
             bool small(circular || (horiz ? r.width() : r.height())<(2*endSize));
             QPixmap pix;
             const QSize pixSize(small ? QSize(r.width(), r.height()) :
@@ -1697,9 +1696,11 @@ Style::drawLightBevel(QPainter *p, const QRect &r, const QStyleOption *option,
             uint state(option->state&(State_Raised|State_Sunken|State_On|State_Horizontal|State_HasFocus|State_MouseOver|
                                          (WIDGET_MDI_WINDOW_BUTTON==w ? State_Active : State_None)));
 
-            key.sprintf("qtc-%x-%x-%x-%x-%x-%x-%x-%x-%x", w, onToolbar ? 1 : 0,
-                        round, (int)realRound, pixSize.width(), pixSize.height(),
-                        state, fill.rgba(), (int)(radius * 100));
+            QString key = QStringLiteral("qtc-%1-%2-%3-%4-%5-%6-%7-%8-%9")
+                .arg(w, 0, 16).arg(onToolbar ? 1 : 0, 0, 16).arg(round, 0, 16)
+                .arg((int)realRound, 0, 16).arg(pixSize.width(), 0, 16)
+                .arg(pixSize.height(), 0, 16)
+                .arg(state, 0, 16).arg(fill.rgba(), 0, 16).arg((int)(radius * 100), 0, 16);
             if (!m_usePixmapCache || !QPixmapCache::find(key, &pix)) {
                 pix = QPixmap(pixSize);
                 pix.fill(Qt::transparent);
@@ -2116,13 +2117,12 @@ void Style::drawBgndRing(QPainter &painter, int x, int y, int size, int size2, b
 QPixmap Style::drawStripes(const QColor &color, int opacity) const
 {
     QPixmap pix;
-    QString key;
     QColor  col(color);
 
     if(100!=opacity)
         col.setAlphaF(opacity/100.0);
 
-    key.sprintf("qtc-stripes-%x", col.rgba());
+    QString key = QStringLiteral("qtc-stripes-%1").arg(col.rgba(), 0, 16);
     if(!m_usePixmapCache || !QPixmapCache::find(key, &pix))
     {
         pix=QPixmap(QSize(64, 64));
@@ -2184,7 +2184,6 @@ Style::drawBackground(QPainter *p, const QColor &bgnd, const QRect &r,
         } else if (app == APPEARANCE_FILE) {
             pix = isWindow ? opts.bgndPixmap.img : opts.menuBgndPixmap.img;
         } else {
-            QString key;
             scaledSize = QSize(grad == GT_HORIZ ? constPixmapWidth : r.width(),
                                grad == GT_HORIZ ? r.height() :
                                constPixmapWidth);
@@ -2192,7 +2191,8 @@ Style::drawBackground(QPainter *p, const QColor &bgnd, const QRect &r,
             if (opacity != 100)
                 col.setAlphaF(opacity / 100.0);
 
-            key.sprintf("qtc-bgnd-%x-%d-%d", col.rgba(), grad, app);
+            QString key = QStringLiteral("qtc-bgnd-%1-%2-%3")
+                .arg(col.rgba(), 0, 16).arg(grad).arg(app);
             if (!m_usePixmapCache || !QPixmapCache::find(key, &pix)) {
                 pix = QPixmap(QSize(grad == GT_HORIZ ? constPixmapWidth :
                                     constPixmapHeight, grad == GT_HORIZ ?
@@ -2231,8 +2231,7 @@ Style::drawBackground(QPainter *p, const QColor &bgnd, const QRect &r,
             grad == GT_HORIZ &&
             qtcGetGradient(app, &opts)->border == GB_SHINE) {
             int size = qMin(BGND_SHINE_SIZE, qMin(r.height() * 2, r.width()));
-            QString key;
-            key.sprintf("qtc-radial-%x", size / BGND_SHINE_STEPS);
+            QString key = QStringLiteral("qtc-radial-%1").arg(size / BGND_SHINE_STEPS, 0, 16);
             if (!m_usePixmapCache || !QPixmapCache::find(key, &pix)) {
                 size /= BGND_SHINE_STEPS;
                 size *= BGND_SHINE_STEPS;
