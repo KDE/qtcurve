@@ -86,6 +86,8 @@
 #  include "dialog_information-png.h"
 #endif
 
+#include <algorithm>
+
 // WebKit seems to just use the values from ::pixelMetric to get button sizes. So, in pixelMetric we add some extra padding to PM_ButtonMargin
 // if we're max rounding - this gives a nicer border. However, dont want this on real buttons - so in sizeFromContents we remove this padding
 // in CT_PushButton and CT_ComboBox
@@ -4013,8 +4015,7 @@ void Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option, 
                     else if (fo && fo->lineWidth > 0) {
                         bool kwinTab(theThemedApp == APP_KWIN && widget &&
                                      !widget->parentWidget() &&
-                                     oneOf(widget->metaObject()->className(),
-                                           "KWin::TabBox"));
+                                     oneOf(widget->metaObject()->className(), "KWin::TabBox"));
                         QStyleOption opt(*option);
 
                         painter->save();
@@ -6104,8 +6105,7 @@ void Style::drawControl(ControlElement element, const QStyleOption *option, QPai
                 painter->save();
 
                 if (!opts.xbar ||
-                    (!widget || oneOf("QWidget",
-                                      widget->metaObject()->className()))) {
+                    (!widget || oneOf(widget->metaObject()->className(), "QWidget"))) {
                     drawMenuOrToolBarBackground(widget, painter,
                                                 mbi->menuRect, option);
                 }
@@ -6588,8 +6588,7 @@ void Style::drawControl(ControlElement element, const QStyleOption *option, QPai
         case CE_MenuBarEmptyArea: {
             painter->save();
             if (!opts.xbar ||
-                (!widget || noneOf(widget->metaObject()->className(),
-                                   "QWidget"))) {
+                (!widget || noneOf(widget->metaObject()->className(), "QWidget"))) {
                 drawMenuOrToolBarBackground(widget, painter, r, option);
             }
             if (TB_NONE != opts.toolbarBorders && widget &&
@@ -12885,7 +12884,7 @@ void Style::setMenuColors(const QColor &bgnd)
     switch(opts.shadeMenubars)
     {
         case SHADE_NONE:
-            memcpy(m_menubarCols, m_backgroundCols, sizeof(QColor)*(TOTAL_SHADES+1));
+            std::copy(m_backgroundCols, m_backgroundCols + TOTAL_SHADES + 1, m_menubarCols);
             break;
         case SHADE_BLEND_SELECTED:
             shadeColors(midColor(m_highlightCols[ORIGINAL_SHADE], m_backgroundCols[ORIGINAL_SHADE]), m_menubarCols);
