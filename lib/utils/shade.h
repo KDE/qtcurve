@@ -58,7 +58,6 @@ static const double qtc_intern_shades[2][11][QTC_NUM_STD_SHADES] = {
 };
 
 #define QTC_STD_BORDER (5)
-#define QTC_DISABLED_BORDER QTC_STD_BORDER /* (3) */
 
 QTC_ALWAYS_INLINE static inline double
 qtcShadeGetIntern(int c, int s, bool darker, Shading shading)
@@ -66,11 +65,9 @@ qtcShadeGetIntern(int c, int s, bool darker, Shading shading)
     if (c > 10 || c < 0 || s >= QTC_NUM_STD_SHADES || s < 0) {
         return 1.0;
     }
-    double shade =
-        qtc_intern_shades[Shading::Simple == shading ? 1 : 0][c][s];
-    if (darker && (QTC_STD_BORDER == s || QTC_DISABLED_BORDER == s)) {
+    double shade = qtc_intern_shades[Shading::Simple == shading ? 1 : 0][c][s];
+    if (darker && s == QTC_STD_BORDER)
         return shade - 0.1;
-    }
     return shade;
 }
 

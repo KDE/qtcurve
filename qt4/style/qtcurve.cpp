@@ -11728,7 +11728,7 @@ void Style::drawBorder(QPainter *p, const QRect &r, const QStyleOption *option, 
                           : cols[WIDGET_PROGRESSBAR==w
                                     ? PBAR_BORDER
                                     : !enabled && (WIDGET_BUTTON(w) || WIDGET_SLIDER_TROUGH==w)
-                                        ? QTC_DISABLED_BORDER
+                                        ? QTC_STD_BORDER
                                             : m_mouseOverCols==cols && IS_SLIDER(w)
                                                 ? SLIDER_MO_BORDER_VAL
                                                 : borderVal]);

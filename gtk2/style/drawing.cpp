@@ -176,7 +176,7 @@ drawBorder(cairo_t *cr, GtkStyle *style, GtkStateType state,
                          opts.unifyCombo && opts.unifySpin);
     const GdkColor *colors = c_colors ? c_colors : qtcPalette.background;
     int useBorderVal = (!enabled && widgetIsButton(widget) ?
-                        QTC_DISABLED_BORDER :
+                        QTC_STD_BORDER :
                         qtcPalette.mouseover == colors && IS_SLIDER(widget) ?
                         SLIDER_MO_BORDER_VAL : borderVal);
     const GdkColor *border_col = (useText ? &style->text[GTK_STATE_NORMAL] :
