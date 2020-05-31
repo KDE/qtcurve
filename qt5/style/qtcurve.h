@@ -31,6 +31,8 @@
 #include <QCache>
 #include <QColor>
 #include <QFont>
+#include <QPainter>
+#include <QPainterPath>
 #include <QStyleOption>
 #include <QtGlobal>
 #include <QCommonStyle>
