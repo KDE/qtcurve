@@ -432,7 +432,9 @@ void Style::polish(QPalette &palette)
     }
 #ifdef QTC_QT5_ENABLE_KDE
     // Only set palette here...
-    setDecorationColors();
+    if (qApp) {
+        setDecorationColors();
+    }
 #endif
 }
 
