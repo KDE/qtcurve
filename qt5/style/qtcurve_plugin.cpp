@@ -161,11 +161,11 @@ StylePlugin::~StylePlugin()
             that->m_plugin = nullptr;
             // each instance should already have disconnected from the D-Bus
             // and disconnected from receiving select signals.
-            if (!that->parent()) {
-                delete that;
-            } else {
-                qtcDebug("Ignoring Style instance %p with parent %p\n", that, that->parent());
+            if (that->parent()) {
+                qtcDebug("Taking back ownership of instance %p from parent %p\n", that, that->parent());
+                that->setParent(nullptr);
             }
+            delete that;
         }
         m_styleInstances.clear();
     }
