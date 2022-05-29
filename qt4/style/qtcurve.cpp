@@ -2926,12 +2926,13 @@ int Style::pixelMetric(PixelMetric metric, const QStyleOption *option, const QWi
         case PM_MenuBarItemSpacing:
             return 0;
         case PM_ToolBarItemMargin:
-            return 0;
+            // with two locked toolbars together the last/first items are too close when there is no frame,
+            // so add a margin instead.
+            return TB_NONE==opts.toolbarBorders ? 1 : 0;
         case PM_ToolBarItemSpacing:
             return TBTN_JOINED==opts.tbarBtns ? 0 : 1;
         case PM_ToolBarFrameWidth:
-            // Remove because, in KDE4 at least, if have two locked toolbars together then the last/first items are too close
-            return /*TB_NONE==opts.toolbarBorders ? 0 : */1;
+            return TB_NONE==opts.toolbarBorders ? 0 : 1;
         case PM_FocusFrameVMargin:
         case PM_FocusFrameHMargin:
             return 2;
