@@ -1022,7 +1022,7 @@ msgstr "Colors dels botons de la finestra"
 #: qt4/config/qtcurveconfig.cpp:1765 qt5/config/qtcurveconfig.cpp:1699
 #, kde-format
 msgid "Menubars"
-msgstr "Barres de menús"
+msgstr "Barres de menú"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squarePopupMenus)
 #: qt4/config/qtcurveconfig.cpp:1766 qt4/config/qtcurveconfigbase.ui:559
@@ -1129,7 +1129,7 @@ msgid ""
 "menubar</li>"
 msgstr ""
 "<p>Establisc els següents elements de configuració de manera que la barra de "
-"títol de la finestra i les barres de menús apareguen barrejades?</"
+"títol de la finestra i les barres de menú apareguen barrejades?</"
 "p><ul><li>La barra de menús, barra de títol i el degradat de la barra de "
 "títol inactiva a «%1»</li><li>Desactiva «Barreja el color de la barra de "
 "títol amb el color de fons»</li><li>Establix la coloració de la barra de "
@@ -3328,7 +3328,7 @@ msgid ""
 "have menubars."
 msgstr ""
 "<p>Si està activada, el color de la barra de menús configurada, serà emprat "
-"per les finestres que tinguen barres de menús."
+"per les finestres que tinguen barres de menú."
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_menuColor)
 #: qt4/config/qtcurveconfigbase.ui:2233 qt5/config/qtcurveconfigbase.ui:2314
@@ -3733,7 +3733,7 @@ msgstr "Mantín per davall:"
 #: qt4/config/qtcurveconfigbase.ui:2912 qt5/config/qtcurveconfigbase.ui:2993
 #, kde-format
 msgid "<p>Defines the gradient used for the background of menubars."
-msgstr "<p>Definix el degradat emprat per al fons de les barres de menús."
+msgstr "<p>Definix el degradat emprat per al fons de les barres de menú."
 
 # skip-rule: kct-menubar
 #. i18n: ectx: property (toolTip), widget (KPushButton, menubarBlend)
@@ -3758,7 +3758,7 @@ msgstr "Fusiona amb la barra de títol"
 #: qt4/config/qtcurveconfigbase.ui:2939 qt5/config/qtcurveconfigbase.ui:3020
 #, kde-format
 msgid "<p>Defines the color applied to the background of menubars."
-msgstr "<p>Establix el color aplicat al fons de les barres de menús."
+msgstr "<p>Establix el color aplicat al fons de les barres de menú."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, shadeMenubarOnlyWhenActive)
 #: qt4/config/qtcurveconfigbase.ui:2962 qt5/config/qtcurveconfigbase.ui:3043
@@ -3767,8 +3767,8 @@ msgid ""
 "<p>Defines whether the background coloration should be applied to all "
 "menubars, or just those in active windows."
 msgstr ""
-"<p>Definix si la coloració de fons s'ha d'aplicar a totes les barres de "
-"menús o només a les de les finestres actives."
+"<p>Definix si la coloració de fons s'ha d'aplicar a totes les barres de menú "
+"o només a les de les finestres actives."
 
 #. i18n: ectx: property (text), widget (QCheckBox, shadeMenubarOnlyWhenActive)
 #: qt4/config/qtcurveconfigbase.ui:2965 qt5/config/qtcurveconfigbase.ui:3046
@@ -3894,7 +3894,7 @@ msgid ""
 "<p>If enabled, menubars may be hidden (and re-shown), by using the 'Ctrl-Alt-"
 "M' key combination."
 msgstr ""
-"<p>Si està activada, les barres de menús es podran ocultar (i tornar a "
+"<p>Si està activada, les barres de menú es podran ocultar (i tornar a "
 "mostrar), emprant la drecera «Ctrl-Alt-M»."
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarHiding_keyboard)
@@ -3910,7 +3910,7 @@ msgid ""
 "<p>If enabled, menubars may be hidden (and re-shown), by using a special "
 "button in the QtCurve kwin decoration."
 msgstr ""
-"<p>Si està activada, les barres de menús es podran ocultar (i tornar a "
+"<p>Si està activada, les barres de menú es podran ocultar (i tornar a "
 "mostrar), emprant un botó especial en la decoració kwin de QtCurve."
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarHiding_kwin)
@@ -4216,7 +4216,7 @@ msgid ""
 "affects menubars)."
 msgstr ""
 "<p>Establix el tipus de vora dibuixada al voltant de la barra d'eines. (Esta "
-"opció també afectarà les barres de menús)."
+"opció també afectarà les barres de menú)."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_4b)
 #: qt4/config/qtcurveconfigbase.ui:3444 qt5/config/qtcurveconfigbase.ui:3508
