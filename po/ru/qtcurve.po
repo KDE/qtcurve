@@ -6,21 +6,22 @@
 # mikhailelinski <mikhailelinski@gmail.com>, 2011.
 # Alexander Potashev <aspotashev@gmail.com>, 2014, 2017, 2018.
 # Boris Pek <tehnick-8@yandex.ru>, 2014.
+# Olesya Gerasimenko <translation-team@basealt.ru>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: ROSA2011\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 00:20+0000\n"
-"PO-Revision-Date: 2018-09-14 21:57+0300\n"
-"Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
-"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"PO-Revision-Date: 2022-10-12 09:19+0300\n"
+"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
+"Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 22.04.3\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -28,12 +29,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Юлия Дронова"
+msgstr "Юлия Дронова, Олеся Герасименко"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "juliette.tux@gmail.com"
+msgstr "juliette.tux@gmail.com, translation-team@basealt.ru"
 
 #: qt4/config/exportthemedialog.cpp:42 qt5/config/exportthemedialog.cpp:47
 #, kde-format
@@ -957,7 +958,7 @@ msgstr "Бегунки и линейки прокрутки"
 #: qt5/config/qtcurveconfig.cpp:1676 qt5/config/qtcurveconfigbase.ui:493
 #, kde-format
 msgid "Progressbars"
-msgstr "Прогресс-бары"
+msgstr "Индикаторы хода выполнения"
 
 #: qt4/config/qtcurveconfig.cpp:1742 qt5/config/qtcurveconfig.cpp:1677
 #, kde-format
@@ -987,7 +988,7 @@ msgstr "Вкладки"
 #: qt4/config/qtcurveconfig.cpp:1747 qt5/config/qtcurveconfig.cpp:1682
 #, kde-format
 msgid "Checks and Radios"
-msgstr "«Галочки» и радиокнопки"
+msgstr "Обозначения вариантов"
 
 #: qt4/config/qtcurveconfig.cpp:1748 qt5/config/qtcurveconfig.cpp:1683
 #, kde-format
@@ -1002,8 +1003,8 @@ msgid ""
 "Therefore, these settings will <b>not</b> be reflected in the Preview page.</"
 "i></p>"
 msgstr ""
-"<p><b>ВНИМАНИЕ:</b><i>данные настройки влияют на окантовки окон приложений и "
-"диалоговых окон, но не внутренних (или MDI) окон. Поэтому эти настройки "
+"<p><b>ПРИМЕЧАНИЕ:</b><i>данные параметры влияют на окантовки окон приложений "
+"и диалоговых окон, но не внутренних (или MDI) окон. Поэтому эти параметры "
 "<b>НЕ</b> будут показаны на странице предпросмотра.</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:1761 qt5/config/qtcurveconfig.cpp:1695
@@ -1439,8 +1440,8 @@ msgid ""
 "detrimental effect on performance.</p>"
 msgstr ""
 "<p>Настройка градиента, который будет использоваться как фон в окнах и "
-"диалогах.</p><p><b>Внимание:</b> это экспериментальная возможность, поэтому "
-"(вероятно) она отрицательно повлияет на производительность.</p>"
+"диалогах.</p><p><b>ПРИМЕЧАНИЕ:</b> это экспериментальная возможность, "
+"поэтому (вероятно) она отрицательно повлияет на производительность.</p>"
 
 #. i18n: ectx: property (text), widget (QToolButton, bgndAppearance_btn)
 #. i18n: ectx: property (text), widget (QToolButton, bgndImage_btn)
@@ -1699,8 +1700,8 @@ msgid ""
 "<p>Controls whether progress bars should respect the general round setting, "
 "or always be square.</p>"
 msgstr ""
-"<p>Отражаются ли общие настройки скруглённости виджетов на прогрессбары или "
-"они всегда прямоугольные.</p>"
+"<p>Отражаются ли общие настройки скруглённости виджетов на индикаторы хода "
+"выполнения или они всегда прямоугольные.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:491 qt5/config/qtcurveconfigbase.ui:500
@@ -1890,14 +1891,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_100)
 #: qt4/config/qtcurveconfigbase.ui:651 qt5/config/qtcurveconfigbase.ui:660
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>NOTE:</b> <i>Opacity settings are <b>experimental</b> and can cause "
-#| "certain applications (mainly Gtk2 ones) to crash. If you have an "
-#| "application that crashes, use the \"Applications\" page to disable "
-#| "opacity settings for that application.</i></p>\n"
-#| "<p><b>NOTE:</b> <i><b>DON'T</b> use opacity settings when using the "
-#| "compiz window manager.</i></p>"
+#, kde-format
 msgid ""
 "<p><b>NOTE:</b> <i>Opacity settings are <b>experimental</b> and can cause "
 "certain applications (mainly Gtk2 ones) to crash. If you have an application "
@@ -1906,7 +1900,7 @@ msgid ""
 "<p><b>NOTE:</b> <i><b>DON'T</b> use opacity settings when using the compiz "
 "window manager.</i></p>"
 msgstr ""
-"<p><b>ВНИМАНИЕ:</b> <i>Параметры прозрачности являются "
+"<p><b>ПРИМЕЧАНИЕ:</b> <i>параметры прозрачности являются "
 "<b>экспериментальными</b> и могут вызвать аварийное закрытие некоторых "
 "приложений (в основном, использующих Gtk2). Если у вас есть такие "
 "нестабильно работающие приложения, отключите для них прозрачность на "
@@ -1941,13 +1935,13 @@ msgstr "Метка:"
 #, kde-format
 msgid "<p>Controls whether group boxes should use a bold for their title.</p>"
 msgstr ""
-"<p>Настройка использования жирного шрифта для заголовков групбоксов</p>"
+"<p>Настройка использования полужирного шрифта для заголовков групбоксов</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gbLabel_bold)
 #: qt4/config/qtcurveconfigbase.ui:698 qt5/config/qtcurveconfigbase.ui:707
 #, kde-format
 msgid "Use bold font"
-msgstr "Использовать жирный шрифт"
+msgstr "Использовать полужирный шрифт"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, gbLabel_textPos)
 #: qt4/config/qtcurveconfigbase.ui:705 qt5/config/qtcurveconfigbase.ui:714
@@ -2363,7 +2357,7 @@ msgstr "<p>Включение этой опции добавляет «исче�
 #: qt4/config/qtcurveconfigbase.ui:1112 qt5/config/qtcurveconfigbase.ui:1121
 #, kde-format
 msgid "Bar:"
-msgstr "Прогрессбар:"
+msgstr "Индикатор хода выполнения:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, progressAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1119 qt5/config/qtcurveconfigbase.ui:1128
@@ -2372,8 +2366,8 @@ msgid ""
 "<p>Defines the gradient to be used for the progress part of a progressbar.</"
 "p>"
 msgstr ""
-"<p>Определяет градиент, используемый для процентного показателя прогрессбара."
-"</p>"
+"<p>Определяет градиент, используемый для процентного показателя индикатора "
+"хода выполнения.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, stripedProgress)
 #: qt4/config/qtcurveconfigbase.ui:1126 qt5/config/qtcurveconfigbase.ui:1135
@@ -2383,14 +2377,14 @@ msgid ""
 "</p>"
 msgstr ""
 "<p>Определяет тип штриховки, используемой для процентного показателя "
-"прогрессбара.</p>"
+"индикатора хода выполнения.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, animatedProgress)
 #: qt4/config/qtcurveconfigbase.ui:1133 qt5/config/qtcurveconfigbase.ui:1142
 #, kde-format
 msgid ""
 "<p>Determines if the stripes on progressbars should be animated, or not.</p>"
-msgstr "<p>Анимирование штрихов прогрессбара.</p>"
+msgstr "<p>Анимирование штрихов индикатора хода выполнения.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, animatedProgress)
 #: qt4/config/qtcurveconfigbase.ui:1136 qt5/config/qtcurveconfigbase.ui:1145
@@ -2402,7 +2396,7 @@ msgstr "Анимированные"
 #: qt4/config/qtcurveconfigbase.ui:1143 qt5/config/qtcurveconfigbase.ui:1152
 #, kde-format
 msgid "<p>Add a white 'glow' to progressbars.</p>"
-msgstr "<p>Добавляет белое свечение прогрессбару.</p>"
+msgstr "<p>Добавляет белое свечение индикатору хода выполнения.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, fillProgress)
 #: qt4/config/qtcurveconfigbase.ui:1156 qt5/config/qtcurveconfigbase.ui:1165
@@ -2431,14 +2425,14 @@ msgstr "Канавка:"
 #, kde-format
 msgid ""
 "<p>Defines the gradient to be used for the groove part of a progressbar.</p>"
-msgstr "<p>Градиент, используемый для канавки прогрессбара.</p>"
+msgstr "<p>Градиент, используемый для канавки индикатора хода выполнения.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, progressGrooveColor)
 #: qt4/config/qtcurveconfigbase.ui:1180 qt5/config/qtcurveconfigbase.ui:1189
 #, kde-format
 msgid ""
 "<p>Defines the color to be used for the groove part of a progressbar.</p>"
-msgstr "<p>Цвет канавки прогрессбара.</p>"
+msgstr "<p>Цвет канавки индикатора хода выполнения.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, borderProgress)
 #: qt4/config/qtcurveconfigbase.ui:1193 qt5/config/qtcurveconfigbase.ui:1202
@@ -2447,8 +2441,8 @@ msgid ""
 "<p>Enable this option to have a border around the progress bar groove and "
 "contents.</p>"
 msgstr ""
-"<p>Эта опция включает окантовку вокруг канавки прогрессбара и её содержимого."
-"</p>"
+"<p>Эта опция включает окантовку вокруг канавки индикатора хода выполнения и "
+"её содержимого.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, borderProgress)
 #: qt4/config/qtcurveconfigbase.ui:1196 qt5/config/qtcurveconfigbase.ui:1205
@@ -2471,8 +2465,8 @@ msgid ""
 "<p>If enabled, the text on a progressbar will use the general widget font.</"
 "p>"
 msgstr ""
-"<p>Если эта опция включена, то надписи на прогрессбаре будут использовать "
-"общий для всех виджетов шрифт.</p>"
+"<p>Если эта опция включена, то надписи на индикаторе хода выполнения будут "
+"использовать общий для всех виджетов шрифт.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, boldProgress_false)
 #: qt4/config/qtcurveconfigbase.ui:1227 qt5/config/qtcurveconfigbase.ui:1236
@@ -2485,14 +2479,14 @@ msgstr "Стандартный шрифт"
 #, kde-format
 msgid "<p>If enabled, the text on a progressbar will use a bold font.</p>"
 msgstr ""
-"<p>Если эта опция включена, то надписи на прогрессбаре будут печататься "
-"жирным шрифтом.</p>"
+"<p>Если эта опция включена, то надписи на индикаторе хода выполнения будут "
+"печататься полужирным шрифтом.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, boldProgress)
 #: qt4/config/qtcurveconfigbase.ui:1237 qt5/config/qtcurveconfigbase.ui:1246
 #, kde-format
 msgid "Bold font"
-msgstr "Жирный шрифт"
+msgstr "Полужирный шрифт"
 
 #. i18n: ectx: property (text), widget (QLabel, label_17)
 #: qt4/config/qtcurveconfigbase.ui:1256 qt5/config/qtcurveconfigbase.ui:1265
@@ -3016,7 +3010,7 @@ msgstr "По центру"
 msgid ""
 "<p>Controls the color of the indicator part of a check or radio - ie. the "
 "'dot' or 'check' mark."
-msgstr "<p>Настройки цвета индикатора чек-бокса или радио-бокса"
+msgstr "<p>Настройки цвета индикатора поля для отметки или переключателя"
 
 #. i18n: ectx: property (text), widget (QLabel, label_53)
 #: qt4/config/qtcurveconfigbase.ui:1939 qt5/config/qtcurveconfigbase.ui:2002
@@ -3031,7 +3025,8 @@ msgid ""
 "<p>If enabled, checkboxes will have a 'tick' to indicate that they are "
 "selected."
 msgstr ""
-"<p>Если эта опция включена, выбранные чекбоксы будут помечаться галочками."
+"<p>Если эта опция включена, выбранные поля для отметки будут помечаться "
+"галочками."
 
 #. i18n: ectx: property (text), widget (QRadioButton, xCheck_false)
 #: qt4/config/qtcurveconfigbase.ui:1973 qt5/config/qtcurveconfigbase.ui:2045
@@ -3046,7 +3041,7 @@ msgid ""
 "<p>If enabled, checkboxes will have a 'cross' (or 'X') to indicate that they "
 "are selected."
 msgstr ""
-"<p>Если эта опция включена, выбранные чекбоксы будут помечаться "
+"<p>Если эта опция включена, выбранные поля для отметки будут помечаться "
 "«крестиком» (или «X»)."
 
 #. i18n: ectx: property (text), widget (QRadioButton, xCheck)
@@ -3059,7 +3054,7 @@ msgstr "Крестик"
 #: qt4/config/qtcurveconfigbase.ui:1996 qt5/config/qtcurveconfigbase.ui:2068
 #, kde-format
 msgid "Radio 'dot':"
-msgstr "Радио-точка:"
+msgstr "«Точка» варианта:"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, smallRadio_false)
 #: qt4/config/qtcurveconfigbase.ui:2027 qt5/config/qtcurveconfigbase.ui:2108
@@ -3068,7 +3063,7 @@ msgid ""
 "<p>If enabled, radio buttons will have a large 'dot' to indicate that they "
 "are selected."
 msgstr ""
-"<p>Если эта опция включена, выбранные радио-кнопки будут помечаться большой "
+"<p>Если эта опция включена, выбранные переключатели будут помечаться большой "
 "точкой."
 
 #. i18n: ectx: property (text), widget (QRadioButton, smallRadio_false)
@@ -3085,7 +3080,7 @@ msgid ""
 "<p>If enabled, radio buttons will have a small 'dot' to indicate that they "
 "are selected."
 msgstr ""
-"<p>Если эта опция включена, выбранные радио-кнопки будут помечаться "
+"<p>Если эта опция включена, выбранные переключатели будут помечаться "
 "маленькой точкой."
 
 #. i18n: ectx: property (text), widget (QRadioButton, smallRadio)
@@ -3104,7 +3099,8 @@ msgid ""
 "hovers over it."
 msgstr ""
 "<p>Определяет интенсивность осветления (или затемнения) фона текста, "
-"ассоциированного с чекбоксом или радио-кнопкой, расположенными под курсором"
+"ассоциированного с полем для отметки или переключателем, расположенными под "
+"курсором"
 
 #. i18n: ectx: property (text), widget (QLabel, label_70)
 #: qt4/config/qtcurveconfigbase.ui:2067 qt5/config/qtcurveconfigbase.ui:2148
@@ -3119,8 +3115,8 @@ msgid ""
 "<p>Controls whether the background of the checkbox, or radio button, should "
 "appear sunken like or button like."
 msgstr ""
-"<p>Определяет, будет ли фон чекбокса или радио-кнопки утопленным или в виде "
-"кнопки."
+"<p>Определяет, будет ли фон поля для отметки или переключателя утопленным "
+"или в виде кнопки."
 
 #. i18n: ectx: property (text), widget (QCheckBox, crButton)
 #: qt4/config/qtcurveconfigbase.ui:2077 qt5/config/qtcurveconfigbase.ui:2158
@@ -3138,7 +3134,7 @@ msgstr "Размер:"
 #: qt4/config/qtcurveconfigbase.ui:2091 qt5/config/qtcurveconfigbase.ui:2172
 #, kde-format
 msgid "<p>Configures the size of checkboxes and radio buttons."
-msgstr "<p>Настраивает размер чекбоксов и радио-кнопок"
+msgstr "<p>Настраивает размер полей для отметки и переключателей"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, crColor)
 #: qt4/config/qtcurveconfigbase.ui:2098 qt5/config/qtcurveconfigbase.ui:2179
@@ -3146,7 +3142,7 @@ msgstr "<p>Настраивает размер чекбоксов и радио-
 msgid ""
 "<p>Sets the color of selected checkboxes and radio buttons when these are "
 "set to 'button like'."
-msgstr "<p>Устанавливает цвет выбранных чекбоксов и радио-кнопок"
+msgstr "<p>Устанавливает цвет выбранных полей для отметки и переключателей"
 
 #. i18n: ectx: property (text), widget (QLabel, label_88)
 #: qt4/config/qtcurveconfigbase.ui:2112 qt5/config/qtcurveconfigbase.ui:2193
@@ -3965,13 +3961,14 @@ msgid ""
 "<p>If enabled, checked menu items get only a check mark instead of a "
 "checkbox or radiobutton."
 msgstr ""
+"<p>Если эта опция включена, отмеченные пункты меню будут показаны только с "
+"соответствующей отметкой, а не с рамкой или переключателем."
 
 #. i18n: ectx: property (text), widget (QCheckBox, onlyTicksInMenu)
 #: qt4/config/qtcurveconfigbase.ui:3169 qt5/config/qtcurveconfigbase.ui:3233
-#, fuzzy, kde-format
-#| msgid "Checkmarks:"
+#, kde-format
 msgid "Check marks only"
-msgstr "Галочки:"
+msgstr "Только отметки"
 
 #. i18n: ectx: property (text), widget (QLabel, label_26)
 #: qt4/config/qtcurveconfigbase.ui:3176 qt5/config/qtcurveconfigbase.ui:3240
@@ -4044,19 +4041,19 @@ msgstr "м/сек"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, menuCloseDelay)
 #: qt4/config/qtcurveconfigbase.ui:3271
-#, fuzzy, kde-format
-#| msgid "<p>Defines the delay before a sub-menu appears."
+#, kde-format
 msgid ""
 "<p>Defines the delay before a sub-menu closes. Applicable on Qt 5.5 or later"
-msgstr "<p>Определяет задержку перед появлением подменю."
+msgstr ""
+"<p>Определяет задержку перед закрытием подменю. Применимо на Qt версии 5.5 и "
+"последующих."
 
 #. i18n: ectx: property (text), widget (QLabel, label_103)
 #. i18n: ectx: property (text), widget (QLabel, label_72)
 #: qt4/config/qtcurveconfigbase.ui:3281 qt5/config/qtcurveconfigbase.ui:3429
-#, fuzzy, kde-format
-#| msgid "Sub-menu delay:"
+#, kde-format
 msgid "Sub-menu close delay:"
-msgstr "Задержка появления подменю:"
+msgstr "Задержка закрытия подменю:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_44)
 #: qt4/config/qtcurveconfigbase.ui:3288 qt5/config/qtcurveconfigbase.ui:3335
@@ -4112,12 +4109,16 @@ msgid ""
 "buttons.</p><p>When disabled, they are left-aligned under a separator line "
 "and use a bold, underlined typeface.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Если эта опция включена, заголовки разделов меню "
+"выглядят похожими на кнопки.</p><p>Если эта опция отключена, они "
+"выравниваются по левому краю под разделителем и для них используется "
+"полужирный шрифт с подчёркиванием.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, buttonStyleMenuSections)
 #: qt4/config/qtcurveconfigbase.ui:3362 qt5/config/qtcurveconfigbase.ui:3409
 #, kde-format
 msgid "Use button-like menu section headers"
-msgstr ""
+msgstr "Использовать похожие на кнопки заголовки разделов меню"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, toolbarAppearance)
 #: qt4/config/qtcurveconfigbase.ui:3386 qt5/config/qtcurveconfigbase.ui:3450
@@ -4429,20 +4430,15 @@ msgstr "Использовать порядок кнопок Gtk"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, reorderGtkButtons)
 #: qt4/config/qtcurveconfigbase.ui:3690 qt5/config/qtcurveconfigbase.ui:3754
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>If this is enabled and 'Use Gtk button order' is not, QtCurve will "
-#| "attempt to manually set the order of buttons in Gtk dialogs.</"
-#| "p><p><b>NOTE<b> This is experimental, and may produce unexpected results!"
-#| "</p>"
+#, kde-format
 msgid ""
 "<p>If this is enabled and 'Use Gtk button order' is not, QtCurve will "
 "attempt to manually set the order of buttons in Gtk dialogs.</p><p><b>NOTE:</"
 "b> This is experimental, and may produce unexpected results!</p>"
 msgstr ""
-"<p>Если данная настройка включена, а настройка «Использовать порядок кнопок "
+"<p>Если данный параметр включён, а параметр «Использовать порядок кнопок "
 "Gtk» — нет, то QtCurve попробует «вручную» установить порядок кнопок в "
-"диалогах Gtk.</p><p><b>ВНИМАНИЕ<b> Это экспериментальная функция, и могут "
+"диалогах Gtk.</p><p><b>ПРИМЕЧАНИЕ:<b> это экспериментальная функция, и могут "
 "возникнуть непредвиденные последствия!</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, reorderGtkButtons)
@@ -4519,7 +4515,7 @@ msgstr "Подсветка виджета Gtk expander:"
 #: qt4/config/qtcurveconfigbase.ui:3765 qt5/config/qtcurveconfigbase.ui:3829
 #, kde-format
 msgid "Drop shadow size:"
-msgstr ""
+msgstr "Размер отбрасываемой тени:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, dropShadowSize)
 #: qt4/config/qtcurveconfigbase.ui:3772 qt5/config/qtcurveconfigbase.ui:3836
@@ -4528,6 +4524,8 @@ msgid ""
 "<p>Sets the base value used for determining drop shadow sizes.</p><p>X11 "
 "only.</p>"
 msgstr ""
+"<p>Устанавливает базовое значение для определения размера отбрасываемой тени."
+"</p><p>Только для X11.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_81)
 #: qt4/config/qtcurveconfigbase.ui:3788 qt5/config/qtcurveconfigbase.ui:3852
@@ -4591,12 +4589,7 @@ msgstr "Непрозрачное меню (и без альфа-канала д�
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, noMenuBgndOpacityApps)
 #: qt4/config/qtcurveconfigbase.ui:3837 qt5/config/qtcurveconfigbase.ui:3901
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Comma separated list of names of applications which should not use the "
-#| "menu opacity setting.<p><i>For Gtk2, this option also disables using an "
-#| "alpha-channel to smoothly round tooltips and popup menus.</i></p><p>Use "
-#| "<i>gtk</i> to disable for all Gtk2 applications.</p>"
+#, kde-format
 msgid ""
 "<p>Comma separated list of names of applications which should not use the "
 "menu opacity setting.</p><p><i>For Gtk2, this option also disables using an "
@@ -4604,7 +4597,7 @@ msgid ""
 "<i>gtk</i> to disable for all Gtk2 applications.</p>"
 msgstr ""
 "<p>Список названий приложений (через запятую), в которых не будет "
-"применяться настройка прозрачности меню.<p><i>Для Gtk2 эта опция также "
+"применяться настройка прозрачности меню.</p><p><i>Для Gtk2 эта опция также "
 "отключает использование альфа-канала для мягкого закругления всплывающих "
 "подсказок и всплывающих меню.</i></p><p>Чтобы отключить это для всех "
 "приложений Gtk2, используйте <i>gtk</i>.</p>"
@@ -4687,7 +4680,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3900 qt5/config/qtcurveconfigbase.ui:3964
 #, kde-format
 msgid "Force non-native menubar:"
-msgstr ""
+msgstr "Принудительно использовать стороннюю строку меню:"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, nonnativeMenubarApps)
 #: qt4/config/qtcurveconfigbase.ui:3907
@@ -4699,6 +4692,11 @@ msgid ""
 "and Qt5 applications. Applications need to be restarted for changes to take "
 "effect.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Список названий приложений KDE/Qt (через запятую), в "
+"которых QtCurve необходимо указать Qt не использовать собственную строку "
+"меню.</p><p>Эта возможность работает только для Mac OS X/macOS и "
+"предназначается для использования с приложениями KF5 и Qt5. Приложения "
+"потребуется перезапустить для вступления изменений в силу.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_101)
 #: qt4/config/qtcurveconfigbase.ui:3936 qt5/config/qtcurveconfigbase.ui:4000
@@ -4798,25 +4796,7 @@ msgstr "Альфа-канал (%)"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, gradBorder)
 #: qt4/config/qtcurveconfigbase.ui:4058 qt5/config/qtcurveconfigbase.ui:4122
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Defines the inner border used when drawing buttons, etc., with this "
-#| "gradient.</p>\n"
-#| "<ul>\n"
-#| "<li><i>No border</i> - no inner border is drawn, and the gradient will "
-#| "extend to the outer edges.</li>\n"
-#| "<li><i>Light border</i> - A 'light' line is drawn around all edges.</li>\n"
-#| "<li><i>3D border (light only)</i> - A 'light' line is drawn around the "
-#| "top and left edges.</li>\n"
-#| "<li><i>3D border (light only)</i> - A 'light' line is drawn around the "
-#| "top and left edges, and a darker one around the bottom and right edges.</"
-#| "li>\n"
-#| "<li><i>Shine</i> - A shine is added to the top (or left) edge when this "
-#| "gradient is drawn on buttons or scrollbars.</li>\n"
-#| "</ul>\n"
-#| "<p><i>Note: This setting is not used when drawing the preview below.</i></"
-#| "p>\n"
-#| "\n"
+#, kde-format
 msgid ""
 "<p>Defines the inner border used when drawing buttons, etc., with this "
 "gradient.</p>\n"
@@ -4844,13 +4824,13 @@ msgstr ""
 "<li><i>Тонкая:</i> вокруг всех краёв прорисовывается тонкая окантовка.</li>\n"
 "<li><i>3D окантовка (только для опции «тонкая»):</i> тонкая окантовка "
 "прорисовывается поверху и по левой стороне.</li>\n"
-"<li><i>3D окантовка (только для опции «тонкая»):</i> тонкая окантовка "
-"прорисовывается поверху и по левой стороне, и более тёмная — по низу и по "
-"правой стороне.</li>\n"
+"<li><i>3D окантовка (тёмная и тонкая):</i> тонкая окантовка прорисовывается "
+"поверху и по левой стороне, а более тёмная — по низу и по правой стороне.</"
+"li>\n"
 "<li><i>Блеск:</i> когда этот градиент рисуется на кнопках или панелях "
 "инструментов, поверху (или слева) добавляется блеск.</li>\n"
 "</ul>\n"
-"<p><i>Примечание: эта настройка не используется при отрисовке в "
+"<p><i>Примечание: этот параметр не используется при отрисовке в "
 "предварительном просмотре ниже.</i></p>\n"
 "\n"
 
@@ -4969,17 +4949,18 @@ msgid ""
 msgstr ""
 "<i><p>QtCurve использует несколько жёстко заданных значений затенения для "
 "отрисовки таких элементов, как окантовка кнопок, фон нажатых кнопок и т.д. "
-"Ниже кратко описывается использование каждой тени - это только справочник, "
+"Ниже кратко описывается использование каждой тени — это только ориентир, "
 "поскольку тени применяются для самых разных вещей.</p>\n"
 "<p><ol>\n"
 "<li>Используется для светлых областей трёхмерных элементов, например краёв "
 "виджетов вкладок.</li>\n"
-"<li>Используется для самой светлой области полосатых прогрессбаров.</li>\n"
+"<li>Используется для самой светлой области полосатых индикаторов хода "
+"выполнения.</li>\n"
 "<li>Используется для тёмной области трёхмерных элементов, например краёв "
 "виджетов вкладок.</li>\n"
-"<li>Используется для затенённого края чекбоксов и радиокнопок, краёв панелей "
-"инструментов (если там настроено затенение), тёмных областей утопленных/"
-"выпуклых манипуляторов в слайдерах и т.д.</li>\n"
+"<li>Используется для затенённого края полей для отметки и переключателей, "
+"краёв панелей инструментов (если там настроено затенение), тёмных областей "
+"утопленных/выпуклых манипуляторов в ползунках и т.д.</li>\n"
 "<li>Используется для отрисовки фона нажатых виджетов и края панелей "
 "инструментов (если они не тёмные).</li>\n"
 "<li>Используется как граница для большинства виджетов.</li>\n"
@@ -4999,7 +4980,7 @@ msgstr "Светлый тон:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4b)
 #: qt4/config/qtcurveconfigbase.ui:4427 qt5/config/qtcurveconfigbase.ui:4491
-#, kde-format
+#, fuzzy, kde-format
 msgid ""
 "<p><i>QtCurve uses dark/light borders to create etch and shadow effects. By "
 "default QtCurve tries to lighten (or darken) the parent's background to "
@@ -5009,11 +4990,10 @@ msgid ""
 msgstr ""
 "<p><i>QtCurve использует тёмные/светлые границы для создания эффектов выемки "
 "и тени. По умолчанию для получения этого эффекта QtCurve пытается осветлить "
-"(или затенить) фон родительского графического элемента. Если не удалось "
-"найти родительского элемента, то используется белый/чёрный с указанным "
-"значением в качестве значения альфа-канала. Это поведение можно изменить "
-"так, чтобы всегда использовались значения альфа-канала, включив параметр "
-"выше.</i></p>"
+"(или затенить) 'родительский' фон. Если родительского элемента найти нельзя, "
+"тогда используется белый/чёрный с настройкой значения альфа-канала. Это "
+"поведение можно изменить так, чтобы всегда использовались значения альфа-"
+"канала, отметив опцию выше.</i></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_dark_alpha)
 #: qt4/config/qtcurveconfigbase.ui:4440 qt5/config/qtcurveconfigbase.ui:4504
@@ -5041,10 +5021,9 @@ msgstr "М&еню 2"
 
 #. i18n: ectx: property (title), widget (QMenu, menu2SubMenu)
 #: qt4/config/stylepreview.ui:50 qt5/config/stylepreview.ui:50
-#, fuzzy, kde-format
-#| msgid "Sub-menu delay:"
+#, kde-format
 msgid "&Submenu"
-msgstr "Задержка появления подменю:"
+msgstr "&Подменю"
 
 #. i18n: ectx: property (title), widget (QGroupBox, GroupBox1)
 #: qt4/config/stylepreview.ui:73 qt5/config/stylepreview.ui:73
@@ -5057,13 +5036,13 @@ msgstr "Группа GroupBox"
 #: qt4/config/stylepreview.ui:79 qt4/config/stylepreview.ui:89
 #, kde-format
 msgid "Radio button"
-msgstr "Радиокнопка"
+msgstr "Переключатель"
 
 #. i18n: ectx: property (text), widget (QCheckBox, CheckBox1)
 #: qt4/config/stylepreview.ui:106 qt5/config/stylepreview.ui:106
 #, kde-format
 msgid "Checkbox"
-msgstr "Чекбокс"
+msgstr "Поле для отметки"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, ComboBox1)
 #: qt4/config/stylepreview.ui:178 qt5/config/stylepreview.ui:178
@@ -5229,59 +5208,57 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:546 qt5/config/stylepreview.ui:546
-#, fuzzy, kde-format
-#| msgid "Menubar items:"
+#, kde-format
 msgid "&Regular item 1"
-msgstr "Пункты панели меню:"
+msgstr "&Обычный пункт 1"
 
 #. i18n: ectx: property (shortcut), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:549 qt5/config/stylepreview.ui:549
 #, kde-format
 msgid "Ctrl+1"
-msgstr ""
+msgstr "Ctrl+1"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:560 qt5/config/stylepreview.ui:560
-#, fuzzy, kde-format
-#| msgid "Menubar items:"
+#, kde-format
 msgid "Regular &item 2"
-msgstr "Пункты панели меню:"
+msgstr "Обычный &пункт 2"
 
 #. i18n: ectx: property (shortcut), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:563 qt5/config/stylepreview.ui:563
 #, kde-format
 msgid "Ctrl+2"
-msgstr ""
+msgstr "Ctrl+2"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:577 qt5/config/stylepreview.ui:577
 #, kde-format
 msgid "&Checkable item"
-msgstr ""
+msgstr "&Пригодный для отметки пункт"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:588 qt5/config/stylepreview.ui:588
 #, kde-format
 msgid "&Exclusive item 1"
-msgstr ""
+msgstr "&Исключительный пункт 1"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:602 qt5/config/stylepreview.ui:602
 #, kde-format
 msgid "Exclusive &item 2"
-msgstr ""
+msgstr "Исключительный &пункт 2"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:613 qt5/config/stylepreview.ui:613
 #, kde-format
 msgid "Exclusive item &3"
-msgstr ""
+msgstr "Исключительный пункт &3"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:621
 #, kde-format
 msgid "regular submenu item"
-msgstr ""
+msgstr "обычный пункт подменю"
 
 #: qt4/kwin/qtcurveclient.cpp:314 qt5/kwin/qtcurveclient.cpp:314
 #, kde-format
@@ -5569,13 +5546,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, noteLabel)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:182
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:182
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>NOTE:</b><i>This window decoration uses the QtCurve widget style, "
-#| "and shares its configuration. Only the settings that are exclusively used "
-#| "by the window decoration are shown here. To alter settings such as the "
-#| "titlebar gradient, or text alignment, please set the appropriate options "
-#| "in the widget style.</i></p>"
+#, kde-format
 msgid ""
 "<p><b>NOTE:</b> <i>This window decoration uses the QtCurve widget style, and "
 "shares its configuration. Only the settings that are exclusively used by the "
@@ -5583,11 +5554,11 @@ msgid ""
 "gradient, or text alignment, please set the appropriate options in the "
 "widget style.</i></p>"
 msgstr ""
-"<p><b>ПРИМЕЧАНИЕ:</b><i>Это оконное оформление использует стиль виджетов "
-"QtCurve и разделяет его настройки. Здесь показаны только те настройки, "
-"которые используются для оформления окон. Чтобы поменять настройки панели "
-"заголовка, градиента или выравнивания текста настраивайте стиль виджета.</"
-"i></p>"
+"<p><b>ПРИМЕЧАНИЕ:</b> <i>это оконное оформление использует стиль виджетов "
+"QtCurve и разделяет его параметры настройки. Здесь показаны только те "
+"параметры, которые используются для оформления окон. Чтобы поменять "
+"параметры, например, градиент панели заголовка или выравнивание текста, "
+"настройте стиль виджета.</i></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:217
@@ -5661,7 +5632,7 @@ msgid ""
 "titlebar (and border) opacity will be controlled by the style's window and "
 "dialog background opacity settings.</i></p>"
 msgstr ""
-"<p><b>ПРИМЕЧАНИЕ:</b><i>Если вышеуказанные значения выставить в 100%, то "
+"<p><b>ПРИМЕЧАНИЕ:</b> <i>если вышеуказанные значения выставить в 100%, то "
 "непрозрачность заголовка окна (и границы) будет контролироваться параметрами "
 "текущего оформления для непрозрачности фона окон и диалогов.</i></p>"
 
@@ -5778,13 +5749,11 @@ msgstr ""
 
 #: qt5/config/qtcurveconfig.cpp:2640 qt5/config/qtcurveconfig.cpp:2798
 #, fuzzy, kde-format
-#| msgid "QtCurve Settings File"
 msgid "QtCurve Settings Files (*"
 msgstr "Файл настроек QtCurve"
 
 #: qt5/config/qtcurveconfig.cpp:2797
 #, fuzzy, kde-format
-#| msgid "Save"
 msgid "Save As"
 msgstr "Сохранить"
 
@@ -5806,38 +5775,30 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_useHover)
 #: qt5/config/qtcurveconfigbase.ui:2453
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>If enabled, symbols will use the KDE4 hover color when moused-over."
+#, kde-format
 msgid "<p>If enabled, symbols will use the KDE hover color when moused-over."
 msgstr ""
-"<p>Если эта опция включена, цвет «наведения» из настроек KDE4 будет "
-"проявляться в символах только в положении «под курсором»"
+"<p>Если эта опция включена, цвет «наведения» из параметров KDE будет "
+"проявляться в символах в положении «под курсором»."
 
 #. i18n: ectx: property (text), widget (QLabel, label_45)
 #: qt5/config/qtcurveconfigbase.ui:3315
-#, fuzzy, kde-format
-#| msgid "Sub-menu delay:"
+#, kde-format
 msgid "Sub-menu open delay:"
-msgstr "Задержка появления подменю:"
+msgstr "Задержка открытия подменю:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, menuCloseDelay)
 #: qt5/config/qtcurveconfigbase.ui:3419
-#, fuzzy, kde-format
-#| msgid "<p>Defines the delay before a sub-menu appears."
+#, kde-format
 msgid ""
 "Defines the delay before a sub-menu closes. Applicable on Qt5.5 or later"
-msgstr "<p>Определяет задержку перед появлением подменю."
+msgstr ""
+"<p>Определяет задержку перед закрытием подменю. Применимо на Qt версии 5.5 и "
+"последующих."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stdBtnSizes)
 #: qt5/config/qtcurveconfigbase.ui:3765
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Auto-default buttons are buttons that can become 'default' buttons - i."
-#| "e. will react the user pressing 'return'.</p>\n"
-#| "<p>In Gtk2 applications, most 'auto-default' buttons have a taller "
-#| "appearance than standard buttons. QtCurve attempts to mimic this for KDE4 "
-#| "applications - this may be disabled by enabling this option.</p>"
+#, kde-format
 msgid ""
 "<p>Auto-default buttons are buttons that can become 'default' buttons - i.e. "
 "will react the user pressing 'return'.</p>\n"
@@ -5850,64 +5811,50 @@ msgstr ""
 "p>\n"
 "<p>В приложениях Gtk2 большинство таких кнопок выделяются более жирным "
 "контуром, чем у стандартных кнопок. QtCurve старается воспроизвести такое "
-"поведение в приложениях KDE4 — активирование данной опции это поведение "
+"поведение в приложениях KDE — активирование данной опции это поведение "
 "отключает.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stdBtnSizes)
 #: qt5/config/qtcurveconfigbase.ui:3768
-#, fuzzy, kde-format
-#| msgid "Use standard size for 'auto-default' buttons (KDE4)"
+#, kde-format
 msgid "Use standard size for 'auto-default' buttons (KDE)"
 msgstr "Использовать стандартные размеры для авто-кнопок по умолчанию (KDE)"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, useQtFileDialogApps)
 #: qt5/config/qtcurveconfigbase.ui:3929
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Comma separated list of names of Qt4 applications which should not use "
-#| "the KDE4 file dialog."
+#, kde-format
 msgid ""
 "<p>Comma separated list of names of Qt4 applications which should not use "
 "the KDE file dialog."
 msgstr ""
-"Список названий приложений на Qt4 (через запятую), которые не должны "
-"использовать файловый диалог Qt."
+"<p>Список названий приложений на Qt4 (через запятую), которые не должны "
+"использовать файловый диалог KDE."
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, menubarApps)
 #: qt5/config/qtcurveconfigbase.ui:3943
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Comma separated list of names of KDE4 applications where QtCurve needs "
-#| "to manually save whether the menubar is hidden or not.</p><p>Use <i>kde</"
-#| "i> to set for all KDE applications. The menubar state of Gtk2 "
-#| "applications is always manually saved.</p>"
+#, kde-format
 msgid ""
 "<p>Comma separated list of names of KDE applications where QtCurve needs to "
 "manually save whether the menubar is hidden or not.</p><p>Use <i>kde</i> to "
 "set for all KDE applications. The menubar state of Gtk2 applications is "
 "always manually saved.</p>"
 msgstr ""
-"<p>Список названий приложений KDE4 (через запятую), в которых QtCurve "
-"необходимо «вручную» сохранять настройки видимости панели меню.</p><p>Чтобы "
+"<p>Список названий приложений KDE (через запятую), в которых QtCurve "
+"необходимо «вручную» сохранять параметры видимости панели меню.</p><p>Чтобы "
 "включить это для всех приложений KDE, используйте <i>kde</i>. Положение "
 "панели меню в приложениях Gtk2 всегда сохраняется вручную.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, statusbarApps)
 #: qt5/config/qtcurveconfigbase.ui:3957
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Comma separated list of names of KDE4 applications where QtCurve needs "
-#| "to manually save whether the statusbar is hidden or not.</p><p>Use "
-#| "<i>kde</i> to set for all KDE applications. The statusbar state of Gtk2 "
-#| "applications is always manually saved.</p>"
+#, kde-format
 msgid ""
 "<p>Comma separated list of names of KDE applications where QtCurve needs to "
 "manually save whether the statusbar is hidden or not.</p><p>Use <i>kde</i> "
 "to set for all KDE applications. The statusbar state of Gtk2 applications is "
 "always manually saved.</p>"
 msgstr ""
-"<p>Список названий приложений KDE4 (через запятую), в которых QtCurve "
-"необходимо «вручную» сохранять настройки видимости панели сообщений.</"
+"<p>Список названий приложений KDE (через запятую), в которых QtCurve "
+"необходимо «вручную» сохранять параметры видимости панели сообщений.</"
 "p><p>Чтобы включить это для всех приложений KDE, используйте <i>kde</i>. "
 "Положение панели сообщений в приложениях Gtk2 всегда сохраняется вручную.</p>"
 
@@ -5923,33 +5870,38 @@ msgid ""
 "menu. Applications need to be restarted for changes to take effect.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Список названий приложений KDE/Qt (через запятую), в "
+"которых QtCurve необходимо указать Qt не использовать собственную строку "
+"меню.</p><p>Попробуйте использовать эту возможность на Mac для тех "
+"приложений, некоторые пункты меню которых не ведут себя ожидаемым образом, "
+"когда являются частью меню строки меню верхнего уровня в стиле Mac, но "
+"работают корректно, когда являются, например, частью всплывающего/"
+"контекстного меню. Приложения потребуется перезапустить для вступления "
+"изменений в силу.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, RadioButton1)
 #: qt5/config/stylepreview.ui:79
-#, fuzzy, kde-format
-#| msgid "Radio button"
+#, kde-format
 msgid "&Radio button"
-msgstr "Радиокнопка"
+msgstr "Пе&реключатель"
 
 #. i18n: ectx: property (text), widget (QRadioButton, RadioButton2)
 #: qt5/config/stylepreview.ui:89
-#, fuzzy, kde-format
-#| msgid "Radio button"
+#, kde-format
 msgid "Radio &button"
-msgstr "Радиокнопка"
+msgstr "&Переключатель"
 
 #. i18n: ectx: property (windowTitle), widget (QDockWidget, dockWidget)
 #: qt5/config/stylepreview.ui:275
-#, fuzzy, kde-format
-#| msgid "Dock Widget"
+#, kde-format
 msgid "&Dock Widget"
-msgstr "Виджет дока"
+msgstr "&Виджет дока"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt5/config/stylepreview.ui:621
 #, kde-format
 msgid "&regular submenu item"
-msgstr ""
+msgstr "&обычный пункт подменю"
 
 #~ msgid "Restore"
 #~ msgstr "Восстановить"
