@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-07-03 00:20+0000\n"
+"POT-Creation-Date: 2022-10-17 00:49+0000\n"
 "PO-Revision-Date: 2021-07-03 18:04+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -187,48 +187,48 @@ msgid "Edit %1"
 msgstr "Editar %1"
 
 #: qt4/config/qtcurveconfig.cpp:236 qt4/kwin/qtcurveclient.cpp:223
-#: qt5/config/qtcurveconfig.cpp:238 qt5/config/qtcurveconfig.cpp:250
+#: qt5/config/qtcurveconfig.cpp:239 qt5/config/qtcurveconfig.cpp:251
 #: qt5/kwin/qtcurveclient.cpp:223
 #, kde-format
 msgid "QtCurve"
 msgstr "QtCurve"
 
-#: qt4/config/qtcurveconfig.cpp:237 qt5/config/qtcurveconfig.cpp:239
+#: qt4/config/qtcurveconfig.cpp:237 qt5/config/qtcurveconfig.cpp:240
 #, kde-format
 msgid "Unified widget style."
 msgstr "Estilo unificado de los elementos gráficos."
 
-#: qt4/config/qtcurveconfig.cpp:239 qt5/config/qtcurveconfig.cpp:241
+#: qt4/config/qtcurveconfig.cpp:239 qt5/config/qtcurveconfig.cpp:242
 #, kde-format
 msgid "(C) Craig Drummond, 2003-2011 & Yichao Yu, 2013-2015"
 msgstr "«©» Craig Drummond, 2003-2011 y Yichao Yu, 2013-2015"
 
-#: qt4/config/qtcurveconfig.cpp:256 qt5/config/qtcurveconfig.cpp:256
+#: qt4/config/qtcurveconfig.cpp:256 qt5/config/qtcurveconfig.cpp:257
 #, kde-format
 msgid "Preview Window"
 msgstr "Vista previa de la ventana"
 
-#: qt4/config/qtcurveconfig.cpp:309 qt5/config/qtcurveconfig.cpp:312
+#: qt4/config/qtcurveconfig.cpp:309 qt5/config/qtcurveconfig.cpp:313
 #, kde-format
 msgid "Select Password Character"
 msgstr "Seleccionar símbolo de la contraseña"
 
 #. i18n: ectx: property (text), widget (QLabel, label_94)
 #: qt4/config/qtcurveconfig.cpp:525 qt4/config/qtcurveconfig.cpp:984
-#: qt4/config/qtcurveconfigbase.ui:2462 qt5/config/qtcurveconfig.cpp:524
-#: qt5/config/qtcurveconfig.cpp:989 qt5/config/qtcurveconfigbase.ui:2543
+#: qt4/config/qtcurveconfigbase.ui:2462 qt5/config/qtcurveconfig.cpp:525
+#: qt5/config/qtcurveconfig.cpp:990 qt5/config/qtcurveconfigbase.ui:2543
 #, kde-format
 msgid "Background"
 msgstr "Fondo"
 
 #. i18n: ectx: property (text), widget (QPushButton, PushButton1)
 #: qt4/config/qtcurveconfig.cpp:528 qt4/config/stylepreview.ui:168
-#: qt5/config/qtcurveconfig.cpp:527 qt5/config/stylepreview.ui:168
+#: qt5/config/qtcurveconfig.cpp:528 qt5/config/stylepreview.ui:168
 #, kde-format
 msgid "Button"
 msgstr "Botón"
 
-#: qt4/config/qtcurveconfig.cpp:530 qt5/config/qtcurveconfig.cpp:529
+#: qt4/config/qtcurveconfig.cpp:530 qt5/config/qtcurveconfig.cpp:530
 #, kde-format
 msgid "Text"
 msgstr "Texto"
@@ -236,636 +236,636 @@ msgstr "Texto"
 #: qt4/config/qtcurveconfig.cpp:534 qt4/config/qtcurveconfig.cpp:594
 #: qt4/config/qtcurveconfig.cpp:617 qt4/config/qtcurveconfig.cpp:670
 #: qt4/config/qtcurveconfig.cpp:775 qt4/config/qtcurveconfig.cpp:783
-#: qt4/kwinconfig/qtcurvekwinconfig.cpp:68 qt5/config/qtcurveconfig.cpp:534
-#: qt5/config/qtcurveconfig.cpp:594 qt5/config/qtcurveconfig.cpp:617
-#: qt5/config/qtcurveconfig.cpp:670 qt5/config/qtcurveconfig.cpp:775
-#: qt5/config/qtcurveconfig.cpp:783 qt5/kwinconfig/qtcurvekwinconfig.cpp:65
+#: qt4/kwinconfig/qtcurvekwinconfig.cpp:68 qt5/config/qtcurveconfig.cpp:535
+#: qt5/config/qtcurveconfig.cpp:595 qt5/config/qtcurveconfig.cpp:618
+#: qt5/config/qtcurveconfig.cpp:671 qt5/config/qtcurveconfig.cpp:776
+#: qt5/config/qtcurveconfig.cpp:784 qt5/kwinconfig/qtcurvekwinconfig.cpp:65
 #, kde-format
 msgid "None"
 msgstr "Ninguno"
 
 #: qt4/config/qtcurveconfig.cpp:537 qt4/config/qtcurveconfig.cpp:599
-#: qt5/config/qtcurveconfig.cpp:537 qt5/config/qtcurveconfig.cpp:599
+#: qt5/config/qtcurveconfig.cpp:538 qt5/config/qtcurveconfig.cpp:600
 #, kde-format
 msgid "<unknown>"
 msgstr "<unknown>"
 
 #: qt4/config/qtcurveconfig.cpp:539 qt4/kwinconfig/qtcurvekwinconfig.cpp:50
-#: qt5/config/qtcurveconfig.cpp:539 qt5/kwinconfig/qtcurvekwinconfig.cpp:47
+#: qt5/config/qtcurveconfig.cpp:540 qt5/kwinconfig/qtcurvekwinconfig.cpp:47
 #, kde-format
 msgid "Custom:"
 msgstr "Personalizado:"
 
-#: qt4/config/qtcurveconfig.cpp:541 qt5/config/qtcurveconfig.cpp:541
+#: qt4/config/qtcurveconfig.cpp:541 qt5/config/qtcurveconfig.cpp:542
 #, kde-format
 msgid "Selected background"
 msgstr "Fondo seleccionado"
 
-#: qt4/config/qtcurveconfig.cpp:543 qt5/config/qtcurveconfig.cpp:543
+#: qt4/config/qtcurveconfig.cpp:543 qt5/config/qtcurveconfig.cpp:544
 #, kde-format
 msgid "Blended selected background"
 msgstr "Fondo mezclado seleccionado"
 
-#: qt4/config/qtcurveconfig.cpp:545 qt5/config/qtcurveconfig.cpp:545
+#: qt4/config/qtcurveconfig.cpp:545 qt5/config/qtcurveconfig.cpp:546
 #, kde-format
 msgid "Menu background"
 msgstr "Fondo del menú"
 
 #: qt4/config/qtcurveconfig.cpp:545 qt4/config/qtcurveconfig.cpp:636
-#: qt5/config/qtcurveconfig.cpp:545 qt5/config/qtcurveconfig.cpp:636
+#: qt5/config/qtcurveconfig.cpp:546 qt5/config/qtcurveconfig.cpp:637
 #, kde-format
 msgid "Darken"
 msgstr "Oscurecer"
 
 #: qt4/config/qtcurveconfig.cpp:547 qt4/kwinconfig/qtcurvekwinconfig.cpp:48
-#: qt5/config/qtcurveconfig.cpp:547 qt5/kwinconfig/qtcurvekwinconfig.cpp:45
+#: qt5/config/qtcurveconfig.cpp:548 qt5/kwinconfig/qtcurvekwinconfig.cpp:45
 #, kde-format
 msgid "Titlebar"
 msgstr "Barra de título"
 
 #: qt4/config/qtcurveconfig.cpp:569 qt4/config/qtcurveconfig.cpp:2291
-#: qt5/config/qtcurveconfig.cpp:569 qt5/config/qtcurveconfig.cpp:2249
+#: qt5/config/qtcurveconfig.cpp:570 qt5/config/qtcurveconfig.cpp:2273
 #, kde-format
 msgid "Custom gradient %1"
 msgstr "Gradiente personalizado %1"
 
 #. i18n: ectx: property (text), widget (QCheckBox, flatSbarButtons)
 #: qt4/config/qtcurveconfig.cpp:573 qt4/config/qtcurveconfigbase.ui:1040
-#: qt5/config/qtcurveconfig.cpp:573 qt5/config/qtcurveconfigbase.ui:1049
+#: qt5/config/qtcurveconfig.cpp:574 qt5/config/qtcurveconfigbase.ui:1049
 #, kde-format
 msgid "Flat"
 msgstr "Plano"
 
 #: qt4/config/qtcurveconfig.cpp:574 qt4/config/qtcurveconfig.cpp:849
-#: qt5/config/qtcurveconfig.cpp:574 qt5/config/qtcurveconfig.cpp:849
+#: qt5/config/qtcurveconfig.cpp:575 qt5/config/qtcurveconfig.cpp:850
 #, kde-format
 msgid "Raised"
 msgstr "En relieve"
 
-#: qt4/config/qtcurveconfig.cpp:575 qt5/config/qtcurveconfig.cpp:575
+#: qt4/config/qtcurveconfig.cpp:575 qt5/config/qtcurveconfig.cpp:576
 #, kde-format
 msgid "Dull glass"
 msgstr "Cristal sin brillo"
 
-#: qt4/config/qtcurveconfig.cpp:576 qt5/config/qtcurveconfig.cpp:576
+#: qt4/config/qtcurveconfig.cpp:576 qt5/config/qtcurveconfig.cpp:577
 #, kde-format
 msgid "Shiny glass"
 msgstr "Cristal resplandeciente"
 
-#: qt4/config/qtcurveconfig.cpp:577 qt5/config/qtcurveconfig.cpp:577
+#: qt4/config/qtcurveconfig.cpp:577 qt5/config/qtcurveconfig.cpp:578
 #, kde-format
 msgid "Agua"
 msgstr "Agua"
 
-#: qt4/config/qtcurveconfig.cpp:578 qt5/config/qtcurveconfig.cpp:578
+#: qt4/config/qtcurveconfig.cpp:578 qt5/config/qtcurveconfig.cpp:579
 #, kde-format
 msgid "Soft gradient"
 msgstr "Gradiente suave"
 
-#: qt4/config/qtcurveconfig.cpp:579 qt5/config/qtcurveconfig.cpp:579
+#: qt4/config/qtcurveconfig.cpp:579 qt5/config/qtcurveconfig.cpp:580
 #, kde-format
 msgid "Standard gradient"
 msgstr "Gradiente estándar"
 
-#: qt4/config/qtcurveconfig.cpp:580 qt5/config/qtcurveconfig.cpp:580
+#: qt4/config/qtcurveconfig.cpp:580 qt5/config/qtcurveconfig.cpp:581
 #, kde-format
 msgid "Harsh gradient"
 msgstr "Gradiente fuerte"
 
-#: qt4/config/qtcurveconfig.cpp:581 qt5/config/qtcurveconfig.cpp:581
+#: qt4/config/qtcurveconfig.cpp:581 qt5/config/qtcurveconfig.cpp:582
 #, kde-format
 msgid "Inverted gradient"
 msgstr "Gradiente invertido"
 
-#: qt4/config/qtcurveconfig.cpp:582 qt5/config/qtcurveconfig.cpp:582
+#: qt4/config/qtcurveconfig.cpp:582 qt5/config/qtcurveconfig.cpp:583
 #, kde-format
 msgid "Dark inverted gradient"
 msgstr "Gradiente invertido oscuro"
 
-#: qt4/config/qtcurveconfig.cpp:583 qt5/config/qtcurveconfig.cpp:583
+#: qt4/config/qtcurveconfig.cpp:583 qt5/config/qtcurveconfig.cpp:584
 #, kde-format
 msgid "Split gradient"
 msgstr "Partir gradiente"
 
-#: qt4/config/qtcurveconfig.cpp:584 qt5/config/qtcurveconfig.cpp:584
+#: qt4/config/qtcurveconfig.cpp:584 qt5/config/qtcurveconfig.cpp:585
 #, kde-format
 msgid "Bevelled"
 msgstr "Biselado"
 
-#: qt4/config/qtcurveconfig.cpp:589 qt5/config/qtcurveconfig.cpp:589
+#: qt4/config/qtcurveconfig.cpp:589 qt5/config/qtcurveconfig.cpp:590
 #, kde-format
 msgid "Fade out (popup menuitems)"
 msgstr "Desvanecerse (opciones del menú emergente)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stripedSbar)
 #: qt4/config/qtcurveconfig.cpp:591 qt4/config/qtcurveconfigbase.ui:1098
-#: qt5/config/qtcurveconfig.cpp:591 qt5/config/qtcurveconfigbase.ui:1107
+#: qt5/config/qtcurveconfig.cpp:592 qt5/config/qtcurveconfigbase.ui:1107
 #, kde-format
 msgid "Striped"
 msgstr "Rayado"
 
 #: qt4/config/qtcurveconfig.cpp:594 qt4/config/qtcurveconfig.cpp:679
-#: qt5/config/qtcurveconfig.cpp:594 qt5/config/qtcurveconfig.cpp:679
+#: qt5/config/qtcurveconfig.cpp:595 qt5/config/qtcurveconfig.cpp:680
 #, kde-format
 msgid "Same as general setting"
 msgstr "Igual que las preferencias generales"
 
-#: qt4/config/qtcurveconfig.cpp:597 qt5/config/qtcurveconfig.cpp:597
+#: qt4/config/qtcurveconfig.cpp:597 qt5/config/qtcurveconfig.cpp:598
 #, kde-format
 msgid "Tiled image"
 msgstr "Imagen en mosaico"
 
-#: qt4/config/qtcurveconfig.cpp:618 qt5/config/qtcurveconfig.cpp:618
+#: qt4/config/qtcurveconfig.cpp:618 qt5/config/qtcurveconfig.cpp:619
 #, kde-format
 msgid "Sunken lines"
 msgstr "Líneas hundidas"
 
-#: qt4/config/qtcurveconfig.cpp:619 qt5/config/qtcurveconfig.cpp:619
+#: qt4/config/qtcurveconfig.cpp:619 qt5/config/qtcurveconfig.cpp:620
 #, kde-format
 msgid "Flat lines"
 msgstr "Líneas planas"
 
-#: qt4/config/qtcurveconfig.cpp:620 qt5/config/qtcurveconfig.cpp:620
+#: qt4/config/qtcurveconfig.cpp:620 qt5/config/qtcurveconfig.cpp:621
 #, kde-format
 msgid "Dots"
 msgstr "Puntos"
 
-#: qt4/config/qtcurveconfig.cpp:623 qt5/config/qtcurveconfig.cpp:623
+#: qt4/config/qtcurveconfig.cpp:623 qt5/config/qtcurveconfig.cpp:624
 #, kde-format
 msgid "Single dot"
 msgstr "Punto"
 
-#: qt4/config/qtcurveconfig.cpp:625 qt5/config/qtcurveconfig.cpp:625
+#: qt4/config/qtcurveconfig.cpp:625 qt5/config/qtcurveconfig.cpp:626
 #, kde-format
 msgid "Dashes"
 msgstr "Guiones"
 
-#: qt4/config/qtcurveconfig.cpp:631 qt5/config/qtcurveconfig.cpp:631
+#: qt4/config/qtcurveconfig.cpp:631 qt5/config/qtcurveconfig.cpp:632
 #, kde-format
 msgid "Corner indicator"
 msgstr "Indicador de esquina"
 
-#: qt4/config/qtcurveconfig.cpp:632 qt5/config/qtcurveconfig.cpp:632
+#: qt4/config/qtcurveconfig.cpp:632 qt5/config/qtcurveconfig.cpp:633
 #, kde-format
 msgid "Font color thin border"
 msgstr "Contorno fino del color del tipo de letra"
 
-#: qt4/config/qtcurveconfig.cpp:633 qt5/config/qtcurveconfig.cpp:633
+#: qt4/config/qtcurveconfig.cpp:633 qt5/config/qtcurveconfig.cpp:634
 #, kde-format
 msgid "Selected background thick border"
 msgstr "Borde grueso de fondo elegido"
 
-#: qt4/config/qtcurveconfig.cpp:634 qt5/config/qtcurveconfig.cpp:634
+#: qt4/config/qtcurveconfig.cpp:634 qt5/config/qtcurveconfig.cpp:635
 #, kde-format
 msgid "Selected background tinting"
 msgstr "Tinte de fondo elegido"
 
-#: qt4/config/qtcurveconfig.cpp:635 qt5/config/qtcurveconfig.cpp:635
+#: qt4/config/qtcurveconfig.cpp:635 qt5/config/qtcurveconfig.cpp:636
 #, kde-format
 msgid "A slight glow"
 msgstr "Un ligero brillo"
 
-#: qt4/config/qtcurveconfig.cpp:637 qt5/config/qtcurveconfig.cpp:637
+#: qt4/config/qtcurveconfig.cpp:637 qt5/config/qtcurveconfig.cpp:638
 #, kde-format
 msgid "Use selected background color"
 msgstr "Usar color de fondo seleccionado"
 
-#: qt4/config/qtcurveconfig.cpp:638 qt5/config/qtcurveconfig.cpp:638
+#: qt4/config/qtcurveconfig.cpp:638 qt5/config/qtcurveconfig.cpp:639
 #, kde-format
 msgid "No indicator"
 msgstr "Sin indicador"
 
-#: qt4/config/qtcurveconfig.cpp:643 qt5/config/qtcurveconfig.cpp:643
+#: qt4/config/qtcurveconfig.cpp:643 qt5/config/qtcurveconfig.cpp:644
 #, kde-format
 msgid "KDE"
 msgstr "KDE"
 
-#: qt4/config/qtcurveconfig.cpp:644 qt5/config/qtcurveconfig.cpp:644
+#: qt4/config/qtcurveconfig.cpp:644 qt5/config/qtcurveconfig.cpp:645
 #, kde-format
 msgid "MS Windows"
 msgstr "MS Windows"
 
-#: qt4/config/qtcurveconfig.cpp:645 qt5/config/qtcurveconfig.cpp:645
+#: qt4/config/qtcurveconfig.cpp:645 qt5/config/qtcurveconfig.cpp:646
 #, kde-format
 msgid "Platinum"
 msgstr "Platinum"
 
-#: qt4/config/qtcurveconfig.cpp:646 qt5/config/qtcurveconfig.cpp:646
+#: qt4/config/qtcurveconfig.cpp:646 qt5/config/qtcurveconfig.cpp:647
 #, kde-format
 msgid "NeXT"
 msgstr "NeXT"
 
-#: qt4/config/qtcurveconfig.cpp:647 qt5/config/qtcurveconfig.cpp:647
+#: qt4/config/qtcurveconfig.cpp:647 qt5/config/qtcurveconfig.cpp:648
 #, kde-format
 msgid "No buttons"
 msgstr "Sin botones"
 
-#: qt4/config/qtcurveconfig.cpp:652 qt5/config/qtcurveconfig.cpp:652
+#: qt4/config/qtcurveconfig.cpp:652 qt5/config/qtcurveconfig.cpp:653
 #, kde-format
 msgid "Square"
 msgstr "Cuadrado"
 
-#: qt4/config/qtcurveconfig.cpp:653 qt5/config/qtcurveconfig.cpp:653
+#: qt4/config/qtcurveconfig.cpp:653 qt5/config/qtcurveconfig.cpp:654
 #, kde-format
 msgid "Slightly rounded"
 msgstr "Ligeramente redondeado"
 
-#: qt4/config/qtcurveconfig.cpp:654 qt5/config/qtcurveconfig.cpp:654
+#: qt4/config/qtcurveconfig.cpp:654 qt5/config/qtcurveconfig.cpp:655
 #, kde-format
 msgid "Fully rounded"
 msgstr "Completamente redondeado"
 
-#: qt4/config/qtcurveconfig.cpp:655 qt5/config/qtcurveconfig.cpp:655
+#: qt4/config/qtcurveconfig.cpp:655 qt5/config/qtcurveconfig.cpp:656
 #, kde-format
 msgid "Extra rounded"
 msgstr "Redondeado extra"
 
-#: qt4/config/qtcurveconfig.cpp:656 qt5/config/qtcurveconfig.cpp:656
+#: qt4/config/qtcurveconfig.cpp:656 qt5/config/qtcurveconfig.cpp:657
 #, kde-format
 msgid "Max rounded"
 msgstr "Redondeo máximo"
 
-#: qt4/config/qtcurveconfig.cpp:661 qt5/config/qtcurveconfig.cpp:661
+#: qt4/config/qtcurveconfig.cpp:661 qt5/config/qtcurveconfig.cpp:662
 #, kde-format
 msgid "No coloration"
 msgstr "Sin coloración"
 
-#: qt4/config/qtcurveconfig.cpp:662 qt5/config/qtcurveconfig.cpp:662
+#: qt4/config/qtcurveconfig.cpp:662 qt5/config/qtcurveconfig.cpp:663
 #, kde-format
 msgid "Color border"
 msgstr "Margen de color"
 
-#: qt4/config/qtcurveconfig.cpp:663 qt5/config/qtcurveconfig.cpp:663
+#: qt4/config/qtcurveconfig.cpp:663 qt5/config/qtcurveconfig.cpp:664
 #, kde-format
 msgid "Thick color border"
 msgstr "Margen de color grueso"
 
-#: qt4/config/qtcurveconfig.cpp:664 qt5/config/qtcurveconfig.cpp:664
+#: qt4/config/qtcurveconfig.cpp:664 qt5/config/qtcurveconfig.cpp:665
 #, kde-format
 msgid "Plastik style"
 msgstr "Estilo Plastik"
 
 #: qt4/config/qtcurveconfig.cpp:665 qt4/config/qtcurveconfig.cpp:724
-#: qt5/config/qtcurveconfig.cpp:665 qt5/config/qtcurveconfig.cpp:724
+#: qt5/config/qtcurveconfig.cpp:666 qt5/config/qtcurveconfig.cpp:725
 #, kde-format
 msgid "Glow"
 msgstr "Brillo"
 
 #. i18n: ectx: property (text), widget (QRadioButton, borderTab)
 #: qt4/config/qtcurveconfig.cpp:671 qt4/config/qtcurveconfigbase.ui:1679
-#: qt4/kwinconfig/qtcurvekwinconfig.cpp:70 qt5/config/qtcurveconfig.cpp:671
+#: qt4/kwinconfig/qtcurvekwinconfig.cpp:70 qt5/config/qtcurveconfig.cpp:672
 #: qt5/config/qtcurveconfigbase.ui:1706 qt5/kwinconfig/qtcurvekwinconfig.cpp:67
 #, kde-format
 msgid "Light"
 msgstr "Luminoso"
 
 #: qt4/config/qtcurveconfig.cpp:672 qt4/kwinconfig/qtcurvekwinconfig.cpp:69
-#: qt5/config/qtcurveconfig.cpp:672 qt5/kwinconfig/qtcurvekwinconfig.cpp:66
+#: qt5/config/qtcurveconfig.cpp:673 qt5/kwinconfig/qtcurvekwinconfig.cpp:66
 #, kde-format
 msgid "Dark"
 msgstr "Oscuro"
 
-#: qt4/config/qtcurveconfig.cpp:673 qt5/config/qtcurveconfig.cpp:673
+#: qt4/config/qtcurveconfig.cpp:673 qt5/config/qtcurveconfig.cpp:674
 #, kde-format
 msgid "Light (all sides)"
 msgstr "Luminoso (todo)"
 
-#: qt4/config/qtcurveconfig.cpp:674 qt5/config/qtcurveconfig.cpp:674
+#: qt4/config/qtcurveconfig.cpp:674 qt5/config/qtcurveconfig.cpp:675
 #, kde-format
 msgid "Dark (all sides)"
 msgstr "Oscuro (todo)"
 
 #: qt4/config/qtcurveconfig.cpp:679 qt4/config/qtcurveconfig.cpp:694
-#: qt4/config/qtcurveconfig.cpp:702 qt5/config/qtcurveconfig.cpp:679
-#: qt5/config/qtcurveconfig.cpp:694 qt5/config/qtcurveconfig.cpp:702
+#: qt4/config/qtcurveconfig.cpp:702 qt5/config/qtcurveconfig.cpp:680
+#: qt5/config/qtcurveconfig.cpp:695 qt5/config/qtcurveconfig.cpp:703
 #, kde-format
 msgid "Plain"
 msgstr "Sencillo"
 
-#: qt4/config/qtcurveconfig.cpp:680 qt5/config/qtcurveconfig.cpp:680
+#: qt4/config/qtcurveconfig.cpp:680 qt5/config/qtcurveconfig.cpp:681
 #, kde-format
 msgid "Etched"
 msgstr "Grabado"
 
-#: qt4/config/qtcurveconfig.cpp:681 qt5/config/qtcurveconfig.cpp:681
+#: qt4/config/qtcurveconfig.cpp:681 qt5/config/qtcurveconfig.cpp:682
 #, kde-format
 msgid "Shadowed"
 msgstr "Sombreado"
 
-#: qt4/config/qtcurveconfig.cpp:686 qt5/config/qtcurveconfig.cpp:686
+#: qt4/config/qtcurveconfig.cpp:686 qt5/config/qtcurveconfig.cpp:687
 #, kde-format
 msgid "Simple"
 msgstr "Sencillo"
 
-#: qt4/config/qtcurveconfig.cpp:687 qt5/config/qtcurveconfig.cpp:687
+#: qt4/config/qtcurveconfig.cpp:687 qt5/config/qtcurveconfig.cpp:688
 #, kde-format
 msgid "Use HSL color space"
 msgstr "Usar espacio de color HSL"
 
-#: qt4/config/qtcurveconfig.cpp:688 qt5/config/qtcurveconfig.cpp:688
+#: qt4/config/qtcurveconfig.cpp:688 qt5/config/qtcurveconfig.cpp:689
 #, kde-format
 msgid "Use HSV color space"
 msgstr "Usar espacio de color HSV"
 
-#: qt4/config/qtcurveconfig.cpp:689 qt5/config/qtcurveconfig.cpp:689
+#: qt4/config/qtcurveconfig.cpp:689 qt5/config/qtcurveconfig.cpp:690
 #, kde-format
 msgid "Use HCY color space"
 msgstr "Usar espacio de color HCY"
 
-#: qt4/config/qtcurveconfig.cpp:695 qt5/config/qtcurveconfig.cpp:695
+#: qt4/config/qtcurveconfig.cpp:695 qt5/config/qtcurveconfig.cpp:696
 #, kde-format
 msgid "Stripes"
 msgstr "Franjas"
 
-#: qt4/config/qtcurveconfig.cpp:696 qt5/config/qtcurveconfig.cpp:696
+#: qt4/config/qtcurveconfig.cpp:696 qt5/config/qtcurveconfig.cpp:697
 #, kde-format
 msgid "Diagonal stripes"
 msgstr "Franjas diagonales"
 
-#: qt4/config/qtcurveconfig.cpp:697 qt5/config/qtcurveconfig.cpp:697
+#: qt4/config/qtcurveconfig.cpp:697 qt5/config/qtcurveconfig.cpp:698
 #, kde-format
 msgid "Faded stripes"
 msgstr "Franjas desvaídas"
 
-#: qt4/config/qtcurveconfig.cpp:703 qt5/config/qtcurveconfig.cpp:703
+#: qt4/config/qtcurveconfig.cpp:703 qt5/config/qtcurveconfig.cpp:704
 #, kde-format
 msgid "Round"
 msgstr "Redondo"
 
-#: qt4/config/qtcurveconfig.cpp:704 qt5/config/qtcurveconfig.cpp:704
+#: qt4/config/qtcurveconfig.cpp:704 qt5/config/qtcurveconfig.cpp:705
 #, kde-format
 msgid "Plain - rotated"
 msgstr "Sencillo - rotado"
 
-#: qt4/config/qtcurveconfig.cpp:705 qt5/config/qtcurveconfig.cpp:705
+#: qt4/config/qtcurveconfig.cpp:705 qt5/config/qtcurveconfig.cpp:706
 #, kde-format
 msgid "Round - rotated"
 msgstr "Redondo - rotado"
 
-#: qt4/config/qtcurveconfig.cpp:706 qt5/config/qtcurveconfig.cpp:706
+#: qt4/config/qtcurveconfig.cpp:706 qt5/config/qtcurveconfig.cpp:707
 #, kde-format
 msgid "Triangular"
 msgstr "Triangular"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_round)
 #: qt4/config/qtcurveconfig.cpp:707 qt4/config/qtcurveconfigbase.ui:2315
-#: qt5/config/qtcurveconfig.cpp:707 qt5/config/qtcurveconfigbase.ui:2396
+#: qt5/config/qtcurveconfig.cpp:708 qt5/config/qtcurveconfigbase.ui:2396
 #, kde-format
 msgid "Circular"
 msgstr "Circular"
 
-#: qt4/config/qtcurveconfig.cpp:712 qt5/config/qtcurveconfig.cpp:712
+#: qt4/config/qtcurveconfig.cpp:712 qt5/config/qtcurveconfig.cpp:713
 #, kde-format
 msgid "Base color"
 msgstr "Color base"
 
-#: qt4/config/qtcurveconfig.cpp:713 qt5/config/qtcurveconfig.cpp:713
+#: qt4/config/qtcurveconfig.cpp:713 qt5/config/qtcurveconfig.cpp:714
 #, kde-format
 msgid "Background color"
 msgstr "Color de fondo"
 
-#: qt4/config/qtcurveconfig.cpp:714 qt5/config/qtcurveconfig.cpp:714
+#: qt4/config/qtcurveconfig.cpp:714 qt5/config/qtcurveconfig.cpp:715
 #, kde-format
 msgid "Darkened background color"
 msgstr "Color de fondo oscurecido"
 
-#: qt4/config/qtcurveconfig.cpp:719 qt5/config/qtcurveconfig.cpp:719
+#: qt4/config/qtcurveconfig.cpp:719 qt5/config/qtcurveconfig.cpp:720
 #, kde-format
 msgid "Standard (dotted)"
 msgstr "Estándar (punteado)"
 
-#: qt4/config/qtcurveconfig.cpp:720 qt5/config/qtcurveconfig.cpp:720
+#: qt4/config/qtcurveconfig.cpp:720 qt5/config/qtcurveconfig.cpp:721
 #, kde-format
 msgid "Highlight color"
 msgstr "Resaltar color"
 
-#: qt4/config/qtcurveconfig.cpp:721 qt5/config/qtcurveconfig.cpp:721
+#: qt4/config/qtcurveconfig.cpp:721 qt5/config/qtcurveconfig.cpp:722
 #, kde-format
 msgid "Highlight color (full size)"
 msgstr "Resaltar color (tamaño completo)"
 
-#: qt4/config/qtcurveconfig.cpp:722 qt5/config/qtcurveconfig.cpp:722
+#: qt4/config/qtcurveconfig.cpp:722 qt5/config/qtcurveconfig.cpp:723
 #, kde-format
 msgid "Highlight color, and fill"
 msgstr "Resaltar color y rellenar"
 
-#: qt4/config/qtcurveconfig.cpp:723 qt5/config/qtcurveconfig.cpp:723
+#: qt4/config/qtcurveconfig.cpp:723 qt5/config/qtcurveconfig.cpp:724
 #, kde-format
 msgid "Line drawn with highlight color"
 msgstr "Línea dibujada con resaltar color"
 
-#: qt4/config/qtcurveconfig.cpp:725 qt5/config/qtcurveconfig.cpp:725
+#: qt4/config/qtcurveconfig.cpp:725 qt5/config/qtcurveconfig.cpp:726
 #, kde-format
 msgid "Nothing"
 msgstr "Nada"
 
 #: qt4/config/qtcurveconfig.cpp:730 qt4/config/qtcurveconfig.cpp:825
-#: qt5/config/qtcurveconfig.cpp:730 qt5/config/qtcurveconfig.cpp:825
+#: qt5/config/qtcurveconfig.cpp:731 qt5/config/qtcurveconfig.cpp:826
 #, kde-format
 msgid "No border"
 msgstr "Sin borde"
 
-#: qt4/config/qtcurveconfig.cpp:731 qt5/config/qtcurveconfig.cpp:731
+#: qt4/config/qtcurveconfig.cpp:731 qt5/config/qtcurveconfig.cpp:732
 #, kde-format
 msgid "Light border"
 msgstr "Borde brillante"
 
-#: qt4/config/qtcurveconfig.cpp:732 qt5/config/qtcurveconfig.cpp:732
+#: qt4/config/qtcurveconfig.cpp:732 qt5/config/qtcurveconfig.cpp:733
 #, kde-format
 msgid "3D border (light only)"
 msgstr "Borde 3D (brillante solo)"
 
-#: qt4/config/qtcurveconfig.cpp:733 qt5/config/qtcurveconfig.cpp:733
+#: qt4/config/qtcurveconfig.cpp:733 qt5/config/qtcurveconfig.cpp:734
 #, kde-format
 msgid "3D border (dark and light)"
 msgstr "Borde 3D (brillante y oscuro)"
 
-#: qt4/config/qtcurveconfig.cpp:734 qt5/config/qtcurveconfig.cpp:734
+#: qt4/config/qtcurveconfig.cpp:734 qt5/config/qtcurveconfig.cpp:735
 #, kde-format
 msgid "Shine"
 msgstr "Brillar"
 
-#: qt4/config/qtcurveconfig.cpp:739 qt5/config/qtcurveconfig.cpp:739
+#: qt4/config/qtcurveconfig.cpp:739 qt5/config/qtcurveconfig.cpp:740
 #, kde-format
 msgid "Left"
 msgstr "Izquierda"
 
-#: qt4/config/qtcurveconfig.cpp:740 qt5/config/qtcurveconfig.cpp:740
+#: qt4/config/qtcurveconfig.cpp:740 qt5/config/qtcurveconfig.cpp:741
 #, kde-format
 msgid "Center (between controls)"
 msgstr "Centrado (entre controles)"
 
-#: qt4/config/qtcurveconfig.cpp:741 qt5/config/qtcurveconfig.cpp:741
+#: qt4/config/qtcurveconfig.cpp:741 qt5/config/qtcurveconfig.cpp:742
 #, kde-format
 msgid "Center (full width)"
 msgstr "Centrado (anchura total)"
 
-#: qt4/config/qtcurveconfig.cpp:742 qt5/config/qtcurveconfig.cpp:742
+#: qt4/config/qtcurveconfig.cpp:742 qt5/config/qtcurveconfig.cpp:743
 #, kde-format
 msgid "Right"
 msgstr "Derecha"
 
-#: qt4/config/qtcurveconfig.cpp:754 qt5/config/qtcurveconfig.cpp:754
+#: qt4/config/qtcurveconfig.cpp:754 qt5/config/qtcurveconfig.cpp:755
 #, kde-format
 msgid "Do not show"
 msgstr "No mostrar"
 
-#: qt4/config/qtcurveconfig.cpp:755 qt5/config/qtcurveconfig.cpp:755
+#: qt4/config/qtcurveconfig.cpp:755 qt5/config/qtcurveconfig.cpp:756
 #, kde-format
 msgid "Place on menu button"
 msgstr "Colocar en el botón del menú"
 
-#: qt4/config/qtcurveconfig.cpp:756 qt5/config/qtcurveconfig.cpp:756
+#: qt4/config/qtcurveconfig.cpp:756 qt5/config/qtcurveconfig.cpp:757
 #, kde-format
 msgid "Place next to title"
 msgstr "Colocar junto al título"
 
-#: qt4/config/qtcurveconfig.cpp:761 qt5/config/qtcurveconfig.cpp:761
+#: qt4/config/qtcurveconfig.cpp:761 qt5/config/qtcurveconfig.cpp:762
 #, kde-format
 msgid "Highlight on top"
 msgstr "Foco en la parte superior"
 
-#: qt4/config/qtcurveconfig.cpp:762 qt5/config/qtcurveconfig.cpp:762
+#: qt4/config/qtcurveconfig.cpp:762 qt5/config/qtcurveconfig.cpp:763
 #, kde-format
 msgid "Highlight on bottom"
 msgstr "Foco en la parte inferior"
 
-#: qt4/config/qtcurveconfig.cpp:763 qt5/config/qtcurveconfig.cpp:763
+#: qt4/config/qtcurveconfig.cpp:763 qt5/config/qtcurveconfig.cpp:764
 #, kde-format
 msgid "Add a slight glow"
 msgstr "Añadir un ligero brillo"
 
-#: qt4/config/qtcurveconfig.cpp:768 qt5/config/qtcurveconfig.cpp:768
+#: qt4/config/qtcurveconfig.cpp:768 qt5/config/qtcurveconfig.cpp:769
 #, kde-format
 msgid "Top to bottom"
 msgstr "De arriba abajo"
 
-#: qt4/config/qtcurveconfig.cpp:769 qt5/config/qtcurveconfig.cpp:769
+#: qt4/config/qtcurveconfig.cpp:769 qt5/config/qtcurveconfig.cpp:770
 #, kde-format
 msgid "Left to right"
 msgstr "De izquierda a derecha"
 
-#: qt4/config/qtcurveconfig.cpp:776 qt5/config/qtcurveconfig.cpp:776
+#: qt4/config/qtcurveconfig.cpp:776 qt5/config/qtcurveconfig.cpp:777
 #, kde-format
 msgid "New style (KDE and Gtk2 similar)"
 msgstr "Nuevo estilo (similar a KDE y Gtk2)"
 
-#: qt4/config/qtcurveconfig.cpp:777 qt5/config/qtcurveconfig.cpp:777
+#: qt4/config/qtcurveconfig.cpp:777 qt5/config/qtcurveconfig.cpp:778
 #, kde-format
 msgid "Old style (KDE and Gtk2 different)"
 msgstr "Estilo antiguo (diferente de KDE y Gtk2)"
 
-#: qt4/config/qtcurveconfig.cpp:784 qt5/config/qtcurveconfig.cpp:784
+#: qt4/config/qtcurveconfig.cpp:784 qt5/config/qtcurveconfig.cpp:785
 #, kde-format
 msgid "Bordered rings"
 msgstr "Anillos con borde"
 
-#: qt4/config/qtcurveconfig.cpp:785 qt5/config/qtcurveconfig.cpp:785
+#: qt4/config/qtcurveconfig.cpp:785 qt5/config/qtcurveconfig.cpp:786
 #, kde-format
 msgid "Plain rings"
 msgstr "Anillos sencillos"
 
-#: qt4/config/qtcurveconfig.cpp:786 qt5/config/qtcurveconfig.cpp:786
+#: qt4/config/qtcurveconfig.cpp:786 qt5/config/qtcurveconfig.cpp:787
 #, kde-format
 msgid "Square rings"
 msgstr "Anillos cuadrados"
 
-#: qt4/config/qtcurveconfig.cpp:787 qt5/config/qtcurveconfig.cpp:787
+#: qt4/config/qtcurveconfig.cpp:787 qt5/config/qtcurveconfig.cpp:788
 #, kde-format
 msgid "File"
 msgstr "Archivo"
 
-#: qt4/config/qtcurveconfig.cpp:792 qt5/config/qtcurveconfig.cpp:792
+#: qt4/config/qtcurveconfig.cpp:792 qt5/config/qtcurveconfig.cpp:793
 #, kde-format
 msgid "No glow"
 msgstr "Sin brillo"
 
-#: qt4/config/qtcurveconfig.cpp:793 qt5/config/qtcurveconfig.cpp:793
+#: qt4/config/qtcurveconfig.cpp:793 qt5/config/qtcurveconfig.cpp:794
 #, kde-format
 msgid "Add glow at the start"
 msgstr "Añadir brillo al principio"
 
-#: qt4/config/qtcurveconfig.cpp:794 qt5/config/qtcurveconfig.cpp:794
+#: qt4/config/qtcurveconfig.cpp:794 qt5/config/qtcurveconfig.cpp:795
 #, kde-format
 msgid "Add glow in the middle"
 msgstr "Añadir brillo a mitad"
 
-#: qt4/config/qtcurveconfig.cpp:795 qt5/config/qtcurveconfig.cpp:795
+#: qt4/config/qtcurveconfig.cpp:795 qt5/config/qtcurveconfig.cpp:796
 #, kde-format
 msgid "Add glow at the end"
 msgstr "Añadir brillo al final"
 
-#: qt4/config/qtcurveconfig.cpp:800 qt5/config/qtcurveconfig.cpp:800
+#: qt4/config/qtcurveconfig.cpp:800 qt5/config/qtcurveconfig.cpp:801
 #, kde-format
 msgid "Small (%1 pixels)"
 msgstr "Pequeño (%1 píxeles)"
 
-#: qt4/config/qtcurveconfig.cpp:801 qt5/config/qtcurveconfig.cpp:801
+#: qt4/config/qtcurveconfig.cpp:801 qt5/config/qtcurveconfig.cpp:802
 #, kde-format
 msgid "Large (%1 pixels)"
 msgstr "Grande (%1 píxeles)"
 
-#: qt4/config/qtcurveconfig.cpp:816 qt5/config/qtcurveconfig.cpp:816
+#: qt4/config/qtcurveconfig.cpp:816 qt5/config/qtcurveconfig.cpp:817
 #, kde-format
 msgid "Titlebar only"
 msgstr "Barra de título solo"
 
-#: qt4/config/qtcurveconfig.cpp:817 qt5/config/qtcurveconfig.cpp:817
+#: qt4/config/qtcurveconfig.cpp:817 qt5/config/qtcurveconfig.cpp:818
 #, kde-format
 msgid "Titlebar and menubar"
 msgstr "Barra de título y de menús"
 
-#: qt4/config/qtcurveconfig.cpp:818 qt5/config/qtcurveconfig.cpp:818
+#: qt4/config/qtcurveconfig.cpp:818 qt5/config/qtcurveconfig.cpp:819
 #, kde-format
 msgid "Titlebar, menubar, and toolbars"
 msgstr "Barra de título, de menús y de herramientas"
 
-#: qt4/config/qtcurveconfig.cpp:819 qt5/config/qtcurveconfig.cpp:819
+#: qt4/config/qtcurveconfig.cpp:819 qt5/config/qtcurveconfig.cpp:820
 #, kde-format
 msgid "All empty areas"
 msgstr "Todas las áreas vacías"
 
-#: qt4/config/qtcurveconfig.cpp:826 qt5/config/qtcurveconfig.cpp:826
+#: qt4/config/qtcurveconfig.cpp:826 qt5/config/qtcurveconfig.cpp:827
 #, kde-format
 msgid "Standard frame border"
 msgstr "Borde de marco estándar"
 
-#: qt4/config/qtcurveconfig.cpp:827 qt5/config/qtcurveconfig.cpp:827
+#: qt4/config/qtcurveconfig.cpp:827 qt5/config/qtcurveconfig.cpp:828
 #, kde-format
 msgid "Single separator line"
 msgstr "Separador de línea simple"
 
-#: qt4/config/qtcurveconfig.cpp:828 qt5/config/qtcurveconfig.cpp:828
+#: qt4/config/qtcurveconfig.cpp:828 qt5/config/qtcurveconfig.cpp:829
 #, kde-format
 msgid "Shaded background"
 msgstr "Fondo sombreado"
 
-#: qt4/config/qtcurveconfig.cpp:829 qt5/config/qtcurveconfig.cpp:829
+#: qt4/config/qtcurveconfig.cpp:829 qt5/config/qtcurveconfig.cpp:830
 #, kde-format
 msgid "Faded background"
 msgstr "Fondo descolorido"
 
-#: qt4/config/qtcurveconfig.cpp:841 qt5/config/qtcurveconfig.cpp:841
+#: qt4/config/qtcurveconfig.cpp:841 qt5/config/qtcurveconfig.cpp:842
 #, kde-format
 msgid "Outside frame"
 msgstr "Fuera del marco"
 
-#: qt4/config/qtcurveconfig.cpp:842 qt5/config/qtcurveconfig.cpp:842
+#: qt4/config/qtcurveconfig.cpp:842 qt5/config/qtcurveconfig.cpp:843
 #, kde-format
 msgid "On frame"
 msgstr "En el marco"
 
-#: qt4/config/qtcurveconfig.cpp:843 qt5/config/qtcurveconfig.cpp:843
+#: qt4/config/qtcurveconfig.cpp:843 qt5/config/qtcurveconfig.cpp:844
 #, kde-format
 msgid "Inside frame"
 msgstr "Dentro del marco"
 
-#: qt4/config/qtcurveconfig.cpp:848 qt5/config/qtcurveconfig.cpp:848
+#: qt4/config/qtcurveconfig.cpp:848 qt5/config/qtcurveconfig.cpp:849
 #, kde-format
 msgid "Standard (auto-raise)"
 msgstr "Estándar (auto-provocar)"
 
-#: qt4/config/qtcurveconfig.cpp:850 qt5/config/qtcurveconfig.cpp:850
+#: qt4/config/qtcurveconfig.cpp:850 qt5/config/qtcurveconfig.cpp:851
 #, kde-format
 msgid "Raised and joined"
 msgstr "Levantado y unido"
@@ -873,27 +873,27 @@ msgstr "Levantado y unido"
 #. i18n: ectx: property (suffix), widget (KIntNumInput, sliderWidth)
 #. i18n: ectx: property (suffix), widget (QSpinBox, sliderWidth)
 #: qt4/config/qtcurveconfig.cpp:972 qt4/config/qtcurveconfigbase.ui:1085
-#: qt5/config/qtcurveconfig.cpp:977 qt5/config/qtcurveconfigbase.ui:1094
+#: qt5/config/qtcurveconfig.cpp:978 qt5/config/qtcurveconfigbase.ui:1094
 #, kde-format
 msgid " pixels"
 msgstr " píxeles"
 
-#: qt4/config/qtcurveconfig.cpp:985 qt5/config/qtcurveconfig.cpp:990
+#: qt4/config/qtcurveconfig.cpp:985 qt5/config/qtcurveconfig.cpp:991
 #, kde-format
 msgid "Menu Background"
 msgstr "Fondo del menú"
 
-#: qt4/config/qtcurveconfig.cpp:986 qt5/config/qtcurveconfig.cpp:991
+#: qt4/config/qtcurveconfig.cpp:986 qt5/config/qtcurveconfig.cpp:992
 #, kde-format
 msgid "Background Image"
 msgstr "Imagen de fondo"
 
-#: qt4/config/qtcurveconfig.cpp:990 qt5/config/qtcurveconfig.cpp:995
+#: qt4/config/qtcurveconfig.cpp:990 qt5/config/qtcurveconfig.cpp:996
 #, kde-format
 msgid "Menu Image"
 msgstr "Imagen del menú"
 
-#: qt4/config/qtcurveconfig.cpp:1732 qt5/config/qtcurveconfig.cpp:1667
+#: qt4/config/qtcurveconfig.cpp:1732 qt5/config/qtcurveconfig.cpp:1668
 #, kde-format
 msgid "Presets and Preview"
 msgstr "Pre-ajustes y vista previa"
@@ -901,13 +901,13 @@ msgstr "Pre-ajustes y vista previa"
 #. i18n: ectx: attribute (title), widget (QWidget, generalTab)
 #: qt4/config/qtcurveconfig.cpp:1733
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:30
-#: qt5/config/qtcurveconfig.cpp:1668
+#: qt5/config/qtcurveconfig.cpp:1669
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:30
 #, kde-format
 msgid "General"
 msgstr "General"
 
-#: qt4/config/qtcurveconfig.cpp:1734 qt5/config/qtcurveconfig.cpp:1669
+#: qt4/config/qtcurveconfig.cpp:1734 qt5/config/qtcurveconfig.cpp:1670
 #, kde-format
 msgid "Rounding"
 msgstr "Redondez"
@@ -915,80 +915,80 @@ msgstr "Redondez"
 #. i18n: ectx: attribute (title), widget (QWidget, opacityTab)
 #: qt4/config/qtcurveconfig.cpp:1735
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:209
-#: qt5/config/qtcurveconfig.cpp:1670
+#: qt5/config/qtcurveconfig.cpp:1671
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:209
 #, kde-format
 msgid "Opacity"
 msgstr "Opacidad"
 
-#: qt4/config/qtcurveconfig.cpp:1736 qt5/config/qtcurveconfig.cpp:1671
+#: qt4/config/qtcurveconfig.cpp:1736 qt5/config/qtcurveconfig.cpp:1672
 #, kde-format
 msgid "Group Boxes"
 msgstr "Agrupar cajas"
 
-#: qt4/config/qtcurveconfig.cpp:1737 qt5/config/qtcurveconfig.cpp:1672
+#: qt4/config/qtcurveconfig.cpp:1737 qt5/config/qtcurveconfig.cpp:1673
 #, kde-format
 msgid "Combos"
 msgstr "Listas desplegables"
 
-#: qt4/config/qtcurveconfig.cpp:1738 qt5/config/qtcurveconfig.cpp:1673
+#: qt4/config/qtcurveconfig.cpp:1738 qt5/config/qtcurveconfig.cpp:1674
 #, kde-format
 msgid "Spin Buttons"
 msgstr "Botones incrementales"
 
-#: qt4/config/qtcurveconfig.cpp:1739 qt5/config/qtcurveconfig.cpp:1674
+#: qt4/config/qtcurveconfig.cpp:1739 qt5/config/qtcurveconfig.cpp:1675
 #, kde-format
 msgid "Splitters"
 msgstr "Divisores"
 
-#: qt4/config/qtcurveconfig.cpp:1740 qt5/config/qtcurveconfig.cpp:1675
+#: qt4/config/qtcurveconfig.cpp:1740 qt5/config/qtcurveconfig.cpp:1676
 #, kde-format
 msgid "Sliders and Scrollbars"
 msgstr "Barras deslizantes y barras de desplazamiento"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareProgress)
 #: qt4/config/qtcurveconfig.cpp:1741 qt4/config/qtcurveconfigbase.ui:484
-#: qt5/config/qtcurveconfig.cpp:1676 qt5/config/qtcurveconfigbase.ui:493
+#: qt5/config/qtcurveconfig.cpp:1677 qt5/config/qtcurveconfigbase.ui:493
 #, kde-format
 msgid "Progressbars"
 msgstr "Barras de progreso"
 
-#: qt4/config/qtcurveconfig.cpp:1742 qt5/config/qtcurveconfig.cpp:1677
+#: qt4/config/qtcurveconfig.cpp:1742 qt5/config/qtcurveconfig.cpp:1678
 #, kde-format
 msgid "Default Button"
 msgstr "Botón predeterminado"
 
-#: qt4/config/qtcurveconfig.cpp:1743 qt5/config/qtcurveconfig.cpp:1678
+#: qt4/config/qtcurveconfig.cpp:1743 qt5/config/qtcurveconfig.cpp:1679
 #, kde-format
 msgid "Mouse-over"
 msgstr "Al pasar el ratón"
 
-#: qt4/config/qtcurveconfig.cpp:1744 qt5/config/qtcurveconfig.cpp:1679
+#: qt4/config/qtcurveconfig.cpp:1744 qt5/config/qtcurveconfig.cpp:1680
 #, kde-format
 msgid "Item Views"
 msgstr "Vistas de elemento"
 
-#: qt4/config/qtcurveconfig.cpp:1745 qt5/config/qtcurveconfig.cpp:1680
+#: qt4/config/qtcurveconfig.cpp:1745 qt5/config/qtcurveconfig.cpp:1681
 #, kde-format
 msgid "Scrollviews"
 msgstr "Vistas de desplazamiento"
 
-#: qt4/config/qtcurveconfig.cpp:1746 qt5/config/qtcurveconfig.cpp:1681
+#: qt4/config/qtcurveconfig.cpp:1746 qt5/config/qtcurveconfig.cpp:1682
 #, kde-format
 msgid "Tabs"
 msgstr "Pestañas"
 
-#: qt4/config/qtcurveconfig.cpp:1747 qt5/config/qtcurveconfig.cpp:1682
+#: qt4/config/qtcurveconfig.cpp:1747 qt5/config/qtcurveconfig.cpp:1683
 #, kde-format
 msgid "Checks and Radios"
 msgstr "Controles y botones de selección"
 
-#: qt4/config/qtcurveconfig.cpp:1748 qt5/config/qtcurveconfig.cpp:1683
+#: qt4/config/qtcurveconfig.cpp:1748 qt5/config/qtcurveconfig.cpp:1684
 #, kde-format
 msgid "Windows"
 msgstr "Ventanas"
 
-#: qt4/config/qtcurveconfig.cpp:1755 qt5/config/qtcurveconfig.cpp:1689
+#: qt4/config/qtcurveconfig.cpp:1755 qt5/config/qtcurveconfig.cpp:1690
 #, kde-format
 msgid ""
 "<p><b>NOTE:</b><i>The settings here affect the borders drawn around "
@@ -1001,104 +1001,104 @@ msgstr ""
 "ventanas internas (MDI). Por tanto, estas preferencias <b>no</b> se verán "
 "reflejados en la página de vista previa.</i></p>"
 
-#: qt4/config/qtcurveconfig.cpp:1761 qt5/config/qtcurveconfig.cpp:1695
+#: qt4/config/qtcurveconfig.cpp:1761 qt5/config/qtcurveconfig.cpp:1696
 #, kde-format
 msgid "Window Manager"
 msgstr "Gestor de ventanas"
 
-#: qt4/config/qtcurveconfig.cpp:1763 qt5/config/qtcurveconfig.cpp:1697
+#: qt4/config/qtcurveconfig.cpp:1763 qt5/config/qtcurveconfig.cpp:1698
 #, kde-format
 msgid "Window buttons"
 msgstr "Botones de la ventana"
 
-#: qt4/config/qtcurveconfig.cpp:1764 qt5/config/qtcurveconfig.cpp:1698
+#: qt4/config/qtcurveconfig.cpp:1764 qt5/config/qtcurveconfig.cpp:1699
 #, kde-format
 msgid "Window button colors"
 msgstr "Colores de los botones de la ventana"
 
-#: qt4/config/qtcurveconfig.cpp:1765 qt5/config/qtcurveconfig.cpp:1699
+#: qt4/config/qtcurveconfig.cpp:1765 qt5/config/qtcurveconfig.cpp:1700
 #, kde-format
 msgid "Menubars"
 msgstr "Barra de menús"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squarePopupMenus)
 #: qt4/config/qtcurveconfig.cpp:1766 qt4/config/qtcurveconfigbase.ui:559
-#: qt5/config/qtcurveconfig.cpp:1700 qt5/config/qtcurveconfigbase.ui:568
+#: qt5/config/qtcurveconfig.cpp:1701 qt5/config/qtcurveconfigbase.ui:568
 #, kde-format
 msgid "Popup menus"
 msgstr "Menús emergentes"
 
-#: qt4/config/qtcurveconfig.cpp:1767 qt5/config/qtcurveconfig.cpp:1701
+#: qt4/config/qtcurveconfig.cpp:1767 qt5/config/qtcurveconfig.cpp:1702
 #, kde-format
 msgid "Toolbars"
 msgstr "Barras de herramientas"
 
-#: qt4/config/qtcurveconfig.cpp:1768 qt5/config/qtcurveconfig.cpp:1702
+#: qt4/config/qtcurveconfig.cpp:1768 qt5/config/qtcurveconfig.cpp:1703
 #, kde-format
 msgid "Statusbars"
 msgstr "Barras de estado"
 
-#: qt4/config/qtcurveconfig.cpp:1769 qt5/config/qtcurveconfig.cpp:1703
+#: qt4/config/qtcurveconfig.cpp:1769 qt5/config/qtcurveconfig.cpp:1704
 #, kde-format
 msgid "Dock windows"
 msgstr "Ventanas acopladas"
 
-#: qt4/config/qtcurveconfig.cpp:1770 qt5/config/qtcurveconfig.cpp:1704
+#: qt4/config/qtcurveconfig.cpp:1770 qt5/config/qtcurveconfig.cpp:1705
 #, kde-format
 msgid "Advanced Settings"
 msgstr "Preferencias avanzadas"
 
-#: qt4/config/qtcurveconfig.cpp:1771 qt5/config/qtcurveconfig.cpp:1705
+#: qt4/config/qtcurveconfig.cpp:1771 qt5/config/qtcurveconfig.cpp:1706
 #, kde-format
 msgid "Applications"
 msgstr "Aplicaciones"
 
-#: qt4/config/qtcurveconfig.cpp:1772 qt5/config/qtcurveconfig.cpp:1706
+#: qt4/config/qtcurveconfig.cpp:1772 qt5/config/qtcurveconfig.cpp:1707
 #, kde-format
 msgid "Legacy"
 msgstr "Antiguo"
 
-#: qt4/config/qtcurveconfig.cpp:1773 qt5/config/qtcurveconfig.cpp:1707
+#: qt4/config/qtcurveconfig.cpp:1773 qt5/config/qtcurveconfig.cpp:1708
 #, kde-format
 msgid "Custom Gradients"
 msgstr "Gradientes personalizados"
 
-#: qt4/config/qtcurveconfig.cpp:1774 qt5/config/qtcurveconfig.cpp:1708
+#: qt4/config/qtcurveconfig.cpp:1774 qt5/config/qtcurveconfig.cpp:1709
 #, kde-format
 msgid "Custom Shades"
 msgstr "Sombras personalizadas"
 
-#: qt4/config/qtcurveconfig.cpp:1791 qt5/config/qtcurveconfig.cpp:1746
+#: qt4/config/qtcurveconfig.cpp:1791 qt5/config/qtcurveconfig.cpp:1747
 #, kde-format
 msgid "Save"
 msgstr "Guardar"
 
-#: qt4/config/qtcurveconfig.cpp:1792 qt5/config/qtcurveconfig.cpp:1747
+#: qt4/config/qtcurveconfig.cpp:1792 qt5/config/qtcurveconfig.cpp:1748
 #, kde-format
 msgid "Delete"
 msgstr "Borrar"
 
-#: qt4/config/qtcurveconfig.cpp:1793 qt5/config/qtcurveconfig.cpp:1748
+#: qt4/config/qtcurveconfig.cpp:1793 qt5/config/qtcurveconfig.cpp:1749
 #, kde-format
 msgid "Import..."
 msgstr "Importar..."
 
-#: qt4/config/qtcurveconfig.cpp:1794 qt5/config/qtcurveconfig.cpp:1750
+#: qt4/config/qtcurveconfig.cpp:1794 qt5/config/qtcurveconfig.cpp:1751
 #, kde-format
 msgid "Export..."
 msgstr "Exportar..."
 
-#: qt4/config/qtcurveconfig.cpp:1798 qt5/config/qtcurveconfig.cpp:1755
+#: qt4/config/qtcurveconfig.cpp:1798 qt5/config/qtcurveconfig.cpp:1756
 #, kde-format
 msgid "(Current)"
 msgstr "(Actual)"
 
-#: qt4/config/qtcurveconfig.cpp:1799 qt5/config/qtcurveconfig.cpp:1756
+#: qt4/config/qtcurveconfig.cpp:1799 qt5/config/qtcurveconfig.cpp:1757
 #, kde-format
 msgid "(Default)"
 msgstr "(Predeterminado)"
 
-#: qt4/config/qtcurveconfig.cpp:2088 qt5/config/qtcurveconfig.cpp:2046
+#: qt4/config/qtcurveconfig.cpp:2088 qt5/config/qtcurveconfig.cpp:2052
 #, kde-format
 msgid ""
 "Export your current KDE4 color palette, and font, so that they can be used "
@@ -1107,7 +1107,7 @@ msgstr ""
 "¿Exportar su paleta de colores y tipo de letra KDE4 actuales, de tal manera "
 "que puedan ser usadas por aplicaciones KDE3?"
 
-#: qt4/config/qtcurveconfig.cpp:2134 qt5/config/qtcurveconfig.cpp:2091
+#: qt4/config/qtcurveconfig.cpp:2134 qt5/config/qtcurveconfig.cpp:2105
 #, kde-format
 msgid ""
 "Export your current KDE4 color palette, and font, so that they can be used "
@@ -1116,7 +1116,7 @@ msgstr ""
 "¿Exportar su paleta de colores y tipo de letra KDE4 actuales, de tal manera "
 "que puedan ser usadas por aplicaciones Qt3 puras?"
 
-#: qt4/config/qtcurveconfig.cpp:2187 qt5/config/qtcurveconfig.cpp:2144
+#: qt4/config/qtcurveconfig.cpp:2187 qt5/config/qtcurveconfig.cpp:2165
 #, kde-format
 msgid ""
 "<p>Set the following config items so that window titlebar and menubars "
@@ -1132,67 +1132,67 @@ msgstr ""
 "el color de fondo»</li><li>Establecer coloración de la barra de menús a "
 "«%2»</li><li>Extender arrastre de la ventana dentro de la barra de menús</li>"
 
-#: qt4/config/qtcurveconfig.cpp:2260 qt5/config/qtcurveconfig.cpp:2217
+#: qt4/config/qtcurveconfig.cpp:2260 qt5/config/qtcurveconfig.cpp:2241
 #, kde-format
 msgid "Reattach"
 msgstr "Volver a vincular"
 
 #. i18n: ectx: property (text), widget (QPushButton, previewControlButton)
 #: qt4/config/qtcurveconfig.cpp:2277 qt4/config/qtcurveconfigbase.ui:206
-#: qt5/config/qtcurveconfig.cpp:2234 qt5/config/qtcurveconfigbase.ui:215
+#: qt5/config/qtcurveconfig.cpp:2258 qt5/config/qtcurveconfigbase.ui:215
 #, kde-format
 msgid "Detach"
 msgstr "Desvincular"
 
-#: qt4/config/qtcurveconfig.cpp:2296 qt5/config/qtcurveconfig.cpp:2254
+#: qt4/config/qtcurveconfig.cpp:2296 qt5/config/qtcurveconfig.cpp:2278
 #, kde-format
 msgid "Copy settings from another gradient"
 msgstr "Copiar preferencias de otro gradiente"
 
-#: qt4/config/qtcurveconfig.cpp:2310 qt5/config/qtcurveconfig.cpp:2268
+#: qt4/config/qtcurveconfig.cpp:2310 qt5/config/qtcurveconfig.cpp:2292
 #, kde-format
 msgid "Add"
 msgstr "Añadir"
 
-#: qt4/config/qtcurveconfig.cpp:2311 qt5/config/qtcurveconfig.cpp:2269
+#: qt4/config/qtcurveconfig.cpp:2311 qt5/config/qtcurveconfig.cpp:2293
 #, kde-format
 msgid "Remove"
 msgstr "Eliminar"
 
-#: qt4/config/qtcurveconfig.cpp:2312 qt5/config/qtcurveconfig.cpp:2270
+#: qt4/config/qtcurveconfig.cpp:2312 qt5/config/qtcurveconfig.cpp:2294
 #, kde-format
 msgid "Update"
 msgstr "Actualizar"
 
-#: qt4/config/qtcurveconfig.cpp:2527 qt5/config/qtcurveconfig.cpp:2494
+#: qt4/config/qtcurveconfig.cpp:2527 qt5/config/qtcurveconfig.cpp:2518
 #, kde-format
 msgid "Save Preset"
 msgstr "Guardar pre-ajuste"
 
-#: qt4/config/qtcurveconfig.cpp:2527 qt5/config/qtcurveconfig.cpp:2494
+#: qt4/config/qtcurveconfig.cpp:2527 qt5/config/qtcurveconfig.cpp:2518
 #, kde-format
 msgid "Please enter a name for the preset:"
 msgstr "Por favor, introduzca un nombre para el pre-ajuste:"
 
-#: qt4/config/qtcurveconfig.cpp:2529 qt5/config/qtcurveconfig.cpp:2496
+#: qt4/config/qtcurveconfig.cpp:2529 qt5/config/qtcurveconfig.cpp:2520
 #, kde-format
 msgid "New preset"
 msgstr "Nuevo pre-ajuste"
 
 #: qt4/config/qtcurveconfig.cpp:2532 qt4/config/qtcurveconfig.cpp:2613
 #: qt4/config/qtcurveconfig.cpp:2623 qt4/config/qtcurveconfig.cpp:2634
-#: qt5/config/qtcurveconfig.cpp:2499 qt5/config/qtcurveconfig.cpp:2584
-#: qt5/config/qtcurveconfig.cpp:2594 qt5/config/qtcurveconfig.cpp:2605
+#: qt5/config/qtcurveconfig.cpp:2523 qt5/config/qtcurveconfig.cpp:2608
+#: qt5/config/qtcurveconfig.cpp:2618 qt5/config/qtcurveconfig.cpp:2641
 #, kde-format
 msgid "%1 New"
 msgstr "Nuevo %1"
 
-#: qt4/config/qtcurveconfig.cpp:2535 qt5/config/qtcurveconfig.cpp:2502
+#: qt4/config/qtcurveconfig.cpp:2535 qt5/config/qtcurveconfig.cpp:2526
 #, kde-format
 msgid "Sorry, failed to save preset"
 msgstr "Lo siento, falló al guardar el pre-ajuste"
 
-#: qt4/config/qtcurveconfig.cpp:2611 qt5/config/qtcurveconfig.cpp:2582
+#: qt4/config/qtcurveconfig.cpp:2611 qt5/config/qtcurveconfig.cpp:2606
 #, kde-format
 msgid ""
 "<p>You cannot use the name \"%1\".</p><p>Please enter a different name:</p>"
@@ -1200,7 +1200,7 @@ msgstr ""
 "<p>No puede usar el nombre «%1».</p><p>Por favor, introduzca un nombre "
 "diferente:</p>"
 
-#: qt4/config/qtcurveconfig.cpp:2620 qt5/config/qtcurveconfig.cpp:2591
+#: qt4/config/qtcurveconfig.cpp:2620 qt5/config/qtcurveconfig.cpp:2615
 #, kde-format
 msgid ""
 "<p>A system defined preset named \"%1\" already exists.</p><p>Please enter a "
@@ -1209,7 +1209,7 @@ msgstr ""
 "<p>Ya existe un ajuste predefinido en el sistema llamado «%1».</p><p>Por "
 "favor, introduzca un nuevo nombre:</p>"
 
-#: qt4/config/qtcurveconfig.cpp:2627 qt5/config/qtcurveconfig.cpp:2598
+#: qt4/config/qtcurveconfig.cpp:2627 qt5/config/qtcurveconfig.cpp:2626
 #, kde-format
 msgid ""
 "<p>A preset named \"%1\" already exists.</p><p>Do you wish to overwrite this?"
@@ -1217,17 +1217,17 @@ msgid ""
 msgstr ""
 "<p>Ya existe un preajuste llamado «%1».</p><p>¿Desea sobrescribirlo?</p>"
 
-#: qt4/config/qtcurveconfig.cpp:2633 qt5/config/qtcurveconfig.cpp:2604
+#: qt4/config/qtcurveconfig.cpp:2633 qt5/config/qtcurveconfig.cpp:2640
 #, kde-format
 msgid "<p>Please enter a new name:</p>"
 msgstr "<p>Por favor, introduzca un nuevo nombre:</p>"
 
-#: qt4/config/qtcurveconfig.cpp:2651 qt5/config/qtcurveconfig.cpp:2622
+#: qt4/config/qtcurveconfig.cpp:2651 qt5/config/qtcurveconfig.cpp:2663
 #, kde-format
 msgid "<p>Are you sure you wish to delete:</p><p><b>%1</b></p>"
 msgstr "<p>Está seguro de querer borrar:</p><p><b>%1</b></p>"
 
-#: qt4/config/qtcurveconfig.cpp:2661 qt5/config/qtcurveconfig.cpp:2632
+#: qt4/config/qtcurveconfig.cpp:2661 qt5/config/qtcurveconfig.cpp:2676
 #, kde-format
 msgid "<p>Sorry, failed to remove the preset file:</p><p><i>%1</i></p>"
 msgstr ""
@@ -1238,14 +1238,14 @@ msgstr ""
 msgid "*"
 msgstr "*"
 
-#: qt4/config/qtcurveconfig.cpp:2682 qt5/config/qtcurveconfig.cpp:2653
+#: qt4/config/qtcurveconfig.cpp:2682 qt5/config/qtcurveconfig.cpp:2697
 #, kde-format
 msgid "<p>Sorry, failed to load file.</p><p><i>Empty preset name?</i></p>"
 msgstr ""
 "<p>Lo siento, falló al cargar el archivo.</p><p><i>¿Introdujo un nombre "
 "vacío para el pre-ajuste?</i></p>"
 
-#: qt4/config/qtcurveconfig.cpp:2685 qt5/config/qtcurveconfig.cpp:2655
+#: qt4/config/qtcurveconfig.cpp:2685 qt5/config/qtcurveconfig.cpp:2699
 #, kde-format
 msgid ""
 "<p>Sorry, failed to load file.</p><p><i>Cannot have a preset named \"%1\"</"
@@ -1254,12 +1254,12 @@ msgstr ""
 "<p>Lo siento, falló al cargar el archivo.</p><p><i>No se acepta un pre-"
 "ajuste llamado «%1»</i></p>"
 
-#: qt4/config/qtcurveconfig.cpp:2695 qt5/config/qtcurveconfig.cpp:2664
+#: qt4/config/qtcurveconfig.cpp:2695 qt5/config/qtcurveconfig.cpp:2708
 #, kde-format
 msgid "Sorry, failed to open compressed file."
 msgstr "Lo siento, falló al abrir el archivo comprimido."
 
-#: qt4/config/qtcurveconfig.cpp:2714 qt5/config/qtcurveconfig.cpp:2683
+#: qt4/config/qtcurveconfig.cpp:2714 qt5/config/qtcurveconfig.cpp:2727
 #, kde-format
 msgid ""
 "Invalid compressed settings file.\n"
@@ -1268,7 +1268,7 @@ msgstr ""
 "Archivo comprimido de preferencias inválido.\n"
 "(No se pudo localizar el archivo de preferencias.)"
 
-#: qt4/config/qtcurveconfig.cpp:2720 qt5/config/qtcurveconfig.cpp:2685
+#: qt4/config/qtcurveconfig.cpp:2720 qt5/config/qtcurveconfig.cpp:2729
 #, kde-format
 msgid ""
 "Invalid compressed settings file.\n"
@@ -1277,17 +1277,17 @@ msgstr ""
 "Archivo comprimido de preferencias inválido.\n"
 "(No se pudo listar el contenido del ZIP.)"
 
-#: qt4/config/qtcurveconfig.cpp:2729 qt5/config/qtcurveconfig.cpp:2693
+#: qt4/config/qtcurveconfig.cpp:2729 qt5/config/qtcurveconfig.cpp:2737
 #, kde-format
 msgid "Import Preset"
 msgstr "Importar predeterminado"
 
-#: qt4/config/qtcurveconfig.cpp:2800 qt5/config/qtcurveconfig.cpp:2767
+#: qt4/config/qtcurveconfig.cpp:2800 qt5/config/qtcurveconfig.cpp:2811
 #, kde-format
 msgid "Sorry, failed to load file."
 msgstr "Lo siento, falló al cargar el archivo."
 
-#: qt4/config/qtcurveconfig.cpp:2811 qt5/config/qtcurveconfig.cpp:2778
+#: qt4/config/qtcurveconfig.cpp:2811 qt5/config/qtcurveconfig.cpp:2826
 #, kde-format
 msgid ""
 "<p>In which format would you like to export the QtCurve settings?"
@@ -1301,22 +1301,22 @@ msgstr ""
 "un estilo que pueden seleccionar los usuarios en el panel de estilos de KDE."
 "</li></ul></p>"
 
-#: qt4/config/qtcurveconfig.cpp:2816 qt5/config/qtcurveconfig.cpp:2784
+#: qt4/config/qtcurveconfig.cpp:2816 qt5/config/qtcurveconfig.cpp:2832
 #, kde-format
 msgid "Export Settings"
 msgstr "Exportar preferencias"
 
-#: qt4/config/qtcurveconfig.cpp:2817 qt5/config/qtcurveconfig.cpp:2785
+#: qt4/config/qtcurveconfig.cpp:2817 qt5/config/qtcurveconfig.cpp:2833
 #, kde-format
 msgid "QtCurve Settings File"
 msgstr "Archivo de preferencias QtCurve"
 
-#: qt4/config/qtcurveconfig.cpp:2818 qt5/config/qtcurveconfig.cpp:2786
+#: qt4/config/qtcurveconfig.cpp:2818 qt5/config/qtcurveconfig.cpp:2834
 #, kde-format
 msgid "Standalone Theme"
 msgstr "Tema independiente"
 
-#: qt4/config/qtcurveconfig.cpp:2899 qt5/config/qtcurveconfig.cpp:2866
+#: qt4/config/qtcurveconfig.cpp:2899 qt5/config/qtcurveconfig.cpp:2922
 #, kde-format
 msgid ""
 "Could not write to file:\n"
@@ -5816,17 +5816,30 @@ msgstr ""
 msgid "As per active windows"
 msgstr "Como las ventanas activas"
 
-#: qt5/config/qtcurveconfig.cpp:2639
+#: qt5/config/qtcurveconfig.cpp:2055 qt5/config/qtcurveconfig.cpp:2108
+#, fuzzy, kde-format
+#| msgid "Export..."
+msgctxt "@action:button"
+msgid "Export"
+msgstr "Exportar..."
+
+#: qt5/config/qtcurveconfig.cpp:2173
+#, kde-format
+msgctxt "@action:button"
+msgid "Set"
+msgstr ""
+
+#: qt5/config/qtcurveconfig.cpp:2683
 #, kde-format
 msgid "Open"
 msgstr "Abrir"
 
-#: qt5/config/qtcurveconfig.cpp:2640 qt5/config/qtcurveconfig.cpp:2798
+#: qt5/config/qtcurveconfig.cpp:2684 qt5/config/qtcurveconfig.cpp:2854
 #, kde-format
 msgid "QtCurve Settings Files (*"
 msgstr "Archivos de preferencias de QtCurve (*"
 
-#: qt5/config/qtcurveconfig.cpp:2797
+#: qt5/config/qtcurveconfig.cpp:2853
 #, kde-format
 msgid "Save As"
 msgstr "Guardar como"
