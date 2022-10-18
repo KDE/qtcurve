@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-17 00:49+0000\n"
-"PO-Revision-Date: 2021-07-04 00:42+0100\n"
+"PO-Revision-Date: 2022-10-17 10:13+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -5793,17 +5793,16 @@ msgid "As per active windows"
 msgstr "Como nas janelas activas"
 
 #: qt5/config/qtcurveconfig.cpp:2055 qt5/config/qtcurveconfig.cpp:2108
-#, fuzzy, kde-format
-#| msgid "Export..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Export"
-msgstr "Exportar..."
+msgstr "Exportar"
 
 #: qt5/config/qtcurveconfig.cpp:2173
 #, kde-format
 msgctxt "@action:button"
 msgid "Set"
-msgstr ""
+msgstr "Definir"
 
 #: qt5/config/qtcurveconfig.cpp:2683
 #, kde-format

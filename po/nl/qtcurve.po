@@ -1,27 +1,27 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2014, 2015, 2016, 2017, 2020, 2021.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2014, 2015, 2016, 2017, 2020, 2021, 2022.
 # Ronald Stroethoff <stroet43@zonnet.nl>, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-17 00:49+0000\n"
-"PO-Revision-Date: 2021-07-03 18:48+0200\n"
+"PO-Revision-Date: 2022-10-17 12:08+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
-"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.04.2\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Freek de Kruijf - t/m 2021,Ronald Stroethoff"
+msgstr "Freek de Kruijf - t/m 2022,Ronald Stroethoff"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -5804,17 +5804,16 @@ msgid "As per active windows"
 msgstr "Zoals per actieve vensters"
 
 #: qt5/config/qtcurveconfig.cpp:2055 qt5/config/qtcurveconfig.cpp:2108
-#, fuzzy, kde-format
-#| msgid "Export..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Export"
-msgstr "Exporteren..."
+msgstr "Exporteren"
 
 #: qt5/config/qtcurveconfig.cpp:2173
 #, kde-format
 msgctxt "@action:button"
 msgid "Set"
-msgstr ""
+msgstr "Instellen"
 
 #: qt5/config/qtcurveconfig.cpp:2683
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kde4-qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-17 00:49+0000\n"
-"PO-Revision-Date: 2022-10-14 21:12+0300\n"
+"PO-Revision-Date: 2022-10-17 12:10+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -22,12 +22,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Kaan Özdinçer"
+msgstr "Kaan Özdinçer, Emir SARI"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kaanozdincer@gmail.com"
+msgstr "kaanozdincer@gmail.com, emir_sari@icloud.com"
 
 #: qt4/config/exportthemedialog.cpp:42 qt5/config/exportthemedialog.cpp:47
 #, kde-format
@@ -196,7 +196,7 @@ msgstr "QtCurve"
 #: qt4/config/qtcurveconfig.cpp:237 qt5/config/qtcurveconfig.cpp:240
 #, kde-format
 msgid "Unified widget style."
-msgstr "Birleşik programcık biçimi."
+msgstr "Birleşik araç takımı biçemi."
 
 #: qt4/config/qtcurveconfig.cpp:239 qt5/config/qtcurveconfig.cpp:242
 #, kde-format
@@ -259,17 +259,17 @@ msgstr "Özel:"
 #: qt4/config/qtcurveconfig.cpp:541 qt5/config/qtcurveconfig.cpp:542
 #, kde-format
 msgid "Selected background"
-msgstr "Seçili arkaplan"
+msgstr "Seçili arka plan"
 
 #: qt4/config/qtcurveconfig.cpp:543 qt5/config/qtcurveconfig.cpp:544
 #, kde-format
 msgid "Blended selected background"
-msgstr "Harmanlanmış seçili arkaplan"
+msgstr "Harmanlanmış seçili arka plan"
 
 #: qt4/config/qtcurveconfig.cpp:545 qt5/config/qtcurveconfig.cpp:546
 #, kde-format
 msgid "Menu background"
-msgstr "Menü arkaplanı"
+msgstr "Menü arka planı"
 
 #: qt4/config/qtcurveconfig.cpp:545 qt4/config/qtcurveconfig.cpp:636
 #: qt5/config/qtcurveconfig.cpp:546 qt5/config/qtcurveconfig.cpp:637
@@ -373,7 +373,7 @@ msgstr "Genel ayarlar ile aynı"
 #: qt4/config/qtcurveconfig.cpp:597 qt5/config/qtcurveconfig.cpp:598
 #, kde-format
 msgid "Tiled image"
-msgstr "Uzatılmış resim"
+msgstr "Uzatılmış görsel"
 
 #: qt4/config/qtcurveconfig.cpp:618 qt5/config/qtcurveconfig.cpp:619
 #, kde-format
@@ -413,12 +413,12 @@ msgstr "Yazıtipi ince kenarlık rengi"
 #: qt4/config/qtcurveconfig.cpp:633 qt5/config/qtcurveconfig.cpp:634
 #, kde-format
 msgid "Selected background thick border"
-msgstr "Seçili arkaplan kalın kenarlığı"
+msgstr "Seçili arka plan kalın kenarlığı"
 
 #: qt4/config/qtcurveconfig.cpp:634 qt5/config/qtcurveconfig.cpp:635
 #, kde-format
 msgid "Selected background tinting"
-msgstr "Seçili arkaplan renklendirme"
+msgstr "Seçili arka plan renklendirmesi"
 
 #: qt4/config/qtcurveconfig.cpp:635 qt5/config/qtcurveconfig.cpp:636
 #, kde-format
@@ -428,7 +428,7 @@ msgstr "Hafif parlaklık"
 #: qt4/config/qtcurveconfig.cpp:637 qt5/config/qtcurveconfig.cpp:638
 #, kde-format
 msgid "Use selected background color"
-msgstr "Seçili arkaplan rengini kullan"
+msgstr "Seçili arka plan rengini kullan"
 
 #: qt4/config/qtcurveconfig.cpp:638 qt5/config/qtcurveconfig.cpp:639
 #, kde-format
@@ -448,7 +448,7 @@ msgstr "MS Windows"
 #: qt4/config/qtcurveconfig.cpp:645 qt5/config/qtcurveconfig.cpp:646
 #, kde-format
 msgid "Platinum"
-msgstr "Platinum"
+msgstr "Platinyum"
 
 #: qt4/config/qtcurveconfig.cpp:646 qt5/config/qtcurveconfig.cpp:647
 #, kde-format
@@ -503,7 +503,7 @@ msgstr "İnce renk kenarlığı"
 #: qt4/config/qtcurveconfig.cpp:664 qt5/config/qtcurveconfig.cpp:665
 #, kde-format
 msgid "Plastik style"
-msgstr "Plastik biçimi"
+msgstr "Plastik biçemi"
 
 #: qt4/config/qtcurveconfig.cpp:665 qt4/config/qtcurveconfig.cpp:724
 #: qt5/config/qtcurveconfig.cpp:666 qt5/config/qtcurveconfig.cpp:725
@@ -622,12 +622,12 @@ msgstr "Temel renk"
 #: qt4/config/qtcurveconfig.cpp:713 qt5/config/qtcurveconfig.cpp:714
 #, kde-format
 msgid "Background color"
-msgstr "Arkaplan rengi"
+msgstr "Arka plan rengi"
 
 #: qt4/config/qtcurveconfig.cpp:714 qt5/config/qtcurveconfig.cpp:715
 #, kde-format
 msgid "Darkened background color"
-msgstr "Koyu arkaplan rengi"
+msgstr "Koyu arka plan rengi"
 
 #: qt4/config/qtcurveconfig.cpp:719 qt5/config/qtcurveconfig.cpp:720
 #, kde-format
@@ -673,12 +673,12 @@ msgstr "Açık kenarlık"
 #: qt4/config/qtcurveconfig.cpp:732 qt5/config/qtcurveconfig.cpp:733
 #, kde-format
 msgid "3D border (light only)"
-msgstr "3D kenarlık (sadece açık)"
+msgstr "3B kenarlık (yalnızca açık)"
 
 #: qt4/config/qtcurveconfig.cpp:733 qt5/config/qtcurveconfig.cpp:734
 #, kde-format
 msgid "3D border (dark and light)"
-msgstr "3D kenarlık (açık ve koyu)"
+msgstr "3B kenarlık (açık ve koyu)"
 
 #: qt4/config/qtcurveconfig.cpp:734 qt5/config/qtcurveconfig.cpp:735
 #, kde-format
@@ -693,7 +693,7 @@ msgstr "Sol"
 #: qt4/config/qtcurveconfig.cpp:740 qt5/config/qtcurveconfig.cpp:741
 #, kde-format
 msgid "Center (between controls)"
-msgstr "Orta (kontroller arasında)"
+msgstr "Orta (denetleyiciler arasında)"
 
 #: qt4/config/qtcurveconfig.cpp:741 qt5/config/qtcurveconfig.cpp:742
 #, kde-format
@@ -748,12 +748,12 @@ msgstr "Soldan sağa"
 #: qt4/config/qtcurveconfig.cpp:776 qt5/config/qtcurveconfig.cpp:777
 #, kde-format
 msgid "New style (KDE and Gtk2 similar)"
-msgstr "Yeni biçim (KDE ve Gtk2 benzeri)"
+msgstr "Yeni biçem (KDE ve Gtk2 benzeri)"
 
 #: qt4/config/qtcurveconfig.cpp:777 qt5/config/qtcurveconfig.cpp:778
 #, kde-format
 msgid "Old style (KDE and Gtk2 different)"
-msgstr "Eski biçim (KDE ve Gtk2'den farklı)"
+msgstr "Eski biçem (KDE ve Gtk2'den farklı)"
 
 #: qt4/config/qtcurveconfig.cpp:784 qt5/config/qtcurveconfig.cpp:785
 #, kde-format
@@ -808,7 +808,7 @@ msgstr "Büyük (%1 piksel)"
 #: qt4/config/qtcurveconfig.cpp:816 qt5/config/qtcurveconfig.cpp:817
 #, kde-format
 msgid "Titlebar only"
-msgstr "Sadece başlık çubuğu"
+msgstr "Yalnızca başlık çubuğu"
 
 #: qt4/config/qtcurveconfig.cpp:817 qt5/config/qtcurveconfig.cpp:818
 #, kde-format
@@ -838,12 +838,12 @@ msgstr "Tek ayırıcı çizgisi"
 #: qt4/config/qtcurveconfig.cpp:828 qt5/config/qtcurveconfig.cpp:829
 #, kde-format
 msgid "Shaded background"
-msgstr "Gölgeli arkaplan"
+msgstr "Gölgeli arka plan"
 
 #: qt4/config/qtcurveconfig.cpp:829 qt5/config/qtcurveconfig.cpp:830
 #, kde-format
 msgid "Faded background"
-msgstr "Soluk arkaplan"
+msgstr "Soluk arka plan"
 
 #: qt4/config/qtcurveconfig.cpp:841 qt5/config/qtcurveconfig.cpp:842
 #, kde-format
@@ -881,17 +881,17 @@ msgstr " piksel"
 #: qt4/config/qtcurveconfig.cpp:985 qt5/config/qtcurveconfig.cpp:991
 #, kde-format
 msgid "Menu Background"
-msgstr "Menü Arkaplanı"
+msgstr "Menü Arka Planı"
 
 #: qt4/config/qtcurveconfig.cpp:986 qt5/config/qtcurveconfig.cpp:992
 #, kde-format
 msgid "Background Image"
-msgstr "Arkaplan Resmi"
+msgstr "Arka Plan Görseli"
 
 #: qt4/config/qtcurveconfig.cpp:990 qt5/config/qtcurveconfig.cpp:996
 #, kde-format
 msgid "Menu Image"
-msgstr "Menü Resmi"
+msgstr "Menü Görseli"
 
 #: qt4/config/qtcurveconfig.cpp:1732 qt5/config/qtcurveconfig.cpp:1668
 #, kde-format
@@ -1125,10 +1125,11 @@ msgid ""
 "menubar</li>"
 msgstr ""
 "<p>Aşağıdaki yapılandırma ögelerini ayarlar, böylece pencere başlık çubuğu "
-"ve menü çubukları harmanla?</p><ul><li>Menü çubuğu, başlık çubuğu ve etkin "
-"olmayan başlık çubuğu, \"%1\" geçişi yap</li><li>\"Başlık çubuğu rengini "
-"arkaplan rengi ile harmanla\"yı kapat</li><li>Menü çubuğu renklendirmeyi "
-"\"%2\" yap</li><li>Menü çubuğuna pencere sürüklemeyi genişlet</li> "
+"ve menü çubukları harmanlanmış görünür?</p><ul><li>Menü çubuğu, başlık "
+"çubuğu ve etkin olmayan başlık çubuğu, \"%1\" geçişi yap</li><li>\"Başlık "
+"çubuğu rengini arka plan rengi ile harmanla\"yı kapat</li><li>Menü çubuğu "
+"renklendirmeyi \"%2\" yap</li><li>Menü çubuğuna pencere sürüklemeyi "
+"genişlet</li>"
 
 #: qt4/config/qtcurveconfig.cpp:2260 qt5/config/qtcurveconfig.cpp:2241
 #, kde-format
@@ -1293,10 +1294,10 @@ msgid ""
 "dialog.</li><li><i>Standalone theme</i> - a style that user's can select "
 "from the KDE style panel.</li></ul></p>"
 msgstr ""
-"<p>QtCurve ayarlarını hangi biçimde dışa aktarmak istiyor sunuz?"
+"<p>QtCurve ayarlarını hangi biçimde dışa aktarmak istiyorsunuz?"
 "<ul><li><i>QtCurve ayarlar dosyası</i> - bu yapılandırma penceresi "
 "aracılığıyla dosya içe aktarılacak.</li><li><i>Bağımsız tema</i> KDE biçin "
-"panelinden, kullanıcının seçebileceği bir biçim.</li></ul></p>"
+"panelinden, kullanıcının seçebileceği bir biçem.</li></ul></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2816 qt5/config/qtcurveconfig.cpp:2832
 #, kde-format
@@ -1349,7 +1350,7 @@ msgstr ""
 "<p>Bu çoklu kutu, önceden tanımlanmış ayarların listesini içerir.\n"
 "<ul>\n"
 "<li><i>(Mevcut)</i> olan, herhangi bir değişikliği yok sayar ve son kayıtlı "
-"biçime geri döner.</li>\n"
+"biçeme geri döner.</li>\n"
 "<li><i>(Varsayılan)</i> olan, herhangi bir değişikliği yok sayar ve QtCurve "
 "öntanımlı biçemine geri döner.</li>\n"
 "</ul>"
@@ -1408,7 +1409,7 @@ msgstr "Önizleme"
 #: qt5/config/qtcurveconfigbase.ui:2983 qt5/config/qtcurveconfigbase.ui:3440
 #, kde-format
 msgid "Appearance:"
-msgstr "Görünüm:"
+msgstr "Görünüş:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, appearance)
 #: qt4/config/qtcurveconfigbase.ui:236 qt5/config/qtcurveconfigbase.ui:245
@@ -1426,7 +1427,7 @@ msgstr ""
 #: qt5/config/qtcurveconfigbase.ui:252 qt5/config/qtcurveconfigbase.ui:3257
 #, kde-format
 msgid "Background appearance:"
-msgstr "Arkaplan görünümü:"
+msgstr "Arka plan görünüşü:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, bgndAppearance)
 #: qt4/config/qtcurveconfigbase.ui:252 qt5/config/qtcurveconfigbase.ui:261
@@ -1436,7 +1437,7 @@ msgid ""
 "p><p><b>NOTE:</b> This is an experimental option, and will (probably) have a "
 "detrimental effect on performance.</p>"
 msgstr ""
-"<p>Pencereler ve iletişim pencereleri için kullanılacak olan arkaplan için "
+"<p>Pencereler ve iletişim pencereleri için kullanılacak olan arka plan için "
 "geçişi ayarlar.</p><p><b>NOT:</b> Bu deneysel bir seçenektir ve performansa "
 "yönelik (muhtemelen) zararlı bir etkisi olacaktır.</p>"
 
@@ -1456,7 +1457,7 @@ msgstr "..."
 #: qt4/config/qtcurveconfigbase.ui:268 qt5/config/qtcurveconfigbase.ui:277
 #, kde-format
 msgid "<p>Control the orientation of the background gradient.</p>"
-msgstr "<p>Arkaplan geçişinin yönünü kontrol et.</p>"
+msgstr "<p>Arka plan geçişinin yönünü denetle.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_47b)
 #. i18n: ectx: property (text), widget (QLabel, label_xx)
@@ -1464,7 +1465,7 @@ msgstr "<p>Arkaplan geçişinin yönünü kontrol et.</p>"
 #: qt5/config/qtcurveconfigbase.ui:284 qt5/config/qtcurveconfigbase.ui:3289
 #, kde-format
 msgid "Background image:"
-msgstr "Arkaplan resmi:"
+msgstr "Arka plan görseli:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, bgndImage)
 #: qt4/config/qtcurveconfigbase.ui:285 qt5/config/qtcurveconfigbase.ui:294
@@ -1475,9 +1476,9 @@ msgid ""
 "rings with borders.</li><li>Plain rings - 'Air' like rings, but without any "
 "border.</li><li>Square rings - 3 simple rounded squares.</li></ul></p>"
 msgstr ""
-"<p>Bu, pencerelerin ve iletişim pencerelerinin sağ-üstüne bir arkaplan resmi "
-"ekler.\n"
-"            <ul><li>Hiçbiri - Resim yok.</li><li>Kenarlıklı halkalar - "
+"<p>Bu, pencerelerin ve iletişim pencerelerinin sağ-üstüne bir arka plan "
+"görseli ekler.\n"
+"            <ul><li>Hiçbiri - Görsel yok.</li><li>Kenarlıklı halkalar - "
 "'Hava' gibi halkalar, ancak kenarlıksız.</li><li>Köşeli halkalar - "
 "yuvarlanmış 3 basit köşe.</li></ul></p>"
 
@@ -1485,7 +1486,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:301 qt5/config/qtcurveconfigbase.ui:310
 #, kde-format
 msgid "Sunken appearance:"
-msgstr "Çökük görünüm:"
+msgstr "Çökük görünüş:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, sunkenAppearance)
 #: qt4/config/qtcurveconfigbase.ui:308 qt5/config/qtcurveconfigbase.ui:317
@@ -1494,8 +1495,8 @@ msgid ""
 "<p>Define the gradient to be used for sunken widgets - e.g. pressed buttons."
 "</p>"
 msgstr ""
-"<p>Çökük parçacıklar için kullanılacak olan geçişleri tanıma - örn. basılı "
-"düğmeler.</p>"
+"<p>Çökük araç takımları için kullanılacak olan geçişleri tanıma - örn. "
+"basılı düğmeler.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #. i18n: ectx: property (text), widget (QLabel, label_102)
@@ -1510,13 +1511,13 @@ msgstr "Düğme efekti:"
 #, kde-format
 msgid ""
 "<p>Control what effect should be applied to buttons, combo boxes, etc.</p>"
-msgstr "<p>Düğmelere, açılır kutuya vb. uygulanacak efektleri kontrol et.</p>"
+msgstr "<p>Düğmelere, açılır kutuya vb. uygulanacak efektleri denetle.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, thin_buttons)
 #: qt4/config/qtcurveconfigbase.ui:329 qt5/config/qtcurveconfigbase.ui:338
 #, kde-format
 msgid "<p>Make buttons, and other widgets, slightly thinner.</p>"
-msgstr "<p>Butonları ve diğer parçacıkları hafif incelt.</p>"
+msgstr "<p>Butonları ve diğer araç takımlarını hafif incelt.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, thin_buttons)
 #: qt4/config/qtcurveconfigbase.ui:332 qt5/config/qtcurveconfigbase.ui:341
@@ -1534,7 +1535,7 @@ msgid ""
 msgstr ""
 "<p>'Düğme efekti', aşınmış veya gölgeli olarak ayarlandığında, bu seçenek "
 "sayır düzenleme ve kaydırma görünümlerinin (liste ve ağaç görünümleri gibi), "
-"aşınmış olup olmayacağını kontrol eder.</p>"
+"aşınmış olup olmayacağını denetler.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, etchEntry)
 #: qt4/config/qtcurveconfigbase.ui:342 qt5/config/qtcurveconfigbase.ui:351
@@ -1553,8 +1554,8 @@ msgstr "Dikdörtgen odaklama:"
 #, kde-format
 msgid "<p>Controls how QtCurve indicates that a widget has keyboard focus.</p>"
 msgstr ""
-"<p>QtCurve'ın bir parçacık klavye odağı olduğuna işaret ettiğini kontrol "
-"eder.</p>"
+"<p>QtCurve'ın bir araç takımı klavye odağı olduğuna işaret ettiğini denetler."
+"</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_tt)
 #: qt4/config/qtcurveconfigbase.ui:363 qt5/config/qtcurveconfigbase.ui:372
@@ -1566,7 +1567,7 @@ msgstr "İpuçları:"
 #: qt4/config/qtcurveconfigbase.ui:370 qt5/config/qtcurveconfigbase.ui:379
 #, kde-format
 msgid "<p>Controls the appearance of tooltip backgrounds.</p>"
-msgstr "<p>İpuçları arkaplanlarının görünümünü kontrol eder.</p>"
+msgstr "<p>İpuçları arka planlarının görünüşünü denetler.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, vArrows)
 #: qt4/config/qtcurveconfigbase.ui:386 qt5/config/qtcurveconfigbase.ui:395
@@ -1575,14 +1576,14 @@ msgid ""
 "<p>QtCurve supports 2 arrows types; plain (i.e. triangular) and the more "
 "modern looking 'V' style arrows.</p>"
 msgstr ""
-"<p>QtCurve 2 ok biçimini destekler: düz (örn. üçgen) ve çağdaş görünümlü 'V' "
-"ok biçimi.</p>"
+"<p>QtCurve 2 ok biçemini destekler: düz (örn. üçgen) ve çağdaş görünümlü 'V' "
+"ok biçemi.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, vArrows)
 #: qt4/config/qtcurveconfigbase.ui:389 qt5/config/qtcurveconfigbase.ui:398
 #, kde-format
 msgid "'V' style arrows"
-msgstr "'V' biçimi oklar"
+msgstr "'V' biçemi oklar"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stdSidebarButtons)
 #: qt4/config/qtcurveconfigbase.ui:396 qt5/config/qtcurveconfigbase.ui:405
@@ -1595,7 +1596,7 @@ msgid ""
 msgstr ""
 "<p>Kenar çubuğu düğmelerinin konqueror, kate, kaffeine, ktorrent vb. olarak "
 "normal düğmelere göre çizilmesini sağlamak için bunu seçin - aksi takdirde "
-"etkin sekme vurgu rengiyle, renkli olan daha düz bir biçimde çizilecektir.</"
+"etkin sekme vurgu rengiyle, renkli olan daha düz bir biçemde çizilecektir.</"
 "p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stdSidebarButtons)
@@ -1624,7 +1625,7 @@ msgid ""
 "fading ends.</p>"
 msgstr ""
 "<p>Yatay ve dikey çizgilerin solgunlukla çizilmesi gerekip gerekmediğini "
-"kontrol eder.</p>"
+"denetler.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, fadeLines)
 #: qt4/config/qtcurveconfigbase.ui:419 qt5/config/qtcurveconfigbase.ui:428
@@ -1639,8 +1640,7 @@ msgid ""
 "<p>Controls whether the internal 3d part of frames, etc., should be drawn.</"
 "p>"
 msgstr ""
-"<p>Çerçevelerin dahili 3d bölümünün vs. çizilip çizilmeyeceğini kontrol eder."
-"</p>"
+"<p>Çerçevelerin dahili 3d bölümünün vs. çizilip çizilmeyeceğini denetler.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, thin_frames)
 #: qt4/config/qtcurveconfigbase.ui:429 qt5/config/qtcurveconfigbase.ui:438
@@ -1667,8 +1667,8 @@ msgid ""
 "<p>Set how 'rounded' widgets can be. The 'max' round setting only applies to "
 "buttons.</p>"
 msgstr ""
-"<p>Parçacıkların ne kadar 'yuvarlanmış' olacağını ayarla. 'azami' ayarı "
-"sadece düğmelere uygulanır.</p>"
+"<p>Araç takımlarının ne kadar 'yuvarlanmış' olacağını ayarla. 'max' ayarı, "
+"yalnızca düğmelere uygulanır.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_93)
 #: qt4/config/qtcurveconfigbase.ui:464 qt5/config/qtcurveconfigbase.ui:473
@@ -1683,8 +1683,8 @@ msgid ""
 "<p>Controls whether text entry fields should respect the general round "
 "setting, or always be square.</p>"
 msgstr ""
-"<p>Metin giriş alanlarının genel yuvarlama ayarına uyup  mı yoksa daima "
-"kareye uygun olduğunu kontrol eder.</p>"
+"<p>Metin giriş alanlarının genel yuvarlama ayarına uygun mu yoksa daima "
+"kareye uygun olduğunu denetler.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareEntry)
 #: qt4/config/qtcurveconfigbase.ui:474 qt5/config/qtcurveconfigbase.ui:483
@@ -1725,7 +1725,7 @@ msgid ""
 "<p>If enabled, then selected items in listviews and treeviews will be drawn "
 "with square edges, regardless of the general round setting.</p>"
 msgstr ""
-"<p>Etkinleştirilirse, liste ve ağaç görünümündeki seçili ögeler, genel "
+"<p>Etkinleştirilirse liste ve ağaç görünümündeki seçili ögeler, genel "
 "yuvarlama ayarlarına bakılmaksızın, kare kenarlar olarak çizilecektir.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareLvSelection)
@@ -1741,14 +1741,14 @@ msgid ""
 "<p>Controls whether the frames of tab widgets should respect the general "
 "round setting, or always be square.</p>"
 msgstr ""
-"<p>Tab parçacıklarının çerçevelerinin genel yuvarlama ayarına uyup "
-"uymayacağını kontrol eder veya her zaman köşeli olmasını sağlar.</p>"
+"<p>Sekme araç takımları çerçevelerinin genel yuvarlama ayarına uyup "
+"uymayacağını denetler veya her zaman köşeli olmasını sağlar.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareTabFrame)
 #: qt4/config/qtcurveconfigbase.ui:514 qt5/config/qtcurveconfigbase.ui:523
 #, kde-format
 msgid "Tab widget frames"
-msgstr "Sekme parçacık çerçeveleri"
+msgstr "Sekme araç takımı çerçeveleri"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareFrame)
 #: qt4/config/qtcurveconfigbase.ui:521 qt5/config/qtcurveconfigbase.ui:530
@@ -1758,7 +1758,7 @@ msgid ""
 "or always be square.</p>"
 msgstr ""
 "<p>Genel çerçevelerin, genel yuvarlama ayarına uyup uymayacağını veya her "
-"zaman köşeli olmasını kontrol eder.</p>"
+"zaman köşeli olmasını denetler.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareFrame)
 #: qt4/config/qtcurveconfigbase.ui:524 qt5/config/qtcurveconfigbase.ui:533
@@ -1912,7 +1912,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:668 qt5/config/qtcurveconfigbase.ui:677
 #, kde-format
 msgid "Frame type:"
-msgstr "Çerçeve biçimi:"
+msgstr "Çerçeve türü:"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, gbFactor)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, gbFactor)
@@ -1922,7 +1922,7 @@ msgid ""
 "<p>Defines how much a group box's background should be darkened or lightened "
 "by.</p>"
 msgstr ""
-"<p>Grup kutularının arkaplanlarının, ne kadar açık veya koyu olması "
+"<p>Grup kutularının arka planlarının, ne kadar açık veya koyu olması "
 "gerektiğini tanımlar.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_99)
@@ -1936,8 +1936,8 @@ msgstr "Etiket:"
 #, kde-format
 msgid "<p>Controls whether group boxes should use a bold for their title.</p>"
 msgstr ""
-"<p>Grup kutularının başlıklarının ne kadar kalın olması gerektiğini kontrol "
-"eder.</p>"
+"<p>Grup kutularının başlıklarının ne kadar kalın olması gerektiğini denetler."
+"</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gbLabel_bold)
 #: qt4/config/qtcurveconfigbase.ui:698 qt5/config/qtcurveconfigbase.ui:707
@@ -1959,13 +1959,13 @@ msgid ""
 "aligned.</p>"
 msgstr ""
 "<p>Grup kutularının merkezde mi, yoksa sağa/sola hizalı mı olması "
-"gerektiğini kontrol eder.</p>"
+"gerektiğini denetler.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gbLabel_centred)
 #: qt4/config/qtcurveconfigbase.ui:715
 #, kde-format
 msgid "Centred (KDE4 only)"
-msgstr "Ortalanmış (sadece KDE4)"
+msgstr "Ortalanmış (yalnızca KDE4)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_46)
 #: qt4/config/qtcurveconfigbase.ui:726 qt5/config/qtcurveconfigbase.ui:735
@@ -1981,7 +1981,7 @@ msgid ""
 "of combo boxes.</p>"
 msgstr ""
 "<p>Açılır kutuların düğme parçasının (yani oklu olan parçanın) renklenmesini "
-"kontrol eder.</p>"
+"denetler.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, customComboBtnColor)
 #. i18n: ectx: property (toolTip), widget (KColorButton, customSlidersColor)
@@ -1999,7 +1999,7 @@ msgid ""
 "arrow buttons.</p>"
 msgstr ""
 "<p>Bu seçenek, çizginin düzenlenemeyen açılır kutu ok düğmelerinin yakınına "
-"çizilip çizilmeyeceğini kontrol eder.</p>"
+"çizilip çizilmeyeceğini denetler.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, comboSplitter)
 #: qt4/config/qtcurveconfigbase.ui:756 qt5/config/qtcurveconfigbase.ui:765
@@ -2011,7 +2011,7 @@ msgstr "Ayırıcıyı çiz"
 #: qt4/config/qtcurveconfigbase.ui:763 qt5/config/qtcurveconfigbase.ui:772
 #, kde-format
 msgid "Editable style:"
-msgstr "Düzenlenebilir biçim:"
+msgstr "Düzenlenebilir biçem:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, unifyCombo)
 #: qt4/config/qtcurveconfigbase.ui:770 qt5/config/qtcurveconfigbase.ui:779
@@ -2021,7 +2021,7 @@ msgid ""
 "as a button or an arrow within the edit field.</p>"
 msgstr ""
 "<p>Düzenlenebilir çoklu düğmelerin, açılır kutu düğmesinin, düzenleme "
-"alanında bir düğme veya bir ok görünüp görünmeyeceğini kontrol eder.</p>"
+"alanında bir düğme veya bir ok görünüp görünmeyeceğini denetler.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, unifyCombo)
 #: qt4/config/qtcurveconfigbase.ui:773 qt5/config/qtcurveconfigbase.ui:782
@@ -2033,7 +2033,7 @@ msgstr "Düzenleme alanı içinde oku çiz"
 #: qt4/config/qtcurveconfigbase.ui:780 qt5/config/qtcurveconfigbase.ui:789
 #, kde-format
 msgid "Non-editable style:"
-msgstr "Düzenlenebilir olmayan biçim:"
+msgstr "Düzenlenebilir olmayan biçem:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gtkComboMenus)
 #: qt4/config/qtcurveconfigbase.ui:787
@@ -2043,13 +2043,13 @@ msgid ""
 "style as a popup-menu. KDE4 has the ability to mimic this look.</p>"
 msgstr ""
 "<p>Gtk için, açılan kutuya eklenen liste, bir açılır pencere menüsü ile aynı "
-"biçimde görüntülenir. KDE4, bu görünümü taklit etme yeteneğine sahiptir</p>"
+"biçemde görüntülenir. KDE4, bu görünümü taklit etme yeteneğine sahiptir</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gtkComboMenus)
 #: qt4/config/qtcurveconfigbase.ui:790 qt5/config/qtcurveconfigbase.ui:799
 #, kde-format
 msgid "Gtk-style"
-msgstr "Gtk-biçimi"
+msgstr "Gtk-biçemi"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, doubleGtkComboArrow)
 #: qt4/config/qtcurveconfigbase.ui:797 qt5/config/qtcurveconfigbase.ui:806
@@ -2059,13 +2059,13 @@ msgid ""
 "drawn on non-editable combo boxes.</p>"
 msgstr ""
 "<p>Tek bir aşağı okun veya yukarı aşağı okun, düzenlenebilir olmayan çoklu "
-"kutularda çizilip çizilemeyeceğini kontrol eder.</p>"
+"kutularda çizilip çizilemeyeceğini denetler.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, doubleGtkComboArrow)
 #: qt4/config/qtcurveconfigbase.ui:800 qt5/config/qtcurveconfigbase.ui:809
 #, kde-format
 msgid "Draw double-arrow for Gtk style"
-msgstr "Gtk biçimi için çift-ok çiz"
+msgstr "Gtk biçemi için çift-ok çiz"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, unifySpinBtns)
 #: qt4/config/qtcurveconfigbase.ui:824 qt5/config/qtcurveconfigbase.ui:833
@@ -2091,7 +2091,7 @@ msgid ""
 "just arrows within the edit field.</p>"
 msgstr ""
 "<p>Aşağı ve yukarı düğmelerinin, düğme olarak mı yoksa düzenleme alanında "
-"bir ok mu olması gerektiğini kontrol eder.</p>"
+"bir ok mu olması gerektiğini denetler.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, unifySpin)
 #: qt4/config/qtcurveconfigbase.ui:837 qt5/config/qtcurveconfigbase.ui:846
@@ -2110,8 +2110,8 @@ msgstr "İşaretler:"
 #, kde-format
 msgid "<p>Sets the marking used to indicate that the widget is a splitter.</p>"
 msgstr ""
-"<p>Parçacığın bir ayırıcı olduğunu belirtmek için kullanılacak olan işareti "
-"ayarlar.</p>"
+"<p>Araç takımının bir ayırıcı olduğunu belirtmek için kullanılacak olan "
+"işareti ayarlar.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_69)
 #. i18n: ectx: property (text), widget (QLabel, label_54)
@@ -2119,7 +2119,7 @@ msgstr ""
 #: qt5/config/qtcurveconfigbase.ui:887 qt5/config/qtcurveconfigbase.ui:2131
 #, kde-format
 msgid "Background mouse-over highlight:"
-msgstr "Arkaplan fare-üzerinde vurgusu:"
+msgstr "Arka plan fare-üzerinde vurgusu:"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, splitterHighlight)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, splitterHighlight)
@@ -2129,7 +2129,7 @@ msgid ""
 "<p>Defines by how much the theme should brighten (or darken) the background "
 "of the splitter when the mouse hovers over.</p>"
 msgstr ""
-"<p>Fare üzerinde geldiğinde, ayırıcının arkaplanının ne kadar açık (ya da "
+"<p>Fare üzerinde geldiğinde, ayırıcının arka planının ne kadar açık (ya da "
 "koyu) olması gerektiğini tanımlar.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, sliderAppearance)
@@ -2139,7 +2139,7 @@ msgid ""
 "<p>Controls the appearance of both scrollbar sliders and other sliders.</p>"
 msgstr ""
 "<p>Hem kaydırma çubuğu kaydırıcılarının hem de diğer kaydırıcıların "
-"görünümünü kontrol eder.</p>"
+"görünüşünü denetler.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_12)
 #. i18n: ectx: property (text), widget (QLabel, label_18)
@@ -2163,7 +2163,7 @@ msgid ""
 "p>"
 msgstr ""
 "<p>Hem kaydırma çubuğu kaydırıcılarının hem de diğer kaydırıcıların renk "
-"ayarlarını kontrol eder.</p>"
+"ayarlarını denetler.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, colorSliderMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:943 qt5/config/qtcurveconfigbase.ui:952
@@ -2172,20 +2172,20 @@ msgid ""
 "<p>Controls whether the coloration happens all the time, or only when the "
 "mouse hovers over the slider.</p>"
 msgstr ""
-"<p>Renklenmenin her zaman olup olmayacağını kontrol eder veya yalnızca "
-"farenin kaydırıcı üzerinde gezinip durduğunda kontrol eder.</p>"
+"<p>Renklenmenin her zaman olup olmayacağını denetler veya yalnızca farenin "
+"kaydırıcı üzerinde gezinip durduğunda denetler.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, colorSliderMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:946 qt5/config/qtcurveconfigbase.ui:955
 #, kde-format
 msgid "Mouse-over only"
-msgstr "Sadece fare üzerindeyken"
+msgstr "Yalnızca fare üzerindeyken"
 
 #. i18n: ectx: property (text), widget (QLabel, label_13)
 #: qt4/config/qtcurveconfigbase.ui:953 qt5/config/qtcurveconfigbase.ui:962
 #, kde-format
 msgid "Style:"
-msgstr "Biçim:"
+msgstr "Biçem:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, sliderStyle)
 #: qt4/config/qtcurveconfigbase.ui:960 qt5/config/qtcurveconfigbase.ui:969
@@ -2194,7 +2194,7 @@ msgid ""
 "<p>Controls the appearance of standard sliders - i.e. not scrollbar sliders. "
 "'Triangular' is very similar to plastik's sliders.</p>"
 msgstr ""
-"<p>Standart kaydırıcıların görünümünü kontrol eder - örn. kaydırma çubuğu "
+"<p>Standart kaydırıcıların görünüşunu denetler - örn. kaydırma çubuğu "
 "kayıdırıcılarının değil. 'Üçgen', plastik kaydırıcılara oldukça benzerdir.</"
 "p>"
 
@@ -2227,14 +2227,14 @@ msgid ""
 "<p>Controls the gradient setting used for the used part of a standard "
 "sliders' groove.</p>"
 msgstr ""
-"<p>Standart kaydırıcıların olukları için kullanılan geçiş ayarını kontrol "
-"eder.</p>"
+"<p>Standart kaydırıcıların olukları için kullanılan geçiş ayarını denetler.</"
+"p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_30)
 #: qt4/config/qtcurveconfigbase.ui:991 qt5/config/qtcurveconfigbase.ui:1000
 #, kde-format
 msgid "<p>Groove appearance:</p>"
-msgstr "<p>Kanal görünümü:</p>"
+msgstr "<p>Kanal görünüşu:</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, grooveAppearance)
 #: qt4/config/qtcurveconfigbase.ui:998 qt5/config/qtcurveconfigbase.ui:1007
@@ -2244,7 +2244,7 @@ msgid ""
 "sliders.</p>"
 msgstr ""
 "<p>Hem kaydırma çubuğu kaydırıcıları hem de diğer kaydırıcılar için "
-"kullanılan geçiş ayarını kontrol eder.</p>"
+"kullanılan geçiş ayarını denetler.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, thinSbarGroove)
 #: qt4/config/qtcurveconfigbase.ui:1005 qt5/config/qtcurveconfigbase.ui:1014
@@ -2256,7 +2256,7 @@ msgid ""
 msgstr ""
 "<p>Kaydırmalı çubuğu kaydırıcı oluklarının, kaydırıcı ile aynı kalınlığa mı "
 "yoksa daha ince (ve standart bir kaydırıcının kanalı gibi) olması gerekip "
-"gerekmediğini kontrol eder.</p>"
+"gerekmediğini denetler.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, thinSbarGroove)
 #: qt4/config/qtcurveconfigbase.ui:1008 qt5/config/qtcurveconfigbase.ui:1017
@@ -2289,11 +2289,11 @@ msgid ""
 "left, none at bottom/right</li><li>None - no buttons, only the slider</li></"
 "ul></p>"
 msgstr ""
-"<p>Bu, kaydırma çubuğundaki düğmelerin konumunu ve numarasını kontrol eder.\n"
+"<p>Bu, kaydırma çubuğundaki düğmelerin konumunu ve numarasını denetler.\n"
 "            <ul><li>KDE - sol-üstte 1 düğme ve sağ-altta iki düğme</"
-"li><li>Pencereler - her sonda 1 düğme</li><li>Platinum - sol-üstte düğme "
+"li><li>Pencereler - her sonda 1 düğme</li><li>Platinyum - sol-üstte düğme "
 "yok, sağ-altta iki düğme</li><li>Sonraki - sol-üstte iki düğme, sağ-altta "
-"düğme yok</li><li>Hiçbiri - düğme yok, sadece kaydırıcı</li></ul></p>"
+"düğme yok</li><li>Hiçbiri - düğme yok, yalnızca kaydırıcı</li></ul></p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, flatSbarButtons)
 #: qt4/config/qtcurveconfigbase.ui:1037 qt5/config/qtcurveconfigbase.ui:1046
@@ -2302,14 +2302,14 @@ msgid ""
 "<p>If enabled, then scrollbar buttons are not drawn and only the arrows will "
 "appear.</p>"
 msgstr ""
-"<p>Etkinleştirilirse, kaydırma çubuğu düğmeleri çizilmez, sadece oklar "
+"<p>Etkinleştirilirse kaydırma çubuğu düğmeleri çizilmez, yalnızca oklar "
 "gözükür.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_32)
 #: qt4/config/qtcurveconfigbase.ui:1047 qt5/config/qtcurveconfigbase.ui:1056
 #, kde-format
 msgid "Background:"
-msgstr "Arkaplan:"
+msgstr "Arka plan:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, sbarBgndAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1054 qt5/config/qtcurveconfigbase.ui:1063
@@ -2318,14 +2318,14 @@ msgid ""
 "<p>Configures the background gradient to be used with 'Flat' scrollbar "
 "buttons.</p>"
 msgstr ""
-"<p>'Düz' kaydırma çubuğu düğmeleri ile kullanılacak olan arkaplan geçişini "
+"<p>'Düz' kaydırma çubuğu düğmeleri ile kullanılacak olan arka plan geçişini "
 "yapılandırır.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_15)
 #: qt4/config/qtcurveconfigbase.ui:1061 qt5/config/qtcurveconfigbase.ui:1070
 #, kde-format
 msgid "Slider thumbs:"
-msgstr "Kaydırıcı küçük resimleri:"
+msgstr "Kaydırıcı küçük görselleri:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, sliderThumbs)
 #: qt4/config/qtcurveconfigbase.ui:1068 qt5/config/qtcurveconfigbase.ui:1077
@@ -2334,7 +2334,7 @@ msgid ""
 "<p>Defines what markings should be placed in the center of scrollbar sliders "
 "(and plain style sliders).</p>"
 msgstr ""
-"<p>Kaydırma çubuğu kaydırıcılarının (ve düz biçimli kaydırıcılar) merkezinde "
+"<p>Kaydırma çubuğu kaydırıcılarının (ve düz biçemli kaydırıcılar) merkezinde "
 "hangi işaretcinin olması gerektiğini tanımlar.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_15a)
@@ -2350,14 +2350,14 @@ msgstr "Kaydırıcı genişliği:"
 msgid ""
 "<p>Controls the width of scrollbar sliders, and plain style sliders.</p>"
 msgstr ""
-"<p>Kaydırma çubuğu kaydırıcıları ve düz biçimli kaydırıcıların genişliğini "
-"kontrol eder.</p>"
+"<p>Kaydırma çubuğu kaydırıcıları ve düz biçemli kaydırıcıların genişliğini "
+"denetler.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stripedSbar)
 #: qt4/config/qtcurveconfigbase.ui:1095 qt5/config/qtcurveconfigbase.ui:1104
 #, kde-format
 msgid "<p>If enabled, a fading stripe will be added.</p>"
-msgstr "<p>Etkinleştirilirse, soluk çizgiler eklenecektir.</p>"
+msgstr "<p>Etkinleştirilirse soluk çizgiler eklenecektir.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_16)
 #: qt4/config/qtcurveconfigbase.ui:1112 qt5/config/qtcurveconfigbase.ui:1121
@@ -2382,7 +2382,7 @@ msgid ""
 "<p>Defines the stripe type to be used for the progress part of a progressbar."
 "</p>"
 msgstr ""
-"<p>İlerlem çubuğunun ilerleme parçası için kullanılacak olan çizgi biçimini "
+"<p>İlerlem çubuğunun ilerleme parçası için kullanılacak olan çizgi biçemini "
 "tanımlar.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, animatedProgress)
@@ -2475,7 +2475,7 @@ msgid ""
 "<p>If enabled, the text on a progressbar will use the general widget font.</"
 "p>"
 msgstr ""
-"<p>Etkinleştirilirse, ilerleme çubuğunun üztündeki metin, genel parçacık "
+"<p>Etkinleştirilirse ilerleme çubuğunun üztündeki metin, genel araç takımı "
 "yazı tipi ile kullanılacaktır.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, boldProgress_false)
@@ -2489,7 +2489,7 @@ msgstr "Standart yazı tipi"
 #, kde-format
 msgid "<p>If enabled, the text on a progressbar will use a bold font.</p>"
 msgstr ""
-"<p>Etkinleştirilirse, ilerleme çubuğunun üstündeki metin kalın yazı tipi "
+"<p>Etkinleştirilirse ilerleme çubuğunun üstündeki metin kalın yazı tipi "
 "olacaktır.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, boldProgress)
@@ -2522,7 +2522,7 @@ msgid ""
 "second time will be 1 pixel to the left. This gives it a more 'bold' look.</"
 "p>"
 msgstr ""
-"<p>Etkinleştirilirse, 'öntanımlı' düğmenin metni, iki kere çizilecektir - "
+"<p>Etkinleştirilirse 'öntanımlı' düğmenin metni, iki kere çizilecektir - "
 "ikincisi, bir piksel sola kayacaktır. Buda ona daha fazla 'kalın' bir "
 "görünüm sağlayacaktır.</p>"
 
@@ -2539,8 +2539,8 @@ msgid ""
 "<p>Defines how the theme can use color to indicate which active widget is "
 "under the mouse.</p>"
 msgstr ""
-"<p>Farenin altında hangi etkin parçacığın bulunduğunu belirtmek için temanın "
-"renginin nasıl kullanabileceğini tanımlar.</p>"
+"<p>Farenin altında hangi etkin araç takımının bulunduğunu belirtmek için "
+"temanın renginin nasıl kullanabileceğini tanımlar.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, textLabel1_8)
 #: qt4/config/qtcurveconfigbase.ui:1298 qt5/config/qtcurveconfigbase.ui:1307
@@ -2549,8 +2549,8 @@ msgid ""
 "<p>This controls the % that widgets will be highlighted by when the mouse "
 "hovers over them.</p>"
 msgstr ""
-"<p>Bu ayar, fare üzerine geldiğinde, parçacığın vurgulanacağı yüzdeyi "
-"kontrol eder.</p>"
+"<p>Bu ayar, fare üzerine geldiğinde, araç takımının vurgulanacağı yüzdeyi "
+"denetler.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_8)
 #: qt4/config/qtcurveconfigbase.ui:1301 qt5/config/qtcurveconfigbase.ui:1310
@@ -2565,14 +2565,14 @@ msgid ""
 "<p>Defines by how much the theme should brighten (or darken) the color of "
 "the active widget under the mouse.</p>"
 msgstr ""
-"<p>Temanın fareyle etkinleştirilen parçacığın renginin ne kadar açık (veya "
-"koyu) olması gerektiğini belirler.</p>"
+"<p>Temanın fareyle etkinleştirilen araç takımının renginin ne kadar açık "
+"(veya koyu) olması gerektiğini belirler.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_19)
 #: qt4/config/qtcurveconfigbase.ui:1328 qt5/config/qtcurveconfigbase.ui:1337
 #, kde-format
 msgid "Header appearance:"
-msgstr "Başlık görünümü:"
+msgstr "Başlık görünüşü:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, lvAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1335 qt5/config/qtcurveconfigbase.ui:1344
@@ -2591,8 +2591,8 @@ msgid ""
 "<p>If enabled, headers will be drawn using the button color, otherwise the "
 "standard window background color will be used.</p>"
 msgstr ""
-"<p>Etkinleştirilirse, başlıklar düğme rengi ile çizilecektir, aksi halde "
-"standart pencere arkaplan rengi kullanılacaktır.</p>"
+"<p>Etkinleştirilirse başlıklar düğme rengi ile çizilecektir, aksi halde "
+"standart pencere arka plan rengi kullanılacaktır.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, lvButton)
 #: qt4/config/qtcurveconfigbase.ui:1351 qt5/config/qtcurveconfigbase.ui:1360
@@ -2613,8 +2613,7 @@ msgid ""
 "<p>Controls the coloration to be applied to the header of the currently "
 "sorted column."
 msgstr ""
-"<p>Mevcut sıralanmış sütunun başlığına uygulanacak renklendirmeyi kontrol "
-"eder."
+"<p>Mevcut sıralanmış sütunun başlığına uygulanacak renklendirmeyi denetler."
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, customSortedLvColor)
 #. i18n: ectx: property (toolTip), widget (KColorButton, customCheckRadioColor)
@@ -2644,7 +2643,7 @@ msgid ""
 "treeviews have alternating row colors - regardless of whether the "
 "application author has enabled this or not."
 msgstr ""
-"<p>Bu etkinleştirilirse, QtCurve tüm liste ve ağaç görünümlerini, uygulama "
+"<p>Bu etkinleştirilirse QtCurve tüm liste ve ağaç görünümlerini, uygulama "
 "yazarının bunu etkinleştirip etkinleştirmediğine bakılmaksızın satır "
 "renklerini değişir."
 
@@ -2658,7 +2657,7 @@ msgstr "Alternativ renkleri zorla"
 #: qt4/config/qtcurveconfigbase.ui:1405 qt5/config/qtcurveconfigbase.ui:1414
 #, kde-format
 msgid "Selection appearance:"
-msgstr "Seçim görünümü:"
+msgstr "Seçim görünüşü:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, selectionAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1415 qt5/config/qtcurveconfigbase.ui:1424
@@ -2673,8 +2672,8 @@ msgid ""
 "<p>If enabled, then selected items in listviews and treeviews will be drawn "
 "with bordered edges - but only if they are set to be rounded as well."
 msgstr ""
-"<p>Etkinleştirilirse, liste ve ağaç görünümlerinde seçili öğeler, yalnızca "
-"kenarları yuvarlanmış olarak ayarlandıysa, yanları kenarlıklı çizilir."
+"<p>Etkinleştirilirse liste ve ağaç görünümlerinde seçili öğeler, yalnızca "
+"kenarları yuvarlanmış olarak ayarlandıysa yanları kenarlıklı çizilir."
 
 #. i18n: ectx: property (text), widget (QLabel, label_48)
 #: qt4/config/qtcurveconfigbase.ui:1432 qt5/config/qtcurveconfigbase.ui:1441
@@ -2687,8 +2686,8 @@ msgstr "Ögeler arasındaki çizgiler:"
 #, kde-format
 msgid "<p>Controls the style of lines drawn between items in a treeview."
 msgstr ""
-"<p>Ağaç görünümündeki ögeler arasındaki çizilecek çizgilerin biçimini "
-"kontrol eder."
+"<p>Ağaç görünümündeki ögeler arasındaki çizilecek çizgilerin biçemini "
+"denetler."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gtkScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:1453 qt5/config/qtcurveconfigbase.ui:1462
@@ -2698,8 +2697,7 @@ msgid ""
 "e. on the outside), or embedded within the scrollview."
 msgstr ""
 "<p>Kaydırma çubuklarının kaydırma görünümünden ayrılıp çıkarmayacağını, "
-"(örn. dışarıda) yoksa kaydırma görünümünde gömülü olup olmadığını kontrol "
-"eder."
+"(örn. dışarıda) yoksa kaydırma görünümünde gömülü olup olmadığını denetler."
 
 #. i18n: ectx: property (text), widget (QCheckBox, gtkScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:1456 qt5/config/qtcurveconfigbase.ui:1465
@@ -2715,7 +2713,7 @@ msgid ""
 "edits."
 msgstr ""
 "<p>Etkin kaydırma görünümünün, her bir satır için vurgulu olup olmacağını "
-"kontrol eder."
+"denetler."
 
 #. i18n: ectx: property (text), widget (QCheckBox, highlightScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:1466 qt5/config/qtcurveconfigbase.ui:1475
@@ -2727,7 +2725,7 @@ msgstr "Odak üzerinde vurgulama (KDE)"
 #: qt4/config/qtcurveconfigbase.ui:1490 qt5/config/qtcurveconfigbase.ui:1499
 #, kde-format
 msgid "Active tab appearance:"
-msgstr "Etkin sekme görünümü:"
+msgstr "Etkin sekme görünüşü:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, activeTabAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1497 qt5/config/qtcurveconfigbase.ui:1506
@@ -2759,9 +2757,9 @@ msgid ""
 "<p>Controls the amount of tinting applied to the active tab. The active tab "
 "is tinted by blending the 'highlight' color with the background color."
 msgstr ""
-"<p>Etkin sekmeye uygulanacak olan renklendirmenin miktarını kontrol eder. "
-"Etki sekme, arkaplan rengi ile harmanlanmış olan 'vurgulu' renk ile "
-"harmanlanıp, renklendirilir."
+"<p>Etkin sekmeye uygulanacak olan renklendirmenin miktarını denetler. Etki "
+"sekme, arka plan rengi ile harmanlanmış olan 'vurgulu' renk ile harmanlanıp, "
+"renklendirilir."
 
 #. i18n: ectx: property (prefix), widget (KIntNumInput, colorSelTab)
 #. i18n: ectx: property (prefix), widget (QSpinBox, colorSelTab)
@@ -2774,7 +2772,7 @@ msgstr "Renklendiren "
 #: qt4/config/qtcurveconfigbase.ui:1527 qt5/config/qtcurveconfigbase.ui:1536
 #, kde-format
 msgid "Inactive tab appearance:"
-msgstr "Etkin olmayan sekme görünümü:"
+msgstr "Etkin olmayan sekme görünüşü:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tabAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1534 qt5/config/qtcurveconfigbase.ui:1543
@@ -2796,22 +2794,22 @@ msgid ""
 "mouse. Note, if 'glow' is selected, then 'Round tabs' will be set to 'All' - "
 "and this creates a 2 pixel gap between tabs."
 msgstr ""
-"<p>Mevcut farenin altındaki sekmeye uygulanan fare-üzerinde efektini kontrol "
-"eder. Unutmayın, 'parlama' seçilirse, 'Yuvarlanmış sekmeler' 'Tümü' olarak "
-"ayarlanır - bu sekmeler arasında 2 piksellik bir boşluk oluşturur."
+"<p>Mevcut farenin altındaki sekmeye uygulanan fare-üzerinde efektini "
+"denetler. Unutmayın, 'parlama' seçilirse 'Yuvarlanmış sekmeler' 'Tümü' "
+"olarak ayarlanır - bu sekmeler arasında 2 piksellik bir boşluk oluşturur."
 
 #. i18n: ectx: property (text), widget (QLabel, label_49)
 #: qt4/config/qtcurveconfigbase.ui:1555 qt5/config/qtcurveconfigbase.ui:1564
 #, kde-format
 msgid "Alter background by:"
-msgstr "Arkaplanı değiştiren:"
+msgstr "Arka planı değiştiren:"
 
 #. i18n: ectx: property (toolTip), widget (KIntSpinBox, tabBgnd)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, tabBgnd)
 #: qt4/config/qtcurveconfigbase.ui:1562 qt5/config/qtcurveconfigbase.ui:1571
 #, kde-format
 msgid "<p>Lightens, or darkens, the background of the whole tab widget."
-msgstr "<p>Aydınlanma veya kararma, tüm sekme parçacıklarının arkaplanı."
+msgstr "<p>Aydınlanma veya kararma, tüm sekme araç takımlarının arka planı."
 
 #. i18n: ectx: property (text), widget (QLabel, label_51)
 #: qt4/config/qtcurveconfigbase.ui:1575 qt5/config/qtcurveconfigbase.ui:1584
@@ -2826,14 +2824,14 @@ msgid ""
 "<p>If enabled, only the active tab is rounded - and all the inactive tabs "
 "appear closer together."
 msgstr ""
-"<p>Etkinleştirilirse, sadece etkin sekme yuvarlanmış olur - ve tüm etkin "
+"<p>Etkinleştirilirse yalnızca etkin sekme yuvarlanmış olur - ve tüm etkin "
 "olmayan sekmeler birbirine daha yakın gözükür."
 
 #. i18n: ectx: property (text), widget (QRadioButton, roundAllTabs_false)
 #: qt4/config/qtcurveconfigbase.ui:1609 qt5/config/qtcurveconfigbase.ui:1627
 #, kde-format
 msgid "Selected only"
-msgstr "Sadece seçili olanlar"
+msgstr "Yalnızca seçili olanlar"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, roundAllTabs)
 #: qt4/config/qtcurveconfigbase.ui:1619 qt5/config/qtcurveconfigbase.ui:1637
@@ -2842,8 +2840,8 @@ msgid ""
 "<p>If enabled, all tabs are rounded - there will be a 2 pixel gap between "
 "each tab if 'glow' is selected as the general colored mouse over style."
 msgstr ""
-"<p>Etkinleştirilirse, tüm sekmeler yuvarlanmış hale gelir - biçim olarak "
-"genel renkli fare olarak 'ışıma' seçilirse, her sekme arasında 2 piksel "
+"<p>Etkinleştirilirse tüm sekmeler yuvarlanmış hale gelir - biçem olarak "
+"genel renkli fare olarak 'ışıma' seçilirse her sekme arasında 2 piksel "
 "boşluk olacaktır."
 
 #. i18n: ectx: property (text), widget (QRadioButton, roundAllTabs)
@@ -2868,7 +2866,7 @@ msgid ""
 "with a light shade on the top and left, and a dark shade on the bottom and "
 "right."
 msgstr ""
-"<p>Etkinleştirilirse, sekmeler ve sekme parçacığı, 3D bir kenarlığa sahip "
+"<p>Etkinleştirilirse sekmeler ve sekme araç takımı, 3B bir kenarlığa sahip "
 "olacaktır - sol üstte açık bir gölge ve sağ allta koyu bir gölgesi olacaktır."
 
 #. i18n: ectx: property (text), widget (QRadioButton, borderTab_false)
@@ -2884,8 +2882,8 @@ msgid ""
 "<p>If enabled, the tabs and tab widget will have an outer dark border, and a "
 "light inner border."
 msgstr ""
-"<p>Etkinleştirilirse, sekmeler ve sekme parçacığı, koyu bir dış kenarlığa ve "
-"açık bir iç kenarlığa sahip olacaktır."
+"<p>Etkinleştirilirse sekmeler ve sekme araç takımı, koyu bir dış kenarlığa "
+"ve açık bir iç kenarlığa sahip olacaktır."
 
 #. i18n: ectx: property (text), widget (QLabel, label_62)
 #: qt4/config/qtcurveconfigbase.ui:1692 qt5/config/qtcurveconfigbase.ui:1719
@@ -2899,7 +2897,7 @@ msgstr "Etkin olmayan sekme iç kenarlığı:"
 msgid ""
 "<p>If enabled, inactive tabs will have a border as per the 'Border' setting."
 msgstr ""
-"<p>Etkinleştirilirse, etkin olmayan sekmelerin, 'Kenarlık' ayarına göre bir "
+"<p>Etkinleştirilirse etkin olmayan sekmelerin, 'Kenarlık' ayarına göre bir "
 "kenarlığı olur."
 
 #. i18n: ectx: property (text), widget (QRadioButton, borderInactiveTab)
@@ -2913,7 +2911,7 @@ msgstr "Etkin sekme ile aynı"
 #, kde-format
 msgid "<p>If enabled, inactive tabs will have no inner border."
 msgstr ""
-"<p>Etkinleştirilirse, etkin olmayan sekmelerin iç kenarlığı olmayacaktır."
+"<p>Etkinleştirilirse etkin olmayan sekmelerin iç kenarlığı olmayacaktır."
 
 #. i18n: ectx: property (text), widget (QRadioButton, borderInactiveTab_false)
 #: qt4/config/qtcurveconfigbase.ui:1739 qt5/config/qtcurveconfigbase.ui:1775
@@ -2936,8 +2934,8 @@ msgid ""
 "the bottom tabs will go from the background color to light - this can "
 "sometimes give the appearance that the bottom tabs are sticking out."
 msgstr ""
-"<p>Etkinleştirilirse, alt kısımdaki sekmeler üstteki sekmelerle aynı geçişi "
-"kullanır. Yani üstteki sekmeler ışıktan arka plan rengine gölgelenirse, "
+"<p>Etkinleştirilirse alt kısımdaki sekmeler üstteki sekmelerle aynı geçişi "
+"kullanır. Yani üstteki sekmeler ışıktan arka plan rengine gölgelenirse "
 "alttaki sekmeler arka plan renginden ışığa gidecektir - bu bazen alt "
 "sekmelerin dışarı çıkmış gibi görünmesine neden olabilir."
 
@@ -2955,9 +2953,9 @@ msgid ""
 "on the top. i.e. if the top tabs shades from light to the background color, "
 "then bottom tabs will go from the background color to dark."
 msgstr ""
-"<p>Etkinleştirilirse, alttaki sekmeler üstteki sekmeler için ters çevrilmiş "
+"<p>Etkinleştirilirse alttaki sekmeler üstteki sekmeler için ters çevrilmiş "
 "bir geçiş kullanır. Yani üstteki sekmeler ışığı arka plan renginden "
-"gölgeliyorsa, alttaki sekmeler arka plan renginden karanlığa gidecektir."
+"gölgeliyorsa alttaki sekmeler arka plan renginden karanlığa gidecektir."
 
 #. i18n: ectx: property (text), widget (QRadioButton, invertBotTab)
 #: qt4/config/qtcurveconfigbase.ui:1790 qt5/config/qtcurveconfigbase.ui:1835
@@ -2978,7 +2976,7 @@ msgstr "Araç çubukları içindeki sekmeler:"
 #, kde-format
 msgid "<p>If enabled, tabs that are within toolbars will be drawn as normal."
 msgstr ""
-"<p>Etkinleştirilirse, araç çubukları içindeki sekmeler normal şekilde "
+"<p>Etkinleştirilirse araç çubukları içindeki sekmeler normal şekilde "
 "çizilecektir."
 
 #. i18n: ectx: property (text), widget (QRadioButton, toolbarTabs)
@@ -2996,7 +2994,7 @@ msgid ""
 "<p>If enabled, tabs that are within toolbars will be drawn the same as "
 "sidebar buttons."
 msgstr ""
-"<p>Etkinleştirilirse, araç çubukları içindeki sekmeler, yan çubuk "
+"<p>Etkinleştirilirse araç çubukları içindeki sekmeler, yan çubuk "
 "düğmelerindeki gibi çizileceklerdir."
 
 #. i18n: ectx: property (text), widget (QRadioButton, toolbarTabs_false)
@@ -3024,7 +3022,7 @@ msgid ""
 "<p>Controls the color of the indicator part of a check or radio - ie. the "
 "'dot' or 'check' mark."
 msgstr ""
-"<p>İşaret ve radyo gösterge bölümün rengini kontrol eder - örn. 'nokta' veya "
+"<p>İşaret ve radyo gösterge bölümün rengini denetler - örn. 'nokta' veya "
 "'onay' işareti."
 
 #. i18n: ectx: property (text), widget (QLabel, label_53)
@@ -3040,7 +3038,7 @@ msgid ""
 "<p>If enabled, checkboxes will have a 'tick' to indicate that they are "
 "selected."
 msgstr ""
-"<p>Etkinleştirilirse, işaret kutularının seçili olduğunu belirtmek için bir "
+"<p>Etkinleştirilirse işaret kutularının seçili olduğunu belirtmek için bir "
 "'onay işareti' kullanılacaktır."
 
 #. i18n: ectx: property (text), widget (QRadioButton, xCheck_false)
@@ -3056,7 +3054,7 @@ msgid ""
 "<p>If enabled, checkboxes will have a 'cross' (or 'X') to indicate that they "
 "are selected."
 msgstr ""
-"<p>Etkinleştirilirse, işaret kutularının seçili olduğunu belirtmek için "
+"<p>Etkinleştirilirse işaret kutularının seçili olduğunu belirtmek için "
 "'çarpı' (veya 'X') kullanılacaktır."
 
 #. i18n: ectx: property (text), widget (QRadioButton, xCheck)
@@ -3078,7 +3076,7 @@ msgid ""
 "<p>If enabled, radio buttons will have a large 'dot' to indicate that they "
 "are selected."
 msgstr ""
-"<p>Etkinleştirilirse, radyo düğmelerinin seçili olduğunu belirtmek için "
+"<p>Etkinleştirilirse radyo düğmelerinin seçili olduğunu belirtmek için "
 "'nokta' işareti kullanılacaktır."
 
 #. i18n: ectx: property (text), widget (QRadioButton, smallRadio_false)
@@ -3095,8 +3093,8 @@ msgid ""
 "<p>If enabled, radio buttons will have a small 'dot' to indicate that they "
 "are selected."
 msgstr ""
-"<p>Etkinleştirilirse, radyo düğmelerinin seçili olduğunu belirtmek için "
-"küçük 'nokta' kullanılacaktır."
+"<p>Etkinleştirilirse radyo düğmelerinin seçili olduğunu belirtmek için küçük "
+"'nokta' kullanılacaktır."
 
 #. i18n: ectx: property (text), widget (QRadioButton, smallRadio)
 #: qt4/config/qtcurveconfigbase.ui:2040 qt5/config/qtcurveconfigbase.ui:2121
@@ -3114,7 +3112,7 @@ msgid ""
 "hovers over it."
 msgstr ""
 "<p>Fare üzerlerine geldiğinde, işaret kutularındaki ya da radyo "
-"düğmelerindeki metinlerin arkaplanlarının ne kadar aydınlık (veya karanlık) "
+"düğmelerindeki metinlerin arka planlarının ne kadar aydınlık (veya karanlık) "
 "olacağını tanımlar."
 
 #. i18n: ectx: property (text), widget (QLabel, label_70)
@@ -3131,7 +3129,7 @@ msgid ""
 "appear sunken like or button like."
 msgstr ""
 "<p>İşaret kutusunun arka planının veya radyo düğmesinin, ne kadar çökük "
-"olacağını veya düğme gibi olmasını kontrol eder."
+"olacağını veya düğme gibi olmasını denetler."
 
 #. i18n: ectx: property (text), widget (QCheckBox, crButton)
 #: qt4/config/qtcurveconfigbase.ui:2077 qt5/config/qtcurveconfigbase.ui:2158
@@ -3171,27 +3169,26 @@ msgstr "Seçili sembol:"
 #: qt4/config/qtcurveconfigbase.ui:2123 qt5/config/qtcurveconfigbase.ui:2204
 #, kde-format
 msgid "Active appearance:"
-msgstr "Etkin görünüm:"
+msgstr "Etkin görünüş:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, titlebarAppearance)
 #: qt4/config/qtcurveconfigbase.ui:2130 qt5/config/qtcurveconfigbase.ui:2211
 #, kde-format
 msgid "<p>Controls the gradient applied to the titlebar of active windows."
-msgstr "<p>Etkin pencerenin başlık çubuğuna eklenmiş olan geçişi kontrol eder."
+msgstr "<p>Etkin pencerenin başlık çubuğuna eklenmiş olan geçişi denetler."
 
 #. i18n: ectx: property (text), widget (QLabel, label_28)
 #: qt4/config/qtcurveconfigbase.ui:2137 qt5/config/qtcurveconfigbase.ui:2218
 #, kde-format
 msgid "Inactive appearance:"
-msgstr "Etkin olmayan görünüm:"
+msgstr "Etkin olmayan görünüş:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, inactiveTitlebarAppearance)
 #: qt4/config/qtcurveconfigbase.ui:2144 qt5/config/qtcurveconfigbase.ui:2225
 #, kde-format
 msgid "<p>Controls the gradient applied to the titlebar of inactive windows."
 msgstr ""
-"<p>Etkin olmayan pencerenin başlık çubuğuna eklenmiş olan geçişi kontrol "
-"eder."
+"<p>Etkin olmayan pencerenin başlık çubuğuna eklenmiş olan geçişi denetler."
 
 #. i18n: ectx: property (text), widget (QLabel, label_31)
 #: qt4/config/qtcurveconfigbase.ui:2151 qt5/config/qtcurveconfigbase.ui:2232
@@ -3208,9 +3205,9 @@ msgid ""
 "with 'Center (between controls)' the text is centered between the window "
 "controls to the left and right."
 msgstr ""
-"<p>Başlık çubuğu metninin hizalamasını kontrol eder. 'Orta (tam genişlik)', "
+"<p>Başlık çubuğu metninin hizalamasını denetler. 'Orta (tam genişlik)', "
 "metnin tam başlık çubuğunun ortasında ortalandığı anlamına gelir; oysa 'Orta "
-"(kontroller arasında)' ile metin penceresi kontrolleri arasında sola ve sağa "
+"(denetimler arasında)' ile metin penceresi denetimleri sola ve sağa "
 "ortalanır."
 
 #. i18n: ectx: property (text), widget (QLabel, label_74)
@@ -3226,8 +3223,8 @@ msgid ""
 "<p>Controls the 'effect' applied to the text and icons - shadow, etching, or "
 "none."
 msgstr ""
-"<p>Metin ve simgelere eklenecek olan 'efekti' kontrol eder - gölgeli, "
-"aşınmış veya hiçbiri."
+"<p>Metin ve simgelere eklenecek olan 'efekti' denetler - gölgeli, aşınmış "
+"veya hiçbiri."
 
 #. i18n: ectx: property (text), widget (QLabel, label_43)
 #: qt4/config/qtcurveconfigbase.ui:2179 qt5/config/qtcurveconfigbase.ui:2260
@@ -3243,8 +3240,8 @@ msgid ""
 "'Place on menu button' is selected, then the icon takes place of the menu "
 "button."
 msgstr ""
-"<p>Başlık çubuğunda uygulamanın simgesinin nereye çizileceğini kontrol eder. "
-"'Menü düğmesinde konumlandır' seçilirse, simge menü düğmesinde yer alır."
+"<p>Başlık çubuğunda uygulamanın simgesinin nereye çizileceğini denetler. "
+"'Menü düğmesinde konumlandır' seçilirse simge menü düğmesinde yer alır."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_colorTitlebarOnly)
 #: qt4/config/qtcurveconfigbase.ui:2200 qt5/config/qtcurveconfigbase.ui:2281
@@ -3253,14 +3250,14 @@ msgid ""
 "<p>If enabled, only the titlebar, and not the border, of windows will be "
 "colored."
 msgstr ""
-"<p>Etkinleştirilirse, kenarlık olmadan sadece başlık çubuğunun penceresi "
+"<p>Etkinleştirilirse kenarlık olmadan yalnızca başlık çubuğunun penceresi "
 "renklendirilecektir."
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_colorTitlebarOnly)
 #: qt4/config/qtcurveconfigbase.ui:2203 qt5/config/qtcurveconfigbase.ui:2284
 #, kde-format
 msgid "Only color titlebar"
-msgstr "Sadece başlık çubuğunu renklendir"
+msgstr "Yalnızca başlık çubuğunu renklendir"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_blend)
 #: qt4/config/qtcurveconfigbase.ui:2210 qt5/config/qtcurveconfigbase.ui:2291
@@ -3269,14 +3266,14 @@ msgid ""
 "<p>If enabled, the background color will be used as the last part of the "
 "titlebar gradient."
 msgstr ""
-"<p>Etkinleştirilirse, arkaplan rengi, başlık çubuğu geçinin son parçası "
+"<p>Etkinleştirilirse arka plan rengi, başlık çubuğu geçinin son parçası "
 "olarak kullanılacaktır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_blend)
 #: qt4/config/qtcurveconfigbase.ui:2213 qt5/config/qtcurveconfigbase.ui:2294
 #, kde-format
 msgid "Blend titlebar color into background color"
-msgstr "Başlık çubuğu rengini arkaplanın içinde karıştır"
+msgstr "Başlık çubuğu rengini arka planın içinde karıştır"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_fill)
 #: qt4/config/qtcurveconfigbase.ui:2220 qt5/config/qtcurveconfigbase.ui:2301
@@ -3285,14 +3282,14 @@ msgid ""
 "<p>If enabled, before drawing the titlebar gradient, it will be filled with "
 "the background colour/gradient."
 msgstr ""
-"<p>Etkinleştirilirse, başlık çubuğu geçişi çizilmeden önce, arkaplan rengi/"
+"<p>Etkinleştirilirse başlık çubuğu geçişi çizilmeden önce, arka plan rengi/"
 "geçişi ile doldurulacaktır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_fill)
 #: qt4/config/qtcurveconfigbase.ui:2223 qt5/config/qtcurveconfigbase.ui:2304
 #, kde-format
 msgid "Fill titlebar background before applying gradient."
-msgstr "Geçişi uygulamadan önce başlık çubuğu arkaplanını doldur."
+msgstr "Geçişi uygulamadan önce başlık çubuğu arka planını doldur."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_menuColor)
 #: qt4/config/qtcurveconfigbase.ui:2230 qt5/config/qtcurveconfigbase.ui:2311
@@ -3301,7 +3298,7 @@ msgid ""
 "<p>If enabled, the configured menubar color will be used for windows that "
 "have menubars."
 msgstr ""
-"<p>Etkinleştirilirse, yapılandırılmış menü çubuğu rengi, menü çubuğuna sahip "
+"<p>Etkinleştirilirse yapılandırılmış menü çubuğu rengi, menü çubuğuna sahip "
 "olan pencereler için kullanılacaktır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_menuColor)
@@ -3323,7 +3320,7 @@ msgid ""
 "<p>If enabled, a 1 pixel light border is added to the top and left of the "
 "window."
 msgstr ""
-"<p>Etkinleştirilirse, 1 piksellik açık kenarlık, pencerenin sol üstüne "
+"<p>Etkinleştirilirse 1 piksellik açık kenarlık, pencerenin sol üstüne "
 "eklenir."
 
 #. i18n: ectx: property (text), widget (QLabel, label_55b)
@@ -3337,7 +3334,7 @@ msgstr "Etkin pencerenin üstüne ayırıcı çiz:"
 #, kde-format
 msgid "<p>If enabled, a separator is drawn between the titlebar and window."
 msgstr ""
-"<p>Etkinleştirilirse, başlık çubuğu ile pencere arasına bir ayırıcı çizilir."
+"<p>Etkinleştirilirse başlık çubuğu ile pencere arasına bir ayırıcı çizilir."
 
 #. i18n: ectx: property (text), widget (QLabel, label_92)
 #: qt4/config/qtcurveconfigbase.ui:2274 qt5/config/qtcurveconfigbase.ui:2355
@@ -3363,13 +3360,13 @@ msgstr "<p>Başlık çubuğu düğmelerini dolduracak olan geçişi tanımlar."
 msgid ""
 "<p>If enabled, only the symbol is drawn - and not the button background."
 msgstr ""
-"<p>Etkinleştirilirse, sadece sembol çizilir - düğme arkaplanı çizilmez."
+"<p>Etkinleştirilirse yalnızca sembol çizilir - düğme arka planı çizilmez."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_noFrame)
 #: qt4/config/qtcurveconfigbase.ui:2305 qt5/config/qtcurveconfigbase.ui:2386
 #, kde-format
 msgid "Only show symbols"
-msgstr "Sadece sembolleri göster"
+msgstr "Yalnızca sembolleri göster"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_round)
 #: qt4/config/qtcurveconfigbase.ui:2312 qt5/config/qtcurveconfigbase.ui:2393
@@ -3378,7 +3375,7 @@ msgid ""
 "<p>If enabled, the buttons will have a circular background - regardless of "
 "the general round setting."
 msgstr ""
-"<p>Etkinleştirilirse, düğme dairesel arkaplana sahip olacaktır - genel "
+"<p>Etkinleştirilirse düğme dairesel arka plana sahip olacaktır - genel "
 "yuvarlama ayarından bağımsız olarak."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_hoverFrame)
@@ -3388,7 +3385,7 @@ msgid ""
 "<p>If enabled, the button background (or frame) will only be shown when "
 "under the mouse."
 msgstr ""
-"<p>Etkinleştirilirse, düğme arkaplanı (ya da çerçevesi), sadece fare "
+"<p>Etkinleştirilirse düğme arka planı (ya da çerçevesi), yalnızca fare "
 "altındayken gözükecektir."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hoverFrame)
@@ -3404,7 +3401,7 @@ msgid ""
 "<p>If enabled, the icon will only be shown at full strength when under the "
 "mouse - otherwise it will be blended with the background."
 msgstr ""
-"<p>Etkinleştirilirse, simge yalnızca fare altındayken tam güçle gösterilir - "
+"<p>Etkinleştirilirse simge yalnızca fare altındayken tam güçle gösterilir - "
 "aksi takdirde arka planla harmanlanır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hoverSymbol)
@@ -3420,7 +3417,7 @@ msgid ""
 "<p>If enabled, the titlebar buttons will be drawn using the standard button "
 "color - otherwise the titlebar color will be used."
 msgstr ""
-"<p>Etkinleştirilirse, araç çubuğu düğmeleri, standart düğme rengi ile "
+"<p>Etkinleştirilirse araç çubuğu düğmeleri, standart düğme rengi ile "
 "boyanacaktır - aksi takdirde başlık çubuğunun rengi kullanılacaktır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_button)
@@ -3436,14 +3433,14 @@ msgid ""
 "<p>If enabled, the titlebar buttons will be drawn using the custom colors "
 "defined in the next page."
 msgstr ""
-"<p>Etkinleştirilirse, başlık çubuğu düğmeleri, sonraki sayfada tanımlanmış "
+"<p>Etkinleştirilirse başlık çubuğu düğmeleri, sonraki sayfada tanımlanmış "
 "olan özel renkler ile çizilecektir."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_custom)
 #: qt4/config/qtcurveconfigbase.ui:2355 qt5/config/qtcurveconfigbase.ui:2436
 #, kde-format
 msgid "Use custom background colors"
-msgstr "Özel arkaplan renkleri"
+msgstr "Özel arka plan renkleri"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_colorOnMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:2362 qt5/config/qtcurveconfigbase.ui:2443
@@ -3452,22 +3449,22 @@ msgid ""
 "<p>If enabled, the colors will only be used when the button is under the "
 "mouse."
 msgstr ""
-"<p>Etkinleştirilirse, renkler sadece düğme farenin altında olduğunda "
+"<p>Etkinleştirilirse renkler yalnızca düğme farenin altında olduğunda "
 "kullanılacaktır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_colorOnMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:2365 qt5/config/qtcurveconfigbase.ui:2446
 #, kde-format
 msgid "Use color only for mouse-over"
-msgstr "Sadece fare üzerindeyken için kullan"
+msgstr "Yalnızca fare üzerindeyken için kullan"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_useHover)
 #: qt4/config/qtcurveconfigbase.ui:2372
 #, kde-format
 msgid "<p>If enabled, symbols will use the KDE4 hover color when moused-over."
 msgstr ""
-"<p>Etkinleştirilirse, sembooler fare üzerinde olduğunda KDE4 üzerinde "
-"rengini kullanacaktır."
+"<p>Etkinleştirilirse sembooler fare üzerinde olduğunda KDE4 üzerinde rengini "
+"kullanacaktır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_useHover)
 #: qt4/config/qtcurveconfigbase.ui:2375 qt5/config/qtcurveconfigbase.ui:2456
@@ -3480,21 +3477,21 @@ msgstr "Sembollerin, fare üzerinde için kullanılan rengi"
 #, kde-format
 msgid "<p>If enabled, a sunken background is drawn behind the buttons."
 msgstr ""
-"<p>Etkinleştirilirse, çökük arkaplan, düğmelerin ardından çizilecektir."
+"<p>Etkinleştirilirse çökük arka plan, düğmelerin ardından çizilecektir."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_sunkenBackground)
 #: qt4/config/qtcurveconfigbase.ui:2385 qt5/config/qtcurveconfigbase.ui:2466
 #, kde-format
 msgid "Sunken background"
-msgstr "Çökük arkaplan"
+msgstr "Çökük arka plan"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_arrowMinMax)
 #: qt4/config/qtcurveconfigbase.ui:2392 qt5/config/qtcurveconfigbase.ui:2473
 #, kde-format
 msgid "<p>If enabled, arrows are drawn as the icons for min and max buttons."
 msgstr ""
-"<p>Etkinleştirilirse, oklar, asgari ve azami düğmeler için olan simgeler "
-"gibi çizilecektir."
+"<p>Etkinleştirilirse oklar, asgari ve azami düğmeler için olan simgeler gibi "
+"çizilecektir."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_arrowMinMax)
 #: qt4/config/qtcurveconfigbase.ui:2395 qt5/config/qtcurveconfigbase.ui:2476
@@ -3509,7 +3506,7 @@ msgid ""
 "<p>If enabled, buttons on inactive windows are only drawn when the mouse "
 "hovers over them."
 msgstr ""
-"<p>Etkinleştirilirse, etkin olmayan pencerelerdeki düğmeler, sadece fare "
+"<p>Etkinleştirilirse etkin olmayan pencerelerdeki düğmeler, yalnızca fare "
 "üzerine geldiğinde çizileceklerdir."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hideOnInactiveWindow)
@@ -3531,14 +3528,14 @@ msgid ""
 "<p>If enabled, custom colors will be applied to the symbols, otherwise they "
 "will be applied to the button background."
 msgstr ""
-"<p>Etkinleştirilirse, özel renkler sembollere eklenecek, aksi takdirde düğme "
-"arkaplanına ekleneceklerdir."
+"<p>Etkinleştirilirse özel renkler sembollere eklenecek, aksi takdirde düğme "
+"arka planına ekleneceklerdir."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_colorSymbolsOnly)
 #: qt4/config/qtcurveconfigbase.ui:2422 qt5/config/qtcurveconfigbase.ui:2503
 #, kde-format
 msgid "Use only for symbols"
-msgstr "Sadece semboller için kullan"
+msgstr "Yalnızca semboller için kullan"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_colorInactive)
 #: qt4/config/qtcurveconfigbase.ui:2429 qt5/config/qtcurveconfigbase.ui:2510
@@ -3547,8 +3544,8 @@ msgid ""
 "<p>If enabled, custom colors will be applied to active and inactive windows, "
 "otherwise they will only be applied to active windows."
 msgstr ""
-"<p>Etkinleştirilirse, özel renkler etkin ve etkin olmayan pencerelere "
-"eklenecek, aksi takdirde sadece etkin pencerelere uygulanacaklardır."
+"<p>Etkinleştirilirse özel renkler etkin ve etkin olmayan pencerelere "
+"eklenecek, aksi takdirde yalnızca etkin pencerelere uygulanacaklardır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_colorInactive)
 #: qt4/config/qtcurveconfigbase.ui:2432 qt5/config/qtcurveconfigbase.ui:2513
@@ -3560,8 +3557,7 @@ msgstr "Etkin olmayan pencerelere de ekle"
 #: qt4/config/qtcurveconfigbase.ui:2439 qt5/config/qtcurveconfigbase.ui:2520
 #, kde-format
 msgid "<p>If enabled, the symbol will not be drawn unless under the mouse."
-msgstr ""
-"<p>Etkinleştirilirse, farenin altına gelmedikçe sembol çizilmeyecektir."
+msgstr "<p>Etkinleştirilirse farenin altına gelmedikçe sembol çizilmeyecektir."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hoverSymbolFull)
 #: qt4/config/qtcurveconfigbase.ui:2442 qt5/config/qtcurveconfigbase.ui:2523
@@ -3699,7 +3695,8 @@ msgstr "Altta Tut:"
 #: qt4/config/qtcurveconfigbase.ui:2912 qt5/config/qtcurveconfigbase.ui:2993
 #, kde-format
 msgid "<p>Defines the gradient used for the background of menubars."
-msgstr "<p>Menü çubuklarının arkaplanı için kullanılacak olan geçişi tanımlar."
+msgstr ""
+"<p>Menü çubuklarının arka planı için kullanılacak olan geçişi tanımlar."
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, menubarBlend)
 #. i18n: ectx: property (toolTip), widget (QPushButton, menubarBlend)
@@ -3723,7 +3720,7 @@ msgstr "Başlık çubuğuyla harmanla"
 #: qt4/config/qtcurveconfigbase.ui:2939 qt5/config/qtcurveconfigbase.ui:3020
 #, kde-format
 msgid "<p>Defines the color applied to the background of menubars."
-msgstr "<p>Menü çubuklarının arkaplanına uygulanacak olan rengi tanımlar."
+msgstr "<p>Menü çubuklarının arka planına uygulanacak olan rengi tanımlar."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, shadeMenubarOnlyWhenActive)
 #: qt4/config/qtcurveconfigbase.ui:2962 qt5/config/qtcurveconfigbase.ui:3043
@@ -3732,14 +3729,14 @@ msgid ""
 "<p>Defines whether the background coloration should be applied to all "
 "menubars, or just those in active windows."
 msgstr ""
-"<p>Arkaplan renklendirmesinin tüm menü çubuklarına uygulanıp "
-"uygulanmayacağını veya sadece etkin pencerede olup olmayacağını tanımlar."
+"<p>Arka plan renklendirmesinin tüm menü çubuklarına uygulanıp "
+"uygulanmayacağını veya yalnızca etkin pencerede olup olmayacağını tanımlar."
 
 #. i18n: ectx: property (text), widget (QCheckBox, shadeMenubarOnlyWhenActive)
 #: qt4/config/qtcurveconfigbase.ui:2965 qt5/config/qtcurveconfigbase.ui:3046
 #, kde-format
 msgid "Active window only"
-msgstr "Sadece etkin pencere"
+msgstr "Yalnızca etkin pencere"
 
 #. i18n: ectx: property (text), widget (QLabel, label_58)
 #: qt4/config/qtcurveconfigbase.ui:2972 qt5/config/qtcurveconfigbase.ui:3053
@@ -3754,7 +3751,7 @@ msgid ""
 "<p>If enabled, then the following two color boxes are used to set the text "
 "color to be used for normal and selected menubar items."
 msgstr ""
-"<p>Etkinleştirilirse, normal ve seçili menü çubuğu ögelerinde kullanılacak "
+"<p>Etkinleştirilirse normal ve seçili menü çubuğu ögelerinde kullanılacak "
 "olan metin rengini ayarlamak için iki renk kutusu kullanılır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, customMenuTextColor)
@@ -3794,8 +3791,8 @@ msgid ""
 "<p>If enabled, menubar items will have their background gradient applied "
 "when the mouse hovers over them."
 msgstr ""
-"<p>Etkinleştirilirse, menü çubuğu ögeler, fare üzerlerindeyken arkplan "
-"geçişi eklenecektir."
+"<p>Etkinleştirilirse menü çubuğu ögeler, fare üzerlerindeyken arkplan geçişi "
+"eklenecektir."
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:3044 qt5/config/qtcurveconfigbase.ui:3125
@@ -3811,7 +3808,7 @@ msgid ""
 "over' is enabled) then it will also be colored, otherwise it will use a "
 "shade of the background color."
 msgstr ""
-"<p>Etkinleştirilirse, fare bir menü çubuğu ögesinin üzerine geldiğinde (ve "
+"<p>Etkinleştirilirse fare bir menü çubuğu ögesinin üzerine geldiğinde (ve "
 "'Fare üzerindeyi etkinkeştir' etkinse) o zaman renki olacaktır, aksi "
 "takdirde arka plan renginin gölgesi kullanılır."
 
@@ -3828,14 +3825,14 @@ msgid ""
 "<p>If enabled, only the top (and not bottom) of selected menubar items will "
 "be rounded."
 msgstr ""
-"<p>Etkinleştirilirse, sadece üstteki (alttaki değil) seçili menü çubuğu "
+"<p>Etkinleştirilirse yalnızca üstteki (alttaki değil) seçili menü çubuğu "
 "ögeleri yuvarkanmış olacaktır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, roundMbTopOnly)
 #: qt4/config/qtcurveconfigbase.ui:3064 qt5/config/qtcurveconfigbase.ui:3145
 #, kde-format
 msgid "Round selected items on top only"
-msgstr "Sadece üstteki yuvarlanmış seçili ögeler"
+msgstr "Yalnızca üstteki yuvarlanmış seçili ögeler"
 
 #. i18n: ectx: property (text), widget (QLabel, label_68)
 #. i18n: ectx: property (text), widget (QLabel, label_91)
@@ -3852,7 +3849,7 @@ msgid ""
 "<p>If enabled, menubars may be hidden (and re-shown), by using the 'Ctrl-Alt-"
 "M' key combination."
 msgstr ""
-"<p>Etkinleştirilirse, 'Ctrl-Alt-M' tuş kombinasyonu kullanılarak, menü "
+"<p>Etkinleştirilirse 'Ctrl-Alt-M' tuş kombinasyonu kullanılarak, menü "
 "çubukları gizli (ve görülebilir) yapılabilir."
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarHiding_keyboard)
@@ -3868,7 +3865,7 @@ msgid ""
 "<p>If enabled, menubars may be hidden (and re-shown), by using a special "
 "button in the QtCurve kwin decoration."
 msgstr ""
-"<p>Etkinleştirilirse, QtCurve kwin süslemesindeki bir özel düğme "
+"<p>Etkinleştirilirse QtCurve kwin süslemesindeki bir özel düğme "
 "kullanılarak, menü çubukları gizli (ve görülür) yapılabilir."
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarHiding_kwin)
@@ -3886,8 +3883,8 @@ msgid ""
 "<p>If enabled, the theme will support embedding the menubar of KDE4 "
 "applications in Bespin's XBar."
 msgstr ""
-"<p>Etkinleştirilirse, Bespin XBar'daki KDE4 uygulamalarının menü "
-"çubuklarının gömülü olması desteği tema tarafından sağlanacaktır."
+"<p>Etkinleştirilirse Bespin XBar'daki KDE4 uygulamalarının menü çubuklarının "
+"gömülü olması desteği tema tarafından sağlanacaktır."
 
 #. i18n: ectx: property (text), widget (QLabel, label_72)
 #: qt4/config/qtcurveconfigbase.ui:3108
@@ -3909,8 +3906,8 @@ msgid ""
 "gradient. This will cause them to have a rounded look if the general round "
 "setting is not set to none."
 msgstr ""
-"<p>Etkinleştirilirse, seçili menü ögeleri, geçiş etrafındaki bir kenarlık "
-"ile çizilecektir. Genel yuvarlama ayarı boş ise, bu onların yuvarlanmış bir "
+"<p>Etkinleştirilirse seçili menü ögeleri, geçiş etrafındaki bir kenarlık ile "
+"çizilecektir. Genel yuvarlama ayarı boş ise bu onların yuvarlanmış bir "
 "görünüme sahip olmalarına neden olacaktır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, borderMenuitems)
@@ -3926,9 +3923,8 @@ msgid ""
 "<p>If enabled, selected menuitems will be drawn using the 'highlight' color, "
 "otherwise a darkened shade of the background color will be used instead."
 msgstr ""
-"<p>Etkinleştirilirse, Seçili menü ögeleri 'vurgulu' renkler ile "
-"çizilecektir, aksi takdirde arkaplan renginin koyu gölgeli hali "
-"kullanılacaktır."
+"<p>Etkinleştirilirse Seçili menü ögeleri 'vurgulu' renkler ile çizilecektir, "
+"aksi takdirde arka plan renginin koyu gölgeli hali kullanılacaktır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, useHighlightForMenu)
 #: qt4/config/qtcurveconfigbase.ui:3139 qt5/config/qtcurveconfigbase.ui:3203
@@ -3956,7 +3952,7 @@ msgid ""
 "they will be hidden (but the space they would have occupied will still be "
 "there)."
 msgstr ""
-"<p>Etkinleştirilirse, menü ögeleriyle ilişkili simgeler çizilir, aksi "
+"<p>Etkinleştirilirse menü ögeleriyle ilişkili simgeler çizilir, aksi "
 "takdirde gizli olurlar (ancak dolaşacakları alan yine de orada olacaktır)."
 
 #. i18n: ectx: property (text), widget (QCheckBox, menuIcons)
@@ -3972,20 +3968,20 @@ msgid ""
 "<p>If enabled, checked menu items get only a check mark instead of a "
 "checkbox or radiobutton."
 msgstr ""
-"<p>Etkinleştirilirse, işaretli menü ögeleri, işaret kutusu ya da radyo "
-"düğmesi yerinde sadece bir kontrol işaretini alacaktır."
+"<p>Etkinleştirilirse işaretli menü ögeleri, işaret kutusu ya da radyo "
+"düğmesi yerinde yalnızca bir denetim işaretini alacaktır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, onlyTicksInMenu)
 #: qt4/config/qtcurveconfigbase.ui:3169 qt5/config/qtcurveconfigbase.ui:3233
 #, kde-format
 msgid "Check marks only"
-msgstr "Sadece kontrol işareti"
+msgstr "Yalnızca denetim işareti"
 
 #. i18n: ectx: property (text), widget (QLabel, label_26)
 #: qt4/config/qtcurveconfigbase.ui:3176 qt5/config/qtcurveconfigbase.ui:3240
 #, kde-format
 msgid "Shade background by:"
-msgstr "Arkaplanı gölgele:"
+msgstr "Arka planı gölgele:"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, lighterPopupMenuBgnd)
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, expanderHighlight)
@@ -4005,13 +4001,13 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3202 qt5/config/qtcurveconfigbase.ui:3266
 #, kde-format
 msgid "<p>Defines the gradient applied to the background of the popup menus."
-msgstr "<p>Açılır menülerin arkaplanında uygulanacak olan geçişi tanımlar."
+msgstr "<p>Açılır menülerin arka planında uygulanacak olan geçişi tanımlar."
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, menuBgndGrad)
 #: qt4/config/qtcurveconfigbase.ui:3218 qt5/config/qtcurveconfigbase.ui:3282
 #, kde-format
 msgid "<p>Defines background gradient orientation."
-msgstr "<p>Arkaplan geçiş yönünü tanımlar."
+msgstr "<p>Arka plan geçiş yönünü tanımlar."
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, menuBgndImage)
 #: qt4/config/qtcurveconfigbase.ui:3235 qt5/config/qtcurveconfigbase.ui:3299
@@ -4022,8 +4018,8 @@ msgid ""
 "rings with borders.</li><li>Plain rings - 'Air' like rings, but without any "
 "border.</li><li>Square rings - 3 simple rounded squares.</li></ul></p>"
 msgstr ""
-"<p>Bu, açılır menülere bir arkaplan resmi ekler.\n"
-"            <ul><li>Hiçbiri - Resim yok.</li><li>Kenarlıklı halkalar - "
+"<p>Bu, açılır menülere bir arka plan görseli ekler.\n"
+"            <ul><li>Hiçbiri - Görsel yok.</li><li>Kenarlıklı halkalar - "
 "kenarlıklı 'Hava' gibi halkalar.</li><li>Düz halkalar - 'Hava' gibi ancak "
 "kenarlıksız halkalar.</li><li>Köşeli halkalar - Yuvarlanmış 3 basit köşe.</"
 "li></ul></p>"
@@ -4032,14 +4028,14 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3251
 #, kde-format
 msgid "Sub-menu delay:"
-msgstr "Alt-menü gecikmesi:"
+msgstr "Alt menü gecikmesi:"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, menuDelay)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, menuDelay)
 #: qt4/config/qtcurveconfigbase.ui:3258 qt5/config/qtcurveconfigbase.ui:3322
 #, kde-format
 msgid "<p>Defines the delay before a sub-menu appears."
-msgstr "<p>Alt-menü gözükmeden önceki gecikmeyi tanımlar."
+msgstr "<p>Alt menü gözükmeden önceki gecikmeyi tanımlar."
 
 #. i18n: ectx: property (suffix), widget (KIntNumInput, menuDelay)
 #. i18n: ectx: property (suffix), widget (KIntNumInput, menuCloseDelay)
@@ -4057,15 +4053,15 @@ msgstr "ms"
 msgid ""
 "<p>Defines the delay before a sub-menu closes. Applicable on Qt 5.5 or later"
 msgstr ""
-"<p>Alt-menü kapanmadan önceki gecikmeyi tanımlar. Qt 5.5 ve sonrası için "
-"uygulanabilirdir."
+"<p>Alt menü kapanmadan önceki gecikmeyi tanımlar. Qt 5.5 ve sonrası için "
+"kullanılabilir"
 
 #. i18n: ectx: property (text), widget (QLabel, label_103)
 #. i18n: ectx: property (text), widget (QLabel, label_72)
 #: qt4/config/qtcurveconfigbase.ui:3281 qt5/config/qtcurveconfigbase.ui:3429
 #, kde-format
 msgid "Sub-menu close delay:"
-msgstr "Alt-menü kapanma gecikmesi:"
+msgstr "Alt menü kapanma gecikmesi:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_44)
 #: qt4/config/qtcurveconfigbase.ui:3288 qt5/config/qtcurveconfigbase.ui:3335
@@ -4081,7 +4077,7 @@ msgid ""
 "of popup menus - but only if this option is not set to 'none'."
 msgstr ""
 "<p>Açılır menülerin solunda çizilecek olan menü-çizgisinin renklendirmesini "
-"tanımlar - bu seçenek sadece 'hiçbiri' seçili değilse çalışacaktır."
+"tanımlar - bu seçenek yalnızca 'hiçbiri' seçili değilse çalışacaktır."
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, menuStripeAppearance)
 #: qt4/config/qtcurveconfigbase.ui:3321 qt5/config/qtcurveconfigbase.ui:3368
@@ -4103,7 +4099,7 @@ msgid ""
 "will be drawn. This option should be enabled unless you have also enabled "
 "shadows in your window manager."
 msgstr ""
-"<p>Etkinleştirilirse, açılır menünün tamamı bir kenarlığa sahip olur, aksi "
+"<p>Etkinleştirilirse açılır menünün tamamı bir kenarlığa sahip olur, aksi "
 "takdirde kenarlık oluşturulmayacaktır. Pencere yöneticinizde gölgeleri de "
 "etkinleştirmediyseniz bu seçenek etkinleştirilmelidir."
 
@@ -4136,7 +4132,7 @@ msgstr "Düğme-benzeri menü bölümü başlıkları kullan"
 #, kde-format
 msgid "<p>Defines the gradient used to draw the background of toolbars."
 msgstr ""
-"<p>Araç çubuklarının arkaplan çizimleri için kullanılacak olan geçişi "
+"<p>Araç çubuklarının arka plan çizimleri için kullanılacak olan geçişi "
 "tanımlar."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
@@ -4162,7 +4158,7 @@ msgstr "Ayırıcılar:"
 #, kde-format
 msgid "<p>Defines the style used to draw toolbar separators."
 msgstr ""
-"<p>Araç çubuğu ayırıcıları çizimi için kullanılacak olan biçimi tanımlar."
+"<p>Araç çubuğu ayırıcıları çizimi için kullanılacak olan biçemi tanımlar."
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, toolbarBorders)
 #: qt4/config/qtcurveconfigbase.ui:3437 qt5/config/qtcurveconfigbase.ui:3501
@@ -4178,13 +4174,13 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3444 qt5/config/qtcurveconfigbase.ui:3508
 #, kde-format
 msgid "Button style:"
-msgstr "Düğme biçimi:"
+msgstr "Düğme biçemi:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tbarBtns)
 #: qt4/config/qtcurveconfigbase.ui:3454 qt5/config/qtcurveconfigbase.ui:3518
 #, kde-format
 msgid "<p>Defines the style used for toolbar buttons."
-msgstr "<p>Araç çubuğu düğmeleri için kullanılacak olan biçimi tanımlar."
+msgstr "<p>Araç çubuğu düğmeleri için kullanılacak olan biçemi tanımlar."
 
 #. i18n: ectx: property (text), widget (QLabel, label_84)
 #: qt4/config/qtcurveconfigbase.ui:3461 qt5/config/qtcurveconfigbase.ui:3525
@@ -4196,19 +4192,19 @@ msgstr "Fare üzerindeyken renklendirme:"
 #: qt4/config/qtcurveconfigbase.ui:3479 qt5/config/qtcurveconfigbase.ui:3543
 #, kde-format
 msgid "Only for glow mouse-over style"
-msgstr "Sadece parlak fare-üzerinde biçimi için"
+msgstr "Yalnızca parlak fare-üzerinde biçemi için"
 
 #. i18n: ectx: property (text), widget (QRadioButton, coloredTbarMo)
 #: qt4/config/qtcurveconfigbase.ui:3486 qt5/config/qtcurveconfigbase.ui:3550
 #, kde-format
 msgid "For all mouse-over styles"
-msgstr "Tüm fare-üzerinde biçimleri için"
+msgstr "Tüm fare-üzerinde biçemleri için"
 
 #. i18n: ectx: property (text), widget (QLabel, label_78)
 #: qt4/config/qtcurveconfigbase.ui:3495 qt5/config/qtcurveconfigbase.ui:3559
 #, kde-format
 msgid "Button appearance:"
-msgstr "Düğme görünümü:"
+msgstr "Düğme görünüşü:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tbarBtnAppearance)
 #: qt4/config/qtcurveconfigbase.ui:3502 qt5/config/qtcurveconfigbase.ui:3566
@@ -4223,8 +4219,8 @@ msgstr ""
 #, kde-format
 msgid "<p>Control what effect should be applied to buttons in toolbars.</p>"
 msgstr ""
-"<p>Araç çubuklarının içindeği düğmelere uygulanması gereken efekti kontrol "
-"eder.</p>"
+"<p>Araç çubuklarının içindeği düğmelere uygulanması gereken efekti denetler."
+"</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_90)
 #: qt4/config/qtcurveconfigbase.ui:3527 qt5/config/qtcurveconfigbase.ui:3591
@@ -4239,7 +4235,7 @@ msgid ""
 "<p>Controls whether QtCurve should draw frames around items in statusbars."
 msgstr ""
 "<p>QtCurve'ün durum çubuklarındaki ögelerin çevresine çerçeve çizilip "
-"çizilmeyeceğini kontrol eder."
+"çizilmeyeceğini denetler."
 
 #. i18n: ectx: property (text), widget (QCheckBox, drawStatusBarFrames)
 #: qt4/config/qtcurveconfigbase.ui:3537 qt5/config/qtcurveconfigbase.ui:3601
@@ -4254,7 +4250,7 @@ msgid ""
 "<p>If enabled, statusbars may be hidden (and re-shown), by using the 'Ctrl-"
 "Alt-S' key combination."
 msgstr ""
-"<p>Etkinleştirilirse, 'Ctrl-Alt-S' tuş kombinasyonu kullanılarak, durum "
+"<p>Etkinleştirilirse 'Ctrl-Alt-S' tuş kombinasyonu kullanılarak, durum "
 "çubukları gizli (ve görünür) olacaktır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, statusbarHiding_keyboard)
@@ -4270,14 +4266,14 @@ msgid ""
 "<p>If enabled, statusbars may be hidden (and re-shown), by using a special "
 "button in the QtCurve kwin decoration."
 msgstr ""
-"<p>Etkinleştirilirse, QtCurve kwin süslemesindeki özel bir düğme "
+"<p>Etkinleştirilirse QtCurve kwin süslemesindeki özel bir düğme "
 "kullanılarak, durum çubukları gizli (ve görünür) olacaktır."
 
 #. i18n: ectx: property (text), widget (QLabel, label_73)
 #: qt4/config/qtcurveconfigbase.ui:3575 qt5/config/qtcurveconfigbase.ui:3639
 #, kde-format
 msgid "Titlebar appearance:"
-msgstr "Başlık çubuğu görünümü:"
+msgstr "Başlık çubuğu görünüşü:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, dwtAppearance)
 #: qt4/config/qtcurveconfigbase.ui:3582 qt5/config/qtcurveconfigbase.ui:3646
@@ -4286,8 +4282,8 @@ msgid ""
 "<p>Defines the gradient used to draw the background of the 'title' part of a "
 "dock windows."
 msgstr ""
-"<p>Kilitli pencerenin 'başlık' bölümünün arkaplanının çiziminde kullanılacak "
-"olan geçişi tanımlar."
+"<p>Kilitli pencerenin 'başlık' bölümünün arka planının çiziminde "
+"kullanılacak olan geçişi tanımlar."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, dwtRoundTopOnly)
 #: qt4/config/qtcurveconfigbase.ui:3589 qt5/config/qtcurveconfigbase.ui:3653
@@ -4296,14 +4292,14 @@ msgid ""
 "<p>If enabled, only the top (for horizontal dock windows), or left (for "
 "vertical dock windows) will be rounded."
 msgstr ""
-"<p>Etkinleştirilirse, sadece üst (yatay kilitli pencereler) ve sol (dikey "
+"<p>Etkinleştirilirse yalnızca üst (yatay kilitli pencereler) ve sol (dikey "
 "kilitli pencereler) yuvarlanacaktır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtRoundTopOnly)
 #: qt4/config/qtcurveconfigbase.ui:3592 qt5/config/qtcurveconfigbase.ui:3656
 #, kde-format
 msgid "Round top/left only"
-msgstr "Sadece sol/üst yuvarla"
+msgstr "Yalnızca sol/üst yuvarla"
 
 #. i18n: ectx: property (text), widget (QLabel, label_76)
 #: qt4/config/qtcurveconfigbase.ui:3599 qt5/config/qtcurveconfigbase.ui:3663
@@ -4320,16 +4316,16 @@ msgid ""
 "have their symbols drawn until the mouse hovers over (when the button "
 "background will be drawn)."
 msgstr ""
-"<p>Etkinleştirilirse, Kilitli pencerelerdeki düğmeler standart "
-"pencerelerdeki düğmelere benzer bir görünüşe (ve davranışa) sahip olacaktır, "
-"aksi takdirde fareyle üzerine gelene kadar (düğme arka planı çizildiğinde) "
-"yalnızca sembolleri çizilecektir."
+"<p>Etkinleştirilirse Kilitli pencerelerdeki düğmeler standart pencerelerdeki "
+"düğmelere benzer bir görünüşe (ve davranışa) sahip olacaktır, aksi takdirde "
+"fareyle üzerine gelene kadar (düğme arka planı çizildiğinde) yalnızca "
+"sembolleri çizilecektir."
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtBtnAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3609 qt5/config/qtcurveconfigbase.ui:3673
 #, kde-format
 msgid "Button appearance"
-msgstr "Düğme görünümü"
+msgstr "Düğme görünüşü"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, dwtColAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3616 qt5/config/qtcurveconfigbase.ui:3680
@@ -4339,15 +4335,15 @@ msgid ""
 "color settings of standard windows, otherwise they will use the standard "
 "background color."
 msgstr ""
-"<p>Etkinleştirilirse, kilitli pencere başlık çubuklarının arkaplanı, standar "
-"pencerenin renk ayarlarından kullanılır, aksi takdirde standart arkaplan "
+"<p>Etkinleştirilirse kilitli pencere başlık çubuklarının arka planı, standar "
+"pencerenin renk ayarlarından kullanılır, aksi takdirde standart arka plan "
 "rengi kullanılacaktır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtColAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3619 qt5/config/qtcurveconfigbase.ui:3683
 #, kde-format
 msgid "Background colors"
-msgstr "Arkaplan renkleri"
+msgstr "Arka plan renkleri"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, dwtFontAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3626 qt5/config/qtcurveconfigbase.ui:3690
@@ -4356,9 +4352,9 @@ msgid ""
 "<p>If enabled, the font of dock window titlebars will have use the font "
 "settings of standard windows, otherwise they will use the standard font."
 msgstr ""
-"<p>Etkinleştirilirse, kilitli pencere başlık çubuklarının yazı tipi, "
-"standart pencerenin yazı tipi ayarından alınacaktır, aksi takdirde strandart "
-"yazı tipi kullanılır."
+"<p>Etkinleştirilirse kilitli pencere başlık çubuklarının yazı tipi, standart "
+"pencerenin yazı tipi ayarından alınacaktır, aksi takdirde strandart yazı "
+"tipi kullanılır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtFontAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3629 qt5/config/qtcurveconfigbase.ui:3693
@@ -4373,7 +4369,7 @@ msgid ""
 "<p>If enabled, the text of dock window titlebars will have use the text "
 "alignment settings of standard windows, otherwise they will be left aligned."
 msgstr ""
-"<p>Etkinleştirilirse, kilitli pencerenin başlık çubuklarının metni, standart "
+"<p>Etkinleştirilirse kilitli pencerenin başlık çubuklarının metni, standart "
 "pencerelerin metin hizlama yapılandırmasını kullanacaktır, aksi takdirde "
 "sola hizalı olarak kullanılır."
 
@@ -4391,7 +4387,7 @@ msgid ""
 "effect settings of standard windows, otherwise they will be drawn with no "
 "effect."
 msgstr ""
-"<p>Etkinleştirilirse, kilitli pencere başlık çubuklarının metni, standart "
+"<p>Etkinleştirilirse kilitli pencere başlık çubuklarının metni, standart "
 "pencerenin metin efekti ayarlarını kullanacaktır, aksi takdirde efektsiz "
 "olarak çizilir."
 
@@ -4408,9 +4404,9 @@ msgid ""
 "<p>If enabled, the icons of dock window titlebars will have use the colors "
 "of standard window icons, otherwise they will use the text colour setting."
 msgstr ""
-"<p>Etkinleştirilirse, kilitli pencere başlık çubuklarının simgeleri, "
-"standart pencere simgelerinin rengini kullanacaktır, aksi takdirde metin "
-"rengi ayarı kullanılır."
+"<p>Etkinleştirilirse kilitli pencere başlık çubuklarının simgeleri, standart "
+"pencere simgelerinin rengini kullanacaktır, aksi takdirde metin rengi ayarı "
+"kullanılır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtIconColAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3659 qt5/config/qtcurveconfigbase.ui:3723
@@ -4431,7 +4427,7 @@ msgid ""
 "<p>If enabled, dialogs will use the 'Cancel / OK' button order as used in "
 "the GNOME and OSX desktops, otherwise the 'OK / Cancel' order will be used."
 msgstr ""
-"<p>Etkinleştirilirse, iletişim pencereleri, GNOME ve OSX masaüstlerinde "
+"<p>Etkinleştirilirse iletişim pencereleri, GNOME ve OSX masaüstlerinde "
 "kullanılan 'İptal / Tamam' sırasını kullanacaktır, aksi takdirde 'Tamam / "
 "İptal' şeklinde kullanılır."
 
@@ -4449,7 +4445,7 @@ msgid ""
 "attempt to manually set the order of buttons in Gtk dialogs.</p><p><b>NOTE:</"
 "b> This is experimental, and may produce unexpected results!</p>"
 msgstr ""
-"<p>Etkinleştirilirse ve 'Gtk düğme sırasını kullan' etkin değilse, QtCurve, "
+"<p>Etkinleştirilirse ve 'Gtk düğme sırasını kullan' etkin değilse QtCurve, "
 "Gtk iletişim pencere düğmelerinin sırasını elle ayarlamaya çalışacaktır.</"
 "p><p><b>NOT:<b/> Bu deneyseldir ve beklenmedik sonuçlara neden olabilir!</p>"
 
@@ -4537,13 +4533,13 @@ msgid ""
 "only.</p>"
 msgstr ""
 "<p>Gölge boyutlarını düşürmeye karar vermek için kullanılacak olan temel "
-"değeri ayarlar.</p><p>sadece X11.</p>"
+"değeri ayarlar.</p><p>yalnızca X11.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_81)
 #: qt4/config/qtcurveconfigbase.ui:3788 qt5/config/qtcurveconfigbase.ui:3852
 #, kde-format
 msgid "No background gradient:"
-msgstr "Arkaplan geçişi yok:"
+msgstr "Arka plan geçişi yok:"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, noBgndGradientApps)
 #: qt4/config/qtcurveconfigbase.ui:3795 qt5/config/qtcurveconfigbase.ui:3859
@@ -4553,7 +4549,7 @@ msgid ""
 "background gradient setting. </p><p>Use <i>gtk</i> to disable for all Gtk2 "
 "applications.</p>"
 msgstr ""
-"<p>Arkaplan geçişi ayarlarını kullanmaması gereken uygulamaların, virgülle "
+"<p>Arka plan geçişi ayarlarını kullanmaması gereken uygulamaların, virgülle "
 "ayrılmış ad listesi.</p><p>Tüm Gtk2 uygulamalarını kapatmak için <i>gtk</i> "
 "kullanın.</p>"
 
@@ -4561,7 +4557,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3802 qt5/config/qtcurveconfigbase.ui:3866
 #, kde-format
 msgid "No background image:"
-msgstr "Arkaplan resmi yok:"
+msgstr "Arka plan görseli yok:"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, noBgndImageApps)
 #: qt4/config/qtcurveconfigbase.ui:3809 qt5/config/qtcurveconfigbase.ui:3873
@@ -4571,7 +4567,7 @@ msgid ""
 "background image setting. </p><p>Use <i>gtk</i> to disable for all Gtk2 "
 "applications.</p>"
 msgstr ""
-"<p>Arkaplan resmi ayarlarını kullanmaması gereken uygulamaların, virgülle "
+"<p>Arka plan görseli ayarlarını kullanmaması gereken uygulamaların, virgülle "
 "ayrılmış ad listesi.</p><p>Tüm Gtk2 uygulamalarını kapatmak için <i>gtk</i> "
 "kullanın.</p>"
 
@@ -4579,7 +4575,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3816 qt5/config/qtcurveconfigbase.ui:3880
 #, kde-format
 msgid "No background opacity:"
-msgstr "Arkaplan matlığı yok:"
+msgstr "Arka plan matlığı yok:"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, noBgndOpacityApps)
 #: qt4/config/qtcurveconfigbase.ui:3823 qt5/config/qtcurveconfigbase.ui:3887
@@ -4589,7 +4585,7 @@ msgid ""
 "background opacity setting. </p><p>Use <i>gtk</i> to disable for all Gtk2 "
 "applications.</p>"
 msgstr ""
-"<p>Arkaplan matlığı ayarlarını kullanmaması gereken uygulamaların, virgülle "
+"<p>Arka plan matlığı ayarlarını kullanmaması gereken uygulamaların, virgülle "
 "ayrılmış ad listesi.</p><p>Tüm Gtk2 uygulamalarını kapatmak için <i>gtk</i> "
 "kullanın.</p>"
 
@@ -4837,8 +4833,8 @@ msgstr ""
 "kadar genişleyecektir.</li>\n"
 "<li><i>Açık kenarlık</i> - 'açık' bir çizgi tüm kenarların çevresine çizilir."
 "</li>\n"
-"<li><i>3D kenarlık (sadece açık kenarlık)</i> - 'açık' bir çizgi tüm alt ve "
-"sağ kenarların çevresine çizilir.</li>\n"
+"<li><i>3B kenarlık (yalnızca açık kenarlık)</i> - 'açık' bir çizgi tüm alt "
+"ve sağ kenarların çevresine çizilir.</li>\n"
 "<li><i>Parlama</i> - Bir parlaklık, düğmelere veya kaydırma çubuklarına "
 "geçiş çizildiğinde, üst (veya sol) kenara eklenir.</li>\n"
 "</ul>\n"
@@ -4963,17 +4959,17 @@ msgstr ""
 "- bu, yalnızca bir kılavuz olarak kullanılır; çünkü gölgeler, çok "
 "çeşitlidirler.</p>\n"
 "<p><ol>\n"
-"<li>3D ögelerin açık kısımları için kullanırılır - örn. sekme "
-"parçacıklarının sınırları.</li>\n"
+"<li>3B ögelerin açık kısımları için kullanırılır - örn. sekme araç "
+"takımlarının sınırları.</li>\n"
 "<li>Çizgili ilerleme çubuklarının daha açık gölgesi için kullanılır.</li>\n"
-"<li>Sekme parçacıklarının kenarlığı gibi 3D ögelerin koyu kısmı için "
+"<li>Sekme araç takımlarının kenarlığı gibi 3B ögelerin koyu kısmı için "
 "kullanılır.</li>\n"
 "<li>İşaretlerin ve radyoların gölgeli kenarlığı, araç çubuğu kenarlıkları "
 "(koyu ayarlandığında), batık/kabarık kaydırma çubuğu kaydırıcıların koyu "
 "kısmı vb. Için kullanılır.</li>\n"
 "<li>Sıkışık pencere öğelerinin arka planı ve araç çubuklarının kenarlığı "
 "(karanlık olmadığında) kullanılır. </li>\n"
-"<li>Birçok parçacığın kenarlığı olarak kullanılır.</li>\n"
+"<li>Birçok araç takımının kenarlığı olarak kullanılır.</li>\n"
 "</ol></p></i>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, customAlphas)
@@ -5000,7 +4996,7 @@ msgid ""
 msgstr ""
 "<p><i>QtCurve, aşınma ve gölge efektleri oluşturmak için koyu/açık "
 "kenarlıklar kullanır. Varsayılan olarak QtCurve bunu başarmak için üst "
-"ögenin arkaplanını açmaya (koyulaştırmaya) çalışır; üst öge bulunamazsa, "
+"ögenin arka planını açmaya (koyulaştırmaya) çalışır; üst öge bulunamazsa "
 "beyaz/siyah bir alfa değeri kümesiyle birlikte kullanılır. Bu davranış belki "
 "geçersiz kılınabilir ve alfa değerleri her zaman yukarıdaki seçeneği "
 "işaretleyerek kullanılır.</i></p>"
@@ -5106,7 +5102,7 @@ msgstr "Sekme 2"
 #: qt4/config/stylepreview.ui:275
 #, kde-format
 msgid "Dock Widget"
-msgstr "Parçacığı Kilitle"
+msgstr "Araç Takımını Kilitle"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:310 qt5/config/stylepreview.ui:310
@@ -5316,7 +5312,7 @@ msgstr "Üzerinde"
 #: qt5/kwinconfig/qtcurvekwinconfig.cpp:44
 #, kde-format
 msgid "Selection Background"
-msgstr "Seçim Arkaplanı"
+msgstr "Seçim Arka Planı"
 
 #: qt4/kwinconfig/qtcurvekwinconfig.cpp:49
 #: qt5/kwinconfig/qtcurvekwinconfig.cpp:46
@@ -5400,7 +5396,7 @@ msgstr "Kenarlık boyutu:"
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:45
 #, kde-format
 msgid "Controls the size of the window borders (bottom, left, and right)."
-msgstr "Pencere kenarlıklarının boyutunu kontrol eder (alt, sol ve sağ)."
+msgstr "Pencere kenarlıklarının boyutunu denetler (alt, sol ve sağ)."
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:55
@@ -5418,8 +5414,8 @@ msgid ""
 "window decoration will be rounded. Otherwise, only the top corners will be "
 "rounded."
 msgstr ""
-"Etkinleştirilirse, ve QtCurve biçimi yuvarlanmış ise, tüm pencere kenarı "
-"süslemeleri yuvarlanmış olacaktır. Aksi takdirde, sadece üst köşeler "
+"Etkinleştirilirse ve QtCurve biçemi yuvarlanmış ise tüm pencere kenarı "
+"süslemeleri yuvarlanmış olacaktır. Aksi takdirde, yalnızca üst köşeler "
 "yuvarlanır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, roundBottom)
@@ -5437,7 +5433,7 @@ msgid ""
 "If enabled, all borders (including the titlebar) will be removed from "
 "maximised windows."
 msgstr ""
-"Etkinleştirilirse, tüm kenarlıklar (başlık çubuğu da dahil) büyütülmüş "
+"Etkinleştirilirse tüm kenarlıklar (başlık çubuğu da dahil) büyütülmüş "
 "pencereden kaldırılacaktır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, borderlessMax)
@@ -5463,7 +5459,7 @@ msgid ""
 "not using desktop effects."
 msgstr ""
 "Pencerenin dışının çevresine 1 piksellik kenarlık ekler. Masaüstü efektleri "
-"kullanmıyorsanız, gayet kullanışlıdır."
+"kullanmıyorsanız gayet kullanışlıdır."
 
 #. i18n: ectx: property (text), widget (QLabel, innerBorder_label)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:96
@@ -5481,7 +5477,7 @@ msgid ""
 "This is useful if you are using transparent decorations."
 msgstr ""
 "Pencere içeriği ve süslemesi arasına 1 piksellik koyu kenarlık ekler. Şeffaf "
-"süslemeler kullanıyorsanız, gayet kullanışlıdır."
+"süslemeler kullanıyorsanız gayet kullanışlıdır."
 
 #. i18n: ectx: property (text), widget (QLabel, groupingLabel)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:110
@@ -5498,8 +5494,8 @@ msgid ""
 "If enabled, QtCurve will allow windows to be grouped - causing the titlebar "
 "to act as a kind-of tab-widget."
 msgstr ""
-"Etkinleştirilirse, QtCurve, pencerelerin gruplandırılmasına imkan verir - "
-"başlık çubuğunun bir tür sekme parçacığı gibi hareket etmesine neden olur."
+"Etkinleştirilirse QtCurve, pencerelerin gruplandırılmasına olanak verir - "
+"başlık çubuğunun bir tür sekme araç takımı gibi hareket etmesine neden olur."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:127
@@ -5518,9 +5514,8 @@ msgid ""
 "titlebar text height. Changing this will affect the height of the titlebar "
 "and its buttons. "
 msgstr ""
-"Başlık çubuğu metin alanının üst ve altına eklenen dolgu miktarını kontrol "
-"eder. Bunu değiştirmek, başlık çubuğunun ve düğmelerinin yüksekliğini "
-"etkiler. "
+"Başlık çubuğu metin alanının üst ve altına eklenen dolgu miktarını denetler. "
+"Bunu değiştirmek, başlık çubuğunun ve düğmelerinin yüksekliğini etkiler. "
 
 #. i18n: ectx: property (suffix), widget (KIntSpinBox, titleBarPad)
 #. i18n: ectx: property (suffix), widget (KIntSpinBox, edgePad)
@@ -5550,7 +5545,7 @@ msgid ""
 "Controls the amount of extra padding added to the titlebar border. Changing "
 "this will only affect the height of the titlebar, and not the buttons. "
 msgstr ""
-"Başlık çubuğu kenarlığına eklenen ek dolgu miktarını kontrol eder. Bunu "
+"Başlık çubuğu kenarlığına eklenen ek dolgu miktarını denetler. Bunu "
 "değiştirmek, yalnızca başlık çubuğunun yüksekliğini etkiler ve düğmeleri "
 "etkilemez. "
 
@@ -5565,11 +5560,11 @@ msgid ""
 "gradient, or text alignment, please set the appropriate options in the "
 "widget style.</i></p>"
 msgstr ""
-"<p><b>NOT:</b><i>Bu pencere süslemesi, QtCurve pencere ögesi biçimini "
+"<p><b>NOT:</b><i>Bu pencere süslemesi, QtCurve pencere ögesi biçemini "
 "kullanır ve yapılandırmasını paylaşır. Yalnızca pencere süslemesi tarafından "
 "özel olarak kullanılan ayarlar burada gösterilmektedir. Başlık çubuğu geçişi "
-"veya metin hizalaması gibi ayarları değiştirmek için lütfen parçacık "
-"biçimindeki uygun seçenekleri ayarlayın.</i></p>"
+"veya metin hizalaması gibi ayarları değiştirmek için lütfen araç takımı "
+"biçemindeki uygun seçenekleri ayarlayın.</i></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:217
@@ -5624,8 +5619,8 @@ msgid ""
 "If enabled, only the titlebar part of the decoration will use the opacity "
 "setting."
 msgstr ""
-"Etkinleştirilirse, sadece süslemenin başlık çubuğu bölümü, matlık ayarlarını "
-"kullanacaktır."
+"Etkinleştirilirse yalnızca süslemenin başlık çubuğu bölümü, matlık "
+"ayarlarını kullanacaktır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, opaqueBorder)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:285
@@ -5643,9 +5638,9 @@ msgid ""
 "titlebar (and border) opacity will be controlled by the style's window and "
 "dialog background opacity settings.</i></p>"
 msgstr ""
-"<p><b>NOT:</b> <i>Yukarıdaki değerleri % 100 olarak ayarlarsanız, pencere "
-"başlık çubuğu (ve kenarlığı) matlığı, biçimler penceresi ve iletişim kutusu "
-"arka plan matlık ayarları tarafından kontrol edilir.</i></p>"
+"<p><b>NOT:</b> <i>Yukarıdaki değerleri % 100 olarak ayarlarsanız pencere "
+"başlık çubuğu (ve kenarlığı) matlığı, biçemler penceresi ve iletişim kutusu "
+"arka plan matlık ayarları tarafından denetlenir.</i></p>"
 
 #. i18n: ectx: attribute (title), widget (QWidget, shadowTab)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:343
@@ -5663,9 +5658,9 @@ msgid ""
 "window manager shadows. This will allow you to specify different shadow "
 "colours, etc, for active and inactive windows."
 msgstr ""
-"Etkinleştirilirse, QtCurve kendi gölgelerini çizer ve genel pencere "
+"Etkinleştirilirse QtCurve kendi gölgelerini çizer ve genel pencere "
 "yöneticisi gölgelerini kullanmaz. Bu, etkin ve etkin olmayan pencereler için "
-"farklı gölge renkleri, vb. belirtmenize imkan verir."
+"farklı gölge renkleri, vb. belirtmenize olanak verir."
 
 #. i18n: ectx: property (text), widget (QCheckBox, useShadows)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:352
@@ -5743,7 +5738,7 @@ msgid ""
 "If enabled, the shadows of inactive windows will be drawn using the same "
 "gradient routine as that used for active windows."
 msgstr ""
-"Etkinleştirilirse, etkin olmayan pencerelerin gölgeleri, etkin pencereler "
+"Etkinleştirilirse etkin olmayan pencerelerin gölgeleri, etkin pencereler "
 "için kullanılanlar ile aynı geçiş yordamı kullanılarak çizilecektir."
 
 #. i18n: ectx: property (text), widget (QCheckBox, inactiveUsesActiveGradients)
@@ -5754,17 +5749,16 @@ msgid "As per active windows"
 msgstr "Her etkin pencereye göre"
 
 #: qt5/config/qtcurveconfig.cpp:2055 qt5/config/qtcurveconfig.cpp:2108
-#, fuzzy, kde-format
-#| msgid "Export..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Export"
-msgstr "Dışa Aktar..."
+msgstr "Dışa Aktar"
 
 #: qt5/config/qtcurveconfig.cpp:2173
 #, kde-format
 msgctxt "@action:button"
 msgid "Set"
-msgstr ""
+msgstr "Ayarla"
 
 #: qt5/config/qtcurveconfig.cpp:2683
 #, kde-format
@@ -5785,7 +5779,7 @@ msgstr "Farklı Kaydet"
 #: qt5/config/qtcurveconfigbase.ui:724
 #, kde-format
 msgid "Centred (KDE only)"
-msgstr "Ortalanmış (sadece KDE)"
+msgstr "Ortalanmış (yalnızca KDE)"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gtkComboMenus)
 #: qt5/config/qtcurveconfigbase.ui:796
@@ -5794,7 +5788,7 @@ msgid ""
 "<p>In Gtk, the list that is attached to a combo-box appears in the same "
 "style as a popup-menu. KDE has the ability to mimic this look.</p>"
 msgstr ""
-"<p>Gtk'de, açılan kutuya eklenen liste, bir açılır menü ile aynı biçimde "
+"<p>Gtk'de, açılan kutuya eklenen liste, bir açılır menü ile aynı biçemde "
 "görünür. KDE, bu görünümü taklit etme yeteneğine sahiptir.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_useHover)
@@ -5802,14 +5796,14 @@ msgstr ""
 #, kde-format
 msgid "<p>If enabled, symbols will use the KDE hover color when moused-over."
 msgstr ""
-"<p>Etkinleştirilirse, semboller, fare üzerindeyken KDE fare-üzerinde rengini "
+"<p>Etkinleştirilirse semboller, fare üzerindeyken KDE fare-üzerinde rengini "
 "kullanılacaktır."
 
 #. i18n: ectx: property (text), widget (QLabel, label_45)
 #: qt5/config/qtcurveconfigbase.ui:3315
 #, kde-format
 msgid "Sub-menu open delay:"
-msgstr "Alt-menü açılma gecikmesi:"
+msgstr "Alt menü açılma gecikmesi:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, menuCloseDelay)
 #: qt5/config/qtcurveconfigbase.ui:3419
@@ -5817,8 +5811,8 @@ msgstr "Alt-menü açılma gecikmesi:"
 msgid ""
 "Defines the delay before a sub-menu closes. Applicable on Qt5.5 or later"
 msgstr ""
-"Alt-menü kapanmadan önceki gecikmeyi tanımlar. Qt5.5 ve üstü için "
-"uygulanabilirdir."
+"Alt menü kapanmadan önceki gecikmeyi tanımlar. Qt5.5 ve üstü için "
+"kullanılabilir"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stdBtnSizes)
 #: qt5/config/qtcurveconfigbase.ui:3765
@@ -5897,7 +5891,7 @@ msgstr ""
 "<html><head/><body><p>QtCurve için doğal menü çubuklarının kullanmamasını "
 "Qt'ye talimat vermesi gereken KDE/Qt uygulamalarının, virgülle ayrılmış "
 "listesi.</p><p>Bunu, belirli menü ögelerinin bir parçası olduklarında "
-"beklendiği gibi davranmadığı uygulamalar için Mac'te deneyin. Mac biçimi üst "
+"beklendiği gibi davranmadığı uygulamalar için Mac'te deneyin. Mac biçemi üst "
 "düzey menü çubuklarının menüleri, ancak açılır/bağlam menüsünün bir parçası "
 "olduklarında doğru davranırlar. Değişikliklerin etkili olması için "
 "uygulamaların yeniden başlatılması gerekir.</p></body></html>"
@@ -5918,7 +5912,7 @@ msgstr "Radyo &düğmesi"
 #: qt5/config/stylepreview.ui:275
 #, kde-format
 msgid "&Dock Widget"
-msgstr "&Parçacığı Kilitle"
+msgstr "&Araç Takımını Kilitle"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt5/config/stylepreview.ui:621
