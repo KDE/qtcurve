@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-17 00:49+0000\n"
-"PO-Revision-Date: 2022-09-25 09:29+0200\n"
+"PO-Revision-Date: 2022-10-18 05:51+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -885,7 +885,7 @@ msgstr ""
 #: qt4/config/qtcurveconfig.cpp:986 qt5/config/qtcurveconfig.cpp:992
 #, kde-format
 msgid "Background Image"
-msgstr ""
+msgstr "ფონის სურათი"
 
 #: qt4/config/qtcurveconfig.cpp:990 qt5/config/qtcurveconfig.cpp:996
 #, kde-format
@@ -1091,7 +1091,7 @@ msgstr ""
 #: qt4/config/qtcurveconfig.cpp:1799 qt5/config/qtcurveconfig.cpp:1757
 #, kde-format
 msgid "(Default)"
-msgstr ""
+msgstr "(ნაგულისხმები)"
 
 #: qt4/config/qtcurveconfig.cpp:2088 qt5/config/qtcurveconfig.cpp:2052
 #, kde-format
@@ -2242,7 +2242,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1136 qt5/config/qtcurveconfigbase.ui:1145
 #, kde-format
 msgid "Animated"
-msgstr ""
+msgstr "ანიმირებული"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, glowProgress)
 #: qt4/config/qtcurveconfigbase.ui:1143 qt5/config/qtcurveconfigbase.ui:1152
@@ -2817,7 +2817,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1973 qt5/config/qtcurveconfigbase.ui:2045
 #, kde-format
 msgid "Tick"
-msgstr ""
+msgstr "ტიკ"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, xCheck)
 #: qt4/config/qtcurveconfigbase.ui:1983 qt5/config/qtcurveconfigbase.ui:2055
@@ -4361,13 +4361,13 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:4035 qt5/config/qtcurveconfigbase.ui:4099
 #, no-c-format, kde-format
 msgid "Value (%)"
-msgstr ""
+msgstr "მნიშვნელობა (%)"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, gradStops)
 #: qt4/config/qtcurveconfigbase.ui:4040 qt5/config/qtcurveconfigbase.ui:4104
 #, no-c-format, kde-format
 msgid "Alpha (%)"
-msgstr ""
+msgstr "ალფა (%)"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, gradBorder)
 #: qt4/config/qtcurveconfigbase.ui:4058 qt5/config/qtcurveconfigbase.ui:4122
@@ -4402,7 +4402,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:4095 qt5/config/qtcurveconfigbase.ui:4159
 #, kde-format
 msgid "Value:"
-msgstr ""
+msgstr "მნიშვნელობა:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6alpha)
 #: qt4/config/qtcurveconfigbase.ui:4102 qt5/config/qtcurveconfigbase.ui:4166
@@ -4533,19 +4533,19 @@ msgstr "ჩანართი 1"
 #: qt4/config/stylepreview.ui:37 qt5/config/stylepreview.ui:37
 #, kde-format
 msgid "&Menu 1"
-msgstr ""
+msgstr "&მენიუ 1"
 
 #. i18n: ectx: property (title), widget (QMenu, menuMenu_2)
 #: qt4/config/stylepreview.ui:46 qt5/config/stylepreview.ui:46
 #, kde-format
 msgid "Menu &2"
-msgstr ""
+msgstr "მენიუ &2"
 
 #. i18n: ectx: property (title), widget (QMenu, menu2SubMenu)
 #: qt4/config/stylepreview.ui:50 qt5/config/stylepreview.ui:50
 #, kde-format
 msgid "&Submenu"
-msgstr ""
+msgstr "&ქვემენიუ"
 
 #. i18n: ectx: property (title), widget (QGroupBox, GroupBox1)
 #: qt4/config/stylepreview.ui:73 qt5/config/stylepreview.ui:73
@@ -4734,7 +4734,7 @@ msgstr ""
 #: qt4/config/stylepreview.ui:549 qt5/config/stylepreview.ui:549
 #, kde-format
 msgid "Ctrl+1"
-msgstr ""
+msgstr "Ctrl+1"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:560 qt5/config/stylepreview.ui:560
@@ -4746,7 +4746,7 @@ msgstr ""
 #: qt4/config/stylepreview.ui:563 qt5/config/stylepreview.ui:563
 #, kde-format
 msgid "Ctrl+2"
-msgstr ""
+msgstr "Ctrl+2"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:577 qt5/config/stylepreview.ui:577
@@ -4806,7 +4806,7 @@ msgstr "მეგა"
 #: qt4/kwin/qtcurvetogglebutton.cpp:158 qt5/kwin/qtcurvetogglebutton.cpp:158
 #, kde-format
 msgid "S"
-msgstr ""
+msgstr "S"
 
 #: qt4/kwinconfig/qtcurvekwinconfig.cpp:45
 #: qt5/kwinconfig/qtcurvekwinconfig.cpp:42
@@ -4818,7 +4818,7 @@ msgstr "ფოკუსი"
 #: qt5/kwinconfig/qtcurvekwinconfig.cpp:43
 #, kde-format
 msgid "Hover"
-msgstr ""
+msgstr "გადატარება"
 
 #: qt4/kwinconfig/qtcurvekwinconfig.cpp:47
 #: qt5/kwinconfig/qtcurvekwinconfig.cpp:44
@@ -5224,22 +5224,21 @@ msgid "As per active windows"
 msgstr ""
 
 #: qt5/config/qtcurveconfig.cpp:2055 qt5/config/qtcurveconfig.cpp:2108
-#, fuzzy, kde-format
-#| msgid "Export..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Export"
-msgstr "გატანა..."
+msgstr "გატანა"
 
 #: qt5/config/qtcurveconfig.cpp:2173
 #, kde-format
 msgctxt "@action:button"
 msgid "Set"
-msgstr ""
+msgstr "დაყენება"
 
 #: qt5/config/qtcurveconfig.cpp:2683
 #, kde-format
 msgid "Open"
-msgstr ""
+msgstr "გახსნა"
 
 #: qt5/config/qtcurveconfig.cpp:2684 qt5/config/qtcurveconfig.cpp:2854
 #, kde-format
@@ -5249,7 +5248,7 @@ msgstr ""
 #: qt5/config/qtcurveconfig.cpp:2853
 #, kde-format
 msgid "Save As"
-msgstr ""
+msgstr "შენახვა, როგორც"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gbLabel_centred)
 #: qt5/config/qtcurveconfigbase.ui:724

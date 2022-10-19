@@ -1,16 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the qtcurve package.
 #
-# Martin Srebotnjak <miles@filmsi.net>, 2021,2022.
 #
+# Martin Srebotnjak <miles@filmsi.net>, 2021,2022.
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-17 00:49+0000\n"
-"PO-Revision-Date: 2022-01-18 09:06+0100\n"
-"Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
+"PO-Revision-Date: 2022-10-18 09:11+0200\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3475,7 +3475,7 @@ msgstr "Potopljeno ozadje"
 #, kde-format
 msgid "<p>If enabled, arrows are drawn as the icons for min and max buttons."
 msgstr ""
-"<p>Če je omogočeno, so puščice izrisane kot ikone za gumbe skrči in razpni"
+"<p>Če je omogočeno, so puščice izrisane kot ikone za gumbe skrči in razpni."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_arrowMinMax)
 #: qt4/config/qtcurveconfigbase.ui:2395 qt5/config/qtcurveconfigbase.ui:2476
@@ -4379,7 +4379,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3649 qt5/config/qtcurveconfigbase.ui:3713
 #, kde-format
 msgid "Text effect"
-msgstr "Učinek besedila:"
+msgstr "Učinek besedila"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, dwtIconColAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3656 qt5/config/qtcurveconfigbase.ui:3720
@@ -5241,7 +5241,7 @@ msgstr "Izključni element &3"
 #: qt4/config/stylepreview.ui:621
 #, kde-format
 msgid "regular submenu item"
-msgstr "Navadni element podmenija"
+msgstr "navadni element podmenija"
 
 #: qt4/kwin/qtcurveclient.cpp:314 qt5/kwin/qtcurveclient.cpp:314
 #, kde-format
@@ -5726,17 +5726,16 @@ msgid "As per active windows"
 msgstr "Kot pri aktivnih oknih"
 
 #: qt5/config/qtcurveconfig.cpp:2055 qt5/config/qtcurveconfig.cpp:2108
-#, fuzzy, kde-format
-#| msgid "Export..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Export"
-msgstr "Izvozi ..."
+msgstr "Izvozi"
 
 #: qt5/config/qtcurveconfig.cpp:2173
 #, kde-format
 msgctxt "@action:button"
 msgid "Set"
-msgstr ""
+msgstr "Nastavi"
 
 #: qt5/config/qtcurveconfig.cpp:2683
 #, kde-format
