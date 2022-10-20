@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-17 00:49+0000\n"
-"PO-Revision-Date: 2022-10-02 15:50\n"
+"PO-Revision-Date: 2022-10-19 13:23\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -5224,11 +5224,10 @@ msgid "As per active windows"
 msgstr ""
 
 #: qt5/config/qtcurveconfig.cpp:2055 qt5/config/qtcurveconfig.cpp:2108
-#, fuzzy, kde-format
-#| msgid "Export..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Export"
-msgstr "导出..."
+msgstr ""
 
 #: qt5/config/qtcurveconfig.cpp:2173
 #, kde-format
