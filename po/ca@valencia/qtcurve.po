@@ -3825,7 +3825,7 @@ msgstr "Elements de la barra de menús:"
 #, kde-format
 msgid "<p>Defines the gradient to be applied to selected menubar items."
 msgstr ""
-"<p>Definix el degradat que s'aplicarà als elements seleccionats de la barra "
+"<p>Definix el degradat que s'aplicarà als elements seleccionats en la barra "
 "de menús."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, menubarMouseOver)
@@ -5395,7 +5395,7 @@ msgstr "Sense vores"
 #: qt5/kwinconfig/qtcurvekwinconfig.cpp:53
 #, kde-format
 msgid "No Side Border"
-msgstr "Sense vores al costat"
+msgstr "Sense vores en el costat"
 
 #: qt4/kwinconfig/qtcurvekwinconfig.cpp:57
 #: qt5/kwinconfig/qtcurvekwinconfig.cpp:54
