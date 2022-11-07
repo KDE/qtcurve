@@ -2864,7 +2864,7 @@ msgid ""
 "each tab if 'glow' is selected as the general colored mouse over style."
 msgstr ""
 "<p>Si està activada, totes les pestanyes estaran arredonides -hi haurà un "
-"espai de 2 píxels entre cada pestanya si se selecciona la «lluïssor» com en "
+"espai de 2 píxels entre cada pestanya si se selecciona la «lluïssor» com a "
 "l'estil general de donar color en passar-hi el ratolí-."
 
 #. i18n: ectx: property (text), widget (QRadioButton, roundAllTabs)
@@ -4476,7 +4476,7 @@ msgid ""
 "the GNOME and OSX desktops, otherwise the 'OK / Cancel' order will be used."
 msgstr ""
 "<p>Si està activada, els diàlegs empraran l'ordre dels botons «Cancel·la/"
-"D'acord» tal com s'utilitza als escriptoris GNOME i OSX, en cas contrari "
+"D'acord» tal com s'utilitza en els escriptoris GNOME i OSX, en cas contrari "
 "s'emprarà l'ordre «D'acord/Cancel·la»."
 
 #. i18n: ectx: property (text), widget (QCheckBox, gtkButtonOrder)
@@ -5966,7 +5966,7 @@ msgstr ""
 "KDE/Qt, en les que QtCurve necessita instruir a les Qt que no empren la "
 "barra de menús nativa.</p><p>Proveu-ho amb les aplicacions de Mac, on alguns "
 "elements del menú no es comporten com s'espera quan formen part dels menús "
-"de la barra de menús de nivell superior a l'estil Mac, però es comporten "
+"de la barra de menús de nivell superior en l'estil Mac, però es comporten "
 "correctament quan formen part d'un menú emergent/contextual. Cal tornar a "
 "iniciar les aplicacions perquè els canvis tinguen efecte.</p></body></html>"
 
