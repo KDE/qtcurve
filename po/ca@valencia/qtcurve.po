@@ -1133,8 +1133,8 @@ msgstr ""
 "p><ul><li>La barra de menús, barra de títol i el degradat de la barra de "
 "títol inactiva a «%1»</li><li>Desactiva «Barreja el color de la barra de "
 "títol amb el color de fons»</li><li>Establix la coloració de la barra de "
-"menús a «%2»</li><li>Estén la finestra arrossegant-la a la barra de menús</"
-"li>"
+"menús a «%2»</li><li>Estén la finestra arrossegant-la des de dins de la "
+"barra de menús</li>"
 
 #: qt4/config/qtcurveconfig.cpp:2260 qt5/config/qtcurveconfig.cpp:2241
 #, kde-format
@@ -3279,7 +3279,7 @@ msgid ""
 "<p>If enabled, only the titlebar, and not the border, of windows will be "
 "colored."
 msgstr ""
-"<p>Si està activada, només es donarà color a la barra de títol i no a la "
+"<p>Si està activada, només es donarà color en la barra de títol i no a la "
 "vora."
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_colorTitlebarOnly)
