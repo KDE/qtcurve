@@ -5482,15 +5482,15 @@ msgid ""
 "rounded."
 msgstr ""
 "Si està activada, i l'estil de QtCurve s'establix com arredonit, llavors "
-"s'arredoniran totes les cantonades de la decoració de la finestra. En cas "
-"contrari, només s'arredoniran les cantonades superiors."
+"s'arredoniran tots els cantons de la decoració de la finestra. En cas "
+"contrari, només s'arredoniran els cantons superiors."
 
 #. i18n: ectx: property (text), widget (QCheckBox, roundBottom)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:65
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:65
 #, kde-format
 msgid "Round all corners"
-msgstr "Totes les cantonades arredonides"
+msgstr "Totes els cantons arredonits"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, borderlessMax)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:72
