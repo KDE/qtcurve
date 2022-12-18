@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kde4-qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-17 00:49+0000\n"
-"PO-Revision-Date: 2022-12-11 20:31+0300\n"
+"PO-Revision-Date: 2022-12-17 18:48+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1104,7 +1104,7 @@ msgid ""
 "by KDE3 applications?"
 msgstr ""
 "KDE3 uygulamaları tarafından da kullanılabilecekleri için geçerli KDE4 renk "
-"paletinizi ve yazı tipinizi dışa aktarın?"
+"paletinizi ve yazıtipinizi dışa aktarın?"
 
 #: qt4/config/qtcurveconfig.cpp:2134 qt5/config/qtcurveconfig.cpp:2105
 #, kde-format
@@ -1113,7 +1113,7 @@ msgid ""
 "by pure-Qt3 applications?"
 msgstr ""
 "saf-Qt3 uygulamaları tarafından da kullanılabilecekleri için geçerli KDE4 "
-"renk paletinizi ve yazı tipinizi dışa aktarın?"
+"renk paletinizi ve yazıtipinizi dışa aktarın?"
 
 #: qt4/config/qtcurveconfig.cpp:2187 qt5/config/qtcurveconfig.cpp:2165
 #, kde-format
@@ -1943,7 +1943,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:698 qt5/config/qtcurveconfigbase.ui:707
 #, kde-format
 msgid "Use bold font"
-msgstr "Kalın yazı tipi kullan"
+msgstr "Kalın yazıtipi kullan"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, gbLabel_textPos)
 #: qt4/config/qtcurveconfigbase.ui:705 qt5/config/qtcurveconfigbase.ui:714
@@ -2474,28 +2474,28 @@ msgid ""
 "<p>If enabled, the text on a progressbar will use the general widget font.</"
 "p>"
 msgstr ""
-"<p>Etkinleştirilirse ilerleme çubuğunun üztündeki metin, genel araç takımı "
-"yazı tipi ile kullanılacaktır.</p>"
+"<p>Etkinleştirilirse ilerleme çubuğunun üstündeki metin, genel araç takımı "
+"yazıtipi ile kullanılacaktır.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, boldProgress_false)
 #: qt4/config/qtcurveconfigbase.ui:1227 qt5/config/qtcurveconfigbase.ui:1236
 #, kde-format
 msgid "Standard font"
-msgstr "Standart yazı tipi"
+msgstr "Standart yazıtipi"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, boldProgress)
 #: qt4/config/qtcurveconfigbase.ui:1234 qt5/config/qtcurveconfigbase.ui:1243
 #, kde-format
 msgid "<p>If enabled, the text on a progressbar will use a bold font.</p>"
 msgstr ""
-"<p>Etkinleştirilirse ilerleme çubuğunun üstündeki metin kalın yazı tipi "
+"<p>Etkinleştirilirse ilerleme çubuğunun üstündeki metin kalın yazıtipi "
 "olacaktır.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, boldProgress)
 #: qt4/config/qtcurveconfigbase.ui:1237 qt5/config/qtcurveconfigbase.ui:1246
 #, kde-format
 msgid "Bold font"
-msgstr "Kalın yazı tipi"
+msgstr "Kalın yazıtipi"
 
 #. i18n: ectx: property (text), widget (QLabel, label_17)
 #: qt4/config/qtcurveconfigbase.ui:1256 qt5/config/qtcurveconfigbase.ui:1265
@@ -4118,7 +4118,7 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Menü bölümü başlıkları düğmelere biraz benzerler.</"
 "p><p>Devre dışı bırakıldıklarında, ayırıcı çizginin altında sola "
-"hizalanırlar ve koyu, altı çizili bir yazı tipi kullanın.</p></body></html>"
+"hizalanırlar ve koyu, altı çizili bir yazıtipi kullanın.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, buttonStyleMenuSections)
 #: qt4/config/qtcurveconfigbase.ui:3362 qt5/config/qtcurveconfigbase.ui:3409
@@ -4351,9 +4351,9 @@ msgid ""
 "<p>If enabled, the font of dock window titlebars will have use the font "
 "settings of standard windows, otherwise they will use the standard font."
 msgstr ""
-"<p>Etkinleştirilirse kilitli pencere başlık çubuklarının yazı tipi, standart "
-"pencerenin yazı tipi ayarından alınacaktır, aksi takdirde strandart yazı "
-"tipi kullanılır."
+"<p>Etkinleştirilirse kilitli pencere başlık çubuklarının yazıtipi, standart "
+"pencerenin yazı tipi ayarından alınacaktır, aksi takdirde standart yazıtipi "
+"kullanılır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtFontAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3629 qt5/config/qtcurveconfigbase.ui:3693
@@ -4742,7 +4742,7 @@ msgid ""
 "used by KDE3 applications. This creates the relevant entries within the KDE3 "
 "kdeglobals file."
 msgstr ""
-"<p>Mevcut renk paleti ve yazı tipi ayarlarınızı dışa aktarır, böylece bunlar "
+"<p>Geçerli renk paleti ve yazıtipi ayarlarınızı dışa aktarır, böylece bunlar "
 "KDE3 uygulamaları tarafından da kullanılabilir. Bu, ilgili girdileri KDE3 "
 "kdeglobals dosyasında oluşturur."
 
@@ -4762,7 +4762,7 @@ msgid ""
 "used by pure-Qt3 applications. This creates the relevant entries within the "
 "Qt3 ~/.qt/qtrc file."
 msgstr ""
-"<p>Mevcut renk paleti ve yazı tipi ayarlarınızı dışa aktarır, böylece bunlar "
+"<p>Geçerli renk paleti ve yazıtipi ayarlarınızı dışa aktarır, böylece bunlar "
 "saf-Qt3 uygulamaları tarafından da kullanılabilir. Bu, ilgili girdileri Qt3 "
 "~/.qt/qtrc dosyasında oluşturur."
 
