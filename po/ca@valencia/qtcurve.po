@@ -5569,7 +5569,7 @@ msgstr ""
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:127
 #, kde-format
 msgid "Titlebar text padding:"
-msgstr "Ompliment del text de la barra de títol:"
+msgstr "Emplenament del text de la barra de títol:"
 
 #. i18n: ectx: property (whatsThis), widget (KIntSpinBox, titleBarPad)
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, titleBarPad)
