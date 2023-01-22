@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-17 00:49+0000\n"
-"PO-Revision-Date: 2022-10-18 05:51+0200\n"
+"PO-Revision-Date: 2023-01-21 16:47+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -304,7 +304,7 @@ msgstr "აწეული"
 #: qt4/config/qtcurveconfig.cpp:575 qt5/config/qtcurveconfig.cpp:576
 #, kde-format
 msgid "Dull glass"
-msgstr ""
+msgstr "მქრქალი მინა"
 
 #: qt4/config/qtcurveconfig.cpp:576 qt5/config/qtcurveconfig.cpp:577
 #, kde-format
@@ -314,7 +314,7 @@ msgstr "კაშკაშა მინა"
 #: qt4/config/qtcurveconfig.cpp:577 qt5/config/qtcurveconfig.cpp:578
 #, kde-format
 msgid "Agua"
-msgstr ""
+msgstr "აკვა"
 
 #: qt4/config/qtcurveconfig.cpp:578 qt5/config/qtcurveconfig.cpp:579
 #, kde-format
@@ -349,35 +349,35 @@ msgstr "გაყოფილი გრადიენტი"
 #: qt4/config/qtcurveconfig.cpp:584 qt5/config/qtcurveconfig.cpp:585
 #, kde-format
 msgid "Bevelled"
-msgstr ""
+msgstr "კონუსური"
 
 #: qt4/config/qtcurveconfig.cpp:589 qt5/config/qtcurveconfig.cpp:590
 #, kde-format
 msgid "Fade out (popup menuitems)"
-msgstr ""
+msgstr "მინავლება (მხტუნარა მენიუები)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stripedSbar)
 #: qt4/config/qtcurveconfig.cpp:591 qt4/config/qtcurveconfigbase.ui:1098
 #: qt5/config/qtcurveconfig.cpp:592 qt5/config/qtcurveconfigbase.ui:1107
 #, kde-format
 msgid "Striped"
-msgstr ""
+msgstr "ზოლიანი"
 
 #: qt4/config/qtcurveconfig.cpp:594 qt4/config/qtcurveconfig.cpp:679
 #: qt5/config/qtcurveconfig.cpp:595 qt5/config/qtcurveconfig.cpp:680
 #, kde-format
 msgid "Same as general setting"
-msgstr ""
+msgstr "იგივე, რაც 'საერთო პარამეტრები'"
 
 #: qt4/config/qtcurveconfig.cpp:597 qt5/config/qtcurveconfig.cpp:598
 #, kde-format
 msgid "Tiled image"
-msgstr ""
+msgstr "გამოსახულების ფილები"
 
 #: qt4/config/qtcurveconfig.cpp:618 qt5/config/qtcurveconfig.cpp:619
 #, kde-format
 msgid "Sunken lines"
-msgstr ""
+msgstr "ჩაძირული ხაზები"
 
 #: qt4/config/qtcurveconfig.cpp:619 qt5/config/qtcurveconfig.cpp:620
 #, kde-format
@@ -427,7 +427,7 @@ msgstr "ოდნავი ნათება"
 #: qt4/config/qtcurveconfig.cpp:637 qt5/config/qtcurveconfig.cpp:638
 #, kde-format
 msgid "Use selected background color"
-msgstr ""
+msgstr "მონიშნული ფონის ფერის გამოყენება"
 
 #: qt4/config/qtcurveconfig.cpp:638 qt5/config/qtcurveconfig.cpp:639
 #, kde-format
@@ -544,7 +544,7 @@ msgstr "სუფთა"
 #: qt4/config/qtcurveconfig.cpp:680 qt5/config/qtcurveconfig.cpp:681
 #, kde-format
 msgid "Etched"
-msgstr ""
+msgstr "ამოტვიფრული"
 
 #: qt4/config/qtcurveconfig.cpp:681 qt5/config/qtcurveconfig.cpp:682
 #, kde-format
@@ -584,7 +584,7 @@ msgstr "დიაგონალური ზოლები"
 #: qt4/config/qtcurveconfig.cpp:697 qt5/config/qtcurveconfig.cpp:698
 #, kde-format
 msgid "Faded stripes"
-msgstr ""
+msgstr "მინავლებადი ზოლები"
 
 #: qt4/config/qtcurveconfig.cpp:703 qt5/config/qtcurveconfig.cpp:704
 #, kde-format
@@ -594,12 +594,12 @@ msgstr "მრგვალი"
 #: qt4/config/qtcurveconfig.cpp:704 qt5/config/qtcurveconfig.cpp:705
 #, kde-format
 msgid "Plain - rotated"
-msgstr ""
+msgstr "ბრტყელი - შემობრუნებული"
 
 #: qt4/config/qtcurveconfig.cpp:705 qt5/config/qtcurveconfig.cpp:706
 #, kde-format
 msgid "Round - rotated"
-msgstr ""
+msgstr "მრგვალი - შემობრუნებული"
 
 #: qt4/config/qtcurveconfig.cpp:706 qt5/config/qtcurveconfig.cpp:707
 #, kde-format
@@ -672,12 +672,12 @@ msgstr "ღია საზღვარი"
 #: qt4/config/qtcurveconfig.cpp:732 qt5/config/qtcurveconfig.cpp:733
 #, kde-format
 msgid "3D border (light only)"
-msgstr ""
+msgstr "3D საზღვარი (მხოლოდ ღია)"
 
 #: qt4/config/qtcurveconfig.cpp:733 qt5/config/qtcurveconfig.cpp:734
 #, kde-format
 msgid "3D border (dark and light)"
-msgstr ""
+msgstr "3D საზღვარი (მუქი და ღია)"
 
 #: qt4/config/qtcurveconfig.cpp:734 qt5/config/qtcurveconfig.cpp:735
 #, kde-format
@@ -692,12 +692,12 @@ msgstr "მარცხენა"
 #: qt4/config/qtcurveconfig.cpp:740 qt5/config/qtcurveconfig.cpp:741
 #, kde-format
 msgid "Center (between controls)"
-msgstr ""
+msgstr "ცენტრი (კონტროლებს შორის)"
 
 #: qt4/config/qtcurveconfig.cpp:741 qt5/config/qtcurveconfig.cpp:742
 #, kde-format
 msgid "Center (full width)"
-msgstr ""
+msgstr "ცენტრი (სრული სიგანე)"
 
 #: qt4/config/qtcurveconfig.cpp:742 qt5/config/qtcurveconfig.cpp:743
 #, kde-format
@@ -712,27 +712,27 @@ msgstr "აღარ მაჩვენო"
 #: qt4/config/qtcurveconfig.cpp:755 qt5/config/qtcurveconfig.cpp:756
 #, kde-format
 msgid "Place on menu button"
-msgstr ""
+msgstr "მენიუს ღილაკზე მოთავსება"
 
 #: qt4/config/qtcurveconfig.cpp:756 qt5/config/qtcurveconfig.cpp:757
 #, kde-format
 msgid "Place next to title"
-msgstr ""
+msgstr "სათაურის შემდეგ მოთავსება"
 
 #: qt4/config/qtcurveconfig.cpp:761 qt5/config/qtcurveconfig.cpp:762
 #, kde-format
 msgid "Highlight on top"
-msgstr ""
+msgstr "გამოკვეთა ზემოდან"
 
 #: qt4/config/qtcurveconfig.cpp:762 qt5/config/qtcurveconfig.cpp:763
 #, kde-format
 msgid "Highlight on bottom"
-msgstr ""
+msgstr "გამოკვეთა ქვემოდან"
 
 #: qt4/config/qtcurveconfig.cpp:763 qt5/config/qtcurveconfig.cpp:764
 #, kde-format
 msgid "Add a slight glow"
-msgstr ""
+msgstr "ოდნავი ნათების დამატება"
 
 #: qt4/config/qtcurveconfig.cpp:768 qt5/config/qtcurveconfig.cpp:769
 #, kde-format
@@ -747,12 +747,12 @@ msgstr "მარცხნიდან მარჯვნივ"
 #: qt4/config/qtcurveconfig.cpp:776 qt5/config/qtcurveconfig.cpp:777
 #, kde-format
 msgid "New style (KDE and Gtk2 similar)"
-msgstr ""
+msgstr "ახალი სტილი (KDE და Gtk2-ის მსგავსია)"
 
 #: qt4/config/qtcurveconfig.cpp:777 qt5/config/qtcurveconfig.cpp:778
 #, kde-format
 msgid "Old style (KDE and Gtk2 different)"
-msgstr ""
+msgstr "ძველი სტილი (KDE და Gtk2 განსხვავდება)"
 
 #: qt4/config/qtcurveconfig.cpp:784 qt5/config/qtcurveconfig.cpp:785
 #, kde-format
@@ -762,12 +762,12 @@ msgstr ""
 #: qt4/config/qtcurveconfig.cpp:785 qt5/config/qtcurveconfig.cpp:786
 #, kde-format
 msgid "Plain rings"
-msgstr ""
+msgstr "უბრალო ბეჭდები"
 
 #: qt4/config/qtcurveconfig.cpp:786 qt5/config/qtcurveconfig.cpp:787
 #, kde-format
 msgid "Square rings"
-msgstr ""
+msgstr "ოთხკუთხედი ბეჭდები"
 
 #: qt4/config/qtcurveconfig.cpp:787 qt5/config/qtcurveconfig.cpp:788
 #, kde-format
@@ -782,17 +782,17 @@ msgstr "ნათების გარეშე"
 #: qt4/config/qtcurveconfig.cpp:793 qt5/config/qtcurveconfig.cpp:794
 #, kde-format
 msgid "Add glow at the start"
-msgstr ""
+msgstr "დასაწყისში ნათების დამატება"
 
 #: qt4/config/qtcurveconfig.cpp:794 qt5/config/qtcurveconfig.cpp:795
 #, kde-format
 msgid "Add glow in the middle"
-msgstr ""
+msgstr "შუაში ნათების დამატება"
 
 #: qt4/config/qtcurveconfig.cpp:795 qt5/config/qtcurveconfig.cpp:796
 #, kde-format
 msgid "Add glow at the end"
-msgstr ""
+msgstr "ბოლოში ნათების დამატება"
 
 #: qt4/config/qtcurveconfig.cpp:800 qt5/config/qtcurveconfig.cpp:801
 #, kde-format
@@ -807,27 +807,27 @@ msgstr "ძალიან დიდი (%1 პიქსელი)"
 #: qt4/config/qtcurveconfig.cpp:816 qt5/config/qtcurveconfig.cpp:817
 #, kde-format
 msgid "Titlebar only"
-msgstr ""
+msgstr "მხოლოდ სათაურის ზოლი"
 
 #: qt4/config/qtcurveconfig.cpp:817 qt5/config/qtcurveconfig.cpp:818
 #, kde-format
 msgid "Titlebar and menubar"
-msgstr ""
+msgstr "სათაურის და მენიუს ზოლები"
 
 #: qt4/config/qtcurveconfig.cpp:818 qt5/config/qtcurveconfig.cpp:819
 #, kde-format
 msgid "Titlebar, menubar, and toolbars"
-msgstr ""
+msgstr "სათაურისა და მენიუს ზოლები, ხელსაწყოების ზოლი"
 
 #: qt4/config/qtcurveconfig.cpp:819 qt5/config/qtcurveconfig.cpp:820
 #, kde-format
 msgid "All empty areas"
-msgstr ""
+msgstr "ყველა ცარიელი ადგილი"
 
 #: qt4/config/qtcurveconfig.cpp:826 qt5/config/qtcurveconfig.cpp:827
 #, kde-format
 msgid "Standard frame border"
-msgstr ""
+msgstr "სტანდარტული ჩარჩო"
 
 #: qt4/config/qtcurveconfig.cpp:827 qt5/config/qtcurveconfig.cpp:828
 #, kde-format
@@ -837,37 +837,37 @@ msgstr ""
 #: qt4/config/qtcurveconfig.cpp:828 qt5/config/qtcurveconfig.cpp:829
 #, kde-format
 msgid "Shaded background"
-msgstr ""
+msgstr "დაჩრდილული ფონი"
 
 #: qt4/config/qtcurveconfig.cpp:829 qt5/config/qtcurveconfig.cpp:830
 #, kde-format
 msgid "Faded background"
-msgstr ""
+msgstr "მინავლებადი ფონი"
 
 #: qt4/config/qtcurveconfig.cpp:841 qt5/config/qtcurveconfig.cpp:842
 #, kde-format
 msgid "Outside frame"
-msgstr ""
+msgstr "ჩარჩოს გარეთ"
 
 #: qt4/config/qtcurveconfig.cpp:842 qt5/config/qtcurveconfig.cpp:843
 #, kde-format
 msgid "On frame"
-msgstr ""
+msgstr "ჩარჩოზე"
 
 #: qt4/config/qtcurveconfig.cpp:843 qt5/config/qtcurveconfig.cpp:844
 #, kde-format
 msgid "Inside frame"
-msgstr ""
+msgstr "ჩარჩოს შიგნით"
 
 #: qt4/config/qtcurveconfig.cpp:848 qt5/config/qtcurveconfig.cpp:849
 #, kde-format
 msgid "Standard (auto-raise)"
-msgstr ""
+msgstr "სტანდარტული (ავტომატურად-აწეული)"
 
 #: qt4/config/qtcurveconfig.cpp:850 qt5/config/qtcurveconfig.cpp:851
 #, kde-format
 msgid "Raised and joined"
-msgstr ""
+msgstr "აწეული და შეერთებული"
 
 #. i18n: ectx: property (suffix), widget (KIntNumInput, sliderWidth)
 #. i18n: ectx: property (suffix), widget (QSpinBox, sliderWidth)
@@ -880,7 +880,7 @@ msgstr "  პიქსელი"
 #: qt4/config/qtcurveconfig.cpp:985 qt5/config/qtcurveconfig.cpp:991
 #, kde-format
 msgid "Menu Background"
-msgstr ""
+msgstr "მენიუს ფონი"
 
 #: qt4/config/qtcurveconfig.cpp:986 qt5/config/qtcurveconfig.cpp:992
 #, kde-format
@@ -890,12 +890,12 @@ msgstr "ფონის სურათი"
 #: qt4/config/qtcurveconfig.cpp:990 qt5/config/qtcurveconfig.cpp:996
 #, kde-format
 msgid "Menu Image"
-msgstr ""
+msgstr "მენიუს გამოსახულება"
 
 #: qt4/config/qtcurveconfig.cpp:1732 qt5/config/qtcurveconfig.cpp:1668
 #, kde-format
 msgid "Presets and Preview"
-msgstr ""
+msgstr "პრესეტები და მინიატურა"
 
 #. i18n: ectx: attribute (title), widget (QWidget, generalTab)
 #: qt4/config/qtcurveconfig.cpp:1733
@@ -909,7 +909,7 @@ msgstr "მთავარი"
 #: qt4/config/qtcurveconfig.cpp:1734 qt5/config/qtcurveconfig.cpp:1670
 #, kde-format
 msgid "Rounding"
-msgstr ""
+msgstr "დამრგვალება"
 
 #. i18n: ectx: attribute (title), widget (QWidget, opacityTab)
 #: qt4/config/qtcurveconfig.cpp:1735
@@ -923,12 +923,12 @@ msgstr "_გაუმჭვირვალობა"
 #: qt4/config/qtcurveconfig.cpp:1736 qt5/config/qtcurveconfig.cpp:1672
 #, kde-format
 msgid "Group Boxes"
-msgstr ""
+msgstr "გრუპბოქსები"
 
 #: qt4/config/qtcurveconfig.cpp:1737 qt5/config/qtcurveconfig.cpp:1673
 #, kde-format
 msgid "Combos"
-msgstr ""
+msgstr "კომბო"
 
 #: qt4/config/qtcurveconfig.cpp:1738 qt5/config/qtcurveconfig.cpp:1674
 #, kde-format
@@ -938,39 +938,39 @@ msgstr ""
 #: qt4/config/qtcurveconfig.cpp:1739 qt5/config/qtcurveconfig.cpp:1675
 #, kde-format
 msgid "Splitters"
-msgstr ""
+msgstr "გამყოფები"
 
 #: qt4/config/qtcurveconfig.cpp:1740 qt5/config/qtcurveconfig.cpp:1676
 #, kde-format
 msgid "Sliders and Scrollbars"
-msgstr ""
+msgstr "ჩოჩიები"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareProgress)
 #: qt4/config/qtcurveconfig.cpp:1741 qt4/config/qtcurveconfigbase.ui:484
 #: qt5/config/qtcurveconfig.cpp:1677 qt5/config/qtcurveconfigbase.ui:493
 #, kde-format
 msgid "Progressbars"
-msgstr ""
+msgstr "მიმდინარეობის ზოლები"
 
 #: qt4/config/qtcurveconfig.cpp:1742 qt5/config/qtcurveconfig.cpp:1678
 #, kde-format
 msgid "Default Button"
-msgstr ""
+msgstr "ნაგულისხმები ღილაკი"
 
 #: qt4/config/qtcurveconfig.cpp:1743 qt5/config/qtcurveconfig.cpp:1679
 #, kde-format
 msgid "Mouse-over"
-msgstr ""
+msgstr "თაგუნას მიტანა"
 
 #: qt4/config/qtcurveconfig.cpp:1744 qt5/config/qtcurveconfig.cpp:1680
 #, kde-format
 msgid "Item Views"
-msgstr ""
+msgstr "ელემენტის სიები"
 
 #: qt4/config/qtcurveconfig.cpp:1745 qt5/config/qtcurveconfig.cpp:1681
 #, kde-format
 msgid "Scrollviews"
-msgstr ""
+msgstr "დაქაჩვადი სიები"
 
 #: qt4/config/qtcurveconfig.cpp:1746 qt5/config/qtcurveconfig.cpp:1682
 #, kde-format
@@ -980,7 +980,7 @@ msgstr "დაფები"
 #: qt4/config/qtcurveconfig.cpp:1747 qt5/config/qtcurveconfig.cpp:1683
 #, kde-format
 msgid "Checks and Radios"
-msgstr ""
+msgstr "ჩასართავები და გადასართავები"
 
 #: qt4/config/qtcurveconfig.cpp:1748 qt5/config/qtcurveconfig.cpp:1684
 #, kde-format
@@ -1004,24 +1004,24 @@ msgstr "ფანჯრის მმართველი"
 #: qt4/config/qtcurveconfig.cpp:1763 qt5/config/qtcurveconfig.cpp:1698
 #, kde-format
 msgid "Window buttons"
-msgstr ""
+msgstr "ფანჯრის ღილაკები"
 
 #: qt4/config/qtcurveconfig.cpp:1764 qt5/config/qtcurveconfig.cpp:1699
 #, kde-format
 msgid "Window button colors"
-msgstr ""
+msgstr "ფანჯრის ღილაკის ფერები"
 
 #: qt4/config/qtcurveconfig.cpp:1765 qt5/config/qtcurveconfig.cpp:1700
 #, kde-format
 msgid "Menubars"
-msgstr ""
+msgstr "მენიუს ზოლები"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squarePopupMenus)
 #: qt4/config/qtcurveconfig.cpp:1766 qt4/config/qtcurveconfigbase.ui:559
 #: qt5/config/qtcurveconfig.cpp:1701 qt5/config/qtcurveconfigbase.ui:568
 #, kde-format
 msgid "Popup menus"
-msgstr ""
+msgstr "მხტუნარა მენიუები"
 
 #: qt4/config/qtcurveconfig.cpp:1767 qt5/config/qtcurveconfig.cpp:1702
 #, kde-format
@@ -1031,7 +1031,7 @@ msgstr "&ხელსაწყოთა ზოლები"
 #: qt4/config/qtcurveconfig.cpp:1768 qt5/config/qtcurveconfig.cpp:1703
 #, kde-format
 msgid "Statusbars"
-msgstr ""
+msgstr "სტატუსის ზოლები"
 
 #: qt4/config/qtcurveconfig.cpp:1769 qt5/config/qtcurveconfig.cpp:1704
 #, kde-format
@@ -1056,12 +1056,12 @@ msgstr "ძველი"
 #: qt4/config/qtcurveconfig.cpp:1773 qt5/config/qtcurveconfig.cpp:1708
 #, kde-format
 msgid "Custom Gradients"
-msgstr ""
+msgstr "მომხმარებლის გრადაციები"
 
 #: qt4/config/qtcurveconfig.cpp:1774 qt5/config/qtcurveconfig.cpp:1709
 #, kde-format
 msgid "Custom Shades"
-msgstr ""
+msgstr "მომხმარებლის ჩრდილები"
 
 #: qt4/config/qtcurveconfig.cpp:1791 qt5/config/qtcurveconfig.cpp:1747
 #, kde-format
@@ -1086,7 +1086,7 @@ msgstr "გატანა..."
 #: qt4/config/qtcurveconfig.cpp:1798 qt5/config/qtcurveconfig.cpp:1756
 #, kde-format
 msgid "(Current)"
-msgstr ""
+msgstr "(მიმდინარე)"
 
 #: qt4/config/qtcurveconfig.cpp:1799 qt5/config/qtcurveconfig.cpp:1757
 #, kde-format
@@ -1132,7 +1132,7 @@ msgstr "მოძრობა"
 #: qt4/config/qtcurveconfig.cpp:2296 qt5/config/qtcurveconfig.cpp:2278
 #, kde-format
 msgid "Copy settings from another gradient"
-msgstr ""
+msgstr "პარამეტრების სხვა გრადაციიდან კოპირება"
 
 #: qt4/config/qtcurveconfig.cpp:2310 qt5/config/qtcurveconfig.cpp:2292
 #, kde-format
@@ -1157,7 +1157,7 @@ msgstr "პარამეტრის შენახვა"
 #: qt4/config/qtcurveconfig.cpp:2527 qt5/config/qtcurveconfig.cpp:2518
 #, kde-format
 msgid "Please enter a name for the preset:"
-msgstr ""
+msgstr "შეიყვანეთ პრესეტის სახელი:"
 
 #: qt4/config/qtcurveconfig.cpp:2529 qt5/config/qtcurveconfig.cpp:2520
 #, kde-format
@@ -1175,7 +1175,7 @@ msgstr "%1 ახალი"
 #: qt4/config/qtcurveconfig.cpp:2535 qt5/config/qtcurveconfig.cpp:2526
 #, kde-format
 msgid "Sorry, failed to save preset"
-msgstr ""
+msgstr "პრესეტის შენახვის შეცდომა"
 
 #: qt4/config/qtcurveconfig.cpp:2611 qt5/config/qtcurveconfig.cpp:2606
 #, kde-format
@@ -1200,17 +1200,17 @@ msgstr ""
 #: qt4/config/qtcurveconfig.cpp:2633 qt5/config/qtcurveconfig.cpp:2640
 #, kde-format
 msgid "<p>Please enter a new name:</p>"
-msgstr ""
+msgstr "<p>შეიყვანეთ ახალი სახელი:</p>"
 
 #: qt4/config/qtcurveconfig.cpp:2651 qt5/config/qtcurveconfig.cpp:2663
 #, kde-format
 msgid "<p>Are you sure you wish to delete:</p><p><b>%1</b></p>"
-msgstr ""
+msgstr "<p>მართლა გნებავთ, წაშალოთ:</p><p><b>%1</b></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2661 qt5/config/qtcurveconfig.cpp:2676
 #, kde-format
 msgid "<p>Sorry, failed to remove the preset file:</p><p><i>%1</i></p>"
-msgstr ""
+msgstr "<p>პრესეტის ფაილის წაშლის შეცდომა:</p><p><i>%1</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2669 qt4/config/qtcurveconfig.cpp:2830
 #, kde-format
@@ -1232,7 +1232,7 @@ msgstr ""
 #: qt4/config/qtcurveconfig.cpp:2695 qt5/config/qtcurveconfig.cpp:2708
 #, kde-format
 msgid "Sorry, failed to open compressed file."
-msgstr ""
+msgstr "შეკუმშული ფაილის გახსნის შეცდომა."
 
 #: qt4/config/qtcurveconfig.cpp:2714 qt5/config/qtcurveconfig.cpp:2727
 #, kde-format
@@ -1256,7 +1256,7 @@ msgstr "პრესეტის შემოტანა"
 #: qt4/config/qtcurveconfig.cpp:2800 qt5/config/qtcurveconfig.cpp:2811
 #, kde-format
 msgid "Sorry, failed to load file."
-msgstr ""
+msgstr "ფაილის ჩატვირთვის შეცდომა."
 
 #: qt4/config/qtcurveconfig.cpp:2811 qt5/config/qtcurveconfig.cpp:2826
 #, kde-format
@@ -1328,7 +1328,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:139 qt5/config/qtcurveconfigbase.ui:139
 #, kde-format
 msgid "<p>Delete a previously stored setting.</p>"
-msgstr ""
+msgstr "<p>დამახსოვრებული პარამეტრის წაშლა.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, importButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, importButton)
@@ -1433,7 +1433,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:301 qt5/config/qtcurveconfigbase.ui:310
 #, kde-format
 msgid "Sunken appearance:"
-msgstr ""
+msgstr "ჩაძირული ელემენტების გარეგნობა:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, sunkenAppearance)
 #: qt4/config/qtcurveconfigbase.ui:308 qt5/config/qtcurveconfigbase.ui:317
@@ -1489,7 +1489,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:349 qt5/config/qtcurveconfigbase.ui:358
 #, kde-format
 msgid "Focus rectangle:"
-msgstr ""
+msgstr "ფოკუსის ოთხკუთხედი:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, focus)
 #: qt4/config/qtcurveconfigbase.ui:356 qt5/config/qtcurveconfigbase.ui:365
@@ -1501,7 +1501,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:363 qt5/config/qtcurveconfigbase.ui:372
 #, kde-format
 msgid "Tooltips:"
-msgstr ""
+msgstr "მინიშნებები:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tooltipAppearance)
 #: qt4/config/qtcurveconfigbase.ui:370 qt5/config/qtcurveconfigbase.ui:379
@@ -1563,7 +1563,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:419 qt5/config/qtcurveconfigbase.ui:428
 #, kde-format
 msgid "Draw fading lines"
-msgstr ""
+msgstr "მინავლებადი ხაზების დახატვა"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, thin_frames)
 #: qt4/config/qtcurveconfigbase.ui:426 qt5/config/qtcurveconfigbase.ui:435
@@ -1681,7 +1681,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:524 qt5/config/qtcurveconfigbase.ui:533
 #, kde-format
 msgid "General frames"
-msgstr ""
+msgstr "საერთო ჩარჩოები"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareSlider)
 #: qt4/config/qtcurveconfigbase.ui:531 qt5/config/qtcurveconfigbase.ui:540
@@ -1693,7 +1693,7 @@ msgstr "ჩოჩიები"
 #: qt4/config/qtcurveconfigbase.ui:538 qt5/config/qtcurveconfigbase.ui:547
 #, kde-format
 msgid "Scrollbar sliders"
-msgstr ""
+msgstr "ჩოჩიები"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareWindows)
 #: qt4/config/qtcurveconfigbase.ui:545 qt5/config/qtcurveconfigbase.ui:554
@@ -1886,7 +1886,7 @@ msgstr ""
 #: qt5/config/qtcurveconfigbase.ui:755 qt5/config/qtcurveconfigbase.ui:942
 #, kde-format
 msgid "<p>Sets the custom color.</p>"
-msgstr ""
+msgstr "<p>ფერის ხელით მითითება.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, comboSplitter)
 #: qt4/config/qtcurveconfigbase.ui:753 qt5/config/qtcurveconfigbase.ui:762
@@ -1900,13 +1900,13 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:756 qt5/config/qtcurveconfigbase.ui:765
 #, kde-format
 msgid "Draw splitter"
-msgstr ""
+msgstr "გამოფის დახატვა"
 
 #. i18n: ectx: property (text), widget (QLabel, label_64)
 #: qt4/config/qtcurveconfigbase.ui:763 qt5/config/qtcurveconfigbase.ui:772
 #, kde-format
 msgid "Editable style:"
-msgstr ""
+msgstr "ჩასწორებადი სტილი:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, unifyCombo)
 #: qt4/config/qtcurveconfigbase.ui:770 qt5/config/qtcurveconfigbase.ui:779
@@ -1926,7 +1926,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:780 qt5/config/qtcurveconfigbase.ui:789
 #, kde-format
 msgid "Non-editable style:"
-msgstr ""
+msgstr "არაჩასწორებადი სტილი:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gtkComboMenus)
 #: qt4/config/qtcurveconfigbase.ui:787
@@ -1940,7 +1940,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:790 qt5/config/qtcurveconfigbase.ui:799
 #, kde-format
 msgid "Gtk-style"
-msgstr ""
+msgstr "Gtk-ის სტილი"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, doubleGtkComboArrow)
 #: qt4/config/qtcurveconfigbase.ui:797 qt5/config/qtcurveconfigbase.ui:806
@@ -2032,7 +2032,7 @@ msgstr ""
 #: qt5/config/qtcurveconfigbase.ui:2274 qt5/config/qtcurveconfigbase.ui:3010
 #, kde-format
 msgid "Coloration:"
-msgstr ""
+msgstr "შეფერილობა:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, shadeSliders)
 #: qt4/config/qtcurveconfigbase.ui:920 qt5/config/qtcurveconfigbase.ui:929
@@ -2133,13 +2133,13 @@ msgstr "თხელი"
 #: qt5/config/qtcurveconfigbase.ui:1024 qt5/config/qtcurveconfigbase.ui:1434
 #, kde-format
 msgid "Bordered"
-msgstr ""
+msgstr "შემოსაზღვრული"
 
 #. i18n: ectx: property (text), widget (QLabel, label_14)
 #: qt4/config/qtcurveconfigbase.ui:1022 qt5/config/qtcurveconfigbase.ui:1031
 #, kde-format
 msgid "Scrollbar buttons:"
-msgstr ""
+msgstr "ჩოჩიის ღილაკები:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, scrollbarType)
 #: qt4/config/qtcurveconfigbase.ui:1030 qt5/config/qtcurveconfigbase.ui:1039
@@ -2318,7 +2318,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1227 qt5/config/qtcurveconfigbase.ui:1236
 #, kde-format
 msgid "Standard font"
-msgstr ""
+msgstr "სტანდარტული ფონტი"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, boldProgress)
 #: qt4/config/qtcurveconfigbase.ui:1234 qt5/config/qtcurveconfigbase.ui:1243
@@ -2359,7 +2359,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1273 qt5/config/qtcurveconfigbase.ui:1282
 #, kde-format
 msgid "Embolden text"
-msgstr ""
+msgstr "ტექსტის გასქელება"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, coloredMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:1291 qt5/config/qtcurveconfigbase.ui:1300
@@ -2381,7 +2381,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1301 qt5/config/qtcurveconfigbase.ui:1310
 #, kde-format
 msgid "Highlight by:"
-msgstr ""
+msgstr "გამოკვეთის პირობა:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, highlightFactor)
 #: qt4/config/qtcurveconfigbase.ui:1311 qt5/config/qtcurveconfigbase.ui:1320
@@ -2395,7 +2395,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1328 qt5/config/qtcurveconfigbase.ui:1337
 #, kde-format
 msgid "Header appearance:"
-msgstr ""
+msgstr "თავსართის გარეგნობა:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, lvAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1335 qt5/config/qtcurveconfigbase.ui:1344
@@ -2417,7 +2417,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1351 qt5/config/qtcurveconfigbase.ui:1360
 #, kde-format
 msgid "Button color"
-msgstr ""
+msgstr "ღილაკის ფერი"
 
 #. i18n: ectx: property (text), widget (QLabel, label_65)
 #: qt4/config/qtcurveconfigbase.ui:1358 qt5/config/qtcurveconfigbase.ui:1367
@@ -2472,7 +2472,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1405 qt5/config/qtcurveconfigbase.ui:1414
 #, kde-format
 msgid "Selection appearance:"
-msgstr ""
+msgstr "მონიშნულის გარეგნობა:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, selectionAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1415 qt5/config/qtcurveconfigbase.ui:1424
@@ -2492,7 +2492,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1432 qt5/config/qtcurveconfigbase.ui:1441
 #, kde-format
 msgid "Lines between items:"
-msgstr ""
+msgstr "ხაზები ელემენტებს შორის:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, lvLines)
 #: qt4/config/qtcurveconfigbase.ui:1439 qt5/config/qtcurveconfigbase.ui:1448
@@ -2532,7 +2532,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1490 qt5/config/qtcurveconfigbase.ui:1499
 #, kde-format
 msgid "Active tab appearance:"
-msgstr ""
+msgstr "აქტიური ჩანართის გარეგნობა:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, activeTabAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1497 qt5/config/qtcurveconfigbase.ui:1506
@@ -2574,7 +2574,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1527 qt5/config/qtcurveconfigbase.ui:1536
 #, kde-format
 msgid "Inactive tab appearance:"
-msgstr ""
+msgstr "არააქტიური ჩანართის გარეგნობა:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tabAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1534 qt5/config/qtcurveconfigbase.ui:1543
@@ -2586,7 +2586,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1541 qt5/config/qtcurveconfigbase.ui:1550
 #, kde-format
 msgid "Mouse-over:"
-msgstr ""
+msgstr "თაგუნას ქვეშ:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tabMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:1548 qt5/config/qtcurveconfigbase.ui:1557
@@ -2628,7 +2628,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1609 qt5/config/qtcurveconfigbase.ui:1627
 #, kde-format
 msgid "Selected only"
-msgstr ""
+msgstr "მხოლოდ მონიშნული"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, roundAllTabs)
 #: qt4/config/qtcurveconfigbase.ui:1619 qt5/config/qtcurveconfigbase.ui:1637
@@ -2692,7 +2692,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1726 qt5/config/qtcurveconfigbase.ui:1762
 #, kde-format
 msgid "Same as active tab"
-msgstr ""
+msgstr "იგივე, რაც აქტიური ჩანართი"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, borderInactiveTab_false)
 #: qt4/config/qtcurveconfigbase.ui:1736 qt5/config/qtcurveconfigbase.ui:1772
@@ -2704,7 +2704,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1739 qt5/config/qtcurveconfigbase.ui:1775
 #, kde-format
 msgid "No inner border"
-msgstr ""
+msgstr "შიდა საზღვრის გარეშე"
 
 #. i18n: ectx: property (text), widget (QLabel, label_67)
 #: qt4/config/qtcurveconfigbase.ui:1749 qt5/config/qtcurveconfigbase.ui:1785
@@ -2726,7 +2726,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1780 qt5/config/qtcurveconfigbase.ui:1825
 #, kde-format
 msgid "Same as top tabs"
-msgstr ""
+msgstr "იგივე, რაც ზედ ჩანართები"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, invertBotTab)
 #: qt4/config/qtcurveconfigbase.ui:1787 qt5/config/qtcurveconfigbase.ui:1832
@@ -2783,13 +2783,13 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1882 qt5/config/qtcurveconfigbase.ui:1945
 #, kde-format
 msgid "Left aligned"
-msgstr ""
+msgstr "მარცხნივ სწორებული"
 
 #. i18n: ectx: property (text), widget (QRadioButton, centerTabText)
 #: qt4/config/qtcurveconfigbase.ui:1892 qt5/config/qtcurveconfigbase.ui:1955
 #, kde-format
 msgid "Centre aligned"
-msgstr ""
+msgstr "ცენტრზე სწორებული"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, shadeCheckRadio)
 #: qt4/config/qtcurveconfigbase.ui:1916 qt5/config/qtcurveconfigbase.ui:1979
@@ -2803,7 +2803,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1939 qt5/config/qtcurveconfigbase.ui:2002
 #, kde-format
 msgid "Checkmarks:"
-msgstr ""
+msgstr "ჩასართავები:"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, xCheck_false)
 #: qt4/config/qtcurveconfigbase.ui:1970 qt5/config/qtcurveconfigbase.ui:2042
@@ -2882,7 +2882,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:2067 qt5/config/qtcurveconfigbase.ui:2148
 #, kde-format
 msgid "Emblem:"
-msgstr ""
+msgstr "ემბლემა:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, crButton)
 #: qt4/config/qtcurveconfigbase.ui:2074 qt5/config/qtcurveconfigbase.ui:2155
@@ -2896,7 +2896,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:2077 qt5/config/qtcurveconfigbase.ui:2158
 #, kde-format
 msgid "Button like"
-msgstr ""
+msgstr "ღილაკის მსგავსი"
 
 #. i18n: ectx: property (text), widget (QLabel, label_87)
 #: qt4/config/qtcurveconfigbase.ui:2084 qt5/config/qtcurveconfigbase.ui:2165
@@ -2922,13 +2922,13 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:2112 qt5/config/qtcurveconfigbase.ui:2193
 #, kde-format
 msgid "Selected emblem:"
-msgstr ""
+msgstr "არჩეული ემბლემა:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_23)
 #: qt4/config/qtcurveconfigbase.ui:2123 qt5/config/qtcurveconfigbase.ui:2204
 #, kde-format
 msgid "Active appearance:"
-msgstr ""
+msgstr "აქტიურ გარეგნობა:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, titlebarAppearance)
 #: qt4/config/qtcurveconfigbase.ui:2130 qt5/config/qtcurveconfigbase.ui:2211
@@ -2940,7 +2940,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:2137 qt5/config/qtcurveconfigbase.ui:2218
 #, kde-format
 msgid "Inactive appearance:"
-msgstr ""
+msgstr "არააქტიური გარეგნობა:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, inactiveTitlebarAppearance)
 #: qt4/config/qtcurveconfigbase.ui:2144 qt5/config/qtcurveconfigbase.ui:2225
@@ -2968,7 +2968,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:2165 qt5/config/qtcurveconfigbase.ui:2246
 #, kde-format
 msgid "Text/icon effect:"
-msgstr ""
+msgstr "ტექსტის/ხატულის ეფექტი:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, titlebarEffect)
 #: qt4/config/qtcurveconfigbase.ui:2172 qt5/config/qtcurveconfigbase.ui:2253
@@ -2982,7 +2982,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:2179 qt5/config/qtcurveconfigbase.ui:2260
 #, kde-format
 msgid "Application icon:"
-msgstr ""
+msgstr "აპლიკაციის ხატულა:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, titlebarIcon)
 #: qt4/config/qtcurveconfigbase.ui:2186 qt5/config/qtcurveconfigbase.ui:2267
@@ -3005,7 +3005,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:2203 qt5/config/qtcurveconfigbase.ui:2284
 #, kde-format
 msgid "Only color titlebar"
-msgstr ""
+msgstr "მხოლოდ სათაურის ზოლის შეღებვა"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_blend)
 #: qt4/config/qtcurveconfigbase.ui:2210 qt5/config/qtcurveconfigbase.ui:2291
@@ -3047,13 +3047,13 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:2233 qt5/config/qtcurveconfigbase.ui:2314
 #, kde-format
 msgid "Use menubar color"
-msgstr ""
+msgstr "მენიუს ზოლის ფერის გამოყენება"
 
 #. i18n: ectx: property (text), widget (QLabel, label_55)
 #: qt4/config/qtcurveconfigbase.ui:2240 qt5/config/qtcurveconfigbase.ui:2321
 #, kde-format
 msgid "Add a light border:"
-msgstr ""
+msgstr "თხელი საზღვრის დამატება:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_addLightBorder)
 #: qt4/config/qtcurveconfigbase.ui:2247 qt5/config/qtcurveconfigbase.ui:2328
@@ -3104,7 +3104,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:2305 qt5/config/qtcurveconfigbase.ui:2386
 #, kde-format
 msgid "Only show symbols"
-msgstr ""
+msgstr "მხოლოდ სიმბოლოების ჩვენება"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_round)
 #: qt4/config/qtcurveconfigbase.ui:2312 qt5/config/qtcurveconfigbase.ui:2393
@@ -3154,7 +3154,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:2345 qt5/config/qtcurveconfigbase.ui:2426
 #, kde-format
 msgid "Standard button color"
-msgstr ""
+msgstr "სტანდარტული ღილაკის ფერი"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_custom)
 #: qt4/config/qtcurveconfigbase.ui:2352 qt5/config/qtcurveconfigbase.ui:2433
@@ -3232,13 +3232,13 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:2405 qt5/config/qtcurveconfigbase.ui:2486
 #, kde-format
 msgid "Hide on inactive windows"
-msgstr ""
+msgstr "დამალვა არააქტიური ფანჯრებისთვის"
 
 #. i18n: ectx: property (text), widget (QLabel, label_57)
 #: qt4/config/qtcurveconfigbase.ui:2412 qt5/config/qtcurveconfigbase.ui:2493
 #, kde-format
 msgid "Custom colors:"
-msgstr ""
+msgstr "ფერების ხელით მითითება:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_colorSymbolsOnly)
 #: qt4/config/qtcurveconfigbase.ui:2419 qt5/config/qtcurveconfigbase.ui:2500
@@ -3252,7 +3252,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:2422 qt5/config/qtcurveconfigbase.ui:2503
 #, kde-format
 msgid "Use only for symbols"
-msgstr ""
+msgstr "მხოლოდ სიმბოლოებისთვის გამოყენება"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_colorInactive)
 #: qt4/config/qtcurveconfigbase.ui:2429 qt5/config/qtcurveconfigbase.ui:2510
@@ -3266,7 +3266,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:2432 qt5/config/qtcurveconfigbase.ui:2513
 #, kde-format
 msgid "Also apply to inactive windows"
-msgstr ""
+msgstr "ასევე არააქტიური ფანჯრებისთვის გამოყენება"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_hoverSymbolFull)
 #: qt4/config/qtcurveconfigbase.ui:2439 qt5/config/qtcurveconfigbase.ui:2520
@@ -3290,13 +3290,13 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:2469 qt5/config/qtcurveconfigbase.ui:2550
 #, kde-format
 msgid "Active Icon"
-msgstr ""
+msgstr "აქტიური ხატულა"
 
 #. i18n: ectx: property (text), widget (QLabel, label_96)
 #: qt4/config/qtcurveconfigbase.ui:2476 qt5/config/qtcurveconfigbase.ui:2557
 #, kde-format
 msgid "Inactive Icon"
-msgstr ""
+msgstr "არააქტიური ხატულა"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorClose)
 #: qt4/config/qtcurveconfigbase.ui:2489 qt5/config/qtcurveconfigbase.ui:2570
@@ -3446,13 +3446,13 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:2965 qt5/config/qtcurveconfigbase.ui:3046
 #, kde-format
 msgid "Active window only"
-msgstr ""
+msgstr "მხოლოდ აქტიური ფანჯრები"
 
 #. i18n: ectx: property (text), widget (QLabel, label_58)
 #: qt4/config/qtcurveconfigbase.ui:2972 qt5/config/qtcurveconfigbase.ui:3053
 #, kde-format
 msgid "Menubar text:"
-msgstr ""
+msgstr "მენიუს ზოლის ტექსტი:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, customMenuTextColor)
 #: qt4/config/qtcurveconfigbase.ui:2985 qt5/config/qtcurveconfigbase.ui:3066
@@ -3484,7 +3484,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3027 qt5/config/qtcurveconfigbase.ui:3108
 #, kde-format
 msgid "Menubar items:"
-msgstr ""
+msgstr "მენიუს ზოლის ელემენტები:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, menuitemAppearance)
 #: qt4/config/qtcurveconfigbase.ui:3034 qt5/config/qtcurveconfigbase.ui:3115
@@ -3541,7 +3541,7 @@ msgstr ""
 #: qt5/config/qtcurveconfigbase.ui:3152 qt5/config/qtcurveconfigbase.ui:3608
 #, kde-format
 msgid "Hiding:"
-msgstr ""
+msgstr "დამალვა:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, menubarHiding_keyboard)
 #: qt4/config/qtcurveconfigbase.ui:3078 qt5/config/qtcurveconfigbase.ui:3159
@@ -3591,7 +3591,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3119 qt5/config/qtcurveconfigbase.ui:3183
 #, kde-format
 msgid "Menu items:"
-msgstr ""
+msgstr "მენიუს ელემენტები:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, borderMenuitems)
 #: qt4/config/qtcurveconfigbase.ui:3126 qt5/config/qtcurveconfigbase.ui:3190
@@ -3647,7 +3647,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3159 qt5/config/qtcurveconfigbase.ui:3223
 #, kde-format
 msgid "Show icons"
-msgstr ""
+msgstr "ხატულების ჩვენება"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, onlyTicksInMenu)
 #: qt4/config/qtcurveconfigbase.ui:3166 qt5/config/qtcurveconfigbase.ui:3230
@@ -3707,7 +3707,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3251
 #, kde-format
 msgid "Sub-menu delay:"
-msgstr ""
+msgstr "ქვემენიუს დაყოვნება:"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, menuDelay)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, menuDelay)
@@ -3744,7 +3744,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3288 qt5/config/qtcurveconfigbase.ui:3335
 #, kde-format
 msgid "Stripe:"
-msgstr ""
+msgstr "ზოლი:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, menuStripe)
 #: qt4/config/qtcurveconfigbase.ui:3295 qt5/config/qtcurveconfigbase.ui:3342
@@ -3818,7 +3818,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3410 qt5/config/qtcurveconfigbase.ui:3474
 #, kde-format
 msgid "Separators:"
-msgstr ""
+msgstr "გამყოფები:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, toolbarSeparators)
 #: qt4/config/qtcurveconfigbase.ui:3420 qt5/config/qtcurveconfigbase.ui:3484
@@ -3838,7 +3838,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3444 qt5/config/qtcurveconfigbase.ui:3508
 #, kde-format
 msgid "Button style:"
-msgstr ""
+msgstr "ღილაკის სტილი:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tbarBtns)
 #: qt4/config/qtcurveconfigbase.ui:3454 qt5/config/qtcurveconfigbase.ui:3518
@@ -3868,7 +3868,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3495 qt5/config/qtcurveconfigbase.ui:3559
 #, kde-format
 msgid "Button appearance:"
-msgstr ""
+msgstr "ღილაკის გარეგნობა:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tbarBtnAppearance)
 #: qt4/config/qtcurveconfigbase.ui:3502 qt5/config/qtcurveconfigbase.ui:3566
@@ -3971,7 +3971,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3609 qt5/config/qtcurveconfigbase.ui:3673
 #, kde-format
 msgid "Button appearance"
-msgstr ""
+msgstr "ღილაკის გარეგნობა"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, dwtColAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3616 qt5/config/qtcurveconfigbase.ui:3680
@@ -3986,7 +3986,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3619 qt5/config/qtcurveconfigbase.ui:3683
 #, kde-format
 msgid "Background colors"
-msgstr ""
+msgstr "ფონის ფერები"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, dwtFontAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3626 qt5/config/qtcurveconfigbase.ui:3690
@@ -4029,7 +4029,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3649 qt5/config/qtcurveconfigbase.ui:3713
 #, kde-format
 msgid "Text effect"
-msgstr ""
+msgstr "ტექსტის ეფექტი"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, dwtIconColAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3656 qt5/config/qtcurveconfigbase.ui:3720
@@ -4043,13 +4043,13 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3659 qt5/config/qtcurveconfigbase.ui:3723
 #, kde-format
 msgid "Icon colors"
-msgstr ""
+msgstr "ხატულის ფერები"
 
 #. i18n: ectx: property (text), widget (QLabel, label_80)
 #: qt4/config/qtcurveconfigbase.ui:3673 qt5/config/qtcurveconfigbase.ui:3737
 #, kde-format
 msgid "Dialog buttons:"
-msgstr ""
+msgstr "ფანჯრის ღილაკები:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gtkButtonOrder)
 #: qt4/config/qtcurveconfigbase.ui:3680 qt5/config/qtcurveconfigbase.ui:3744
@@ -4101,7 +4101,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3711 qt5/config/qtcurveconfigbase.ui:3775
 #, kde-format
 msgid "Gtk icons"
-msgstr ""
+msgstr "Gtk-ის ღილაკები"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, mapKdeIcons)
 #: qt4/config/qtcurveconfigbase.ui:3718 qt5/config/qtcurveconfigbase.ui:3782
@@ -4121,7 +4121,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3728 qt5/config/qtcurveconfigbase.ui:3792
 #, kde-format
 msgid "Password character:"
-msgstr ""
+msgstr "პაროლის სიმბოლო:"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, passwordChar)
 #: qt4/config/qtcurveconfigbase.ui:3741 qt5/config/qtcurveconfigbase.ui:3805
@@ -4214,7 +4214,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3844 qt5/config/qtcurveconfigbase.ui:3908
 #, kde-format
 msgid "No menu stripe:"
-msgstr ""
+msgstr "მენიუს ზოლის გარეშე:"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, noMenuStripeApps)
 #: qt4/config/qtcurveconfigbase.ui:3851 qt5/config/qtcurveconfigbase.ui:3915
@@ -4355,7 +4355,7 @@ msgstr "&მორგება"
 #: qt4/config/qtcurveconfigbase.ui:4030 qt5/config/qtcurveconfigbase.ui:4094
 #, no-c-format, kde-format
 msgid "Position (%)"
-msgstr ""
+msgstr "მდებარეობა (%)"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, gradStops)
 #: qt4/config/qtcurveconfigbase.ui:4035 qt5/config/qtcurveconfigbase.ui:4099
@@ -4504,7 +4504,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:4401 qt5/config/qtcurveconfigbase.ui:4465
 #, kde-format
 msgid "Light:"
-msgstr ""
+msgstr "ღია:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4b)
 #: qt4/config/qtcurveconfigbase.ui:4427 qt5/config/qtcurveconfigbase.ui:4491
@@ -4521,7 +4521,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:4440 qt5/config/qtcurveconfigbase.ui:4504
 #, kde-format
 msgid "Dark:"
-msgstr ""
+msgstr "მუქი:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: qt4/config/stylepreview.ui:27 qt5/config/stylepreview.ui:27
@@ -4580,7 +4580,7 @@ msgstr ""
 #: qt5/config/stylepreview.ui:210 qt5/config/stylepreview.ui:470
 #, kde-format
 msgid "Item 2"
-msgstr ""
+msgstr "ელემენტი 2"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, ComboBox1)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBox)
@@ -4590,7 +4590,7 @@ msgstr ""
 #: qt5/config/stylepreview.ui:215 qt5/config/stylepreview.ui:445
 #, kde-format
 msgid "Item 3"
-msgstr ""
+msgstr "ელემენტი 3"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, ComboBox1)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBox)
@@ -4600,7 +4600,7 @@ msgstr ""
 #: qt5/config/stylepreview.ui:220 qt5/config/stylepreview.ui:420
 #, kde-format
 msgid "Item 4"
-msgstr ""
+msgstr "ელემენტი 4"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBox)
 #: qt4/config/stylepreview.ui:205 qt5/config/stylepreview.ui:205
@@ -4636,7 +4636,7 @@ msgstr "სვეტი 2"
 #: qt4/config/stylepreview.ui:320 qt5/config/stylepreview.ui:320
 #, kde-format
 msgid "Item 8"
-msgstr ""
+msgstr "ელემენტი 8"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:324 qt4/config/stylepreview.ui:349
@@ -4649,7 +4649,7 @@ msgstr ""
 #: qt5/config/stylepreview.ui:474 qt5/config/stylepreview.ui:499
 #, kde-format
 msgid "Sub 4"
-msgstr ""
+msgstr "ქვე 4"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:329 qt4/config/stylepreview.ui:354
@@ -4662,7 +4662,7 @@ msgstr ""
 #: qt5/config/stylepreview.ui:479 qt5/config/stylepreview.ui:504
 #, kde-format
 msgid "Sub 3"
-msgstr ""
+msgstr "ქვე 3"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:334 qt4/config/stylepreview.ui:359
@@ -4675,7 +4675,7 @@ msgstr ""
 #: qt5/config/stylepreview.ui:484 qt5/config/stylepreview.ui:509
 #, kde-format
 msgid "Sub 2"
-msgstr ""
+msgstr "ქვე 2"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:339 qt4/config/stylepreview.ui:364
@@ -4688,31 +4688,31 @@ msgstr ""
 #: qt5/config/stylepreview.ui:489 qt5/config/stylepreview.ui:514
 #, kde-format
 msgid "Sub 1"
-msgstr ""
+msgstr "ქვე 1"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:345 qt5/config/stylepreview.ui:345
 #, kde-format
 msgid "Item 7"
-msgstr ""
+msgstr "ელემენტი 7"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:370 qt5/config/stylepreview.ui:370
 #, kde-format
 msgid "Item 6"
-msgstr ""
+msgstr "ელემენტი 6"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:395 qt5/config/stylepreview.ui:395
 #, kde-format
 msgid "Item 5"
-msgstr ""
+msgstr "ელემენტი 5"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:495 qt5/config/stylepreview.ui:495
 #, kde-format
 msgid "Item 1"
-msgstr ""
+msgstr "ელემენტი 1"
 
 #. i18n: ectx: property (plainText), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:534 qt5/config/stylepreview.ui:534
@@ -4728,7 +4728,7 @@ msgstr ""
 #: qt4/config/stylepreview.ui:546 qt5/config/stylepreview.ui:546
 #, kde-format
 msgid "&Regular item 1"
-msgstr ""
+msgstr "&ჩვეულებრივი ელემენტი 1"
 
 #. i18n: ectx: property (shortcut), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:549 qt5/config/stylepreview.ui:549
@@ -4740,7 +4740,7 @@ msgstr "Ctrl+1"
 #: qt4/config/stylepreview.ui:560 qt5/config/stylepreview.ui:560
 #, kde-format
 msgid "Regular &item 2"
-msgstr ""
+msgstr "ჩვეულებრივი &ელემენტი 1"
 
 #. i18n: ectx: property (shortcut), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:563 qt5/config/stylepreview.ui:563
@@ -4752,7 +4752,7 @@ msgstr "Ctrl+2"
 #: qt4/config/stylepreview.ui:577 qt5/config/stylepreview.ui:577
 #, kde-format
 msgid "&Checkable item"
-msgstr ""
+msgstr "&ჩართვადი ელემენტი"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:588 qt5/config/stylepreview.ui:588
@@ -4913,7 +4913,7 @@ msgstr ""
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:55
 #, kde-format
 msgid "Borders:"
-msgstr ""
+msgstr "საზღვრები:"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, roundBottom)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:62
@@ -4953,7 +4953,7 @@ msgstr ""
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:82
 #, kde-format
 msgid "Outer border:"
-msgstr ""
+msgstr "გარე საზღვარი:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, outerBorder)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:89
@@ -4969,7 +4969,7 @@ msgstr ""
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:96
 #, kde-format
 msgid "Inner border:"
-msgstr ""
+msgstr "შიდა საზღვარი:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, innerBorder)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:103
@@ -4985,7 +4985,7 @@ msgstr ""
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:110
 #, kde-format
 msgid "Window grouping:"
-msgstr ""
+msgstr "ფანჯრების დაჯგუფება:"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, grouping)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:117
@@ -5060,7 +5060,7 @@ msgstr ""
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:217
 #, kde-format
 msgid "Active windows:"
-msgstr ""
+msgstr "აქტიური ფანჯრები:"
 
 #. i18n: ectx: property (whatsThis), widget (KIntNumInput, activeOpacity)
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, activeOpacity)
@@ -5151,7 +5151,7 @@ msgstr ""
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:362
 #, kde-format
 msgid "Active Windows"
-msgstr ""
+msgstr "აქტიური ფანჯრები"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #. i18n: ectx: property (text), widget (QLabel, label_10)
@@ -5171,7 +5171,7 @@ msgstr "ზომა: "
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:449
 #, kde-format
 msgid "Horizontal offset:"
-msgstr ""
+msgstr "ჰორიზონტალური წანაცვლება:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6b)
 #. i18n: ectx: property (text), widget (QLabel, label_11b)
@@ -5181,7 +5181,7 @@ msgstr ""
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:462
 #, kde-format
 msgid "Vertical offset:"
-msgstr ""
+msgstr "ვერტიკალური წანაცვლება:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #. i18n: ectx: property (text), widget (QLabel, label_12)
@@ -5198,14 +5198,14 @@ msgstr "ფერი:"
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:430
 #, kde-format
 msgid "Inactive Windows"
-msgstr ""
+msgstr "არააქტიური ფანჯრები"
 
 #. i18n: ectx: property (text), widget (QLabel, ias_g_l)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:492
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:492
 #, kde-format
 msgid "Gradients:"
-msgstr ""
+msgstr "გრადაციები:"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, inactiveUsesActiveGradients)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:499
@@ -5345,19 +5345,19 @@ msgstr ""
 #: qt5/config/stylepreview.ui:79
 #, kde-format
 msgid "&Radio button"
-msgstr ""
+msgstr "&რადიო ღილაკი"
 
 #. i18n: ectx: property (text), widget (QRadioButton, RadioButton2)
 #: qt5/config/stylepreview.ui:89
 #, kde-format
 msgid "Radio &button"
-msgstr ""
+msgstr "&რადიო ღილაკი"
 
 #. i18n: ectx: property (windowTitle), widget (QDockWidget, dockWidget)
 #: qt5/config/stylepreview.ui:275
 #, kde-format
 msgid "&Dock Widget"
-msgstr ""
+msgstr "მიმაგრებადი ვიჯეტი"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt5/config/stylepreview.ui:621
