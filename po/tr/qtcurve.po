@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kde4-qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-17 00:49+0000\n"
-"PO-Revision-Date: 2023-01-19 22:40+0300\n"
+"PO-Revision-Date: 2023-02-01 00:47+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -4351,9 +4351,9 @@ msgid ""
 "<p>If enabled, the font of dock window titlebars will have use the font "
 "settings of standard windows, otherwise they will use the standard font."
 msgstr ""
-"<p>Etkinleştirilirse kilitli pencere başlık çubuklarının yazıtipi, standart "
-"pencerenin yazı tipi ayarından alınacaktır, aksi takdirde standart yazıtipi "
-"kullanılır."
+"<p>Etkinleştirilirse rıhtım penceresi, başlık çubuklarının yazıtipi standart "
+"pencerelerin yazıtipi ayarlarını kullanır, aksi halde standart yazıtipini "
+"kullanır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtFontAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3629 qt5/config/qtcurveconfigbase.ui:3693
@@ -4751,7 +4751,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3956 qt5/config/qtcurveconfigbase.ui:4020
 #, kde-format
 msgid "Export colors and fonts for KDE3 applications..."
-msgstr "KDE3 uygulamaları için renkleri ve yazı tiplerini dışa aktar..."
+msgstr "KDE3 uygulamaları için renkleri ve yazıtiplerini dışa aktar..."
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, exportQt3Button)
 #. i18n: ectx: property (toolTip), widget (QPushButton, exportQt3Button)
@@ -4771,7 +4771,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3966 qt5/config/qtcurveconfigbase.ui:4030
 #, kde-format
 msgid "Export colors and fonts for pure-Qt3 applications..."
-msgstr "Saf-Qt4 uygulamalarının renk ve yazı tiplerini dışa aktar..."
+msgstr "Saf-Qt4 uygulamalarının renk ve yazıtiplerini dışa aktar..."
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, gradCombo)
 #: qt4/config/qtcurveconfigbase.ui:3990 qt5/config/qtcurveconfigbase.ui:4054
