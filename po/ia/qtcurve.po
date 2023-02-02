@@ -1,21 +1,21 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the qtcurve package.
 #
-# giovanni <g.sora@tiscali.it>, 2020, 2021.
+# giovanni <g.sora@tiscali.it>, 2020, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-17 00:49+0000\n"
-"PO-Revision-Date: 2021-03-20 22:36+0100\n"
-"Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
+"PO-Revision-Date: 2023-02-01 22:36+0100\n"
+"Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -519,7 +519,7 @@ msgstr "Legier"
 #: qt5/config/qtcurveconfig.cpp:673 qt5/kwinconfig/qtcurvekwinconfig.cpp:66
 #, kde-format
 msgid "Dark"
-msgstr ""
+msgstr "Obscur"
 
 #: qt4/config/qtcurveconfig.cpp:673 qt5/config/qtcurveconfig.cpp:674
 #, kde-format
@@ -601,7 +601,7 @@ msgstr ""
 #: qt4/config/qtcurveconfig.cpp:706 qt5/config/qtcurveconfig.cpp:707
 #, kde-format
 msgid "Triangular"
-msgstr ""
+msgstr "Triangular"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_round)
 #: qt4/config/qtcurveconfig.cpp:707 qt4/config/qtcurveconfigbase.ui:2315
@@ -906,7 +906,7 @@ msgstr "General"
 #: qt4/config/qtcurveconfig.cpp:1734 qt5/config/qtcurveconfig.cpp:1670
 #, kde-format
 msgid "Rounding"
-msgstr ""
+msgstr "Rotundamento"
 
 #. i18n: ectx: attribute (title), widget (QWidget, opacityTab)
 #: qt4/config/qtcurveconfig.cpp:1735
@@ -1149,7 +1149,7 @@ msgstr "Actualisa"
 #: qt4/config/qtcurveconfig.cpp:2527 qt5/config/qtcurveconfig.cpp:2518
 #, kde-format
 msgid "Save Preset"
-msgstr ""
+msgstr "Salveguarda preregulation"
 
 #: qt4/config/qtcurveconfig.cpp:2527 qt5/config/qtcurveconfig.cpp:2518
 #, kde-format
@@ -4518,7 +4518,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:4440 qt5/config/qtcurveconfigbase.ui:4504
 #, kde-format
 msgid "Dark:"
-msgstr ""
+msgstr "Obscur:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: qt4/config/stylepreview.ui:27 qt5/config/stylepreview.ui:27
@@ -5221,17 +5221,16 @@ msgid "As per active windows"
 msgstr ""
 
 #: qt5/config/qtcurveconfig.cpp:2055 qt5/config/qtcurveconfig.cpp:2108
-#, fuzzy, kde-format
-#| msgid "Export..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Export"
-msgstr "Exporta..."
+msgstr "Exporta"
 
 #: qt5/config/qtcurveconfig.cpp:2173
 #, kde-format
 msgctxt "@action:button"
 msgid "Set"
-msgstr ""
+msgstr "Fixa"
 
 #: qt5/config/qtcurveconfig.cpp:2683
 #, kde-format
