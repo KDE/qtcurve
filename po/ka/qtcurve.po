@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-17 00:49+0000\n"
-"PO-Revision-Date: 2023-01-21 16:47+0100\n"
+"PO-Revision-Date: 2023-02-03 16:22+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -918,7 +918,7 @@ msgstr "დამრგვალება"
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:209
 #, kde-format
 msgid "Opacity"
-msgstr "_გაუმჭვირვალობა"
+msgstr "გაუმჭვირვალობა"
 
 #: qt4/config/qtcurveconfig.cpp:1736 qt5/config/qtcurveconfig.cpp:1672
 #, kde-format
