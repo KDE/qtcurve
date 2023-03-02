@@ -1,7 +1,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # YoungUk Kim <bluekyu.dev@gmail.com>, 2012.
-# Shinjo Park <kde@peremen.name>, 2015, 2019, 2020, 2021, 2022.
+# Shinjo Park <kde@peremen.name>, 2015, 2019, 2020, 2021, 2022, 2023.
 # Jung Hee Lee <daemul72@gmail.com>, 2019.
 #
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-17 00:49+0000\n"
-"PO-Revision-Date: 2022-05-15 22:47+0200\n"
+"PO-Revision-Date: 2023-02-28 23:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -560,17 +560,17 @@ msgstr "단순하게"
 #: qt4/config/qtcurveconfig.cpp:687 qt5/config/qtcurveconfig.cpp:688
 #, kde-format
 msgid "Use HSL color space"
-msgstr "HSL 색상 공간 사용"
+msgstr "HSL 색 공간 사용"
 
 #: qt4/config/qtcurveconfig.cpp:688 qt5/config/qtcurveconfig.cpp:689
 #, kde-format
 msgid "Use HSV color space"
-msgstr "HSV 색상 공간 사용"
+msgstr "HSV 색 공간 사용"
 
 #: qt4/config/qtcurveconfig.cpp:689 qt5/config/qtcurveconfig.cpp:690
 #, kde-format
 msgid "Use HCY color space"
-msgstr "HCY 색상 공간 사용"
+msgstr "HCY 색 공간 사용"
 
 #: qt4/config/qtcurveconfig.cpp:695 qt5/config/qtcurveconfig.cpp:696
 #, kde-format
@@ -4793,7 +4793,7 @@ msgstr "음영처리 루틴:"
 #: qt4/config/qtcurveconfigbase.ui:4276 qt5/config/qtcurveconfigbase.ui:4340
 #, kde-format
 msgid "<p>Sets the color space that is used when shading a color."
-msgstr "<p>색을 음영 처리할 때 사용할 색상 공간을 설정합니다."
+msgstr "<p>색을 음영 처리할 때 사용할 색 공간을 설정합니다."
 
 #. i18n: ectx: property (title), widget (QGroupBox, customShading)
 #: qt4/config/qtcurveconfigbase.ui:4283 qt5/config/qtcurveconfigbase.ui:4347
@@ -5608,17 +5608,16 @@ msgid "As per active windows"
 msgstr "활성 창에 따라"
 
 #: qt5/config/qtcurveconfig.cpp:2055 qt5/config/qtcurveconfig.cpp:2108
-#, fuzzy, kde-format
-#| msgid "Export..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Export"
-msgstr "내보내기..."
+msgstr "내보내기"
 
 #: qt5/config/qtcurveconfig.cpp:2173
 #, kde-format
 msgctxt "@action:button"
 msgid "Set"
-msgstr ""
+msgstr "설정"
 
 #: qt5/config/qtcurveconfig.cpp:2683
 #, kde-format
