@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Tommi Nieminen <translator@legisign.org>, 2014, 2015, 2018, 2019, 2020, 2022.
+# Tommi Nieminen <translator@legisign.org>, 2014, 2015, 2018, 2019, 2020, 2022, 2023.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2014, 2015, 2016.
 #
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 01:47+0000\n"
-"PO-Revision-Date: 2022-08-02 22:49+0300\n"
+"PO-Revision-Date: 2023-02-22 11:18+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -1196,7 +1196,7 @@ msgstr "Esiasetuksen tallennus epäonnistui"
 #, kde-format
 msgid ""
 "<p>You cannot use the name \"%1\".</p><p>Please enter a different name:</p>"
-msgstr "<p>Et voi käyttää nimeä ”%1”.</p><p>Valitse toinen nimi:<p>"
+msgstr "<p>Et voi käyttää nimeä ”%1”.</p><p>Valitse toinen nimi:</p>"
 
 #: qt4/config/qtcurveconfig.cpp:2620 qt5/config/qtcurveconfig.cpp:2586
 #, kde-format
@@ -1204,8 +1204,8 @@ msgid ""
 "<p>A system defined preset named \"%1\" already exists.</p><p>Please enter a "
 "new name:</p>"
 msgstr ""
-"<p>Nimeä ”%1” käyttää jo järjestelmän esiasetus.</p><p>Valitse toinen nimi:"
-"<p>"
+"<p>Nimeä ”%1” käyttää jo järjestelmän esiasetus.</p><p>Valitse toinen nimi:</"
+"p>"
 
 #: qt4/config/qtcurveconfig.cpp:2627 qt5/config/qtcurveconfig.cpp:2593
 #, kde-format
@@ -1213,12 +1213,12 @@ msgid ""
 "<p>A preset named \"%1\" already exists.</p><p>Do you wish to overwrite this?"
 "</p>"
 msgstr ""
-"<p>Esiasetus nimeltä ”%1” on jo olemassa.</p><p>Haluatko korvata sen?<p>"
+"<p>Esiasetus nimeltä ”%1” on jo olemassa.</p><p>Haluatko korvata sen?</p>"
 
 #: qt4/config/qtcurveconfig.cpp:2633 qt5/config/qtcurveconfig.cpp:2599
 #, kde-format
 msgid "<p>Please enter a new name:</p>"
-msgstr "<p>Anna uusi nimi:<p>"
+msgstr "<p>Anna uusi nimi:</p>"
 
 #: qt4/config/qtcurveconfig.cpp:2651 qt5/config/qtcurveconfig.cpp:2617
 #, kde-format
@@ -4949,7 +4949,7 @@ msgstr ""
 "reunoja. QtCurve yrittää toisin sanoen oletusarvoisesti vaalentaa (tai "
 "tummentaa) emon taustaa. Ellei emoa ole, käytetään valkoista tai mustaa alfa-"
 "arvoin. Tämän oletustoiminnan sijaan voi käyttää aina alfa-arvoja "
-"valitsemalla yllä olevan asetuksen.</p>"
+"valitsemalla yllä olevan asetuksen.</i></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_dark_alpha)
 #: qt4/config/qtcurveconfigbase.ui:4440 qt5/config/qtcurveconfigbase.ui:4504
@@ -5732,8 +5732,8 @@ msgstr "Alivalikon avausviive:"
 msgid ""
 "Defines the delay before a sub-menu closes. Applicable on Qt5.5 or later"
 msgstr ""
-"<p>Asettaa viiveen ennen alivalikon näyttämistä. Vaikuttaa vain Qt 5.5:een "
-"tai myöhempiin"
+"Asettaa viiveen ennen alivalikon näyttämistä. Vaikuttaa vain Qt 5.5:een tai "
+"myöhempiin"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stdBtnSizes)
 #: qt5/config/qtcurveconfigbase.ui:3765
