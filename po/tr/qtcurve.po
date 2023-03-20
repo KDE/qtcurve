@@ -4446,7 +4446,7 @@ msgid ""
 msgstr ""
 "<p>Etkinleştirilirse ve 'Gtk düğme sırasını kullan' etkin değilse QtCurve, "
 "Gtk iletişim pencere düğmelerinin sırasını elle ayarlamaya çalışacaktır.</"
-"p><p><b>NOT:<b/> Bu deneyseldir ve beklenmedik sonuçlara neden olabilir!</p>"
+"p><p><b>NOT:</b> Bu deneyseldir ve beklenmedik sonuçlara neden olabilir!</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, reorderGtkButtons)
 #: qt4/config/qtcurveconfigbase.ui:3693 qt5/config/qtcurveconfigbase.ui:3757
