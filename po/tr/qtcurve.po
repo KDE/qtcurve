@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kde4-qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 01:47+0000\n"
-"PO-Revision-Date: 2023-02-01 00:47+0300\n"
+"PO-Revision-Date: 2023-04-20 15:23+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 23.03.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -355,7 +355,7 @@ msgstr "Eğri"
 #: qt4/config/qtcurveconfig.cpp:589 qt5/config/qtcurveconfig.cpp:598
 #, kde-format
 msgid "Fade out (popup menuitems)"
-msgstr "Kararma (açılan menü ögeleri)"
+msgstr "Soldur (açılır menü ögeleri)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stripedSbar)
 #: qt4/config/qtcurveconfig.cpp:591 qt4/config/qtcurveconfigbase.ui:1098
@@ -1419,7 +1419,7 @@ msgid ""
 "<p>The setting here affects the general appearance - and will be applied to "
 "buttons, combo boxes, and spin buttons.</p>"
 msgstr ""
-"<p>Bu ayar, genel görünüşü etkiler ve düğmelere, açılır kutu ve dönen "
+"<p>Bu ayar, genel görünüşü etkiler ve düğmelere, çoklu kutulara ve döndürme "
 "düğmelerine uygulanır.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_47)
