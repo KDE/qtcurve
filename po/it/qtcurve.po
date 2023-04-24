@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the qtcurve package.
-# Paolo Zamponi <zapaolo@email.it>, 2018, 2020, 2021, 2022.
+# Paolo Zamponi <feus73@gmail.com>, 2018, 2020, 2021, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 01:47+0000\n"
-"PO-Revision-Date: 2021-07-10 15:04+0200\n"
-"Last-Translator: Paolo Zamponi <zapaolo@email.it>\n"
+"PO-Revision-Date: 2022-10-18 07:49+0200\n"
+"Last-Translator: Paolo Zamponi <feus73@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr "Paolo Zamponi"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "zapaolo@email.it"
+msgstr "feus73@gmail.com"
 
 #: qt4/config/exportthemedialog.cpp:42 qt5/config/exportthemedialog.cpp:47
 #, kde-format
