@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015, 2017.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2020.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2020, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 01:47+0000\n"
-"PO-Revision-Date: 2020-01-12 12:35+0100\n"
+"PO-Revision-Date: 2023-04-28 19:39+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.08.3\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -594,7 +594,7 @@ msgstr "Ronda"
 #: qt4/config/qtcurveconfig.cpp:704 qt5/config/qtcurveconfig.cpp:713
 #, kde-format
 msgid "Plain - rotated"
-msgstr "Smple, rotado"
+msgstr "Simple, rotado"
 
 #: qt4/config/qtcurveconfig.cpp:705 qt5/config/qtcurveconfig.cpp:714
 #, kde-format
@@ -1419,7 +1419,7 @@ msgid ""
 "buttons, combo boxes, and spin buttons.</p>"
 msgstr ""
 "<p>Estas opcións afectan á aparencia xeral, e aplicaranse a botóns, listas "
-"depregábeis, e botóns numéricos.</p>"
+"despregábeis, e botóns numéricos.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_47)
 #. i18n: ectx: property (text), widget (QLabel, label_75)
@@ -1478,7 +1478,7 @@ msgid ""
 msgstr ""
 "<p>Isto engade unha imaxe de fondo á parte superior dereita dos diálogos e "
 "das xanelas.\n"
-"            <ul><li>Nada - Sen imaxe.</li><li>Aneis con bordo - Aneirs como "
+"            <ul><li>Nada - Sen imaxe.</li><li>Aneis con bordo - Aneis como "
 "os de «Aire», con bordos.</li><li>Aneis simples - Aneis como os de «Aire», "
 "pero sen bordos.</li><li>Aneis cadrados - 3 cadrados arredondados simples.</"
 "li></ul></p>"
@@ -1570,7 +1570,7 @@ msgstr "Tooltips:"
 #: qt4/config/qtcurveconfigbase.ui:370 qt5/config/qtcurveconfigbase.ui:379
 #, kde-format
 msgid "<p>Controls the appearance of tooltip backgrounds.</p>"
-msgstr "<p>Controla a aparencia dos fondos das tooltips.</p>"
+msgstr "<p>Controla a aparencia dos fondos das mensaxes.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, vArrows)
 #: qt4/config/qtcurveconfigbase.ui:386 qt5/config/qtcurveconfigbase.ui:395
@@ -1779,7 +1779,7 @@ msgstr "Marcos xerais."
 #: qt4/config/qtcurveconfigbase.ui:531 qt5/config/qtcurveconfigbase.ui:540
 #, kde-format
 msgid "Sliders"
-msgstr "Barras deslizantes"
+msgstr "Desprazadores"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareScrollbarSlider)
 #: qt4/config/qtcurveconfigbase.ui:538 qt5/config/qtcurveconfigbase.ui:547
@@ -1797,7 +1797,7 @@ msgstr "Bordos das xanelas (usará unha arredondamento suave)."
 #: qt4/config/qtcurveconfigbase.ui:552 qt5/config/qtcurveconfigbase.ui:561
 #, kde-format
 msgid "Tooltips"
-msgstr "Axudiñas"
+msgstr "Mensaxes"
 
 #. i18n: ectx: property (text), widget (QLabel, label_47a)
 #: qt4/config/qtcurveconfigbase.ui:575 qt5/config/qtcurveconfigbase.ui:584
@@ -1901,14 +1901,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_100)
 #: qt4/config/qtcurveconfigbase.ui:651 qt5/config/qtcurveconfigbase.ui:660
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>NOTE:</b> <i>Opacity settings are <b>experimental</b> and can cause "
-#| "certain applications (mainly Gtk2 ones) to crash. If you have an "
-#| "application that crashes, use the \"Applications\" page to disable "
-#| "opacity settings for that application.</i></p>\n"
-#| "<p><b>NOTE:</b> <i><b>DON'T</b> use opacity settings when using the "
-#| "compiz window manager.</i></p>"
+#, kde-format
 msgid ""
 "<p><b>NOTE:</b> <i>Opacity settings are <b>experimental</b> and can cause "
 "certain applications (mainly Gtk2 ones) to crash. If you have an application "
@@ -2310,7 +2303,7 @@ msgstr ""
 "desprazamento.\n"
 "            <ul><li>KDE - 1 botón na parte superior ou esquerda, e dous na "
 "parte inferior ou dereita.</li> <li>Windows - 1 botón en cada extremo.</li> "
-"<li>Platino - ningún botón na parte suerior ou esquerda, dous na parte "
+"<li>Platino - ningún botón na parte superior ou esquerda, dous na parte "
 "inferior ou dereita.</li> <li>Seguinte - 2 botóns na parte superior ou "
 "esquerda, ningún na parte inferior ou dereita.</li> <li>Ningún - ningún "
 "botón, só o control de desprazamento.</li></ul></p>"
@@ -2773,15 +2766,15 @@ msgid ""
 "<p>Controls the amount of tinting applied to the active tab. The active tab "
 "is tinted by blending the 'highlight' color with the background color."
 msgstr ""
-"<p>Controla a cantidade de tinte que se aplica ao separador activo. Para "
-"tintar o separador activo combínase a cor de realce coa cor de fondo."
+"<p>Controla a cantidade de tinguidura que se aplica ao separador activo. "
+"Para tinguir o separador activo combínase a cor de realce coa cor de fondo."
 
 #. i18n: ectx: property (prefix), widget (KIntNumInput, colorSelTab)
 #. i18n: ectx: property (prefix), widget (QSpinBox, colorSelTab)
 #: qt4/config/qtcurveconfigbase.ui:1520 qt5/config/qtcurveconfigbase.ui:1529
 #, kde-format
 msgid "Tint by "
-msgstr "Tintar un "
+msgstr "Tinguir un "
 
 #. i18n: ectx: property (text), widget (QLabel, label_21)
 #: qt4/config/qtcurveconfigbase.ui:1527 qt5/config/qtcurveconfigbase.ui:1536
@@ -3044,7 +3037,7 @@ msgid ""
 "'dot' or 'check' mark."
 msgstr ""
 "<p>Controla a cor da parte do indicador nunha caixa para marcar ou nun botón "
-"de opción, é dicir, a marca de comprobación ou o ŕecheo do botón de opción."
+"de opción, é dicir, a marca de comprobación ou o recheo do botón de opción."
 
 #. i18n: ectx: property (text), widget (QLabel, label_53)
 #: qt4/config/qtcurveconfigbase.ui:1939 qt5/config/qtcurveconfigbase.ui:2002
@@ -3729,7 +3722,7 @@ msgstr "Manter debaixo:"
 #: qt4/config/qtcurveconfigbase.ui:2912 qt5/config/qtcurveconfigbase.ui:2993
 #, kde-format
 msgid "<p>Defines the gradient used for the background of menubars."
-msgstr "<p>Definie a gradación para o fondo da barra do menú."
+msgstr "<p>Define a gradación para o fondo da barra do menú."
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, menubarBlend)
 #. i18n: ectx: property (toolTip), widget (QPushButton, menubarBlend)
@@ -4058,7 +4051,7 @@ msgid ""
 "border.</li><li>Square rings - 3 simple rounded squares.</li></ul></p>"
 msgstr ""
 "<p>Isto engade unha imaxe de fondo aos menús emerxentes.\n"
-"            <ul><li>Nada - Sen imaxe.</li><li>Aneis con bordo - Aneirs como "
+"            <ul><li>Nada - Sen imaxe.</li><li>Aneis con bordo - Aneis como "
 "os de «Aire», con bordos.</li><li>Aneis simples - Aneis como os de «Aire», "
 "pero sen bordos.</li><li>Aneis cadrados - 3 cadrados arredondados simples.</"
 "li></ul></p>"
@@ -4171,7 +4164,7 @@ msgstr "Usar cabeceiras de sección de menús con aspecto de botón."
 #: qt4/config/qtcurveconfigbase.ui:3386 qt5/config/qtcurveconfigbase.ui:3450
 #, kde-format
 msgid "<p>Defines the gradient used to draw the background of toolbars."
-msgstr "<p>Definie a gradación para o fondo das barras de ferramentas."
+msgstr "<p>Define a gradación para o fondo das barras de ferramentas."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: qt4/config/qtcurveconfigbase.ui:3393 qt5/config/qtcurveconfigbase.ui:3457
@@ -4247,7 +4240,7 @@ msgstr "Aparencia dos botóns:"
 #: qt4/config/qtcurveconfigbase.ui:3502 qt5/config/qtcurveconfigbase.ui:3566
 #, kde-format
 msgid "<p>Defines the gradient used to draw buttons within toolbars.</p>"
-msgstr "<p>Definie a gradación para os botóns das barras de ferramentas.</p>"
+msgstr "<p>Define a gradación para os botóns das barras de ferramentas.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tbarBtnEffect)
 #: qt4/config/qtcurveconfigbase.ui:3516 qt5/config/qtcurveconfigbase.ui:3580
@@ -4316,7 +4309,7 @@ msgstr "Aparencia da barra do título:"
 msgid ""
 "<p>Defines the gradient used to draw the background of the 'title' part of a "
 "dock windows."
-msgstr "<p>Definie a gradación para o fondo da parte do título das docas."
+msgstr "<p>Define a gradación para o fondo da parte do título das docas."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, dwtRoundTopOnly)
 #: qt4/config/qtcurveconfigbase.ui:3589 qt5/config/qtcurveconfigbase.ui:3653
@@ -4325,7 +4318,7 @@ msgid ""
 "<p>If enabled, only the top (for horizontal dock windows), or left (for "
 "vertical dock windows) will be rounded."
 msgstr ""
-"<p>Active esta opción para que só a parte superior (en docas horizotais) ou "
+"<p>Active esta opción para que só a parte superior (en docas horizontais) ou "
 "a esquerda (en docas verticais) estea arredondada."
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtRoundTopOnly)
@@ -5622,7 +5615,7 @@ msgid ""
 "decoration to be totally translucent."
 msgstr ""
 "Controla a opacidade da decoración da xanela activa. 0% faría que a "
-"decoración fose completamente traslúcida."
+"decoración fose completamente translúcida."
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:246
@@ -5641,7 +5634,7 @@ msgid ""
 "decoration to be totally translucent."
 msgstr ""
 "Controla a opacidade da decoración das xanelas inactivas. 0% faría que a "
-"decoración fose completamente traslúcida."
+"decoración fose completamente translúcida."
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:275
