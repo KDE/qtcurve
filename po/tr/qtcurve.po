@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kde4-qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-17 00:49+0000\n"
-"PO-Revision-Date: 2023-04-20 15:23+0300\n"
+"PO-Revision-Date: 2023-05-04 11:54+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -560,12 +560,12 @@ msgstr "Basit"
 #: qt4/config/qtcurveconfig.cpp:687 qt5/config/qtcurveconfig.cpp:688
 #, kde-format
 msgid "Use HSL color space"
-msgstr "TDA renk uzayını kullan"
+msgstr "HSL renk uzayını kullan"
 
 #: qt4/config/qtcurveconfig.cpp:688 qt5/config/qtcurveconfig.cpp:689
 #, kde-format
 msgid "Use HSV color space"
-msgstr "TDD renk uzayını kullan"
+msgstr "HSV renk uzayını kullan"
 
 #: qt4/config/qtcurveconfig.cpp:689 qt5/config/qtcurveconfig.cpp:690
 #, kde-format
