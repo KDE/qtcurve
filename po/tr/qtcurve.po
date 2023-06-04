@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kde4-qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-17 00:49+0000\n"
-"PO-Revision-Date: 2023-05-04 11:54+0300\n"
+"PO-Revision-Date: 2023-06-04 01:44+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 23.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1652,7 +1652,7 @@ msgstr "İnce çerçeveler, düzenleme kutuları, vb."
 #: qt4/config/qtcurveconfigbase.ui:436 qt5/config/qtcurveconfigbase.ui:445
 #, kde-format
 msgid "Hide shortcut underline until 'Alt' key is pressed."
-msgstr "'Alt' tuşu basılana kadar kısayol altçizgisini gizle."
+msgstr "'Seçenek' düğmesi basılana kadar kısayol alt çizgisini gizleyin."
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: qt4/config/qtcurveconfigbase.ui:450 qt5/config/qtcurveconfigbase.ui:459
@@ -2650,7 +2650,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1398 qt5/config/qtcurveconfigbase.ui:1407
 #, kde-format
 msgid "Force alternate colors"
-msgstr "Alternativ renkleri zorla"
+msgstr "Alternatif renkleri zorla"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_8_2_4)
 #: qt4/config/qtcurveconfigbase.ui:1405 qt5/config/qtcurveconfigbase.ui:1414
@@ -3848,14 +3848,14 @@ msgid ""
 "<p>If enabled, menubars may be hidden (and re-shown), by using the 'Ctrl-Alt-"
 "M' key combination."
 msgstr ""
-"<p>Etkinleştirilirse 'Ctrl-Alt-M' tuş kombinasyonu kullanılarak, menü "
-"çubukları gizli (ve görülebilir) yapılabilir."
+"<p>Etkinleştirilirse 'Kontrol-Seçenek-M' düğme kombinasyonu kullanılarak "
+"menü çubukları gizli (ve görülebilir) yapılabilir."
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarHiding_keyboard)
 #: qt4/config/qtcurveconfigbase.ui:3081 qt5/config/qtcurveconfigbase.ui:3162
 #, kde-format
 msgid "Use Ctrl-Alt-M (experimental)"
-msgstr "Ctrl-Alt-M (deneysel) kullan"
+msgstr "Kontrol-Seçenek-M (deneysel) kullan"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, menubarHiding_kwin)
 #: qt4/config/qtcurveconfigbase.ui:3088 qt5/config/qtcurveconfigbase.ui:3169
@@ -4249,14 +4249,14 @@ msgid ""
 "<p>If enabled, statusbars may be hidden (and re-shown), by using the 'Ctrl-"
 "Alt-S' key combination."
 msgstr ""
-"<p>Etkinleştirilirse 'Ctrl-Alt-S' tuş kombinasyonu kullanılarak, durum "
-"çubukları gizli (ve görünür) olacaktır."
+"<p>Etkinleştirilirse 'Kontrol-Seçenek-S' düğme kombinasyonu kullanılarak "
+"durum çubukları gizli (ve görünür) olacaktır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, statusbarHiding_keyboard)
 #: qt4/config/qtcurveconfigbase.ui:3554 qt5/config/qtcurveconfigbase.ui:3618
 #, kde-format
 msgid "Use Ctrl-Alt-S (experimental)"
-msgstr "Ctrl-Alt-S kullan (deneysel)"
+msgstr "Kontrol-Seçenek-S kullan (deneysel)"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, statusbarHiding_kwin)
 #: qt4/config/qtcurveconfigbase.ui:3561 qt5/config/qtcurveconfigbase.ui:3625
@@ -5221,7 +5221,7 @@ msgstr "&Düzenli Öge 1"
 #: qt4/config/stylepreview.ui:549 qt5/config/stylepreview.ui:549
 #, kde-format
 msgid "Ctrl+1"
-msgstr "Ctrl+1"
+msgstr "Kontrol+1"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:560 qt5/config/stylepreview.ui:560
@@ -5233,7 +5233,7 @@ msgstr "&Düzenli Öge 2"
 #: qt4/config/stylepreview.ui:563 qt5/config/stylepreview.ui:563
 #, kde-format
 msgid "Ctrl+2"
-msgstr "Ctrl+2"
+msgstr "Kontrol+2"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:577 qt5/config/stylepreview.ui:577
