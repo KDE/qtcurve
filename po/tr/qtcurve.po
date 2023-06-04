@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kde4-qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 01:47+0000\n"
-"PO-Revision-Date: 2023-04-20 15:23+0300\n"
+"PO-Revision-Date: 2023-06-04 01:44+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 23.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1654,7 +1654,7 @@ msgstr "İnce çerçeveler, düzenleme kutuları, vb."
 #: qt4/config/qtcurveconfigbase.ui:436 qt5/config/qtcurveconfigbase.ui:445
 #, kde-format
 msgid "Hide shortcut underline until 'Alt' key is pressed."
-msgstr "'Alt' tuşu basılana kadar kısayol altçizgisini gizle."
+msgstr "'Seçenek' düğmesi basılana kadar kısayol alt çizgisini gizleyin."
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: qt4/config/qtcurveconfigbase.ui:450 qt5/config/qtcurveconfigbase.ui:459
@@ -2654,7 +2654,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1398 qt5/config/qtcurveconfigbase.ui:1407
 #, kde-format
 msgid "Force alternate colors"
-msgstr "Alternativ renkleri zorla"
+msgstr "Alternatif renkleri zorla"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_8_2_4)
 #: qt4/config/qtcurveconfigbase.ui:1405 qt5/config/qtcurveconfigbase.ui:1414
