@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 01:47+0000\n"
-"PO-Revision-Date: 2023-04-28 19:39+0200\n"
+"PO-Revision-Date: 2023-06-17 14:54+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1273,7 +1273,7 @@ msgid ""
 "(Could not list ZIP contents.)"
 msgstr ""
 "Ficheiro de configuración comprimida incorrecto.\n"
-"(Non se puido listar o contido do arquivo ZIP.)"
+"(Non se puido listar o contido do ZIP.)"
 
 #: qt4/config/qtcurveconfig.cpp:2729 qt5/config/qtcurveconfig.cpp:2688
 #, kde-format
@@ -3645,24 +3645,20 @@ msgstr "<p>Define a cor personalizada para os botóns de recoller e despregar."
 #, kde-format
 msgid "<p>Sets the custom color for 'On All Desktop' buttons."
 msgstr ""
-"<p>Define a cor personalizada para os botóns de mostrar a xanela en todos os "
-"escritorios."
+"<p>Define a cor personalizada para os botóns de «mostrar en todos os "
+"escritorios»."
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorKeepAbove)
 #: qt4/config/qtcurveconfigbase.ui:2580 qt5/config/qtcurveconfigbase.ui:2661
 #, kde-format
 msgid "<p>Sets the custom color for 'Keep Above' buttons."
-msgstr ""
-"<p>Define a cor personalizada para os botóns de manter a xanela sobre as "
-"outras."
+msgstr "<p>Define a cor personalizada para os botóns de «manter enriba»."
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorKeepBelow)
 #: qt4/config/qtcurveconfigbase.ui:2593 qt5/config/qtcurveconfigbase.ui:2674
 #, kde-format
 msgid "<p>Sets the custom color for 'Keep Below' buttons."
-msgstr ""
-"<p>Define a cor personalizada para os botóns de manter a xanela baixo as "
-"outras."
+msgstr "<p>Define a cor personalizada para os botóns de «manter debaixo»."
 
 #. i18n: ectx: property (text), widget (QLabel, label_34)
 #: qt4/config/qtcurveconfigbase.ui:2600 qt5/config/qtcurveconfigbase.ui:2681
@@ -4170,13 +4166,13 @@ msgstr "<p>Define a gradación para o fondo das barras de ferramentas."
 #: qt4/config/qtcurveconfigbase.ui:3393 qt5/config/qtcurveconfigbase.ui:3457
 #, kde-format
 msgid "Handles:"
-msgstr "Controladores:"
+msgstr "Asas:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, handles)
 #: qt4/config/qtcurveconfigbase.ui:3403 qt5/config/qtcurveconfigbase.ui:3467
 #, kde-format
 msgid "<p>Defines the look of the toolbar handles."
-msgstr "<p>Define a aparencia dos controladores das barras de ferramentas."
+msgstr "<p>Define a aparencia das asas das barras de ferramentas."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
 #: qt4/config/qtcurveconfigbase.ui:3410 qt5/config/qtcurveconfigbase.ui:3474
@@ -4309,7 +4305,8 @@ msgstr "Aparencia da barra do título:"
 msgid ""
 "<p>Defines the gradient used to draw the background of the 'title' part of a "
 "dock windows."
-msgstr "<p>Define a gradación para o fondo da parte do título das docas."
+msgstr ""
+"<p>Define a gradación para o fondo da parte do título das xanelas de doca."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, dwtRoundTopOnly)
 #: qt4/config/qtcurveconfigbase.ui:3589 qt5/config/qtcurveconfigbase.ui:3653
@@ -4318,8 +4315,8 @@ msgid ""
 "<p>If enabled, only the top (for horizontal dock windows), or left (for "
 "vertical dock windows) will be rounded."
 msgstr ""
-"<p>Active esta opción para que só a parte superior (en docas horizontais) ou "
-"a esquerda (en docas verticais) estea arredondada."
+"<p>Active esta opción para que só a parte superior (en xanelas de doca "
+"horizontais) ou a esquerda (en xanelas de doca verticais) estea arredondada."
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtRoundTopOnly)
 #: qt4/config/qtcurveconfigbase.ui:3592 qt5/config/qtcurveconfigbase.ui:3656
