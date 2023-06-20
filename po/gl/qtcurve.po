@@ -707,7 +707,7 @@ msgstr "Dereita"
 #: qt4/config/qtcurveconfig.cpp:754 qt5/config/qtcurveconfig.cpp:763
 #, kde-format
 msgid "Do not show"
-msgstr "Non mostrar"
+msgstr "Non amosar"
 
 #: qt4/config/qtcurveconfig.cpp:755 qt5/config/qtcurveconfig.cpp:764
 #, kde-format
@@ -3385,7 +3385,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:2305 qt5/config/qtcurveconfigbase.ui:2386
 #, kde-format
 msgid "Only show symbols"
-msgstr "Só mostrar os símbolos."
+msgstr "Só amosar os símbolos."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_round)
 #: qt4/config/qtcurveconfigbase.ui:2312 qt5/config/qtcurveconfigbase.ui:2393
@@ -3404,14 +3404,14 @@ msgid ""
 "<p>If enabled, the button background (or frame) will only be shown when "
 "under the mouse."
 msgstr ""
-"<p>Active esta opción para que o fondo ou o marco do botón só se mostren "
+"<p>Active esta opción para que o fondo ou o marco do botón só se amosen "
 "cando ten o rato por riba."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hoverFrame)
 #: qt4/config/qtcurveconfigbase.ui:2325 qt5/config/qtcurveconfigbase.ui:2406
 #, kde-format
 msgid "Show frame on mouse-over"
-msgstr "Mostrar o marco ao ter o rato por riba."
+msgstr "Amosar o marco ao ter o rato por riba."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_hoverSymbol)
 #: qt4/config/qtcurveconfigbase.ui:2332 qt5/config/qtcurveconfigbase.ui:2413
@@ -3645,7 +3645,7 @@ msgstr "<p>Define a cor personalizada para os botóns de recoller e despregar."
 #, kde-format
 msgid "<p>Sets the custom color for 'On All Desktop' buttons."
 msgstr ""
-"<p>Define a cor personalizada para os botóns de «mostrar en todos os "
+"<p>Define a cor personalizada para os botóns de «amosar en todos os "
 "escritorios»."
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorKeepAbove)
@@ -3876,7 +3876,7 @@ msgid ""
 "<p>If enabled, menubars may be hidden (and re-shown), by using the 'Ctrl-Alt-"
 "M' key combination."
 msgstr ""
-"<p>Se se activa, poderanse agochar (e mostrar de novo) as barras de menú "
+"<p>Se se activa, poderanse agochar (e amosar de novo) as barras de menú "
 "mediante a combinación de teclas «Ctrl+Alt+M»."
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarHiding_keyboard)
@@ -3892,7 +3892,7 @@ msgid ""
 "<p>If enabled, menubars may be hidden (and re-shown), by using a special "
 "button in the QtCurve kwin decoration."
 msgstr ""
-"<p>Se se activa, poderán agocharse (e mostrarse de novo) as barras de menú "
+"<p>Se se activa, poderán agocharse (e amosarse de novo) as barras de menú "
 "mediante un botón especial da decoración de KWin de QtCurve."
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarHiding_kwin)
@@ -3987,7 +3987,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3159 qt5/config/qtcurveconfigbase.ui:3223
 #, kde-format
 msgid "Show icons"
-msgstr "Mostrar as iconas."
+msgstr "Amosar as iconas."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, onlyTicksInMenu)
 #: qt4/config/qtcurveconfigbase.ui:3166 qt5/config/qtcurveconfigbase.ui:3230
@@ -4274,7 +4274,7 @@ msgid ""
 "<p>If enabled, statusbars may be hidden (and re-shown), by using the 'Ctrl-"
 "Alt-S' key combination."
 msgstr ""
-"<p>Se se activa, poderanse agochar (e mostrar de novo) as barras de estado "
+"<p>Se se activa, poderanse agochar (e amosar de novo) as barras de estado "
 "mediante a combinación de teclas «Ctrl+Alt+S»."
 
 #. i18n: ectx: property (text), widget (QCheckBox, statusbarHiding_keyboard)
@@ -4290,7 +4290,7 @@ msgid ""
 "<p>If enabled, statusbars may be hidden (and re-shown), by using a special "
 "button in the QtCurve kwin decoration."
 msgstr ""
-"<p>Se se activa, poderán agocharse (e mostrarse de novo) as barras de estado "
+"<p>Se se activa, poderán agocharse (e amosarse de novo) as barras de estado "
 "mediante un botón especial da decoración de KWin de QtCurve."
 
 #. i18n: ectx: property (text), widget (QLabel, label_73)
@@ -4754,8 +4754,8 @@ msgstr ""
 "desde unha xanela de Konsole usando a seguinte sintaxe (o exemplo é para "
 "Firefox):</p>\n"
 "<p><code>QTCURVE_DEBUG=1 firefox</code></p>\n"
-"<p>Isto fará que QtCurve mostre o nome detectado do proceso do seguinte "
-"xeito:</p>\n"
+"<p>Isto fará que QtCurve amose o nome detectado do proceso do seguinte xeito:"
+"</p>\n"
 "<p><code>QtCurve: Application name: \"firefox\"</code></p></i>"
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, exportKde3Button)
@@ -5590,7 +5590,7 @@ msgid ""
 "widget style.</i></p>"
 msgstr ""
 "<p><b>Nota:</b> <i>A decoración desta xanela usa o estilo dos trebellos de "
-"QtCurve, e comparte a súa configuración. Aquí só se mostran as opcións que a "
+"QtCurve, e comparte a súa configuración. Aquí só se amosan as opcións que a "
 "decoración de xanela usa en exclusiva. Para alterar opcións como a gradación "
 "da barra do título ou o aliñamento do texto, configure as opcións axeitadas "
 "do estilo dos trebellos.</i></p>"
