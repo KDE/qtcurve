@@ -2148,7 +2148,7 @@ msgid ""
 "<p>Controls the appearance of both scrollbar sliders and other sliders.</p>"
 msgstr ""
 "<p>Controla a aparencia do control das barras de desprazamento e doutros "
-"controis de desprazamento.</p>"
+"controis esvaradíos.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_12)
 #. i18n: ectx: property (text), widget (QLabel, label_18)
@@ -2172,7 +2172,7 @@ msgid ""
 "p>"
 msgstr ""
 "<p>Controla a opción de cor do control das barras de desprazamento e doutros "
-"controis de desprazamento.</p>"
+"controis esvaradíos.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, colorSliderMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:943 qt5/config/qtcurveconfigbase.ui:952
@@ -2182,7 +2182,7 @@ msgid ""
 "mouse hovers over the slider.</p>"
 msgstr ""
 "<p>Controla se a coloración se produce todo o tempo ou só cando o rato está "
-"enriba do control de desprazamento.</p>"
+"enriba do control esvaradío.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, colorSliderMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:946 qt5/config/qtcurveconfigbase.ui:955
@@ -2203,15 +2203,15 @@ msgid ""
 "<p>Controls the appearance of standard sliders - i.e. not scrollbar sliders. "
 "'Triangular' is very similar to plastik's sliders.</p>"
 msgstr ""
-"<p>Controla a aparencia dos controis de desprazamento estándar, é dicir, "
-"todos menos os das barras de desprazamento. A aparencia «triangular» é "
-"similar á dos controis de desprazamento de Plastik.</p>"
+"<p>Controla a aparencia dos controis esvaradíos estándar, é dicir, todos "
+"menos os das barras de desprazamento. A aparencia «triangular» é similar á "
+"dos controis esvaradíos de Plastik.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_50)
 #: qt4/config/qtcurveconfigbase.ui:967 qt5/config/qtcurveconfigbase.ui:976
 #, kde-format
 msgid "Used slider groove:"
-msgstr "Rego da parte usada do control de desprazamento:"
+msgstr "Rego da parte usada do control esvaradío:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, fillSlider)
 #: qt4/config/qtcurveconfigbase.ui:974 qt5/config/qtcurveconfigbase.ui:983
@@ -2220,8 +2220,8 @@ msgid ""
 "<p>Indicates whether the used part of a slider's groove should be filled or "
 "not. (Does not affect scrollbar sliders).</p>"
 msgstr ""
-"<p>Indica se o rego da parte usada dos controis de desprazamento debería "
-"estar enchido ou non. Non afecta ao control das barras de desprazamento.</p>"
+"<p>Indica se o rego da parte usada dos controis esvaradíos debería estar "
+"enchido ou non. Non afecta ao control das barras de desprazamento.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, fillSlider)
 #: qt4/config/qtcurveconfigbase.ui:977 qt5/config/qtcurveconfigbase.ui:986
@@ -2237,7 +2237,7 @@ msgid ""
 "sliders' groove.</p>"
 msgstr ""
 "<p>Controla a opción de gradación para o rego da parte que se usa dos "
-"controis de desprazamento estándar.</p>"
+"controis esvaradíos estándar.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_30)
 #: qt4/config/qtcurveconfigbase.ui:991 qt5/config/qtcurveconfigbase.ui:1000
@@ -2253,7 +2253,7 @@ msgid ""
 "sliders.</p>"
 msgstr ""
 "<p>Controla a opción de gradación do control das barras de desprazamento e "
-"doutros controis de desprazamento.</p>"
+"doutros controis esvaradíos.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, thinSbarGroove)
 #: qt4/config/qtcurveconfigbase.ui:1005 qt5/config/qtcurveconfigbase.ui:1014
@@ -2264,8 +2264,8 @@ msgid ""
 "p>"
 msgstr ""
 "<p>Marque esta opción para que o rego do control das barras de desprazamento "
-"sexa máis fino que o propio control (e máis similar ao rego dos controis de "
-"desprazamento estándar).</p>"
+"sexa máis fino que o propio control (e máis similar ao rego dos controis "
+"esvaradíos estándar).</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, thinSbarGroove)
 #: qt4/config/qtcurveconfigbase.ui:1008 qt5/config/qtcurveconfigbase.ui:1017
@@ -2305,7 +2305,7 @@ msgstr ""
 "<li>Platino - ningún botón na parte superior ou esquerda, dous na parte "
 "inferior ou dereita.</li> <li>Seguinte - 2 botóns na parte superior ou "
 "esquerda, ningún na parte inferior ou dereita.</li> <li>Ningún - ningún "
-"botón, só o control de desprazamento.</li></ul></p>"
+"botón, só o control esvaradío.</li></ul></p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, flatSbarButtons)
 #: qt4/config/qtcurveconfigbase.ui:1037 qt5/config/qtcurveconfigbase.ui:1046
@@ -2337,7 +2337,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1061 qt5/config/qtcurveconfigbase.ui:1070
 #, kde-format
 msgid "Slider thumbs:"
-msgstr "Controis de desprazamento:"
+msgstr "Controis esvaradíos:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, sliderThumbs)
 #: qt4/config/qtcurveconfigbase.ui:1068 qt5/config/qtcurveconfigbase.ui:1077
@@ -2347,13 +2347,13 @@ msgid ""
 "(and plain style sliders).</p>"
 msgstr ""
 "<p>Define as marcas para colocar no centro do control das barras de "
-"desprazamento (e nos controis de desprazamento de estilo simple).</p>"
+"desprazamento (e nos controis esvaradíos de estilo simple).</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_15a)
 #: qt4/config/qtcurveconfigbase.ui:1075 qt5/config/qtcurveconfigbase.ui:1084
 #, kde-format
 msgid "Slider width:"
-msgstr "Anchura do control de desprazamento:"
+msgstr "Anchura do control esvaradío:"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, sliderWidth)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, sliderWidth)
@@ -2363,7 +2363,7 @@ msgid ""
 "<p>Controls the width of scrollbar sliders, and plain style sliders.</p>"
 msgstr ""
 "<p>Controla a anchura do control das barras de desprazamento e dos controis "
-"de desprazamento de estilo simple.</p>"
+"esvaradíos de estilo simple.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stripedSbar)
 #: qt4/config/qtcurveconfigbase.ui:1095 qt5/config/qtcurveconfigbase.ui:1104
@@ -4991,7 +4991,7 @@ msgstr ""
 "separadores.</li>\n"
 "<li>Úsase para o bordo sombreado de caixas para marcar e botóns de opción, "
 "para os bordos das barras de ferramentas (nos temas escuros), a parte escura "
-"dos controis de desprazamento afundidos ou elevados, etc.</li>\n"
+"dos controis esvaradíos afundidos ou elevados, etc.</li>\n"
 "<li>Úsase para o fondo dos trebellos premidos, e para o bordo das barras de "
 "ferramentas (nos temas claros).</li>\n"
 "<li>Úsase como bordo para a meirande parte dos trebellos.</li>\n"
