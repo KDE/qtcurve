@@ -1778,7 +1778,7 @@ msgstr "Marcos xerais."
 #: qt4/config/qtcurveconfigbase.ui:531 qt5/config/qtcurveconfigbase.ui:540
 #, kde-format
 msgid "Sliders"
-msgstr "Desprazadores"
+msgstr "Controis esvaradíos"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareScrollbarSlider)
 #: qt4/config/qtcurveconfigbase.ui:538 qt5/config/qtcurveconfigbase.ui:547
