@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 01:47+0000\n"
-"PO-Revision-Date: 2023-02-28 23:09+0100\n"
+"PO-Revision-Date: 2023-07-23 21:49+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -996,9 +996,9 @@ msgid ""
 "Therefore, these settings will <b>not</b> be reflected in the Preview page.</"
 "i></p>"
 msgstr ""
-"<p><b>주의:</b><i>이 설정은 프로그램의 내부(또는 MDI) 창이 아닌 창과 대화 상"
-"자 주의에 그려진 테두리에 영향을 줍니다. 그러므로 이 설정은 미리 보기 페이지 "
-"내에 반영이 <b>되지 않을</b> 것입니다.</i></p>"
+"<p><b>주의:</b><i>이 설정은 앱의 내부(또는 MDI) 창이 아닌 창과 대화 상자 주의"
+"에 그려진 테두리에 영향을 줍니다. 그러므로 이 설정은 미리 보기 페이지 내에 반"
+"영이 <b>되지 않을</b> 것입니다.</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:1761 qt5/config/qtcurveconfig.cpp:1704
 #, kde-format
@@ -1050,7 +1050,7 @@ msgstr "고급 설정"
 #: qt4/config/qtcurveconfig.cpp:1771 qt5/config/qtcurveconfig.cpp:1714
 #, kde-format
 msgid "Applications"
-msgstr "프로그램"
+msgstr "앱"
 
 #: qt4/config/qtcurveconfig.cpp:1772 qt5/config/qtcurveconfig.cpp:1715
 #, kde-format
@@ -1103,8 +1103,7 @@ msgid ""
 "Export your current KDE4 color palette, and font, so that they can be used "
 "by KDE3 applications?"
 msgstr ""
-"현재 KDE4의 색상 팔레트와 글꼴을 KDE3 프로그램에서 사용할 수 있게 내보내겠습"
-"니까?"
+"현재 KDE4의 색상 팔레트와 글꼴을 KDE3 앱에서 사용할 수 있게 내보내겠습니까?"
 
 #: qt4/config/qtcurveconfig.cpp:2134 qt5/config/qtcurveconfig.cpp:2086
 #, kde-format
@@ -1112,8 +1111,8 @@ msgid ""
 "Export your current KDE4 color palette, and font, so that they can be used "
 "by pure-Qt3 applications?"
 msgstr ""
-"현재 KDE4의 색상 팔레트와 글꼴을 순수한 Qt3 프로그램에서 사용할 수 있게 내보"
-"내겠습니까?"
+"현재 KDE4의 색상 팔레트와 글꼴을 순수한 Qt3 앱에서 사용할 수 있게 내보내겠습"
+"니까?"
 
 #: qt4/config/qtcurveconfig.cpp:2187 qt5/config/qtcurveconfig.cpp:2139
 #, kde-format
@@ -1542,13 +1541,13 @@ msgstr "항목 선명하게 및 스크롤 보기 "
 #: qt4/config/qtcurveconfigbase.ui:349 qt5/config/qtcurveconfigbase.ui:358
 #, kde-format
 msgid "Focus rectangle:"
-msgstr "초점 직사각형:"
+msgstr "포커스 직사각형:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, focus)
 #: qt4/config/qtcurveconfigbase.ui:356 qt5/config/qtcurveconfigbase.ui:365
 #, kde-format
 msgid "<p>Controls how QtCurve indicates that a widget has keyboard focus.</p>"
-msgstr "<p>QtCurve가 초점을 갖는 위젯을 어떻게 나타낼 지를 조절합니다.</p>"
+msgstr "<p>QtCurve가 포커스를 갖는 위젯을 어떻게 나타낼지를 조절합니다.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_tt)
 #: qt4/config/qtcurveconfigbase.ui:363 qt5/config/qtcurveconfigbase.ui:372
@@ -1886,10 +1885,9 @@ msgid ""
 "<p><b>NOTE:</b> <i><b>DON'T</b> use opacity settings when using the compiz "
 "window manager.</i></p>"
 msgstr ""
-"<p><b>주의:</b> <i>불투명도 설정은 <b>실험적</b>이고 특정 프로그램(주로 Gtk2)"
-"에 충돌을 일으킬 수 있습니다. 만약 충돌이 있는 프로그램을 사용할 때 그 프로그"
-"램의 불투명도 설정을 사용하지 않으려면 &quot;프로그램&quot; 페이지를 사용하십"
-"시오.</i></p>\n"
+"<p><b>주의:</b> <i>불투명도 설정은 <b>실험적</b>이고 특정 앱(주로 Gtk2)에 충"
+"돌을 일으킬 수 있습니다. 만약 충돌이 있는 앱을 사용할 때 그 앱의 불투명도 설"
+"정을 사용하지 않으려면 &quot;앱&quot; 페이지를 사용하십시오.</i></p>\n"
 "<p><b>주의:</b><i>Compiz 창 관리자를 사용할 때 불투명도 설정을 <b>사용하지 마"
 "십시오.</b></i></p>"
 
@@ -2595,8 +2593,8 @@ msgid ""
 "treeviews have alternating row colors - regardless of whether the "
 "application author has enabled this or not."
 msgstr ""
-"<p>활성화되면 QtCurve는 프로그램의 개발자가 이것을 사용한 여부에 관계 없이 모"
-"든 리스트 보기와 트리 보기가 교대되는 행의 색상을 가지도록 합니다."
+"<p>활성화되면 QtCurve는 앱의 개발자가 이것을 사용한 여부에 관계 없이 모든 리"
+"스트 보기와 트리 보기가 교대되는 행의 색상을 가지도록 합니다."
 
 #. i18n: ectx: property (text), widget (QCheckBox, forceAlternateLvCols)
 #: qt4/config/qtcurveconfigbase.ui:1398 qt5/config/qtcurveconfigbase.ui:1407
@@ -2666,7 +2664,7 @@ msgstr "<p>활성화된 스크롤 보기가 라인 편집 마다 강조될 것�
 #: qt4/config/qtcurveconfigbase.ui:1466 qt5/config/qtcurveconfigbase.ui:1475
 #, kde-format
 msgid "Highlight on focus (KDE)"
-msgstr "초점에 강조하기(KDE)"
+msgstr "포커스에 강조하기(KDE)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_20)
 #: qt4/config/qtcurveconfigbase.ui:1490 qt5/config/qtcurveconfigbase.ui:1499
@@ -3156,7 +3154,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:2179 qt5/config/qtcurveconfigbase.ui:2260
 #, kde-format
 msgid "Application icon:"
-msgstr "프로그램 아이콘:"
+msgstr "앱 아이콘:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, titlebarIcon)
 #: qt4/config/qtcurveconfigbase.ui:2186 qt5/config/qtcurveconfigbase.ui:2267
@@ -3166,8 +3164,8 @@ msgid ""
 "'Place on menu button' is selected, then the icon takes place of the menu "
 "button."
 msgstr ""
-"<p>프로그램의 아이콘이 제목 표시줄의 어디에 그려져야 할지를 조절합니다. 만약 "
-"'메뉴 버튼 위에 놓기'를 선택한다면 아이콘은 메뉴 버튼에 놓여집니다."
+"<p>앱의 아이콘이 제목 표시줄의 어디에 그려져야 할지를 조절합니다. 만약 '메뉴 "
+"버튼 위에 놓기'를 선택한다면 아이콘은 메뉴 버튼에 놓여집니다."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_colorTitlebarOnly)
 #: qt4/config/qtcurveconfigbase.ui:2200 qt5/config/qtcurveconfigbase.ui:2281
@@ -3785,8 +3783,8 @@ msgid ""
 "<p>If enabled, the theme will support embedding the menubar of KDE4 "
 "applications in Bespin's XBar."
 msgstr ""
-"<p>활성화되면 테마가 Bespin's XBar 안에 KDE4 프로그램의 메뉴 표시줄을 끼워 넣"
-"어 지원합니다."
+"<p>활성화되면 테마가 Bespin's XBar 안에 KDE4 앱의 메뉴 표시줄을 끼워 넣어 지"
+"원합니다."
 
 #. i18n: ectx: property (text), widget (QLabel, label_72)
 #: qt4/config/qtcurveconfigbase.ui:3108
@@ -4349,9 +4347,9 @@ msgid ""
 msgstr ""
 "<p>자동 기본 단추는 '기본' 단추가 될 수 있는 단추입니다. 즉, 사용자가 '리턴 "
 "키'를 누르면 반응합니다.</p>\n"
-"<p>Gtk2 프로그램에서 대부분의 '자동-기본' 단추는 표준 단추보다 큰 모양을 가집"
-"니다. QtCurve는 KDE4 프로그램에서 이것을 모방하려고 시도합니다. 이 옵션을 활"
-"성화하면 QtCurve가 비활성화 될 수 있습니다.</p>"
+"<p>Gtk2 앱에서 대부분의 '자동-기본' 단추는 표준 단추보다 큰 모양을 가집니다. "
+"QtCurve는 KDE4 앱에서 이것을 모방하려고 시도합니다. 이 옵션을 활성화하면 "
+"QtCurve가 비활성화 될 수 있습니다.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stdBtnSizes)
 #: qt4/config/qtcurveconfigbase.ui:3704
@@ -4372,8 +4370,8 @@ msgid ""
 "<p>Enable this option so that QtCurve can attempt to map from the KDE icon "
 "names to their Gtk equivalent for Gtk applications."
 msgstr ""
-"<p>이 옵션을 사용하면 QtCurve가 Gtk 프로그램에서 KDE 아이콘 이름을 Gtk 아이"
-"콘 이름으로 매핑합니다."
+"<p>이 옵션을 사용하면 QtCurve가 Gtk 앱에서 KDE 아이콘 이름을 Gtk 아이콘 이름"
+"으로 매핑합니다."
 
 #. i18n: ectx: property (text), widget (QCheckBox, mapKdeIcons)
 #: qt4/config/qtcurveconfigbase.ui:3721 qt5/config/qtcurveconfigbase.ui:3785
@@ -4429,9 +4427,8 @@ msgid ""
 "background gradient setting. </p><p>Use <i>gtk</i> to disable for all Gtk2 "
 "applications.</p>"
 msgstr ""
-"<p>배경 그라데이션 설정을 사용하지 않을 프로그램 이름의 리스트를 콤마로 분리"
-"합니다. </p> <p>모든 Gtk2 프로그램을 사용하지 않으려면 <i>gtk</i>를 입력합니"
-"다.</p>"
+"<p>배경 그라데이션 설정을 사용하지 않을 앱 이름의 리스트를 콤마로 분리합니"
+"다. </p> <p>모든 Gtk2 앱을 사용하지 않으려면 <i>gtk</i>를 입력합니다.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_82)
 #: qt4/config/qtcurveconfigbase.ui:3802 qt5/config/qtcurveconfigbase.ui:3866
@@ -4447,8 +4444,8 @@ msgid ""
 "background image setting. </p><p>Use <i>gtk</i> to disable for all Gtk2 "
 "applications.</p>"
 msgstr ""
-"<p>배경 이미지 설정을 사용하지 않을 프로그램 이름 목록을 쉼표로 분리합니다. "
-"</p> <p>모든 Gtk2 프로그램을 사용하지 않으려면 <i>gtk</i>를 입력합니다.</p>"
+"<p>배경 이미지 설정을 사용하지 않을 앱 이름 목록을 쉼표로 분리합니다. </p> "
+"<p>모든 Gtk2 앱을 사용하지 않으려면 <i>gtk</i>를 입력합니다.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_81b)
 #: qt4/config/qtcurveconfigbase.ui:3816 qt5/config/qtcurveconfigbase.ui:3880
@@ -4464,8 +4461,8 @@ msgid ""
 "background opacity setting. </p><p>Use <i>gtk</i> to disable for all Gtk2 "
 "applications.</p>"
 msgstr ""
-"<p>배경 투명도 설정을 사용하지 않을 프로그램 이름 목록을 쉼표로 분리합니다. "
-"</p> <p>모든 Gtk2 프로그램을 사용하지 않으려면 <i>gtk</i>를 입력하세요.</p>"
+"<p>배경 투명도 설정을 사용하지 않을 앱 이름 목록을 쉼표로 분리합니다. </p> "
+"<p>모든 Gtk2 앱을 사용하지 않으려면 <i>gtk</i>를 입력하세요.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_81mnu)
 #: qt4/config/qtcurveconfigbase.ui:3830 qt5/config/qtcurveconfigbase.ui:3894
@@ -4482,10 +4479,10 @@ msgid ""
 "alpha-channel to smoothly round tooltips and popup menus.</i></p><p>Use "
 "<i>gtk</i> to disable for all Gtk2 applications.</p>"
 msgstr ""
-"<p>메뉴 불투명도 설정을 사용하지 않을 프로그램 이름의 목록을 쉼표로 분리합니"
-"다.</p><p><i>Gtk2에서는 추가적으로 알파 채널을 사용하는 곳에 부드러운 둥근 풍"
-"선 도움말과 팝업 메뉴를 사용하지 않도록 합니다.</i></p><p>모든 Gtk2 프로그램"
-"을 사용하지 않으려면 <i>gtk</i>를 입력하십시오.</p>"
+"<p>메뉴 불투명도 설정을 사용하지 않을 앱 이름의 목록을 쉼표로 분리합니다.</"
+"p><p><i>Gtk2에서는 추가적으로 알파 채널을 사용하는 곳에 부드러운 둥근 풍선 도"
+"움말과 팝업 메뉴를 사용하지 않도록 합니다.</i></p><p>모든 Gtk2 앱을 사용하지 "
+"않으려면 <i>gtk</i>를 입력하십시오.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_82y)
 #: qt4/config/qtcurveconfigbase.ui:3844 qt5/config/qtcurveconfigbase.ui:3908
@@ -4501,8 +4498,8 @@ msgid ""
 "menu stripe setting. </p><p>Use <i>gtk</i> to disable for all Gtk2 "
 "applications.</p>"
 msgstr ""
-"<p>메뉴 줄무늬 설정을 사용하지 않을 프로그램 이름 목록을 쉼표로 분리합니다. "
-"</p> <p>모든 Gtk2 프로그램을 사용하지 않으려면 <i>gtk</i>를 입력합니다.</p>"
+"<p>메뉴 줄무늬 설정을 사용하지 않을 앱 이름 목록을 쉼표로 분리합니다. </p> "
+"<p>모든 Gtk2 앱을 사용하지 않으려면 <i>gtk</i>를 입력합니다.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_83)
 #: qt4/config/qtcurveconfigbase.ui:3858 qt5/config/qtcurveconfigbase.ui:3922
@@ -4517,8 +4514,8 @@ msgid ""
 "<p>Comma separated list of names of Qt4 applications which should not use "
 "the KDE4 file dialog."
 msgstr ""
-"<p>KDE4 파일 대화 상자를 사용하지 않을 Qt4 프로그램의 이름을 쉼표로 구분한 목"
-"록입니다."
+"<p>KDE4 파일 대화 상자를 사용하지 않을 Qt4 앱의 이름을 쉼표로 구분한 목록입니"
+"다."
 
 #. i18n: ectx: property (text), widget (QLabel, label_83a)
 #: qt4/config/qtcurveconfigbase.ui:3872 qt5/config/qtcurveconfigbase.ui:3936
@@ -4536,9 +4533,8 @@ msgid ""
 "always manually saved.</p>"
 msgstr ""
 "<p>QtCurve에서 메뉴 표시줄 숨김 여부를 수동으로 저장해야 하는 쉼표로 구분된 "
-"KDE4 프로그램 목록입니다.</p><p>모든 KDE 프로그램을 지정하려면 <i>kde</i>를 "
-"입력하십시오. Gtk2 프로그램의 메뉴 표시줄 상태는 항상 수동으로 저장됩니다.</"
-"p>"
+"KDE4 앱 목록입니다.</p><p>모든 KDE 앱을 지정하려면 <i>kde</i>를 입력하십시"
+"오. Gtk2 앱의 메뉴 표시줄 상태는 항상 수동으로 저장됩니다.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_89)
 #: qt4/config/qtcurveconfigbase.ui:3886 qt5/config/qtcurveconfigbase.ui:3950
@@ -4555,10 +4551,9 @@ msgid ""
 "to set for all KDE applications. The statusbar state of Gtk2 applications is "
 "always manually saved.</p>"
 msgstr ""
-"<p>QtCurve가 상태 표시줄의 표시 여부를 수동으로 저장해야 하는 KDE4 프로그램 "
-"이름 목록을 쉼표로 분리합니다.</p> <p>모든 KDE 프로그램에 대해서 설정하려면 "
-"<i>kde</i>를 입력합니다. Gtk2 프로그램의 상태 표시줄 상태는 항상 수동적으로 "
-"저장됩니다.</p>"
+"<p>QtCurve가 상태 표시줄의 표시 여부를 수동으로 저장해야 하는 KDE4 앱 이름 목"
+"록을 쉼표로 분리합니다.</p> <p>모든 KDE 앱에 대해서 설정하려면 <i>kde</i>를 "
+"입력합니다. Gtk2 앱의 상태 표시줄 상태는 항상 수동적으로 저장됩니다.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_89a)
 #: qt4/config/qtcurveconfigbase.ui:3900 qt5/config/qtcurveconfigbase.ui:3964
@@ -4577,9 +4572,9 @@ msgid ""
 "effect.</p></body></html>"
 msgstr ""
 "<html><head/><body><p>QtCurve에 네이티브 메뉴 표시줄을 사용하지 않도록 지시해"
-"야 하는 KDE/Qt 프로그램 이름의 쉼표로 구분된 목록입니다.</p><p>이 기능은 Mac "
-"OS X/macOS에서만 효과가 있으며 KF5 및 Qt5 프로그램과 함께 사용하는 것입니다. "
-"변경 사항을 적용하려면 프로그램을 다시 시작해야 합니다.</p></body></html>"
+"야 하는 KDE/Qt 앱 이름의 쉼표로 구분된 목록입니다.</p><p>이 기능은 Mac OS X/"
+"macOS에서만 효과가 있으며 KF5 및 Qt5 앱과 함께 사용하는 것입니다. 변경 사항"
+"을 적용하려면 앱을 다시 시작해야 합니다.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_101)
 #: qt4/config/qtcurveconfigbase.ui:3936 qt5/config/qtcurveconfigbase.ui:4000
@@ -4598,11 +4593,10 @@ msgid ""
 "<p><code>QtCurve: Application name: \"firefox\"</code></p></i>"
 msgstr ""
 "<i><p>위 목록에 실행 파일의 이름을 입력해야 합니다. 예를 들어 Google 어스에 "
-"대해서는 실제로 \"googleearth-bin\" 입니다. 만일, 모든 Gtk2 프로그램 또는 모"
-"든 KDE/Qt 프로그램에 대해 사용하지 않으려면 \"gtk2\" 또는 \"kde\"를 사용합니"
-"다.</p>\n"
-"<p>QtCurve가 감지할 이름을 결정하려면, 다음 문장을 사용하여 konsole 창에서 프"
-"로그램을 시작할 수 있습니다. (예는 Firefox에 대한 것입니다):</p>\n"
+"대해서는 실제로 \"googleearth-bin\" 입니다. 만일, 모든 Gtk2 앱 또는 모든 KDE/"
+"Qt 앱에 대해 사용하지 않으려면 \"gtk2\" 또는 \"kde\"를 사용합니다.</p>\n"
+"<p>QtCurve가 감지할 이름을 결정하려면, 다음 문장을 사용하여 konsole 창에서 앱"
+"을 시작할 수 있습니다. (예는 Firefox에 대한 것입니다):</p>\n"
 "<p><code>QTCURVE DEBUG=1 firefox</code></p>\n"
 "<p>이것은 QtCurve가 다음과 같이 감지된 프로세스 이름을 표시하도록 합니다:</"
 "p>\n"
@@ -4617,15 +4611,15 @@ msgid ""
 "used by KDE3 applications. This creates the relevant entries within the KDE3 "
 "kdeglobals file."
 msgstr ""
-"<p>현재 색 팔레트와 글꼴 설정을 KDE3 프로그램에서 사용할 수 있도록 내보냅니"
-"다. KDE3 kdeglobal 파일 내에서 상응하는 항목을 생성합니다."
+"<p>현재 색 팔레트와 글꼴 설정을 KDE3 앱에서 사용할 수 있도록 내보냅니다. "
+"KDE3 kdeglobal 파일 내에서 상응하는 항목을 생성합니다."
 
 #. i18n: ectx: property (text), widget (KPushButton, exportKde3Button)
 #. i18n: ectx: property (text), widget (QPushButton, exportKde3Button)
 #: qt4/config/qtcurveconfigbase.ui:3956 qt5/config/qtcurveconfigbase.ui:4020
 #, kde-format
 msgid "Export colors and fonts for KDE3 applications..."
-msgstr "KDE3 프로그램으로 색상과 글꼴 내보내기..."
+msgstr "KDE3 앱으로 색상과 글꼴 내보내기..."
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, exportQt3Button)
 #. i18n: ectx: property (toolTip), widget (QPushButton, exportQt3Button)
@@ -4636,15 +4630,15 @@ msgid ""
 "used by pure-Qt3 applications. This creates the relevant entries within the "
 "Qt3 ~/.qt/qtrc file."
 msgstr ""
-"<p>현재 색 팔레트와 글꼴 설정을 순수한 Qt3 프로그램에서 사용할 수 있도록 내보"
-"냅니다. Qt3 ~/.qt/qtrc 파일 내에서 상응하는 항목을 생성합니다."
+"<p>현재 색 팔레트와 글꼴 설정을 순수한 Qt3 앱에서 사용할 수 있도록 내보냅니"
+"다. Qt3 ~/.qt/qtrc 파일 내에서 상응하는 항목을 생성합니다."
 
 #. i18n: ectx: property (text), widget (KPushButton, exportQt3Button)
 #. i18n: ectx: property (text), widget (QPushButton, exportQt3Button)
 #: qt4/config/qtcurveconfigbase.ui:3966 qt5/config/qtcurveconfigbase.ui:4030
 #, kde-format
 msgid "Export colors and fonts for pure-Qt3 applications..."
-msgstr "순수한 Qt3 프로그램으로 색상과 글꼴 내보내기..."
+msgstr "순수한 Qt3 앱으로 색상과 글꼴 내보내기..."
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, gradCombo)
 #: qt4/config/qtcurveconfigbase.ui:3990 qt5/config/qtcurveconfigbase.ui:4054
@@ -5167,7 +5161,7 @@ msgstr "S"
 #: qt5/kwinconfig/qtcurvekwinconfig.cpp:44
 #, kde-format
 msgid "Focus"
-msgstr "초점"
+msgstr "포커스"
 
 #: qt4/kwinconfig/qtcurvekwinconfig.cpp:46
 #: qt5/kwinconfig/qtcurvekwinconfig.cpp:45
@@ -5655,9 +5649,9 @@ msgid ""
 msgstr ""
 "<p>자동 기본 단추는 '기본' 단추가 될 수 있는 단추입니다. 즉, 사용자가 '리턴 "
 "키'를 누르면 반응합니다.</p>\n"
-"<p>Gtk2 프로그램에서 대부분의 '자동 기본' 단추는 표준 단추보다 큰 모양을 가집"
-"니다. QtCurve는 KDE 프로그램에서 이것을 모방하려고 시도합니다. 이 옵션을 활성"
-"화하면 QtCurve가 비활성화 될 수 있습니다.</p>"
+"<p>Gtk2 앱에서 대부분의 '자동 기본' 단추는 표준 단추보다 큰 모양을 가집니다. "
+"QtCurve는 KDE 앱에서 이것을 모방하려고 시도합니다. 이 옵션을 활성화하면 "
+"QtCurve가 비활성화 될 수 있습니다.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stdBtnSizes)
 #: qt5/config/qtcurveconfigbase.ui:3768
@@ -5672,8 +5666,8 @@ msgid ""
 "<p>Comma separated list of names of Qt4 applications which should not use "
 "the KDE file dialog."
 msgstr ""
-"<p>KDE 파일 대화 상자를 사용하지 않을 Qt4 프로그램의 이름을 쉼표로 구분한 목"
-"록입니다."
+"<p>KDE 파일 대화 상자를 사용하지 않을 Qt4 앱의 이름을 쉼표로 구분한 목록입니"
+"다."
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, menubarApps)
 #: qt5/config/qtcurveconfigbase.ui:3943
@@ -5685,8 +5679,8 @@ msgid ""
 "always manually saved.</p>"
 msgstr ""
 "<p>QtCurve에서 메뉴 표시줄 숨김 여부를 수동으로 저장해야 하는 쉼표로 구분된 "
-"KDE 프로그램 목록입니다.</p><p>모든 KDE 프로그램을 지정하려면 <i>kde</i>를 입"
-"력하십시오. Gtk2 프로그램의 메뉴 표시줄 상태는 항상 수동으로 저장됩니다.</p>"
+"KDE 앱 목록입니다.</p><p>모든 KDE 앱을 지정하려면 <i>kde</i>를 입력하십시오. "
+"Gtk2 앱의 메뉴 표시줄 상태는 항상 수동으로 저장됩니다.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, statusbarApps)
 #: qt5/config/qtcurveconfigbase.ui:3957
@@ -5698,8 +5692,8 @@ msgid ""
 "always manually saved.</p>"
 msgstr ""
 "<p>QtCurve에서 상태 표시줄 숨김 여부를 수동으로 저장해야 하는 쉼표로 구분된 "
-"KDE 프로그램 목록입니다.</p><p>모든 KDE 프로그램을 지정하려면 <i>kde</i>를 입"
-"력하십시오. Gtk2 프로그램의 상태 표시줄 상태는 항상 수동으로 저장됩니다.</p>"
+"KDE 앱 목록입니다.</p><p>모든 KDE 앱을 지정하려면 <i>kde</i>를 입력하십시오. "
+"Gtk2 앱의 상태 표시줄 상태는 항상 수동으로 저장됩니다.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, nonnativeMenubarApps)
 #: qt5/config/qtcurveconfigbase.ui:3971
@@ -5714,11 +5708,10 @@ msgid ""
 "body></html>"
 msgstr ""
 "<html><head/><body><p>QtCurve에서 Qt에게 네이티브 메뉴 표시줄을 사용하지 않도"
-"록 지시해야 하는 쉼표로 구분된 KDE/Qt 프로그램 목록입니다.</p><p>Mac 환경에"
-"서 일부 프로그램의 메뉴 항목이 Mac 스타일 최상위 메뉴 표시줄에 있을 때 예상"
-"한 대로 작동하지 않지만 팝업 메뉴/콘텍스트 메뉴에서는 올바르게 작동하는 경우 "
-"여기에 추가해 보십시오. 변경 사항을 적용하려면 프로그램을 다시 시작해야 합니"
-"다.</p></body></html>"
+"록 지시해야 하는 쉼표로 구분된 KDE/Qt 앱 목록입니다.</p><p>Mac 환경에서 일부 "
+"앱의 메뉴 항목이 Mac 스타일 최상위 메뉴 표시줄에 있을 때 예상한 대로 작동하"
+"지 않지만 팝업 메뉴/콘텍스트 메뉴에서는 올바르게 작동하는 경우 여기에 추가해 "
+"보십시오. 변경 사항을 적용하려면 앱을 다시 시작해야 합니다.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, RadioButton1)
 #: qt5/config/stylepreview.ui:79
