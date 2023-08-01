@@ -1,13 +1,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2014, 2015, 2016, 2017, 2020, 2021.
+# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2014, 2015, 2016, 2017, 2020, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-17 00:49+0000\n"
-"PO-Revision-Date: 2021-07-04 09:47+0200\n"
+"PO-Revision-Date: 2023-07-31 11:11+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -5736,17 +5736,16 @@ msgid "As per active windows"
 msgstr "Enligt aktiva fönster"
 
 #: qt5/config/qtcurveconfig.cpp:2055 qt5/config/qtcurveconfig.cpp:2108
-#, fuzzy, kde-format
-#| msgid "Export..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Export"
-msgstr "Exportera..."
+msgstr "Exportera"
 
 #: qt5/config/qtcurveconfig.cpp:2173
 #, kde-format
 msgctxt "@action:button"
 msgid "Set"
-msgstr ""
+msgstr "Ställ in"
 
 #: qt5/config/qtcurveconfig.cpp:2683
 #, kde-format
