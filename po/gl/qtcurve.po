@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-17 00:49+0000\n"
-"PO-Revision-Date: 2023-06-17 14:54+0200\n"
+"PO-Revision-Date: 2023-08-06 05:22+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -123,7 +123,7 @@ msgstr "No bordo da xanela:"
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:120
 #, kde-format
 msgid "Enabled"
-msgstr "Activado"
+msgstr "Activado."
 
 #: qt4/config/imagepropertiesdialog.cpp:39
 #: qt5/config/imagepropertiesdialog.cpp:42
@@ -293,7 +293,7 @@ msgstr "Gradación personalizada %1"
 #: qt5/config/qtcurveconfig.cpp:574 qt5/config/qtcurveconfigbase.ui:1049
 #, kde-format
 msgid "Flat"
-msgstr "Simple"
+msgstr "Simple."
 
 #: qt4/config/qtcurveconfig.cpp:574 qt4/config/qtcurveconfig.cpp:849
 #: qt5/config/qtcurveconfig.cpp:575 qt5/config/qtcurveconfig.cpp:850
@@ -361,7 +361,7 @@ msgstr "Esvaer (menús emerxentes)"
 #: qt5/config/qtcurveconfig.cpp:592 qt5/config/qtcurveconfigbase.ui:1107
 #, kde-format
 msgid "Striped"
-msgstr "Riscado"
+msgstr "Riscado."
 
 #: qt4/config/qtcurveconfig.cpp:594 qt4/config/qtcurveconfig.cpp:679
 #: qt5/config/qtcurveconfig.cpp:595 qt5/config/qtcurveconfig.cpp:680
@@ -611,7 +611,7 @@ msgstr "Triangulares"
 #: qt5/config/qtcurveconfig.cpp:708 qt5/config/qtcurveconfigbase.ui:2396
 #, kde-format
 msgid "Circular"
-msgstr "Circular"
+msgstr "Circular."
 
 #: qt4/config/qtcurveconfig.cpp:712 qt5/config/qtcurveconfig.cpp:713
 #, kde-format
@@ -950,7 +950,7 @@ msgstr "Controis e barras de desprazamento"
 #: qt5/config/qtcurveconfig.cpp:1677 qt5/config/qtcurveconfigbase.ui:493
 #, kde-format
 msgid "Progressbars"
-msgstr "Barras de progreso"
+msgstr "Barras de progreso."
 
 #: qt4/config/qtcurveconfig.cpp:1742 qt5/config/qtcurveconfig.cpp:1678
 #, kde-format
@@ -1025,7 +1025,7 @@ msgstr "Barras do menú"
 #: qt5/config/qtcurveconfig.cpp:1701 qt5/config/qtcurveconfigbase.ui:568
 #, kde-format
 msgid "Popup menus"
-msgstr "Menús despregábeis"
+msgstr "Menús despregábeis."
 
 #: qt4/config/qtcurveconfig.cpp:1767 qt5/config/qtcurveconfig.cpp:1702
 #, kde-format
@@ -1543,7 +1543,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:342 qt5/config/qtcurveconfigbase.ui:351
 #, kde-format
 msgid "Etch entries and scrollviews "
-msgstr "Entradas e as vistas con desprazamento de gravado"
+msgstr "Entradas e as vistas con desprazamento de gravado."
 
 #. i18n: ectx: property (text), widget (QLabel, label_25)
 #: qt4/config/qtcurveconfigbase.ui:349 qt5/config/qtcurveconfigbase.ui:358
@@ -1586,7 +1586,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:389 qt5/config/qtcurveconfigbase.ui:398
 #, kde-format
 msgid "'V' style arrows"
-msgstr "Frechas de «V»"
+msgstr "Frechas de «V»."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stdSidebarButtons)
 #: qt4/config/qtcurveconfigbase.ui:396 qt5/config/qtcurveconfigbase.ui:405
@@ -1756,7 +1756,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:514 qt5/config/qtcurveconfigbase.ui:523
 #, kde-format
 msgid "Tab widget frames"
-msgstr "Marcos de trebellos de separadores"
+msgstr "Marcos de trebellos de separadores."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareFrame)
 #: qt4/config/qtcurveconfigbase.ui:521 qt5/config/qtcurveconfigbase.ui:530
@@ -1778,7 +1778,7 @@ msgstr "Marcos xerais."
 #: qt4/config/qtcurveconfigbase.ui:531 qt5/config/qtcurveconfigbase.ui:540
 #, kde-format
 msgid "Sliders"
-msgstr "Controis esvaradíos"
+msgstr "Controis esvaradíos."
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareScrollbarSlider)
 #: qt4/config/qtcurveconfigbase.ui:538 qt5/config/qtcurveconfigbase.ui:547
@@ -1796,7 +1796,7 @@ msgstr "Bordos das xanelas (usará unha arredondamento suave)."
 #: qt4/config/qtcurveconfigbase.ui:552 qt5/config/qtcurveconfigbase.ui:561
 #, kde-format
 msgid "Tooltips"
-msgstr "Mensaxes"
+msgstr "Mensaxes."
 
 #. i18n: ectx: property (text), widget (QLabel, label_47a)
 #: qt4/config/qtcurveconfigbase.ui:575 qt5/config/qtcurveconfigbase.ui:584
@@ -1974,7 +1974,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:715
 #, kde-format
 msgid "Centred (KDE4 only)"
-msgstr "Centrado (só KDE4)"
+msgstr "Centrado (só KDE4)."
 
 #. i18n: ectx: property (text), widget (QLabel, label_46)
 #: qt4/config/qtcurveconfigbase.ui:726 qt5/config/qtcurveconfigbase.ui:735
@@ -2227,7 +2227,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:977 qt5/config/qtcurveconfigbase.ui:986
 #, kde-format
 msgid "Fill"
-msgstr "Recheo"
+msgstr "Recheo."
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, sliderFill)
 #: qt4/config/qtcurveconfigbase.ui:984 qt5/config/qtcurveconfigbase.ui:993
@@ -2271,7 +2271,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1008 qt5/config/qtcurveconfigbase.ui:1017
 #, kde-format
 msgid "Thin"
-msgstr "Fino"
+msgstr "Fino."
 
 #. i18n: ectx: property (text), widget (QCheckBox, borderSbarGroove)
 #. i18n: ectx: property (text), widget (QCheckBox, borderSelection)
@@ -2279,7 +2279,7 @@ msgstr "Fino"
 #: qt5/config/qtcurveconfigbase.ui:1024 qt5/config/qtcurveconfigbase.ui:1434
 #, kde-format
 msgid "Bordered"
-msgstr "Con bordos"
+msgstr "Con bordos."
 
 #. i18n: ectx: property (text), widget (QLabel, label_14)
 #: qt4/config/qtcurveconfigbase.ui:1022 qt5/config/qtcurveconfigbase.ui:1031
@@ -2755,7 +2755,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1507 qt5/config/qtcurveconfigbase.ui:1516
 #, kde-format
 msgid "Highlight"
-msgstr "Realzar"
+msgstr "Realzar."
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, colorSelTab)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, colorSelTab)
@@ -3147,7 +3147,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:2077 qt5/config/qtcurveconfigbase.ui:2158
 #, kde-format
 msgid "Button like"
-msgstr "Como un botón"
+msgstr "Como un botón."
 
 #. i18n: ectx: property (text), widget (QLabel, label_87)
 #: qt4/config/qtcurveconfigbase.ui:2084 qt5/config/qtcurveconfigbase.ui:2165
@@ -3940,7 +3940,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3129 qt5/config/qtcurveconfigbase.ui:3193
 #, kde-format
 msgid "Border"
-msgstr "Bordo"
+msgstr "Bordo."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, useHighlightForMenu)
 #: qt4/config/qtcurveconfigbase.ui:3136 qt5/config/qtcurveconfigbase.ui:3200
@@ -3968,7 +3968,7 @@ msgstr "<p>Active esta opción para reducir a altura dos elementos de menú."
 #: qt4/config/qtcurveconfigbase.ui:3149 qt5/config/qtcurveconfigbase.ui:3213
 #, kde-format
 msgid "Thinner"
-msgstr "Máis finos"
+msgstr "Máis finos."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, menuIcons)
 #: qt4/config/qtcurveconfigbase.ui:3156 qt5/config/qtcurveconfigbase.ui:3220
@@ -4002,7 +4002,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3169 qt5/config/qtcurveconfigbase.ui:3233
 #, kde-format
 msgid "Check marks only"
-msgstr "Só caixas de marcas"
+msgstr "Só caixas de marcas."
 
 #. i18n: ectx: property (text), widget (QLabel, label_26)
 #: qt4/config/qtcurveconfigbase.ui:3176 qt5/config/qtcurveconfigbase.ui:3240
@@ -4264,7 +4264,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3537 qt5/config/qtcurveconfigbase.ui:3601
 #, kde-format
 msgid "Visible"
-msgstr "Visíbel"
+msgstr "Visíbel."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, statusbarHiding_keyboard)
 #: qt4/config/qtcurveconfigbase.ui:3551 qt5/config/qtcurveconfigbase.ui:3615
@@ -5072,7 +5072,7 @@ msgstr "Botón de opción"
 #: qt4/config/stylepreview.ui:106 qt5/config/stylepreview.ui:106
 #, kde-format
 msgid "Checkbox"
-msgstr "Caixa para marcar"
+msgstr "Caixa para marcar."
 
 #. i18n: ectx: property (text), item, widget (QComboBox, ComboBox1)
 #: qt4/config/stylepreview.ui:178 qt5/config/stylepreview.ui:178
@@ -5807,7 +5807,7 @@ msgstr "Gardar como"
 #: qt5/config/qtcurveconfigbase.ui:724
 #, kde-format
 msgid "Centred (KDE only)"
-msgstr "Centrado (só KDE)"
+msgstr "Centrado (só KDE)."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gtkComboMenus)
 #: qt5/config/qtcurveconfigbase.ui:796
