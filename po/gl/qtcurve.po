@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-17 00:49+0000\n"
-"PO-Revision-Date: 2023-08-06 05:22+0200\n"
+"PO-Revision-Date: 2023-09-03 13:32+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -809,15 +809,17 @@ msgstr "Moi grande (%1 píxeles)"
 msgid "Titlebar only"
 msgstr "Só na barra do título"
 
+# skip-rule: trasno-menu-bar
 #: qt4/config/qtcurveconfig.cpp:817 qt5/config/qtcurveconfig.cpp:818
 #, kde-format
 msgid "Titlebar and menubar"
-msgstr "Na barra do título e na do menú"
+msgstr "Na barra de título e na de menú"
 
+# skip-rule: trasno-menu-bar
 #: qt4/config/qtcurveconfig.cpp:818 qt5/config/qtcurveconfig.cpp:819
 #, kde-format
 msgid "Titlebar, menubar, and toolbars"
-msgstr "Na barra do título, na do menú e nas de ferramentas"
+msgstr "Na barra de título, na de menú e nas de ferramentas"
 
 #: qt4/config/qtcurveconfig.cpp:819 qt5/config/qtcurveconfig.cpp:820
 #, kde-format
@@ -1018,7 +1020,7 @@ msgstr "Cores dos botóns das xanelas"
 #: qt4/config/qtcurveconfig.cpp:1765 qt5/config/qtcurveconfig.cpp:1700
 #, kde-format
 msgid "Menubars"
-msgstr "Barras do menú"
+msgstr "Barras de menú"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squarePopupMenus)
 #: qt4/config/qtcurveconfig.cpp:1766 qt4/config/qtcurveconfigbase.ui:559
@@ -1126,10 +1128,10 @@ msgid ""
 msgstr ""
 "<p>Quere definir os seguintes elementos da configuración para que as barras "
 "do título e do menú das xanelas aparezan fusionadas?</p> <ul> <li>Usar «%1» "
-"para a gradación da barra do menú e a do título (tanto cando está activa "
+"para a gradación da barra de menú e a do título (tanto cando está activa "
 "como cando non).</li> <li>Desactivar a opción de «Fusionar a barra do título "
-"coa cor de fondo».</li > <li>Definir a coloración da barra do menú como «%2»."
-"</li> <li>Permitir arrastrar a xanela pola barra do menú.</li>"
+"coa cor de fondo».</li > <li>Definir a coloración da barra de menú como «%2»."
+"</li> <li>Permitir arrastrar a xanela pola barra de menú.</li>"
 
 #: qt4/config/qtcurveconfig.cpp:2260 qt5/config/qtcurveconfig.cpp:2241
 #, kde-format
@@ -1597,9 +1599,9 @@ msgid ""
 "in a more flat style with the active tab colored with the highlight color.</"
 "p>"
 msgstr ""
-"<p>Seleccione isto para que os botóns laterais de Konqueror, Kate, Kaffeine, "
-"KTorrent, etc. se debuxen como botóns normais, senón debuxaranse cun estilo "
-"máis plano, co separador activo colorado coa cor de realce.</p>"
+"<p>Seleccione isto para que os botóns da barra lateral de Konqueror, Kate, "
+"Kaffeine, KTorrent, etc. se debuxen como botóns normais, senón debuxaranse "
+"cun estilo máis plano, coa lapela activa colorada coa cor de realce.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stdSidebarButtons)
 #: qt4/config/qtcurveconfigbase.ui:399 qt5/config/qtcurveconfigbase.ui:408
@@ -1642,8 +1644,8 @@ msgid ""
 "<p>Controls whether the internal 3d part of frames, etc., should be drawn.</"
 "p>"
 msgstr ""
-"<p>Marque esta opción para que se debuxen as partes internas en tres "
-"dimensións dos marcos, etc.</p>"
+"<p>Controla se se debuxan as partes internas en tres dimensións dos marcos, "
+"etc.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, thin_frames)
 #: qt4/config/qtcurveconfigbase.ui:429 qt5/config/qtcurveconfigbase.ui:438
@@ -1686,9 +1688,8 @@ msgid ""
 "<p>Controls whether text entry fields should respect the general round "
 "setting, or always be square.</p>"
 msgstr ""
-"<p>Marque esta opción para que os campos de introdución de texto respecten a "
-"opción xeral de arredondamento. Se non marca esta opción, serán sempre "
-"rectangulares.</p>"
+"<p>Controla se os campos de introdución de texto respectan a opción xeral de "
+"arredondamento ou son sempre rectangulares.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareEntry)
 #: qt4/config/qtcurveconfigbase.ui:474 qt5/config/qtcurveconfigbase.ui:483
@@ -1703,9 +1704,8 @@ msgid ""
 "<p>Controls whether progress bars should respect the general round setting, "
 "or always be square.</p>"
 msgstr ""
-"<p>Marque esta opción para que as barras de progreso respecten a opción "
-"xeral de arredondamento. Se non marca esta opción, serán sempre "
-"rectangulares.</p>"
+"<p>Controla se as barras de progreso respectan a opción xeral de "
+"arredondamento ou son sempre rectangulares.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:491 qt5/config/qtcurveconfigbase.ui:500
@@ -1714,9 +1714,8 @@ msgid ""
 "<p>Controls whether the frame of a scrollview should respect the general "
 "round setting, or always be square.</p>"
 msgstr ""
-"<p>Marque esta opción para que os marcos das vistas con desprazamento "
-"respecten a opción xeral de arredondamento. Se non marca esta opción, serán "
-"sempre rectangulares.</p>"
+"<p>Controla se os marcos das vistas con desprazamento respectas a opción "
+"xeral de arredondamento ou son sempre rectangulares.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:494 qt5/config/qtcurveconfigbase.ui:503
@@ -1765,8 +1764,8 @@ msgid ""
 "<p>Controls whether general frames should respect the general round setting, "
 "or always be square.</p>"
 msgstr ""
-"<p>Marque esta opción para que os marcos xerais respecten a opción xeral de "
-"arredondamento. Se non marca esta opción, serán sempre rectangulares.</p>"
+"<p>Controla se os marcos xerais respectas a opción xeral de arredondamento, "
+"ou son sempre rectangulares.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareFrame)
 #: qt4/config/qtcurveconfigbase.ui:524 qt5/config/qtcurveconfigbase.ui:533
@@ -1967,7 +1966,7 @@ msgid ""
 "<p>Controls whether a group boxe's label should be centred, or left/right "
 "aligned.</p>"
 msgstr ""
-"<p>Determina se o aliñamento da etiqueta das caixas de agrupamento é "
+"<p>Controla se o aliñamento da etiqueta das caixas de agrupamento é "
 "centrado, á esquerda ou á dereita.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gbLabel_centred)
@@ -2014,7 +2013,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:756 qt5/config/qtcurveconfigbase.ui:765
 #, kde-format
 msgid "Draw splitter"
-msgstr "Debuxar un separador."
+msgstr "Debuxar o divisor."
 
 #. i18n: ectx: property (text), widget (QLabel, label_64)
 #: qt4/config/qtcurveconfigbase.ui:763 qt5/config/qtcurveconfigbase.ui:772
@@ -2119,8 +2118,7 @@ msgstr "Marcas:"
 #, kde-format
 msgid "<p>Sets the marking used to indicate that the widget is a splitter.</p>"
 msgstr ""
-"<p>Define as marcas que se usan para indicar que o trebello é un separador.</"
-"p>"
+"<p>Define as marcas que se usan para indicar que o control é un divisor.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_69)
 #. i18n: ectx: property (text), widget (QLabel, label_54)
@@ -2138,7 +2136,7 @@ msgid ""
 "<p>Defines by how much the theme should brighten (or darken) the background "
 "of the splitter when the mouse hovers over.</p>"
 msgstr ""
-"<p>Define canto se aclara ou escurece o fondo do separador cando o rato está "
+"<p>Define canto se aclara ou escurece o fondo do divisor cando o rato está "
 "sobre el.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, sliderAppearance)
@@ -2285,7 +2283,7 @@ msgstr "Con bordos."
 #: qt4/config/qtcurveconfigbase.ui:1022 qt5/config/qtcurveconfigbase.ui:1031
 #, kde-format
 msgid "Scrollbar buttons:"
-msgstr "Botóns da barra de ferramentas:"
+msgstr "Botóns da barra de desprazamento:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, scrollbarType)
 #: qt4/config/qtcurveconfigbase.ui:1030 qt5/config/qtcurveconfigbase.ui:1039
@@ -2703,9 +2701,9 @@ msgid ""
 "<p>Controls whether the scrollbars should be detached from the scrollview (i."
 "e. on the outside), or embedded within the scrollview."
 msgstr ""
-"<p>Marque esta opción para que as barras de desprazamento estean "
-"desprendidas das vistas con desprazamento, fóra delas. Se non a marca, as "
-"barras de desprazamento forman parte das vistas con desprazamento."
+"<p>Controla se as barras de desprazamento están desprendidas das vistas con "
+"desprazamento, é dicir fóra delas, ou se forman parte das vistas con "
+"desprazamento."
 
 #. i18n: ectx: property (text), widget (QCheckBox, gtkScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:1456 qt5/config/qtcurveconfigbase.ui:1465
@@ -3313,14 +3311,14 @@ msgid ""
 "<p>If enabled, the configured menubar color will be used for windows that "
 "have menubars."
 msgstr ""
-"<p>Active esta opción para usar a cor configurada para a barra do menú para "
-"as xanelas que teñan barras do menú."
+"<p>Active esta opción para usar a cor configurada para a barra de menú para "
+"as xanelas que teñan barras de menú."
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_menuColor)
 #: qt4/config/qtcurveconfigbase.ui:2233 qt5/config/qtcurveconfigbase.ui:2314
 #, kde-format
 msgid "Use menubar color"
-msgstr "Usar a cor da barra do menú."
+msgstr "Usar a cor da barra de menú."
 
 #. i18n: ectx: property (text), widget (QLabel, label_55)
 #: qt4/config/qtcurveconfigbase.ui:2240 qt5/config/qtcurveconfigbase.ui:2321
@@ -3717,7 +3715,7 @@ msgstr "Manter debaixo:"
 #: qt4/config/qtcurveconfigbase.ui:2912 qt5/config/qtcurveconfigbase.ui:2993
 #, kde-format
 msgid "<p>Defines the gradient used for the background of menubars."
-msgstr "<p>Define a gradación para o fondo da barra do menú."
+msgstr "<p>Define a gradación para o fondo da barra de menú."
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, menubarBlend)
 #. i18n: ectx: property (toolTip), widget (QPushButton, menubarBlend)
@@ -3741,7 +3739,7 @@ msgstr "Fusionar coa barra do título"
 #: qt4/config/qtcurveconfigbase.ui:2939 qt5/config/qtcurveconfigbase.ui:3020
 #, kde-format
 msgid "<p>Defines the color applied to the background of menubars."
-msgstr "<p>Define a cor para o fondo da barra do menú."
+msgstr "<p>Define a cor para o fondo da barra de menú."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, shadeMenubarOnlyWhenActive)
 #: qt4/config/qtcurveconfigbase.ui:2962 qt5/config/qtcurveconfigbase.ui:3043
@@ -3763,7 +3761,7 @@ msgstr "Só na xanela activa."
 #: qt4/config/qtcurveconfigbase.ui:2972 qt5/config/qtcurveconfigbase.ui:3053
 #, kde-format
 msgid "Menubar text:"
-msgstr "Texto da barra do menú:"
+msgstr "Texto da barra de menú:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, customMenuTextColor)
 #: qt4/config/qtcurveconfigbase.ui:2985 qt5/config/qtcurveconfigbase.ui:3066
@@ -3774,7 +3772,7 @@ msgid ""
 msgstr ""
 "<p>Active esta opción para que se usen as seguintes dúas caixas de cores "
 "para definir a cor de texto que se usa para os elementos normais e os "
-"seleccionados da barra do menú."
+"seleccionados da barra de menú."
 
 #. i18n: ectx: property (text), widget (QCheckBox, customMenuTextColor)
 #: qt4/config/qtcurveconfigbase.ui:2988 qt5/config/qtcurveconfigbase.ui:3069
@@ -3786,26 +3784,26 @@ msgstr "Cores personalizadas (normais ou seleccionados):"
 #: qt4/config/qtcurveconfigbase.ui:3001 qt5/config/qtcurveconfigbase.ui:3082
 #, kde-format
 msgid "<p>Sets the text color of normal menubar items."
-msgstr "<p>Define a cor do texto nos elementos normais da barra do menú."
+msgstr "<p>Define a cor do texto nos elementos normais da barra de menú."
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, customMenuSelTextColor)
 #: qt4/config/qtcurveconfigbase.ui:3017 qt5/config/qtcurveconfigbase.ui:3098
 #, kde-format
 msgid "<p>Sets the text color of selected menubar items."
-msgstr "<p>Define a cor do texto nos elementos seleccionados da barra do menú."
+msgstr "<p>Define a cor do texto nos elementos seleccionados da barra de menú."
 
 #. i18n: ectx: property (text), widget (QLabel, label_59)
 #: qt4/config/qtcurveconfigbase.ui:3027 qt5/config/qtcurveconfigbase.ui:3108
 #, kde-format
 msgid "Menubar items:"
-msgstr "Elementos da barra do menú:"
+msgstr "Elementos da barra de menú:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, menuitemAppearance)
 #: qt4/config/qtcurveconfigbase.ui:3034 qt5/config/qtcurveconfigbase.ui:3115
 #, kde-format
 msgid "<p>Defines the gradient to be applied to selected menubar items."
 msgstr ""
-"<p>Define a gradación que se aplica aos elementos seleccionados da barra do "
+"<p>Define a gradación que se aplica aos elementos seleccionados da barra de "
 "menú."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, menubarMouseOver)
@@ -3815,7 +3813,7 @@ msgid ""
 "<p>If enabled, menubar items will have their background gradient applied "
 "when the mouse hovers over them."
 msgstr ""
-"<p>Active esta opción para que aos elementos da barra do menú se lles "
+"<p>Active esta opción para que aos elementos da barra de menú se lles "
 "aplique a súa gradación de fondo cando teñan o rato por riba."
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarMouseOver)
@@ -3833,7 +3831,7 @@ msgid ""
 "shade of the background color."
 msgstr ""
 "<p>Marque esta opción para que cando o rato estea por riba dun elemento da "
-"barra do menú (e a opción «Activar cando o rato estea por riba» estea "
+"barra de menú (e a opción «Activar cando o rato estea por riba» estea "
 "activada) tamén se colore o elemento. Se non a marca, usarase unha "
 "tonalidade da cor de fondo."
 
@@ -3852,7 +3850,7 @@ msgid ""
 "be rounded."
 msgstr ""
 "<p>Active esta opción para que só a parte superior (e non a inferior) dos "
-"elementos seleccionados da barra do menú sexa arredondada."
+"elementos seleccionados da barra de menú sexa arredondada."
 
 #. i18n: ectx: property (text), widget (QCheckBox, roundMbTopOnly)
 #: qt4/config/qtcurveconfigbase.ui:3064 qt5/config/qtcurveconfigbase.ui:3145
@@ -4134,7 +4132,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3345 qt5/config/qtcurveconfigbase.ui:3392
 #, kde-format
 msgid "Use menubar colour settings:"
-msgstr "Usar a configuración de cores da barra do menú:"
+msgstr "Usar a configuración de cores da barra de menú:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, buttonStyleMenuSections)
 #: qt4/config/qtcurveconfigbase.ui:3359 qt5/config/qtcurveconfigbase.ui:3406
@@ -4193,7 +4191,7 @@ msgid ""
 "affects menubars)."
 msgstr ""
 "<p>Define o tipo de bordo das barras de ferramentas. Esta opción tamén "
-"afecta á barra do menú."
+"afecta ás barras de menú."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_4b)
 #: qt4/config/qtcurveconfigbase.ui:3444 qt5/config/qtcurveconfigbase.ui:3508
@@ -4257,8 +4255,8 @@ msgstr "Marcos arredor dos elementos:"
 msgid ""
 "<p>Controls whether QtCurve should draw frames around items in statusbars."
 msgstr ""
-"<p>Marque esta opción para que QtCurve debuxe marcos arredor dos elementos "
-"da barra do estado."
+"<p>Controla se QtCurve debuxa marcos arredor dos elementos da barra de "
+"estado."
 
 #. i18n: ectx: property (text), widget (QCheckBox, drawStatusBarFrames)
 #: qt4/config/qtcurveconfigbase.ui:3537 qt5/config/qtcurveconfigbase.ui:3601
@@ -4671,7 +4669,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3872 qt5/config/qtcurveconfigbase.ui:3936
 #, kde-format
 msgid "Save menubar visibility:"
-msgstr "Lembrar a visibilidade da barra do menú:"
+msgstr "Lembrar a visibilidade da barra de menú:"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, menubarApps)
 #: qt4/config/qtcurveconfigbase.ui:3879
@@ -4683,15 +4681,15 @@ msgid ""
 "always manually saved.</p>"
 msgstr ""
 "<p>Lista de nomes, separados por comas, de aplicacións de KDE4 para as que "
-"QtCurve debe lembrar manualmente se a barra do menú está agochada ou non.</"
+"QtCurve debe lembrar manualmente se a barra de menú está agochada ou non.</"
 "p> <p>Use <i>kde</i> para configuralo para todos as aplicacións de KDE. O "
-"estado da barra do menú das aplicacións de Gtk2 lémbrase sempre.</p>"
+"estado da barra de menú das aplicacións de Gtk2 lémbrase sempre.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_89)
 #: qt4/config/qtcurveconfigbase.ui:3886 qt5/config/qtcurveconfigbase.ui:3950
 #, kde-format
 msgid "Save statusbar visibility:"
-msgstr "Lembrar a visibilidade da barra do estado:"
+msgstr "Lembrar a visibilidade da barra de estado:"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, statusbarApps)
 #: qt4/config/qtcurveconfigbase.ui:3893
@@ -4703,9 +4701,9 @@ msgid ""
 "always manually saved.</p>"
 msgstr ""
 "<p>Lista de nomes, separados por comas, de aplicacións de KDE4 para as que "
-"QtCurve debe lembrar manualmente se a barra do estado está agochada ou non.</"
+"QtCurve debe lembrar manualmente se a barra de estado está agochada ou non.</"
 "p> <p>Use <i>kde</i> para configuralo para todas as aplicacións de KDE. O "
-"estado da barra do estado das aplicacións de Gtk2 lémbrase sempre.</p>"
+"estado da barra de estado das aplicacións de Gtk2 lémbrase sempre.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_89a)
 #: qt4/config/qtcurveconfigbase.ui:3900 qt5/config/qtcurveconfigbase.ui:3964
@@ -5305,12 +5303,12 @@ msgstr "Xanela en segundo plano"
 #: qt4/kwin/qtcurvetogglebutton.cpp:58 qt5/kwin/qtcurvetogglebutton.cpp:58
 #, kde-format
 msgid "Toggle Menubar"
-msgstr "Alternar a barra do menú"
+msgstr "Alternar a barra de menú"
 
 #: qt4/kwin/qtcurvetogglebutton.cpp:58 qt5/kwin/qtcurvetogglebutton.cpp:58
 #, kde-format
 msgid "Toggle Statusbar"
-msgstr "Alternar a barra do estado"
+msgstr "Alternar a barra de estado"
 
 #: qt4/kwin/qtcurvetogglebutton.cpp:158 qt5/kwin/qtcurvetogglebutton.cpp:158
 #, kde-format
@@ -5887,9 +5885,9 @@ msgid ""
 "always manually saved.</p>"
 msgstr ""
 "<p>Lista de nomes, separados por comas, de aplicacións de KDE para as que "
-"QtCurve debe lembrar manualmente se a barra do menú está agochada ou non.</"
+"QtCurve debe lembrar manualmente se a barra de menú está agochada ou non.</"
 "p> <p>Use <i>kde</i> para configuralo para todas as aplicacións de KDE. O "
-"estado da barra do menú das aplicacións de Gtk2 lémbrase sempre.</p>"
+"estado da barra de menú das aplicacións de Gtk2 lémbrase sempre.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, statusbarApps)
 #: qt5/config/qtcurveconfigbase.ui:3957
@@ -5901,9 +5899,9 @@ msgid ""
 "always manually saved.</p>"
 msgstr ""
 "<p>Lista de nomes, separados por comas, de aplicacións de KDE para as que "
-"QtCurve debe lembrar manualmente se a barra do estado está agochada ou non.</"
+"QtCurve debe lembrar manualmente se a barra de estado está agochada ou non.</"
 "p> <p>Use <i>kde</i> para configuralo para todas as aplicacións de KDE. O "
-"estado da barra do estado das aplicacións de Gtk2 lémbrase sempre.</p>"
+"estado da barra de estado das aplicacións de Gtk2 lémbrase sempre.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, nonnativeMenubarApps)
 #: qt5/config/qtcurveconfigbase.ui:3971
