@@ -1504,7 +1504,7 @@ msgid ""
 "<p>Define the gradient to be used for sunken widgets - e.g. pressed buttons."
 "</p>"
 msgstr ""
-"<p>Definix el degradat que s'emprarà per als ginys enfonsats, p. ex. els "
+"<p>Definix el degradat que s'emprarà per als ginys enfonsats, p. ex., els "
 "botons premuts.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
