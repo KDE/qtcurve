@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 01:47+0000\n"
-"PO-Revision-Date: 2023-02-08 12:11+0100\n"
+"PO-Revision-Date: 2023-09-16 23:48+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -4356,13 +4356,13 @@ msgstr "პარამეტრები"
 #: qt4/config/qtcurveconfigbase.ui:4030 qt5/config/qtcurveconfigbase.ui:4094
 #, no-c-format, kde-format
 msgid "Position (%)"
-msgstr ""
+msgstr "მდებარეობა (%)"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, gradStops)
 #: qt4/config/qtcurveconfigbase.ui:4035 qt5/config/qtcurveconfigbase.ui:4099
 #, no-c-format, kde-format
 msgid "Value (%)"
-msgstr ""
+msgstr "მნიშვნელობა (%)"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, gradStops)
 #: qt4/config/qtcurveconfigbase.ui:4040 qt5/config/qtcurveconfigbase.ui:4104
@@ -4607,7 +4607,7 @@ msgstr "ელემენტი 4"
 #: qt4/config/stylepreview.ui:205 qt5/config/stylepreview.ui:205
 #, kde-format
 msgid "Editable combobox"
-msgstr ""
+msgstr "ჩასწორებადი კომბო ფანჯარა"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab2)
 #: qt4/config/stylepreview.ui:256 qt5/config/stylepreview.ui:256
@@ -4787,7 +4787,7 @@ msgstr "აქტიური ფანჯარა"
 #: qt4/kwin/qtcurveclient.cpp:314 qt5/kwin/qtcurveclient.cpp:314
 #, kde-format
 msgid "Inactive Window"
-msgstr ""
+msgstr "არააქტიური ფანჯარა"
 
 #: qt4/kwin/qtcurvetogglebutton.cpp:58 qt5/kwin/qtcurvetogglebutton.cpp:58
 #, kde-format
