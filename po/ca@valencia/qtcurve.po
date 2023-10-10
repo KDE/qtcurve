@@ -3902,7 +3902,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3081 qt5/config/qtcurveconfigbase.ui:3162
 #, kde-format
 msgid "Use Ctrl-Alt-M (experimental)"
-msgstr "Utilitza Ctrl-Alt-M (experimental)"
+msgstr "Utilitza «Ctrl+Alt+M» (experimental)"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, menubarHiding_kwin)
 #: qt4/config/qtcurveconfigbase.ui:3088 qt5/config/qtcurveconfigbase.ui:3169
@@ -4305,7 +4305,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3554 qt5/config/qtcurveconfigbase.ui:3618
 #, kde-format
 msgid "Use Ctrl-Alt-S (experimental)"
-msgstr "Utilitza Ctrl-Alt-S (experimental)"
+msgstr "Utilitza «Ctrl+Alt+S» (experimental)"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, statusbarHiding_kwin)
 #: qt4/config/qtcurveconfigbase.ui:3561 qt5/config/qtcurveconfigbase.ui:3625
