@@ -1224,7 +1224,7 @@ msgstr "<p>Insira un novo nome:</p>"
 #: qt4/config/qtcurveconfig.cpp:2651 qt5/config/qtcurveconfig.cpp:2617
 #, kde-format
 msgid "<p>Are you sure you wish to delete:</p><p><b>%1</b></p>"
-msgstr "<p>Está seguro de que quere eliminar:</p><p><b>%1</b></p>"
+msgstr "<p>Seguro que quere eliminar:</p><p><b>%1</b></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2661 qt5/config/qtcurveconfig.cpp:2627
 #, kde-format
