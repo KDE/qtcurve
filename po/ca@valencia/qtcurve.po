@@ -1281,7 +1281,7 @@ msgid ""
 "(Could not list ZIP contents.)"
 msgstr ""
 "Fitxer comprimit de configuració no vàlid\n"
-"(No s'ha pogut llistar el contingut del ZIP)."
+"(No s'ha pogut llistar el contingut de ZIP)."
 
 #: qt4/config/qtcurveconfig.cpp:2729 qt5/config/qtcurveconfig.cpp:2688
 #, kde-format
