@@ -4,22 +4,22 @@
 # Maxence Le Doré <maxence.ledore@gmail.com>, 2014, 2015.
 # Vincent Pinon <vpinon@kde.org>, 2017.
 # Simon Depiets <sdepiets@gmail.com>, 2017, 2018.
-# Xavier Besnard <xavier.besnard@neuf.fr>, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023 Xavier Besnard <xavier.besnard@neuf.fr>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 01:47+0000\n"
-"PO-Revision-Date: 2021-07-04 09:55+0200\n"
-"Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2023-10-26 21:15+0200\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
+"Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 23.08.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -1344,7 +1344,7 @@ msgstr "titre"
 #: qt4/config/qtcurveconfigbase.ui:100 qt5/config/qtcurveconfigbase.ui:100
 #, kde-format
 msgid "Presets"
-msgstr "Préconfiguration"
+msgstr "Pré-configuration"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, presetsCombo)
 #: qt4/config/qtcurveconfigbase.ui:110 qt5/config/qtcurveconfigbase.ui:110
@@ -1362,7 +1362,7 @@ msgstr ""
 "<ul>\n"
 "<li><i>(Courant)</i> ignorera tout changement, et reviendra au style "
 "enregistré actuellement.</li>\n"
-"<li><i>(Default)</i> ignorera tout changement, et reviendra au style QtCurve "
+"<li><i>(Défaut)</i> ignorera tout changement, et reviendra au style QtCurve "
 "par défaut.</li>\n"
 "</ul>"
 
@@ -4768,12 +4768,12 @@ msgid ""
 "and Qt5 applications. Applications need to be restarted for changes to take "
 "effect.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Liste de noms d'applications KDE/Qt séparés par des "
+"<html><head/><body><p>Liste de noms d'applications KDE / Qt séparés par des "
 "virgules pour lesquelles QtCurve doit indiquer à Qt de ne pas utiliser la "
-"barre de menu native.</p><p>Cette fonctionnalité fonctionne uniquement sur "
-"Mac OS X/macOS, elle est conçue pour les applications KF5 et Qt5. Les "
-"applications doivent être redémarrées pour que les changements entrent en "
-"vigueur.</p></body></html>"
+"barre de menus native.</p><p>Cette fonctionnalité fonctionne uniquement sur "
+"MacOS X /MacOS, elle est conçue pour les applications spis « KF5 » et "
+"« Qt5 ». Les applications doivent être redémarrées pour que les changements "
+"entrent en vigueur.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_101)
 #: qt4/config/qtcurveconfigbase.ui:3936 qt5/config/qtcurveconfigbase.ui:4000
@@ -4791,10 +4791,10 @@ msgid ""
 "</p>\n"
 "<p><code>QtCurve: Application name: \"firefox\"</code></p></i>"
 msgstr ""
-"<i><p>Dans les listes qui suivent, vous devez saisir le nom d'un exécutable. "
-"e.g Pour Google Earth il s'agit de « googleearth-bin ». Vous pouvez utiliser "
-"« gtk2 » pour désactiver le paramètre pour toutes les applications Gtk2, ou "
-"« kde » pour toutes les applications KDE/Qt.</p>\n"
+"<i><p>Dans les listes qui suivent, vous devez saisir le nom d'un exécutable, "
+"par exemple, pour Google Earth, il s'agit de « googleearth-bin ». Vous "
+"pouvez utiliser « gtk2 » pour désactiver le paramètre pour toutes les "
+"applications Gtk2, ou « kde » pour toutes les applications KDE/Qt.</p>\n"
 "<p>Pour déterminer le nom que détectera QtCurve, vous pouvez démarrer une "
 "application depuis une fenêtre de console en utilisant la syntaxe suivante "
 "(l'exemple est pour Firefox):</p>\n"
@@ -5275,7 +5275,12 @@ msgstr "Élément 1"
 
 #. i18n: ectx: property (plainText), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:534 qt5/config/stylepreview.ui:534
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Eleven saintly shrouded men\n"
+#| "Silhouettes stand against the sky\n"
+#| "One in front with a cross held high\n"
+#| "Come to wash my sins away..."
 msgid ""
 "Eleven saintly shrouded men\n"
 "Silhouettes stand against the sky\n"
@@ -5291,13 +5296,13 @@ msgstr ""
 #: qt4/config/stylepreview.ui:546 qt5/config/stylepreview.ui:546
 #, kde-format
 msgid "&Regular item 1"
-msgstr "Éléments &normal 1"
+msgstr "Élément &normal 1"
 
 #. i18n: ectx: property (shortcut), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:549 qt5/config/stylepreview.ui:549
 #, kde-format
 msgid "Ctrl+1"
-msgstr "Ctrl+1"
+msgstr "CTRL + 1"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:560 qt5/config/stylepreview.ui:560
@@ -5309,7 +5314,7 @@ msgstr "Éléments n&ormal 2"
 #: qt4/config/stylepreview.ui:563 qt5/config/stylepreview.ui:563
 #, kde-format
 msgid "Ctrl+2"
-msgstr "« Ctrl » + « 2 »"
+msgstr "CTRL + 2"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:577 qt5/config/stylepreview.ui:577
