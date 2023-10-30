@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-17 00:49+0000\n"
-"PO-Revision-Date: 2023-10-26 21:15+0200\n"
+"PO-Revision-Date: 2023-10-28 13:04+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -5274,22 +5274,17 @@ msgstr "Élément 1"
 
 #. i18n: ectx: property (plainText), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:534 qt5/config/stylepreview.ui:534
-#, fuzzy, kde-format
-#| msgid ""
-#| "Eleven saintly shrouded men\n"
-#| "Silhouettes stand against the sky\n"
-#| "One in front with a cross held high\n"
-#| "Come to wash my sins away..."
+#, kde-format
 msgid ""
 "Eleven saintly shrouded men\n"
 "Silhouettes stand against the sky\n"
 "One in front with a cross held high\n"
 "Come to wash my sins away..."
 msgstr ""
-"Eleven saintly shrouded men\n"
-"Silhouettes stand against the sky\n"
-"One in front with a cross held high\n"
-"Come to wash my sins away..."
+"Onze saints hommes enveloppés \n"
+"Les silhouettes se dressent face au ciel \n"
+"Un devant avec une croix tenue bien haut \n"
+"Je viens laver mes péchés..."
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:546 qt5/config/stylepreview.ui:546
