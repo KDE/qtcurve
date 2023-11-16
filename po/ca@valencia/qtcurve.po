@@ -1128,10 +1128,10 @@ msgid ""
 "li><li>Set menubar coloration to \"%2\"</li><li>Extend window dragging into "
 "menubar</li>"
 msgstr ""
-"<p>Establisc els següents elements de configuració de manera que la barra de "
+"<p>Establisc els elements de configuració següents de manera que la barra de "
 "títol de la finestra i les barres de menú apareguen barrejades?</"
 "p><ul><li>La barra de menús, barra de títol i el degradat de la barra de "
-"títol inactiva a «%1»</li><li>Desactiva «Barreja el color de la barra de "
+"títol inactiva a «%1»</li><li>Desselecciona «Barreja el color de la barra de "
 "títol amb el color de fons»</li><li>Establix la coloració de la barra de "
 "menús a «%2»</li><li>Estén la finestra arrossegant-la des de dins de la "
 "barra de menús</li>"
@@ -1736,7 +1736,7 @@ msgid ""
 "<p>If enabled, then selected items in listviews and treeviews will be drawn "
 "with square edges, regardless of the general round setting.</p>"
 msgstr ""
-"<p>Si està habilitada, llavors els elements seleccionats en les vistes en "
+"<p>Si se selecciona, llavors els elements seleccionats en les vistes en "
 "llista i en arbre es dibuixaran amb vores quadrades, independentment de la "
 "configuració d'arredoniment general.</p>"
 
@@ -2306,9 +2306,9 @@ msgstr ""
 "<p>Controla la posició i el nombre de botons en una barra de desplaçament.\n"
 "            <ul><li>KDE - 1 botó a la part superior/esquerra i dos a la part "
 "inferior/dreta</li><li>Windows - 1 botó a cada extrem</li><li>Platinum - "
-"sense botons a la part superior/esquerra, dos a la part inferior/dreta</"
-"li><li>Next - dos botons a la part superior/esquerra, cap a la part inferior/"
-"dreta</li><li>Sense botons - només el control lliscant</li></ul></p>"
+"sense botons en la part superior/esquerra, dos a la part inferior/dreta</"
+"li><li>Next - dos botons en la part superior/esquerra, cap a la part "
+"inferior/dreta</li><li>Sense botons - només el control lliscant</li></ul></p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, flatSbarButtons)
 #: qt4/config/qtcurveconfigbase.ui:1037 qt5/config/qtcurveconfigbase.ui:1046
@@ -2317,7 +2317,7 @@ msgid ""
 "<p>If enabled, then scrollbar buttons are not drawn and only the arrows will "
 "appear.</p>"
 msgstr ""
-"<p>Si està habilitada, llavors no es dibuixaran els botons de la barra de "
+"<p>Si se selecciona, llavors no es dibuixaran els botons de la barra de "
 "desplaçament i només apareixeran les fletxes.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_32)
@@ -2372,7 +2372,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1095 qt5/config/qtcurveconfigbase.ui:1104
 #, kde-format
 msgid "<p>If enabled, a fading stripe will be added.</p>"
-msgstr "<p>Si està activada, s'afegiran algunes ratlles d'esvaniment.</p>"
+msgstr "<p>Si se selecciona, s'afegiran algunes ratlles d'esvaniment.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_16)
 #: qt4/config/qtcurveconfigbase.ui:1112 qt5/config/qtcurveconfigbase.ui:1121
@@ -2428,7 +2428,7 @@ msgid ""
 "<p>Enable this option to remove the 1 pixel border around the filled element."
 "</p>"
 msgstr ""
-"<p>Activeu esta opció per a eliminar la vora d'1 píxel al voltant de "
+"<p>Seleccioneu esta opció per a eliminar la vora d'1 píxel al voltant de "
 "l'element omplit.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, fillProgress)
@@ -2468,8 +2468,8 @@ msgid ""
 "<p>Enable this option to have a border around the progress bar groove and "
 "contents.</p>"
 msgstr ""
-"<p>Activeu esta opció per a tindre una vora al voltant de la ranura de la "
-"barra de progrés i del contingut.</p>"
+"<p>Seleccioneu esta opció per a tindre una vora al voltant de la ranura de "
+"la barra de progrés i del contingut.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, borderProgress)
 #: qt4/config/qtcurveconfigbase.ui:1196 qt5/config/qtcurveconfigbase.ui:1205
@@ -2492,7 +2492,7 @@ msgid ""
 "<p>If enabled, the text on a progressbar will use the general widget font.</"
 "p>"
 msgstr ""
-"<p>Si està activada, el text en una barra de progrés emprarà el tipus de "
+"<p>Si se selecciona, el text en una barra de progrés emprarà el tipus de "
 "lletra general dels ginys.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, boldProgress_false)
@@ -2506,7 +2506,7 @@ msgstr "Tipus de lletra estàndard"
 #, kde-format
 msgid "<p>If enabled, the text on a progressbar will use a bold font.</p>"
 msgstr ""
-"<p>Si està activada, el text en una barra de progrés emprarà un tipus de "
+"<p>Si se selecciona, el text en una barra de progrés emprarà un tipus de "
 "lletra en negreta.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, boldProgress)
@@ -2539,7 +2539,7 @@ msgid ""
 "second time will be 1 pixel to the left. This gives it a more 'bold' look.</"
 "p>"
 msgstr ""
-"<p>Si està activada, el text del botó «predeterminat» serà dibuixat dues "
+"<p>Si se selecciona, el text del botó «predeterminat» serà dibuixat dues "
 "vegades -la segona serà d'1 píxel cap a l'esquerra-. Açò li donarà un "
 "aspecte més en «negreta».</p>"
 
@@ -2609,7 +2609,7 @@ msgid ""
 "<p>If enabled, headers will be drawn using the button color, otherwise the "
 "standard window background color will be used.</p>"
 msgstr ""
-"<p>Si està activada, les capçaleres es dibuixaran emprant el color del botó, "
+"<p>Si se selecciona, les capçaleres es dibuixaran emprant el color del botó, "
 "en cas contrari s'emprarà el color de fons de la finestra estàndard.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, lvButton)
@@ -2663,7 +2663,7 @@ msgid ""
 "treeviews have alternating row colors - regardless of whether the "
 "application author has enabled this or not."
 msgstr ""
-"<p>Si està activada, QtCurve intentarà fer que totes les vistes de llista i "
+"<p>Si se selecciona, QtCurve intentarà fer que totes les vistes de llista i "
 "en arbre tinguen colors alterns de fila -independentment de si l'autor de "
 "l'aplicació ho permet-."
 
@@ -2693,7 +2693,7 @@ msgid ""
 "<p>If enabled, then selected items in listviews and treeviews will be drawn "
 "with bordered edges - but only if they are set to be rounded as well."
 msgstr ""
-"<p>Si està activada, llavors els elements seleccionats en les vistes en "
+"<p>Si se selecciona, llavors els elements seleccionats en les vistes en "
 "llista i en arbre es dibuixaran amb vores delimitades -però només si també "
 "s'establix arredonir-les-."
 
@@ -2848,7 +2848,7 @@ msgid ""
 "<p>If enabled, only the active tab is rounded - and all the inactive tabs "
 "appear closer together."
 msgstr ""
-"<p>Si està activada, només s'arredonirà la pestanya activa -i totes les "
+"<p>Si se selecciona, només s'arredonirà la pestanya activa -i totes les "
 "pestanyes inactives apareixeran més juntes-."
 
 #. i18n: ectx: property (text), widget (QRadioButton, roundAllTabs_false)
@@ -2864,7 +2864,7 @@ msgid ""
 "<p>If enabled, all tabs are rounded - there will be a 2 pixel gap between "
 "each tab if 'glow' is selected as the general colored mouse over style."
 msgstr ""
-"<p>Si està activada, totes les pestanyes estaran arredonides -hi haurà un "
+"<p>Si se selecciona, totes les pestanyes estaran arredonides -hi haurà un "
 "espai de 2 píxels entre cada pestanya si se selecciona la «lluïssor» com a "
 "l'estil general de donar color en passar-hi el ratolí-."
 
@@ -2890,7 +2890,7 @@ msgid ""
 "with a light shade on the top and left, and a dark shade on the bottom and "
 "right."
 msgstr ""
-"<p>Si està activada, les pestanyes i els ginys amb pestanyes tindran una "
+"<p>Si se selecciona, les pestanyes i els ginys amb pestanyes tindran una "
 "vora d'estil en 3D -amb una ombra lleugera en la part superior i esquerra, i "
 "una ombra fosca en la part inferior i dreta-."
 
@@ -2907,7 +2907,7 @@ msgid ""
 "<p>If enabled, the tabs and tab widget will have an outer dark border, and a "
 "light inner border."
 msgstr ""
-"<p>Si està activada, les pestanyes i els ginys amb pestanyes tindran una "
+"<p>Si se selecciona, les pestanyes i els ginys amb pestanyes tindran una "
 "vora fosca exterior, i una vora clara interior."
 
 #. i18n: ectx: property (text), widget (QLabel, label_62)
@@ -2922,7 +2922,7 @@ msgstr "Vora interior de la pestanya inactiva:"
 msgid ""
 "<p>If enabled, inactive tabs will have a border as per the 'Border' setting."
 msgstr ""
-"<p>Si està activada, les pestanyes inactives tindran una vora d'acord amb "
+"<p>Si se selecciona, les pestanyes inactives tindran una vora d'acord amb "
 "l'opció «Vora»."
 
 #. i18n: ectx: property (text), widget (QRadioButton, borderInactiveTab)
@@ -2936,7 +2936,7 @@ msgstr "Igual que la pestanya activa"
 #, kde-format
 msgid "<p>If enabled, inactive tabs will have no inner border."
 msgstr ""
-"<p>Si està activada, les pestanyes inactives no tindran cap vora interior."
+"<p>Si se selecciona, les pestanyes inactives no tindran cap vora interior."
 
 #. i18n: ectx: property (text), widget (QRadioButton, borderInactiveTab_false)
 #: qt4/config/qtcurveconfigbase.ui:1739 qt5/config/qtcurveconfigbase.ui:1775
@@ -2959,7 +2959,7 @@ msgid ""
 "the bottom tabs will go from the background color to light - this can "
 "sometimes give the appearance that the bottom tabs are sticking out."
 msgstr ""
-"<p>Si està activada, les pestanyes de la part inferior empraran el mateix "
+"<p>Si se selecciona, les pestanyes de la part inferior empraran el mateix "
 "degradat que les pestanyes en la part superior. És a dir, si les ombres de "
 "les pestanyes en la part superior van des de clares al color de fons, "
 "després les pestanyes en la part inferior aniran des del color de fons a "
@@ -2980,7 +2980,7 @@ msgid ""
 "on the top. i.e. if the top tabs shades from light to the background color, "
 "then bottom tabs will go from the background color to dark."
 msgstr ""
-"<p>Si està activada, les pestanyes de la part inferior utilitzaran un "
+"<p>Si se selecciona, les pestanyes de la part inferior utilitzaran un "
 "degradat invertit contra les pestanyes de la part superior. És a dir, si les "
 "ombres de les pestanyes de la part superior van des de clares al color de "
 "fons, després les pestanyes de la part inferior aniran des del color de fons "
@@ -3005,7 +3005,7 @@ msgstr "Pestanyes dins de les barres d'eines:"
 #, kde-format
 msgid "<p>If enabled, tabs that are within toolbars will be drawn as normal."
 msgstr ""
-"<p>Si està activada, les pestanyes que estan dins de les barres d'eines es "
+"<p>Si se selecciona, les pestanyes que estan dins de les barres d'eines es "
 "dibuixaran de forma normal."
 
 #. i18n: ectx: property (text), widget (QRadioButton, toolbarTabs)
@@ -3023,7 +3023,7 @@ msgid ""
 "<p>If enabled, tabs that are within toolbars will be drawn the same as "
 "sidebar buttons."
 msgstr ""
-"<p>Si està activada, les pestanyes que estan dins de les barres d'eines es "
+"<p>Si se selecciona, les pestanyes que estan dins de les barres d'eines es "
 "dibuixaran igual que els botons de la barra lateral."
 
 #. i18n: ectx: property (text), widget (QRadioButton, toolbarTabs_false)
@@ -3067,7 +3067,7 @@ msgid ""
 "<p>If enabled, checkboxes will have a 'tick' to indicate that they are "
 "selected."
 msgstr ""
-"<p>Si està activada, les caselles de selecció tindran una «marca» per a "
+"<p>Si se selecciona, les caselles de selecció tindran una «marca» per a "
 "indicar que s'han seleccionat."
 
 #. i18n: ectx: property (text), widget (QRadioButton, xCheck_false)
@@ -3083,7 +3083,7 @@ msgid ""
 "<p>If enabled, checkboxes will have a 'cross' (or 'X') to indicate that they "
 "are selected."
 msgstr ""
-"<p>Si està activada, les caselles de selecció tindran una «creu» (o «X») per "
+"<p>Si se selecciona, les caselles de selecció tindran una «creu» (o «X») per "
 "a indicar que s'han seleccionat."
 
 #. i18n: ectx: property (text), widget (QRadioButton, xCheck)
@@ -3105,7 +3105,7 @@ msgid ""
 "<p>If enabled, radio buttons will have a large 'dot' to indicate that they "
 "are selected."
 msgstr ""
-"<p>Si està activada, els botons d'opció tindran un «punt» gran per a indicar "
+"<p>Si se selecciona, els botons d'opció tindran un «punt» gran per a indicar "
 "que s'han seleccionat."
 
 #. i18n: ectx: property (text), widget (QRadioButton, smallRadio_false)
@@ -3122,7 +3122,7 @@ msgid ""
 "<p>If enabled, radio buttons will have a small 'dot' to indicate that they "
 "are selected."
 msgstr ""
-"<p>Si està activada, els botons d'opció tindran un «punt» xicotet per a "
+"<p>Si se selecciona, els botons d'opció tindran un «punt» xicotet per a "
 "indicar que s'han seleccionat."
 
 #. i18n: ectx: property (text), widget (QRadioButton, smallRadio)
@@ -3280,7 +3280,7 @@ msgid ""
 "<p>If enabled, only the titlebar, and not the border, of windows will be "
 "colored."
 msgstr ""
-"<p>Si està activada, només es donarà color en la barra de títol i no a la "
+"<p>Si se selecciona, només es donarà color en la barra de títol i no a la "
 "vora."
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_colorTitlebarOnly)
@@ -3296,7 +3296,7 @@ msgid ""
 "<p>If enabled, the background color will be used as the last part of the "
 "titlebar gradient."
 msgstr ""
-"<p>Si està activada, el color de fons serà utilitzat com l'última part del "
+"<p>Si se selecciona, el color de fons serà utilitzat com l'última part del "
 "degradat de la barra de títol."
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_blend)
@@ -3312,7 +3312,7 @@ msgid ""
 "<p>If enabled, before drawing the titlebar gradient, it will be filled with "
 "the background colour/gradient."
 msgstr ""
-"<p>Si està activada, abans de dibuixar el degradat de la barra de títol, "
+"<p>Si se selecciona, abans de dibuixar el degradat de la barra de títol, "
 "s'omplirà amb el color/degradat de fons."
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_fill)
@@ -3328,7 +3328,7 @@ msgid ""
 "<p>If enabled, the configured menubar color will be used for windows that "
 "have menubars."
 msgstr ""
-"<p>Si està activada, el color de la barra de menús configurada, serà emprat "
+"<p>Si se selecciona, el color de la barra de menús configurada, serà emprat "
 "per les finestres que tinguen barres de menú."
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_menuColor)
@@ -3350,7 +3350,7 @@ msgid ""
 "<p>If enabled, a 1 pixel light border is added to the top and left of the "
 "window."
 msgstr ""
-"<p>Si està activada, s'afegirà una vora clara d'1 píxel a la part superior i "
+"<p>Si se selecciona, s'afegirà una vora clara d'1 píxel a la part superior i "
 "a l'esquerra de la finestra."
 
 #. i18n: ectx: property (text), widget (QLabel, label_55b)
@@ -3364,7 +3364,7 @@ msgstr "Dibuixa el separador en les finestres actives:"
 #, kde-format
 msgid "<p>If enabled, a separator is drawn between the titlebar and window."
 msgstr ""
-"<p>Si està activada, es dibuixarà un separador entre la barra de títol i la "
+"<p>Si se selecciona, es dibuixarà un separador entre la barra de títol i la "
 "finestra."
 
 #. i18n: ectx: property (text), widget (QLabel, label_92)
@@ -3392,7 +3392,7 @@ msgstr ""
 msgid ""
 "<p>If enabled, only the symbol is drawn - and not the button background."
 msgstr ""
-"<p>Si està activada, només es dibuixarà el símbol -i no el fons del botó-."
+"<p>Si se selecciona, només es dibuixarà el símbol -i no el fons del botó-."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_noFrame)
 #: qt4/config/qtcurveconfigbase.ui:2305 qt5/config/qtcurveconfigbase.ui:2386
@@ -3407,7 +3407,7 @@ msgid ""
 "<p>If enabled, the buttons will have a circular background - regardless of "
 "the general round setting."
 msgstr ""
-"<p>Si està activada, els botons tindran un fons circular -independentment de "
+"<p>Si se selecciona, els botons tindran un fons circular -independentment de "
 "la configuració general d'arredoniment-."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_hoverFrame)
@@ -3417,7 +3417,7 @@ msgid ""
 "<p>If enabled, the button background (or frame) will only be shown when "
 "under the mouse."
 msgstr ""
-"<p>Si està activada, només es mostrarà el fons del botó (o marc) quan estiga "
+"<p>Si se selecciona, només es mostrarà el fons del botó (o marc) quan estiga "
 "davall el ratolí."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hoverFrame)
@@ -3433,7 +3433,7 @@ msgid ""
 "<p>If enabled, the icon will only be shown at full strength when under the "
 "mouse - otherwise it will be blended with the background."
 msgstr ""
-"<p>Si està activada, només es mostrarà la icona amb tota la seua força quan "
+"<p>Si se selecciona, només es mostrarà la icona amb tota la seua força quan "
 "estiga davall el ratolí -en cas contrari serà fusionada amb el fons-."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hoverSymbol)
@@ -3449,7 +3449,7 @@ msgid ""
 "<p>If enabled, the titlebar buttons will be drawn using the standard button "
 "color - otherwise the titlebar color will be used."
 msgstr ""
-"<p>Si està activada, els botons de la barra de títol es dibuixaran emprant "
+"<p>Si se selecciona, els botons de la barra de títol es dibuixaran emprant "
 "el color del botó estàndard -en cas contrari s'emprarà el color de la barra "
 "de títol-."
 
@@ -3466,7 +3466,7 @@ msgid ""
 "<p>If enabled, the titlebar buttons will be drawn using the custom colors "
 "defined in the next page."
 msgstr ""
-"<p>Si està activada, els botons de la barra de títol es dibuixaran emprant "
+"<p>Si se selecciona, els botons de la barra de títol es dibuixaran emprant "
 "els colors personalitzats definits a la pàgina següent."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_custom)
@@ -3482,7 +3482,7 @@ msgid ""
 "<p>If enabled, the colors will only be used when the button is under the "
 "mouse."
 msgstr ""
-"<p>Si està activada, els colors només s'empraran quan el botó estiga davall "
+"<p>Si se selecciona, els colors només s'empraran quan el botó estiga davall "
 "el ratolí."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_colorOnMouseOver)
@@ -3496,7 +3496,7 @@ msgstr "Utilitza el color només en passar-hi el ratolí"
 #, kde-format
 msgid "<p>If enabled, symbols will use the KDE4 hover color when moused-over."
 msgstr ""
-"<p>Si està activada, els símbols empraran el color «en passar» de KDE 4 quan "
+"<p>Si se selecciona, els símbols empraran el color «en passar» de KDE 4 quan "
 "hi passe el ratolí."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_useHover)
@@ -3510,7 +3510,7 @@ msgstr "Utilitza el color «en passar» per als símbols en passar-hi el ratolí
 #, kde-format
 msgid "<p>If enabled, a sunken background is drawn behind the buttons."
 msgstr ""
-"<p>Si està activada, es dibuixarà un fons enfonsat al darrere dels botons."
+"<p>Si se selecciona, es dibuixarà un fons enfonsat al darrere dels botons."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_sunkenBackground)
 #: qt4/config/qtcurveconfigbase.ui:2385 qt5/config/qtcurveconfigbase.ui:2466
@@ -3523,7 +3523,7 @@ msgstr "Fons enfonsat"
 #, kde-format
 msgid "<p>If enabled, arrows are drawn as the icons for min and max buttons."
 msgstr ""
-"<p>Si està activada, les fletxes es dibuixaran com les icones dels botons "
+"<p>Si se selecciona, les fletxes es dibuixaran com les icones dels botons "
 "mín. i màx."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_arrowMinMax)
@@ -3539,7 +3539,7 @@ msgid ""
 "<p>If enabled, buttons on inactive windows are only drawn when the mouse "
 "hovers over them."
 msgstr ""
-"<p>Si està activada, els botons de les finestres inactives només es "
+"<p>Si se selecciona, els botons de les finestres inactives només es "
 "dibuixaran quan el ratolí hi passa per damunt."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hideOnInactiveWindow)
@@ -3561,7 +3561,7 @@ msgid ""
 "<p>If enabled, custom colors will be applied to the symbols, otherwise they "
 "will be applied to the button background."
 msgstr ""
-"<p>Si està activada, els colors personalitzats s'aplicaran als símbols, en "
+"<p>Si se selecciona, els colors personalitzats s'aplicaran als símbols, en "
 "cas contrari s'aplicaran al fons del botó."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_colorSymbolsOnly)
@@ -3577,7 +3577,7 @@ msgid ""
 "<p>If enabled, custom colors will be applied to active and inactive windows, "
 "otherwise they will only be applied to active windows."
 msgstr ""
-"<p>Si està activada, els colors personalitzats s'aplicaran a les finestres "
+"<p>Si se selecciona, els colors personalitzats s'aplicaran a les finestres "
 "actives i inactives, en cas contrari només s'aplicaran a les finestres "
 "actives."
 
@@ -3592,7 +3592,7 @@ msgstr "Aplica també en les finestres inactives"
 #, kde-format
 msgid "<p>If enabled, the symbol will not be drawn unless under the mouse."
 msgstr ""
-"<p>Si està activada, el símbol no es dibuixarà a menys que estiga davall el "
+"<p>Si se selecciona, el símbol no es dibuixarà a menys que estiga davall el "
 "ratolí."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hoverSymbolFull)
@@ -3790,7 +3790,7 @@ msgid ""
 "<p>If enabled, then the following two color boxes are used to set the text "
 "color to be used for normal and selected menubar items."
 msgstr ""
-"<p>Si està activada, llavors les següents dues caselles de color s'empraran "
+"<p>Si se selecciona, llavors les dues caselles de color següents s'empraran "
 "per a establir el color del text que s'emprarà per als elements normals i "
 "seleccionats de la barra de menús."
 
@@ -3836,7 +3836,7 @@ msgid ""
 "<p>If enabled, menubar items will have their background gradient applied "
 "when the mouse hovers over them."
 msgstr ""
-"<p>Si està activada, els elements de la barra de menús tindran el seu "
+"<p>Si se selecciona, els elements de la barra de menús tindran el seu "
 "degradat de fons que s'aplicarà quan el ratolí hi passa per damunt."
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarMouseOver)
@@ -3853,10 +3853,10 @@ msgid ""
 "over' is enabled) then it will also be colored, otherwise it will use a "
 "shade of the background color."
 msgstr ""
-"<p>Si està activada, quan el ratolí passa per damunt d'un element de la "
-"barra de menús (i «Activa en passar-hi el ratolí» està activada), llavors "
-"també se li donarà color, en cas contrari, utilitzarà una ombra del color de "
-"fons."
+"<p>Si se selecciona, quan el ratolí passa per damunt d'un element de la "
+"barra de menús (i «Activa en passar-hi el ratolí» està seleccionada), "
+"llavors també se li donarà color, en cas contrari, utilitzarà una ombra del "
+"color de fons."
 
 #. i18n: ectx: property (text), widget (QCheckBox, colorMenubarMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:3054 qt5/config/qtcurveconfigbase.ui:3135
@@ -3871,7 +3871,7 @@ msgid ""
 "<p>If enabled, only the top (and not bottom) of selected menubar items will "
 "be rounded."
 msgstr ""
-"<p>Si està activada, només s'arredoniran els elements seleccionats de la "
+"<p>Si se selecciona, només s'arredoniran els elements seleccionats de la "
 "part superior (i no inferior) de la barra de menús."
 
 #. i18n: ectx: property (text), widget (QCheckBox, roundMbTopOnly)
@@ -3895,7 +3895,7 @@ msgid ""
 "<p>If enabled, menubars may be hidden (and re-shown), by using the 'Ctrl-Alt-"
 "M' key combination."
 msgstr ""
-"<p>Si està activada, les barres de menú es podran ocultar (i tornar a "
+"<p>Si se selecciona, les barres de menú es podran ocultar (i tornar a "
 "mostrar), emprant la drecera «Ctrl-Alt-M»."
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarHiding_keyboard)
@@ -3911,7 +3911,7 @@ msgid ""
 "<p>If enabled, menubars may be hidden (and re-shown), by using a special "
 "button in the QtCurve kwin decoration."
 msgstr ""
-"<p>Si està activada, les barres de menú es podran ocultar (i tornar a "
+"<p>Si se selecciona, les barres de menú es podran ocultar (i tornar a "
 "mostrar), emprant un botó especial en la decoració kwin de QtCurve."
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarHiding_kwin)
@@ -3929,7 +3929,7 @@ msgid ""
 "<p>If enabled, the theme will support embedding the menubar of KDE4 "
 "applications in Bespin's XBar."
 msgstr ""
-"<p>Si està activada, el tema admetrà la incrustació de la barra de menús de "
+"<p>Si se selecciona, el tema admetrà la incrustació de la barra de menús de "
 "les aplicacions KDE 4 a la XBar de Bespin."
 
 #. i18n: ectx: property (text), widget (QLabel, label_72)
@@ -3952,7 +3952,7 @@ msgid ""
 "gradient. This will cause them to have a rounded look if the general round "
 "setting is not set to none."
 msgstr ""
-"<p>Si està activada, els elements del menú seleccionats es dibuixaran amb "
+"<p>Si se selecciona, els elements del menú seleccionats es dibuixaran amb "
 "una vora al voltant del degradat. Açò farà que tinguen un aspecte arredonit "
 "si la configuració general d'arredoniment no s'establix a cap."
 
@@ -3969,7 +3969,7 @@ msgid ""
 "<p>If enabled, selected menuitems will be drawn using the 'highlight' color, "
 "otherwise a darkened shade of the background color will be used instead."
 msgstr ""
-"<p>Si està activada, els elements del menú seleccionats es dibuixaran "
+"<p>Si se selecciona, els elements del menú seleccionats es dibuixaran "
 "emprant el color de «ressaltat», en cas contrari s'emprarà una ombra fosca "
 "del color de fons."
 
@@ -3983,7 +3983,7 @@ msgstr "Utilitza el color de «ressaltat» per als elements actius"
 #: qt4/config/qtcurveconfigbase.ui:3146 qt5/config/qtcurveconfigbase.ui:3210
 #, kde-format
 msgid "<p>Enable this to reduce the height of menuitems."
-msgstr "<p>Activeu-la per a reduir l'alçària dels elements del menú."
+msgstr "<p>Seleccioneu-la per a reduir l'alçària dels elements del menú."
 
 #. i18n: ectx: property (text), widget (QCheckBox, thin_menuitems)
 #: qt4/config/qtcurveconfigbase.ui:3149 qt5/config/qtcurveconfigbase.ui:3213
@@ -3999,7 +3999,7 @@ msgid ""
 "they will be hidden (but the space they would have occupied will still be "
 "there)."
 msgstr ""
-"<p>Si està activada, llavors es dibuixaran les icones associades amb els "
+"<p>Si se selecciona, llavors es dibuixaran les icones associades amb els "
 "elements del menú, en cas contrari seran ocultades (però l'espai que haurien "
 "d'ocupar encara hi serà)."
 
@@ -4016,8 +4016,8 @@ msgid ""
 "<p>If enabled, checked menu items get only a check mark instead of a "
 "checkbox or radiobutton."
 msgstr ""
-"<p>Si està activada, els elements del menú marcats només tindran una marca "
-"de selecció en comptes d'una casella de selecció o un botó d'opció."
+"<p>Si se selecciona, els elements de menú seleccionats només tindran una "
+"marca de selecció en comptes d'una casella de selecció o un botó d'opció."
 
 #. i18n: ectx: property (text), widget (QCheckBox, onlyTicksInMenu)
 #: qt4/config/qtcurveconfigbase.ui:3169 qt5/config/qtcurveconfigbase.ui:3233
@@ -4148,8 +4148,8 @@ msgid ""
 "will be drawn. This option should be enabled unless you have also enabled "
 "shadows in your window manager."
 msgstr ""
-"<p>Si està activada, tot el menú emergent tindrà una vora, en cas contrari "
-"no es dibuixarà cap vora. Esta opció haurà d'estar activada a menys que "
+"<p>Si se selecciona, tot el menú emergent tindrà una vora, en cas contrari "
+"no es dibuixarà cap vora. Esta opció haurà d'estar seleccionada a menys que "
 "també s'hagen activat les ombres en el gestor de finestres."
 
 #. i18n: ectx: property (text), widget (QLabel, label_97)
@@ -4166,10 +4166,10 @@ msgid ""
 "buttons.</p><p>When disabled, they are left-aligned under a separator line "
 "and use a bold, underlined typeface.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Quan està activada, l'aspecte de les capçaleres a la "
-"secció del menú es veuran una mica com botons.</p><p>Quan està desactivada, "
-"estaran alineats a l'esquerra davall una línia separadora i empraran un "
-"tipus de lletra en negreta i subratllada.</p></body></html>"
+"<html><head/><body><p>Quan se selecciona, l'aspecte de les capçaleres a la "
+"secció del menú es veuran una mica com botons.</p><p>Quan no està "
+"seleccionada, estaran alineats a l'esquerra davall una línia separadora i "
+"empraran un tipus de lletra en negreta i subratllada.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, buttonStyleMenuSections)
 #: qt4/config/qtcurveconfigbase.ui:3362 qt5/config/qtcurveconfigbase.ui:3409
@@ -4298,7 +4298,7 @@ msgid ""
 "<p>If enabled, statusbars may be hidden (and re-shown), by using the 'Ctrl-"
 "Alt-S' key combination."
 msgstr ""
-"<p>Si està activada, les barres d'estat es podran ocultar (i tornar a "
+"<p>Si se selecciona, les barres d'estat es podran ocultar (i tornar a "
 "mostrar), emprant la drecera «Ctrl-Alt-S»."
 
 #. i18n: ectx: property (text), widget (QCheckBox, statusbarHiding_keyboard)
@@ -4314,7 +4314,7 @@ msgid ""
 "<p>If enabled, statusbars may be hidden (and re-shown), by using a special "
 "button in the QtCurve kwin decoration."
 msgstr ""
-"<p>Si està activada, les barres d'estat es podran ocultar (i tornar a "
+"<p>Si se selecciona, les barres d'estat es podran ocultar (i tornar a "
 "mostrar), emprant un botó especial en la decoració kwin de QtCurve."
 
 #. i18n: ectx: property (text), widget (QLabel, label_73)
@@ -4340,7 +4340,7 @@ msgid ""
 "<p>If enabled, only the top (for horizontal dock windows), or left (for "
 "vertical dock windows) will be rounded."
 msgstr ""
-"<p>Si està activada, només s'arredonirà la part superior (per a les "
+"<p>Si se selecciona, només s'arredonirà la part superior (per a les "
 "finestres acoblades en horitzontal), o la part esquerra (per a les finestres "
 "acoblades en vertical)."
 
@@ -4365,7 +4365,7 @@ msgid ""
 "have their symbols drawn until the mouse hovers over (when the button "
 "background will be drawn)."
 msgstr ""
-"<p>Si està activada, els botons de les finestres acoblades tindran una "
+"<p>Si se selecciona, els botons de les finestres acoblades tindran una "
 "aparença similar (i comportament) als botons en les finestres estàndard, en "
 "cas contrari només tindran dibuixats els seus símbols fins que el ratolí hi "
 "passa per damunt (moment en què es dibuixarà el fons del botó)."
@@ -4384,7 +4384,7 @@ msgid ""
 "color settings of standard windows, otherwise they will use the standard "
 "background color."
 msgstr ""
-"<p>Si està activada, el fons de la barra de títol de la finestra acoblada "
+"<p>Si se selecciona, el fons de la barra de títol de la finestra acoblada "
 "haurà d'emprar la configuració de color de les finestres estàndard, en cas "
 "contrari s'emprarà el color de fons estàndard."
 
@@ -4401,7 +4401,7 @@ msgid ""
 "<p>If enabled, the font of dock window titlebars will have use the font "
 "settings of standard windows, otherwise they will use the standard font."
 msgstr ""
-"<p>Si està activada, el tipus de lletra de la barra de títol de la finestra "
+"<p>Si se selecciona, el tipus de lletra de la barra de títol de la finestra "
 "acoblada haurà d'emprar la configuració de tipus de lletra de les finestres "
 "estàndard, en cas contrari s'emprarà el tipus de lletra estàndard."
 
@@ -4418,7 +4418,7 @@ msgid ""
 "<p>If enabled, the text of dock window titlebars will have use the text "
 "alignment settings of standard windows, otherwise they will be left aligned."
 msgstr ""
-"<p>Si està activada, el text de la barra de títol de la finestra acoblada "
+"<p>Si se selecciona, el text de la barra de títol de la finestra acoblada "
 "haurà d'emprar la configuració d'alineació del text de les finestres "
 "estàndard, en cas contrari s'alinearà a l'esquerra."
 
@@ -4436,7 +4436,7 @@ msgid ""
 "effect settings of standard windows, otherwise they will be drawn with no "
 "effect."
 msgstr ""
-"<p>Si està activada, el text de la barra de títol de la finestra acoblada "
+"<p>Si se selecciona, el text de la barra de títol de la finestra acoblada "
 "haurà d'emprar la configuració d'efecte del text de les finestres estàndard, "
 "en cas contrari es dibuixarà sense cap efecte."
 
@@ -4453,7 +4453,7 @@ msgid ""
 "<p>If enabled, the icons of dock window titlebars will have use the colors "
 "of standard window icons, otherwise they will use the text colour setting."
 msgstr ""
-"<p>Si està activada, les icones de la barra de títol de la finestra acoblada "
+"<p>Si se selecciona, les icones de la barra de títol de la finestra acoblada "
 "hauran d'emprar els colors de les icones de les finestres estàndard, en cas "
 "contrari s'emprarà l'opció de color del text."
 
@@ -4476,7 +4476,7 @@ msgid ""
 "<p>If enabled, dialogs will use the 'Cancel / OK' button order as used in "
 "the GNOME and OSX desktops, otherwise the 'OK / Cancel' order will be used."
 msgstr ""
-"<p>Si està activada, els diàlegs empraran l'ordre dels botons «Cancel·la/"
+"<p>Si se selecciona, els diàlegs empraran l'ordre dels botons «Cancel·la/"
 "D'acord» tal com s'utilitza en els escriptoris GNOME i OSX, en cas contrari "
 "s'emprarà l'ordre «D'acord/Cancel·la»."
 
@@ -4494,10 +4494,10 @@ msgid ""
 "attempt to manually set the order of buttons in Gtk dialogs.</p><p><b>NOTE:</"
 "b> This is experimental, and may produce unexpected results!</p>"
 msgstr ""
-"<p>Si està activada i no s'activa «Utilitza l'ordre dels botons de Gtk», "
-"QtCurve intentarà establir manualment l'ordre dels botons en els diàlegs de "
-"Gtk.</p><p><b>NOTA:</b> Açò és experimental i podria produir resultats "
-"inesperats!</p>"
+"<p>Si se selecciona i no s'ha seleccionat «Utilitza l'ordre dels botons de "
+"Gtk», QtCurve intentarà establir manualment l'ordre dels botons en els "
+"diàlegs de Gtk.</p><p><b>NOTA:</b> Açò és experimental i podria produir "
+"resultats inesperats!</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, reorderGtkButtons)
 #: qt4/config/qtcurveconfigbase.ui:3693 qt5/config/qtcurveconfigbase.ui:3757
@@ -4520,7 +4520,7 @@ msgstr ""
 "<p>En les aplicacions Gtk2, la majoria dels botons «predeterminats "
 "automàtics» tenen una aparença més alta que els botons estàndard. QtCurve "
 "intenta imitar-ho per a les aplicacions KDE 4 -açò es pot desactivar en "
-"activar esta opció-.</p>"
+"seleccionar esta opció-.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stdBtnSizes)
 #: qt4/config/qtcurveconfigbase.ui:3704
@@ -4543,7 +4543,7 @@ msgid ""
 "<p>Enable this option so that QtCurve can attempt to map from the KDE icon "
 "names to their Gtk equivalent for Gtk applications."
 msgstr ""
-"<p>Activeu esta opció perquè QtCurve intente posar les icones KDE en les "
+"<p>Seleccioneu esta opció perquè QtCurve intente posar les icones KDE en les "
 "aplicacions Gtk partint dels seus noms."
 
 #. i18n: ectx: property (text), widget (QCheckBox, mapKdeIcons)
@@ -5061,8 +5061,8 @@ msgstr ""
 "ombra. De manera predeterminada, QtCurve intenta aclarir (o enfosquir) els "
 "fons pare per a aconseguir-ho -si no es pot trobar cap pare, llavors "
 "s'emprarà blanc/negre amb un paràmetre de valor alfa-. Este comportament es "
-"pot superposar i s'emprarà sempre el valor alfa, marcant l'opció anterior.</"
-"i></p>"
+"pot superposar i s'emprarà sempre el valor alfa, seleccionant l'opció "
+"anterior.</i></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_dark_alpha)
 #: qt4/config/qtcurveconfigbase.ui:4440 qt5/config/qtcurveconfigbase.ui:4504
@@ -5482,7 +5482,7 @@ msgid ""
 "window decoration will be rounded. Otherwise, only the top corners will be "
 "rounded."
 msgstr ""
-"Si està activada, i l'estil de QtCurve s'establix com arredonit, llavors "
+"Si se selecciona, i l'estil de QtCurve s'establix com arredonit, llavors "
 "s'arredoniran tots els cantons de la decoració de la finestra. En cas "
 "contrari, només s'arredoniran els cantons superiors."
 
@@ -5501,7 +5501,7 @@ msgid ""
 "If enabled, all borders (including the titlebar) will be removed from "
 "maximised windows."
 msgstr ""
-"Si està activada, totes les vores (incloses la barra de títol) seran "
+"Si se selecciona, totes les vores (incloses la barra de títol) seran "
 "eliminades de les finestres maximitzades."
 
 #. i18n: ectx: property (text), widget (QCheckBox, borderlessMax)
@@ -5562,7 +5562,7 @@ msgid ""
 "If enabled, QtCurve will allow windows to be grouped - causing the titlebar "
 "to act as a kind-of tab-widget."
 msgstr ""
-"Si està activada, QtCurve permetrà agrupar les finestres -causant que la "
+"Si se selecciona, QtCurve permetrà agrupar les finestres -causant que la "
 "barra de títol actue com un tipus de giny amb pestanyes-."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
@@ -5689,7 +5689,7 @@ msgid ""
 "If enabled, only the titlebar part of the decoration will use the opacity "
 "setting."
 msgstr ""
-"Si està activada, només emprarà la configuració de l'opacitat a la part de "
+"Si se selecciona, només emprarà la configuració de l'opacitat a la part de "
 "decoració de la barra de títol."
 
 #. i18n: ectx: property (text), widget (QCheckBox, opaqueBorder)
@@ -5728,7 +5728,7 @@ msgid ""
 "window manager shadows. This will allow you to specify different shadow "
 "colours, etc, for active and inactive windows."
 msgstr ""
-"Si està activada, QtCurve dibuixarà les seues pròpies ombres -i no emprar "
+"Si se selecciona, QtCurve dibuixarà les seues pròpies ombres -i no emprar "
 "les ombres del gestor de finestres genèric-. Açò permet especificar "
 "diferents colors d'ombra, etc., per a les finestres actives i inactives."
 
@@ -5808,7 +5808,7 @@ msgid ""
 "If enabled, the shadows of inactive windows will be drawn using the same "
 "gradient routine as that used for active windows."
 msgstr ""
-"Si està activada, les ombres de les finestres inactives es dibuixaran "
+"Si se selecciona, les ombres de les finestres inactives es dibuixaran "
 "emprant la mateixa rutina de degradat que l'emprada per a les finestres "
 "actives."
 
@@ -5840,7 +5840,7 @@ msgstr ""
 #, kde-format
 msgid "<p>If enabled, symbols will use the KDE hover color when moused-over."
 msgstr ""
-"<p>Si està activada, els símbols empraran el color «en passar» de KDE quan "
+"<p>Si se selecciona, els símbols empraran el color «en passar» de KDE quan "
 "hi passe el ratolí."
 
 #. i18n: ectx: property (text), widget (QLabel, label_45)
@@ -5873,7 +5873,7 @@ msgstr ""
 "<p>En les aplicacions Gtk2, la majoria dels botons «predeterminats "
 "automàtics» tenen una aparença més alta que els botons estàndard. QtCurve "
 "intenta imitar-ho per a les aplicacions KDE -açò es pot desactivar en "
-"activar esta opció-.</p>"
+"seleccionar esta opció-.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stdBtnSizes)
 #: qt5/config/qtcurveconfigbase.ui:3768
