@@ -32,7 +32,7 @@
 #include <QWidget>
 #include <QSplitter>
 #include <QStatusBar>
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
 #include <kiconeffect.h>
 #endif
 
@@ -117,7 +117,7 @@ getStatusBars(QWidget *w)
 {
     return w ? w->findChildren<QStatusBar*>() : QList<QStatusBar*>();
 }
-#if defined FIX_DISABLED_ICONS && defined QTC_QT5_ENABLE_KDE
+#if defined FIX_DISABLED_ICONS && defined QTC_QT6_ENABLE_KDE
 static inline QPixmap
 getIconPixmap(const QIcon &icon, const QSize &size,
               QIcon::Mode mode, QIcon::State)
@@ -264,7 +264,7 @@ isKontactPreviewPane(const QWidget *widget)
 static inline QColor
 blendColors(const QColor &foreground, const QColor &background, double alpha)
 {
-#ifndef QTC_QT5_ENABLE_KDE
+#ifndef QTC_QT6_ENABLE_KDE
     return qtcColorMix(&background, &foreground, alpha);
 #else
     return KColorUtils::mix(background, foreground, alpha);
@@ -284,9 +284,9 @@ bool isA(const QObject *w, const char *type);
 
 }
 
-// **** experiments (deactivated) to hunt down the cause of the issues drawing round(ed) objects in Qt5 **** //
+// **** experiments (deactivated) to hunt down the cause of the issues drawing round(ed) objects in Qt6 **** //
 
-// It has been suggested to me that Qt5 might not observe AA settings when drawing lines with width 1 (exact);
+// It has been suggested to me that Qt6 might not observe AA settings when drawing lines with width 1 (exact);
 // the effect of using widths slightly different from 1 can be tested by setting QPENWIDTH1 to a sligtly
 // different value (e.g. #define QPENWIDTH1 1.01)
 #define QPENWIDTH1  1

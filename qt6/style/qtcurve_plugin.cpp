@@ -22,7 +22,7 @@
 #include "qtcurve_plugin.h"
 #include "qtcurve.h"
 
-#include "config-qt5.h"
+#include "config-qt6.h"
 
 #include <qtcurve-utils/qtprops.h>
 #include <qtcurve-utils/x11shadow.h>
@@ -30,12 +30,12 @@
 
 #include <QApplication>
 
-#ifdef Qt5X11Extras_FOUND
+#ifdef Qt6X11Extras_FOUND
 #  include <qtcurve-utils/x11base.h>
 #  include <QX11Info>
 #endif
 
-#ifdef QTC_QT5_ENABLE_QTQUICK2
+#ifdef QTC_QT6_ENABLE_QTQUICK2
 #  include <QQuickWindow>
 #  include <QQuickItem>
 #endif
@@ -48,7 +48,7 @@ namespace QtCurve {
 __attribute__((hot)) static void
 polishQuickControl(QObject *obj)
 {
-#ifdef QTC_QT5_ENABLE_QTQUICK2
+#ifdef QTC_QT6_ENABLE_QTQUICK2
     if (QQuickWindow *window = qobject_cast<QQuickWindow*>(obj)) {
         // QtQuickControl support
         // This is still VERY experimental.
@@ -185,10 +185,10 @@ StylePlugin::init()
             if (QCoreApplication::instance()) {
                 connect(QCoreApplication::instance(), &QCoreApplication::aboutToQuit, this, &StylePlugin::unregisterCallback);
             }
-#ifdef QTC_QT5_ENABLE_QTQUICK2
+#ifdef QTC_QT6_ENABLE_QTQUICK2
             QQuickWindow::setDefaultAlphaBuffer(true);
 #endif
-#ifdef Qt5X11Extras_FOUND
+#ifdef Qt6X11Extras_FOUND
             if (qApp->platformName() == "xcb") {
                 qtcX11InitXcb(QX11Info::connection(), QX11Info::appScreen());
             }

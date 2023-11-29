@@ -3416,7 +3416,7 @@
        <item row="11" column="1">
         <widget class="QSpinBox" name="menuCloseDelay">
          <property name="toolTip">
-          <string>Defines the delay before a sub-menu closes. Applicable on Qt5.5 or later</string>
+          <string>Defines the delay before a sub-menu closes. Applicable on Qt6.5 or later</string>
          </property>
          <property name="suffix">
           <string>ms</string>

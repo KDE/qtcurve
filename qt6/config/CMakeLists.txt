@@ -1,4 +1,4 @@
-if(NOT QTC_QT5_ENABLE_KDE)
+if(NOT QTC_QT6_ENABLE_KDE)
   return()
 endif()
 
@@ -28,7 +28,7 @@ set(kstyle_qtcurve5_config_UIS
   imageproperties.ui
   ../kwinconfig/qtcurvekwinconfigwidget.ui)
 
-if(QTC_QT5_STYLE_SUPPORT)
+if(QTC_QT6_STYLE_SUPPORT)
   set(kstyle_qtcurve5_config_PART_SRCS
     ${kstyle_qtcurve5_config_PART_SRCS}
     ${kstyle_qtcurve5_config_export_SRCS})
@@ -49,7 +49,7 @@ ki18n_wrap_ui(kstyle_qtcurve5_config_PART_SRCS ${kstyle_qtcurve5_config_UIS})
 
 add_library(kstyle_qtcurve5_config MODULE ${kstyle_qtcurve5_config_PART_SRCS})
 
-target_link_libraries(kstyle_qtcurve5_config Qt5::Core Qt5::Gui Qt5::Widgets)
+target_link_libraries(kstyle_qtcurve5_config Qt6::Core Qt6::Gui Qt6::Widgets)
 target_link_libraries(kstyle_qtcurve5_config
   KF5::Archive
   KF5::ConfigCore
@@ -64,5 +64,5 @@ target_link_libraries(kstyle_qtcurve5_config
   KF5::WindowSystem)
 target_link_libraries(kstyle_qtcurve5_config qtcurve-utils)
 
-install(TARGETS kstyle_qtcurve5_config DESTINATION ${_Qt5_PLUGIN_INSTALL_DIR})
+install(TARGETS kstyle_qtcurve5_config DESTINATION ${_Qt6_PLUGIN_INSTALL_DIR})
 install(FILES QtCurveui.rc  DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/QtCurve)

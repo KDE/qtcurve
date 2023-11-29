@@ -35,7 +35,7 @@
 
 //
 // NB!
-// This file is built twice (for targets kstyle_qtcurve5_config and qtcurve-qt5),
+// This file is built twice (for targets kstyle_qtcurve5_config and qtcurve-qt6),
 // and the CONFIG_WRITE and CONFIG_DIALOG tokens are likely to have different values
 // each time.
 //

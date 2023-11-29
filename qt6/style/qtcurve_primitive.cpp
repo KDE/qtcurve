@@ -42,7 +42,7 @@
 #include "utils.h"
 #include <common/config_file.h>
 
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
 #include <KWidgetsAddons/KTitleWidget>
 #endif
 
@@ -59,7 +59,7 @@ Style::drawPrimitiveIndicatorTabClose(PrimitiveElement,
                                       QPainter *painter,
                                       const QWidget*) const
 {
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
     int size = pixelMetric(QStyle::PM_SmallIconSize);
     State state = option->state;
     QIcon::Mode mode = (state & State_Enabled ? state & State_Raised ?

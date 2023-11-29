@@ -919,7 +919,7 @@ qtcIsCustomBgnd(const Options &opts)
             opts.bgndOpacity != 100 || opts.dlgOpacity != 100);
 }
 
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
 #include <kcolorutils.h>
 #define tint(COLA, COLB, FACTOR) KColorUtils::tint((COLA), (COLB), (FACTOR))
 #define midColor(COLA, COLB) KColorUtils::mix((COLA), (COLB), 0.5)

@@ -35,7 +35,7 @@
 #include "check_on-png.h"
 #include "check_x_on-png.h"
 
-#ifndef QTC_QT5_ENABLE_KDE
+#ifndef QTC_QT6_ENABLE_KDE
 #  include "dialog_error-png.h"
 #  include "dialog_warning-png.h"
 #  include "dialog_information-png.h"
@@ -75,7 +75,7 @@
 #include <qtcurve-utils/x11qtc.h>
 #include <sys/time.h>
 
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
 #include <KConfigCore/KSharedConfig>
 #include <KWindowSystem/KWindowSystem>
 #include <KConfigWidgets/KColorScheme>
@@ -201,7 +201,7 @@ addStripes(QPainter *p, const QPainterPath &path,
     }
 }
 
-#ifndef QTC_QT5_ENABLE_KDE
+#ifndef QTC_QT6_ENABLE_KDE
 static void
 setRgb(QColor *col, const QStringList &rgb)
 {
@@ -298,7 +298,7 @@ static QtcKey createKey(const QColor &color, EPixmap p)
         (((qulonglong)1)<<38);
 }
 
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
 static void parseWindowLine(const QString &line, QList<int> &data)
 {
     int len(line.length());
@@ -364,7 +364,7 @@ Style::Style() :
     m_shortcutHandler(new ShortcutHandler(this))
 {
     const char *env = getenv(QTCURVE_PREVIEW_CONFIG);
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
     m_configFile = KSharedConfig::openConfig();
     m_kdeGlobals = KSharedConfig::openConfig(QStringLiteral("kdeglobals"), KConfig::NoGlobals);
 #endif
@@ -407,7 +407,7 @@ void Style::init(bool initial)
             }
 #endif
             connectDBus();
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
             connect(KWindowSystem::self(), &KWindowSystem::compositingChanged, this, &Style::compositingToggled);
 #endif
             // prepare the cleanup handler
@@ -420,7 +420,7 @@ void Style::init(bool initial)
                             // Stop listening to select signals. We shouldn't stop emitting signals
                             // (like QObject::destroyed) but we can reduce the likelihood that pending
                             // signals will be sent to us post-mortem.
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
                             disconnect(KWindowSystem::self(), &KWindowSystem::compositingChanged,
                                        this, &Style::compositingToggled);
 #endif
@@ -444,7 +444,7 @@ void Style::init(bool initial)
     shadeColors(QApplication::palette().color(QPalette::Active, QPalette::Highlight), m_mouseOverCols);
 // Dont setup KDE4 fonts/colours here - seems to mess things up when using proxy styles.
 // See http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=638629
-//#ifdef QTC_QT5_ENABLE_KDE
+//#ifdef QTC_QT6_ENABLE_KDE
 //    setupKde4();
 //#endif
 
@@ -688,7 +688,7 @@ void Style::init(bool initial)
     opts.fontTickWidth=-1;
     opts.menuTick=QString(QChar(0x2713));
 
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
     // We need to set the decoration colours for the preview now...
     if (m_isPreview) {
         setDecorationColors();
@@ -705,7 +705,7 @@ void Style::connectDBus()
         m_dBusHelper->m_dbusConnected = true;
         bus.connect(QString(), "/KGlobalSettings", "org.kde.KGlobalSettings",
                     "notifyChange", this, SLOT(kdeGlobalSettingsChange(int, int)));
-#ifndef QTC_QT5_ENABLE_KDE
+#ifndef QTC_QT6_ENABLE_KDE
         bus.connect("org.kde.kwin", "/KWin", "org.kde.KWin", "compositingToggled",
                     this, SLOT(compositingToggled()));
 #endif
@@ -743,7 +743,7 @@ void Style::disconnectDBus()
     bus.disconnect(QString(), "/KGlobalSettings", "org.kde.KGlobalSettings",
                    "notifyChange",
                    this, SLOT(kdeGlobalSettingsChange(int, int)));
-#ifndef QTC_QT5_ENABLE_KDE
+#ifndef QTC_QT6_ENABLE_KDE
     bus.disconnect("org.kde.kwin", "/KWin", "org.kde.KWin", "compositingToggled",
                    this, SLOT(compositingToggled()));
 #endif
@@ -977,7 +977,7 @@ QIcon Style::standardIcon(StandardPixmap pix, const QStyleOption *option,
         drawIcon(&painter, Qt::color1, QRect(0, 0, pm.width(), pm.height()), false, pix2Icon(pix), true);
         return QIcon(pm);
     }
-#ifndef QTC_QT5_ENABLE_KDE
+#ifndef QTC_QT6_ENABLE_KDE
     case SP_MessageBoxQuestion:
     case SP_MessageBoxInformation: {
         static QIcon icn(QPixmap::fromImage(qtc_dialog_information));
@@ -3131,7 +3131,7 @@ Style::drawArrow(QPainter *p, const QRect &rx, PrimitiveElement pe,
     col.setAlpha(255);
     p->setPen(col);
     p->setBrush(col);
-    // Qt5 changes how coordinates is calculate for non-AA drawing.
+    // Qt6 changes how coordinates is calculate for non-AA drawing.
     // use QPainter::Qt4CompatiblePainting for now.
     // A better solution should be shifting the coordinates by 0.5
     // or maybe use QPainterPath
@@ -3894,7 +3894,7 @@ const QColor*
 Style::getMdiColors(const QStyleOption *option, bool active) const
 {
     if (!m_activeMdiColors) {
-#ifndef QTC_QT5_ENABLE_KDE
+#ifndef QTC_QT6_ENABLE_KDE
         m_activeMdiTextColor = (option ? option->palette.text().color() :
                                  QApplication::palette().text().color());
         m_mdiTextColor = (option ? option->palette.text().color() :
@@ -3997,7 +3997,7 @@ void Style::readMdiPositions() const
         m_mdiButtons[1].append(SC_TitleBarCloseButton);
 #endif
 
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
         KSharedConfigPtr cfg = KSharedConfig::openConfig("kwinrc");
         KConfigGroup grp = cfg->group("org.kde.kdecoration2");
 
@@ -4246,7 +4246,7 @@ Style::widgetDestroyed(QObject *o)
     }
 }
 
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
 // void Style::setupKde4()
 // {
 //     if(kapp) {
@@ -4326,7 +4326,7 @@ void Style::kdeGlobalSettingsChange(int type, int)
 
 void Style::borderSizesChanged()
 {
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
     int old = qtcGetWindowBorderSize(false).titleHeight;
 
     if (old != qtcGetWindowBorderSize(true).titleHeight) {
@@ -4404,7 +4404,7 @@ void Style::toggleMenuBar(QMainWindow *window)
 {
     bool triggeredAction(false);
 
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
     if (qobject_cast<KXmlGuiWindow*>(window)) {
         KActionCollection *collection=static_cast<KXmlGuiWindow *>(window)->actionCollection();
         QAction           *act=collection ? collection->action(KStandardAction::name(KStandardAction::ShowMenubar)) : 0L;
@@ -4429,7 +4429,7 @@ void Style::toggleStatusBar(QMainWindow *window)
 {
     bool triggeredAction(false);
 
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
     if (qobject_cast<KXmlGuiWindow*>(window)) {
         KActionCollection *collection=static_cast<KXmlGuiWindow *>(window)->actionCollection();
         QAction           *act=collection ? collection->action(KStandardAction::name(KStandardAction::ShowStatusbar)) : 0L;

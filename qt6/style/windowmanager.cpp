@@ -109,7 +109,7 @@ void WindowManager::initialize( int windowDrag, const QStringList &whiteList, co
     setDragMode( windowDrag );
 //CPD: Why???        setUseWMMoveResize( OxygenStyleConfigData::useWMMoveResize() );
 
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
     setDragDistance(QApplication::startDragDistance());
 #endif
     setDragDelay(QApplication::startDragTime());

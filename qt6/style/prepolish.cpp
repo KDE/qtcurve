@@ -42,10 +42,10 @@ Style::prePolish(QWidget *widget) const
     // menu on mdi sub window in QtDesigner has the same problem).
     // TODO:
     //     Use all information to check if a widget should be transparent.
-    //     Need to figure out how Qt5's xcb backend deal with RGB native window
-    //     as a child of a RGBA window. However, since Qt5 will not recreate
+    //     Need to figure out how Qt6's xcb backend deal with RGB native window
+    //     as a child of a RGBA window. However, since Qt6 will not recreate
     //     native window, this is probably easier to deal with than Qt4.
-    //     (After we create a RGB window, Qt5 will not override it).
+    //     (After we create a RGB window, Qt6 will not override it).
     if (!(widget->windowFlags() & Qt::MSWindowsOwnDC) &&
         !qtcGetWid(widget) && !props->prePolishing) {
         // Skip MSWindowsOwnDC since it is set for QGLWidget and not likely to

@@ -37,7 +37,7 @@
 
 class QComboBox;
 class QDoubleSpinBox;
-#ifdef QTC_QT5_STYLE_SUPPORT
+#ifdef QTC_QT6_STYLE_SUPPORT
 class CExportThemeDialog;
 #endif
 class QtCurveConfig;
@@ -221,7 +221,7 @@ private:
     CStylePreview *stylePreview;
     QMdiSubWindow *mdiWindow;
     QMap<QString, Preset>  presets;
-#ifdef QTC_QT5_STYLE_SUPPORT
+#ifdef QTC_QT6_STYLE_SUPPORT
     CExportThemeDialog *exportDialog;
 #endif
     CGradientPreview *gradPreview;

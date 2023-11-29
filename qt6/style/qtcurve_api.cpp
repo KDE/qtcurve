@@ -70,7 +70,7 @@
 
 #include <QDebug>
 
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
 #include <QPrintDialog>
 #include <KIconThemes/KIconLoader>
 #include <KWidgetsAddons/KTitleWidget>
@@ -430,7 +430,7 @@ void Style::polish(QPalette &palette)
     if (opts.menuStripe == SHADE_BLEND_SELECTED) {
         opts.customMenuStripeColor = Qt::black;
     }
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
     // Only set palette here...
     if (qApp) {
         setDecorationColors();
@@ -850,7 +850,7 @@ void Style::polish(QWidget *widget)
         }
     }
 
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
     // Make file selection button in QPrintDialog appear more KUrlRequester like...
     if (qtcCheckType<QPrintDialog>(getParent<3>(widget)) &&
         qobject_cast<QToolButton*>(widget) &&
@@ -1545,7 +1545,7 @@ Style::pixelMetric(PixelMetric metric, const QStyleOption *option,
         return 2;
     case PM_ToolBarExtensionExtent:
         return 15;
-#ifndef QTC_QT5_ENABLE_KDE
+#ifndef QTC_QT6_ENABLE_KDE
     case PM_SmallIconSize:
         return 16;
     case PM_ToolBarIconSize:
@@ -2003,7 +2003,7 @@ Style::styleHint(StyleHint hint, const QStyleOption *option,
         return QFormLayout::ExpandingFieldsGrow;
     case SH_FormLayoutWrapPolicy:
         return QFormLayout::DontWrapRows;
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
     case SH_DialogButtonBox_ButtonsHaveIcons:{
         KConfigGroup cg(m_kdeGlobals, "KDE");
         return cg.readEntry("ShowIconsOnPushButtons", false);
@@ -2018,7 +2018,7 @@ Style::styleHint(StyleHint hint, const QStyleOption *option,
     case SH_Menu_SupportsSections:
         return true;
     default:
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
         // Tell the calling app that we can handle certain custom widgets...
         if (hint >= SH_CustomBase && widget) {
             if (widget->objectName() == "CE_CapacityBar") {
@@ -2564,7 +2564,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
                     painter->rotate(-90);
                     painter->translate(-rVert.left(), -rVert.top());
                 }
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
                 if (opts.dwtSettings & DWT_FONT_AS_PER_TITLEBAR) {
                     painter->setFont(QFontDatabase::systemFont(QFontDatabase::TitleFont));
                 }
@@ -5386,7 +5386,7 @@ void Style::drawComplexControl(ComplexControl control, const QStyleOptionComplex
 
             opt.state=State_Horizontal|State_Enabled|State_Raised|(active ? State_Active : State_None);
 
-#ifndef QTC_QT5_ENABLE_KDE
+#ifndef QTC_QT6_ENABLE_KDE
             QPainterPath path;
 #else
             QPainterPath path(round < ROUND_SLIGHT ? QPainterPath() :
@@ -5550,7 +5550,7 @@ void Style::drawComplexControl(ComplexControl control, const QStyleOptionComplex
                                        ? QRect(r.x(), captionRect.y(), r.width(), captionRect.height())
                                        : captionRect);
 
-#ifndef QTC_QT5_ENABLE_KDE
+#ifndef QTC_QT6_ENABLE_KDE
                 QFont         font = m_fntHelper->fontStripStyleName(painter->font());
                 font.setBold(true);
                 painter->setFont(font);

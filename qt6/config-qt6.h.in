@@ -19,9 +19,9 @@
  *   see <http://www.gnu.org/licenses/>.                                     *
  *****************************************************************************/
 
-#ifndef __QTC_CONFIG_QT5_H__
-#define __QTC_CONFIG_QT5_H__
+#ifndef __QTC_CONFIG_QT6_H__
+#define __QTC_CONFIG_QT6_H__
 
-#cmakedefine Qt5X11Extras_FOUND
+#cmakedefine Qt6X11Extras_FOUND
 
 #endif

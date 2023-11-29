@@ -28,7 +28,7 @@
 #include <QDesktopWidget>
 #include <QWindow>
 
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
 #  include <kwindowsystem.h>
 #endif
 
@@ -38,7 +38,7 @@ namespace Utils {
 bool
 compositingActive()
 {
-#ifndef QTC_QT5_ENABLE_KDE
+#ifndef QTC_QT6_ENABLE_KDE
     // DO NOT condition compile on QTC_ENABLE_X11.
     // There's no direct linkage on X11 and the following code will just do
     // nothing if X11 is not enabled (either at compile time or at run time).

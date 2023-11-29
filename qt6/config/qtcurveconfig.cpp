@@ -26,11 +26,11 @@
 #include "qtcurveconfig.h"
 #include "imagepropertiesdialog.h"
 // TODO
-#ifdef QTC_QT5_STYLE_SUPPORT
+#ifdef QTC_QT6_STYLE_SUPPORT
 #  include "exportthemedialog.h"
 #endif
 
-// other qt5
+// other qt6
 #include <kwinconfig/qtcurvekwinconfig.h>
 #include <style/qtcurve.h>
 
@@ -856,7 +856,7 @@ QtCurveConfig::QtCurveConfig(QWidget *parent)
                workSpace(nullptr),
                stylePreview(nullptr),
                mdiWindow(nullptr),
-#ifdef QTC_QT5_STYLE_SUPPORT
+#ifdef QTC_QT6_STYLE_SUPPORT
                exportDialog(nullptr),
 #endif
                gradPreview(nullptr),
@@ -2817,7 +2817,7 @@ void QtCurveConfig::importPreset()
 
 void QtCurveConfig::exportPreset()
 {
-#ifdef QTC_QT5_STYLE_SUPPORT
+#ifdef QTC_QT6_STYLE_SUPPORT
 #if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     switch (KMessageBox::questionTwoActionsCancel(
 #else
@@ -2927,7 +2927,7 @@ void QtCurveConfig::exportPreset()
 
 void QtCurveConfig::exportTheme()
 {
-#ifdef QTC_QT5_STYLE_SUPPORT
+#ifdef QTC_QT6_STYLE_SUPPORT
     if(!exportDialog)
         exportDialog=new CExportThemeDialog(this);
 

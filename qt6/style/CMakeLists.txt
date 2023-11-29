@@ -23,12 +23,12 @@ set(qtcurve_MOC_HDRS
 
 translate_add_sources(${qtcurve_SRCS} ${qtcurve_MOC_HDRS})
 
-if(NOT ENABLE_QT5)
+if(NOT ENABLE_QT6)
   return()
 endif()
 
-if(QTC_QT5_ENABLE_QTQUICK2)
-  add_definitions(-DQTC_QT5_ENABLE_QTQUICK2=1)
+if(QTC_QT6_ENABLE_QTQUICK2)
+  add_definitions(-DQTC_QT6_ENABLE_QTQUICK2=1)
 endif()
 
 set(qtcurve_style_common_SRCS
@@ -42,7 +42,7 @@ foreach(pngname check_on check_x_on dialog_error dialog_information
     "${PROJECT_SOURCE_DIR}/data/${pngname}.png" "qtc_${pngname}"
     "${CMAKE_CURRENT_BINARY_DIR}/${pngname}-png.h"
     DEPENDS qt-dump-png "${PROJECT_SOURCE_DIR}/data/${pngname}.png")
-  add_custom_target(qtc_qt5_${pngname}_hdr
+  add_custom_target(qtc_qt6_${pngname}_hdr
     DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/${pngname}-png.h")
 endforeach()
 
@@ -52,24 +52,24 @@ add_definitions(-DQT_PLUGIN)
 include_directories(
   "${CMAKE_CURRENT_SOURCE_DIR}"
   "${CMAKE_CURRENT_BINARY_DIR}"
-  ${Qt5Widgets_PRIVATE_INCLUDE_DIRS}
-  ${Qt5Gui_PRIVATE_INCLUDE_DIRS})
-if(NOT QTC_QT5_ENABLE_KDE)
-  qt5_wrap_cpp(qtcurve_MOC_SRCS ${qtcurve_MOC_HDRS})
+  ${Qt6Widgets_PRIVATE_INCLUDE_DIRS}
+  ${Qt6Gui_PRIVATE_INCLUDE_DIRS})
+if(NOT QTC_QT6_ENABLE_KDE)
+  qt6_wrap_cpp(qtcurve_MOC_SRCS ${qtcurve_MOC_HDRS})
 else()
   set(qtcurve_MOC_SRCS)
 endif()
-add_library(qtcurve-qt5 MODULE ${qtcurve_SRCS} ${qtcurve_MOC_SRCS})
-set_target_properties(qtcurve-qt5 PROPERTIES
+add_library(qtcurve-qt6 MODULE ${qtcurve_SRCS} ${qtcurve_MOC_SRCS})
+set_target_properties(qtcurve-qt6 PROPERTIES
   OUTPUT_NAME "qtcurve"
   LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
   PREFIX "")
-add_dependencies(qtcurve-qt5 qtc_qt5_check_on_hdr qtc_qt5_check_x_on_hdr
-  qtc_qt5_dialog_error_hdr qtc_qt5_dialog_information_hdr
-  qtc_qt5_dialog_warning_hdr)
-target_link_libraries(qtcurve-qt5 ${QTC_QT5_LINK_LIBS} qtcurve-utils)
-if(QTC_QT5_ENABLE_KDE)
-  target_link_libraries(qtcurve-qt5
+add_dependencies(qtcurve-qt6 qtc_qt6_check_on_hdr qtc_qt6_check_x_on_hdr
+  qtc_qt6_dialog_error_hdr qtc_qt6_dialog_information_hdr
+  qtc_qt6_dialog_warning_hdr)
+target_link_libraries(qtcurve-qt6 ${QTC_QT6_LINK_LIBS} qtcurve-utils)
+if(QTC_QT6_ENABLE_KDE)
+  target_link_libraries(qtcurve-qt6
     KF5::ConfigCore
     KF5::GuiAddons
     KF5::IconThemes
@@ -79,9 +79,9 @@ if(QTC_QT5_ENABLE_KDE)
     KF5::XmlGui
   )
 endif()
-install(TARGETS qtcurve-qt5 LIBRARY DESTINATION ${QTCURVE_STYLE_DIR})
+install(TARGETS qtcurve-qt6 LIBRARY DESTINATION ${QTCURVE_STYLE_DIR})
 
-if(QTC_QT5_ENABLE_KDE)
+if(QTC_QT6_ENABLE_KDE)
   foreach(dir DATA_INSTALL_DIR KDE_INSTALL_DATADIR CMAKE_INSTALL_DATADIR
       SHARE_INSTALL_PREFIX KDE_INSTALL_DATAROOTDIR CMAKE_INSTALL_DATAROOTDIR)
     unset(${dir})

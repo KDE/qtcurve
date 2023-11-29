@@ -36,7 +36,7 @@
 #include <QStyleOption>
 #include <QtGlobal>
 #include <QCommonStyle>
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
 #include <KConfigCore/KSharedConfig>
 #include <KConfigCore/KConfigGroup>
 #include <KStyle/KStyle>
@@ -373,7 +373,7 @@ private:
     void toggleMenuBar(QMainWindow *window);
     void toggleStatusBar(QMainWindow *window);
 
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
     // void setupKde4();
     void setDecorationColors();
     // void applyKdeSettings(bool pal);
@@ -578,7 +578,7 @@ private:
     WindowManager *m_windowManager;
     BlurHelper *m_blurHelper;
     ShortcutHandler *m_shortcutHandler;
-#ifdef QTC_QT5_ENABLE_KDE
+#ifdef QTC_QT6_ENABLE_KDE
     KSharedConfigPtr m_configFile;
     KSharedConfigPtr m_kdeGlobals;
 #endif
