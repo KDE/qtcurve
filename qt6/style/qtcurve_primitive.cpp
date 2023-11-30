@@ -1992,7 +1992,7 @@ Style::drawPrimitiveFrameStatusBarOrMenu(PrimitiveElement element,
                                          QPainter *painter,
                                          const QWidget *widget) const
 {
-    if (element == PE_FrameStatusBar && !opts.drawStatusBarFrames) {
+    if (element == PE_FrameStatusBarItem && !opts.drawStatusBarFrames) {
         return true;
     }
     QRect r = option->rect;

@@ -2074,7 +2074,7 @@ Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option,
     case PE_IndicatorBranch:
         drawFunc = &Style::drawPrimitiveIndicatorBranch;
         break;
-    case PE_IndicatorViewItemCheck:
+    case PE_IndicatorItemViewItemCheck:
         drawFunc = &Style::drawPrimitiveIndicatorViewItemCheck;
         break;
     case PE_IndicatorHeaderArrow:
@@ -2107,7 +2107,7 @@ Style::drawPrimitive(PrimitiveElement element, const QStyleOption *option,
     case PE_FrameTabBarBase:
         drawFunc = &Style::drawPrimitiveFrameTabBarBase;
         break;
-    case PE_FrameStatusBar:
+    case PE_FrameStatusBarItem:
     case PE_FrameMenu:
         initFontTickData(widget ? widget->font() : QApplication::font("QMenu"), widget);
         drawFunc = &Style::drawPrimitiveFrameStatusBarOrMenu;
