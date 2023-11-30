@@ -1581,10 +1581,6 @@ Style::pixelMetric(PixelMetric metric, const QStyleOption *option,
         return 18;
     case PM_HeaderMargin:
         return 3;
-    case PM_DefaultChildMargin:
-        return isOOWidget(widget) ? 2 : 6;
-    case PM_DefaultTopLevelMargin:
-        return 9;
     case PM_LayoutHorizontalSpacing:
     case PM_LayoutVerticalSpacing:
         return -1; // use layoutSpacing
@@ -1592,10 +1588,7 @@ Style::pixelMetric(PixelMetric metric, const QStyleOption *option,
     case PM_LayoutTopMargin:
     case PM_LayoutRightMargin:
     case PM_LayoutBottomMargin:
-        return pixelMetric((option && (option->state & State_Window)) ||
-                           (widget && widget->isWindow()) ?
-                           PM_DefaultTopLevelMargin : PM_DefaultChildMargin,
-                           option, widget);
+        return 9;
     case PM_MenuBarItemSpacing:
         return 0;
     case PM_ToolBarItemMargin:
