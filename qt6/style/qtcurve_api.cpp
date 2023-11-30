@@ -2814,7 +2814,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
         QColor col;
 
         if (auto bar = styleOptCast<QStyleOptionProgressBar>(option)) {
-            horiz = bar->orientation == Qt::Horizontal;
+            horiz = (bool)(bar->state & QStyle::StateFlag::State_Horizontal);
         }
 
         painter->save();
@@ -2874,7 +2874,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
 
             // Get extra style options if version 2
             if (auto bar = styleOptCast<QStyleOptionProgressBar>(option)) {
-                vertical = bar->orientation == Qt::Vertical;
+                vertical = !(bool)(bar->state & QStyle::StateFlag::State_Horizontal);
                 inverted = bar->invertedAppearance;
             }
 
@@ -2961,7 +2961,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
 
             // Get extra style options if version 2
             if (auto bar = styleOptCast<QStyleOptionProgressBar>(option)) {
-                vertical = bar->orientation == Qt::Vertical;
+                vertical = !(bool)(bar->state & QStyle::StateFlag::State_Horizontal);
                 inverted = bar->invertedAppearance;
                 bottomToTop = bar->bottomToTop;
             }
