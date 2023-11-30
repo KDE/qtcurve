@@ -3308,7 +3308,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
             int y;
             int w;
             int h;
-            int tab = menuItem->tabWidth;
+            int tab = menuItem->reservedShortcutWidth;
             menuItem->rect.getRect(&x, &y, &w, &h);
             int xm = windowsItemFrame + checkcol + windowsItemHMargin - 2;
             int xpos = menuItem->rect.x() + xm;
