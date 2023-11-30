@@ -3813,7 +3813,7 @@ void Style::setMenuTextColors(QWidget *widget, bool isMenuBar) const
         QPalette pal(widget->palette());
         QStyleOption opt;
 
-        opt.init(widget);
+        opt.initFrom(widget);
         getMdiColors(&opt, false);
 
         pal.setBrush(QPalette::Active, QPalette::WindowText, m_activeMdiTextColor);

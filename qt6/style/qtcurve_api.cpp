@@ -1249,7 +1249,7 @@ bool Style::eventFilter(QObject *object, QEvent *event)
             QRect r(widget->rect());
             double radius = opts.round >= ROUND_FULL ? 5.0 : 2.5;
             QStyleOption opt;
-            opt.init(widget);
+            opt.initFrom(widget);
             const QColor *use(popupMenuCols(&opt));
 
             p.setClipRegion(static_cast<QPaintEvent*>(event)->region());
@@ -6315,7 +6315,7 @@ QSize Style::sizeFromContents(ContentsType type, const QStyleOption *option, con
                 tbOpt->features & QStyleOptionToolButton::MenuButtonPopup) {
                 QStyleOptionButton btn;
 
-                btn.init(widget);
+                btn.initFrom(widget);
                 btn.text = tbOpt->text;
                 btn.icon = tbOpt->icon;
                 btn.iconSize = tbOpt->iconSize;
