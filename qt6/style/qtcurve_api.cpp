@@ -1118,18 +1118,19 @@ bool Style::eventFilter(QObject *object, QEvent *event)
                             (sbars[i] == m_sViewSBar &&
                              (QEvent::MouseMove == event->type() ||
                               QEvent::MouseButtonRelease == event->type()))) {
-                            if (QEvent::Wheel != event->type()) {
-                                struct HackEvent : public QMouseEvent {
-                                    void set(const QPoint &mapped, bool vert)
-                                        {
-                                            l = QPointF(vert ? 0 : mapped.x(),
-                                                        vert ? mapped.y() : 0);
-                                            s = QPointF(s.x() + (vert ? 0 : -3),
-                                                        s.y() + (vert ? -3 : 0));
-                                        }
-                                };
-                                ((HackEvent*)event)->set(mapped, 0 == i);
-                            }
+                            // TODO (if needed...)
+                            // if (QEvent::Wheel != event->type()) {
+                            //     struct HackEvent : public QMouseEvent {
+                            //         void set(const QPoint &mapped, bool vert)
+                            //             {
+                            //                 l = QPointF(vert ? 0 : mapped.x(),
+                            //                             vert ? mapped.y() : 0);
+                            //                 s = QPointF(s.x() + (vert ? 0 : -3),
+                            //                             s.y() + (vert ? -3 : 0));
+                            //             }
+                            //     };
+                            //     ((HackEvent*)event)->set(mapped, 0 == i);
+                            // }
                             sbars[i]->event(event);
                             if (QEvent::MouseButtonPress == event->type()) {
                                 m_sViewSBar = sbars[i];

@@ -199,13 +199,14 @@ updateMenuBarEvent(QMouseEvent *event, QMenuBar *menu)
         bool
         adjust()
         {
-            if (l.x() < 2 || l.y() < 2) {
-                l = QPointF(l.x() < 2 ? l.x() + 2 : l.x(),
-                            l.y() < 2 ? l.y() + 2 : l.y());
-                s = QPointF(l.x() < 2 ? s.x() + 2 : s.x(),
-                            l.y() < 2 ? s.y() + 2 : s.y());
-                return true;
-            }
+            // TODO
+            // if (l.x() < 2 || l.y() < 2) {
+            //     l = QPointF(l.x() < 2 ? l.x() + 2 : l.x(),
+            //                 l.y() < 2 ? l.y() + 2 : l.y());
+            //     s = QPointF(l.x() < 2 ? s.x() + 2 : s.x(),
+            //                 l.y() < 2 ? s.y() + 2 : s.y());
+            //     return true;
+            // }
             return false;
         }
     };
