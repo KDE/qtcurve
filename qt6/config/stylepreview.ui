@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>StylePreview</class>
+ <widget class="QWidget" name="StylePreview">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>547</width>
+    <height>280</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout">
+   <item>
+    <widget class="QTabWidget" name="TabWidget2">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+       <horstretch>1</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Tab 1</string>
+      </attribute>
+      <layout class="QVBoxLayout">
+       <item>
+        <widget class="QMenuBar" name="menuBarPreview">
+         <property name="nativeMenuBar">
+          <bool>false</bool>
+         </property>
+         <widget class="QMenu" name="menuMenu_1">
+          <property name="title">
+           <string>&amp;Menu 1</string>
+          </property>
+          <addaction name="separator"/>
+          <addaction name="actionRegular_item_1"/>
+          <addaction name="separator"/>
+          <addaction name="actionRegular_item_2"/>
+         </widget>
+         <widget class="QMenu" name="menuMenu_2">
+          <property name="title">
+           <string>Menu &amp;2</string>
+          </property>
+          <widget class="QMenu" name="menu2SubMenu">
+           <property name="title">
+            <string>&amp;Submenu</string>
+           </property>
+           <addaction name="actionRegular_submenu_item"/>
+          </widget>
+          <addaction name="actionCheckable_item"/>
+          <addaction name="separator"/>
+          <addaction name="menu2SubMenu"/>
+          <addaction name="separator"/>
+          <addaction name="exclusiveItem1"/>
+          <addaction name="exclusiveItem2"/>
+          <addaction name="exclusiveItem3"/>
+         </widget>
+         <addaction name="menuMenu_1"/>
+         <addaction name="menuMenu_2"/>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QGroupBox" name="GroupBox1">
+             <property name="title">
+              <string>Group Box</string>
+             </property>
+             <layout class="QVBoxLayout" name="_2">
+              <item>
+               <widget class="QRadioButton" name="RadioButton1">
+                <property name="text">
+                 <string>&amp;Radio button</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="RadioButton2">
+                <property name="text">
+                 <string>Radio &amp;button</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="Line" name="Line1">
+                <property name="frameShape">
+                 <enum>QFrame::HLine</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Sunken</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="CheckBox1">
+                <property name="text">
+                 <string>Checkbox</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+                <property name="tristate">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout">
+           <item>
+            <widget class="QProgressBar" name="ProgressBar1">
+             <property name="value">
+              <number>70</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="Slider1">
+             <property name="maximum">
+              <number>100</number>
+             </property>
+             <property name="value">
+              <number>70</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout">
+             <item>
+              <widget class="QSpinBox" name="SpinBox1">
+               <property name="maximum">
+                <number>999999</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="PushButton1">
+               <property name="text">
+                <string>Button</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QComboBox" name="ComboBox1">
+             <item>
+              <property name="text">
+               <string>Combobox</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Item 2</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Item 3</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Item 4</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox">
+             <property name="editable">
+              <bool>true</bool>
+             </property>
+             <item>
+              <property name="text">
+               <string>Editable combobox</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Item 2</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Item 3</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Item 4</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item>
+            <spacer>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QScrollBar" name="ScrollBar1">
+           <property name="maximum">
+            <number>19</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab2">
+      <attribute name="title">
+       <string>Tab 2</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QSplitter" name="splitter">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="childrenCollapsible">
+          <bool>false</bool>
+         </property>
+         <widget class="QDockWidget" name="dockWidget">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="windowTitle">
+           <string>&amp;Dock Widget</string>
+          </property>
+          <widget class="QWidget" name="dockWidgetContents">
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QTreeWidget" name="treeWidget">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="sortingEnabled">
+               <bool>true</bool>
+              </property>
+              <property name="allColumnsShowFocus">
+               <bool>true</bool>
+              </property>
+              <attribute name="headerDefaultSectionSize">
+               <number>80</number>
+              </attribute>
+              <attribute name="headerMinimumSectionSize">
+               <number>32</number>
+              </attribute>
+              <column>
+               <property name="text">
+                <string>Column 1</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Column 2</string>
+               </property>
+              </column>
+              <item>
+               <property name="text">
+                <string>Item 8</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Sub 4</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 3</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 2</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 1</string>
+                </property>
+               </item>
+              </item>
+              <item>
+               <property name="text">
+                <string>Item 7</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Sub 4</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 3</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 2</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 1</string>
+                </property>
+               </item>
+              </item>
+              <item>
+               <property name="text">
+                <string>Item 6</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Sub 4</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 3</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 2</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 1</string>
+                </property>
+               </item>
+              </item>
+              <item>
+               <property name="text">
+                <string>Item 5</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Sub 4</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 3</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 2</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 1</string>
+                </property>
+               </item>
+              </item>
+              <item>
+               <property name="text">
+                <string>Item 4</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Sub 4</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 3</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 2</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 1</string>
+                </property>
+               </item>
+              </item>
+              <item>
+               <property name="text">
+                <string>Item 3</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Sub 4</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 3</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 2</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 1</string>
+                </property>
+               </item>
+              </item>
+              <item>
+               <property name="text">
+                <string>Item 2</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Sub 4</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 3</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 2</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 1</string>
+                </property>
+               </item>
+              </item>
+              <item>
+               <property name="text">
+                <string>Item 1</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Sub 4</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 3</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 2</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub 1</string>
+                </property>
+               </item>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QPlainTextEdit" name="plainTextEdit">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="plainText">
+           <string>Eleven saintly shrouded men
+Silhouettes stand against the sky
+One in front with a cross held high
+Come to wash my sins away...</string>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+  <action name="actionRegular_item_1">
+   <property name="text">
+    <string>&amp;Regular item 1</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+1</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::WidgetWithChildrenShortcut</enum>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionRegular_item_2">
+   <property name="text">
+    <string>Regular &amp;item 2</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+2</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::WidgetWithChildrenShortcut</enum>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionCheckable_item">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Checkable item</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="exclusiveItem1">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Exclusive item 1</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="exclusiveItem2">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Exclusive &amp;item 2</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="exclusiveItem3">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Exclusive item &amp;3</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionRegular_submenu_item">
+   <property name="text">
+    <string>&amp;regular submenu item</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>Slider1</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ProgressBar1</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>253</x>
+     <y>77</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>272</x>
+     <y>50</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

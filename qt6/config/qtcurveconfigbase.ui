@@ -1,0 +1,4896 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QtCurveConfigBase</class>
+ <widget class="QWidget" name="QtCurveConfigBase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>866</width>
+    <height>587</height>
+   </rect>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="3">
+    <widget class="QLabel" name="titleLabel">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
+      <string>title</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QTreeWidget" name="stackList">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>150</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+     <property name="textElideMode">
+      <enum>Qt::ElideNone</enum>
+     </property>
+     <property name="indentation">
+      <number>0</number>
+     </property>
+     <property name="rootIsDecorated">
+      <bool>false</bool>
+     </property>
+     <property name="itemsExpandable">
+      <bool>false</bool>
+     </property>
+     <attribute name="headerVisible">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="headerDefaultSectionSize">
+      <number>10</number>
+     </attribute>
+     <attribute name="headerMinimumSectionSize">
+      <number>10</number>
+     </attribute>
+     <column>
+      <property name="text">
+       <string notr="true"/>
+      </property>
+     </column>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QStackedWidget" name="stack">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="page_24">
+      <layout class="QVBoxLayout" name="verticalLayout_14">
+       <item>
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="title">
+          <string>Presets</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_15">
+          <item>
+           <widget class="QComboBox" name="presetsCombo">
+            <property name="toolTip">
+             <string>&lt;p&gt;This combo contains the list of pre-defined settings.
+&lt;ul&gt;
+&lt;li&gt;&lt;i&gt;(Current)&lt;/i&gt; will discard any changes, and revert to the currently saved style.&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;(Default)&lt;/i&gt; will discard any changes, and revert to the QtCurve default style.&lt;/li&gt;
+&lt;/ul&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="saveButton">
+              <property name="toolTip">
+               <string>&lt;p&gt;Save the current settings to be retrieved later.&lt;/p&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="deleteButton">
+              <property name="toolTip">
+               <string>&lt;p&gt;Delete a previously stored setting.&lt;/p&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="importButton">
+              <property name="toolTip">
+               <string>&lt;p&gt;Import a QtCurve settings file - such as one downloaded from www.kde-look.org&lt;/p&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="exportButton">
+              <property name="toolTip">
+               <string>&lt;p&gt;Export the currently defined settings to a file, so that these may be shared with others.&lt;/p&gt;</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="previewGroupBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="title">
+          <string>Preview</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_13">
+          <item>
+           <widget class="QWidget" name="previewWidget" native="true">
+            <layout class="QGridLayout" name="gridLayout_5">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item row="0" column="0" colspan="2">
+              <widget class="QFrame" name="previewFrame">
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Sunken</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <spacer name="horizontalSpacer_3">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>465</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="1" column="1">
+              <widget class="QPushButton" name="previewControlButton">
+               <property name="text">
+                <string>Detach</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page">
+      <layout class="QFormLayout" name="formLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>Appearance:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="appearance">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>&lt;p&gt;The setting here affects the general appearance - and will be applied to buttons, combo boxes, and spin buttons.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_47">
+         <property name="text">
+          <string>Background appearance:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QComboBox" name="bgndAppearance">
+           <property name="toolTip">
+            <string>&lt;p&gt;Sets a gradient to be used as the background for windows and dialogs.&lt;/p&gt;&lt;p&gt;&lt;b&gt;NOTE:&lt;/b&gt; This is an experimental option, and will (probably) have a detrimental effect on performance.&lt;/p&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="bgndAppearance_btn">
+           <property name="text">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="2" column="1">
+        <widget class="QComboBox" name="bgndGrad">
+         <property name="toolTip">
+          <string>&lt;p&gt;Control the orientation of the background gradient.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_47b">
+         <property name="text">
+          <string>Background image:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QComboBox" name="bgndImage">
+           <property name="toolTip">
+            <string>&lt;p&gt;This adds a background image to the top-right of dialogs and windows.
+            &lt;ul&gt;&lt;li&gt;None - No image.&lt;/li&gt;&lt;li&gt;Bordered rings - 'Air' like rings with borders.&lt;/li&gt;&lt;li&gt;Plain rings - 'Air' like rings, but without any border.&lt;/li&gt;&lt;li&gt;Square rings - 3 simple rounded squares.&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="bgndImage_btn">
+           <property name="text">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_29">
+         <property name="text">
+          <string>Sunken appearance:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QComboBox" name="sunkenAppearance">
+         <property name="toolTip">
+          <string>&lt;p&gt;Define the gradient to be used for sunken widgets - e.g. pressed buttons.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_9">
+         <property name="text">
+          <string>Button effect:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QComboBox" name="buttonEffect">
+         <property name="toolTip">
+          <string>&lt;p&gt;Control what effect should be applied to buttons, combo boxes, etc.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QCheckBox" name="thin_buttons">
+         <property name="toolTip">
+          <string>&lt;p&gt;Make buttons, and other widgets, slightly thinner.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Thinner buttons</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QCheckBox" name="etchEntry">
+         <property name="toolTip">
+          <string>&lt;p&gt;When the 'Button effect' is set to etched or shadowed, then this option controls whether line-edits and scrollviews (such as listviews and treeviews) should have an etched look.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Etch entries and scrollviews </string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_25">
+         <property name="text">
+          <string>Focus rectangle:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QComboBox" name="focus">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls how QtCurve indicates that a widget has keyboard focus.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0">
+        <widget class="QLabel" name="label_tt">
+         <property name="text">
+          <string>Tooltips:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QComboBox" name="tooltipAppearance">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls the appearance of tooltip backgrounds.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="0" colspan="2">
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="title">
+          <string/>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QCheckBox" name="vArrows">
+            <property name="toolTip">
+             <string>&lt;p&gt;QtCurve supports 2 arrows types; plain (i.e. triangular) and the more modern looking 'V' style arrows.&lt;/p&gt;</string>
+            </property>
+            <property name="text">
+             <string>'V' style arrows</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="stdSidebarButtons">
+            <property name="toolTip">
+             <string>&lt;p&gt;Select this to have the sidebar buttons in konqueror, kate, kaffeine, ktorrent, etc., drawn as per normal buttons - otherwise they will be drawn in a more flat style with the active tab colored with the highlight color.&lt;/p&gt;</string>
+            </property>
+            <property name="text">
+             <string>Standard buttons for sidebars</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="darkerBorders">
+            <property name="toolTip">
+             <string>&lt;p&gt;Darkens the borders of frames, buttons, etc.&lt;/p&gt;</string>
+            </property>
+            <property name="text">
+             <string>Darker borders</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="fadeLines">
+            <property name="toolTip">
+             <string>&lt;p&gt;Controls whether horizontal and vertical lines should be drawn with fading ends.&lt;/p&gt;</string>
+            </property>
+            <property name="text">
+             <string>Draw fading lines</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="thin_frames">
+            <property name="toolTip">
+             <string>&lt;p&gt;Controls whether the internal 3d part of frames, etc., should be drawn.&lt;/p&gt;</string>
+            </property>
+            <property name="text">
+             <string>Thinner frames, edit boxes, etc.</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="hideShortcutUnderline">
+            <property name="text">
+             <string>Hide shortcut underline until 'Alt' key is pressed.</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_28">
+      <layout class="QFormLayout" name="formLayout_22">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_8">
+         <property name="text">
+          <string>General setting:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="round">
+         <property name="toolTip">
+          <string>&lt;p&gt;Set how 'rounded' widgets can be. The 'max' round setting only applies to buttons.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_93">
+         <property name="text">
+          <string>Do not round:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QCheckBox" name="squareEntry">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls whether text entry fields should respect the general round setting, or always be square.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Entry fields</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QCheckBox" name="squareProgress">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls whether progress bars should respect the general round setting, or always be square.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Progressbars</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QCheckBox" name="squareScrollViews">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls whether the frame of a scrollview should respect the general round setting, or always be square.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Scrollable windows</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="squareLvSelection">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, then selected items in listviews and treeviews will be drawn with square edges, regardless of the general round setting.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Listview selections</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QCheckBox" name="squareTabFrame">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls whether the frames of tab widgets should respect the general round setting, or always be square.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Tab widget frames</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QCheckBox" name="squareFrame">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls whether general frames should respect the general round setting, or always be square.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>General frames</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QCheckBox" name="squareSlider">
+         <property name="text">
+          <string>Sliders</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QCheckBox" name="squareScrollbarSlider">
+         <property name="text">
+          <string>Scrollbar sliders</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QCheckBox" name="squareWindows">
+         <property name="text">
+          <string>Window borders (will use slight round)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <widget class="QCheckBox" name="squareTooltips">
+         <property name="text">
+          <string>Tooltips</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="1">
+        <widget class="QCheckBox" name="squarePopupMenus">
+         <property name="text">
+          <string>Popup menus</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_29">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <layout class="QFormLayout" name="formLayout_23">
+         <property name="fieldGrowthPolicy">
+          <enum>QFormLayout::ExpandingFieldsGrow</enum>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_47a">
+           <property name="text">
+            <string>Windows:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QSpinBox" name="bgndOpacity">
+           <property name="toolTip">
+            <string>&lt;p&gt;Sets the opacity of window backgrounds when using desktop effects.&lt;/p&gt;</string>
+           </property>
+           <property name="suffix">
+            <string>%</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_47x">
+           <property name="text">
+            <string>Dialogs:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QSpinBox" name="dlgOpacity">
+           <property name="toolTip">
+            <string>&lt;p&gt;Sets the opacity of dialog backgrounds when using desktop effects.&lt;/p&gt;</string>
+           </property>
+           <property name="suffix">
+            <string>%</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_yy">
+           <property name="text">
+            <string>Pop-up menus:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QSpinBox" name="menuBgndOpacity">
+           <property name="toolTip">
+            <string>&lt;p&gt;Sets the opacity of popup menus when using desktop effects.&lt;/p&gt;</string>
+           </property>
+           <property name="suffix">
+            <string>%</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>13</width>
+           <height>13</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_100">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>&lt;p&gt;&lt;b&gt;NOTE:&lt;/b&gt; &lt;i&gt;Opacity settings are &lt;b&gt;experimental&lt;/b&gt; and can cause certain applications (mainly Gtk2 ones) to crash. If you have an application that crashes, use the &amp;quot;Applications&amp;quot; page to disable opacity settings for that application.&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;NOTE:&lt;/b&gt; &lt;i&gt;&lt;b&gt;DON'T&lt;/b&gt; use opacity settings when using the compiz window manager.&lt;/i&gt;&lt;/p&gt;</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_18">
+      <layout class="QFormLayout" name="formLayout_11">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_98">
+         <property name="text">
+          <string>Frame type:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="groupBox"/>
+       </item>
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="gbFactor">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines how much a group box's background should be darkened or lightened by.&lt;/p&gt;</string>
+         </property>
+         <property name="suffix">
+          <string>%</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_99">
+         <property name="text">
+          <string>Label:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QCheckBox" name="gbLabel_bold">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls whether group boxes should use a bold for their title.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Use bold font</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QComboBox" name="gbLabel_textPos">
+         <property name="toolTip">
+          <string>&lt;p&gt;Specifies the vertical position of a group box's text label.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="gbLabel_centred">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls whether a group boxe's label should be centred, or left/right aligned.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Centred (KDE only)</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_16">
+      <layout class="QFormLayout" name="formLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_46">
+         <property name="text">
+          <string>Button:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="comboBtn">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls the coloration of the button part (i.e. the part with the arrow) of combo boxes.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="KColorButton" name="customComboBtnColor">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>&lt;p&gt;Sets the custom color.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QCheckBox" name="comboSplitter">
+         <property name="toolTip">
+          <string>&lt;p&gt;This option controls whether a line is drawn near non-editable combo box arrow buttons.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Draw splitter</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_64">
+         <property name="text">
+          <string>Editable style:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QCheckBox" name="unifyCombo">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls whether the combo box button, of editable combos, should appear as a button or an arrow within the edit field.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Draw arrow within edit field</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_63">
+         <property name="text">
+          <string>Non-editable style:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="gtkComboMenus">
+         <property name="toolTip">
+          <string>&lt;p&gt;In Gtk, the list that is attached to a combo-box appears in the same style as a popup-menu. KDE has the ability to mimic this look.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Gtk-style</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QCheckBox" name="doubleGtkComboArrow">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls whether a single down arrow, or a up and down arrow, should be drawn on non-editable combo boxes.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Draw double-arrow for Gtk style</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>562</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_17">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QCheckBox" name="unifySpinBtns">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls whether the up and down buttons should appear as individual buttons, or be combined.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Combine both buttons</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="unifySpin">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls whether the up and down buttons should appear as buttons, or just arrows within the edit field.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Draw arrows within edit field</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>566</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_2">
+      <layout class="QFormLayout" name="formLayout_3">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::ExpandingFieldsGrow</enum>
+       </property>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_10">
+         <property name="text">
+          <string>Markings:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="splitters">
+         <property name="toolTip">
+          <string>&lt;p&gt;Sets the marking used to indicate that the widget is a splitter.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_69">
+         <property name="text">
+          <string>Background mouse-over highlight:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QSpinBox" name="splitterHighlight">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines by how much the theme should brighten (or darken) the background of the splitter when the mouse hovers over.&lt;/p&gt;</string>
+         </property>
+         <property name="suffix">
+          <string>%</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_3">
+      <layout class="QFormLayout" name="formLayout_4">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_11">
+         <property name="text">
+          <string>Appearance:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="sliderAppearance">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls the appearance of both scrollbar sliders and other sliders.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_12">
+         <property name="text">
+          <string>Coloration:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="shadeSliders">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls the color setting of both scrollbar sliders and other sliders.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="KColorButton" name="customSlidersColor">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>&lt;p&gt;Sets the custom color.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="colorSliderMouseOver">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls whether the coloration happens all the time, or only when the mouse hovers over the slider.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Mouse-over only</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_13">
+         <property name="text">
+          <string>Style:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QComboBox" name="sliderStyle">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls the appearance of standard sliders - i.e. not scrollbar sliders. 'Triangular' is very similar to plastik's sliders.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_50">
+         <property name="text">
+          <string>Used slider groove:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QCheckBox" name="fillSlider">
+         <property name="toolTip">
+          <string>&lt;p&gt;Indicates whether the used part of a slider's groove should be filled or not. (Does not affect scrollbar sliders).&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Fill</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QComboBox" name="sliderFill">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls the gradient setting used for the used part of a standard sliders' groove.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_30">
+         <property name="text">
+          <string>&lt;p&gt;Groove appearance:&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QComboBox" name="grooveAppearance">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls the gradient setting used for both scrollbar sliders, and other sliders.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QCheckBox" name="thinSbarGroove">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls whether scrollbar slider grooves should be the same thickness as the slider, or be thinner (and more like the groove of a standard slider).&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Thin</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <widget class="QCheckBox" name="borderSbarGroove">
+         <property name="text">
+          <string>Bordered</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="0">
+        <widget class="QLabel" name="label_14">
+         <property name="text">
+          <string>Scrollbar buttons:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="1">
+        <widget class="QComboBox" name="scrollbarType">
+         <property name="toolTip">
+          <string>&lt;p&gt;This controls the position, and number, of buttons on a scrollbar.
+            &lt;ul&gt;&lt;li&gt;KDE - 1 button at the top/left, and two at the bottom/right&lt;/li&gt;&lt;li&gt;Windows - 1 button at each end&lt;/li&gt;&lt;li&gt;Platinum - no buttons at the top/left, two at bottom/right&lt;/li&gt;&lt;li&gt;Next - two buttons at the top/left, none at bottom/right&lt;/li&gt;&lt;li&gt;None - no buttons, only the slider&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="1">
+        <widget class="QCheckBox" name="flatSbarButtons">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, then scrollbar buttons are not drawn and only the arrows will appear.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Flat</string>
+         </property>
+        </widget>
+       </item>
+       <item row="13" column="0">
+        <widget class="QLabel" name="label_32">
+         <property name="text">
+          <string>Background:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="13" column="1">
+        <widget class="QComboBox" name="sbarBgndAppearance">
+         <property name="toolTip">
+          <string>&lt;p&gt;Configures the background gradient to be used with 'Flat' scrollbar buttons.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="14" column="0">
+        <widget class="QLabel" name="label_15">
+         <property name="text">
+          <string>Slider thumbs:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="14" column="1">
+        <widget class="QComboBox" name="sliderThumbs">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines what markings should be placed in the center of scrollbar sliders (and plain style sliders).&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="15" column="0">
+        <widget class="QLabel" name="label_15a">
+         <property name="text">
+          <string>Slider width:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="15" column="1">
+        <widget class="QSpinBox" name="sliderWidth">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls the width of scrollbar sliders, and plain style sliders.&lt;/p&gt;</string>
+         </property>
+         <property name="suffix">
+          <string> pixels</string>
+         </property>
+         <property name="prefix">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QCheckBox" name="stripedSbar">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, a fading stripe will be added.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Striped</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_4">
+      <layout class="QFormLayout" name="formLayout_5">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::ExpandingFieldsGrow</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_16">
+         <property name="text">
+          <string>Bar:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="progressAppearance">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the gradient to be used for the progress part of a progressbar.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QComboBox" name="stripedProgress">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the stripe type to be used for the progress part of a progressbar.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="animatedProgress">
+         <property name="toolTip">
+          <string>&lt;p&gt;Determines if the stripes on progressbars should be animated, or not.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Animated</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QComboBox" name="glowProgress">
+         <property name="toolTip">
+          <string>&lt;p&gt;Add a white 'glow' to progressbars.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QCheckBox" name="fillProgress">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>&lt;p&gt;Enable this option to remove the 1 pixel border around the filled element.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Fill groove</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_24">
+         <property name="text">
+          <string>Groove:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QComboBox" name="progressGrooveAppearance">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the gradient to be used for the groove part of a progressbar.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QComboBox" name="progressGrooveColor">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the color to be used for the groove part of a progressbar.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QCheckBox" name="borderProgress">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>&lt;p&gt;Enable this option to have a border around the progress bar groove and contents.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Border all sides</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="0">
+        <widget class="QLabel" name="label_85">
+         <property name="text">
+          <string>Text:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+         <property name="margin">
+          <number>1</number>
+         </property>
+         <property name="indent">
+          <number>-1</number>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <layout class="QVBoxLayout" name="verticalLayout_12">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QRadioButton" name="boldProgress_false">
+           <property name="toolTip">
+            <string>&lt;p&gt;If enabled, the text on a progressbar will use the general widget font.&lt;/p&gt;</string>
+           </property>
+           <property name="text">
+            <string>Standard font</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="boldProgress">
+           <property name="toolTip">
+            <string>&lt;p&gt;If enabled, the text on a progressbar will use a bold font.&lt;/p&gt;</string>
+           </property>
+           <property name="text">
+            <string>Bold font</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="progressColor"/>
+       </item>
+       <item row="2" column="1">
+        <widget class="KColorButton" name="customProgressColor"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_5">
+      <layout class="QFormLayout" name="formLayout_6">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_17">
+         <property name="text">
+          <string>Indicate with:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="defBtnIndicator">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the way in which the theme indicates which button is the 'default' button.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QCheckBox" name="embolden">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, the text of the 'default' button will be drawn twice - the second time will be 1 pixel to the left. This gives it a more 'bold' look.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Embolden text</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_6">
+      <layout class="QFormLayout" name="formLayout_7">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_18">
+         <property name="text">
+          <string>Coloration:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="coloredMouseOver">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines how the theme can use color to indicate which active widget is under the mouse.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="textLabel1_8">
+         <property name="toolTip">
+          <string>&lt;p&gt;This controls the % that widgets will be highlighted by when the mouse hovers over them.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Highlight by:</string>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="highlightFactor">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines by how much the theme should brighten (or darken) the color of the active widget under the mouse.&lt;/p&gt;</string>
+         </property>
+         <property name="suffix">
+          <string>%</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_7">
+      <layout class="QFormLayout" name="formLayout_8">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::ExpandingFieldsGrow</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_19">
+         <property name="text">
+          <string>Header appearance:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="lvAppearance">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the gradient to be used in the header of listviews and treeviews.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QCheckBox" name="lvButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, headers will be drawn using the button color, otherwise the standard window background color will be used.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Button color</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_65">
+         <property name="text">
+          <string>Shade header of sorted column:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QComboBox" name="sortedLv">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls the coloration to be applied to the header of the currently sorted column.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="KColorButton" name="customSortedLvColor">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>&lt;p&gt;Sets the custom color.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_66">
+         <property name="text">
+          <string>Rows:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="forceAlternateLvCols">
+         <property name="toolTip">
+          <string>&lt;p&gt;If this is enabled, QtCurve will attempt to make all listviews and treeviews have alternating row colors - regardless of whether the application author has enabled this or not.</string>
+         </property>
+         <property name="text">
+          <string>Force alternate colors</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="textLabel1_8_2_4">
+         <property name="text">
+          <string>Selection appearance:</string>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QComboBox" name="selectionAppearance">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the gradient to be used when selecting items.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QCheckBox" name="borderSelection">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, then selected items in listviews and treeviews will be drawn with bordered edges - but only if they are set to be rounded as well.</string>
+         </property>
+         <property name="text">
+          <string>Bordered</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_48">
+         <property name="text">
+          <string>Lines between items:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QCheckBox" name="lvLines">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls the style of lines drawn between items in a treeview.</string>
+         </property>
+         <property name="text">
+          <string>Enabled</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_15">
+      <layout class="QVBoxLayout">
+       <item>
+        <widget class="QCheckBox" name="gtkScrollViews">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls whether the scrollbars should be detached from the scrollview (i.e. on the outside), or embedded within the scrollview.</string>
+         </property>
+         <property name="text">
+          <string>Scrollbars on the outside</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="highlightScrollViews">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls whether the active scrollview should be highlighted as per line-edits.</string>
+         </property>
+         <property name="text">
+          <string>Highlight on focus (KDE)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_8">
+      <layout class="QFormLayout" name="formLayout_9">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_20">
+         <property name="text">
+          <string>Active tab appearance:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="activeTabAppearance">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the gradient to be used for the currently active tab.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QCheckBox" name="highlightTab">
+         <property name="toolTip">
+          <string>&lt;p&gt;This will cause a colored stripe to be drawn at the top/bottom of the current tab.</string>
+         </property>
+         <property name="text">
+          <string>Highlight</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QSpinBox" name="colorSelTab">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls the amount of tinting applied to the active tab. The active tab is tinted by blending the 'highlight' color with the background color.</string>
+         </property>
+         <property name="suffix">
+          <string>%</string>
+         </property>
+         <property name="prefix">
+          <string>Tint by </string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_21">
+         <property name="text">
+          <string>Inactive tab appearance:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QComboBox" name="tabAppearance">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the gradient to be used for the inactive tabs.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_33">
+         <property name="text">
+          <string>Mouse-over:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QComboBox" name="tabMouseOver">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls the mouse-over effect applied to the tab currently under the mouse. Note, if 'glow' is selected, then 'Round tabs' will be set to 'All' - and this creates a 2 pixel gap between tabs.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_49">
+         <property name="text">
+          <string>Alter background by:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QSpinBox" name="tabBgnd">
+         <property name="toolTip">
+          <string>&lt;p&gt;Lightens, or darkens, the background of the whole tab widget.</string>
+         </property>
+         <property name="suffix">
+          <string>%</string>
+         </property>
+         <property name="prefix">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_51">
+         <property name="text">
+          <string>Round tabs:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+         <property name="margin">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QFrame" name="frame">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Plain</enum>
+         </property>
+         <property name="lineWidth">
+          <number>0</number>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QRadioButton" name="roundAllTabs_false">
+            <property name="toolTip">
+             <string>&lt;p&gt;If enabled, only the active tab is rounded - and all the inactive tabs appear closer together.</string>
+            </property>
+            <property name="text">
+             <string>Selected only</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="roundAllTabs">
+            <property name="toolTip">
+             <string>&lt;p&gt;If enabled, all tabs are rounded - there will be a 2 pixel gap between each tab if 'glow' is selected as the general colored mouse over style.</string>
+            </property>
+            <property name="text">
+             <string>All</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_52">
+         <property name="text">
+          <string>Border:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+         <property name="margin">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QFrame" name="frame_2">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Plain</enum>
+         </property>
+         <property name="lineWidth">
+          <number>0</number>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QRadioButton" name="borderTab_false">
+            <property name="toolTip">
+             <string>&lt;p&gt;If enabled, the tabs and the tab widget will have a 3D style border - with a light shade on the top and left, and a dark shade on the bottom and right.</string>
+            </property>
+            <property name="text">
+             <string>Standard</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="borderTab">
+            <property name="toolTip">
+             <string>&lt;p&gt;If enabled, the tabs and tab widget will have an outer dark border, and a light inner border.</string>
+            </property>
+            <property name="text">
+             <string>Light</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_62">
+         <property name="text">
+          <string>Inactive tab inner border:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+         <property name="margin">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QFrame" name="frame_5">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <property name="lineWidth">
+          <number>0</number>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_9">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QRadioButton" name="borderInactiveTab">
+            <property name="toolTip">
+             <string>&lt;p&gt;If enabled, inactive tabs will have a border as per the 'Border' setting.</string>
+            </property>
+            <property name="text">
+             <string>Same as active tab</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="borderInactiveTab_false">
+            <property name="toolTip">
+             <string>&lt;p&gt;If enabled, inactive tabs will have no inner border.</string>
+            </property>
+            <property name="text">
+             <string>No inner border</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="9" column="0">
+        <widget class="QLabel" name="label_67">
+         <property name="text">
+          <string>Shade of bottom tabs:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+         <property name="margin">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QFrame" name="frame_6">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_10">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QRadioButton" name="invertBotTab_false">
+            <property name="toolTip">
+             <string>&lt;p&gt;If enabled, tabs on the bottom will use the same gradient as tabs on the top. i.e. if the top tabs shades from light to the background color, then the bottom tabs will go from the background color to light - this can sometimes give the appearance that the bottom tabs are sticking out.</string>
+            </property>
+            <property name="text">
+             <string>Same as top tabs</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="invertBotTab">
+            <property name="toolTip">
+             <string>&lt;p&gt;If enabled, tabs on the bottom will use the an inverted gradient to tabs on the top. i.e. if the top tabs shades from light to the background color, then bottom tabs will go from the background color to dark.</string>
+            </property>
+            <property name="text">
+             <string>Invert</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="10" column="0">
+        <widget class="QLabel" name="label_67a">
+         <property name="text">
+          <string>Tabs within toolbars:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+         <property name="margin">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <widget class="QFrame" name="frame_6a">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_10a">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QRadioButton" name="toolbarTabs">
+            <property name="toolTip">
+             <string>&lt;p&gt;If enabled, tabs that are within toolbars will be drawn as normal.</string>
+            </property>
+            <property name="text">
+             <string>Draw as standard tabs</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="toolbarTabs_false">
+            <property name="toolTip">
+             <string>&lt;p&gt;If enabled, tabs that are within toolbars will be drawn the same as sidebar buttons.</string>
+            </property>
+            <property name="text">
+             <string>Draw as per sidebar button settings</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="11" column="0">
+        <widget class="QLabel" name="label_86">
+         <property name="text">
+          <string>Text:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+         <property name="margin">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="1">
+        <widget class="QFrame" name="frame_8">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_10a_2">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QRadioButton" name="centerTabText_false">
+            <property name="toolTip">
+             <string>&lt;p&gt;If enabled, tabs that are within toolbars will be drawn as normal.</string>
+            </property>
+            <property name="text">
+             <string>Left aligned</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="centerTabText">
+            <property name="toolTip">
+             <string>&lt;p&gt;If enabled, tabs that are within toolbars will be drawn the same as sidebar buttons.</string>
+            </property>
+            <property name="text">
+             <string>Centre aligned</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_9">
+      <layout class="QFormLayout" name="formLayout_10">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::ExpandingFieldsGrow</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_22">
+         <property name="text">
+          <string>Coloration:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="shadeCheckRadio">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls the color of the indicator part of a check or radio - ie. the 'dot' or 'check' mark.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="KColorButton" name="customCheckRadioColor">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>&lt;p&gt;Sets the custom color.</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_53">
+         <property name="text">
+          <string>Checkmarks:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+         <property name="margin">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QFrame" name="frame_3">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Plain</enum>
+         </property>
+         <property name="lineWidth">
+          <number>0</number>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QRadioButton" name="xCheck_false">
+            <property name="toolTip">
+             <string>&lt;p&gt;If enabled, checkboxes will have a 'tick' to indicate that they are selected.</string>
+            </property>
+            <property name="text">
+             <string>Tick</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="xCheck">
+            <property name="toolTip">
+             <string>&lt;p&gt;If enabled, checkboxes will have a 'cross' (or 'X') to indicate that they are selected.</string>
+            </property>
+            <property name="text">
+             <string>Cross</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_71">
+         <property name="text">
+          <string>Radio 'dot':</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+         <property name="margin">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QFrame" name="frame_7">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Plain</enum>
+         </property>
+         <property name="lineWidth">
+          <number>0</number>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_11">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QRadioButton" name="smallRadio_false">
+            <property name="toolTip">
+             <string>&lt;p&gt;If enabled, radio buttons will have a large 'dot' to indicate that they are selected.</string>
+            </property>
+            <property name="text">
+             <string>Large</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="smallRadio">
+            <property name="toolTip">
+             <string>&lt;p&gt;If enabled, radio buttons will have a small 'dot' to indicate that they are selected.</string>
+            </property>
+            <property name="text">
+             <string>Small</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_54">
+         <property name="text">
+          <string>Background mouse-over highlight:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QSpinBox" name="crHighlight">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines by how much the theme should brighten (or darken) the background of the text associated with a checkbox, or radio button, when the mouse hovers over it.</string>
+         </property>
+         <property name="suffix">
+          <string>%</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_70">
+         <property name="text">
+          <string>Emblem:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QCheckBox" name="crButton">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls whether the background of the checkbox, or radio button, should appear sunken like or button like.</string>
+         </property>
+         <property name="text">
+          <string>Button like</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_87">
+         <property name="text">
+          <string>Size:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QComboBox" name="crSize">
+         <property name="toolTip">
+          <string>&lt;p&gt;Configures the size of checkboxes and radio buttons.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QComboBox" name="crColor">
+         <property name="toolTip">
+          <string>&lt;p&gt;Sets the color of selected checkboxes and radio buttons when these are set to 'button like'.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="KColorButton" name="customCrBgndColor">
+         <property name="toolTip">
+          <string>&lt;p&gt;Sets the custom color.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_88">
+         <property name="text">
+          <string>Selected emblem:</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_10">
+      <layout class="QFormLayout" name="formLayout_15">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_23">
+         <property name="text">
+          <string>Active appearance:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="titlebarAppearance">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls the gradient applied to the titlebar of active windows.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_28">
+         <property name="text">
+          <string>Inactive appearance:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="inactiveTitlebarAppearance">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls the gradient applied to the titlebar of inactive windows.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_31">
+         <property name="text">
+          <string>Text alignment:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QComboBox" name="titlebarAlignment">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls the alignment of the titlebar text. 'Center (full width)' means that the text is centered in the middle of the complete titlebar, whereas with 'Center (between controls)' the text is centered between the window controls to the left and right.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_74">
+         <property name="text">
+          <string>Text/icon effect:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QComboBox" name="titlebarEffect">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls the 'effect' applied to the text and icons - shadow, etching, or none.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_43">
+         <property name="text">
+          <string>Application icon:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QComboBox" name="titlebarIcon">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls where the application's icon should be drawn on the titlebar. If 'Place on menu button' is selected, then the icon takes place of the menu button.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_27">
+         <property name="text">
+          <string>Coloration:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QCheckBox" name="windowBorder_colorTitlebarOnly">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, only the titlebar, and not the border, of windows will be colored.</string>
+         </property>
+         <property name="text">
+          <string>Only color titlebar</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QCheckBox" name="windowBorder_blend">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, the background color will be used as the last part of the titlebar gradient.</string>
+         </property>
+         <property name="text">
+          <string>Blend titlebar color into background color</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QCheckBox" name="windowBorder_fill">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, before drawing the titlebar gradient, it will be filled with the background colour/gradient.</string>
+         </property>
+         <property name="text">
+          <string>Fill titlebar background before applying gradient.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QCheckBox" name="windowBorder_menuColor">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, the configured menubar color will be used for windows that have menubars.</string>
+         </property>
+         <property name="text">
+          <string>Use menubar color</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0">
+        <widget class="QLabel" name="label_55">
+         <property name="text">
+          <string>Add a light border:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QCheckBox" name="windowBorder_addLightBorder">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, a 1 pixel light border is added to the top and left of the window.</string>
+         </property>
+         <property name="text">
+          <string>Enabled</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="0">
+        <widget class="QLabel" name="label_55b">
+         <property name="text">
+          <string>Draw separator on active windows:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <widget class="QCheckBox" name="windowBorder_separator">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, a separator is drawn between the titlebar and window.</string>
+         </property>
+         <property name="text">
+          <string>Enabled</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="0">
+        <widget class="QLabel" name="label_92">
+         <property name="text">
+          <string>Drag windows from:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="1">
+        <widget class="QComboBox" name="windowDrag"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_19">
+      <layout class="QFormLayout" name="formLayout_16">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_56">
+         <property name="text">
+          <string>Buttons:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="titlebarButtonAppearance">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the gradient used to fill the titlebar buttons.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QCheckBox" name="titlebarButtons_noFrame">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, only the symbol is drawn - and not the button background.</string>
+         </property>
+         <property name="text">
+          <string>Only show symbols</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QCheckBox" name="titlebarButtons_round">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, the buttons will have a circular background - regardless of the general round setting.</string>
+         </property>
+         <property name="text">
+          <string>Circular</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QCheckBox" name="titlebarButtons_hoverFrame">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, the button background (or frame) will only be shown when under the mouse.</string>
+         </property>
+         <property name="text">
+          <string>Show frame on mouse-over</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="titlebarButtons_hoverSymbol">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, the icon will only be shown at full strength when under the mouse - otherwise it will be blended with the background.</string>
+         </property>
+         <property name="text">
+          <string>Highlight symbol on mouse-over</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QCheckBox" name="titlebarButtons_button">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, the titlebar buttons will be drawn using the standard button color - otherwise the titlebar color will be used.</string>
+         </property>
+         <property name="text">
+          <string>Standard button color</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QCheckBox" name="titlebarButtons_custom">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, the titlebar buttons will be drawn using the custom colors defined in the next page.</string>
+         </property>
+         <property name="text">
+          <string>Use custom background colors</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QCheckBox" name="titlebarButtons_colorOnMouseOver">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, the colors will only be used when the button is under the mouse.</string>
+         </property>
+         <property name="text">
+          <string>Use color only for mouse-over</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <widget class="QCheckBox" name="titlebarButtons_useHover">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, symbols will use the KDE hover color when moused-over.</string>
+         </property>
+         <property name="text">
+          <string>Use hover color for mouse-over of symbols</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="1">
+        <widget class="QCheckBox" name="titlebarButtons_sunkenBackground">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, a sunken background is drawn behind the buttons.</string>
+         </property>
+         <property name="text">
+          <string>Sunken background</string>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="1">
+        <widget class="QCheckBox" name="titlebarButtons_arrowMinMax">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, arrows are drawn as the icons for min and max buttons.</string>
+         </property>
+         <property name="text">
+          <string>Use arrows for min/max buttons</string>
+         </property>
+        </widget>
+       </item>
+       <item row="13" column="1">
+        <widget class="QCheckBox" name="titlebarButtons_hideOnInactiveWindow">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, buttons on inactive windows are only drawn when the mouse hovers over them.</string>
+         </property>
+         <property name="text">
+          <string>Hide on inactive windows</string>
+         </property>
+        </widget>
+       </item>
+       <item row="14" column="0">
+        <widget class="QLabel" name="label_57">
+         <property name="text">
+          <string>Custom colors:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="14" column="1">
+        <widget class="QCheckBox" name="titlebarButtons_colorSymbolsOnly">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, custom colors will be applied to the symbols, otherwise they will be applied to the button background.</string>
+         </property>
+         <property name="text">
+          <string>Use only for symbols</string>
+         </property>
+        </widget>
+       </item>
+       <item row="15" column="1">
+        <widget class="QCheckBox" name="titlebarButtons_colorInactive">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, custom colors will be applied to active and inactive windows, otherwise they will only be applied to active windows.</string>
+         </property>
+         <property name="text">
+          <string>Also apply to inactive windows</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QCheckBox" name="titlebarButtons_hoverSymbolFull">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, the symbol will not be drawn unless under the mouse.</string>
+         </property>
+         <property name="text">
+          <string>Hide symbol until mouse-over</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QCheckBox" name="titlebarButtons_customIcon">
+         <property name="text">
+          <string>Use custom icon colors</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_20">
+      <layout class="QGridLayout" name="gridLayout_4">
+       <item row="0" column="0">
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="0" column="1">
+          <widget class="QLabel" name="label_94">
+           <property name="text">
+            <string>Background</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="label_95">
+           <property name="text">
+            <string>Active Icon</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLabel" name="label_96">
+           <property name="text">
+            <string>Inactive Icon</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="KColorButton" name="titlebarButtons_colorClose">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="toolTip">
+            <string>&lt;p&gt;Sets the custom color for 'Close' buttons.</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="KColorButton" name="titlebarButtons_colorMin">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="toolTip">
+            <string>&lt;p&gt;Sets the custom color for 'Minimise' buttons.</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="KColorButton" name="titlebarButtons_colorMax">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="toolTip">
+            <string>&lt;p&gt;Sets the custom color for 'Maximize' and 'Restore' buttons.</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="KColorButton" name="titlebarButtons_colorHelp">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="toolTip">
+            <string>&lt;p&gt;Sets the custom color for 'Help' buttons.</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="KColorButton" name="titlebarButtons_colorMenu">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="toolTip">
+            <string>&lt;p&gt;Sets the custom color for 'Menu' buttons.</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="KColorButton" name="titlebarButtons_colorShade">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="toolTip">
+            <string>&lt;p&gt;Sets the custom color for 'Shade', and 'Un-Shade', buttons.</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="KColorButton" name="titlebarButtons_colorAllDesktops">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="toolTip">
+            <string>&lt;p&gt;Sets the custom color for 'On All Desktop' buttons.</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="KColorButton" name="titlebarButtons_colorKeepAbove">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="toolTip">
+            <string>&lt;p&gt;Sets the custom color for 'Keep Above' buttons.</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="1">
+          <widget class="KColorButton" name="titlebarButtons_colorKeepBelow">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="toolTip">
+            <string>&lt;p&gt;Sets the custom color for 'Keep Below' buttons.</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_34">
+           <property name="text">
+            <string>Close:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_35">
+           <property name="text">
+            <string>Minimise:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_36">
+           <property name="text">
+            <string>Maximise:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_37">
+           <property name="text">
+            <string>Help:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_38">
+           <property name="text">
+            <string>Menu:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_39">
+           <property name="text">
+            <string>Shade:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="label_40">
+           <property name="text">
+            <string>All Desktops:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="label_41">
+           <property name="text">
+            <string>Keep Above:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="0">
+          <widget class="QLabel" name="label_42">
+           <property name="text">
+            <string>Keep Below:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="KColorButton" name="titlebarButtons_colorCloseIcon">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="KColorButton" name="titlebarButtons_colorMinIcon">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="KColorButton" name="titlebarButtons_colorMaxIcon">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="2">
+          <widget class="KColorButton" name="titlebarButtons_colorHelpIcon">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="2">
+          <widget class="KColorButton" name="titlebarButtons_colorMenuIcon">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="2">
+          <widget class="KColorButton" name="titlebarButtons_colorShadeIcon">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="2">
+          <widget class="KColorButton" name="titlebarButtons_colorAllDesktopsIcon">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="2">
+          <widget class="KColorButton" name="titlebarButtons_colorKeepAboveIcon">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="2">
+          <widget class="KColorButton" name="titlebarButtons_colorKeepBelowIcon">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="KColorButton" name="titlebarButtons_colorCloseInactiveIcon">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="KColorButton" name="titlebarButtons_colorMinInactiveIcon">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="KColorButton" name="titlebarButtons_colorMaxInactiveIcon">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="3">
+          <widget class="KColorButton" name="titlebarButtons_colorHelpInactiveIcon">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="3">
+          <widget class="KColorButton" name="titlebarButtons_colorMenuInactiveIcon">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="3">
+          <widget class="KColorButton" name="titlebarButtons_colorShadeInactiveIcon">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="3">
+          <widget class="KColorButton" name="titlebarButtons_colorAllDesktopsInactiveIcon">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="3">
+          <widget class="KColorButton" name="titlebarButtons_colorKeepAboveInactiveIcon">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="3">
+          <widget class="KColorButton" name="titlebarButtons_colorKeepBelowInactiveIcon">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="1">
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>239</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="0">
+        <spacer name="verticalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>188</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_21">
+      <layout class="QFormLayout" name="formLayout_17">
+       <item row="0" column="0">
+        <widget class="QLabel" name="textLabel1_4_3">
+         <property name="text">
+          <string>Appearance:</string>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="menubarAppearance">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the gradient used for the background of menubars.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="menubarBlend">
+         <property name="toolTip">
+          <string>&lt;p&gt;Sets the relevant config items, so that window titlebars and menubars are blended.</string>
+         </property>
+         <property name="text">
+          <string>Blend with titlebar</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="textLabel1_4_2_5">
+         <property name="text">
+          <string>Coloration:</string>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QComboBox" name="shadeMenubars">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the color applied to the background of menubars.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="KColorButton" name="customMenubarsColor">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>&lt;p&gt;Sets the custom color.</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="shadeMenubarOnlyWhenActive">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines whether the background coloration should be applied to all menubars, or just those in active windows.</string>
+         </property>
+         <property name="text">
+          <string>Active window only</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_58">
+         <property name="text">
+          <string>Menubar text:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QCheckBox" name="customMenuTextColor">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, then the following two color boxes are used to set the text color to be used for normal and selected menubar items.</string>
+         </property>
+         <property name="text">
+          <string>Custom colors (normal/selected)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="KColorButton" name="customMenuNormTextColor">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>&lt;p&gt;Sets the text color of normal menubar items.</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="KColorButton" name="customMenuSelTextColor">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>&lt;p&gt;Sets the text color of selected menubar items.</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_59">
+         <property name="text">
+          <string>Menubar items:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QComboBox" name="menuitemAppearance">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the gradient to be applied to selected menubar items.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QCheckBox" name="menubarMouseOver">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, menubar items will have their background gradient applied when the mouse hovers over them.</string>
+         </property>
+         <property name="text">
+          <string>Enable mouse-over</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <widget class="QCheckBox" name="colorMenubarMouseOver">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, when the mouse hovers over a menubar item (and 'Enable mouse-over' is enabled) then it will also be colored, otherwise it will use a shade of the background color.</string>
+         </property>
+         <property name="text">
+          <string>Color on mouse-over</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="1">
+        <widget class="QCheckBox" name="roundMbTopOnly">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, only the top (and not bottom) of selected menubar items will be rounded.</string>
+         </property>
+         <property name="text">
+          <string>Round selected items on top only</string>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="0">
+        <widget class="QLabel" name="label_68">
+         <property name="text">
+          <string>Hiding:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="1">
+        <widget class="QCheckBox" name="menubarHiding_keyboard">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, menubars may be hidden (and re-shown), by using the 'Ctrl-Alt-M' key combination.</string>
+         </property>
+         <property name="text">
+          <string>Use Ctrl-Alt-M (experimental)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="13" column="1">
+        <widget class="QCheckBox" name="menubarHiding_kwin">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, menubars may be hidden (and re-shown), by using a special button in the QtCurve kwin decoration.</string>
+         </property>
+         <property name="text">
+          <string>Window titlebar button (experimental)</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_23">
+      <layout class="QFormLayout" name="formLayout_14">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_60">
+         <property name="text">
+          <string>Menu items:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QCheckBox" name="borderMenuitems">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, selected menuitems will be drawn with a border around the gradient. This will cause them to have a rounded look if the general round setting is not set to none.</string>
+         </property>
+         <property name="text">
+          <string>Border</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QCheckBox" name="useHighlightForMenu">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, selected menuitems will be drawn using the 'highlight' color, otherwise a darkened shade of the background color will be used instead.</string>
+         </property>
+         <property name="text">
+          <string>Use 'highlight' color for active items</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QCheckBox" name="thin_menuitems">
+         <property name="toolTip">
+          <string>&lt;p&gt;Enable this to reduce the height of menuitems.</string>
+         </property>
+         <property name="text">
+          <string>Thinner</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QCheckBox" name="menuIcons">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, then icons associated with menuitems will be drawn, otherwise they will be hidden (but the space they would have occupied will still be there).</string>
+         </property>
+         <property name="text">
+          <string>Show icons</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="onlyTicksInMenu">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, checked menu items get only a check mark instead of a checkbox or radiobutton.</string>
+         </property>
+         <property name="text">
+          <string>Check marks only</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_26">
+         <property name="text">
+          <string>Shade background by:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QSpinBox" name="lighterPopupMenuBgnd">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the amount by which the popup menu background will be lightened (or darkened).</string>
+         </property>
+         <property name="suffix">
+          <string>%</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_75">
+         <property name="text">
+          <string>Background appearance:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <item>
+          <widget class="QComboBox" name="menuBgndAppearance">
+           <property name="toolTip">
+            <string>&lt;p&gt;Defines the gradient applied to the background of the popup menus.</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="menuBgndAppearance_btn">
+           <property name="text">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="8" column="1">
+        <widget class="QComboBox" name="menuBgndGrad">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines background gradient orientation.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_xx">
+         <property name="text">
+          <string>Background image:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_7">
+         <item>
+          <widget class="QComboBox" name="menuBgndImage">
+           <property name="toolTip">
+            <string>&lt;p&gt;This adds a background image to popup menus.
+            &lt;ul&gt;&lt;li&gt;None - No image.&lt;/li&gt;&lt;li&gt;Bordered rings - 'Air' like rings with borders.&lt;/li&gt;&lt;li&gt;Plain rings - 'Air' like rings, but without any border.&lt;/li&gt;&lt;li&gt;Square rings - 3 simple rounded squares.&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="menuBgndImage_btn">
+           <property name="text">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="10" column="0">
+        <widget class="QLabel" name="label_45">
+         <property name="text">
+          <string>Sub-menu open delay:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <widget class="QSpinBox" name="menuDelay">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the delay before a sub-menu appears.</string>
+         </property>
+         <property name="suffix">
+          <string>ms</string>
+         </property>
+         <property name="prefix">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="0">
+        <widget class="QLabel" name="label_44">
+         <property name="text">
+          <string>Stripe:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="1">
+        <widget class="QComboBox" name="menuStripe">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the coloration of the menu-stripe that will be drawn on the left of popup menus - but only if this option is not set to 'none'.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="13" column="1">
+        <widget class="KColorButton" name="customMenuStripeColor">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>&lt;p&gt;Sets the custom color.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="14" column="1">
+        <widget class="QComboBox" name="menuStripeAppearance">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the gradient to be used for the menu stripe.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="15" column="0">
+        <widget class="QLabel" name="label_61">
+         <property name="text">
+          <string>Border popupmenus:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="15" column="1">
+        <widget class="QCheckBox" name="popupBorder">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, the whole popup menu will have a border, otherwise no border will be drawn. This option should be enabled unless you have also enabled shadows in your window manager.</string>
+         </property>
+         <property name="text">
+          <string>Enabled</string>
+         </property>
+        </widget>
+       </item>
+       <item row="16" column="0">
+        <widget class="QLabel" name="label_97">
+         <property name="text">
+          <string>Use menubar colour settings:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="16" column="1">
+        <widget class="QCheckBox" name="shadePopupMenu">
+         <property name="text">
+          <string>Enabled</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QCheckBox" name="buttonStyleMenuSections">
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When enabled, menu section titles look a bit like buttons.&lt;/p&gt;&lt;p&gt;When disabled, they are left-aligned under a separator line and use a bold, underlined typeface.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="text">
+          <string>Use button-like menu section headers</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="1">
+        <widget class="QSpinBox" name="menuCloseDelay">
+         <property name="toolTip">
+          <string>Defines the delay before a sub-menu closes. Applicable on Qt5.5 or later</string>
+         </property>
+         <property name="suffix">
+          <string>ms</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="0">
+        <widget class="QLabel" name="label_72">
+         <property name="text">
+          <string>Sub-menu close delay:</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_22">
+      <layout class="QFormLayout" name="formLayout_13">
+       <item row="0" column="0">
+        <widget class="QLabel" name="textLabel1_4_2_7">
+         <property name="text">
+          <string>Appearance:</string>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="toolbarAppearance">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the gradient used to draw the background of toolbars.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="textLabel2">
+         <property name="text">
+          <string>Handles:</string>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="handles">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the look of the toolbar handles.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="textLabel2_3">
+         <property name="text">
+          <string>Separators:</string>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QComboBox" name="toolbarSeparators">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the style used to draw toolbar separators.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="textLabel1_4">
+         <property name="text">
+          <string>Border:</string>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QComboBox" name="toolbarBorders">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the border type drawn around the toolbar. (This setting also affects menubars).</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="textLabel1_4b">
+         <property name="text">
+          <string>Button style:</string>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QComboBox" name="tbarBtns">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the style used for toolbar buttons.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_84">
+         <property name="text">
+          <string>Colored mouse-over:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+         <property name="margin">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <layout class="QVBoxLayout" name="verticalLayout_8">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QRadioButton" name="coloredTbarMo_false">
+           <property name="text">
+            <string>Only for glow mouse-over style</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="coloredTbarMo">
+           <property name="text">
+            <string>For all mouse-over styles</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_78">
+         <property name="text">
+          <string>Button appearance:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QComboBox" name="tbarBtnAppearance">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the gradient used to draw buttons within toolbars.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_102">
+         <property name="text">
+          <string>Button effect:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QComboBox" name="tbarBtnEffect">
+         <property name="toolTip">
+          <string>&lt;p&gt;Control what effect should be applied to buttons in toolbars.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_27">
+      <layout class="QFormLayout" name="formLayout_21">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_90">
+         <property name="text">
+          <string>Frames around items:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QCheckBox" name="drawStatusBarFrames">
+         <property name="toolTip">
+          <string>&lt;p&gt;Controls whether QtCurve should draw frames around items in statusbars.</string>
+         </property>
+         <property name="text">
+          <string>Visible</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_91">
+         <property name="text">
+          <string>Hiding:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QCheckBox" name="statusbarHiding_keyboard">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, statusbars may be hidden (and re-shown), by using the 'Ctrl-Alt-S' key combination.</string>
+         </property>
+         <property name="text">
+          <string>Use Ctrl-Alt-S (experimental)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QCheckBox" name="statusbarHiding_kwin">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, statusbars may be hidden (and re-shown), by using a special button in the QtCurve kwin decoration.</string>
+         </property>
+         <property name="text">
+          <string>Window titlebar button (experimental)</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_11">
+      <layout class="QFormLayout" name="formLayout_18">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_73">
+         <property name="text">
+          <string>Titlebar appearance:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="dwtAppearance">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the gradient used to draw the background of the 'title' part of a dock windows.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QCheckBox" name="dwtRoundTopOnly">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, only the top (for horizontal dock windows), or left (for vertical dock windows) will be rounded.</string>
+         </property>
+         <property name="text">
+          <string>Round top/left only</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_76">
+         <property name="text">
+          <string>Use window settings for:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QCheckBox" name="dwtBtnAsPerTitleBar">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, the buttons on dock windows will have a similar appearance (and behaviour) to the buttons on standard windows, otherwise they will only have their symbols drawn until the mouse hovers over (when the button background will be drawn).</string>
+         </property>
+         <property name="text">
+          <string>Button appearance</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QCheckBox" name="dwtColAsPerTitleBar">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, the background of dock window titlebars will have use the color settings of standard windows, otherwise they will use the standard background color.</string>
+         </property>
+         <property name="text">
+          <string>Background colors</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QCheckBox" name="dwtFontAsPerTitleBar">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, the font of dock window titlebars will have use the font settings of standard windows, otherwise they will use the standard font.</string>
+         </property>
+         <property name="text">
+          <string>Font</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QCheckBox" name="dwtTextAsPerTitleBar">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, the text of dock window titlebars will have use the text alignment settings of standard windows, otherwise they will be left aligned.</string>
+         </property>
+         <property name="text">
+          <string>Text alignment</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QCheckBox" name="dwtEffectAsPerTitleBar">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, the text of dock window titlebars will have use the text effect settings of standard windows, otherwise they will be drawn with no effect.</string>
+         </property>
+         <property name="text">
+          <string>Text effect</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="dwtIconColAsPerTitleBar">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, the icons of dock window titlebars will have use the colors of standard window icons, otherwise they will use the text colour setting.</string>
+         </property>
+         <property name="text">
+          <string>Icon colors</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_12">
+      <layout class="QFormLayout" name="formLayout_19">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::ExpandingFieldsGrow</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_80">
+         <property name="text">
+          <string>Dialog buttons:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QCheckBox" name="gtkButtonOrder">
+         <property name="toolTip">
+          <string>&lt;p&gt;If enabled, dialogs will use the 'Cancel / OK' button order as used in the GNOME and OSX desktops, otherwise the 'OK / Cancel' order will be used.</string>
+         </property>
+         <property name="text">
+          <string>Use Gtk button order</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QCheckBox" name="reorderGtkButtons">
+         <property name="toolTip">
+          <string>&lt;p&gt;If this is enabled and 'Use Gtk button order' is not, QtCurve will attempt to manually set the order of buttons in Gtk dialogs.&lt;/p&gt;&lt;p&gt;&lt;b&gt;NOTE:&lt;/b&gt; This is experimental, and may produce unexpected results!&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Manually re-order Gtk buttons</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QCheckBox" name="stdBtnSizes">
+         <property name="toolTip">
+          <string>&lt;p&gt;Auto-default buttons are buttons that can become 'default' buttons - i.e. will react the user pressing 'return'.&lt;/p&gt;
+&lt;p&gt;In Gtk2 applications, most 'auto-default' buttons have a taller appearance than standard buttons. QtCurve attempts to mimic this for KDE applications - this may be disabled by enabling this option.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Use standard size for 'auto-default' buttons (KDE)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_79">
+         <property name="text">
+          <string>Gtk icons</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QCheckBox" name="mapKdeIcons">
+         <property name="toolTip">
+          <string>&lt;p&gt;Enable this option so that QtCurve can attempt to map from the KDE icon names to their Gtk equivalent for Gtk applications.</string>
+         </property>
+         <property name="text">
+          <string>Use KDE equivalent</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Password character:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QPushButton" name="passwordChar">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>&lt;p&gt;Sets the character used to hide password entries.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_77">
+         <property name="text">
+          <string>Gtk expander highlight:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QSpinBox" name="expanderHighlight">
+         <property name="toolTip">
+          <string>&lt;p&gt;Defines the amount by which the popup menu background will be lightened (or darkened).</string>
+         </property>
+         <property name="suffix">
+          <string>%</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="shadowSizeLabel">
+         <property name="text">
+          <string>Drop shadow size:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QSpinBox" name="dropShadowSize">
+         <property name="toolTip">
+          <string>&lt;p&gt;Sets the base value used for determining drop shadow sizes.&lt;/p&gt;&lt;p&gt;X11 only.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_26">
+      <layout class="QVBoxLayout" name="verticalLayout_17">
+       <item>
+        <layout class="QFormLayout" name="formLayout_20">
+         <property name="fieldGrowthPolicy">
+          <enum>QFormLayout::ExpandingFieldsGrow</enum>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_81">
+           <property name="text">
+            <string>No background gradient:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="KLineEdit" name="noBgndGradientApps">
+           <property name="toolTip">
+            <string>&lt;p&gt;Comma separated list of names of applications which should not use the background gradient setting. &lt;/p&gt;&lt;p&gt;Use &lt;i&gt;gtk&lt;/i&gt; to disable for all Gtk2 applications.&lt;/p&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_82">
+           <property name="text">
+            <string>No background image:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="KLineEdit" name="noBgndImageApps">
+           <property name="toolTip">
+            <string>&lt;p&gt;Comma separated list of names of applications which should not use the background image setting. &lt;/p&gt;&lt;p&gt;Use &lt;i&gt;gtk&lt;/i&gt; to disable for all Gtk2 applications.&lt;/p&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_81b">
+           <property name="text">
+            <string>No background opacity:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="KLineEdit" name="noBgndOpacityApps">
+           <property name="toolTip">
+            <string>&lt;p&gt;Comma separated list of names of applications which should not use the background opacity setting. &lt;/p&gt;&lt;p&gt;Use &lt;i&gt;gtk&lt;/i&gt; to disable for all Gtk2 applications.&lt;/p&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_81mnu">
+           <property name="text">
+            <string>No menu opacity (and no alpha channel for Gtk2):</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="KLineEdit" name="noMenuBgndOpacityApps">
+           <property name="toolTip">
+            <string>&lt;p&gt;Comma separated list of names of applications which should not use the menu opacity setting.&lt;/p&gt;&lt;p&gt;&lt;i&gt;For Gtk2, this option also disables using an alpha-channel to smoothly round tooltips and popup menus.&lt;/i&gt;&lt;/p&gt;&lt;p&gt;Use &lt;i&gt;gtk&lt;/i&gt; to disable for all Gtk2 applications.&lt;/p&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_82y">
+           <property name="text">
+            <string>No menu stripe:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="KLineEdit" name="noMenuStripeApps">
+           <property name="toolTip">
+            <string>&lt;p&gt;Comma separated list of names of applications which should not use the menu stripe setting. &lt;/p&gt;&lt;p&gt;Use &lt;i&gt;gtk&lt;/i&gt; to disable for all Gtk2 applications.&lt;/p&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_83">
+           <property name="text">
+            <string>Use Qt file dialog:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="KLineEdit" name="useQtFileDialogApps">
+           <property name="toolTip">
+            <string>&lt;p&gt;Comma separated list of names of Qt4 applications which should not use the KDE file dialog.</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_83a">
+           <property name="text">
+            <string>Save menubar visibility:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="KLineEdit" name="menubarApps">
+           <property name="toolTip">
+            <string>&lt;p&gt;Comma separated list of names of KDE applications where QtCurve needs to manually save whether the menubar is hidden or not.&lt;/p&gt;&lt;p&gt;Use &lt;i&gt;kde&lt;/i&gt; to set for all KDE applications. The menubar state of Gtk2 applications is always manually saved.&lt;/p&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="label_89">
+           <property name="text">
+            <string>Save statusbar visibility:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="KLineEdit" name="statusbarApps">
+           <property name="toolTip">
+            <string>&lt;p&gt;Comma separated list of names of KDE applications where QtCurve needs to manually save whether the statusbar is hidden or not.&lt;/p&gt;&lt;p&gt;Use &lt;i&gt;kde&lt;/i&gt; to set for all KDE applications. The statusbar state of Gtk2 applications is always manually saved.&lt;/p&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="label_89a">
+           <property name="text">
+            <string>Force non-native menubar:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="KLineEdit" name="nonnativeMenubarApps">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Comma separated list of names of KDE/Qt applications where QtCurve needs to instruct Qt not to use the native menubar.&lt;/p&gt;&lt;p&gt;Try this on Mac for applications where certain menu items do not behave as expected when they are part of the menus of the Mac-style toplevel menubar, but behave correctly for instance when they are part of a popup/context menu. Applications need to be restarted for changes to take effect.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>8</width>
+           <height>8</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_101">
+         <property name="text">
+          <string>&lt;i&gt;&lt;p&gt;In the above lists, you need to enter the executable name. e.g For Google Earth this is actually &quot;googleearth-bin&quot;. You may use &quot;gtk2&quot; to disable for all Gtk2 applications, or &quot;kde&quot; for all KDE/Qt applications.&lt;/p&gt;
+&lt;p&gt;To determine the name that QtCurve will detect, you can start an application from a konsole window using the following syntax (example is for Firefox):&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;QTCURVE_DEBUG=1 firefox&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This will cause QtCurve to display the detected process name, as follows:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;QtCurve: Application name: &quot;firefox&quot;&lt;/code&gt;&lt;/p&gt;&lt;/i&gt;</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_25">
+      <layout class="QVBoxLayout" name="verticalLayout_16">
+       <item>
+        <widget class="QPushButton" name="exportKde3Button">
+         <property name="toolTip">
+          <string>&lt;p&gt;Exports your current color palette and font settings so that they may be used by KDE3 applications. This creates the relevant entries within the KDE3 kdeglobals file.</string>
+         </property>
+         <property name="text">
+          <string>Export colors and fonts for KDE3 applications...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="exportQt3Button">
+         <property name="toolTip">
+          <string>&lt;p&gt;Exports your current color palette and font settings so that they may be used by pure-Qt3 applications. This creates the relevant entries within the Qt3 ~/.qt/qtrc file.</string>
+         </property>
+         <property name="text">
+          <string>Export colors and fonts for pure-Qt3 applications...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>359</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_13">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QComboBox" name="gradCombo">
+         <property name="toolTip">
+          <string>&lt;p&gt;Select the custom gradient to be configured.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QToolButton" name="copyGradientButton">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="autoRaise">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <widget class="QSplitter" name="splitter">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <widget class="QGroupBox" name="groupBox_b">
+          <property name="title">
+           <string>Settings</string>
+          </property>
+          <layout class="QGridLayout">
+           <item row="0" column="0" rowspan="2">
+            <widget class="QTreeWidget" name="gradStops">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="indentation">
+              <number>0</number>
+             </property>
+             <property name="rootIsDecorated">
+              <bool>false</bool>
+             </property>
+             <column>
+              <property name="text">
+               <string>Position (%)</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Value (%)</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Alpha (%)</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QComboBox" name="gradBorder">
+             <property name="toolTip">
+              <string>&lt;p&gt;Defines the inner border used when drawing buttons, etc., with this gradient.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;i&gt;No border&lt;/i&gt; - no inner border is drawn, and the gradient will extend to the outer edges.&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;Light border&lt;/i&gt; - A 'light' line is drawn around all edges.&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;3D border (light only)&lt;/i&gt; - A 'light' line is drawn around the top and left edges.&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;3D border (dark and light)&lt;/i&gt; - A 'light' line is drawn around the top and left edges, and a darker one around the bottom and right edges.&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;Shine&lt;/i&gt; - A shine is added to the top (or left) edge when this gradient is drawn on buttons or scrollbars.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;i&gt;Note: This setting is not used when drawing the preview below.&lt;/i&gt;&lt;/p&gt;
+
+</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QGroupBox" name="groupBox_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="title">
+              <string>Gradient Stop</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout">
+              <property name="spacing">
+               <number>-1</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <layout class="QFormLayout" name="formLayout_12">
+                <property name="fieldGrowthPolicy">
+                 <enum>QFormLayout::ExpandingFieldsGrow</enum>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_5">
+                  <property name="text">
+                   <string>Position:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_6">
+                  <property name="text">
+                   <string>Value:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="label_6alpha">
+                  <property name="text">
+                   <string>Alpha:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QSpinBox" name="stopPosition">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="toolTip">
+                   <string>&lt;p&gt;Set the position of the gradient value. 0% means the top of horizontal gradients, and the left for vertical gradients.</string>
+                  </property>
+                  <property name="suffix">
+                   <string>%</string>
+                  </property>
+                  <property name="maximum">
+                   <number>100</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QSpinBox" name="stopValue">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="toolTip">
+                   <string>&lt;p&gt;Sets the strength of the gradient at the defined position. 110% would lighten a color by 10%, 90% would darken it by 10%, and 100% would be the original color.</string>
+                  </property>
+                  <property name="suffix">
+                   <string>%</string>
+                  </property>
+                  <property name="maximum">
+                   <number>200</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QSpinBox" name="stopAlpha">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="toolTip">
+                   <string>&lt;p&gt;Sets the alpha value of the gradient at the defined position.</string>
+                  </property>
+                  <property name="suffix">
+                   <string>%</string>
+                  </property>
+                  <property name="maximum">
+                   <number>100</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <item>
+                 <widget class="QPushButton" name="updateButton">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="addButton">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="removeButton">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_3">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>&lt;p&gt;&lt;b&gt;NOTE: &lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;&lt;u&gt;Position&lt;/u&gt; has a range of 0% to 100% - 0% being top/left, and 100% being bottom/right.&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;&lt;u&gt;Value&lt;/u&gt; has a range of 0% to 200%. A value of 120% implies lightening by 20%, and a value of 80% implies darkening by 20%&lt;/i&gt;&lt;/p&gt;</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QGroupBox" name="gradPreviewBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Preview</string>
+          </property>
+          <layout class="QHBoxLayout">
+           <item>
+            <widget class="QWidget" name="previewWidgetContainer" native="true"/>
+           </item>
+           <item>
+            <widget class="KColorButton" name="previewColor">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="toolTip">
+              <string>&lt;p&gt;Set the color to be used in the preview.</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_14">
+      <layout class="QGridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Shading routine:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="shading">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>&lt;p&gt;Sets the color space that is used when shading a color.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <widget class="QGroupBox" name="customShading">
+         <property name="title">
+          <string>Use Custom Shades</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <layout class="QGridLayout">
+          <item row="0" column="0">
+           <widget class="QDoubleSpinBox" name="shade0">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" rowspan="7">
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>&lt;i&gt;&lt;p&gt;QtCurve uses various hard-coded shading values to draw elements such as button frames, the background for pressed buttons, etc. The following is a brief overview of how each shade is used - use this as a guide only, as shades are used for various things.&lt;/p&gt;
+&lt;p&gt;&lt;ol&gt;
+&lt;li&gt;Is used for the light part of 3d elements - such as the border of tab widgets.&lt;/li&gt;
+&lt;li&gt;Is used for the lighter shade of striped progressbars.&lt;/li&gt;
+&lt;li&gt;Is used for the dark part of 3d elements - such as the border of tab widgets.&lt;/li&gt;
+&lt;li&gt;Is used for the shaded border of checks and radios, toolbar borders (when set to dark), the dark part of sunken/raised slider handles, etc.&lt;/li&gt;
+&lt;li&gt;Is used for the background of pressed widgets, and the border of toolbars (when not dark).&lt;/li&gt;
+&lt;li&gt;Is used as the border of most widgets.&lt;/li&gt;
+&lt;/ol&gt;&lt;/p&gt;&lt;/i&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QDoubleSpinBox" name="shade1">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QDoubleSpinBox" name="shade2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QDoubleSpinBox" name="shade3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QDoubleSpinBox" name="shade4">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QDoubleSpinBox" name="shade5">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <spacer name="verticalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>36</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0" colspan="2">
+        <widget class="QGroupBox" name="customAlphas">
+         <property name="title">
+          <string>Use Custom Alpha Values</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <layout class="QGridLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_light_alpha">
+            <property name="text">
+             <string>Light:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QDoubleSpinBox" name="alpha0">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2" rowspan="3">
+           <widget class="QLabel" name="label_4b">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>&lt;p&gt;&lt;i&gt;QtCurve uses dark/light borders to create etch and shadow effects. By default QtCurve tries to lighten (or darken) the parent's background to achieve this - if no parent can be found, then white/black is used with an alpha value set. This behaviour may be overridden, and alpha values always used, by checking the option above.&lt;/i&gt;&lt;/p&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_dark_alpha">
+            <property name="text">
+             <string>Dark:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QDoubleSpinBox" name="alpha1">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>KLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>klineedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KColorButton</class>
+   <extends>QPushButton</extends>
+   <header>kcolorbutton.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>stackList</tabstop>
+  <tabstop>presetsCombo</tabstop>
+  <tabstop>saveButton</tabstop>
+  <tabstop>deleteButton</tabstop>
+  <tabstop>importButton</tabstop>
+  <tabstop>exportButton</tabstop>
+  <tabstop>appearance</tabstop>
+  <tabstop>bgndAppearance</tabstop>
+  <tabstop>bgndAppearance_btn</tabstop>
+  <tabstop>bgndGrad</tabstop>
+  <tabstop>bgndImage</tabstop>
+  <tabstop>bgndImage_btn</tabstop>
+  <tabstop>sunkenAppearance</tabstop>
+  <tabstop>buttonEffect</tabstop>
+  <tabstop>thin_buttons</tabstop>
+  <tabstop>etchEntry</tabstop>
+  <tabstop>focus</tabstop>
+  <tabstop>tooltipAppearance</tabstop>
+  <tabstop>vArrows</tabstop>
+  <tabstop>stdSidebarButtons</tabstop>
+  <tabstop>darkerBorders</tabstop>
+  <tabstop>fadeLines</tabstop>
+  <tabstop>thin_frames</tabstop>
+  <tabstop>hideShortcutUnderline</tabstop>
+  <tabstop>round</tabstop>
+  <tabstop>squareEntry</tabstop>
+  <tabstop>squareProgress</tabstop>
+  <tabstop>squareScrollViews</tabstop>
+  <tabstop>squareLvSelection</tabstop>
+  <tabstop>squareTabFrame</tabstop>
+  <tabstop>squareFrame</tabstop>
+  <tabstop>squareSlider</tabstop>
+  <tabstop>squareScrollbarSlider</tabstop>
+  <tabstop>squareWindows</tabstop>
+  <tabstop>squareTooltips</tabstop>
+  <tabstop>squarePopupMenus</tabstop>
+  <tabstop>bgndOpacity</tabstop>
+  <tabstop>dlgOpacity</tabstop>
+  <tabstop>menuBgndOpacity</tabstop>
+  <tabstop>groupBox</tabstop>
+  <tabstop>gbFactor</tabstop>
+  <tabstop>gbLabel_bold</tabstop>
+  <tabstop>gbLabel_textPos</tabstop>
+  <tabstop>gbLabel_centred</tabstop>
+  <tabstop>comboBtn</tabstop>
+  <tabstop>customComboBtnColor</tabstop>
+  <tabstop>comboSplitter</tabstop>
+  <tabstop>unifyCombo</tabstop>
+  <tabstop>gtkComboMenus</tabstop>
+  <tabstop>doubleGtkComboArrow</tabstop>
+  <tabstop>unifySpinBtns</tabstop>
+  <tabstop>unifySpin</tabstop>
+  <tabstop>splitters</tabstop>
+  <tabstop>splitterHighlight</tabstop>
+  <tabstop>sliderAppearance</tabstop>
+  <tabstop>shadeSliders</tabstop>
+  <tabstop>customSlidersColor</tabstop>
+  <tabstop>stripedSbar</tabstop>
+  <tabstop>colorSliderMouseOver</tabstop>
+  <tabstop>sliderStyle</tabstop>
+  <tabstop>fillSlider</tabstop>
+  <tabstop>sliderFill</tabstop>
+  <tabstop>grooveAppearance</tabstop>
+  <tabstop>thinSbarGroove</tabstop>
+  <tabstop>borderSbarGroove</tabstop>
+  <tabstop>scrollbarType</tabstop>
+  <tabstop>flatSbarButtons</tabstop>
+  <tabstop>sbarBgndAppearance</tabstop>
+  <tabstop>sliderThumbs</tabstop>
+  <tabstop>progressAppearance</tabstop>
+  <tabstop>progressColor</tabstop>
+  <tabstop>customProgressColor</tabstop>
+  <tabstop>stripedProgress</tabstop>
+  <tabstop>animatedProgress</tabstop>
+  <tabstop>glowProgress</tabstop>
+  <tabstop>fillProgress</tabstop>
+  <tabstop>progressGrooveAppearance</tabstop>
+  <tabstop>progressGrooveColor</tabstop>
+  <tabstop>borderProgress</tabstop>
+  <tabstop>boldProgress_false</tabstop>
+  <tabstop>boldProgress</tabstop>
+  <tabstop>defBtnIndicator</tabstop>
+  <tabstop>embolden</tabstop>
+  <tabstop>coloredMouseOver</tabstop>
+  <tabstop>highlightFactor</tabstop>
+  <tabstop>lvAppearance</tabstop>
+  <tabstop>lvButton</tabstop>
+  <tabstop>sortedLv</tabstop>
+  <tabstop>customSortedLvColor</tabstop>
+  <tabstop>selectionAppearance</tabstop>
+  <tabstop>borderSelection</tabstop>
+  <tabstop>lvLines</tabstop>
+  <tabstop>gtkScrollViews</tabstop>
+  <tabstop>highlightScrollViews</tabstop>
+  <tabstop>activeTabAppearance</tabstop>
+  <tabstop>highlightTab</tabstop>
+  <tabstop>colorSelTab</tabstop>
+  <tabstop>tabAppearance</tabstop>
+  <tabstop>tabMouseOver</tabstop>
+  <tabstop>tabBgnd</tabstop>
+  <tabstop>roundAllTabs_false</tabstop>
+  <tabstop>roundAllTabs</tabstop>
+  <tabstop>borderTab_false</tabstop>
+  <tabstop>borderTab</tabstop>
+  <tabstop>borderInactiveTab_false</tabstop>
+  <tabstop>borderInactiveTab</tabstop>
+  <tabstop>invertBotTab_false</tabstop>
+  <tabstop>invertBotTab</tabstop>
+  <tabstop>toolbarTabs</tabstop>
+  <tabstop>toolbarTabs_false</tabstop>
+  <tabstop>centerTabText_false</tabstop>
+  <tabstop>centerTabText</tabstop>
+  <tabstop>shadeCheckRadio</tabstop>
+  <tabstop>customCheckRadioColor</tabstop>
+  <tabstop>crSize</tabstop>
+  <tabstop>xCheck_false</tabstop>
+  <tabstop>xCheck</tabstop>
+  <tabstop>smallRadio_false</tabstop>
+  <tabstop>smallRadio</tabstop>
+  <tabstop>crHighlight</tabstop>
+  <tabstop>crButton</tabstop>
+  <tabstop>crColor</tabstop>
+  <tabstop>customCrBgndColor</tabstop>
+  <tabstop>titlebarAppearance</tabstop>
+  <tabstop>inactiveTitlebarAppearance</tabstop>
+  <tabstop>titlebarAlignment</tabstop>
+  <tabstop>titlebarEffect</tabstop>
+  <tabstop>titlebarIcon</tabstop>
+  <tabstop>windowBorder_colorTitlebarOnly</tabstop>
+  <tabstop>windowBorder_blend</tabstop>
+  <tabstop>windowBorder_menuColor</tabstop>
+  <tabstop>windowBorder_addLightBorder</tabstop>
+  <tabstop>windowBorder_separator</tabstop>
+  <tabstop>windowDrag</tabstop>
+  <tabstop>titlebarButtonAppearance</tabstop>
+  <tabstop>titlebarButtons_noFrame</tabstop>
+  <tabstop>titlebarButtons_round</tabstop>
+  <tabstop>titlebarButtons_hoverFrame</tabstop>
+  <tabstop>titlebarButtons_hoverSymbol</tabstop>
+  <tabstop>titlebarButtons_hoverSymbolFull</tabstop>
+  <tabstop>titlebarButtons_button</tabstop>
+  <tabstop>titlebarButtons_custom</tabstop>
+  <tabstop>titlebarButtons_customIcon</tabstop>
+  <tabstop>titlebarButtons_colorOnMouseOver</tabstop>
+  <tabstop>titlebarButtons_useHover</tabstop>
+  <tabstop>titlebarButtons_sunkenBackground</tabstop>
+  <tabstop>titlebarButtons_arrowMinMax</tabstop>
+  <tabstop>titlebarButtons_hideOnInactiveWindow</tabstop>
+  <tabstop>titlebarButtons_colorSymbolsOnly</tabstop>
+  <tabstop>titlebarButtons_colorInactive</tabstop>
+  <tabstop>titlebarButtons_colorClose</tabstop>
+  <tabstop>titlebarButtons_colorMin</tabstop>
+  <tabstop>titlebarButtons_colorMax</tabstop>
+  <tabstop>titlebarButtons_colorHelp</tabstop>
+  <tabstop>titlebarButtons_colorMenu</tabstop>
+  <tabstop>titlebarButtons_colorShade</tabstop>
+  <tabstop>titlebarButtons_colorAllDesktops</tabstop>
+  <tabstop>titlebarButtons_colorKeepAbove</tabstop>
+  <tabstop>titlebarButtons_colorKeepBelow</tabstop>
+  <tabstop>titlebarButtons_colorCloseIcon</tabstop>
+  <tabstop>titlebarButtons_colorMinIcon</tabstop>
+  <tabstop>titlebarButtons_colorMaxIcon</tabstop>
+  <tabstop>titlebarButtons_colorHelpIcon</tabstop>
+  <tabstop>titlebarButtons_colorMenuIcon</tabstop>
+  <tabstop>titlebarButtons_colorShadeIcon</tabstop>
+  <tabstop>titlebarButtons_colorAllDesktopsIcon</tabstop>
+  <tabstop>titlebarButtons_colorKeepAboveIcon</tabstop>
+  <tabstop>titlebarButtons_colorKeepBelowIcon</tabstop>
+  <tabstop>titlebarButtons_colorCloseInactiveIcon</tabstop>
+  <tabstop>titlebarButtons_colorMinInactiveIcon</tabstop>
+  <tabstop>titlebarButtons_colorMaxInactiveIcon</tabstop>
+  <tabstop>titlebarButtons_colorHelpInactiveIcon</tabstop>
+  <tabstop>titlebarButtons_colorMenuInactiveIcon</tabstop>
+  <tabstop>titlebarButtons_colorShadeInactiveIcon</tabstop>
+  <tabstop>titlebarButtons_colorAllDesktopsInactiveIcon</tabstop>
+  <tabstop>titlebarButtons_colorKeepAboveInactiveIcon</tabstop>
+  <tabstop>titlebarButtons_colorKeepBelowInactiveIcon</tabstop>
+  <tabstop>menubarAppearance</tabstop>
+  <tabstop>shadeMenubars</tabstop>
+  <tabstop>customMenubarsColor</tabstop>
+  <tabstop>shadeMenubarOnlyWhenActive</tabstop>
+  <tabstop>customMenuTextColor</tabstop>
+  <tabstop>customMenuNormTextColor</tabstop>
+  <tabstop>customMenuSelTextColor</tabstop>
+  <tabstop>menuitemAppearance</tabstop>
+  <tabstop>menubarMouseOver</tabstop>
+  <tabstop>colorMenubarMouseOver</tabstop>
+  <tabstop>roundMbTopOnly</tabstop>
+  <tabstop>menubarHiding_keyboard</tabstop>
+  <tabstop>menubarHiding_kwin</tabstop>
+  <tabstop>borderMenuitems</tabstop>
+  <tabstop>shadePopupMenu</tabstop>
+  <tabstop>useHighlightForMenu</tabstop>
+  <tabstop>thin_menuitems</tabstop>
+  <tabstop>menuBgndAppearance</tabstop>
+  <tabstop>menuBgndAppearance_btn</tabstop>
+  <tabstop>menuBgndGrad</tabstop>
+  <tabstop>menuBgndImage</tabstop>
+  <tabstop>menuBgndImage_btn</tabstop>
+  <tabstop>menuStripe</tabstop>
+  <tabstop>customMenuStripeColor</tabstop>
+  <tabstop>menuStripeAppearance</tabstop>
+  <tabstop>popupBorder</tabstop>
+  <tabstop>toolbarAppearance</tabstop>
+  <tabstop>handles</tabstop>
+  <tabstop>toolbarSeparators</tabstop>
+  <tabstop>toolbarBorders</tabstop>
+  <tabstop>tbarBtns</tabstop>
+  <tabstop>tbarBtnAppearance</tabstop>
+  <tabstop>tbarBtnEffect</tabstop>
+  <tabstop>coloredTbarMo_false</tabstop>
+  <tabstop>coloredTbarMo</tabstop>
+  <tabstop>drawStatusBarFrames</tabstop>
+  <tabstop>statusbarHiding_keyboard</tabstop>
+  <tabstop>statusbarHiding_kwin</tabstop>
+  <tabstop>dwtAppearance</tabstop>
+  <tabstop>dwtRoundTopOnly</tabstop>
+  <tabstop>dwtBtnAsPerTitleBar</tabstop>
+  <tabstop>dwtColAsPerTitleBar</tabstop>
+  <tabstop>dwtIconColAsPerTitleBar</tabstop>
+  <tabstop>dwtFontAsPerTitleBar</tabstop>
+  <tabstop>dwtTextAsPerTitleBar</tabstop>
+  <tabstop>dwtEffectAsPerTitleBar</tabstop>
+  <tabstop>gtkButtonOrder</tabstop>
+  <tabstop>reorderGtkButtons</tabstop>
+  <tabstop>stdBtnSizes</tabstop>
+  <tabstop>mapKdeIcons</tabstop>
+  <tabstop>passwordChar</tabstop>
+  <tabstop>expanderHighlight</tabstop>
+  <tabstop>noBgndGradientApps</tabstop>
+  <tabstop>noBgndImageApps</tabstop>
+  <tabstop>noBgndOpacityApps</tabstop>
+  <tabstop>noMenuBgndOpacityApps</tabstop>
+  <tabstop>noMenuStripeApps</tabstop>
+  <tabstop>useQtFileDialogApps</tabstop>
+  <tabstop>menubarApps</tabstop>
+  <tabstop>statusbarApps</tabstop>
+  <tabstop>exportKde3Button</tabstop>
+  <tabstop>exportQt3Button</tabstop>
+  <tabstop>gradCombo</tabstop>
+  <tabstop>gradStops</tabstop>
+  <tabstop>updateButton</tabstop>
+  <tabstop>addButton</tabstop>
+  <tabstop>removeButton</tabstop>
+  <tabstop>gradBorder</tabstop>
+  <tabstop>previewColor</tabstop>
+  <tabstop>shading</tabstop>
+  <tabstop>customShading</tabstop>
+  <tabstop>shade0</tabstop>
+  <tabstop>shade1</tabstop>
+  <tabstop>shade2</tabstop>
+  <tabstop>shade3</tabstop>
+  <tabstop>shade4</tabstop>
+  <tabstop>shade5</tabstop>
+  <tabstop>customAlphas</tabstop>
+  <tabstop>alpha0</tabstop>
+  <tabstop>alpha1</tabstop>
+ </tabstops>
+ <includes>
+  <include location="local">kcolorbutton.h</include>
+  <include location="local">kcolorbutton.h</include>
+  <include location="local">kcolorbutton.h</include>
+  <include location="local">kcolorbutton.h</include>
+  <include location="local">kcolorbutton.h</include>
+ </includes>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>flatSbarButtons</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>thinSbarGroove</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>367</x>
+     <y>57</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>367</x>
+     <y>57</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>exportKde3Button</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>QtCurveConfigBase</receiver>
+   <slot>exportKDE3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>367</x>
+     <y>57</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>662</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>exportQt3Button</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>QtCurveConfigBase</receiver>
+   <slot>exportQt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>367</x>
+     <y>57</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>532</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>crButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>crColor</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>367</x>
+     <y>57</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>367</x>
+     <y>57</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>crButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>customCrBgndColor</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>367</x>
+     <y>57</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>367</x>
+     <y>57</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>exportKDE3()</slot>
+  <slot>exportQt()</slot>
+ </slots>
+</ui>

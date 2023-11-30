@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QtCurveKWinConfigWidget</class>
+ <widget class="QWidget" name="QtCurveKWinConfigWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>540</width>
+    <height>314</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>296</height>
+      </size>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="generalTab">
+      <attribute name="title">
+       <string>General</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QFormLayout" name="formLayout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_4x">
+           <property name="text">
+            <string>Border size:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="KComboBox" name="borderSize">
+           <property name="whatsThis">
+            <string>Controls the size of the window borders (bottom, left, and right).</string>
+           </property>
+           <property name="sizeAdjustPolicy">
+            <enum>QComboBox::AdjustToContents</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>Borders:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QCheckBox" name="roundBottom">
+           <property name="whatsThis">
+            <string>If enabled, and the QtCurve style is set to rounded, then all corners of the window decoration will be rounded. Otherwise, only the top corners will be rounded.</string>
+           </property>
+           <property name="text">
+            <string>Round all corners</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QCheckBox" name="borderlessMax">
+           <property name="whatsThis">
+            <string>If enabled, all borders (including the titlebar) will be removed from maximised windows.</string>
+           </property>
+           <property name="text">
+            <string>Remove from maximised windows</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="outerBorder_label">
+           <property name="text">
+            <string>Outer border:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QComboBox" name="outerBorder">
+           <property name="whatsThis">
+            <string>Adds 1 pixel border around the outside of windows. This is useful if you are not using desktop effects.</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="innerBorder_label">
+           <property name="text">
+            <string>Inner border:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QComboBox" name="innerBorder">
+           <property name="whatsThis">
+            <string>Adds a 1 pixel dark border between the window contents and the decoration. This is useful if you are using transparent decorations.</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="groupingLabel">
+           <property name="text">
+            <string>Window grouping:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QCheckBox" name="grouping">
+           <property name="whatsThis">
+            <string>If enabled, QtCurve will allow windows to be grouped - causing the titlebar to act as a kind-of tab-widget.</string>
+           </property>
+           <property name="text">
+            <string>Enabled</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Titlebar text padding:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QSpinBox" name="titleBarPad">
+           <property name="whatsThis">
+            <string>Controls the amount of extra padding added to the top and bottom of the titlebar text height. Changing this will affect the height of the titlebar and its buttons. </string>
+           </property>
+           <property name="suffix">
+            <string>px</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Titlebar border padding:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QSpinBox" name="edgePad">
+           <property name="whatsThis">
+            <string>Controls the amount of extra padding added to the titlebar border. Changing this will only affect the height of the titlebar, and not the buttons. </string>
+           </property>
+           <property name="suffix">
+            <string>px</string>
+           </property>
+           <property name="maximum">
+            <number>10</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>4</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="noteLabel">
+         <property name="text">
+          <string>&lt;p&gt;&lt;b&gt;NOTE:&lt;/b&gt; &lt;i&gt;This window decoration uses the QtCurve widget style, and shares its configuration. Only the settings that are exclusively used by the window decoration are shown here. To alter settings such as the titlebar gradient, or text alignment, please set the appropriate options in the widget style.&lt;/i&gt;&lt;/p&gt;</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="opacityTab">
+      <attribute name="title">
+       <string>Opacity</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <layout class="QFormLayout" name="formLayout_2">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>Active windows:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QSpinBox" name="activeOpacity">
+           <property name="whatsThis">
+            <string>Controls the opacity of the active window decoration. 0% would cause the decoration to be totally translucent.</string>
+           </property>
+           <property name="value">
+            <number>100</number>
+           </property>
+           <property name="minimum">
+            <number>0</number>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+           <property name="singleStep">
+            <number>5</number>
+           </property>
+           <property name="suffix">
+            <string>%</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>Inactive windows:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QSpinBox" name="inactiveOpacity">
+           <property name="whatsThis">
+            <string>Controls the opacity of the inactive window decoration. 0% would cause the decoration to be totally translucent.</string>
+           </property>
+           <property name="value">
+            <number>100</number>
+           </property>
+           <property name="minimum">
+            <number>0</number>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+           <property name="singleStep">
+            <number>5</number>
+           </property>
+           <property name="suffix">
+            <string>%</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_8">
+           <property name="text">
+            <string>Side and bottom borders:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QCheckBox" name="opaqueBorder">
+           <property name="whatsThis">
+            <string>If enabled, only the titlebar part of the decoration will use the opacity setting.</string>
+           </property>
+           <property name="text">
+            <string>Ignore opacity settings</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>4</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="noteLabel_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>&lt;p&gt;&lt;b&gt;NOTE:&lt;/b&gt; &lt;i&gt;If you set the above values to 100%, then the window titlebar (and border) opacity will be controlled by the style's window and dialog background opacity settings.&lt;/i&gt;&lt;/p&gt;</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="shadowTab">
+      <attribute name="title">
+       <string>Shadows</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QCheckBox" name="useShadows">
+         <property name="whatsThis">
+          <string>If enabled, QtCurve will draw its own shadows - and not use the generic window manager shadows. This will allow you to specify different shadow colours, etc, for active and inactive windows.</string>
+         </property>
+         <property name="text">
+          <string>Use custom shadows</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="activeShadows">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="title">
+          <string>Active Windows</string>
+         </property>
+         <layout class="QFormLayout" name="formLayout_3">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Size: </string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QSpinBox" name="activeShadowSize"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>Horizontal offset:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QSpinBox" name="activeShadowHOffset"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_6b">
+            <property name="text">
+             <string>Vertical offset:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QSpinBox" name="activeShadowVOffset"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_9">
+            <property name="text">
+             <string>Color:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="KComboBox" name="activeShadowColorType">
+            <property name="sizeAdjustPolicy">
+             <enum>QComboBox::AdjustToContents</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="KColorButton" name="activeShadowColor"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QGroupBox" name="inactiveShadows">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="title">
+          <string>Inactive Windows</string>
+         </property>
+         <layout class="QFormLayout" name="formLayout_4">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_10">
+            <property name="text">
+             <string>Size: </string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QSpinBox" name="inactiveShadowSize"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_11">
+            <property name="text">
+             <string>Horizontal offset:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QSpinBox" name="inactiveShadowHOffset"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_11b">
+            <property name="text">
+             <string>Vertical offset:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QSpinBox" name="inactiveShadowVOffset"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_12">
+            <property name="text">
+             <string>Color:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="KComboBox" name="inactiveShadowColorType">
+            <property name="sizeAdjustPolicy">
+             <enum>QComboBox::AdjustToContents</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="KColorButton" name="inactiveShadowColor"/>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="ias_g_l">
+            <property name="text">
+             <string>Gradients:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QCheckBox" name="inactiveUsesActiveGradients">
+            <property name="whatsThis">
+             <string>If enabled, the shadows of inactive windows will be drawn using the same gradient routine as that used for active windows.</string>
+            </property>
+            <property name="text">
+             <string>As per active windows</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KColorButton</class>
+   <extends>QPushButton</extends>
+   <header>kcolorbutton.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>borderSize</tabstop>
+  <tabstop>roundBottom</tabstop>
+  <tabstop>borderlessMax</tabstop>
+  <tabstop>outerBorder</tabstop>
+  <tabstop>innerBorder</tabstop>
+  <tabstop>grouping</tabstop>
+  <tabstop>titleBarPad</tabstop>
+  <tabstop>activeOpacity</tabstop>
+  <tabstop>inactiveOpacity</tabstop>
+  <tabstop>opaqueBorder</tabstop>
+  <tabstop>useShadows</tabstop>
+  <tabstop>activeShadowSize</tabstop>
+  <tabstop>activeShadowHOffset</tabstop>
+  <tabstop>activeShadowVOffset</tabstop>
+  <tabstop>activeShadowColorType</tabstop>
+  <tabstop>activeShadowColor</tabstop>
+  <tabstop>inactiveShadowSize</tabstop>
+  <tabstop>inactiveShadowHOffset</tabstop>
+  <tabstop>inactiveShadowVOffset</tabstop>
+  <tabstop>inactiveShadowColorType</tabstop>
+  <tabstop>inactiveShadowColor</tabstop>
+  <tabstop>inactiveUsesActiveGradients</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>useShadows</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>activeShadows</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>55</x>
+     <y>47</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>58</x>
+     <y>106</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>useShadows</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>inactiveShadows</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>177</x>
+     <y>50</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>442</x>
+     <y>71</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
