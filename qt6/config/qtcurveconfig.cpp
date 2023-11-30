@@ -2119,7 +2119,7 @@ void QtCurveConfig::exportQt()
                        dis;
         QString        sep("^e");
 
-        QPalette::ColorRole roles[]={QPalette::Foreground,
+        QPalette::ColorRole roles[]={QPalette::WindowText,
                                      QPalette::Button,
                                      QPalette::Light,
                                      QPalette::Midlight,
@@ -2129,7 +2129,6 @@ void QtCurveConfig::exportQt()
                                      QPalette::BrightText,
                                      QPalette::ButtonText,
                                      QPalette::Base,
-                                     QPalette::Background,
                                      QPalette::Shadow,
                                      QPalette::Highlight,
                                      QPalette::HighlightedText,

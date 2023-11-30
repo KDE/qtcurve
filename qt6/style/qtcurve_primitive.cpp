@@ -1271,11 +1271,11 @@ Style::drawPrimitivePanelMenu(PrimitiveElement, const QStyleOption *option,
     const QColor *bgCols;
     QColor altCols[TOTAL_SHADES+1];
     if (theThemedApp==APP_KWIN && w
-            && w->palette().color(QPalette::Active, QPalette::Background)
-                != QApplication::palette().color(QPalette::Active, QPalette::Background)) {
-//         qWarning() << "drawPrimitivePanelMenu: widget" << w << "bgCol" << w->palette().color(QPalette::Active, QPalette::Background)
-//             << "differs from app bgCol" << QApplication::palette().color(QPalette::Active, QPalette::Background);
-        shadeColors(w->palette().color(QPalette::Active, QPalette::Background), altCols);
+            && w->palette().color(QPalette::Active, QPalette::Base)
+                != QApplication::palette().color(QPalette::Active, QPalette::Base)) {
+//         qWarning() << "drawPrimitivePanelMenu: widget" << w << "bgCol" << w->palette().color(QPalette::Active, QPalette::Base)
+//             << "differs from app bgCol" << QApplication::palette().color(QPalette::Active, QPalette::Base);
+        shadeColors(w->palette().color(QPalette::Active, QPalette::Base), altCols);
         bgCols = use = altCols;
     } else {
         use = popupMenuCols(option);
@@ -1298,7 +1298,7 @@ Style::drawPrimitivePanelMenu(PrimitiveElement, const QStyleOption *option,
     // In case the gradient uses alpha, we need to fill with the background
     // colour - this makes it consistent with Gtk.
     if (opts.menuBgndOpacity == 100) {
-        painter->fillRect(r, option->palette.brush(QPalette::Background));
+        painter->fillRect(r, option->palette.brush(QPalette::Base));
     }
     drawBackground(painter, bgCols[ORIGINAL_SHADE], r,
                    opts.menuBgndOpacity, BGND_MENU, opts.menuBgndAppearance);
@@ -1524,7 +1524,7 @@ Style::drawPrimitiveIndicatorRadioButton(PrimitiveElement,
                                  State_Selected));
 
     if (isOO) {
-        painter->fillRect(r, palette.brush(QPalette::Background));
+        painter->fillRect(r, palette.brush(QPalette::Base));
     }
     if (selectedOOMenu) {
         drawPrimitive(PE_IndicatorCheckBox, option, painter, widget);

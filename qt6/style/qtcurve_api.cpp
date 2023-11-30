@@ -258,7 +258,7 @@ void Style::polish(QPalette &palette)
     bool newHighlight(newContrast ||
                       m_highlightCols[ORIGINAL_SHADE]!=palette.color(QPalette::Active, QPalette::Highlight)),
         newGray(newContrast ||
-                m_backgroundCols[ORIGINAL_SHADE]!=palette.color(QPalette::Active, QPalette::Background)),
+                m_backgroundCols[ORIGINAL_SHADE]!=palette.color(QPalette::Active, QPalette::Base)),
         newButton(newContrast ||
                   m_buttonCols[ORIGINAL_SHADE]!=palette.color(QPalette::Active, QPalette::Button)),
         newSlider(m_sliderCols && m_highlightCols!=m_sliderCols && SHADE_BLEND_SELECTED == opts.shadeSliders &&
@@ -286,7 +286,7 @@ void Style::polish(QPalette &palette)
                         m_sortedLvColors!=m_progressCols && m_checkRadioSelCols!=m_progressCols && (newContrast || newButton));
 
     if (newGray) {
-        shadeColors(palette.color(QPalette::Active, QPalette::Background), m_backgroundCols);
+        shadeColors(palette.color(QPalette::Active, QPalette::Base), m_backgroundCols);
         if (oneOf(opts.bgndImage.type, IMG_PLAIN_RINGS, IMG_BORDERED_RINGS,
                   IMG_SQUARE_RINGS) ||
             oneOf(opts.menuBgndImage.type, IMG_PLAIN_RINGS,
@@ -311,7 +311,7 @@ void Style::polish(QPalette &palette)
 //     if(opts.coloredMouseOver)
 //         shadeColors(QApplication::palette().color(QPalette::Active, QPalette::Highlight), m_mouseOverCols);
 
-    setMenuColors(palette.color(QPalette::Active, QPalette::Background));
+    setMenuColors(palette.color(QPalette::Active, QPalette::Base));
 
     if (newSlider) {
         shadeColors(midColor(m_highlightCols[ORIGINAL_SHADE],
@@ -410,9 +410,9 @@ void Style::polish(QPalette &palette)
                      m_backgroundCols[QTC_STD_BORDER]);
 
     palette.setColor(QPalette::Disabled, QPalette::Base,
-                     palette.color(QPalette::Active, QPalette::Background));
-    palette.setColor(QPalette::Disabled, QPalette::Background,
-                     palette.color(QPalette::Active, QPalette::Background));
+                     palette.color(QPalette::Active, QPalette::Base));
+    palette.setColor(QPalette::Disabled, QPalette::Base,
+                     palette.color(QPalette::Active, QPalette::Base));
 
     // Fix KDE4's palette...
     if (palette.color(QPalette::Active, QPalette::Highlight) !=
@@ -953,7 +953,7 @@ void Style::unpolish(QWidget *widget)
         widget->setAttribute(Qt::WA_Hover, false);
 
         if(qtcIsCustomBgnd(opts))
-            widget->setBackgroundRole(QPalette::Background);
+            widget->setBackgroundRole(QPalette::Base);
 
         if(SHADE_WINDOW_BORDER==opts.shadeMenubars || opts.customMenuTextColor || SHADE_BLEND_SELECTED==opts.shadeMenubars ||
            SHADE_SELECTED==opts.shadeMenubars || (SHADE_CUSTOM==opts.shadeMenubars &&TOO_DARK(m_menubarCols[ORIGINAL_SHADE])))
@@ -1265,7 +1265,7 @@ bool Style::eventFilter(QObject *object, QEvent *event)
 
             // In case the gradient uses alpha, we need to fill with the background colour - this makes it consistent with Gtk.
             if(100==opts.menuBgndOpacity)
-                p.fillRect(r, opt.palette.brush(QPalette::Background));
+                p.fillRect(r, opt.palette.brush(QPalette::Base));
             drawBackground(&p, widget, BGND_MENU);
             if (opts.popupBorder) {
                 EGradientBorder border=qtcGetGradient(opts.menuBgndAppearance, &opts)->border;
@@ -4230,7 +4230,7 @@ Style::drawControl(ControlElement element, const QStyleOption *option,
 
         painter->save();
         if(opts.flatSbarButtons && !qtcIsFlat(opts.sbarBgndAppearance) /*&& SCROLLBAR_NONE!=opts.scrollbarType*/)
-            drawBevelGradientReal(palette.brush(QPalette::Background).color(), painter, r, state&State_Horizontal, false,
+            drawBevelGradientReal(palette.brush(QPalette::Base).color(), painter, r, state&State_Horizontal, false,
                                   opts.sbarBgndAppearance, WIDGET_SB_BGND);
 
         QStyleOption opt(*option);
@@ -5808,7 +5808,7 @@ void Style::drawComplexControl(ComplexControl control, const QStyleOptionComplex
             }
             if (!opts.gtkScrollViews ||
                 (opts.flatSbarButtons && !qtcIsFlat(opts.sbarBgndAppearance)))
-                drawBevelGradientReal(palette.brush(QPalette::Background).color(), painter, r, horiz, false,
+                drawBevelGradientReal(palette.brush(QPalette::Base).color(), painter, r, horiz, false,
                                       opts.sbarBgndAppearance, WIDGET_SB_BGND);
 
             if(noButtons || opts.flatSbarButtons)

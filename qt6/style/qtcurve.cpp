@@ -435,7 +435,7 @@ void Style::init(bool initial)
         opts.contrast=DEFAULT_CONTRAST;
 
     shadeColors(QApplication::palette().color(QPalette::Active, QPalette::Highlight), m_highlightCols);
-    shadeColors(QApplication::palette().color(QPalette::Active, QPalette::Background), m_backgroundCols);
+    shadeColors(QApplication::palette().color(QPalette::Active, QPalette::Base), m_backgroundCols);
     shadeColors(QApplication::palette().color(QPalette::Active, QPalette::Button), m_buttonCols);
 
     // Set defaults for Hover and Focus, these will be changed when KDE4 palette is applied...
@@ -649,7 +649,7 @@ void Style::init(bool initial)
         }
     }
 
-    setMenuColors(QApplication::palette().color(QPalette::Active, QPalette::Background));
+    setMenuColors(QApplication::palette().color(QPalette::Active, QPalette::Base));
 
     switch(opts.shadeCheckRadio)
     {
@@ -3816,18 +3816,18 @@ void Style::setMenuTextColors(QWidget *widget, bool isMenuBar) const
         opt.init(widget);
         getMdiColors(&opt, false);
 
-        pal.setBrush(QPalette::Active, QPalette::Foreground, m_activeMdiTextColor);
-        pal.setBrush(QPalette::Active, QPalette::Text, pal.brush(QPalette::Active, QPalette::Foreground));
+        pal.setBrush(QPalette::Active, QPalette::WindowText, m_activeMdiTextColor);
+        pal.setBrush(QPalette::Active, QPalette::Text, pal.brush(QPalette::Active, QPalette::WindowText));
         if(isMenuBar)
         {
-            pal.setBrush(QPalette::Inactive, QPalette::Foreground,
+            pal.setBrush(QPalette::Inactive, QPalette::WindowText,
                          opts.shadeMenubarOnlyWhenActive ? m_mdiTextColor : m_activeMdiTextColor);
-            pal.setBrush(QPalette::Inactive, QPalette::Text, pal.brush(QPalette::Inactive, QPalette::Foreground));
+            pal.setBrush(QPalette::Inactive, QPalette::Text, pal.brush(QPalette::Inactive, QPalette::WindowText));
         }
         else if(opts.shadePopupMenu)
         {
-            pal.setBrush(QPalette::Disabled, QPalette::Foreground, midColor(m_activeMdiTextColor, popupMenuCols()[ORIGINAL_SHADE]));
-            pal.setBrush(QPalette::Disabled, QPalette::Text, pal.brush(QPalette::Disabled, QPalette::Foreground));
+            pal.setBrush(QPalette::Disabled, QPalette::WindowText, midColor(m_activeMdiTextColor, popupMenuCols()[ORIGINAL_SHADE]));
+            pal.setBrush(QPalette::Disabled, QPalette::Text, pal.brush(QPalette::Disabled, QPalette::WindowText));
         }
 
         widget->setPalette(pal);
@@ -3838,23 +3838,23 @@ void Style::setMenuTextColors(QWidget *widget, bool isMenuBar) const
                 TOO_DARK(m_menubarCols[ORIGINAL_SHADE]))) {
         QPalette pal(widget->palette());
 
-        pal.setBrush(QPalette::Active, QPalette::Foreground,
+        pal.setBrush(QPalette::Active, QPalette::WindowText,
                      opts.customMenuTextColor ? opts.customMenuNormTextColor :
                      pal.highlightedText().color());
-        pal.setBrush(QPalette::Active, QPalette::Text, pal.brush(QPalette::Active, QPalette::Foreground));
+        pal.setBrush(QPalette::Active, QPalette::Text, pal.brush(QPalette::Active, QPalette::WindowText));
 
         if(isMenuBar && !opts.shadeMenubarOnlyWhenActive)
         {
-            pal.setBrush(QPalette::Inactive, QPalette::Foreground, opts.customMenuTextColor
+            pal.setBrush(QPalette::Inactive, QPalette::WindowText, opts.customMenuTextColor
                          ? opts.customMenuNormTextColor
                          : pal.highlightedText().color());
-            pal.setBrush(QPalette::Inactive, QPalette::Text, pal.brush(QPalette::Inactive, QPalette::Foreground));
+            pal.setBrush(QPalette::Inactive, QPalette::Text, pal.brush(QPalette::Inactive, QPalette::WindowText));
         }
         else if(!isMenuBar && opts.shadePopupMenu)
         {
-            pal.setBrush(QPalette::Disabled, QPalette::Foreground,
-                         midColor(pal.brush(QPalette::Active, QPalette::Foreground).color(), popupMenuCols()[ORIGINAL_SHADE]));
-            pal.setBrush(QPalette::Disabled, QPalette::Text, pal.brush(QPalette::Disabled, QPalette::Foreground));
+            pal.setBrush(QPalette::Disabled, QPalette::WindowText,
+                         midColor(pal.brush(QPalette::Active, QPalette::WindowText).color(), popupMenuCols()[ORIGINAL_SHADE]));
+            pal.setBrush(QPalette::Disabled, QPalette::Text, pal.brush(QPalette::Disabled, QPalette::WindowText));
         }
         widget->setPalette(pal);
     }
