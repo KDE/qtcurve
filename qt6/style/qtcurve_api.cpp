@@ -6692,7 +6692,6 @@ QRect Style::subControlRect(ComplexControl control, const QStyleOptionComplex *o
                 bs.setHeight(8);
             bs.setWidth(opts.buttonEffect != EFFECT_NONE && opts.etchEntry ?
                         16 : 15);
-            bs = bs.expandedTo(QApplication::globalStrut());
 
             int y = 0;
             int x = reverse ? (0 + fw) : (r.width() - bs.width() - fw + r.x());
