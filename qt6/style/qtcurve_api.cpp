@@ -704,7 +704,7 @@ void Style::polish(QWidget *widget)
                 }
                 QLayout *layout(frame->layout());
                 if (layout) {
-                    layout->setMargin(0);
+                    layout->setContentsMargins(0, 0, 0, 0);
                 }
             }
 
@@ -836,7 +836,7 @@ void Style::polish(QWidget *widget)
     if (theThemedApp == APP_KDEVELOP && !opts.stdSidebarButtons &&
         widget->inherits("Sublime::IdealButtonBarWidget") && widget->layout()) {
         widget->layout()->setSpacing(0);
-        widget->layout()->setMargin(0);
+        widget->layout()->setContentsMargins(0, 0, 0, 0);;
     }
 
     QWidget *window=widget->window();
@@ -1003,7 +1003,7 @@ void Style::unpolish(QWidget *widget)
                 QLayout *layout(frame->layout());
 
                 if(layout) {
-                    layout->setMargin(6);
+                    layout->setContentsMargins(6, 6, 6, 6);
                 }
             }
 
