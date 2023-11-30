@@ -224,7 +224,7 @@ static QString toString(const QSet<QString> &set)
 
 static QSet<QString> toSet(const QString &str)
 {
-    QStringList           list=str.simplified().split(QRegExp("\\s*,\\s*"), QString::SkipEmptyParts);
+    QStringList           list=str.simplified().split(QRegExp("\\s*,\\s*"), Qt::SkipEmptyParts);
     QStringList::Iterator it(list.begin()),
                           end(list.end());
 

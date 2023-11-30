@@ -655,7 +655,7 @@ static bool readBoolEntry(QtCConfig &cfg, const QString &key, bool def)
 
 static void readDoubleList(QtCConfig &cfg, const char *key, double *list, int count)
 {
-    QStringList strings(readStringEntry(cfg, key).split(',', QString::SkipEmptyParts));
+    QStringList strings(readStringEntry(cfg, key).split(',', Qt::SkipEmptyParts));
     bool ok(count==strings.size());
 
     if(ok)
@@ -707,7 +707,7 @@ static void readDoubleList(QtCConfig &cfg, const char *key, double *list, int co
 #define CFG_READ_STRING_LIST(ENTRY) do {                                \
         QString val = readStringEntry(cfg, #ENTRY);                     \
         Strings set = val.isEmpty() ? Strings() :                       \
-            QtCurve::qSetFromList(val.split(",", QString::SkipEmptyParts)); \
+            QtCurve::qSetFromList(val.split(",", Qt::SkipEmptyParts)); \
         opts->ENTRY = set.count() || cfg.hasKey(#ENTRY) ? set : def->ENTRY; \
     } while (0)
 
@@ -1365,7 +1365,7 @@ bool qtcReadConfig(const QString &file, Options *opts, Options *defOpts, bool ch
             // as with saving, we should always read the titleButtonColor values
             // so that they can be saved again without losing the information.
             QStringList cols(readStringEntry(cfg, "titlebarButtonColors")
-                             .split(',', QString::SkipEmptyParts));
+                             .split(',', Qt::SkipEmptyParts));
             if (cols.count() &&
                 0 == (cols.count() % NUM_TITLEBAR_BUTTONS) &&
                 cols.count() <= (NUM_TITLEBAR_BUTTONS * 3)) {
@@ -1390,7 +1390,7 @@ bool qtcReadConfig(const QString &file, Options *opts, Options *defOpts, bool ch
                 QTextStream(&gradKey) << "customgradient" << i - APPEARANCE_CUSTOM1 + 1;
 
                 QStringList vals(readStringEntry(cfg, gradKey)
-                                 .split(',', QString::SkipEmptyParts));
+                                 .split(',', Qt::SkipEmptyParts));
 
                 if(vals.size())
                     opts->customGradient.erase((EAppearance)i);
