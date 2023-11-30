@@ -30,9 +30,9 @@
 
 #include <QApplication>
 
-#ifdef Qt6X11Extras_FOUND
+#ifdef QTC_ENABLE_X11
 #  include <qtcurve-utils/x11base.h>
-#  include <QX11Info>
+#  include <QtGui/private/qtx11extras_p.h>
 #endif
 
 #ifdef QTC_QT6_ENABLE_QTQUICK2
@@ -188,7 +188,7 @@ StylePlugin::init()
 #ifdef QTC_QT6_ENABLE_QTQUICK2
             QQuickWindow::setDefaultAlphaBuffer(true);
 #endif
-#ifdef Qt6X11Extras_FOUND
+#ifdef QTC_ENABLE_X11
             if (qApp->platformName() == "xcb") {
                 qtcX11InitXcb(QX11Info::connection(), QX11Info::appScreen());
             }

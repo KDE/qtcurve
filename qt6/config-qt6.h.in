@@ -22,6 +22,4 @@
 #ifndef __QTC_CONFIG_QT6_H__
 #define __QTC_CONFIG_QT6_H__
 
-#cmakedefine Qt6X11Extras_FOUND
-
 #endif
