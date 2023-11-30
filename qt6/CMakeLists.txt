@@ -8,7 +8,7 @@ if(QTC_QT6_ENABLE_KDE)
 endif()
 
 if(ENABLE_QT6 AND NOT ENABLE_QT6_DEFINED)
-  set(QT_MIN_VERSION "5.3.2")
+  set(QT_MIN_VERSION "6.0.0")
   # ENABLE_QT6 is not defined on the command line
   foreach(QtModule ${QTC_QT6_MODULES})
     find_package(${QtModule} ${QT_MIN_VERSION} CONFIG)
