@@ -1074,7 +1074,7 @@ bool Style::eventFilter(QObject *object, QEvent *event)
             pos = ((QMouseEvent*)event)->pos();
             break;
         case QEvent::Wheel:
-            pos=((QWheelEvent*)event)->pos();
+            pos=((QWheelEvent*)event)->position().toPoint();
         default:
             break;
         }
