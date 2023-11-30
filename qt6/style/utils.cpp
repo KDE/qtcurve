@@ -25,7 +25,6 @@
 #include <qtcurve-utils/x11utils.h>
 #include <qtcurve-utils/qtutils.h>
 #include <QApplication>
-#include <QDesktopWidget>
 #include <QWindow>
 
 #ifdef QTC_QT6_ENABLE_KDE
