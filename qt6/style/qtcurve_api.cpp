@@ -1588,8 +1588,6 @@ Style::pixelMetric(PixelMetric metric, const QStyleOption *option,
     case PM_LayoutHorizontalSpacing:
     case PM_LayoutVerticalSpacing:
         return -1; // use layoutSpacing
-    case PM_DefaultLayoutSpacing:
-        return 6;
     case PM_LayoutLeftMargin:
     case PM_LayoutTopMargin:
     case PM_LayoutRightMargin:

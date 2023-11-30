@@ -1157,7 +1157,9 @@ int Style::layoutSpacing(QSizePolicy::ControlType control1,
     Q_UNUSED(control1);
     Q_UNUSED(control2);
     Q_UNUSED(orientation);
-    return pixelMetric(PM_DefaultLayoutSpacing, option, widget);
+    Q_UNUSED(option);
+    Q_UNUSED(widget);
+    return 4;
 }
 
 // Use 'drawItemTextWithRole' when already know which role to use.
