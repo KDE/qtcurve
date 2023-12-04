@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:39+0000\n"
+"POT-Creation-Date: 2023-12-04 00:42+0000\n"
 "PO-Revision-Date: 2023-10-28 13:04+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -4520,10 +4520,16 @@ msgstr "Réordonner manuellement les boutons Gtk"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stdBtnSizes)
 #: qt4/config/qtcurveconfigbase.ui:3701
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>Auto-default buttons are buttons that can become 'default' buttons - i."
+#| "e. will react the user pressing 'return'.</p>\n"
+#| "<p>In Gtk2 applications, most 'auto-default' buttons have a taller "
+#| "appearance than standard buttons. QtCurve attempts to mimic this for KDE4 "
+#| "applications - this may be disabled by enabling this option.</p>"
 msgid ""
 "<p>Auto-default buttons are buttons that can become 'default' buttons - i.e. "
-"will react the user pressing 'return'.</p>\n"
+"will react to the user pressing 'return'.</p>\n"
 "<p>In Gtk2 applications, most 'auto-default' buttons have a taller "
 "appearance than standard buttons. QtCurve attempts to mimic this for KDE4 "
 "applications - this may be disabled by enabling this option.</p>"
