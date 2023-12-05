@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-04 00:42+0000\n"
-"PO-Revision-Date: 2023-12-03 13:09+0100\n"
+"PO-Revision-Date: 2023-12-04 14:32+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -4416,13 +4416,7 @@ msgstr "Mane reordigi Gtk-butonojn"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stdBtnSizes)
 #: qt4/config/qtcurveconfigbase.ui:3701
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Auto-default buttons are buttons that can become 'default' buttons - i."
-#| "e. will react the user pressing 'return'.</p>\n"
-#| "<p>In Gtk2 applications, most 'auto-default' buttons have a taller "
-#| "appearance than standard buttons. QtCurve attempts to mimic this for KDE4 "
-#| "applications - this may be disabled by enabling this option.</p>"
+#, kde-format
 msgid ""
 "<p>Auto-default buttons are buttons that can become 'default' buttons - i.e. "
 "will react to the user pressing 'return'.</p>\n"
@@ -4432,9 +4426,9 @@ msgid ""
 msgstr ""
 "<p>Aŭtomate-defaŭltaj butonoj estas butonoj kiuj povas iĝi 'defaŭltaj' "
 "butonoj - t.e. reagos al la uzanto premante 'return'.</p>\n"
-"<p>En Gtk2-aplikoj, la plej multaj 'aŭtomate-defaŭltaj' butonoj havas pli "
-"altan aspekton ol normaj butonoj. QtCurve provas imiti ĉi tion por KDE4-"
-"aplikoj - ĉi tio povas esti malŝaltita ebligante ĉi tiun opcion.</p>"
+"<p>En Gtk2-aplikoj, la plej multaj 'auto-default' butonoj havas pli altan "
+"aspekton ol normaj butonoj. QtCurve provas imiti tion por KDE4-aplikoj - ĝi "
+"povas esti malŝaltita ebligante ĉi opcion.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stdBtnSizes)
 #: qt4/config/qtcurveconfigbase.ui:3704

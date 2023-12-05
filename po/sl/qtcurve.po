@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-04 00:42+0000\n"
-"PO-Revision-Date: 2022-10-18 09:11+0200\n"
+"PO-Revision-Date: 2023-12-04 21:34+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.4.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -877,7 +877,7 @@ msgstr "Dvignjeno in združeno"
 #: qt5/config/qtcurveconfig.cpp:978 qt5/config/qtcurveconfigbase.ui:1094
 #, kde-format
 msgid " pixels"
-msgstr "slik. točk"
+msgstr " slik. točk"
 
 #: qt4/config/qtcurveconfig.cpp:985 qt5/config/qtcurveconfig.cpp:991
 #, kde-format
@@ -4442,13 +4442,7 @@ msgstr "Ročno prerazporedi gumbe Gtk"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stdBtnSizes)
 #: qt4/config/qtcurveconfigbase.ui:3701
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Auto-default buttons are buttons that can become 'default' buttons - i."
-#| "e. will react the user pressing 'return'.</p>\n"
-#| "<p>In Gtk2 applications, most 'auto-default' buttons have a taller "
-#| "appearance than standard buttons. QtCurve attempts to mimic this for KDE4 "
-#| "applications - this may be disabled by enabling this option.</p>"
+#, kde-format
 msgid ""
 "<p>Auto-default buttons are buttons that can become 'default' buttons - i.e. "
 "will react to the user pressing 'return'.</p>\n"
