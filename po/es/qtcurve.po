@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Automatically generated, 2017.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2017, 2018, 2021.
+# SPDX-FileCopyrightText: 2017, 2018, 2021, 2023 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 01:47+0000\n"
-"PO-Revision-Date: 2021-07-03 18:04+0200\n"
+"PO-Revision-Date: 2023-12-05 02:23+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.04.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1172,7 +1172,7 @@ msgstr "Guardar pre-ajuste"
 #: qt4/config/qtcurveconfig.cpp:2527 qt5/config/qtcurveconfig.cpp:2489
 #, kde-format
 msgid "Please enter a name for the preset:"
-msgstr "Por favor, introduzca un nombre para el pre-ajuste:"
+msgstr "Introduzca un nombre para el preajuste:"
 
 #: qt4/config/qtcurveconfig.cpp:2529 qt5/config/qtcurveconfig.cpp:2491
 #, kde-format
@@ -1197,8 +1197,7 @@ msgstr "Lo siento, falló al guardar el pre-ajuste"
 msgid ""
 "<p>You cannot use the name \"%1\".</p><p>Please enter a different name:</p>"
 msgstr ""
-"<p>No puede usar el nombre «%1».</p><p>Por favor, introduzca un nombre "
-"diferente:</p>"
+"<p>No puede usar el nombre «%1».</p><p>Introduzca un nombre diferente:</p>"
 
 #: qt4/config/qtcurveconfig.cpp:2620 qt5/config/qtcurveconfig.cpp:2586
 #, kde-format
@@ -1206,8 +1205,8 @@ msgid ""
 "<p>A system defined preset named \"%1\" already exists.</p><p>Please enter a "
 "new name:</p>"
 msgstr ""
-"<p>Ya existe un ajuste predefinido en el sistema llamado «%1».</p><p>Por "
-"favor, introduzca un nuevo nombre:</p>"
+"<p>Ya existe un ajuste predefinido en el sistema llamado «%1».</"
+"p><p>Introduzca un nuevo nombre:</p>"
 
 #: qt4/config/qtcurveconfig.cpp:2627 qt5/config/qtcurveconfig.cpp:2593
 #, kde-format
@@ -1220,7 +1219,7 @@ msgstr ""
 #: qt4/config/qtcurveconfig.cpp:2633 qt5/config/qtcurveconfig.cpp:2599
 #, kde-format
 msgid "<p>Please enter a new name:</p>"
-msgstr "<p>Por favor, introduzca un nuevo nombre:</p>"
+msgstr "<p>Introduzca un nuevo nombre:</p>"
 
 #: qt4/config/qtcurveconfig.cpp:2651 qt5/config/qtcurveconfig.cpp:2617
 #, kde-format
@@ -1500,8 +1499,8 @@ msgid ""
 "<p>Define the gradient to be used for sunken widgets - e.g. pressed buttons."
 "</p>"
 msgstr ""
-"<p>Define el gradiente usado para controles hundidos, por ejemplo: botones "
-"presionados.</p>"
+"<p>Define el gradiente usado para controles hundidos (por ejemplo, los "
+"botones pulsados).</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #. i18n: ectx: property (text), widget (QLabel, label_102)
@@ -5016,17 +5015,16 @@ msgid ""
 "<li>Is used as the border of most widgets.</li>\n"
 "</ol></p></i>"
 msgstr ""
-"<i><p>QtCurve usa varios valores de sombreado fijos para dibujar elementos "
-"como los marcos de los botones, el fondo de botones presionados, etc. El "
-"siguiente es un resumen corto sobre como es usada cada sombra - use este "
-"texto solo como guía, ya que las sombras son usadas para múltiples cosas.</"
-"p>\n"
+"<i><p>QtCurve usa varios valores de sombreado fijos para dibujar elementos, "
+"como los marcos de los botones, el fondo de los botones pulsados, etc. A "
+"continuación se muestra un breve resumen sobre cómo se usa cada sombra (use "
+"este texto solo como guía, ya que las sombras se usan para más cosas).</p>\n"
 "<p><ol>\n"
-"<li>Se usa en la parte clara de los elementos 3D - como el borde de los "
-"controles de pestaña.</li>\n"
-"<li>Se usa en la sombra clara de las barras de progreso rayadas.</li>\n"
-"<li>Se usa en la parte oscura de elementos 3D - como el borde de los "
-"controles de pestaña.</li>\n"
+"<li>Se usa en la parte clara de los elementos 3D (como el borde de los "
+"controles de pestañas).</li>\n"
+"<li>Se usa en la sombra clara de las barras de avance rayadas.</li>\n"
+"<li>Se usa en la parte oscura de elementos 3D (como el borde de los "
+"controles de pestañas).</li>\n"
 "<li>Se usa en el borde sombreado de casillas y botones de selección, bordes "
 "de barras de herramientas (cuando se definen oscuras), la parte oscura de "
 "los mangos pulsados de barras deslizantes, etc.</li>\n"
@@ -5445,7 +5443,7 @@ msgid ""
 "open. Please close the other before proceeding."
 msgstr ""
 "<h3>Ya abierto</h3><p>Otro diálogo de configuración de QtCurve se encuentra "
-"ya abierto. Por favor, cierre el otro diálogo antes de continuar."
+"ya abierto. Cierre el otro diálogo antes de continuar."
 
 #. i18n: ectx: property (text), widget (QLabel, label_4x)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:38
@@ -5630,9 +5628,9 @@ msgstr ""
 "<p><b>NOTA:</b> <i>Esta decoración de ventanas usa el estilo de elementos "
 "gráficos QtCurve, y comparte su configuración. Solo las preferencias que son "
 "únicas a esta decoración de ventanas se muestran aquí. Para modificar "
-"preferencias como el gradiente de la barra de títulos, o el alineamiento del "
-"texto, por favor, establezca las opciones apropiadas en el estilo del "
-"elemento gráfico.</i></p>"
+"preferencias como el gradiente de la barra de títulos o el alineamiento del "
+"texto, defina las opciones apropiadas en el estilo del elemento gráfico.</"
+"i></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:217
@@ -5867,13 +5865,13 @@ msgid ""
 "appearance than standard buttons. QtCurve attempts to mimic this for KDE "
 "applications - this may be disabled by enabling this option.</p>"
 msgstr ""
-"<p>Los botones auto-predeterminados son aquellos que se pueden convertir en "
-"botones por omisión, es decir, reaccionarán cuando el usuario presione la "
-"tecla «Intro».</p>\n"
-"<p>En las aplicaciones Gtk2, la mayoría de los botones auto-predeterminados "
-"tiene un aspecto más elevado que los botones estándar. QtCurve trata de "
-"imitar este efecto para aplicaciones KDE. Este comportamiento se puede "
-"desactivar al activar este opción.</p>"
+"<p>Los botones predeterminados automáticamente son los que se pueden "
+"convertir en botones por omisión (es decir, reaccionarán cuando el usuario "
+"pulse la tecla «Intro»).</p>\n"
+"<p>En las aplicaciones Gtk2, la mayoría de los botones predeterminados "
+"automáticamente tienen un aspecto más elevado que los botones estándar. "
+"QtCurve trata de imitar este efecto para aplicaciones KDE. Este "
+"comportamiento se puede desactivar marcando esta opción.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stdBtnSizes)
 #: qt5/config/qtcurveconfigbase.ui:3768
