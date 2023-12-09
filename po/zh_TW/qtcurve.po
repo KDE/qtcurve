@@ -1,29 +1,31 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # 綠色聖光 <lishaohui.qd@163.com>, 2011.
+# SPDX-FileCopyrightText: 2023 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: QtCurve-KDE4 1.8.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 01:47+0000\n"
-"PO-Revision-Date: 2011-01-03 14:20+0800\n"
-"Last-Translator: 綠色聖光 <lishaohui.qd@163.com>\n"
-"Language-Team: 綠色聖光 <lishaohui.qd@163.com>\n"
+"PO-Revision-Date: 2023-12-02 19:48+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "綠色聖光"
+msgstr "綠色聖光, Kisaragi Hiu"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "lishaohui.qd@163.com"
+msgstr "lishaohui.qd@163.com, mail@kisaragi-hiu.com"
 
 #: qt4/config/exportthemedialog.cpp:42 qt5/config/exportthemedialog.cpp:47
 #, kde-format
@@ -38,7 +40,7 @@ msgstr "名稱："
 #: qt4/config/exportthemedialog.cpp:46 qt5/config/exportthemedialog.cpp:53
 #, kde-format
 msgid "Comment:"
-msgstr "注釋："
+msgstr "註解："
 
 #: qt4/config/exportthemedialog.cpp:47 qt5/config/exportthemedialog.cpp:54
 #, kde-format
@@ -48,7 +50,7 @@ msgstr "目的資料夾："
 #: qt4/config/exportthemedialog.cpp:49 qt5/config/exportthemedialog.cpp:56
 #, kde-format
 msgid "QtCurve based theme"
-msgstr "QtCurve 基本主題"
+msgstr "基於 QtCurve 的主題"
 
 #: qt4/config/exportthemedialog.cpp:77 qt5/config/exportthemedialog.cpp:88
 #, kde-format
@@ -56,19 +58,18 @@ msgid "Name is empty!"
 msgstr "檔名爲空！"
 
 #: qt4/config/exportthemedialog.cpp:97 qt5/config/exportthemedialog.cpp:106
-#, fuzzy, kde-format
-#| msgid ""
-#| "Succesfully created:\n"
-#| "%1"
+#, kde-format
 msgid ""
 "Successfully created:\n"
 "%1"
-msgstr "建立 %1 成功~"
+msgstr ""
+"已成功建立：\n"
+"%1"
 
 #: qt4/config/exportthemedialog.cpp:100 qt5/config/exportthemedialog.cpp:109
 #, kde-format
 msgid "Failed to create file: %1"
-msgstr "建立 %1 失敗..."
+msgstr "建立檔案失敗：%1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: qt4/config/imageproperties.ui:17 qt5/config/imageproperties.ui:17
@@ -80,7 +81,7 @@ msgstr "檔案："
 #: qt4/config/imageproperties.ui:27 qt5/config/imageproperties.ui:27
 #, kde-format
 msgid "Scale to:"
-msgstr "擴縮至："
+msgstr "縮放至："
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: qt4/config/imageproperties.ui:49 qt5/config/imageproperties.ui:49
@@ -94,13 +95,13 @@ msgstr "×"
 #: qt5/config/imageproperties.ui:62 qt5/config/qtcurveconfigbase.ui:4152
 #, kde-format
 msgid "Position:"
-msgstr "位置值："
+msgstr "位置："
 
 #. i18n: ectx: property (text), widget (QLabel, onBorderLabel)
 #: qt4/config/imageproperties.ui:73 qt5/config/imageproperties.ui:73
 #, kde-format
 msgid "On window border:"
-msgstr "在窗口邊框上："
+msgstr "在視窗邊框上："
 
 #. i18n: ectx: property (text), widget (QCheckBox, onBorder)
 #. i18n: ectx: property (text), widget (QCheckBox, lvLines)
@@ -121,7 +122,7 @@ msgstr "在窗口邊框上："
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:120
 #, kde-format
 msgid "Enabled"
-msgstr "啓用"
+msgstr "啟用"
 
 #: qt4/config/imagepropertiesdialog.cpp:39
 #: qt5/config/imagepropertiesdialog.cpp:46
@@ -175,7 +176,7 @@ msgstr "右中方"
 #: qt5/config/imagepropertiesdialog.cpp:54
 #, kde-format
 msgid "Centred"
-msgstr "正中方"
+msgstr "置中"
 
 #: qt4/config/imagepropertiesdialog.cpp:60
 #: qt5/config/imagepropertiesdialog.cpp:70
@@ -188,7 +189,7 @@ msgstr "編輯 %1"
 #: qt5/kwin/qtcurveclient.cpp:223
 #, kde-format
 msgid "QtCurve"
-msgstr ""
+msgstr "QtCurve"
 
 #: qt4/config/qtcurveconfig.cpp:237 qt5/config/qtcurveconfig.cpp:244
 #, kde-format
@@ -196,10 +197,9 @@ msgid "Unified widget style."
 msgstr "統一元件樣式。"
 
 #: qt4/config/qtcurveconfig.cpp:239 qt5/config/qtcurveconfig.cpp:246
-#, fuzzy, kde-format
-#| msgid "(C) Craig Drummond, 2003-2010"
+#, kde-format
 msgid "(C) Craig Drummond, 2003-2011 & Yichao Yu, 2013-2015"
-msgstr "© Craig Drummond, 2003-2010"
+msgstr "(C) Craig Drummond, 2003-2011 & Yichao Yu, 2013-2015"
 
 #: qt4/config/qtcurveconfig.cpp:256 qt5/config/qtcurveconfig.cpp:261
 #, kde-format
@@ -209,7 +209,7 @@ msgstr "預覽視窗"
 #: qt4/config/qtcurveconfig.cpp:309 qt5/config/qtcurveconfig.cpp:317
 #, kde-format
 msgid "Select Password Character"
-msgstr "選擇密碼符號"
+msgstr "選取密碼字元"
 
 #. i18n: ectx: property (text), widget (QLabel, label_94)
 #: qt4/config/qtcurveconfig.cpp:525 qt4/config/qtcurveconfig.cpp:984
@@ -257,12 +257,12 @@ msgstr "自訂"
 #: qt4/config/qtcurveconfig.cpp:541 qt5/config/qtcurveconfig.cpp:550
 #, kde-format
 msgid "Selected background"
-msgstr "選中背景"
+msgstr "所選背景"
 
 #: qt4/config/qtcurveconfig.cpp:543 qt5/config/qtcurveconfig.cpp:552
 #, kde-format
 msgid "Blended selected background"
-msgstr "融合選中背景"
+msgstr "融合所選背景"
 
 #: qt4/config/qtcurveconfig.cpp:545 qt5/config/qtcurveconfig.cpp:554
 #, kde-format
@@ -323,7 +323,7 @@ msgstr "柔緩漸變凸出"
 #: qt4/config/qtcurveconfig.cpp:579 qt5/config/qtcurveconfig.cpp:588
 #, kde-format
 msgid "Standard gradient"
-msgstr "常規漸變凸出"
+msgstr "標準漸變凸出"
 
 #: qt4/config/qtcurveconfig.cpp:580 qt5/config/qtcurveconfig.cpp:589
 #, kde-format
@@ -366,7 +366,7 @@ msgstr "條紋"
 #: qt5/config/qtcurveconfig.cpp:603 qt5/config/qtcurveconfig.cpp:688
 #, kde-format
 msgid "Same as general setting"
-msgstr "與常規設定相同"
+msgstr "與一般設定相同"
 
 #: qt4/config/qtcurveconfig.cpp:597 qt5/config/qtcurveconfig.cpp:606
 #, kde-format
@@ -411,12 +411,12 @@ msgstr "字型顔色細邊"
 #: qt4/config/qtcurveconfig.cpp:633 qt5/config/qtcurveconfig.cpp:642
 #, kde-format
 msgid "Selected background thick border"
-msgstr "選中背景粗框"
+msgstr "所選背景粗框"
 
 #: qt4/config/qtcurveconfig.cpp:634 qt5/config/qtcurveconfig.cpp:643
 #, kde-format
 msgid "Selected background tinting"
-msgstr "選中背景著色"
+msgstr "所選背景著色"
 
 #: qt4/config/qtcurveconfig.cpp:635 qt5/config/qtcurveconfig.cpp:644
 #, kde-format
@@ -426,7 +426,7 @@ msgstr "輕微光芒"
 #: qt4/config/qtcurveconfig.cpp:637 qt5/config/qtcurveconfig.cpp:646
 #, kde-format
 msgid "Use selected background color"
-msgstr "使用選中背景色"
+msgstr "使用所選背景色"
 
 #: qt4/config/qtcurveconfig.cpp:638 qt5/config/qtcurveconfig.cpp:647
 #, kde-format
@@ -436,12 +436,12 @@ msgstr "無指示"
 #: qt4/config/qtcurveconfig.cpp:643 qt5/config/qtcurveconfig.cpp:652
 #, kde-format
 msgid "KDE"
-msgstr ""
+msgstr "KDE"
 
 #: qt4/config/qtcurveconfig.cpp:644 qt5/config/qtcurveconfig.cpp:653
 #, kde-format
 msgid "MS Windows"
-msgstr "微軟视窗"
+msgstr "MS Windows"
 
 #: qt4/config/qtcurveconfig.cpp:645 qt5/config/qtcurveconfig.cpp:654
 #, kde-format
@@ -630,32 +630,32 @@ msgstr "深暗背景顔色"
 #: qt4/config/qtcurveconfig.cpp:719 qt5/config/qtcurveconfig.cpp:728
 #, kde-format
 msgid "Standard (dotted)"
-msgstr "常規（點綴）"
+msgstr "標準（點綴）"
 
 #: qt4/config/qtcurveconfig.cpp:720 qt5/config/qtcurveconfig.cpp:729
 #, kde-format
 msgid "Highlight color"
-msgstr "高亮色"
+msgstr "突顯色"
 
 #: qt4/config/qtcurveconfig.cpp:721 qt5/config/qtcurveconfig.cpp:730
 #, kde-format
 msgid "Highlight color (full size)"
-msgstr "高亮色（完整大小）"
+msgstr "突顯色（完整大小）"
 
 #: qt4/config/qtcurveconfig.cpp:722 qt5/config/qtcurveconfig.cpp:731
 #, kde-format
 msgid "Highlight color, and fill"
-msgstr "高亮色並填充"
+msgstr "突顯色並填充"
 
 #: qt4/config/qtcurveconfig.cpp:723 qt5/config/qtcurveconfig.cpp:732
 #, kde-format
 msgid "Line drawn with highlight color"
-msgstr "高亮色線條突出"
+msgstr "使用突顯色繪製的線"
 
 #: qt4/config/qtcurveconfig.cpp:725 qt5/config/qtcurveconfig.cpp:734
 #, kde-format
 msgid "Nothing"
-msgstr ""
+msgstr "無"
 
 #: qt4/config/qtcurveconfig.cpp:730 qt4/config/qtcurveconfig.cpp:825
 #: qt5/config/qtcurveconfig.cpp:739 qt5/config/qtcurveconfig.cpp:834
@@ -721,12 +721,12 @@ msgstr "在標題旁"
 #: qt4/config/qtcurveconfig.cpp:761 qt5/config/qtcurveconfig.cpp:770
 #, kde-format
 msgid "Highlight on top"
-msgstr "頂部高亮"
+msgstr "頂部突顯"
 
 #: qt4/config/qtcurveconfig.cpp:762 qt5/config/qtcurveconfig.cpp:771
 #, kde-format
 msgid "Highlight on bottom"
-msgstr "底部高亮"
+msgstr "底部突顯"
 
 #: qt4/config/qtcurveconfig.cpp:763 qt5/config/qtcurveconfig.cpp:772
 #, kde-format
@@ -826,7 +826,7 @@ msgstr "所有的空白區域"
 #: qt4/config/qtcurveconfig.cpp:826 qt5/config/qtcurveconfig.cpp:835
 #, kde-format
 msgid "Standard frame border"
-msgstr "常規頁框邊框"
+msgstr "標準頁框邊框"
 
 #: qt4/config/qtcurveconfig.cpp:827 qt5/config/qtcurveconfig.cpp:836
 #, kde-format
@@ -861,12 +861,12 @@ msgstr "在頁框內"
 #: qt4/config/qtcurveconfig.cpp:848 qt5/config/qtcurveconfig.cpp:857
 #, kde-format
 msgid "Standard (auto-raise)"
-msgstr "常規（自動突升）"
+msgstr "標準（自動突升）"
 
 #: qt4/config/qtcurveconfig.cpp:850 qt5/config/qtcurveconfig.cpp:859
 #, kde-format
 msgid "Raised and joined"
-msgstr "突升并合并"
+msgstr "突升並合併"
 
 #. i18n: ectx: property (suffix), widget (KIntNumInput, sliderWidth)
 #. i18n: ectx: property (suffix), widget (QSpinBox, sliderWidth)
@@ -894,7 +894,7 @@ msgstr "選單圖像"
 #: qt4/config/qtcurveconfig.cpp:1732 qt5/config/qtcurveconfig.cpp:1676
 #, kde-format
 msgid "Presets and Preview"
-msgstr "預設和預覽"
+msgstr "預設檔和預覽"
 
 #. i18n: ectx: attribute (title), widget (QWidget, generalTab)
 #: qt4/config/qtcurveconfig.cpp:1733
@@ -903,7 +903,7 @@ msgstr "預設和預覽"
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:30
 #, kde-format
 msgid "General"
-msgstr "常規"
+msgstr "一般"
 
 #: qt4/config/qtcurveconfig.cpp:1734 qt5/config/qtcurveconfig.cpp:1678
 #, kde-format
@@ -954,12 +954,12 @@ msgstr "進度條"
 #: qt4/config/qtcurveconfig.cpp:1742 qt5/config/qtcurveconfig.cpp:1686
 #, kde-format
 msgid "Default Button"
-msgstr "默認按鈕"
+msgstr "預設按鈕"
 
 #: qt4/config/qtcurveconfig.cpp:1743 qt5/config/qtcurveconfig.cpp:1687
 #, kde-format
 msgid "Mouse-over"
-msgstr "滑鼠滑過"
+msgstr "滑鼠停駐"
 
 #: qt4/config/qtcurveconfig.cpp:1744 qt5/config/qtcurveconfig.cpp:1688
 #, kde-format
@@ -974,7 +974,7 @@ msgstr "卷軸視圖"
 #: qt4/config/qtcurveconfig.cpp:1746 qt5/config/qtcurveconfig.cpp:1690
 #, kde-format
 msgid "Tabs"
-msgstr "標簽"
+msgstr "分頁"
 
 #: qt4/config/qtcurveconfig.cpp:1747 qt5/config/qtcurveconfig.cpp:1691
 #, kde-format
@@ -994,7 +994,7 @@ msgid ""
 "Therefore, these settings will <b>not</b> be reflected in the Preview page.</"
 "i></p>"
 msgstr ""
-"<p><b>注意：</b><i>這裏的設定會影響周圍應用程式視窗和對話窗的邊框，而不是內部"
+"<p><b>注意：</b><i>這裡的設定會影響周圍應用程式視窗和對話框的邊框，而不是內部"
 "（或MDI）視窗。因此，這些設定將<b>不會</b>在預覽中顯示出來</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:1761 qt5/config/qtcurveconfig.cpp:1704
@@ -1042,7 +1042,7 @@ msgstr "停靠視窗"
 #: qt4/config/qtcurveconfig.cpp:1770 qt5/config/qtcurveconfig.cpp:1713
 #, kde-format
 msgid "Advanced Settings"
-msgstr "高級設定"
+msgstr "進階設定"
 
 #: qt4/config/qtcurveconfig.cpp:1771 qt5/config/qtcurveconfig.cpp:1714
 #, kde-format
@@ -1052,7 +1052,7 @@ msgstr "應用程式"
 #: qt4/config/qtcurveconfig.cpp:1772 qt5/config/qtcurveconfig.cpp:1715
 #, kde-format
 msgid "Legacy"
-msgstr "回溯相容"
+msgstr "舊式"
 
 #: qt4/config/qtcurveconfig.cpp:1773 qt5/config/qtcurveconfig.cpp:1716
 #, kde-format
@@ -1087,26 +1087,26 @@ msgstr "匯出..."
 #: qt4/config/qtcurveconfig.cpp:1798 qt5/config/qtcurveconfig.cpp:1750
 #, kde-format
 msgid "(Current)"
-msgstr "當前"
+msgstr "(目前)"
 
 #: qt4/config/qtcurveconfig.cpp:1799 qt5/config/qtcurveconfig.cpp:1751
 #, kde-format
 msgid "(Default)"
-msgstr "默認"
+msgstr "(預設)"
 
 #: qt4/config/qtcurveconfig.cpp:2088 qt5/config/qtcurveconfig.cpp:2041
 #, kde-format
 msgid ""
 "Export your current KDE4 color palette, and font, so that they can be used "
 "by KDE3 applications?"
-msgstr "要匯出您當前的調色板和字型設定，以便它們可以應用于KDE3應用程式？"
+msgstr "要匯出您目前的調色板和字型設定，以便它們可以應用于KDE3應用程式？"
 
 #: qt4/config/qtcurveconfig.cpp:2134 qt5/config/qtcurveconfig.cpp:2086
 #, kde-format
 msgid ""
 "Export your current KDE4 color palette, and font, so that they can be used "
 "by pure-Qt3 applications?"
-msgstr "要匯出您當前的調色板和字型設定，以便它們可以應用于純Qt3應用程式？"
+msgstr "要匯出您目前的調色板和字型設定，以便它們可以應用于純Qt3應用程式？"
 
 #: qt4/config/qtcurveconfig.cpp:2187 qt5/config/qtcurveconfig.cpp:2139
 #, kde-format
@@ -1118,7 +1118,7 @@ msgid ""
 "menubar</li>"
 msgstr ""
 "<p>設定以下選項，以使視窗標題列和選單條呈現融合效果嗎？</p><ul><li>選單條，標"
-"題列和非活動標題列融合到“%1”</li><li>不啓用“將標題列顔色與背景色融合”。</"
+"題列和非活動標題列融合到“%1”</li><li>不啟用“將標題列顔色與背景色融合”。</"
 "li><li>將選單條著色設定成與“%2”相同。</li><li>把視窗拖拽延伸到選單條。</li>"
 
 #: qt4/config/qtcurveconfig.cpp:2260 qt5/config/qtcurveconfig.cpp:2212
@@ -1136,17 +1136,17 @@ msgstr "漂移"
 #: qt4/config/qtcurveconfig.cpp:2296 qt5/config/qtcurveconfig.cpp:2249
 #, kde-format
 msgid "Copy settings from another gradient"
-msgstr "複制其他的漸變設定"
+msgstr "從另一個漸變複製設定"
 
 #: qt4/config/qtcurveconfig.cpp:2310 qt5/config/qtcurveconfig.cpp:2263
 #, kde-format
 msgid "Add"
-msgstr "添加"
+msgstr "新增"
 
 #: qt4/config/qtcurveconfig.cpp:2311 qt5/config/qtcurveconfig.cpp:2264
 #, kde-format
 msgid "Remove"
-msgstr "刪除"
+msgstr "移除"
 
 #: qt4/config/qtcurveconfig.cpp:2312 qt5/config/qtcurveconfig.cpp:2265
 #, kde-format
@@ -1156,17 +1156,17 @@ msgstr "更新"
 #: qt4/config/qtcurveconfig.cpp:2527 qt5/config/qtcurveconfig.cpp:2489
 #, kde-format
 msgid "Save Preset"
-msgstr "儲存預設"
+msgstr "儲存預設檔"
 
 #: qt4/config/qtcurveconfig.cpp:2527 qt5/config/qtcurveconfig.cpp:2489
 #, kde-format
 msgid "Please enter a name for the preset:"
-msgstr "請鍵入預設的名字"
+msgstr "請輸入預設檔的名字"
 
 #: qt4/config/qtcurveconfig.cpp:2529 qt5/config/qtcurveconfig.cpp:2491
 #, kde-format
 msgid "New preset"
-msgstr "新預設"
+msgstr "新預設檔"
 
 #: qt4/config/qtcurveconfig.cpp:2532 qt4/config/qtcurveconfig.cpp:2613
 #: qt4/config/qtcurveconfig.cpp:2623 qt4/config/qtcurveconfig.cpp:2634
@@ -1179,15 +1179,13 @@ msgstr "新%1"
 #: qt4/config/qtcurveconfig.cpp:2535 qt5/config/qtcurveconfig.cpp:2497
 #, kde-format
 msgid "Sorry, failed to save preset"
-msgstr "抱歉，儲存預設失敗..."
+msgstr "抱歉，儲存預設檔失敗"
 
 #: qt4/config/qtcurveconfig.cpp:2611 qt5/config/qtcurveconfig.cpp:2577
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>You cannot use the name \"%1\".</p><p>Please enter a different name:<p>"
+#, kde-format
 msgid ""
 "<p>You cannot use the name \"%1\".</p><p>Please enter a different name:</p>"
-msgstr "<p>您不能使用“%1”這個名字。</p><p>請再換一個試試：<p>"
+msgstr "<p>您不能使用「%1」這個名稱。</p><p>請輸入另一個名稱：</p>"
 
 #: qt4/config/qtcurveconfig.cpp:2620 qt5/config/qtcurveconfig.cpp:2586
 #, fuzzy, kde-format
@@ -1223,25 +1221,25 @@ msgstr "<p>您確定要刪除該預設？</p><p><b>%1</b></p>"
 #: qt4/config/qtcurveconfig.cpp:2661 qt5/config/qtcurveconfig.cpp:2627
 #, kde-format
 msgid "<p>Sorry, failed to remove the preset file:</p><p><i>%1</i></p>"
-msgstr "<p>抱歉，無法刪除以下預設檔案：</p><p><i>%1</i></p>"
+msgstr "<p>抱歉，無法刪除以下預設檔：</p><p><i>%1</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2669 qt4/config/qtcurveconfig.cpp:2830
 #: qt5/config/qtcurveconfig.cpp:2635 qt5/config/qtcurveconfig.cpp:2793
 #, kde-format
 msgid "*"
-msgstr ""
+msgstr "*"
 
 #: qt4/config/qtcurveconfig.cpp:2682 qt5/config/qtcurveconfig.cpp:2648
 #, kde-format
 msgid "<p>Sorry, failed to load file.</p><p><i>Empty preset name?</i></p>"
-msgstr "<p>抱歉，載入檔案失敗。</p><p><i>預設名爲空？</i></p>"
+msgstr "<p>抱歉，載入檔案失敗。</p><p><i>預設檔名稱爲空？</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2685 qt5/config/qtcurveconfig.cpp:2650
 #, kde-format
 msgid ""
 "<p>Sorry, failed to load file.</p><p><i>Cannot have a preset named \"%1\"</"
 "i></p>"
-msgstr "<p>抱歉，載入檔案失敗。</p><p><i>不能將預設命名爲“%1”。</i></p>"
+msgstr "<p>抱歉，載入檔案失敗。</p><p><i>不能將預設檔命名爲 “%1”。</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2695 qt5/config/qtcurveconfig.cpp:2659
 #, kde-format
@@ -1269,12 +1267,12 @@ msgstr ""
 #: qt4/config/qtcurveconfig.cpp:2729 qt5/config/qtcurveconfig.cpp:2688
 #, kde-format
 msgid "Import Preset"
-msgstr "匯入預設"
+msgstr "匯入預設檔"
 
 #: qt4/config/qtcurveconfig.cpp:2800 qt5/config/qtcurveconfig.cpp:2762
 #, kde-format
 msgid "Sorry, failed to load file."
-msgstr "抱歉，匯入檔案失敗。"
+msgstr "抱歉，載入檔案失敗。"
 
 #: qt4/config/qtcurveconfig.cpp:2811 qt5/config/qtcurveconfig.cpp:2773
 #, fuzzy, kde-format
@@ -1290,7 +1288,7 @@ msgid ""
 "from the KDE style panel.</li></ul></p>"
 msgstr ""
 "<p>您要把QtCurve的設定匯出爲哪種格式？<ul><li><i>QtCurve設定檔案</i>——可以通"
-"過本設定對話窗匯入</li><li><i>獨立主題檔案</i>——可以從KDE樣式面板中選擇</"
+"過本設定對話框匯入</li><li><i>獨立主題檔案</i>——可以從KDE樣式面板中選擇</"
 "li></ul></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2816 qt5/config/qtcurveconfig.cpp:2779
@@ -1301,7 +1299,7 @@ msgstr "匯出設定"
 #: qt4/config/qtcurveconfig.cpp:2817 qt5/config/qtcurveconfig.cpp:2780
 #, kde-format
 msgid "QtCurve Settings File"
-msgstr "QtCurve設定檔案"
+msgstr "QtCurve 設定檔案"
 
 #: qt4/config/qtcurveconfig.cpp:2818 qt5/config/qtcurveconfig.cpp:2781
 #, kde-format
@@ -1327,7 +1325,7 @@ msgstr "標題"
 #: qt4/config/qtcurveconfigbase.ui:100 qt5/config/qtcurveconfigbase.ui:100
 #, kde-format
 msgid "Presets"
-msgstr "預設"
+msgstr "預設檔"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, presetsCombo)
 #: qt4/config/qtcurveconfigbase.ui:110 qt5/config/qtcurveconfigbase.ui:110
@@ -1343,8 +1341,8 @@ msgid ""
 msgstr ""
 "<p>該復合方塊包含了預設清單。\n"
 "<ul>\n"
-"<li>選擇“當前”會丟失剛才所做的全部修改，而恢複成之前儲存的樣式。</li>\n"
-"<li>選擇“默認”會丟失剛才所做的全部修改，而恢複成QtCurve的默認樣式。</li>\n"
+"<li>選擇“目前”會丟失剛才所做的全部修改，而恢複成之前儲存的樣式。</li>\n"
+"<li>選擇“預設”會丟失剛才所做的全部修改，而恢複成QtCurve的預設樣式。</li>\n"
 "</ul>"
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, saveButton)
@@ -1352,7 +1350,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:132 qt5/config/qtcurveconfigbase.ui:132
 #, kde-format
 msgid "<p>Save the current settings to be retrieved later.</p>"
-msgstr "<p>儲存當前設定以用于恢複。</p>"
+msgstr "<p>儲存目前設定以用于恢複。</p>"
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, deleteButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, deleteButton)
@@ -1397,7 +1395,7 @@ msgstr "預覽"
 #: qt5/config/qtcurveconfigbase.ui:2983 qt5/config/qtcurveconfigbase.ui:3440
 #, kde-format
 msgid "Appearance:"
-msgstr "外觀效果："
+msgstr "外觀："
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, appearance)
 #: qt4/config/qtcurveconfigbase.ui:236 qt5/config/qtcurveconfigbase.ui:245
@@ -1405,7 +1403,7 @@ msgstr "外觀效果："
 msgid ""
 "<p>The setting here affects the general appearance - and will be applied to "
 "buttons, combo boxes, and spin buttons.</p>"
-msgstr "<p>這裏用于設定通用的外觀——會應用于按鈕、復合方塊和旋鈕。</p>"
+msgstr "<p>這裡用於設定通用的外觀——會套用於按鈕、復合方塊和旋鈕。</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_47)
 #. i18n: ectx: property (text), widget (QLabel, label_75)
@@ -1427,7 +1425,7 @@ msgid ""
 "p><p><b>NOTE:</b> This is an experimental option, and will (probably) have a "
 "detrimental effect on performance.</p>"
 msgstr ""
-"<p>爲視窗和對話窗的背景設定一個漸變效果。</p><p><b>注意：</b>這是一個試驗性的"
+"<p>爲視窗和對話框的背景設定一個漸變效果。</p><p><b>注意：</b>這是一個試驗性的"
 "選項，可能會導致不良效果。</p>"
 
 #. i18n: ectx: property (text), widget (QToolButton, bgndAppearance_btn)
@@ -1440,7 +1438,7 @@ msgstr ""
 #: qt5/config/qtcurveconfigbase.ui:3273 qt5/config/qtcurveconfigbase.ui:3306
 #, kde-format
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, bgndGrad)
 #: qt4/config/qtcurveconfigbase.ui:268 qt5/config/qtcurveconfigbase.ui:277
@@ -1470,7 +1468,7 @@ msgid ""
 "rings with borders.</li><li>Plain rings - 'Air' like rings, but without any "
 "border.</li><li>Square rings - 3 simple rounded squares.</li></ul></p>"
 msgstr ""
-"<p>這會在對話窗和視窗的右上方添加一張背景圖片。\n"
+"<p>這會在對話框和視窗的右上方添加一張背景圖片。\n"
 "<ul><li>無——不添加背景圖片。</li><li>框環——帶邊框的“大氣”樣式的環。</li><li>"
 "素環——不帶邊框的“大氣”樣式的環。</li><li>方環——三個簡單的圓滑方形環。</li></"
 "ul></p>"
@@ -1487,7 +1485,7 @@ msgstr "凹處外觀："
 msgid ""
 "<p>Define the gradient to be used for sunken widgets - e.g. pressed buttons."
 "</p>"
-msgstr "<p>定義用于凹陷元件的漸變效果，例如按下的按鈕。</p>"
+msgstr "<p>定義用於凹陷元件的漸變效果，例如按下的按鈕。</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #. i18n: ectx: property (text), widget (QLabel, label_102)
@@ -1502,7 +1500,7 @@ msgstr "按鈕效果："
 #, kde-format
 msgid ""
 "<p>Control what effect should be applied to buttons, combo boxes, etc.</p>"
-msgstr "<p>控制應用于按鈕、復合方塊等處的效果。</p>"
+msgstr "<p>控制應用於按鈕、復合方塊等處的效果。</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, thin_buttons)
 #: qt4/config/qtcurveconfigbase.ui:329 qt5/config/qtcurveconfigbase.ui:338
@@ -1549,13 +1547,13 @@ msgstr "<p>控制QtCurve如何突顯取得鍵盤焦點的元件。</p>"
 #: qt4/config/qtcurveconfigbase.ui:363 qt5/config/qtcurveconfigbase.ui:372
 #, kde-format
 msgid "Tooltips:"
-msgstr "提示框："
+msgstr "工具提示："
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tooltipAppearance)
 #: qt4/config/qtcurveconfigbase.ui:370 qt5/config/qtcurveconfigbase.ui:379
 #, kde-format
 msgid "<p>Controls the appearance of tooltip backgrounds.</p>"
-msgstr "<p>控制提示框背景的外觀效果。</p>"
+msgstr "<p>控制工具提示背景的外觀效果。</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, vArrows)
 #: qt4/config/qtcurveconfigbase.ui:386 qt5/config/qtcurveconfigbase.ui:395
@@ -1574,26 +1572,22 @@ msgstr "使用“V”型箭頭"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stdSidebarButtons)
 #: qt4/config/qtcurveconfigbase.ui:396 qt5/config/qtcurveconfigbase.ui:405
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Select this to have the sidebar buttons in konqueror, kate, kaffeine, "
-#| "ktorrent, etc., drawn as per normal buttons - otherwise they will be "
-#| "drawn in a more flat style with the active tab colored with the highlght "
-#| "color.</p>"
+#, kde-format
 msgid ""
 "<p>Select this to have the sidebar buttons in konqueror, kate, kaffeine, "
 "ktorrent, etc., drawn as per normal buttons - otherwise they will be drawn "
 "in a more flat style with the active tab colored with the highlight color.</"
 "p>"
 msgstr ""
-"<p>勾選該項會將konqueror，kate，kaffeine，ktorrent等程式的側邊列按鈕繪制成普"
-"通按鈕的樣式；否則會繪制成一個更平坦的用高亮色著色的激活標簽樣式。</p>"
+"<p>勾選該項會將 konqueror、kate、kaffeine、ktorrent 等程式的側邊列按鈕繪製成"
+"普通按鈕的樣式；否則會繪製成一個較平坦的樣式，其中作用中分頁會使用突顯色著"
+"色。</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stdSidebarButtons)
 #: qt4/config/qtcurveconfigbase.ui:399 qt5/config/qtcurveconfigbase.ui:408
 #, kde-format
 msgid "Standard buttons for sidebars"
-msgstr "側邊列常規按鈕"
+msgstr "側邊欄標準按鈕"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, darkerBorders)
 #: qt4/config/qtcurveconfigbase.ui:406 qt5/config/qtcurveconfigbase.ui:415
@@ -1619,7 +1613,7 @@ msgstr "<p>控制水平線和垂直線的兩端是否淡出。</p>"
 #: qt4/config/qtcurveconfigbase.ui:419 qt5/config/qtcurveconfigbase.ui:428
 #, kde-format
 msgid "Draw fading lines"
-msgstr "繪制淡出線條"
+msgstr "繪製淡出線條"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, thin_frames)
 #: qt4/config/qtcurveconfigbase.ui:426 qt5/config/qtcurveconfigbase.ui:435
@@ -1630,7 +1624,7 @@ msgstr "繪制淡出線條"
 msgid ""
 "<p>Controls whether the internal 3d part of frames, etc., should be drawn.</"
 "p>"
-msgstr "<p>控制框架的內部等處是否繪制3D效果。</p>"
+msgstr "<p>控制框架的內部等處是否繪製3D效果。</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, thin_frames)
 #: qt4/config/qtcurveconfigbase.ui:429 qt5/config/qtcurveconfigbase.ui:438
@@ -1648,7 +1642,7 @@ msgstr "在沒有按下“Alt”鍵時，隱藏快捷鍵下劃線。"
 #: qt4/config/qtcurveconfigbase.ui:450 qt5/config/qtcurveconfigbase.ui:459
 #, kde-format
 msgid "General setting:"
-msgstr "常規設定："
+msgstr "一般設定："
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, round)
 #: qt4/config/qtcurveconfigbase.ui:457 qt5/config/qtcurveconfigbase.ui:466
@@ -1670,7 +1664,7 @@ msgstr "不進行圓滑："
 msgid ""
 "<p>Controls whether text entry fields should respect the general round "
 "setting, or always be square.</p>"
-msgstr "<p>控制文字輸入區是進行圓滑還是保持方形。</p>"
+msgstr "<p>控制文字輸入區是使用通用的圓滑設定還是保持方形。</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareEntry)
 #: qt4/config/qtcurveconfigbase.ui:474 qt5/config/qtcurveconfigbase.ui:483
@@ -1684,7 +1678,7 @@ msgstr "輸入區域"
 msgid ""
 "<p>Controls whether progress bars should respect the general round setting, "
 "or always be square.</p>"
-msgstr "<p>控制進度條是進行圓滑還是保持方形。</p>"
+msgstr "<p>控制進度條是使用通用的圓滑設定還是保持方形。</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:491 qt5/config/qtcurveconfigbase.ui:500
@@ -1692,7 +1686,7 @@ msgstr "<p>控制進度條是進行圓滑還是保持方形。</p>"
 msgid ""
 "<p>Controls whether the frame of a scrollview should respect the general "
 "round setting, or always be square.</p>"
-msgstr "<p>控制滾動視圖是進行圓滑還是保持方形。</p>"
+msgstr "<p>控制滾動視圖是使用通用的圓滑設定還是保持方形。</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:494 qt5/config/qtcurveconfigbase.ui:503
@@ -1707,7 +1701,7 @@ msgid ""
 "<p>If enabled, then selected items in listviews and treeviews will be drawn "
 "with square edges, regardless of the general round setting.</p>"
 msgstr ""
-"<p>如果啓用該項，串列視圖和樹狀視圖中選中的項目會被繪制成方邊，忽略圓滑設定。"
+"<p>如果啟用該項，串列視圖和樹狀視圖中選中的項目會被繪製成方邊，忽略圓滑設定。"
 "</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareLvSelection)
@@ -1722,13 +1716,13 @@ msgstr "串列視圖"
 msgid ""
 "<p>Controls whether the frames of tab widgets should respect the general "
 "round setting, or always be square.</p>"
-msgstr "<p>控制標簽元件頁框是進行圓滑還是保持方形。</p>"
+msgstr "<p>控制分頁元件頁框是進行圓滑還是保持方形。</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareTabFrame)
 #: qt4/config/qtcurveconfigbase.ui:514 qt5/config/qtcurveconfigbase.ui:523
 #, kde-format
 msgid "Tab widget frames"
-msgstr "標簽元件頁框"
+msgstr "分頁元件頁框"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareFrame)
 #: qt4/config/qtcurveconfigbase.ui:521 qt5/config/qtcurveconfigbase.ui:530
@@ -1736,13 +1730,13 @@ msgstr "標簽元件頁框"
 msgid ""
 "<p>Controls whether general frames should respect the general round setting, "
 "or always be square.</p>"
-msgstr "<p>控制常規頁框是進行圓滑還是保持方形。</p>"
+msgstr "<p>控制常規頁框是使用通用的圓滑設定還是保持方形。</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareFrame)
 #: qt4/config/qtcurveconfigbase.ui:524 qt5/config/qtcurveconfigbase.ui:533
 #, kde-format
 msgid "General frames"
-msgstr "常規頁框"
+msgstr "一般頁框"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareSlider)
 #: qt4/config/qtcurveconfigbase.ui:531 qt5/config/qtcurveconfigbase.ui:540
@@ -1766,7 +1760,7 @@ msgstr "視窗邊框（將使用輕微圓滑）"
 #: qt4/config/qtcurveconfigbase.ui:552 qt5/config/qtcurveconfigbase.ui:561
 #, kde-format
 msgid "Tooltips"
-msgstr "提示框"
+msgstr "工具提示"
 
 #. i18n: ectx: property (text), widget (QLabel, label_47a)
 #: qt4/config/qtcurveconfigbase.ui:575 qt5/config/qtcurveconfigbase.ui:584
@@ -1835,13 +1829,13 @@ msgstr "<p>設定使用“桌面效果”時，視窗背景的透明度。</p>"
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:268
 #, no-c-format, kde-format
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, label_47x)
 #: qt4/config/qtcurveconfigbase.ui:592 qt5/config/qtcurveconfigbase.ui:601
 #, kde-format
 msgid "Dialogs:"
-msgstr "對話窗："
+msgstr "對話框："
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, dlgOpacity)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, dlgOpacity)
@@ -1851,7 +1845,7 @@ msgstr "對話窗："
 #| "<p>Sets the opacity of dialog backgrounds when using deskop effects.</p>"
 msgid ""
 "<p>Sets the opacity of dialog backgrounds when using desktop effects.</p>"
-msgstr "<p>設定使用“桌面效果”時，對話窗背景的透明度。</p>"
+msgstr "<p>設定使用“桌面效果”時，對話框背景的透明度。</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_yy)
 #: qt4/config/qtcurveconfigbase.ui:609 qt5/config/qtcurveconfigbase.ui:618
@@ -1910,7 +1904,7 @@ msgstr "<p>定義分組框的背景該被暗化或亮化的程度。</p>"
 #: qt4/config/qtcurveconfigbase.ui:688 qt5/config/qtcurveconfigbase.ui:697
 #, kde-format
 msgid "Label:"
-msgstr "標簽："
+msgstr "分頁："
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gbLabel_bold)
 #: qt4/config/qtcurveconfigbase.ui:695 qt5/config/qtcurveconfigbase.ui:704
@@ -1930,7 +1924,7 @@ msgstr "使用粗體"
 #: qt4/config/qtcurveconfigbase.ui:705 qt5/config/qtcurveconfigbase.ui:714
 #, kde-format
 msgid "<p>Specifies the vertical position of a group box's text label.</p>"
-msgstr "<p>指定分組框文字標簽在垂直方向上的位置。</p>"
+msgstr "<p>指定分組框文字分頁在垂直方向上的位置。</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gbLabel_centred)
 #: qt4/config/qtcurveconfigbase.ui:712 qt5/config/qtcurveconfigbase.ui:721
@@ -1938,13 +1932,13 @@ msgstr "<p>指定分組框文字標簽在垂直方向上的位置。</p>"
 msgid ""
 "<p>Controls whether a group boxe's label should be centred, or left/right "
 "aligned.</p>"
-msgstr "<p>控制分組框的標簽是居中，居左還是居右。</p>"
+msgstr "<p>控制分組框的分頁是居中，居左還是居右。</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gbLabel_centred)
 #: qt4/config/qtcurveconfigbase.ui:715
 #, kde-format
 msgid "Centred (KDE4 only)"
-msgstr "居中（僅KDE4）"
+msgstr "置中（僅 KDE4）"
 
 #. i18n: ectx: property (text), widget (QLabel, label_46)
 #: qt4/config/qtcurveconfigbase.ui:726 qt5/config/qtcurveconfigbase.ui:735
@@ -1975,13 +1969,13 @@ msgid ""
 "<p>This option controls whether a line is drawn near non-editable combo box "
 "arrow buttons.</p>"
 msgstr ""
-"<p>該項設定控制是否在不可編輯復合方塊靠近箭頭的一端繪制一條分隔線。</p>"
+"<p>該項設定控制是否在不可編輯復合方塊靠近箭頭的一端繪製一條分隔線。</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, comboSplitter)
 #: qt4/config/qtcurveconfigbase.ui:756 qt5/config/qtcurveconfigbase.ui:765
 #, kde-format
 msgid "Draw splitter"
-msgstr "繪制分隔線"
+msgstr "繪製分隔線"
 
 #. i18n: ectx: property (text), widget (QLabel, label_64)
 #: qt4/config/qtcurveconfigbase.ui:763 qt5/config/qtcurveconfigbase.ui:772
@@ -1996,14 +1990,14 @@ msgid ""
 "<p>Controls whether the combo box button, of editable combos, should appear "
 "as a button or an arrow within the edit field.</p>"
 msgstr ""
-"<p>控制是可編輯復合方塊的的框按鈕是繪制成一個按鈕還是一個在編輯區域內的箭頭。"
+"<p>控制是可編輯復合方塊的的框按鈕是繪製成一個按鈕還是一個在編輯區域內的箭頭。"
 "</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, unifyCombo)
 #: qt4/config/qtcurveconfigbase.ui:773 qt5/config/qtcurveconfigbase.ui:782
 #, kde-format
 msgid "Draw arrow within edit field"
-msgstr "將箭頭繪制于可編輯區域內"
+msgstr "將箭頭繪製于可編輯區域內"
 
 #. i18n: ectx: property (text), widget (QLabel, label_63)
 #: qt4/config/qtcurveconfigbase.ui:780 qt5/config/qtcurveconfigbase.ui:789
@@ -2034,14 +2028,14 @@ msgid ""
 "<p>Controls whether a single down arrow, or a up and down arrow, should be "
 "drawn on non-editable combo boxes.</p>"
 msgstr ""
-"<p>控制不可編輯復合方塊是僅繪制一個向下的箭頭，還是繪制一個向上向下的雙向箭"
+"<p>控制不可編輯復合方塊是僅繪製一個向下的箭頭，還是繪製一個向上向下的雙向箭"
 "頭。</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, doubleGtkComboArrow)
 #: qt4/config/qtcurveconfigbase.ui:800 qt5/config/qtcurveconfigbase.ui:809
 #, kde-format
 msgid "Draw double-arrow for Gtk style"
-msgstr "爲Gtk樣式繪制雙箭頭"
+msgstr "爲Gtk樣式繪製雙箭頭"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, unifySpinBtns)
 #: qt4/config/qtcurveconfigbase.ui:824 qt5/config/qtcurveconfigbase.ui:833
@@ -2063,13 +2057,13 @@ msgstr "將倆按鈕合並"
 msgid ""
 "<p>Controls whether the up and down buttons should appear as buttons, or "
 "just arrows within the edit field.</p>"
-msgstr "<p>控制向上和向下按鈕是以按鈕的方式呈現還是在編輯區域內繪制。</p>"
+msgstr "<p>控制向上和向下按鈕是以按鈕的方式呈現還是在編輯區域內繪製。</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, unifySpin)
 #: qt4/config/qtcurveconfigbase.ui:837 qt5/config/qtcurveconfigbase.ui:846
 #, kde-format
 msgid "Draw arrows within edit field"
-msgstr "將其繪制在編輯區域內"
+msgstr "將其繪製在編輯區域內"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: qt4/config/qtcurveconfigbase.ui:864 qt5/config/qtcurveconfigbase.ui:873
@@ -2081,7 +2075,7 @@ msgstr "標記："
 #: qt4/config/qtcurveconfigbase.ui:871 qt5/config/qtcurveconfigbase.ui:880
 #, kde-format
 msgid "<p>Sets the marking used to indicate that the widget is a splitter.</p>"
-msgstr "<p>設定用于控件分隔線的標記。</p>"
+msgstr "<p>設定用於控件分隔線的標記。</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_69)
 #. i18n: ectx: property (text), widget (QLabel, label_54)
@@ -2089,7 +2083,7 @@ msgstr "<p>設定用于控件分隔線的標記。</p>"
 #: qt5/config/qtcurveconfigbase.ui:887 qt5/config/qtcurveconfigbase.ui:2131
 #, kde-format
 msgid "Background mouse-over highlight:"
-msgstr "滑鼠滑過背景高亮："
+msgstr "滑鼠滑過背景突顯："
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, splitterHighlight)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, splitterHighlight)
@@ -2251,7 +2245,7 @@ msgid ""
 "left, none at bottom/right</li><li>None - no buttons, only the slider</li></"
 "ul></p>"
 msgstr ""
-"<p>這裏控制卷軸按鈕的位置和數量。\n"
+"<p>這裡控制卷軸按鈕的位置和數量。\n"
 "<ul><li>KDE——頂端或左端有1個按鈕，底端或右端有2個按鈕。</li><li>微軟視窗——一"
 "端一個按鈕。</li><li>鉑金——頂端或左端沒有按鈕，底端或右端有2個按鈕。</li><li>"
 "倒轉——底端或右端沒有按鈕，頂端或左端有2個按鈕。</li><li>無按鈕——沒有按鈕，只"
@@ -2263,7 +2257,7 @@ msgstr ""
 msgid ""
 "<p>If enabled, then scrollbar buttons are not drawn and only the arrows will "
 "appear.</p>"
-msgstr "<p>如果啓用該項，卷軸按鈕將只顯示箭頭。</p>"
+msgstr "<p>如果啟用該項，卷軸按鈕將只顯示箭頭。</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_32)
 #: qt4/config/qtcurveconfigbase.ui:1047 qt5/config/qtcurveconfigbase.ui:1056
@@ -2277,7 +2271,7 @@ msgstr "背景："
 msgid ""
 "<p>Configures the background gradient to be used with 'Flat' scrollbar "
 "buttons.</p>"
-msgstr "<p>自訂背景漸變度以用于“平面”卷軸按鈕。</p>"
+msgstr "<p>自訂背景漸變度以用於“平面”卷軸按鈕。</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_15)
 #: qt4/config/qtcurveconfigbase.ui:1061 qt5/config/qtcurveconfigbase.ui:1070
@@ -2311,7 +2305,7 @@ msgstr "<p>控制樸素樣式滑塊和滾軸的寬度。</p>"
 #: qt4/config/qtcurveconfigbase.ui:1095 qt5/config/qtcurveconfigbase.ui:1104
 #, kde-format
 msgid "<p>If enabled, a fading stripe will be added.</p>"
-msgstr "<p>如果啓用該項，會添加一條漸變條紋。</p>"
+msgstr "<p>如果啟用該項，會添加一條漸變條紋。</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_16)
 #: qt4/config/qtcurveconfigbase.ui:1112 qt5/config/qtcurveconfigbase.ui:1121
@@ -2363,7 +2357,7 @@ msgstr "<p>在進度條上添加一條白色的“光暈”。</p>"
 msgid ""
 "<p>Enable this option to remove the 1 pixel border around the filled element."
 "</p>"
-msgstr "<p>啓用該選項以去除填充元素周邊1像素的邊框。</p>"
+msgstr "<p>啟用該選項以去除填充元素周邊1像素的邊框。</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, fillProgress)
 #: qt4/config/qtcurveconfigbase.ui:1159 qt5/config/qtcurveconfigbase.ui:1168
@@ -2397,7 +2391,7 @@ msgstr "<p>定義進度條凹槽部分的顔色效果。</p>"
 msgid ""
 "<p>Enable this option to have a border around the progress bar groove and "
 "contents.</p>"
-msgstr "<p>啓用該選項以在進度條周圍繪制一個邊框。</p>"
+msgstr "<p>啟用該選項以在進度條周圍繪製一個邊框。</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, borderProgress)
 #: qt4/config/qtcurveconfigbase.ui:1196 qt5/config/qtcurveconfigbase.ui:1205
@@ -2419,19 +2413,19 @@ msgstr "文字："
 msgid ""
 "<p>If enabled, the text on a progressbar will use the general widget font.</"
 "p>"
-msgstr "<p>如果啓用該項，進度條上的文字將使用常規字型。</p>"
+msgstr "<p>如果啟用該項，進度條上的文字將使用常規字型。</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, boldProgress_false)
 #: qt4/config/qtcurveconfigbase.ui:1227 qt5/config/qtcurveconfigbase.ui:1236
 #, kde-format
 msgid "Standard font"
-msgstr "常規"
+msgstr "標準字型"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, boldProgress)
 #: qt4/config/qtcurveconfigbase.ui:1234 qt5/config/qtcurveconfigbase.ui:1243
 #, kde-format
 msgid "<p>If enabled, the text on a progressbar will use a bold font.</p>"
-msgstr "<p>如果啓用該項，進度條上的文字將使用粗體。</p>"
+msgstr "<p>如果啟用該項，進度條上的文字將使用粗體。</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, boldProgress)
 #: qt4/config/qtcurveconfigbase.ui:1237 qt5/config/qtcurveconfigbase.ui:1246
@@ -2461,7 +2455,7 @@ msgid ""
 "second time will be 1 pixel to the left. This gives it a more 'bold' look.</"
 "p>"
 msgstr ""
-"<p>如果啓用該項，缺省按鈕的文字會被繪制兩次——第二次會左移一個像素以使其顯得更"
+"<p>如果啟用該項，缺省按鈕的文字會被繪製兩次——第二次會左移一個像素以使其顯得更"
 "粗。</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, embolden)
@@ -2484,13 +2478,13 @@ msgstr "<p>定義滑鼠滑過某個活動元件時，其呈現的顔色主題。
 msgid ""
 "<p>This controls the % that widgets will be highlighted by when the mouse "
 "hovers over them.</p>"
-msgstr "這裏控制著滑鼠滑過元件時，其高亮的百分比。"
+msgstr "<p>這會控制滑鼠滑過元件時，其突顯的百分比。</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_8)
 #: qt4/config/qtcurveconfigbase.ui:1301 qt5/config/qtcurveconfigbase.ui:1310
 #, kde-format
 msgid "Highlight by:"
-msgstr "高亮度："
+msgstr "突顯度："
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, highlightFactor)
 #: qt4/config/qtcurveconfigbase.ui:1311 qt5/config/qtcurveconfigbase.ui:1320
@@ -2523,7 +2517,7 @@ msgstr "<p>定義串列視圖和樹狀視圖標題的漸變效果。</p>"
 msgid ""
 "<p>If enabled, headers will be drawn using the button color, otherwise the "
 "standard window background color will be used.</p>"
-msgstr "<p>如果啓用該項，標題會使用按鈕的顔色來繪制，否則會用視窗背景色。</p>"
+msgstr "<p>如果啟用該項，標題會使用按鈕的顔色來繪製，否則會用視窗背景色。</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, lvButton)
 #: qt4/config/qtcurveconfigbase.ui:1351 qt5/config/qtcurveconfigbase.ui:1360
@@ -2543,7 +2537,7 @@ msgstr "暗化分類欄的標題："
 msgid ""
 "<p>Controls the coloration to be applied to the header of the currently "
 "sorted column."
-msgstr "<p>控制被應用到當前欄標題的顔色。"
+msgstr "<p>控制被應用到目前欄標題的顔色。"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, customSortedLvColor)
 #. i18n: ectx: property (toolTip), widget (KColorButton, customCheckRadioColor)
@@ -2573,8 +2567,8 @@ msgid ""
 "treeviews have alternating row colors - regardless of whether the "
 "application author has enabled this or not."
 msgstr ""
-"<p>如果啓用該項，QtCurve會試圖讓串列視圖和樹狀視圖全部的行呈現交替的顔色，無"
-"論應用程式本身是否啓用這條。"
+"<p>如果啟用該項，QtCurve會試圖讓串列視圖和樹狀視圖全部的行呈現交替的顔色，無"
+"論應用程式本身是否啟用這條。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, forceAlternateLvCols)
 #: qt4/config/qtcurveconfigbase.ui:1398 qt5/config/qtcurveconfigbase.ui:1407
@@ -2586,13 +2580,13 @@ msgstr "強制交替色"
 #: qt4/config/qtcurveconfigbase.ui:1405 qt5/config/qtcurveconfigbase.ui:1414
 #, kde-format
 msgid "Selection appearance:"
-msgstr "選中效果："
+msgstr "所選效果："
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, selectionAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1415 qt5/config/qtcurveconfigbase.ui:1424
 #, kde-format
 msgid "<p>Defines the gradient to be used when selecting items."
-msgstr "<p>定義選中某項時的漸變效果。"
+msgstr "<p>定義所選某項時的漸變效果。"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, borderSelection)
 #: qt4/config/qtcurveconfigbase.ui:1422 qt5/config/qtcurveconfigbase.ui:1431
@@ -2601,7 +2595,7 @@ msgid ""
 "<p>If enabled, then selected items in listviews and treeviews will be drawn "
 "with bordered edges - but only if they are set to be rounded as well."
 msgstr ""
-"<p>如果啓用該項，串列視圖和樹狀視圖中選中的項目會被繪制一個邊框——僅當它們被設"
+"<p>如果啟用該項，串列視圖和樹狀視圖中選中的項目會被繪製一個邊框——僅當它們被設"
 "定爲圓滑時。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_48)
@@ -2636,25 +2630,25 @@ msgstr "卷軸在外"
 msgid ""
 "<p>Controls whether the active scrollview should be highlighted as per line-"
 "edits."
-msgstr "<p>控制活動滾動欄是否應該被線性高亮。"
+msgstr "<p>控制活動滾動欄是否應該被線性突顯。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, highlightScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:1466 qt5/config/qtcurveconfigbase.ui:1475
 #, kde-format
 msgid "Highlight on focus (KDE)"
-msgstr "焦點高亮（KDE）"
+msgstr "焦點突顯（KDE）"
 
 #. i18n: ectx: property (text), widget (QLabel, label_20)
 #: qt4/config/qtcurveconfigbase.ui:1490 qt5/config/qtcurveconfigbase.ui:1499
 #, kde-format
 msgid "Active tab appearance:"
-msgstr "活動標簽外觀："
+msgstr "活動分頁外觀："
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, activeTabAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1497 qt5/config/qtcurveconfigbase.ui:1506
 #, kde-format
 msgid "<p>Defines the gradient to be used for the currently active tab."
-msgstr "<p>定義當前活動標簽的漸變效果。"
+msgstr "<p>定義目前活動分頁的漸變效果。"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, highlightTab)
 #: qt4/config/qtcurveconfigbase.ui:1504 qt5/config/qtcurveconfigbase.ui:1513
@@ -2662,13 +2656,13 @@ msgstr "<p>定義當前活動標簽的漸變效果。"
 msgid ""
 "<p>This will cause a colored stripe to be drawn at the top/bottom of the "
 "current tab."
-msgstr "<p>這會在當前標簽的頂端或底端繪制一條彩色條紋。"
+msgstr "<p>這會在目前分頁的頂端或底端繪製一條彩色條紋。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, highlightTab)
 #: qt4/config/qtcurveconfigbase.ui:1507 qt5/config/qtcurveconfigbase.ui:1516
 #, kde-format
 msgid "Highlight"
-msgstr "高亮"
+msgstr "突顯"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, colorSelTab)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, colorSelTab)
@@ -2677,8 +2671,7 @@ msgstr "高亮"
 msgid ""
 "<p>Controls the amount of tinting applied to the active tab. The active tab "
 "is tinted by blending the 'highlight' color with the background color."
-msgstr ""
-"<p>控制活動標簽著淡色的額度。活動標簽會被著高亮色與背景色混合色的淡色。"
+msgstr "<p>控制活動分頁淡化的程度。作用中分頁會混合突顯色與背景色後進行淡化。"
 
 #. i18n: ectx: property (prefix), widget (KIntNumInput, colorSelTab)
 #. i18n: ectx: property (prefix), widget (QSpinBox, colorSelTab)
@@ -2691,13 +2684,13 @@ msgstr "著淡色"
 #: qt4/config/qtcurveconfigbase.ui:1527 qt5/config/qtcurveconfigbase.ui:1536
 #, kde-format
 msgid "Inactive tab appearance:"
-msgstr "非活動標簽外觀："
+msgstr "非活動分頁外觀："
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tabAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1534 qt5/config/qtcurveconfigbase.ui:1543
 #, kde-format
 msgid "<p>Defines the gradient to be used for the inactive tabs."
-msgstr "<p>定義非活動標簽的漸變效果。"
+msgstr "<p>定義非活動分頁的漸變效果。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_33)
 #: qt4/config/qtcurveconfigbase.ui:1541 qt5/config/qtcurveconfigbase.ui:1550
@@ -2713,8 +2706,8 @@ msgid ""
 "mouse. Note, if 'glow' is selected, then 'Round tabs' will be set to 'All' - "
 "and this creates a 2 pixel gap between tabs."
 msgstr ""
-"<p>控制滑鼠滑過標簽時，標簽的效果。注意，如果選擇了“光暈”，那麽“圓滑標簽”將被"
-"設定爲“全部”，而且這會導致標簽之前産生2個像素的間隔。"
+"<p>控制滑鼠滑過分頁時，分頁的效果。注意，如果選擇了“光暈”，那麽“圓滑分頁”將被"
+"設定爲“全部”，而且這會導致分頁之前産生2個像素的間隔。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_49)
 #: qt4/config/qtcurveconfigbase.ui:1555 qt5/config/qtcurveconfigbase.ui:1564
@@ -2727,13 +2720,13 @@ msgstr "背景變化比："
 #: qt4/config/qtcurveconfigbase.ui:1562 qt5/config/qtcurveconfigbase.ui:1571
 #, kde-format
 msgid "<p>Lightens, or darkens, the background of the whole tab widget."
-msgstr "<p>亮化或暗化整個標簽元件的背景。"
+msgstr "<p>亮化或暗化整個分頁元件的背景。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_51)
 #: qt4/config/qtcurveconfigbase.ui:1575 qt5/config/qtcurveconfigbase.ui:1584
 #, kde-format
 msgid "Round tabs:"
-msgstr "圓滑標簽："
+msgstr "圓滑分頁："
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, roundAllTabs_false)
 #: qt4/config/qtcurveconfigbase.ui:1606 qt5/config/qtcurveconfigbase.ui:1624
@@ -2742,13 +2735,13 @@ msgid ""
 "<p>If enabled, only the active tab is rounded - and all the inactive tabs "
 "appear closer together."
 msgstr ""
-"<p>如果啓用該項，僅活動標簽才會被圓滑——同時，全部的非活動標簽都會緊湊在一起。"
+"<p>如果啟用該項，僅活動分頁才會被圓滑——同時，全部的非活動分頁都會緊湊在一起。"
 
 #. i18n: ectx: property (text), widget (QRadioButton, roundAllTabs_false)
 #: qt4/config/qtcurveconfigbase.ui:1609 qt5/config/qtcurveconfigbase.ui:1627
 #, kde-format
 msgid "Selected only"
-msgstr "僅選中的"
+msgstr "僅所選的"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, roundAllTabs)
 #: qt4/config/qtcurveconfigbase.ui:1619 qt5/config/qtcurveconfigbase.ui:1637
@@ -2757,14 +2750,14 @@ msgid ""
 "<p>If enabled, all tabs are rounded - there will be a 2 pixel gap between "
 "each tab if 'glow' is selected as the general colored mouse over style."
 msgstr ""
-"<p>如果啓用該項，全部的標簽都會被圓滑——如果選擇“光暈”作爲標簽效果，那麽每個標"
+"<p>如果啟用該項，全部的分頁都會被圓滑——如果選擇“光暈”作爲分頁效果，那麽每個標"
 "簽之間會産生2個像素的間隔。"
 
 #. i18n: ectx: property (text), widget (QRadioButton, roundAllTabs)
 #: qt4/config/qtcurveconfigbase.ui:1622 qt5/config/qtcurveconfigbase.ui:1640
 #, kde-format
 msgid "All"
-msgstr "全部標簽"
+msgstr "全部"
 
 #. i18n: ectx: property (text), widget (QLabel, label_52)
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_4)
@@ -2782,14 +2775,14 @@ msgid ""
 "with a light shade on the top and left, and a dark shade on the bottom and "
 "right."
 msgstr ""
-"<p>如果啓用該項，標簽和標簽元件會擁有一個3D樣式的邊框——頂端和左端是光亮的，而"
+"<p>如果啟用該項，分頁和分頁元件會擁有一個3D樣式的邊框——頂端和左端是光亮的，而"
 "底端和右端是深暗的。"
 
 #. i18n: ectx: property (text), widget (QRadioButton, borderTab_false)
 #: qt4/config/qtcurveconfigbase.ui:1669 qt5/config/qtcurveconfigbase.ui:1696
 #, kde-format
 msgid "Standard"
-msgstr "常規"
+msgstr "標準"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, borderTab)
 #: qt4/config/qtcurveconfigbase.ui:1676 qt5/config/qtcurveconfigbase.ui:1703
@@ -2801,32 +2794,32 @@ msgid ""
 "<p>If enabled, the tabs and tab widget will have an outer dark border, and a "
 "light inner border."
 msgstr ""
-"<p>如果啓用該項，標簽和標簽元件會擁有一個深色的外邊框和一個亮色的內邊框。"
+"<p>如果啟用該項，分頁和分頁元件會擁有一個深色的外邊框和一個亮色的內邊框。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_62)
 #: qt4/config/qtcurveconfigbase.ui:1692 qt5/config/qtcurveconfigbase.ui:1719
 #, kde-format
 msgid "Inactive tab inner border:"
-msgstr "非活動標簽內邊框："
+msgstr "非活動分頁內邊框："
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, borderInactiveTab)
 #: qt4/config/qtcurveconfigbase.ui:1723 qt5/config/qtcurveconfigbase.ui:1759
 #, kde-format
 msgid ""
 "<p>If enabled, inactive tabs will have a border as per the 'Border' setting."
-msgstr "<p>如果啓用該項，非活動標簽會根據“邊框”的設定擁有一個邊框。"
+msgstr "<p>如果啟用該項，非活動分頁會根據“邊框”的設定擁有一個邊框。"
 
 #. i18n: ectx: property (text), widget (QRadioButton, borderInactiveTab)
 #: qt4/config/qtcurveconfigbase.ui:1726 qt5/config/qtcurveconfigbase.ui:1762
 #, kde-format
 msgid "Same as active tab"
-msgstr "與活動標簽相同"
+msgstr "與活動分頁相同"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, borderInactiveTab_false)
 #: qt4/config/qtcurveconfigbase.ui:1736 qt5/config/qtcurveconfigbase.ui:1772
 #, kde-format
 msgid "<p>If enabled, inactive tabs will have no inner border."
-msgstr "<p>如果啓用該項，非活動標簽將不會擁有內邊框。"
+msgstr "<p>如果啟用該項，非活動分頁將不會擁有內邊框。"
 
 #. i18n: ectx: property (text), widget (QRadioButton, borderInactiveTab_false)
 #: qt4/config/qtcurveconfigbase.ui:1739 qt5/config/qtcurveconfigbase.ui:1775
@@ -2838,7 +2831,7 @@ msgstr "無內邊框"
 #: qt4/config/qtcurveconfigbase.ui:1749 qt5/config/qtcurveconfigbase.ui:1785
 #, kde-format
 msgid "Shade of bottom tabs:"
-msgstr "底部標簽陰影："
+msgstr "底部分頁陰影："
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, invertBotTab_false)
 #: qt4/config/qtcurveconfigbase.ui:1777 qt5/config/qtcurveconfigbase.ui:1822
@@ -2849,15 +2842,15 @@ msgid ""
 "the bottom tabs will go from the background color to light - this can "
 "sometimes give the appearance that the bottom tabs are sticking out."
 msgstr ""
-"<p>如果啓用該項，底部標簽會使用與頂部標簽相同的漸變效果。例如，如果頂部標簽是"
-"從亮色漸變到背景色，那麽底部標簽會從背景色漸變到亮色。有時候，這會使漸變的底"
-"部標簽非常顯眼。"
+"<p>如果啟用該項，底部分頁會使用與頂部分頁相同的漸變效果。例如，如果頂部分頁是"
+"從亮色漸變到背景色，那麽底部分頁會從背景色漸變到亮色。有時候，這會使漸變的底"
+"部分頁非常顯眼。"
 
 #. i18n: ectx: property (text), widget (QRadioButton, invertBotTab_false)
 #: qt4/config/qtcurveconfigbase.ui:1780 qt5/config/qtcurveconfigbase.ui:1825
 #, kde-format
 msgid "Same as top tabs"
-msgstr "與頂部標簽相同"
+msgstr "與頂部分頁相同"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, invertBotTab)
 #: qt4/config/qtcurveconfigbase.ui:1787 qt5/config/qtcurveconfigbase.ui:1832
@@ -2871,20 +2864,20 @@ msgid ""
 "on the top. i.e. if the top tabs shades from light to the background color, "
 "then bottom tabs will go from the background color to dark."
 msgstr ""
-"<p>如果啓用該項，底部標簽會使用與頂部標簽相反的漸變效果。例如，如果頂部標簽是"
-"從亮色漸變到背景色，那麽底部標簽會從背景色漸變到暗色。"
+"<p>如果啟用該項，底部分頁會使用與頂部分頁相反的漸變效果。例如，如果頂部分頁是"
+"從亮色漸變到背景色，那麽底部分頁會從背景色漸變到暗色。"
 
 #. i18n: ectx: property (text), widget (QRadioButton, invertBotTab)
 #: qt4/config/qtcurveconfigbase.ui:1790 qt5/config/qtcurveconfigbase.ui:1835
 #, kde-format
 msgid "Invert"
-msgstr "與頂部標簽相反"
+msgstr "與頂部分頁相反"
 
 #. i18n: ectx: property (text), widget (QLabel, label_67a)
 #: qt4/config/qtcurveconfigbase.ui:1800 qt5/config/qtcurveconfigbase.ui:1845
 #, kde-format
 msgid "Tabs within toolbars:"
-msgstr "工具列標簽："
+msgstr "工具列分頁："
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, toolbarTabs)
 #. i18n: ectx: property (toolTip), widget (QRadioButton, centerTabText_false)
@@ -2892,13 +2885,13 @@ msgstr "工具列標簽："
 #: qt5/config/qtcurveconfigbase.ui:1882 qt5/config/qtcurveconfigbase.ui:1942
 #, kde-format
 msgid "<p>If enabled, tabs that are within toolbars will be drawn as normal."
-msgstr "<p>如果啓用該項，工具列上的標簽會被繪制成常規的。"
+msgstr "<p>如果啟用該項，工具列上的分頁會被繪製成常規的。"
 
 #. i18n: ectx: property (text), widget (QRadioButton, toolbarTabs)
 #: qt4/config/qtcurveconfigbase.ui:1831 qt5/config/qtcurveconfigbase.ui:1885
 #, kde-format
 msgid "Draw as standard tabs"
-msgstr "作爲常規標簽繪制"
+msgstr "作爲標準分頁繪製"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, toolbarTabs_false)
 #. i18n: ectx: property (toolTip), widget (QRadioButton, centerTabText)
@@ -2908,13 +2901,13 @@ msgstr "作爲常規標簽繪制"
 msgid ""
 "<p>If enabled, tabs that are within toolbars will be drawn the same as "
 "sidebar buttons."
-msgstr "<p>如果啓用該項，工具列上的標簽會被繪制成側邊列按鈕的樣式。"
+msgstr "<p>如果啟用該項，工具列上的分頁會被繪製成側邊列按鈕的樣式。"
 
 #. i18n: ectx: property (text), widget (QRadioButton, toolbarTabs_false)
 #: qt4/config/qtcurveconfigbase.ui:1841 qt5/config/qtcurveconfigbase.ui:1895
 #, kde-format
 msgid "Draw as per sidebar button settings"
-msgstr "根據側邊列按鈕設定繪制"
+msgstr "根據側邊列按鈕設定繪製"
 
 #. i18n: ectx: property (text), widget (QRadioButton, centerTabText_false)
 #: qt4/config/qtcurveconfigbase.ui:1882 qt5/config/qtcurveconfigbase.ui:1945
@@ -2952,7 +2945,7 @@ msgstr "核取方塊標記："
 msgid ""
 "<p>If enabled, checkboxes will have a 'tick' to indicate that they are "
 "selected."
-msgstr "<p>如果啓用該項，核取方塊在被選中時會顯示一個“√”。"
+msgstr "<p>如果啟用該項，核取方塊在被選中時會顯示一個“√”。"
 
 #. i18n: ectx: property (text), widget (QRadioButton, xCheck_false)
 #: qt4/config/qtcurveconfigbase.ui:1973 qt5/config/qtcurveconfigbase.ui:2045
@@ -2969,7 +2962,7 @@ msgstr "√"
 msgid ""
 "<p>If enabled, checkboxes will have a 'cross' (or 'X') to indicate that they "
 "are selected."
-msgstr "<p>如果啓用該項，核取方塊在被選中時會顯示一個“×”。"
+msgstr "<p>如果啟用該項，核取方塊在被選中時會顯示一個“×”。"
 
 #. i18n: ectx: property (text), widget (QRadioButton, xCheck)
 #: qt4/config/qtcurveconfigbase.ui:1986 qt5/config/qtcurveconfigbase.ui:2058
@@ -2992,7 +2985,7 @@ msgstr "單選鈕標記："
 msgid ""
 "<p>If enabled, radio buttons will have a large 'dot' to indicate that they "
 "are selected."
-msgstr "<p>如果啓用該項，單選鈕在被選中時會包含一個大“點”。"
+msgstr "<p>如果啟用該項，單選鈕在被選中時會包含一個大“點”。"
 
 #. i18n: ectx: property (text), widget (QRadioButton, smallRadio_false)
 #: qt4/config/qtcurveconfigbase.ui:2030 qt4/kwinconfig/qtcurvekwinconfig.cpp:59
@@ -3010,7 +3003,7 @@ msgstr "大"
 msgid ""
 "<p>If enabled, radio buttons will have a small 'dot' to indicate that they "
 "are selected."
-msgstr "<p>如果啓用該項，單選鈕在被選中時會包含一個小“點”。"
+msgstr "<p>如果啟用該項，單選鈕在被選中時會包含一個小“點”。"
 
 #. i18n: ectx: property (text), widget (QRadioButton, smallRadio)
 #: qt4/config/qtcurveconfigbase.ui:2040 qt5/config/qtcurveconfigbase.ui:2121
@@ -3071,13 +3064,13 @@ msgstr "<p>自訂核取方塊和單選鈕的大小。"
 msgid ""
 "<p>Sets the color of selected checkboxes and radio buttons when these are "
 "set to 'button like'."
-msgstr "<p>設定使用“按鈕式”時，選中核取方塊和單選鈕的顔色。"
+msgstr "<p>設定使用“按鈕式”時，所選核取方塊和單選鈕的顔色。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_88)
 #: qt4/config/qtcurveconfigbase.ui:2112 qt5/config/qtcurveconfigbase.ui:2193
 #, kde-format
 msgid "Selected emblem:"
-msgstr "選中樣式："
+msgstr "所選樣式："
 
 #. i18n: ectx: property (text), widget (QLabel, label_23)
 #: qt4/config/qtcurveconfigbase.ui:2123 qt5/config/qtcurveconfigbase.ui:2204
@@ -3118,8 +3111,8 @@ msgid ""
 "with 'Center (between controls)' the text is centered between the window "
 "controls to the left and right."
 msgstr ""
-"<p>控制標題列文字的對齊方式。“標題列整體居中”是指文字位于整個標題列的中間；"
-"而“控制按鈕間居中”是指文字位于兩側的標題列按鈕之間的中間。"
+"<p>控制標題列文字的對齊方式。“標題列整體居中”是指文字位於整個標題列的中間；"
+"而“控制按鈕間居中”是指文字位於兩側的標題列按鈕之間的中間。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_74)
 #: qt4/config/qtcurveconfigbase.ui:2165 qt5/config/qtcurveconfigbase.ui:2246
@@ -3133,7 +3126,7 @@ msgstr "文字和圖示效果："
 msgid ""
 "<p>Controls the 'effect' applied to the text and icons - shadow, etching, or "
 "none."
-msgstr "<p>控制應用于文字和圖示的效果——陰影、蝕刻或沒有。"
+msgstr "<p>控制應用於文字和圖示的效果——陰影、蝕刻或沒有。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_43)
 #: qt4/config/qtcurveconfigbase.ui:2179 qt5/config/qtcurveconfigbase.ui:2260
@@ -3158,7 +3151,7 @@ msgstr ""
 msgid ""
 "<p>If enabled, only the titlebar, and not the border, of windows will be "
 "colored."
-msgstr "<p>如果啓用該項，僅視窗的標題列，而非邊框，會被著色。"
+msgstr "<p>如果啟用該項，僅視窗的標題列，而非邊框，會被著色。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_colorTitlebarOnly)
 #: qt4/config/qtcurveconfigbase.ui:2203 qt5/config/qtcurveconfigbase.ui:2284
@@ -3172,7 +3165,7 @@ msgstr "僅對標題列著色"
 msgid ""
 "<p>If enabled, the background color will be used as the last part of the "
 "titlebar gradient."
-msgstr "<p>如果啓用該項，標題列漸變的最後一部分會使用背景色。"
+msgstr "<p>如果啟用該項，標題列漸變的最後一部分會使用背景色。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_blend)
 #: qt4/config/qtcurveconfigbase.ui:2213 qt5/config/qtcurveconfigbase.ui:2294
@@ -3186,7 +3179,7 @@ msgstr "將標題列顔色與背景色融合"
 msgid ""
 "<p>If enabled, before drawing the titlebar gradient, it will be filled with "
 "the background colour/gradient."
-msgstr "<p>如果啟用該項，在繪制標題列漸變效果之前，會使用背景顏色/漸變來填充。"
+msgstr "<p>如果啟用該項，在繪製標題列漸變效果之前，會使用背景顏色/漸變來填充。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_fill)
 #: qt4/config/qtcurveconfigbase.ui:2223 qt5/config/qtcurveconfigbase.ui:2304
@@ -3203,7 +3196,7 @@ msgstr "在應用漸變前填充標題列背景。"
 msgid ""
 "<p>If enabled, the configured menubar color will be used for windows that "
 "have menubars."
-msgstr "<p>如果啓用該項，含有選單條的視窗會使用自訂的選單條顔色。"
+msgstr "<p>如果啟用該項，含有選單條的視窗會使用自訂的選單條顔色。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_menuColor)
 #: qt4/config/qtcurveconfigbase.ui:2233 qt5/config/qtcurveconfigbase.ui:2314
@@ -3223,19 +3216,19 @@ msgstr "添加一個亮色邊框："
 msgid ""
 "<p>If enabled, a 1 pixel light border is added to the top and left of the "
 "window."
-msgstr "<p>如果啓用該項，視窗的頂端和左端會添加一條1個像素的亮色邊框。"
+msgstr "<p>如果啟用該項，視窗的頂端和左端會添加一條1個像素的亮色邊框。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_55b)
 #: qt4/config/qtcurveconfigbase.ui:2257 qt5/config/qtcurveconfigbase.ui:2338
 #, kde-format
 msgid "Draw separator on active windows:"
-msgstr "在活動視窗上繪制分隔符："
+msgstr "在活動視窗上繪製分隔符："
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_separator)
 #: qt4/config/qtcurveconfigbase.ui:2264 qt5/config/qtcurveconfigbase.ui:2345
 #, kde-format
 msgid "<p>If enabled, a separator is drawn between the titlebar and window."
-msgstr "<p>如果啓用該項，視窗與標題列之間會繪制一條分隔符。"
+msgstr "<p>如果啟用該項，視窗與標題列之間會繪製一條分隔符。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_92)
 #: qt4/config/qtcurveconfigbase.ui:2274 qt5/config/qtcurveconfigbase.ui:2355
@@ -3253,14 +3246,14 @@ msgstr "按鈕："
 #: qt4/config/qtcurveconfigbase.ui:2295 qt5/config/qtcurveconfigbase.ui:2376
 #, kde-format
 msgid "<p>Defines the gradient used to fill the titlebar buttons."
-msgstr "<p>定義用于填充標題列按鈕的漸變效果。"
+msgstr "<p>定義用於填充標題列按鈕的漸變效果。"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_noFrame)
 #: qt4/config/qtcurveconfigbase.ui:2302 qt5/config/qtcurveconfigbase.ui:2383
 #, kde-format
 msgid ""
 "<p>If enabled, only the symbol is drawn - and not the button background."
-msgstr "<p>如果啓用該項，將僅繪制標題列按鈕的符號，而不繪制按鈕的背景。"
+msgstr "<p>如果啟用該項，將僅繪製標題列按鈕的符號，而不繪製按鈕的背景。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_noFrame)
 #: qt4/config/qtcurveconfigbase.ui:2305 qt5/config/qtcurveconfigbase.ui:2386
@@ -3274,7 +3267,7 @@ msgstr "只顯示符號"
 msgid ""
 "<p>If enabled, the buttons will have a circular background - regardless of "
 "the general round setting."
-msgstr "<p>如果啓用該項，按鈕的背景將會是圓形的，而忽略通用的圓滑設定。"
+msgstr "<p>如果啟用該項，按鈕的背景將會是圓形的，而忽略通用的圓滑設定。"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_hoverFrame)
 #: qt4/config/qtcurveconfigbase.ui:2322 qt5/config/qtcurveconfigbase.ui:2403
@@ -3282,7 +3275,7 @@ msgstr "<p>如果啓用該項，按鈕的背景將會是圓形的，而忽略通
 msgid ""
 "<p>If enabled, the button background (or frame) will only be shown when "
 "under the mouse."
-msgstr "<p>如果啓用該項，僅當滑鼠滑過時，才會顯示按鈕的背景或頁框。"
+msgstr "<p>如果啟用該項，僅當滑鼠滑過時，才會顯示按鈕的背景或頁框。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hoverFrame)
 #: qt4/config/qtcurveconfigbase.ui:2325 qt5/config/qtcurveconfigbase.ui:2406
@@ -3297,14 +3290,14 @@ msgid ""
 "<p>If enabled, the icon will only be shown at full strength when under the "
 "mouse - otherwise it will be blended with the background."
 msgstr ""
-"<p>如果啓用該項，僅當滑鼠滑過時，圖示頁框才會完全顯示出來；否則它會與背景融"
+"<p>如果啟用該項，僅當滑鼠滑過時，圖示頁框才會完全顯示出來；否則它會與背景融"
 "合。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hoverSymbol)
 #: qt4/config/qtcurveconfigbase.ui:2335 qt5/config/qtcurveconfigbase.ui:2416
 #, kde-format
 msgid "Highlight symbol on mouse-over"
-msgstr "滑鼠滑過時高亮頁框"
+msgstr "滑鼠滑過時突顯頁框"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_button)
 #: qt4/config/qtcurveconfigbase.ui:2342 qt5/config/qtcurveconfigbase.ui:2423
@@ -3313,13 +3306,13 @@ msgid ""
 "<p>If enabled, the titlebar buttons will be drawn using the standard button "
 "color - otherwise the titlebar color will be used."
 msgstr ""
-"<p>如果啓用該項，標題列按鈕會用常規按鈕的顔色繪制；否則會用標題列的顔色。"
+"<p>如果啟用該項，標題列按鈕會用常規按鈕的顔色繪製；否則會用標題列的顔色。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_button)
 #: qt4/config/qtcurveconfigbase.ui:2345 qt5/config/qtcurveconfigbase.ui:2426
 #, kde-format
 msgid "Standard button color"
-msgstr "常規按鈕顔色"
+msgstr "標準按鈕顔色"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_custom)
 #: qt4/config/qtcurveconfigbase.ui:2352 qt5/config/qtcurveconfigbase.ui:2433
@@ -3327,7 +3320,7 @@ msgstr "常規按鈕顔色"
 msgid ""
 "<p>If enabled, the titlebar buttons will be drawn using the custom colors "
 "defined in the next page."
-msgstr "<p>如果啓用該項，標題列按鈕會用下一頁中的自訂顔色繪制。"
+msgstr "<p>如果啟用該項，標題列按鈕會用下一頁中的自訂顔色繪製。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_custom)
 #: qt4/config/qtcurveconfigbase.ui:2355 qt5/config/qtcurveconfigbase.ui:2436
@@ -3341,19 +3334,19 @@ msgstr "使用自訂背景色"
 msgid ""
 "<p>If enabled, the colors will only be used when the button is under the "
 "mouse."
-msgstr "<p>如果啓用該項，僅當滑鼠滑過按鈕時，才會使用該顔色。"
+msgstr "<p>如果啟用該項，僅當滑鼠滑過按鈕時，才會使用該顔色。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_colorOnMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:2365 qt5/config/qtcurveconfigbase.ui:2446
 #, kde-format
 msgid "Use color only for mouse-over"
-msgstr "使用僅用于滑鼠滑過時的顔色"
+msgstr "使用僅用於滑鼠滑過時的顔色"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_useHover)
 #: qt4/config/qtcurveconfigbase.ui:2372
 #, kde-format
 msgid "<p>If enabled, symbols will use the KDE4 hover color when moused-over."
-msgstr "<p>如果啓用該項，滑鼠滑過時，符號會使用KDE4的懸停顏色。"
+msgstr "<p>如果啟用該項，滑鼠滑過時，符號會使用KDE4的懸停顏色。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_useHover)
 #: qt4/config/qtcurveconfigbase.ui:2375 qt5/config/qtcurveconfigbase.ui:2456
@@ -3365,7 +3358,7 @@ msgstr "為滑鼠滑過時的符號使用懸停色"
 #: qt4/config/qtcurveconfigbase.ui:2382 qt5/config/qtcurveconfigbase.ui:2463
 #, kde-format
 msgid "<p>If enabled, a sunken background is drawn behind the buttons."
-msgstr "<p>如果啓用該項，按鈕後面會繪制一個凹槽。"
+msgstr "<p>如果啟用該項，按鈕後面會繪製一個凹槽。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_sunkenBackground)
 #: qt4/config/qtcurveconfigbase.ui:2385 qt5/config/qtcurveconfigbase.ui:2466
@@ -3377,7 +3370,7 @@ msgstr "背景凹槽"
 #: qt4/config/qtcurveconfigbase.ui:2392 qt5/config/qtcurveconfigbase.ui:2473
 #, kde-format
 msgid "<p>If enabled, arrows are drawn as the icons for min and max buttons."
-msgstr "<p>如果啓用該項，將使用箭頭作爲最小化和最大化按鈕的圖示。"
+msgstr "<p>如果啟用該項，將使用箭頭作爲最小化和最大化按鈕的圖示。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_arrowMinMax)
 #: qt4/config/qtcurveconfigbase.ui:2395 qt5/config/qtcurveconfigbase.ui:2476
@@ -3391,7 +3384,7 @@ msgstr "爲最小化和最大化按鈕使用箭頭"
 msgid ""
 "<p>If enabled, buttons on inactive windows are only drawn when the mouse "
 "hovers over them."
-msgstr "<p>如果啓用該項，僅當滑鼠滑過時，非活動視窗的按鈕才會顯示。"
+msgstr "<p>如果啟用該項，僅當滑鼠滑過時，非活動視窗的按鈕才會顯示。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hideOnInactiveWindow)
 #: qt4/config/qtcurveconfigbase.ui:2405 qt5/config/qtcurveconfigbase.ui:2486
@@ -3412,7 +3405,7 @@ msgid ""
 "<p>If enabled, custom colors will be applied to the symbols, otherwise they "
 "will be applied to the button background."
 msgstr ""
-"<p>如果啓用該項，自訂顔色將被應用于按鈕符號；否則，它們的背景也同樣會使用自訂"
+"<p>如果啟用該項，自訂顔色將被應用于按鈕符號；否則，它們的背景也同樣會使用自訂"
 "顔色。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_colorSymbolsOnly)
@@ -3428,19 +3421,19 @@ msgid ""
 "<p>If enabled, custom colors will be applied to active and inactive windows, "
 "otherwise they will only be applied to active windows."
 msgstr ""
-"<p>如果啓用該項，活動和非活動視窗都會使用自訂顔色；否則只會應用于活動視窗。"
+"<p>如果啟用該項，活動和非活動視窗都會使用自訂顔色；否則只會應用于活動視窗。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_colorInactive)
 #: qt4/config/qtcurveconfigbase.ui:2432 qt5/config/qtcurveconfigbase.ui:2513
 #, kde-format
 msgid "Also apply to inactive windows"
-msgstr "同樣應用于非活動視窗"
+msgstr "同樣應用於非活動視窗"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_hoverSymbolFull)
 #: qt4/config/qtcurveconfigbase.ui:2439 qt5/config/qtcurveconfigbase.ui:2520
 #, kde-format
 msgid "<p>If enabled, the symbol will not be drawn unless under the mouse."
-msgstr "<p>如果啓用該項，除非滑鼠滑過，否則按鈕符號不會顯示。"
+msgstr "<p>如果啟用該項，除非滑鼠滑過，否則按鈕符號不會顯示。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hoverSymbolFull)
 #: qt4/config/qtcurveconfigbase.ui:2442 qt5/config/qtcurveconfigbase.ui:2523
@@ -3458,13 +3451,13 @@ msgstr "使用自訂圖示顔色"
 #: qt4/config/qtcurveconfigbase.ui:2469 qt5/config/qtcurveconfigbase.ui:2550
 #, kde-format
 msgid "Active Icon"
-msgstr "已激活圖示"
+msgstr "作用中圖示"
 
 #. i18n: ectx: property (text), widget (QLabel, label_96)
 #: qt4/config/qtcurveconfigbase.ui:2476 qt5/config/qtcurveconfigbase.ui:2557
 #, kde-format
 msgid "Inactive Icon"
-msgstr "未激活圖示"
+msgstr "非作用中圖示"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorClose)
 #: qt4/config/qtcurveconfigbase.ui:2489 qt5/config/qtcurveconfigbase.ui:2570
@@ -3483,7 +3476,7 @@ msgstr "<p>設定“最小化”按鈕的顔色。"
 #, fuzzy, kde-format
 #| msgid "<p>Sets the custom color for 'Maximise', and 'Restore, buttons."
 msgid "<p>Sets the custom color for 'Maximize' and 'Restore' buttons."
-msgstr "<p>設定“最大化”和“恢複”按鈕的顔色。"
+msgstr "<p>設定“最大化”和“恢復”按鈕的顔色。"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorHelp)
 #: qt4/config/qtcurveconfigbase.ui:2528 qt5/config/qtcurveconfigbase.ui:2609
@@ -3543,7 +3536,7 @@ msgstr "最大化："
 #: qt4/config/qtcurveconfigbase.ui:2630 qt5/config/qtcurveconfigbase.ui:2711
 #, kde-format
 msgid "Help:"
-msgstr "幫助："
+msgstr "說明："
 
 #. i18n: ectx: property (text), widget (QLabel, label_38)
 #: qt4/config/qtcurveconfigbase.ui:2640 qt5/config/qtcurveconfigbase.ui:2721
@@ -3555,7 +3548,7 @@ msgstr "選單："
 #: qt4/config/qtcurveconfigbase.ui:2650 qt5/config/qtcurveconfigbase.ui:2731
 #, kde-format
 msgid "Shade:"
-msgstr "卷起："
+msgstr "收起："
 
 #. i18n: ectx: property (text), widget (QLabel, label_40)
 #: qt4/config/qtcurveconfigbase.ui:2660 qt5/config/qtcurveconfigbase.ui:2741
@@ -3612,7 +3605,7 @@ msgstr "<p>定義選單條背景色。"
 msgid ""
 "<p>Defines whether the background coloration should be applied to all "
 "menubars, or just those in active windows."
-msgstr "<p>定義設定的背景色是用于全部的選單條，還是僅用于活動視窗的。"
+msgstr "<p>定義設定的背景色是用於全部的選單條，還是僅用於活動視窗的。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, shadeMenubarOnlyWhenActive)
 #: qt4/config/qtcurveconfigbase.ui:2965 qt5/config/qtcurveconfigbase.ui:3046
@@ -3635,13 +3628,13 @@ msgstr "選單條文字："
 msgid ""
 "<p>If enabled, then the following two color boxes are used to set the text "
 "color to be used for normal and selected menubar items."
-msgstr "<p>如果啓用該項，常規和選中選單項的將分別使用下面的顔色。"
+msgstr "<p>如果啟用該項，常規和選中選單項的將分別使用下面的顔色。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, customMenuTextColor)
 #: qt4/config/qtcurveconfigbase.ui:2988 qt5/config/qtcurveconfigbase.ui:3069
 #, kde-format
 msgid "Custom colors (normal/selected)"
-msgstr "自訂顔色（常規/選中）"
+msgstr "自訂顔色（常規/所選）"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, customMenuNormTextColor)
 #: qt4/config/qtcurveconfigbase.ui:3001 qt5/config/qtcurveconfigbase.ui:3082
@@ -3653,7 +3646,7 @@ msgstr "<p>設定常規選單條項目的文字顔色。"
 #: qt4/config/qtcurveconfigbase.ui:3017 qt5/config/qtcurveconfigbase.ui:3098
 #, kde-format
 msgid "<p>Sets the text color of selected menubar items."
-msgstr "<p>設定選中選單條項目的文字顔色。"
+msgstr "<p>設定所選選單條項目的文字顔色。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_59)
 #: qt4/config/qtcurveconfigbase.ui:3027 qt5/config/qtcurveconfigbase.ui:3108
@@ -3665,7 +3658,7 @@ msgstr "選單條項目："
 #: qt4/config/qtcurveconfigbase.ui:3034 qt5/config/qtcurveconfigbase.ui:3115
 #, kde-format
 msgid "<p>Defines the gradient to be applied to selected menubar items."
-msgstr "<p>定義選中選單項的漸變效果。"
+msgstr "<p>定義所選選單項的漸變效果。"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, menubarMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:3041 qt5/config/qtcurveconfigbase.ui:3122
@@ -3673,13 +3666,13 @@ msgstr "<p>定義選中選單項的漸變效果。"
 msgid ""
 "<p>If enabled, menubar items will have their background gradient applied "
 "when the mouse hovers over them."
-msgstr "<p>如果啓用該項，當滑鼠滑過某個選單項時，會對加深它的背景色。"
+msgstr "<p>如果啟用該項，當滑鼠滑過某個選單項時，會對加深它的背景色。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:3044 qt5/config/qtcurveconfigbase.ui:3125
 #, kde-format
 msgid "Enable mouse-over"
-msgstr "啓用滑鼠滑過效果"
+msgstr "啟用滑鼠停駐效果"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, colorMenubarMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:3051 qt5/config/qtcurveconfigbase.ui:3132
@@ -3693,7 +3686,7 @@ msgid ""
 "over' is enabled) then it will also be colored, otherwise it will use a "
 "shade of the background color."
 msgstr ""
-"<p>如果啓用該項，當滑鼠滑過某個選單項時（前提是啓用了“滑鼠滑過效果”），它的文"
+"<p>如果啟用該項，當滑鼠滑過某個選單項時（前提是啟用了“滑鼠滑過效果”），它的文"
 "字也會被著色；否則，僅背景色會跟選中時相同，而文字顔色跟常規情況下相同。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, colorMenubarMouseOver)
@@ -3708,13 +3701,13 @@ msgstr "滑鼠滑過時顔色變化"
 msgid ""
 "<p>If enabled, only the top (and not bottom) of selected menubar items will "
 "be rounded."
-msgstr "<p>如果啓用該項，僅選中選單項的頂部會被圓滑而底部不會。"
+msgstr "<p>如果啟用該項，僅選中選單項的頂部會被圓滑而底部不會。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, roundMbTopOnly)
 #: qt4/config/qtcurveconfigbase.ui:3064 qt5/config/qtcurveconfigbase.ui:3145
 #, kde-format
 msgid "Round selected items on top only"
-msgstr "僅對選中選單項頂部進行圓滑"
+msgstr "僅對所選選單項頂部進行圓滑"
 
 #. i18n: ectx: property (text), widget (QLabel, label_68)
 #. i18n: ectx: property (text), widget (QLabel, label_91)
@@ -3730,7 +3723,7 @@ msgstr "隱藏："
 msgid ""
 "<p>If enabled, menubars may be hidden (and re-shown), by using the 'Ctrl-Alt-"
 "M' key combination."
-msgstr "<p>如果啓用該項，可以通過快捷鍵“Ctrl+Alt+M”來隱藏或重現選單條。"
+msgstr "<p>如果啟用該項，可以通過快捷鍵“Ctrl+Alt+M”來隱藏或重現選單條。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarHiding_keyboard)
 #: qt4/config/qtcurveconfigbase.ui:3081 qt5/config/qtcurveconfigbase.ui:3162
@@ -3745,7 +3738,7 @@ msgid ""
 "<p>If enabled, menubars may be hidden (and re-shown), by using a special "
 "button in the QtCurve kwin decoration."
 msgstr ""
-"<p>如果啓用該項，選單條可以通過QtCurve的Kwin裝飾上的一個特殊按鈕在隱藏或重"
+"<p>如果啟用該項，選單條可以通過QtCurve的Kwin裝飾上的一個特殊按鈕在隱藏或重"
 "現。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarHiding_kwin)
@@ -3763,14 +3756,14 @@ msgid ""
 "<p>If enabled, the theme will support embedding the menubar of KDE4 "
 "applications in Bespin's XBar."
 msgstr ""
-"<p>如果啓用該項，主題將支持嵌入KDE4程式的選單條到Bespin的XBar中。（類似于mac"
+"<p>如果啟用該項，主題將支持嵌入KDE4程式的選單條到Bespin的XBar中。（類似于mac"
 "的全局選單？）"
 
 #. i18n: ectx: property (text), widget (QLabel, label_72)
 #: qt4/config/qtcurveconfigbase.ui:3108
 #, kde-format
 msgid "XBar support:"
-msgstr "XBar 支持："
+msgstr "XBar 支援："
 
 #. i18n: ectx: property (text), widget (QLabel, label_60)
 #: qt4/config/qtcurveconfigbase.ui:3119 qt5/config/qtcurveconfigbase.ui:3183
@@ -3790,7 +3783,7 @@ msgid ""
 "gradient. This will cause them to have a rounded look if the general round "
 "setting is not set to none."
 msgstr ""
-"<p>如果啓用該項，選中選單項的周圍將會被繪制一個邊框。如果它們的圓角設定爲無，"
+"<p>如果啟用該項，選中選單項的周圍將會被繪製一個邊框。如果它們的圓角設定爲無，"
 "這會使它們圓滑呈現。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, borderMenuitems)
@@ -3806,14 +3799,14 @@ msgid ""
 "<p>If enabled, selected menuitems will be drawn using the 'highlight' color, "
 "otherwise a darkened shade of the background color will be used instead."
 msgstr ""
-"<p>如果啓用該項，選中選單項將會使用“高亮”色來繪制；否則，會用加深的背景色來替"
+"<p>如果啟用該項，選中選單項將會使用“突顯”色來繪製；否則，會用加深的背景色來替"
 "代。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, useHighlightForMenu)
 #: qt4/config/qtcurveconfigbase.ui:3139 qt5/config/qtcurveconfigbase.ui:3203
 #, kde-format
 msgid "Use 'highlight' color for active items"
-msgstr "爲活動項使用“高亮”色"
+msgstr "為作用中項目使用「突顯」顏色"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, thin_menuitems)
 #: qt4/config/qtcurveconfigbase.ui:3146 qt5/config/qtcurveconfigbase.ui:3210
@@ -3835,7 +3828,7 @@ msgid ""
 "they will be hidden (but the space they would have occupied will still be "
 "there)."
 msgstr ""
-"<p>如果啓用該項，選單項的圖示將會顯示出來；否則，選單項的圖示將會被隱藏，但是"
+"<p>如果啟用該項，選單項的圖示將會顯示出來；否則，選單項的圖示將會被隱藏，但是"
 "選單項的前面會留有一塊空白。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, menuIcons)
@@ -3850,7 +3843,7 @@ msgstr "顯示圖示"
 msgid ""
 "<p>If enabled, checked menu items get only a check mark instead of a "
 "checkbox or radiobutton."
-msgstr ""
+msgstr "<p>若啟用，勾選的選單項目只會有一個打勾的符號，而非核取方塊"
 
 #. i18n: ectx: property (text), widget (QCheckBox, onlyTicksInMenu)
 #: qt4/config/qtcurveconfigbase.ui:3169 qt5/config/qtcurveconfigbase.ui:3233
@@ -3984,8 +3977,8 @@ msgid ""
 "will be drawn. This option should be enabled unless you have also enabled "
 "shadows in your window manager."
 msgstr ""
-"<p>如果啓用該項，整個彈出選單會有一個邊框；否則，不會繪制邊框。除非您已經啓用"
-"了視窗管理器陰影，該項設定才應當被啓用。"
+"<p>如果啟用該項，整個彈出選單會有一個邊框；否則，不會繪製邊框。除非您已經啟用"
+"了視窗管理器陰影，該項設定才應當被啟用。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_97)
 #: qt4/config/qtcurveconfigbase.ui:3345 qt5/config/qtcurveconfigbase.ui:3392
@@ -4068,13 +4061,13 @@ msgstr "滑鼠滑過時著色："
 #: qt4/config/qtcurveconfigbase.ui:3479 qt5/config/qtcurveconfigbase.ui:3543
 #, kde-format
 msgid "Only for glow mouse-over style"
-msgstr "僅用于“光暈”樣式"
+msgstr "僅用於“光暈”樣式"
 
 #. i18n: ectx: property (text), widget (QRadioButton, coloredTbarMo)
 #: qt4/config/qtcurveconfigbase.ui:3486 qt5/config/qtcurveconfigbase.ui:3550
 #, kde-format
 msgid "For all mouse-over styles"
-msgstr "用于全部樣式"
+msgstr "用於全部樣式"
 
 #. i18n: ectx: property (text), widget (QLabel, label_78)
 #: qt4/config/qtcurveconfigbase.ui:3495 qt5/config/qtcurveconfigbase.ui:3559
@@ -4092,7 +4085,7 @@ msgstr "<p>定義工具列按鈕的漸變效果。</p>"
 #: qt4/config/qtcurveconfigbase.ui:3516 qt5/config/qtcurveconfigbase.ui:3580
 #, kde-format
 msgid "<p>Control what effect should be applied to buttons in toolbars.</p>"
-msgstr "<p>控制應用于工具列按鈕的效果。</p>"
+msgstr "<p>控制應用於工具列按鈕的效果。</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_90)
 #: qt4/config/qtcurveconfigbase.ui:3527 qt5/config/qtcurveconfigbase.ui:3591
@@ -4105,7 +4098,7 @@ msgstr "項目頁框："
 #, kde-format
 msgid ""
 "<p>Controls whether QtCurve should draw frames around items in statusbars."
-msgstr "<p>控制QtCurve是否繪制狀態列項目的頁框。"
+msgstr "<p>控制QtCurve是否繪製狀態列項目的頁框。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, drawStatusBarFrames)
 #: qt4/config/qtcurveconfigbase.ui:3537 qt5/config/qtcurveconfigbase.ui:3601
@@ -4119,7 +4112,7 @@ msgstr "可見"
 msgid ""
 "<p>If enabled, statusbars may be hidden (and re-shown), by using the 'Ctrl-"
 "Alt-S' key combination."
-msgstr "<p>如果啓用該項，可以通過快捷鍵“Ctrl+Alt+S”來隱藏或重現狀態列"
+msgstr "<p>如果啟用該項，可以通過快捷鍵“Ctrl+Alt+S”來隱藏或重現狀態列"
 
 #. i18n: ectx: property (text), widget (QCheckBox, statusbarHiding_keyboard)
 #: qt4/config/qtcurveconfigbase.ui:3554 qt5/config/qtcurveconfigbase.ui:3618
@@ -4134,7 +4127,7 @@ msgid ""
 "<p>If enabled, statusbars may be hidden (and re-shown), by using a special "
 "button in the QtCurve kwin decoration."
 msgstr ""
-"<p>如果啓用該項，狀態列可以通過QtCurve的Kwin裝飾上的一個特殊按鈕在隱藏或重"
+"<p>如果啟用該項，狀態列可以通過QtCurve的Kwin裝飾上的一個特殊按鈕在隱藏或重"
 "現。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_73)
@@ -4160,7 +4153,7 @@ msgstr "<p>定義停靠視窗“標題”部分的背景漸變效果。"
 msgid ""
 "<p>If enabled, only the top (for horizontal dock windows), or left (for "
 "vertical dock windows) will be rounded."
-msgstr "<p>如果啓用該項，僅水平停靠視窗的頂端或垂直停靠視窗的左端會被圓滑。"
+msgstr "<p>如果啟用該項，僅水平停靠視窗的頂端或垂直停靠視窗的左端會被圓滑。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtRoundTopOnly)
 #: qt4/config/qtcurveconfigbase.ui:3592 qt5/config/qtcurveconfigbase.ui:3656
@@ -4183,8 +4176,8 @@ msgid ""
 "have their symbols drawn until the mouse hovers over (when the button "
 "background will be drawn)."
 msgstr ""
-"<p>如果啓用該項，停靠視窗的按鈕會使用類似于常規視窗的外觀和行爲；否則，僅會繪"
-"制它們的符號，除非滑鼠滑過（此時，將對按鈕背景進行繪制）。"
+"<p>如果啟用該項，停靠視窗的按鈕會使用類似于常規視窗的外觀和行爲；否則，僅會繪"
+"制它們的符號，除非滑鼠滑過（此時，將對按鈕背景進行繪製）。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtBtnAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3609 qt5/config/qtcurveconfigbase.ui:3673
@@ -4200,7 +4193,7 @@ msgid ""
 "color settings of standard windows, otherwise they will use the standard "
 "background color."
 msgstr ""
-"<p>如果啓用該項，停靠視窗的標題列背景會使用常規視窗的顔色設定；否則，否則它們"
+"<p>如果啟用該項，停靠視窗的標題列背景會使用常規視窗的顔色設定；否則，否則它們"
 "將使用常規的背景色。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtColAsPerTitleBar)
@@ -4216,7 +4209,7 @@ msgid ""
 "<p>If enabled, the font of dock window titlebars will have use the font "
 "settings of standard windows, otherwise they will use the standard font."
 msgstr ""
-"<p>如果啓用該項，停靠視窗標題列的字型會使用常規視窗的字型設定；否則，它們會使"
+"<p>如果啟用該項，停靠視窗標題列的字型會使用常規視窗的字型設定；否則，它們會使"
 "用常規字型。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtFontAsPerTitleBar)
@@ -4232,7 +4225,7 @@ msgid ""
 "<p>If enabled, the text of dock window titlebars will have use the text "
 "alignment settings of standard windows, otherwise they will be left aligned."
 msgstr ""
-"<p>如果啓用該項，停靠視窗標題列的文字會使用常規視窗的文字對齊方式；否則，它們"
+"<p>如果啟用該項，停靠視窗標題列的文字會使用常規視窗的文字對齊方式；否則，它們"
 "會居左對齊。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtTextAsPerTitleBar)
@@ -4249,7 +4242,7 @@ msgid ""
 "effect settings of standard windows, otherwise they will be drawn with no "
 "effect."
 msgstr ""
-"<p>如果啓用該項，停靠視窗標題列的文字會使用常規視窗的文字效果；否則，它們不會"
+"<p>如果啟用該項，停靠視窗標題列的文字會使用常規視窗的文字效果；否則，它們不會"
 "有特殊效果。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtEffectAsPerTitleBar)
@@ -4265,7 +4258,7 @@ msgid ""
 "<p>If enabled, the icons of dock window titlebars will have use the colors "
 "of standard window icons, otherwise they will use the text colour setting."
 msgstr ""
-"<p>如果啓用該項，停靠視窗的標題列背景會使用常規視窗的顔色設定；否則，否則它們"
+"<p>如果啟用該項，停靠視窗的標題列背景會使用常規視窗的顔色設定；否則，否則它們"
 "將使用常規的背景色。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtIconColAsPerTitleBar)
@@ -4278,7 +4271,7 @@ msgstr "圖示顔色"
 #: qt4/config/qtcurveconfigbase.ui:3673 qt5/config/qtcurveconfigbase.ui:3737
 #, kde-format
 msgid "Dialog buttons:"
-msgstr "對話窗按鈕："
+msgstr "對話框按鈕："
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gtkButtonOrder)
 #: qt4/config/qtcurveconfigbase.ui:3680 qt5/config/qtcurveconfigbase.ui:3744
@@ -4291,7 +4284,7 @@ msgid ""
 "<p>If enabled, dialogs will use the 'Cancel / OK' button order as used in "
 "the GNOME and OSX desktops, otherwise the 'OK / Cancel' order will be used."
 msgstr ""
-"<p>如果啓用該項，對話窗將使用GNOME和OSX桌面的“取消/好”的按鈕布局；否則，將使"
+"<p>如果啟用該項，對話窗將使用GNOME和OSX桌面的“取消/好”的按鈕布局；否則，將使"
 "用“好/取消”的按鈕布局。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gtkButtonOrder)
@@ -4313,7 +4306,7 @@ msgid ""
 "attempt to manually set the order of buttons in Gtk dialogs.</p><p><b>NOTE:</"
 "b> This is experimental, and may produce unexpected results!</p>"
 msgstr ""
-"<p>如果啓用該項，且未啓用“使用Gtk按鈕布局”，QtCurve將試圖手動設定Gtk對話窗的"
+"<p>如果啟用該項，且未啟用“使用Gtk按鈕布局”，QtCurve將試圖手動設定Gtk對話窗的"
 "按鈕布局。</p><p><b>注意：<b>這只是試驗性的，可能會導致出乎意料的後果。</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, reorderGtkButtons)
@@ -4347,7 +4340,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3704
 #, kde-format
 msgid "Use standard size for 'auto-default' buttons (KDE4)"
-msgstr "爲“自動-缺省”按鈕使用常規大小（KDE4）"
+msgstr "爲“自動-缺省”按鈕使用標準大小（KDE4）"
 
 #. i18n: ectx: property (text), widget (QLabel, label_79)
 #: qt4/config/qtcurveconfigbase.ui:3711 qt5/config/qtcurveconfigbase.ui:3775
@@ -4365,7 +4358,7 @@ msgid ""
 "<p>Enable this option so that QtCurve can attempt to map from the KDE icon "
 "names to their Gtk equivalent for Gtk applications."
 msgstr ""
-"<p>啓用該項設定以便QtCurve可以試圖根據KDE圖示的名稱爲Gtk程式使用相同的圖示。"
+"<p>啟用該項設定以便QtCurve可以試圖根據KDE圖示的名稱爲Gtk程式使用相同的圖示。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, mapKdeIcons)
 #: qt4/config/qtcurveconfigbase.ui:3721 qt5/config/qtcurveconfigbase.ui:3785
@@ -4377,7 +4370,7 @@ msgstr "與KDE相同"
 #: qt4/config/qtcurveconfigbase.ui:3728 qt5/config/qtcurveconfigbase.ui:3792
 #, kde-format
 msgid "Password character:"
-msgstr "密碼框："
+msgstr "密碼字元："
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, passwordChar)
 #: qt4/config/qtcurveconfigbase.ui:3741 qt5/config/qtcurveconfigbase.ui:3805
@@ -4389,7 +4382,7 @@ msgstr "<p>設定用以隱藏密碼輸入的字元。"
 #: qt4/config/qtcurveconfigbase.ui:3748 qt5/config/qtcurveconfigbase.ui:3812
 #, kde-format
 msgid "Gtk expander highlight:"
-msgstr "“Gtk擴展容器”高亮："
+msgstr "Gtk 擴展器突顯："
 
 #. i18n: ectx: property (text), widget (QLabel, shadowSizeLabel)
 #: qt4/config/qtcurveconfigbase.ui:3765 qt5/config/qtcurveconfigbase.ui:3829
@@ -4476,9 +4469,9 @@ msgid ""
 "alpha-channel to smoothly round tooltips and popup menus.</i></p><p>Use "
 "<i>gtk</i> to disable for all Gtk2 applications.</p>"
 msgstr ""
-"<p>請用英文逗號將不設定選單透明的應用程式名隔開。</p><p><i>對于Gtk2程式，該項"
-"設定同時將屏蔽圓滑提示框和彈出選單α通道的使用。</i></p><p>可以使用<i>gtk</i>"
-"指代全部的Gtk2程式。</p>"
+"<p>請用英文逗號將不設定選單透明的應用程式名隔開。</p><p><i>對於Gtk2程式，該項"
+"設定同時將屏蔽圓滑工具提示和彈出選單α通道的使用。</i></p><p>可以使用<i>gtk</"
+"i>指代全部的Gtk2程式。</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_82y)
 #: qt4/config/qtcurveconfigbase.ui:3844 qt5/config/qtcurveconfigbase.ui:3908
@@ -4501,7 +4494,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3858 qt5/config/qtcurveconfigbase.ui:3922
 #, kde-format
 msgid "Use Qt file dialog:"
-msgstr "使用Qt檔案對話窗："
+msgstr "使用Qt檔案對話框："
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, useQtFileDialogApps)
 #: qt4/config/qtcurveconfigbase.ui:3865
@@ -4509,7 +4502,7 @@ msgstr "使用Qt檔案對話窗："
 msgid ""
 "<p>Comma separated list of names of Qt4 applications which should not use "
 "the KDE4 file dialog."
-msgstr "<p>請用英文逗號將不使用KDE4檔案對話窗的Qt4應用程式名隔開。"
+msgstr "<p>請用英文逗號將不使用KDE4檔案對話框的Qt4應用程式名隔開。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_83a)
 #: qt4/config/qtcurveconfigbase.ui:3872 qt5/config/qtcurveconfigbase.ui:3936
@@ -4600,7 +4593,7 @@ msgid ""
 "used by KDE3 applications. This creates the relevant entries within the KDE3 "
 "kdeglobals file."
 msgstr ""
-"<p>匯出您當前的顔色和字型設定，以便它們可以應用于KDE3應用程式。這會在KDE3的設"
+"<p>匯出您目前的顔色和字型設定，以便它們可以應用于KDE3應用程式。這會在KDE3的設"
 "定檔案中建立相關條目。"
 
 #. i18n: ectx: property (text), widget (KPushButton, exportKde3Button)
@@ -4619,7 +4612,7 @@ msgid ""
 "used by pure-Qt3 applications. This creates the relevant entries within the "
 "Qt3 ~/.qt/qtrc file."
 msgstr ""
-"<p>匯出您當前的顔色和字型設定，以便它們可以應用于純Qt3應用程式。這會在Qt3的 "
+"<p>匯出您目前的顔色和字型設定，以便它們可以應用于純Qt3應用程式。這會在Qt3的 "
 "~/.qt/qtrc 檔案中建立相關條目。"
 
 #. i18n: ectx: property (text), widget (KPushButton, exportQt3Button)
@@ -4699,14 +4692,14 @@ msgid ""
 "p>\n"
 "\n"
 msgstr ""
-"<p>該漸變用以定義繪制按鈕時用的內邊框等。</p>\n"
+"<p>該漸變用以定義繪製按鈕時用的內邊框等。</p>\n"
 "<ul>\n"
-"<li><i>無邊框</i>——不繪制內邊框，漸變會沿伸到外部邊緣。</li>\n"
-"<li><i>亮邊框</i>——全部邊緣的周圍會繪制一條亮線。</li>\n"
-"<li><i>3D邊框（亮邊框）</i>——左端和頂端邊緣的周圍會繪制一條亮線。</li>\n"
-"<li><i>3D邊框（暗亮邊框）</i>——左端和頂端邊緣的周圍會繪制一條亮線，而右端和底"
-"端邊緣的周圍會繪制一條暗線。</li>\n"
-"<li><i>陽光</i>——在繪制按鈕或卷軸的漸變時會在左端或頂端添加一道“陽光”。</"
+"<li><i>無邊框</i>——不繪製內邊框，漸變會沿伸到外部邊緣。</li>\n"
+"<li><i>亮邊框</i>——全部邊緣的周圍會繪製一條亮線。</li>\n"
+"<li><i>3D邊框（亮邊框）</i>——左端和頂端邊緣的周圍會繪製一條亮線。</li>\n"
+"<li><i>3D邊框（暗亮邊框）</i>——左端和頂端邊緣的周圍會繪製一條亮線，而右端和底"
+"端邊緣的周圍會繪製一條暗線。</li>\n"
+"<li><i>陽光</i>——在繪製按鈕或卷軸的漸變時會在左端或頂端添加一道“陽光”。</"
 "li>\n"
 "</ul>\n"
 "<p><i>注意：該項設定不會用于下面的預覽。</i></p>\n"
@@ -4820,13 +4813,13 @@ msgid ""
 "<li>Is used as the border of most widgets.</li>\n"
 "</ol></p></i>"
 msgstr ""
-"<i><p>QtCurve使用不同硬編碼的色調值來繪制元素，例如，按鈕頁框，按下按鈕的背景"
+"<i><p>QtCurve使用不同硬編碼的色調值來繪製元素，例如，按鈕頁框，按下按鈕的背景"
 "等。以下簡要介紹了如何使用每一種色調——僅供取用，因爲色調可以用于不同事物。</"
 "p>\n"
 "<p><ol>\n"
-"<li>用于三維元素的光亮部分——例如標簽元件的邊框。</li>\n"
+"<li>用于三維元素的光亮部分——例如分頁元件的邊框。</li>\n"
 "<li>用于進度條的明暗條紋。</li>\n"
-"<li>用于三維元素的暗色部分——例如標簽元件的邊框。</li>\n"
+"<li>用于三維元素的暗色部分——例如分頁元件的邊框。</li>\n"
 "<li>用于單選鈕和核取方塊的暗色邊框，工具列的邊框（當邊框設定爲暗色時），滾軸"
 "凹陷或凸起的暗色部分等等。</li>\n"
 "<li>用于按下元件的背景，工具列的邊框（當邊框不是設定爲暗色時）。</li>\n"
@@ -4875,28 +4868,25 @@ msgstr "深暗："
 #: qt4/config/stylepreview.ui:27 qt5/config/stylepreview.ui:27
 #, kde-format
 msgid "Tab 1"
-msgstr "標簽1"
+msgstr "分頁 1"
 
 #. i18n: ectx: property (title), widget (QMenu, menuMenu_1)
 #: qt4/config/stylepreview.ui:37 qt5/config/stylepreview.ui:37
-#, fuzzy, kde-format
-#| msgid "Menu:"
+#, kde-format
 msgid "&Menu 1"
-msgstr "選單："
+msgstr "選單 1(&M)"
 
 #. i18n: ectx: property (title), widget (QMenu, menuMenu_2)
 #: qt4/config/stylepreview.ui:46 qt5/config/stylepreview.ui:46
-#, fuzzy, kde-format
-#| msgid "Menu:"
+#, kde-format
 msgid "Menu &2"
-msgstr "選單："
+msgstr "選單 2(&2)"
 
 #. i18n: ectx: property (title), widget (QMenu, menu2SubMenu)
 #: qt4/config/stylepreview.ui:50 qt5/config/stylepreview.ui:50
-#, fuzzy, kde-format
-#| msgid "Sub-menu delay:"
+#, kde-format
 msgid "&Submenu"
-msgstr "子選單延時："
+msgstr "子選單(&S)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, GroupBox1)
 #: qt4/config/stylepreview.ui:73 qt5/config/stylepreview.ui:73
@@ -4957,19 +4947,19 @@ msgstr "第4項"
 #: qt4/config/stylepreview.ui:205 qt5/config/stylepreview.ui:205
 #, kde-format
 msgid "Editable combobox"
-msgstr "可編輯復合方塊"
+msgstr "可編輯複合方塊"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab2)
 #: qt4/config/stylepreview.ui:256 qt5/config/stylepreview.ui:256
 #, kde-format
 msgid "Tab 2"
-msgstr "標簽2"
+msgstr "分頁 2"
 
 #. i18n: ectx: property (windowTitle), widget (QDockWidget, dockWidget)
 #: qt4/config/stylepreview.ui:275
 #, kde-format
 msgid "Dock Widget"
-msgstr "停靠視窗"
+msgstr "停靠元件"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:310 qt5/config/stylepreview.ui:310
@@ -5081,10 +5071,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:546 qt5/config/stylepreview.ui:546
-#, fuzzy, kde-format
-#| msgid "Menubar items:"
+#, kde-format
 msgid "&Regular item 1"
-msgstr "選單條項目："
+msgstr "一般項目 1(&R)"
 
 #. i18n: ectx: property (shortcut), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:549 qt5/config/stylepreview.ui:549
@@ -5094,10 +5083,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:560 qt5/config/stylepreview.ui:560
-#, fuzzy, kde-format
-#| msgid "Menubar items:"
+#, kde-format
 msgid "Regular &item 2"
-msgstr "選單條項目："
+msgstr "一般項目 2(&I)"
 
 #. i18n: ectx: property (shortcut), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:563 qt5/config/stylepreview.ui:563
@@ -5181,7 +5169,7 @@ msgstr "懸停"
 #: qt5/kwinconfig/qtcurvekwinconfig.cpp:46
 #, kde-format
 msgid "Selection Background"
-msgstr "選中背景"
+msgstr "所選背景"
 
 #: qt4/kwinconfig/qtcurvekwinconfig.cpp:49
 #: qt5/kwinconfig/qtcurvekwinconfig.cpp:48
@@ -5249,7 +5237,7 @@ msgstr "陰影"
 msgid ""
 "<h3>Already Open</h3><p>Another QtCurve configuration dialog is already "
 "open. Please close the other before proceeding."
-msgstr "<h3>已打開</h3><p>另一個QtCurve設定對話窗已經打開了。請先將其關閉。"
+msgstr "<h3>已打開</h3><p>另一個QtCurve設定對話框已經打開了。請先將其關閉。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4x)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:38
@@ -5281,7 +5269,7 @@ msgid ""
 "window decoration will be rounded. Otherwise, only the top corners will be "
 "rounded."
 msgstr ""
-"如果啓用該項，QtCurve樣式會被設定爲圓滑的，那麽視窗裝飾的全部拐角都會被圓滑。"
+"如果啟用該項，QtCurve樣式會被設定爲圓滑的，那麽視窗裝飾的全部拐角都會被圓滑。"
 "否則，僅頂部的兩個角會被圓滑。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, roundBottom)
@@ -5298,7 +5286,7 @@ msgstr "圓滑全部拐角"
 msgid ""
 "If enabled, all borders (including the titlebar) will be removed from "
 "maximised windows."
-msgstr "如果啓用該項，視窗最大化後將會移除全部的邊框（包括標題列）。"
+msgstr "如果啟用該項，視窗最大化後將會移除全部的邊框（包括標題列）。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, borderlessMax)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:75
@@ -5322,7 +5310,7 @@ msgid ""
 "Adds 1 pixel border around the outside of windows. This is useful if you are "
 "not using desktop effects."
 msgstr ""
-"在視窗外邊的四周繪制一個1像素的邊框。如果您沒有使用桌面效果，那它是很有用的。"
+"在視窗外邊的四周繪製一個1像素的邊框。如果您沒有使用桌面效果，那它是很有用的。"
 
 #. i18n: ectx: property (text), widget (QLabel, innerBorder_label)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:96
@@ -5339,7 +5327,7 @@ msgid ""
 "Adds a 1 pixel dark border between the window contents and the decoration. "
 "This is useful if you are using transparent decorations."
 msgstr ""
-"在視窗內容與裝飾之間繪制一個1像素的深色邊框。如果您使用了透明裝飾，那它是很有"
+"在視窗內容與裝飾之間繪製一個1像素的深色邊框。如果您使用了透明裝飾，那它是很有"
 "用的。"
 
 #. i18n: ectx: property (text), widget (QLabel, groupingLabel)
@@ -5356,7 +5344,7 @@ msgstr "視窗分組："
 msgid ""
 "If enabled, QtCurve will allow windows to be grouped - causing the titlebar "
 "to act as a kind-of tab-widget."
-msgstr "如果啓用該項，QtCurve 將允許視窗分組——就像標簽元件相同。"
+msgstr "如果啟用該項，QtCurve 將允許視窗分組——就像分頁元件相同。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:127
@@ -5426,7 +5414,7 @@ msgid ""
 "widget style.</i></p>"
 msgstr ""
 "<p><b>注意：</b><i>該視窗裝飾用的是QtCurve元件樣式，並且共享了它的設定。僅僅"
-"專門用于視窗裝飾的設定才會顯示在這裏。要修改諸如標題列漸變度，文字對齊方式等"
+"專門用於視窗裝飾的設定才會顯示在這裡。要修改諸如標題列漸變度，文字對齊方式等"
 "項的設定，請到元件樣式中設定。</i></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
@@ -5477,7 +5465,7 @@ msgstr "側面和底部邊框："
 msgid ""
 "If enabled, only the titlebar part of the decoration will use the opacity "
 "setting."
-msgstr "如果啓用該項，僅視窗裝飾的標題列會使用透明度設定。"
+msgstr "如果啟用該項，僅視窗裝飾的標題列會使用透明度設定。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, opaqueBorder)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:285
@@ -5500,7 +5488,7 @@ msgid ""
 "dialog background opacity settings.</i></p>"
 msgstr ""
 "<p><b>注意：</b><i>如果您設定上述值爲100%，那麽視窗標題列（包括邊框）的透明度"
-"將由該樣式視窗和對話窗的透明度控制。</i></p>"
+"將由該樣式視窗和對話框的透明度控制。</i></p>"
 
 #. i18n: ectx: attribute (title), widget (QWidget, shadowTab)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:343
@@ -5518,7 +5506,7 @@ msgid ""
 "window manager shadows. This will allow you to specify different shadow "
 "colours, etc, for active and inactive windows."
 msgstr ""
-"如果啓用該項，QtCurve會繪制自己特有的陰影而非使用通用的視窗管理器陰影。這樣可"
+"如果啟用該項，QtCurve會繪製自己特有的陰影而非使用通用的視窗管理器陰影。這樣可"
 "以允許您爲活動和非活動視窗使用不同顔色的陰影等。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, useShadows)
@@ -5596,7 +5584,7 @@ msgstr "漸變度："
 msgid ""
 "If enabled, the shadows of inactive windows will be drawn using the same "
 "gradient routine as that used for active windows."
-msgstr "如果啓用該項，非活動視窗的陰影將使用跟活動視窗相同的漸變程式來繪制。"
+msgstr "如果啟用該項，非活動視窗的陰影將使用跟活動視窗相同的漸變程式來繪製。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, inactiveUsesActiveGradients)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:502
@@ -5607,10 +5595,9 @@ msgstr "與活動視窗相同"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gbLabel_centred)
 #: qt5/config/qtcurveconfigbase.ui:724
-#, fuzzy, kde-format
-#| msgid "Centred (KDE4 only)"
+#, kde-format
 msgid "Centred (KDE only)"
-msgstr "居中（僅KDE4）"
+msgstr "置中（僅 KDE）"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gtkComboMenus)
 #: qt5/config/qtcurveconfigbase.ui:796
@@ -5631,7 +5618,7 @@ msgstr ""
 #| msgid ""
 #| "<p>If enabled, symbols will use the KDE4 hover color when moused-over."
 msgid "<p>If enabled, symbols will use the KDE hover color when moused-over."
-msgstr "<p>如果啓用該項，滑鼠滑過時，符號會使用KDE4的懸停顏色。"
+msgstr "<p>如果啟用該項，滑鼠滑過時，符號會使用KDE4的懸停顏色。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_45)
 #: qt5/config/qtcurveconfigbase.ui:3315
@@ -5685,7 +5672,7 @@ msgstr "爲“自動-缺省”按鈕使用常規大小（KDE4）"
 msgid ""
 "<p>Comma separated list of names of Qt4 applications which should not use "
 "the KDE file dialog."
-msgstr "<p>請用英文逗號將不使用KDE4檔案對話窗的Qt4應用程式名隔開。"
+msgstr "<p>請用英文逗號將不使用KDE4檔案對話框的Qt4應用程式名隔開。"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, menubarApps)
 #: qt5/config/qtcurveconfigbase.ui:3943
@@ -5738,24 +5725,21 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, RadioButton1)
 #: qt5/config/stylepreview.ui:79
-#, fuzzy, kde-format
-#| msgid "Radio button"
+#, kde-format
 msgid "&Radio button"
-msgstr "單選鈕"
+msgstr "選項按鈕(&R)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, RadioButton2)
 #: qt5/config/stylepreview.ui:89
-#, fuzzy, kde-format
-#| msgid "Radio button"
+#, kde-format
 msgid "Radio &button"
-msgstr "單選鈕"
+msgstr "選項按鈕(&B)"
 
 #. i18n: ectx: property (windowTitle), widget (QDockWidget, dockWidget)
 #: qt5/config/stylepreview.ui:275
-#, fuzzy, kde-format
-#| msgid "Dock Widget"
+#, kde-format
 msgid "&Dock Widget"
-msgstr "停靠視窗"
+msgstr "停靠元件(&D)"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt5/config/stylepreview.ui:621
