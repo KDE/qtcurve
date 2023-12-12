@@ -1,18 +1,18 @@
 # translation of qtcurve.po to Slovak
-# Roman Paholik <wizzardsk@gmail.com>, 2017, 2019.
+# SPDX-FileCopyrightText: 2017, 2019, 2023 Roman Paholik <wizzardsk@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 01:47+0000\n"
-"PO-Revision-Date: 2019-08-30 21:15+0200\n"
-"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
+"PO-Revision-Date: 2023-12-11 19:09+0100\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 18.12.3\n"
+"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, fuzzy, kde-format
@@ -263,13 +263,13 @@ msgstr ""
 #: qt4/config/qtcurveconfig.cpp:545 qt5/config/qtcurveconfig.cpp:554
 #, kde-format
 msgid "Menu background"
-msgstr ""
+msgstr "Pozadie ponuky"
 
 #: qt4/config/qtcurveconfig.cpp:545 qt4/config/qtcurveconfig.cpp:636
 #: qt5/config/qtcurveconfig.cpp:554 qt5/config/qtcurveconfig.cpp:645
 #, fuzzy, kde-format
 msgid "Darken"
-msgstr "Zatemniť"
+msgstr "Stmaviť"
 
 #: qt4/config/qtcurveconfig.cpp:547 qt4/kwinconfig/qtcurvekwinconfig.cpp:48
 #: qt5/config/qtcurveconfig.cpp:556 qt5/kwinconfig/qtcurvekwinconfig.cpp:47
@@ -549,7 +549,7 @@ msgstr "Tieňované"
 #: qt4/config/qtcurveconfig.cpp:686 qt5/config/qtcurveconfig.cpp:695
 #, fuzzy, kde-format
 msgid "Simple"
-msgstr "Jednoduchá"
+msgstr "Jednoduchý"
 
 #: qt4/config/qtcurveconfig.cpp:687 qt5/config/qtcurveconfig.cpp:696
 #, kde-format
@@ -582,9 +582,9 @@ msgid "Faded stripes"
 msgstr ""
 
 #: qt4/config/qtcurveconfig.cpp:703 qt5/config/qtcurveconfig.cpp:712
-#, fuzzy, kde-format
+#, kde-format
 msgid "Round"
-msgstr "Kolo"
+msgstr "Okrúhle"
 
 #: qt4/config/qtcurveconfig.cpp:704 qt5/config/qtcurveconfig.cpp:713
 #, kde-format
@@ -792,7 +792,7 @@ msgstr ""
 #: qt4/config/qtcurveconfig.cpp:800 qt5/config/qtcurveconfig.cpp:809
 #, fuzzy, kde-format
 msgid "Small (%1 pixels)"
-msgstr "Malá (%1 pixle):"
+msgstr "Malá (%1 pixlov):"
 
 #: qt4/config/qtcurveconfig.cpp:801 qt5/config/qtcurveconfig.cpp:810
 #, fuzzy, kde-format
@@ -802,17 +802,17 @@ msgstr "Väčšia (%1 pixlov):"
 #: qt4/config/qtcurveconfig.cpp:816 qt5/config/qtcurveconfig.cpp:825
 #, kde-format
 msgid "Titlebar only"
-msgstr ""
+msgstr "Iba záhlavie"
 
 #: qt4/config/qtcurveconfig.cpp:817 qt5/config/qtcurveconfig.cpp:826
 #, kde-format
 msgid "Titlebar and menubar"
-msgstr ""
+msgstr "Záhlavie a ponuka"
 
 #: qt4/config/qtcurveconfig.cpp:818 qt5/config/qtcurveconfig.cpp:827
 #, kde-format
 msgid "Titlebar, menubar, and toolbars"
-msgstr ""
+msgstr "Záhlavie, ponuka a panely nástrojov"
 
 #: qt4/config/qtcurveconfig.cpp:819 qt5/config/qtcurveconfig.cpp:828
 #, kde-format
@@ -870,12 +870,12 @@ msgstr ""
 #: qt5/config/qtcurveconfig.cpp:986 qt5/config/qtcurveconfigbase.ui:1094
 #, fuzzy, kde-format
 msgid " pixels"
-msgstr " pixelov"
+msgstr " pixely"
 
 #: qt4/config/qtcurveconfig.cpp:985 qt5/config/qtcurveconfig.cpp:999
 #, kde-format
 msgid "Menu Background"
-msgstr ""
+msgstr "Pozadie Ponuky"
 
 #: qt4/config/qtcurveconfig.cpp:986 qt5/config/qtcurveconfig.cpp:1000
 #, kde-format
@@ -885,7 +885,7 @@ msgstr "Obrázok na pozadí"
 #: qt4/config/qtcurveconfig.cpp:990 qt5/config/qtcurveconfig.cpp:1004
 #, kde-format
 msgid "Menu Image"
-msgstr ""
+msgstr "Obrázok ponuky"
 
 #: qt4/config/qtcurveconfig.cpp:1732 qt5/config/qtcurveconfig.cpp:1676
 #, kde-format
@@ -980,7 +980,7 @@ msgstr ""
 #: qt4/config/qtcurveconfig.cpp:1748 qt5/config/qtcurveconfig.cpp:1692
 #, fuzzy, kde-format
 msgid "Windows"
-msgstr "Okná"
+msgstr "Windows"
 
 #: qt4/config/qtcurveconfig.cpp:1755 qt5/config/qtcurveconfig.cpp:1698
 #, kde-format
@@ -1009,7 +1009,7 @@ msgstr ""
 #: qt4/config/qtcurveconfig.cpp:1765 qt5/config/qtcurveconfig.cpp:1708
 #, kde-format
 msgid "Menubars"
-msgstr ""
+msgstr "Panely ponuky"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squarePopupMenus)
 #: qt4/config/qtcurveconfig.cpp:1766 qt4/config/qtcurveconfigbase.ui:559
@@ -1291,13 +1291,13 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:23 qt5/config/qtcurveconfigbase.ui:23
 #, fuzzy, kde-format
 msgid "title"
-msgstr "názov"
+msgstr "titulok"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: qt4/config/qtcurveconfigbase.ui:100 qt5/config/qtcurveconfigbase.ui:100
 #, fuzzy, kde-format
 msgid "Presets"
-msgstr "Prednastavenia"
+msgstr "Predvoľby"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, presetsCombo)
 #: qt4/config/qtcurveconfigbase.ui:110 qt5/config/qtcurveconfigbase.ui:110
@@ -1503,7 +1503,7 @@ msgstr "Nástrojové tipy:"
 #: qt4/config/qtcurveconfigbase.ui:370 qt5/config/qtcurveconfigbase.ui:379
 #, kde-format
 msgid "<p>Controls the appearance of tooltip backgrounds.</p>"
-msgstr ""
+msgstr "<p>Ovláda vzhľad pozadia popiskov.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, vArrows)
 #: qt4/config/qtcurveconfigbase.ui:386 qt5/config/qtcurveconfigbase.ui:395
@@ -1707,7 +1707,7 @@ msgstr "Nástrojové tipy"
 #: qt4/config/qtcurveconfigbase.ui:575 qt5/config/qtcurveconfigbase.ui:584
 #, fuzzy, kde-format
 msgid "Windows:"
-msgstr "Okná"
+msgstr "Windows"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, bgndOpacity)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, bgndOpacity)
@@ -3374,7 +3374,7 @@ msgstr "Pomocník:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_38)
 #: qt4/config/qtcurveconfigbase.ui:2640 qt5/config/qtcurveconfigbase.ui:2721
-#, fuzzy, kde-format
+#, kde-format
 msgid "Menu:"
 msgstr "Ponuka:"
 
@@ -4351,7 +4351,7 @@ msgstr "Nastavenia"
 #: qt4/config/qtcurveconfigbase.ui:4030 qt5/config/qtcurveconfigbase.ui:4094
 #, fuzzy, no-c-format, kde-format
 msgid "Position (%)"
-msgstr "Pozícia:"
+msgstr "Pozícia"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, gradStops)
 #: qt4/config/qtcurveconfigbase.ui:4035 qt5/config/qtcurveconfigbase.ui:4099
@@ -4527,19 +4527,19 @@ msgstr "Karta 1"
 
 #. i18n: ectx: property (title), widget (QMenu, menuMenu_1)
 #: qt4/config/stylepreview.ui:37 qt5/config/stylepreview.ui:37
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Menu 1"
-msgstr "Menu"
+msgstr "Ponuka 1"
 
 #. i18n: ectx: property (title), widget (QMenu, menuMenu_2)
 #: qt4/config/stylepreview.ui:46 qt5/config/stylepreview.ui:46
-#, fuzzy, kde-format
+#, kde-format
 msgid "Menu &2"
-msgstr "Menu"
+msgstr "Ponuka 2"
 
 #. i18n: ectx: property (title), widget (QMenu, menu2SubMenu)
 #: qt4/config/stylepreview.ui:50 qt5/config/stylepreview.ui:50
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Submenu"
 msgstr "Podponuka"
 
@@ -4576,7 +4576,7 @@ msgstr "Rozbaľovací zoznam"
 #: qt5/config/stylepreview.ui:210 qt5/config/stylepreview.ui:470
 #, fuzzy, kde-format
 msgid "Item 2"
-msgstr "Položka"
+msgstr "%1 položka"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, ComboBox1)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBox)
@@ -4586,7 +4586,7 @@ msgstr "Položka"
 #: qt5/config/stylepreview.ui:215 qt5/config/stylepreview.ui:445
 #, fuzzy, kde-format
 msgid "Item 3"
-msgstr "Položka"
+msgstr "%1 položka"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, ComboBox1)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBox)
@@ -4596,7 +4596,7 @@ msgstr "Položka"
 #: qt5/config/stylepreview.ui:220 qt5/config/stylepreview.ui:420
 #, fuzzy, kde-format
 msgid "Item 4"
-msgstr "Položka"
+msgstr "%1 položka"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBox)
 #: qt4/config/stylepreview.ui:205 qt5/config/stylepreview.ui:205
@@ -4632,7 +4632,7 @@ msgstr "Stĺpec 2"
 #: qt4/config/stylepreview.ui:320 qt5/config/stylepreview.ui:320
 #, fuzzy, kde-format
 msgid "Item 8"
-msgstr "Položka"
+msgstr "%1 položka"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:324 qt4/config/stylepreview.ui:349
@@ -4690,25 +4690,25 @@ msgstr "Pod 1"
 #: qt4/config/stylepreview.ui:345 qt5/config/stylepreview.ui:345
 #, fuzzy, kde-format
 msgid "Item 7"
-msgstr "Položka"
+msgstr "%1 položka"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:370 qt5/config/stylepreview.ui:370
 #, fuzzy, kde-format
 msgid "Item 6"
-msgstr "Položka"
+msgstr "%1 položka"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:395 qt5/config/stylepreview.ui:395
 #, fuzzy, kde-format
 msgid "Item 5"
-msgstr "Položka"
+msgstr "%1 položka"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:495 qt5/config/stylepreview.ui:495
 #, fuzzy, kde-format
 msgid "Item 1"
-msgstr "Položka"
+msgstr "%1 položka"
 
 #. i18n: ectx: property (plainText), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:534 qt5/config/stylepreview.ui:534
@@ -4728,9 +4728,9 @@ msgstr ""
 
 #. i18n: ectx: property (shortcut), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:549 qt5/config/stylepreview.ui:549
-#, fuzzy, kde-format
+#, kde-format
 msgid "Ctrl+1"
-msgstr "Ctrl+2"
+msgstr "Ctrl+1"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:560 qt5/config/stylepreview.ui:560
@@ -4844,7 +4844,7 @@ msgstr "Bez bočného okraja"
 #: qt5/kwinconfig/qtcurvekwinconfig.cpp:56
 #, fuzzy, kde-format
 msgid "Tiny"
-msgstr "Drobné"
+msgstr "Drobná"
 
 #: qt4/kwinconfig/qtcurvekwinconfig.cpp:58
 #: qt5/kwinconfig/qtcurvekwinconfig.cpp:57
@@ -5157,7 +5157,7 @@ msgstr "Aktívne okná"
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:436
 #, fuzzy, kde-format
 msgid "Size: "
-msgstr "Veľkosť:"
+msgstr "Veľkosť: "
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #. i18n: ectx: property (text), widget (QLabel, label_11)
