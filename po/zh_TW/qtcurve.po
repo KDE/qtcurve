@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: QtCurve-KDE4 1.8.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 01:47+0000\n"
-"PO-Revision-Date: 2023-12-02 19:48+0900\n"
+"PO-Revision-Date: 2023-12-19 17:40+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1904,7 +1904,7 @@ msgstr "<p>定義分組框的背景該被暗化或亮化的程度。</p>"
 #: qt4/config/qtcurveconfigbase.ui:688 qt5/config/qtcurveconfigbase.ui:697
 #, kde-format
 msgid "Label:"
-msgstr "分頁："
+msgstr "標籤："
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gbLabel_bold)
 #: qt4/config/qtcurveconfigbase.ui:695 qt5/config/qtcurveconfigbase.ui:704
@@ -1924,7 +1924,7 @@ msgstr "使用粗體"
 #: qt4/config/qtcurveconfigbase.ui:705 qt5/config/qtcurveconfigbase.ui:714
 #, kde-format
 msgid "<p>Specifies the vertical position of a group box's text label.</p>"
-msgstr "<p>指定分組框文字分頁在垂直方向上的位置。</p>"
+msgstr "<p>指定分組框文字標籤在垂直方向上的位置。</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gbLabel_centred)
 #: qt4/config/qtcurveconfigbase.ui:712 qt5/config/qtcurveconfigbase.ui:721
@@ -1932,7 +1932,7 @@ msgstr "<p>指定分組框文字分頁在垂直方向上的位置。</p>"
 msgid ""
 "<p>Controls whether a group boxe's label should be centred, or left/right "
 "aligned.</p>"
-msgstr "<p>控制分組框的分頁是居中，居左還是居右。</p>"
+msgstr "<p>控制分組框的標籤是居中，居左還是居右。</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gbLabel_centred)
 #: qt4/config/qtcurveconfigbase.ui:715
