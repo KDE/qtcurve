@@ -1,13 +1,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2014, 2015, 2016, 2017, 2020, 2021, 2023.
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2020, 2021, 2023 Stefan Asserhäll <stefan.asserhall@bredband.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-04 00:42+0000\n"
-"PO-Revision-Date: 2023-07-31 11:11+0200\n"
+"PO-Revision-Date: 2023-12-28 10:31+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.08.1\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -4443,13 +4443,7 @@ msgstr "Ordna om Gtk-knappar manuellt"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stdBtnSizes)
 #: qt4/config/qtcurveconfigbase.ui:3701
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Auto-default buttons are buttons that can become 'default' buttons - i."
-#| "e. will react the user pressing 'return'.</p>\n"
-#| "<p>In Gtk2 applications, most 'auto-default' buttons have a taller "
-#| "appearance than standard buttons. QtCurve attempts to mimic this for KDE4 "
-#| "applications - this may be disabled by enabling this option.</p>"
+#, kde-format
 msgid ""
 "<p>Auto-default buttons are buttons that can become 'default' buttons - i.e. "
 "will react to the user pressing 'return'.</p>\n"
