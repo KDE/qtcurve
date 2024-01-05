@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-04 00:42+0000\n"
-"PO-Revision-Date: 2024-01-03 13:01+0100\n"
+"PO-Revision-Date: 2024-01-04 18:05+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -875,7 +875,7 @@ msgstr "Levita kaj kunigita"
 #: qt5/config/qtcurveconfig.cpp:978 qt5/config/qtcurveconfigbase.ui:1094
 #, kde-format
 msgid " pixels"
-msgstr "pikseloj"
+msgstr " rastrumeroj"
 
 #: qt4/config/qtcurveconfig.cpp:985 qt5/config/qtcurveconfig.cpp:991
 #, kde-format
