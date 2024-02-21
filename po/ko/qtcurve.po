@@ -5736,8 +5736,9 @@ msgstr ""
 "<html><head/><body><p>QtCurve에서 Qt에게 네이티브 메뉴 표시줄을 사용하지 않도"
 "록 지시해야 하는 쉼표로 구분된 KDE/Qt 앱 목록입니다.</p><p>Mac 환경에서 일부 "
 "앱의 메뉴 항목이 Mac 스타일 최상위 메뉴 표시줄에 있을 때 예상한 대로 작동하"
-"지 않지만 팝업 메뉴/콘텍스트 메뉴에서는 올바르게 작동하는 경우 여기에 추가해 "
-"보십시오. 변경 사항을 적용하려면 앱을 다시 시작해야 합니다.</p></body></html>"
+"지 않지만 팝업 메뉴/상황에 맞는 메뉴에서는 올바르게 작동하는 경우 여기에 추가"
+"해 보십시오. 변경 사항을 적용하려면 앱을 다시 시작해야 합니다.</p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, RadioButton1)
 #: qt5/config/stylepreview.ui:79
