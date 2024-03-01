@@ -1,24 +1,24 @@
 # Translation of qtcurve.po to Catalan
-# Copyright (C) 2017-2022 This_file_is_part_of_KDE
+# Copyright (C) 2017-2024 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2017, 2018, 2020, 2022.
-# Josep M. Ferrer <txemaq@gmail.com>, 2017, 2018, 2020, 2021.
+# Josep M. Ferrer <txemaq@gmail.com>, 2017, 2018, 2020, 2021, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 01:47+0000\n"
-"PO-Revision-Date: 2022-09-24 18:26+0200\n"
-"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
+"PO-Revision-Date: 2024-02-29 12:22+0100\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -899,7 +899,7 @@ msgstr "Imatge del menú"
 #: qt4/config/qtcurveconfig.cpp:1732 qt5/config/qtcurveconfig.cpp:1676
 #, kde-format
 msgid "Presets and Preview"
-msgstr "Valors predeterminats i vista prèvia"
+msgstr "Valors predefinits i vista prèvia"
 
 #. i18n: ectx: attribute (title), widget (QWidget, generalTab)
 #: qt4/config/qtcurveconfig.cpp:1733
@@ -1171,17 +1171,17 @@ msgstr "Actualitza"
 #: qt4/config/qtcurveconfig.cpp:2527 qt5/config/qtcurveconfig.cpp:2489
 #, kde-format
 msgid "Save Preset"
-msgstr "Desa els valors predeterminats"
+msgstr "Desa els valors predefinits"
 
 #: qt4/config/qtcurveconfig.cpp:2527 qt5/config/qtcurveconfig.cpp:2489
 #, kde-format
 msgid "Please enter a name for the preset:"
-msgstr "Introduïu un nom per als valors predeterminats:"
+msgstr "Introduïu un nom per als valors predefinits:"
 
 #: qt4/config/qtcurveconfig.cpp:2529 qt5/config/qtcurveconfig.cpp:2491
 #, kde-format
 msgid "New preset"
-msgstr "Valors predeterminats nous"
+msgstr "Valors predefinits nous"
 
 #: qt4/config/qtcurveconfig.cpp:2532 qt4/config/qtcurveconfig.cpp:2613
 #: qt4/config/qtcurveconfig.cpp:2623 qt4/config/qtcurveconfig.cpp:2634
@@ -1194,7 +1194,7 @@ msgstr "%1 nou"
 #: qt4/config/qtcurveconfig.cpp:2535 qt5/config/qtcurveconfig.cpp:2497
 #, kde-format
 msgid "Sorry, failed to save preset"
-msgstr "Ha fallat en desar els valors predeterminats"
+msgstr "Ha fallat en desar els valors predefinits"
 
 #: qt4/config/qtcurveconfig.cpp:2611 qt5/config/qtcurveconfig.cpp:2577
 #, kde-format
@@ -1210,7 +1210,7 @@ msgid ""
 "<p>A system defined preset named \"%1\" already exists.</p><p>Please enter a "
 "new name:</p>"
 msgstr ""
-"<p>Ja hi ha uns valors predeterminats amb el nom «%1».</p><p>Si us plau, "
+"<p>Ja hi ha uns valors predefinits amb el nom «%1».</p><p>Si us plau, "
 "introduïu-ne un de nou:</p>"
 
 #: qt4/config/qtcurveconfig.cpp:2627 qt5/config/qtcurveconfig.cpp:2593
@@ -1219,7 +1219,7 @@ msgid ""
 "<p>A preset named \"%1\" already exists.</p><p>Do you wish to overwrite this?"
 "</p>"
 msgstr ""
-"<p>Ja hi ha uns valors predeterminats amb el nom «%1».</p><p>Els voleu "
+"<p>Ja hi ha uns valors predefinits amb el nom «%1».</p><p>Els voleu "
 "sobreescriure?</p>"
 
 #: qt4/config/qtcurveconfig.cpp:2633 qt5/config/qtcurveconfig.cpp:2599
@@ -1236,8 +1236,7 @@ msgstr "<p>Esteu segur que voleu suprimir:</p><p><b>%1</b></p>"
 #, kde-format
 msgid "<p>Sorry, failed to remove the preset file:</p><p><i>%1</i></p>"
 msgstr ""
-"<p>Ha fallat en eliminar el fitxer de valors predeterminats:</p><p><i>%1</"
-"i></p>"
+"<p>Ha fallat en eliminar el fitxer de valors predefinits:</p><p><i>%1</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2669 qt4/config/qtcurveconfig.cpp:2830
 #: qt5/config/qtcurveconfig.cpp:2635 qt5/config/qtcurveconfig.cpp:2793
@@ -1250,7 +1249,7 @@ msgstr "*"
 msgid "<p>Sorry, failed to load file.</p><p><i>Empty preset name?</i></p>"
 msgstr ""
 "<p>Ha fallat en carregar el fitxer.</p><p><i>El nom per als valors "
-"predeterminats està buit?</i></p>"
+"predefinits està buit?</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2685 qt5/config/qtcurveconfig.cpp:2650
 #, kde-format
@@ -1259,7 +1258,7 @@ msgid ""
 "i></p>"
 msgstr ""
 "<p>Ha fallat en carregar el fitxer.</p><p><i>No es poden tenir uns valors "
-"predeterminats anomenats «%1»</i></p>"
+"predefinits anomenats «%1»</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2695 qt5/config/qtcurveconfig.cpp:2659
 #, kde-format
@@ -1287,7 +1286,7 @@ msgstr ""
 #: qt4/config/qtcurveconfig.cpp:2729 qt5/config/qtcurveconfig.cpp:2688
 #, kde-format
 msgid "Import Preset"
-msgstr "Importa els valors predeterminats"
+msgstr "Importa els valors predefinits"
 
 #: qt4/config/qtcurveconfig.cpp:2800 qt5/config/qtcurveconfig.cpp:2762
 #, kde-format
@@ -1342,7 +1341,7 @@ msgstr "títol"
 #: qt4/config/qtcurveconfigbase.ui:100 qt5/config/qtcurveconfigbase.ui:100
 #, kde-format
 msgid "Presets"
-msgstr "Valors predeterminats"
+msgstr "Valors predefinits"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, presetsCombo)
 #: qt4/config/qtcurveconfigbase.ui:110 qt5/config/qtcurveconfigbase.ui:110
