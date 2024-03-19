@@ -230,7 +230,7 @@ if(NOT DEFINED LIB_INSTALL_DIR)
 endif()
 
 cmake_c_include_fix_path()
-if(ENABLE_QT4 OR ENABLE_QT5 OR ENABLE_GTK2)
+if(ENABLE_QT4 OR ENABLE_QT5 OR ENABLE_QT6 OR ENABLE_GTK2)
     add_subdirectory(lib)
     add_subdirectory(tools)
 endif()
