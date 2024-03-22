@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-21 01:41+0000\n"
-"PO-Revision-Date: 2023-12-04 21:34+0100\n"
+"PO-Revision-Date: 2024-03-21 07:07+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -6699,11 +6699,9 @@ msgstr "&navadni element podmenija"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, menuCloseDelay)
 #: qt6/config/qtcurveconfigbase.ui:3419
-#, fuzzy, kde-format
-#| msgid ""
-#| "Defines the delay before a sub-menu closes. Applicable on Qt5.5 or later"
+#, kde-format
 msgid ""
 "Defines the delay before a sub-menu closes. Applicable on Qt6.5 or later"
 msgstr ""
-"Določa zamudo, preden se podmeni zapre. Uporabljeno v Qt5.5 ali kasnejši "
+"Določa zamudo, preden se podmeni zapre. Uporabljeno v Qt6.5 ali kasnejši "
 "različici"

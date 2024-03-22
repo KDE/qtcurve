@@ -1,16 +1,16 @@
 # Translation of qtcurve.po to Catalan
-# Copyright (C) 2017-2023 This_file_is_part_of_KDE
+# Copyright (C) 2017-2024 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2017, 2018, 2020, 2022.
-# Josep M. Ferrer <txemaq@gmail.com>, 2017, 2018, 2020, 2021, 2022, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2017, 2018, 2020, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-21 01:41+0000\n"
-"PO-Revision-Date: 2023-12-04 11:12+0100\n"
+"PO-Revision-Date: 2024-03-21 11:39+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -6804,11 +6804,9 @@ msgstr "Element de submenú no&rmal"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, menuCloseDelay)
 #: qt6/config/qtcurveconfigbase.ui:3419
-#, fuzzy, kde-format
-#| msgid ""
-#| "Defines the delay before a sub-menu closes. Applicable on Qt5.5 or later"
+#, kde-format
 msgid ""
 "Defines the delay before a sub-menu closes. Applicable on Qt6.5 or later"
 msgstr ""
-"Defineix el retard abans que es tanqui un submenú. Aplicable a les Qt 5.5 o "
+"Defineix el retard abans que es tanqui un submenú. Aplicable a les Qt 6.5 o "
 "posteriors"
