@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-21 01:41+0000\n"
-"PO-Revision-Date: 2024-01-04 18:05+0100\n"
+"PO-Revision-Date: 2024-03-23 10:43+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -6672,10 +6672,8 @@ msgstr "&regula submenuero"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, menuCloseDelay)
 #: qt6/config/qtcurveconfigbase.ui:3419
-#, fuzzy, kde-format
-#| msgid ""
-#| "Defines the delay before a sub-menu closes. Applicable on Qt5.5 or later"
+#, kde-format
 msgid ""
 "Defines the delay before a sub-menu closes. Applicable on Qt6.5 or later"
 msgstr ""
-"Difinas la prokraston antaŭ la fermiĝo de submenuo. Aplika sur Qt5.5 aŭ poste"
+"Difinas la prokraston antaŭ ol submenuo fermiĝas. Aplikebla en Qt5.5 aŭ poste"

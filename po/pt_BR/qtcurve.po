@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-21 01:41+0000\n"
-"PO-Revision-Date: 2024-01-11 20:58-0300\n"
+"PO-Revision-Date: 2024-03-23 18:58-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -6763,11 +6763,9 @@ msgstr "&item de submenu normal"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, menuCloseDelay)
 #: qt6/config/qtcurveconfigbase.ui:3419
-#, fuzzy, kde-format
-#| msgid ""
-#| "Defines the delay before a sub-menu closes. Applicable on Qt5.5 or later"
+#, kde-format
 msgid ""
 "Defines the delay before a sub-menu closes. Applicable on Qt6.5 or later"
 msgstr ""
-"Define o tempo de espera até que um submenu se feche. Só se aplica no Qt 5.5 "
+"Define o tempo de espera até que um submenu se feche. Só se aplica no Qt 6.5 "
 "ou posterior"
