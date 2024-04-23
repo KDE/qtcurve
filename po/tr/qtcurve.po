@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kde4-qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-21 01:41+0000\n"
-"PO-Revision-Date: 2024-03-21 13:50+0300\n"
+"PO-Revision-Date: 2024-04-23 01:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.02.0\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1122,7 +1122,7 @@ msgstr "Ayırıcılar"
 #: qt6/config/qtcurveconfig.cpp:1676
 #, kde-format
 msgid "Sliders and Scrollbars"
-msgstr "Kaydırıcılar ve Sarma Çubukları"
+msgstr "Sürgüler ve Sarma Çubukları"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareProgress)
 #: qt4/config/qtcurveconfig.cpp:1741 qt4/config/qtcurveconfigbase.ui:484
@@ -2065,14 +2065,14 @@ msgstr "Genel çerçeveler"
 #: qt6/config/qtcurveconfigbase.ui:540
 #, kde-format
 msgid "Sliders"
-msgstr "Kaydıraçlar"
+msgstr "Sürgüler"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareScrollbarSlider)
 #: qt4/config/qtcurveconfigbase.ui:538 qt5/config/qtcurveconfigbase.ui:547
 #: qt6/config/qtcurveconfigbase.ui:547
 #, kde-format
 msgid "Scrollbar sliders"
-msgstr "Sarma çubuğu kaydırıcıları"
+msgstr "Sarma çubuğu sürgüleri"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareWindows)
 #: qt4/config/qtcurveconfigbase.ui:545 qt5/config/qtcurveconfigbase.ui:554
@@ -2480,8 +2480,8 @@ msgstr ""
 msgid ""
 "<p>Controls the appearance of both scrollbar sliders and other sliders.</p>"
 msgstr ""
-"<p>Hem sarma çubuğu kaydırıcılarının hem de diğer kaydırıcıların görünüşünü "
-"denetler.</p>"
+"<p>Hem sarma çubuğu sürgülerinin hem de diğer sürgülerin görünüşünü denetler."
+"</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_12)
 #. i18n: ectx: property (text), widget (QLabel, label_18)
@@ -2508,8 +2508,8 @@ msgid ""
 "<p>Controls the color setting of both scrollbar sliders and other sliders.</"
 "p>"
 msgstr ""
-"<p>Hem sarma çubuğu kaydırıcılarının hem de diğer kaydırıcıların renk "
-"ayarlarını denetler.</p>"
+"<p>Hem sarma çubuğu sürgülerinin hem de diğer sürgülerin renk ayarlarını "
+"denetler.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, colorSliderMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:943 qt5/config/qtcurveconfigbase.ui:952
@@ -2520,7 +2520,7 @@ msgid ""
 "mouse hovers over the slider.</p>"
 msgstr ""
 "<p>Renklenmenin her zaman olup olmayacağını denetler veya yalnızca farenin "
-"kaydırıcı üzerinde gezinip durduğunda denetler.</p>"
+"sürgü üzerinde gezinip durduğunda denetler.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, colorSliderMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:946 qt5/config/qtcurveconfigbase.ui:955
@@ -2544,15 +2544,15 @@ msgid ""
 "<p>Controls the appearance of standard sliders - i.e. not scrollbar sliders. "
 "'Triangular' is very similar to plastik's sliders.</p>"
 msgstr ""
-"<p>Standart kaydırıcıların görünüşünü denetler - örn. sarma çubuğu "
-"kaydırıcılarının değil. 'Üçgen', plastik kaydırıcılara oldukça benzerdir.</p>"
+"<p>Standart sürgülerin görünüşünü denetler - örn. sarma çubuğu sürgülerinin "
+"değil. 'Üçgen', plastik sürgülere oldukça benzerdir.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_50)
 #: qt4/config/qtcurveconfigbase.ui:967 qt5/config/qtcurveconfigbase.ui:976
 #: qt6/config/qtcurveconfigbase.ui:976
 #, kde-format
 msgid "Used slider groove:"
-msgstr "Kullanılan kaydırıcı oluğu:"
+msgstr "Kullanılan sürgü oluğu:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, fillSlider)
 #: qt4/config/qtcurveconfigbase.ui:974 qt5/config/qtcurveconfigbase.ui:983
@@ -2562,8 +2562,8 @@ msgid ""
 "<p>Indicates whether the used part of a slider's groove should be filled or "
 "not. (Does not affect scrollbar sliders).</p>"
 msgstr ""
-"<p>Kaydırıcı oluğunda kullanılan kısmının doldurulup doldurulmayacağını "
-"belirtir. (Sarma çubuğu kaydırıcılarını etkilemez).</p>"
+"<p>Sürgünün oluğunda kullanılan kısmının doldurulup doldurulmayacağını "
+"belirtir. (Sarma çubuğu sürgülerini etkilemez).</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, fillSlider)
 #: qt4/config/qtcurveconfigbase.ui:977 qt5/config/qtcurveconfigbase.ui:986
@@ -2580,8 +2580,7 @@ msgid ""
 "<p>Controls the gradient setting used for the used part of a standard "
 "sliders' groove.</p>"
 msgstr ""
-"<p>Standart kaydırıcıların olukları için kullanılan geçiş ayarını denetler.</"
-"p>"
+"<p>Standart sürgülerin olukları için kullanılan geçiş ayarını denetler.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_30)
 #: qt4/config/qtcurveconfigbase.ui:991 qt5/config/qtcurveconfigbase.ui:1000
@@ -2598,8 +2597,8 @@ msgid ""
 "<p>Controls the gradient setting used for both scrollbar sliders, and other "
 "sliders.</p>"
 msgstr ""
-"<p>Hem sarma çubuğu kaydırıcıları hem de diğer kaydırıcılar için kullanılan "
-"geçiş ayarını denetler.</p>"
+"<p>Hem sarma çubuğu sürgüleri hem de diğer sürgüler için kullanılan geçiş "
+"ayarını denetler.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, thinSbarGroove)
 #: qt4/config/qtcurveconfigbase.ui:1005 qt5/config/qtcurveconfigbase.ui:1014
@@ -2610,9 +2609,9 @@ msgid ""
 "the slider, or be thinner (and more like the groove of a standard slider).</"
 "p>"
 msgstr ""
-"<p>Sarma çubuğu kaydırıcı oluklarının, kaydırıcı ile aynı kalınlığa mı yoksa "
-"daha ince (ve standart bir kaydırıcının kanalı gibi) olması gerekip "
-"gerekmediğini denetler.</p>"
+"<p>Sarma çubuğu sürgü oluklarının, sürgü ile aynı kalınlığa mı yoksa daha "
+"ince (ve standart bir sürgünün kanalı gibi) olması gerekip gerekmediğini "
+"denetler.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, thinSbarGroove)
 #: qt4/config/qtcurveconfigbase.ui:1008 qt5/config/qtcurveconfigbase.ui:1017
@@ -2653,7 +2652,7 @@ msgstr ""
 "            <ul><li>KDE - sol-üstte 1 düğme ve sağ-altta iki düğme</"
 "li><li>Pencereler - her sonda 1 düğme</li><li>Platinyum - sol-üstte düğme "
 "yok, sağ-altta iki düğme</li><li>Sonraki - sol-üstte iki düğme, sağ-altta "
-"düğme yok</li><li>Hiçbiri - düğme yok, yalnızca kaydırıcı</li></ul></p>"
+"düğme yok</li><li>Hiçbiri - düğme yok, yalnızca sürgü</li></ul></p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, flatSbarButtons)
 #: qt4/config/qtcurveconfigbase.ui:1037 qt5/config/qtcurveconfigbase.ui:1046
@@ -2689,7 +2688,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:1070
 #, kde-format
 msgid "Slider thumbs:"
-msgstr "Kaydırıcı küçük görselleri:"
+msgstr "Sürgü küçük görselleri:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, sliderThumbs)
 #: qt4/config/qtcurveconfigbase.ui:1068 qt5/config/qtcurveconfigbase.ui:1077
@@ -2699,15 +2698,15 @@ msgid ""
 "<p>Defines what markings should be placed in the center of scrollbar sliders "
 "(and plain style sliders).</p>"
 msgstr ""
-"<p>Sarma çubuğu kaydırıcılarının (ve düz biçemli kaydırıcılar) merkezinde "
-"hangi imlerin olması gerektiğini tanımlar.</p>"
+"<p>Sarma çubuğu sürgülerinin (ve düz biçemli sürgüler) merkezinde hangi "
+"imlerin olması gerektiğini tanımlar.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_15a)
 #: qt4/config/qtcurveconfigbase.ui:1075 qt5/config/qtcurveconfigbase.ui:1084
 #: qt6/config/qtcurveconfigbase.ui:1084
 #, kde-format
 msgid "Slider width:"
-msgstr "Kaydırıcı genişliği:"
+msgstr "Sürgü genişliği:"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, sliderWidth)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, sliderWidth)
@@ -2717,8 +2716,7 @@ msgstr "Kaydırıcı genişliği:"
 msgid ""
 "<p>Controls the width of scrollbar sliders, and plain style sliders.</p>"
 msgstr ""
-"<p>Sarma çubuğu kaydırıcıları ve düz biçemli kaydırıcıların genişliğini "
-"denetler.</p>"
+"<p>Sarma çubuğu sürgüleri ve düz biçemli sürgülerin genişliğini denetler.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stripedSbar)
 #: qt4/config/qtcurveconfigbase.ui:1095 qt5/config/qtcurveconfigbase.ui:1104
@@ -5648,8 +5646,8 @@ msgstr ""
 "<li>Sekme araç takımlarının kenarlığı gibi 3B ögelerin koyu kısmı için "
 "kullanılır.</li>\n"
 "<li>İşaretlerin ve radyoların gölgeli kenarlığı, araç çubuğu kenarlıkları "
-"(koyu ayarlandığında), batık/kabarık kaydırma çubuğu kaydırıcıların koyu "
-"kısmı vb. için kullanılır.</li>\n"
+"(koyu ayarlandığında), batık/kabarık kaydırma çubuğu sürgülerin koyu kısmı "
+"vb. için kullanılır.</li>\n"
 "<li>Sıkışık pencere ögelerinin arka planı ve araç çubuklarının kenarlığı "
 "(karanlık olmadığında) kullanılır. </li>\n"
 "<li>Birçok araç takımının kenarlığı olarak kullanılır.</li>\n"
