@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 01:47+0000\n"
-"PO-Revision-Date: 2024-03-23 10:43+0100\n"
+"PO-Revision-Date: 2024-04-08 08:59+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -3014,7 +3014,7 @@ msgid ""
 "<p>If enabled, checkboxes will have a 'tick' to indicate that they are "
 "selected."
 msgstr ""
-"<p>Se enŝaltite, markobutonoj havos 'markon' por indiki ke ili estas "
+"<p>Se enŝaltite, markokestoj havos 'markon' por indiki ke ili estas "
 "elektitaj."
 
 #. i18n: ectx: property (text), widget (QRadioButton, xCheck_false)
@@ -3030,8 +3030,8 @@ msgid ""
 "<p>If enabled, checkboxes will have a 'cross' (or 'X') to indicate that they "
 "are selected."
 msgstr ""
-"<p>Se enŝaltite, markobutonoj havos 'krucon' (aŭ 'X') por indiki ke ili "
-"estas elektitaj."
+"<p>Se enŝaltite, markokestoj havos 'krucon' (aŭ 'X') por indiki ke ili estas "
+"elektitaj."
 
 #. i18n: ectx: property (text), widget (QRadioButton, xCheck)
 #: qt4/config/qtcurveconfigbase.ui:1986 qt5/config/qtcurveconfigbase.ui:2058
@@ -3103,14 +3103,14 @@ msgid ""
 "<p>Controls whether the background of the checkbox, or radio button, should "
 "appear sunken like or button like."
 msgstr ""
-"<p>Regas ĉu la fono de la markobutono, aŭ radiobutono, devus aperi "
-"enprofundigita kiel aŭ butono kiel."
+"<p>Regas ĉu la fono de la markobutono, aŭ radiobutono, devus aperi kvazaŭ "
+"enprofundigite aŭ kvazaŭ butone."
 
 #. i18n: ectx: property (text), widget (QCheckBox, crButton)
 #: qt4/config/qtcurveconfigbase.ui:2077 qt5/config/qtcurveconfigbase.ui:2158
 #, kde-format
 msgid "Button like"
-msgstr "Butono kiel"
+msgstr "Butonece"
 
 #. i18n: ectx: property (text), widget (QLabel, label_87)
 #: qt4/config/qtcurveconfigbase.ui:2084 qt5/config/qtcurveconfigbase.ui:2165
@@ -3132,7 +3132,7 @@ msgid ""
 "set to 'button like'."
 msgstr ""
 "<p>Metas la koloron de elektitaj markobutonoj kaj radiobutonoj kiam ĉi tiuj "
-"estas agordita al 'butono kiel'."
+"estas agordita al 'butonece'."
 
 #. i18n: ectx: property (text), widget (QLabel, label_88)
 #: qt4/config/qtcurveconfigbase.ui:2112 qt5/config/qtcurveconfigbase.ui:2193
@@ -4990,7 +4990,7 @@ msgstr "Radiobutono"
 #: qt4/config/stylepreview.ui:106 qt5/config/stylepreview.ui:106
 #, kde-format
 msgid "Checkbox"
-msgstr "Markobutono"
+msgstr "Markokesto"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, ComboBox1)
 #: qt4/config/stylepreview.ui:178 qt5/config/stylepreview.ui:178
