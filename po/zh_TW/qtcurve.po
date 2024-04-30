@@ -1,13 +1,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # 綠色聖光 <lishaohui.qd@163.com>, 2011.
-# SPDX-FileCopyrightText: 2023 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: QtCurve-KDE4 1.8.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-21 01:41+0000\n"
-"PO-Revision-Date: 2023-12-02 19:49+0900\n"
+"PO-Revision-Date: 2024-04-29 19:48+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 24.04.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -513,7 +513,7 @@ msgstr "無指示"
 #: qt6/config/qtcurveconfig.cpp:644
 #, kde-format
 msgid "KDE"
-msgstr ""
+msgstr "KDE"
 
 #: qt4/config/qtcurveconfig.cpp:644 qt5/config/qtcurveconfig.cpp:645
 #: qt6/config/qtcurveconfig.cpp:645
@@ -963,13 +963,13 @@ msgstr "僅標題列"
 #: qt6/config/qtcurveconfig.cpp:818
 #, kde-format
 msgid "Titlebar and menubar"
-msgstr "標題列和選單條"
+msgstr "標題列和選單列"
 
 #: qt4/config/qtcurveconfig.cpp:818 qt5/config/qtcurveconfig.cpp:819
 #: qt6/config/qtcurveconfig.cpp:819
 #, kde-format
 msgid "Titlebar, menubar, and toolbars"
-msgstr "標題列，選單條和工具列"
+msgstr "標題列，選單列和工具列"
 
 #: qt4/config/qtcurveconfig.cpp:819 qt5/config/qtcurveconfig.cpp:820
 #: qt6/config/qtcurveconfig.cpp:820
@@ -1206,7 +1206,7 @@ msgstr "視窗按鈕顔色"
 #: qt6/config/qtcurveconfig.cpp:1700
 #, kde-format
 msgid "Menubars"
-msgstr "選單條"
+msgstr "選單列"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squarePopupMenus)
 #: qt4/config/qtcurveconfig.cpp:1766 qt4/config/qtcurveconfigbase.ui:559
@@ -1326,9 +1326,9 @@ msgid ""
 "li><li>Set menubar coloration to \"%2\"</li><li>Extend window dragging into "
 "menubar</li>"
 msgstr ""
-"<p>設定以下選項，以使視窗標題列和選單條呈現融合效果嗎？</p><ul><li>選單條，標"
+"<p>設定以下選項，以使視窗標題列和選單列呈現融合效果嗎？</p><ul><li>選單列，標"
 "題列和非活動標題列融合到“%1”</li><li>不啟用“將標題列顔色與背景色融合”。</"
-"li><li>將選單條著色設定成與“%2”相同。</li><li>把視窗拖拽延伸到選單條。</li>"
+"li><li>將選單列著色設定成與“%2”相同。</li><li>把視窗拖拽延伸到選單列。</li>"
 
 #: qt4/config/qtcurveconfig.cpp:2260 qt5/config/qtcurveconfig.cpp:2241
 #: qt6/config/qtcurveconfig.cpp:2240
@@ -3687,14 +3687,14 @@ msgstr "在應用漸變前填充標題列背景。"
 msgid ""
 "<p>If enabled, the configured menubar color will be used for windows that "
 "have menubars."
-msgstr "<p>如果啟用該項，含有選單條的視窗會使用自訂的選單條顔色。"
+msgstr "<p>如果啟用該項，含有選單列的視窗會使用自訂的選單列顔色。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_menuColor)
 #: qt4/config/qtcurveconfigbase.ui:2233 qt5/config/qtcurveconfigbase.ui:2314
 #: qt6/config/qtcurveconfigbase.ui:2314
 #, kde-format
 msgid "Use menubar color"
-msgstr "使用選單條的顔色"
+msgstr "使用選單列的顔色"
 
 #. i18n: ectx: property (text), widget (QLabel, label_55)
 #: qt4/config/qtcurveconfigbase.ui:2240 qt5/config/qtcurveconfigbase.ui:2321
@@ -4120,7 +4120,7 @@ msgstr "常居底端："
 #: qt6/config/qtcurveconfigbase.ui:2993
 #, kde-format
 msgid "<p>Defines the gradient used for the background of menubars."
-msgstr "<p>定義選單條背景的漸變效果。"
+msgstr "<p>定義選單列背景的漸變效果。"
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, menubarBlend)
 #. i18n: ectx: property (toolTip), widget (QPushButton, menubarBlend)
@@ -4133,7 +4133,7 @@ msgstr "<p>定義選單條背景的漸變效果。"
 msgid ""
 "<p>Sets the relevant config items, so that window titlebars and menubars are "
 "blended."
-msgstr "<p>設定相關的自訂項，以使視窗標題列和選單條呈現融合效果。"
+msgstr "<p>設定相關的自訂項，以使視窗標題列和選單列呈現融合效果。"
 
 #. i18n: ectx: property (text), widget (KPushButton, menubarBlend)
 #. i18n: ectx: property (text), widget (QPushButton, menubarBlend)
@@ -4148,7 +4148,7 @@ msgstr "與標題列融合"
 #: qt6/config/qtcurveconfigbase.ui:3020
 #, kde-format
 msgid "<p>Defines the color applied to the background of menubars."
-msgstr "<p>定義選單條背景色。"
+msgstr "<p>定義選單列背景色。"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, shadeMenubarOnlyWhenActive)
 #: qt4/config/qtcurveconfigbase.ui:2962 qt5/config/qtcurveconfigbase.ui:3043
@@ -4157,7 +4157,7 @@ msgstr "<p>定義選單條背景色。"
 msgid ""
 "<p>Defines whether the background coloration should be applied to all "
 "menubars, or just those in active windows."
-msgstr "<p>定義設定的背景色是用於全部的選單條，還是僅用於活動視窗的。"
+msgstr "<p>定義設定的背景色是用於全部的選單列，還是僅用於活動視窗的。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, shadeMenubarOnlyWhenActive)
 #: qt4/config/qtcurveconfigbase.ui:2965 qt5/config/qtcurveconfigbase.ui:3046
@@ -4171,7 +4171,7 @@ msgstr "僅活動視窗"
 #: qt6/config/qtcurveconfigbase.ui:3053
 #, kde-format
 msgid "Menubar text:"
-msgstr "選單條文字："
+msgstr "選單列文字："
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, customMenuTextColor)
 #: qt4/config/qtcurveconfigbase.ui:2985 qt5/config/qtcurveconfigbase.ui:3066
@@ -4197,21 +4197,21 @@ msgstr "自訂顔色（常規/所選）"
 #: qt6/config/qtcurveconfigbase.ui:3082
 #, kde-format
 msgid "<p>Sets the text color of normal menubar items."
-msgstr "<p>設定常規選單條項目的文字顔色。"
+msgstr "<p>設定普通選單列項目的文字顔色。"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, customMenuSelTextColor)
 #: qt4/config/qtcurveconfigbase.ui:3017 qt5/config/qtcurveconfigbase.ui:3098
 #: qt6/config/qtcurveconfigbase.ui:3098
 #, kde-format
 msgid "<p>Sets the text color of selected menubar items."
-msgstr "<p>設定所選選單條項目的文字顔色。"
+msgstr "<p>設定所選選單列項目的文字顔色。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_59)
 #: qt4/config/qtcurveconfigbase.ui:3027 qt5/config/qtcurveconfigbase.ui:3108
 #: qt6/config/qtcurveconfigbase.ui:3108
 #, kde-format
 msgid "Menubar items:"
-msgstr "選單條項目："
+msgstr "選單列項目："
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, menuitemAppearance)
 #: qt4/config/qtcurveconfigbase.ui:3034 qt5/config/qtcurveconfigbase.ui:3115
@@ -4291,7 +4291,7 @@ msgstr "隱藏："
 msgid ""
 "<p>If enabled, menubars may be hidden (and re-shown), by using the 'Ctrl-Alt-"
 "M' key combination."
-msgstr "<p>如果啟用該項，可以通過快捷鍵“Ctrl+Alt+M”來隱藏或重現選單條。"
+msgstr "<p>如果啟用該項，可以通過快捷鍵“Ctrl+Alt+M”來隱藏或重現選單列。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarHiding_keyboard)
 #: qt4/config/qtcurveconfigbase.ui:3081 qt5/config/qtcurveconfigbase.ui:3162
@@ -4308,7 +4308,7 @@ msgid ""
 "<p>If enabled, menubars may be hidden (and re-shown), by using a special "
 "button in the QtCurve kwin decoration."
 msgstr ""
-"<p>如果啟用該項，選單條可以通過QtCurve的Kwin裝飾上的一個特殊按鈕在隱藏或重"
+"<p>如果啟用該項，選單列可以通過QtCurve的Kwin裝飾上的一個特殊按鈕在隱藏或重"
 "現。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarHiding_kwin)
@@ -4326,7 +4326,7 @@ msgstr "視窗標題列按鈕（試驗性的）"
 msgid ""
 "<p>If enabled, the theme will support embedding the menubar of KDE4 "
 "applications in Bespin's XBar."
-msgstr "<p>如果啟用該項，主題將支援嵌入KDE4程式的選單條到Bespin的XBar中。"
+msgstr "<p>如果啟用該項，主題將支援嵌入KDE4程式的選單列到Bespin的XBar中。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_72)
 #: qt4/config/qtcurveconfigbase.ui:3108
@@ -4578,7 +4578,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:3392
 #, kde-format
 msgid "Use menubar colour settings:"
-msgstr "使用選單條的顔色設定："
+msgstr "使用選單列的顔色設定："
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, buttonStyleMenuSections)
 #: qt4/config/qtcurveconfigbase.ui:3359 qt5/config/qtcurveconfigbase.ui:3406
@@ -4639,7 +4639,7 @@ msgstr "<p>定義工具列分隔線的樣式。"
 msgid ""
 "<p>Defines the border type drawn around the toolbar. (This setting also "
 "affects menubars)."
-msgstr "<p>定義工具列周圍的邊框樣式。（該設定同時會影響到選單條）"
+msgstr "<p>定義工具列周圍的邊框樣式。（該設定同時會影響到選單列）"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_4b)
 #: qt4/config/qtcurveconfigbase.ui:3444 qt5/config/qtcurveconfigbase.ui:3508
@@ -5166,7 +5166,7 @@ msgstr "<p>請用英文逗號將不使用KDE4檔案對話框的Qt4應用程式�
 #: qt6/config/qtcurveconfigbase.ui:3936
 #, kde-format
 msgid "Save menubar visibility:"
-msgstr "儲存選單條可見性："
+msgstr "儲存選單列可見性："
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, menubarApps)
 #: qt4/config/qtcurveconfigbase.ui:3879
@@ -5177,8 +5177,8 @@ msgid ""
 "set for all KDE applications. The menubar state of Gtk2 applications is "
 "always manually saved.</p>"
 msgstr ""
-"<p>請用英文逗號將需要QtCurve手動儲存選單條是否可見的KDE4應用程式名隔開。</"
-"p><p>可以使用<i>kde</i>指代全部的KDE程式。而Gtk2應用程式的選單條狀態總會被手"
+"<p>請用英文逗號將需要QtCurve手動儲存選單列是否可見的KDE4應用程式名隔開。</"
+"p><p>可以使用<i>kde</i>指代全部的KDE程式。而Gtk2應用程式的選單列狀態總會被手"
 "動儲存。</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_89)
@@ -5561,26 +5561,23 @@ msgstr "分頁1"
 #. i18n: ectx: property (title), widget (QMenu, menuMenu_1)
 #: qt4/config/stylepreview.ui:37 qt5/config/stylepreview.ui:37
 #: qt6/config/stylepreview.ui:37
-#, fuzzy, kde-format
-#| msgid "Menu:"
+#, kde-format
 msgid "&Menu 1"
-msgstr "選單："
+msgstr "選單 1(&M)："
 
 #. i18n: ectx: property (title), widget (QMenu, menuMenu_2)
 #: qt4/config/stylepreview.ui:46 qt5/config/stylepreview.ui:46
 #: qt6/config/stylepreview.ui:46
-#, fuzzy, kde-format
-#| msgid "Menu:"
+#, kde-format
 msgid "Menu &2"
-msgstr "選單："
+msgstr "選單 2(&2)："
 
 #. i18n: ectx: property (title), widget (QMenu, menu2SubMenu)
 #: qt4/config/stylepreview.ui:50 qt5/config/stylepreview.ui:50
 #: qt6/config/stylepreview.ui:50
-#, fuzzy, kde-format
-#| msgid "Sub-menu delay:"
+#, kde-format
 msgid "&Submenu"
-msgstr "子選單延時："
+msgstr "子選單(&S)："
 
 #. i18n: ectx: property (title), widget (QGroupBox, GroupBox1)
 #: qt4/config/stylepreview.ui:73 qt5/config/stylepreview.ui:73
@@ -5801,32 +5798,30 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:546 qt5/config/stylepreview.ui:546
 #: qt6/config/stylepreview.ui:546
-#, fuzzy, kde-format
-#| msgid "Menubar items:"
+#, kde-format
 msgid "&Regular item 1"
-msgstr "選單條項目："
+msgstr "普通項目 1(&R)："
 
 #. i18n: ectx: property (shortcut), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:549 qt5/config/stylepreview.ui:549
 #: qt6/config/stylepreview.ui:549
 #, kde-format
 msgid "Ctrl+1"
-msgstr ""
+msgstr "Ctrl+1"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:560 qt5/config/stylepreview.ui:560
 #: qt6/config/stylepreview.ui:560
-#, fuzzy, kde-format
-#| msgid "Menubar items:"
+#, kde-format
 msgid "Regular &item 2"
-msgstr "選單條項目："
+msgstr "普通項目 2(&I)："
 
 #. i18n: ectx: property (shortcut), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:563 qt5/config/stylepreview.ui:563
 #: qt6/config/stylepreview.ui:563
 #, kde-format
 msgid "Ctrl+2"
-msgstr ""
+msgstr "Ctrl+2"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:577 qt5/config/stylepreview.ui:577
@@ -5878,7 +5873,7 @@ msgstr "非活動視窗"
 #: qt6/kwin/qtcurvetogglebutton.cpp:58
 #, kde-format
 msgid "Toggle Menubar"
-msgstr "選單條開關"
+msgstr "選單列開關"
 
 #: qt4/kwin/qtcurvetogglebutton.cpp:58 qt5/kwin/qtcurvetogglebutton.cpp:58
 #: qt6/kwin/qtcurvetogglebutton.cpp:58
@@ -6521,8 +6516,8 @@ msgid ""
 "set for all KDE applications. The menubar state of Gtk2 applications is "
 "always manually saved.</p>"
 msgstr ""
-"<p>請用英文逗號將需要QtCurve手動儲存選單條是否可見的KDE4應用程式名隔開。</"
-"p><p>可以使用<i>kde</i>指代全部的KDE程式。而Gtk2應用程式的選單條狀態總會被手"
+"<p>請用英文逗號將需要QtCurve手動儲存選單列是否可見的KDE4應用程式名隔開。</"
+"p><p>可以使用<i>kde</i>指代全部的KDE程式。而Gtk2應用程式的選單列狀態總會被手"
 "動儲存。</p>"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, statusbarApps)
