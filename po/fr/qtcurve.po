@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 01:47+0000\n"
-"PO-Revision-Date: 2023-12-05 11:47+0100\n"
+"PO-Revision-Date: 2024-05-02 16:13+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -755,12 +755,12 @@ msgstr "Gauche à droite"
 #: qt4/config/qtcurveconfig.cpp:776 qt5/config/qtcurveconfig.cpp:785
 #, kde-format
 msgid "New style (KDE and Gtk2 similar)"
-msgstr "Nouveau style (similaire à KDE et Gtk2)"
+msgstr "Nouveau style (similaire à KDE et GTK2)"
 
 #: qt4/config/qtcurveconfig.cpp:777 qt5/config/qtcurveconfig.cpp:786
 #, kde-format
 msgid "Old style (KDE and Gtk2 different)"
-msgstr "Ancien style (différent de KDE et Gtk2)"
+msgstr "Ancien style (différent de KDE et GTK2)"
 
 #: qt4/config/qtcurveconfig.cpp:784 qt5/config/qtcurveconfig.cpp:793
 #, kde-format
@@ -1924,7 +1924,7 @@ msgid ""
 msgstr ""
 "<p><b>Remarque :</b> <i>Les paramètres d'opacité sont <b>expérimentaux</b> "
 "et peuvent provoquer le plantage de certaines applications (notamment celles "
-"reposant sur Gtk2). Si l'une de vos applications plante, utilisez la page "
+"reposant sur GTK2). Si l'une de vos applications plante, utilisez la page "
 "&quot;Applications&quot; pour désactiver les paramètres d'opacité pour cette "
 "application.</i></p>\n"
 "<p><b>Remarque :</b><i><b>NE PAS</b> utiliser les paramètres d'opacité "
@@ -2067,7 +2067,7 @@ msgid ""
 "<p>In Gtk, the list that is attached to a combo-box appears in the same "
 "style as a popup-menu. KDE4 has the ability to mimic this look.</p>"
 msgstr ""
-"<p>Avec Gtk, la liste qui est attachée à une liste déroulante apparaît dans "
+"<p>Avec GTK, la liste qui est attachée à une liste déroulante apparaît dans "
 "le même style qu'un menu contextuel. KDE4 a la capacité de mimer cet aspect. "
 "</p>"
 
@@ -2092,7 +2092,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:800 qt5/config/qtcurveconfigbase.ui:809
 #, kde-format
 msgid "Draw double-arrow for Gtk style"
-msgstr "Dessiner une flèche double pour le style Gtk"
+msgstr "Dessiner une flèche double pour le style GTK"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, unifySpinBtns)
 #: qt4/config/qtcurveconfigbase.ui:824 qt5/config/qtcurveconfigbase.ui:833
@@ -4498,7 +4498,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3683 qt5/config/qtcurveconfigbase.ui:3747
 #, kde-format
 msgid "Use Gtk button order"
-msgstr "Utiliser l'ordre de bouton Gtk"
+msgstr "Utiliser l'ordre de bouton GTK"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, reorderGtkButtons)
 #: qt4/config/qtcurveconfigbase.ui:3690 qt5/config/qtcurveconfigbase.ui:3754
@@ -4508,16 +4508,16 @@ msgid ""
 "attempt to manually set the order of buttons in Gtk dialogs.</p><p><b>NOTE:</"
 "b> This is experimental, and may produce unexpected results!</p>"
 msgstr ""
-"<p>Si ceci est activé et « Utiliser l'ordre des boutons Gtk » ne l'est pas, "
+"<p>Si ceci est activé et « Utiliser l'ordre des boutons GTK » ne l'est pas, "
 "QtCurve tentera de manuellement définir l'ordre des boutons des boîtes de "
-"dialogue Gtk.</p><p><b>Remarque :</b> Ceci est expérimental, et peut "
+"dialogue GTK.</p><p><b>Remarque :</b> Ceci est expérimental, et peut "
 "produire des résultats indéfinis !</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, reorderGtkButtons)
 #: qt4/config/qtcurveconfigbase.ui:3693 qt5/config/qtcurveconfigbase.ui:3757
 #, kde-format
 msgid "Manually re-order Gtk buttons"
-msgstr "Réordonner manuellement les boutons Gtk"
+msgstr "Réordonner manuellement les boutons GTK"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stdBtnSizes)
 #: qt4/config/qtcurveconfigbase.ui:3701
@@ -4532,7 +4532,7 @@ msgstr ""
 "<p>Les boutons auto-défaut sont des boutons qui peuvent devenir des boutons "
 "par défaut - i.e. qui réagiront lorsque l'utilisateur appuiera sur "
 "« Entrée ».</p>\n"
-"<p>Dans les applications Gtk2, la plupart des boutons « auto-défaut » ont "
+"<p>Dans les applications GTK2, la plupart des boutons « auto-défaut » ont "
 "une apparence plus grande que les boutons standards. QtCurve tente de mimer "
 "ceci pour les applications KDE4 - ceci peut être désactivé en activant cette "
 "option.</p>"
@@ -4547,7 +4547,7 @@ msgstr "Utiliser une taille standard pour les boutons « auto-défaut » (KDE4
 #: qt4/config/qtcurveconfigbase.ui:3711 qt5/config/qtcurveconfigbase.ui:3775
 #, kde-format
 msgid "Gtk icons"
-msgstr "Icônes Gtk"
+msgstr "Icônes GTK"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, mapKdeIcons)
 #: qt4/config/qtcurveconfigbase.ui:3718 qt5/config/qtcurveconfigbase.ui:3782
@@ -4557,8 +4557,8 @@ msgid ""
 "names to their Gtk equivalent for Gtk applications."
 msgstr ""
 "<p>Activer cette option de telle sorte que QtCurve puisse tenter de faire "
-"correspondre les noms d'icônes KDE avec leur équivalent Gtk pour les "
-"applications Gtk."
+"correspondre les noms d'icônes KDE avec leur équivalent GTK pour les "
+"applications GTK."
 
 #. i18n: ectx: property (text), widget (QCheckBox, mapKdeIcons)
 #: qt4/config/qtcurveconfigbase.ui:3721 qt5/config/qtcurveconfigbase.ui:3785
@@ -4583,7 +4583,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3748 qt5/config/qtcurveconfigbase.ui:3812
 #, kde-format
 msgid "Gtk expander highlight:"
-msgstr "Mise en avant d'agrandissement Gtk :"
+msgstr "Mise en avant d'agrandissement GTK :"
 
 #. i18n: ectx: property (text), widget (QLabel, shadowSizeLabel)
 #: qt4/config/qtcurveconfigbase.ui:3765 qt5/config/qtcurveconfigbase.ui:3829
@@ -4617,7 +4617,7 @@ msgid ""
 msgstr ""
 "<p>Liste de noms d'applications séparés par des virgules et qui ne devraient "
 "pas utiliser le paramètre de gradient d'arrière-plan. </p><p>Utiliser "
-"<i>gtk</i> pour désactiver ceci pour toutes les applications Gtk2.</p>"
+"<i>gtk</i> pour désactiver ceci pour toutes les applications GTK2.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_82)
 #: qt4/config/qtcurveconfigbase.ui:3802 qt5/config/qtcurveconfigbase.ui:3866
@@ -4635,7 +4635,7 @@ msgid ""
 msgstr ""
 "<p>Liste de noms d'applications séparés par des virgules et qui ne devraient "
 "pas utiliser le paramètre d'image d'arrière-plan. </p><p>Utiliser <i>gtk</i> "
-"pour désactiver ceci pour toutes les applications Gtk2.</p>"
+"pour désactiver ceci pour toutes les applications GTK2.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_81b)
 #: qt4/config/qtcurveconfigbase.ui:3816 qt5/config/qtcurveconfigbase.ui:3880
@@ -4653,13 +4653,13 @@ msgid ""
 msgstr ""
 "<p>Liste de noms d'applications séparés par des virgules et qui ne devraient "
 "pas utiliser le paramètre d'opacité d'arrière-plan. </p><p>Utiliser <i>gtk</"
-"i> pour désactiver ceci pour toutes les applications Gtk2.</p>"
+"i> pour désactiver ceci pour toutes les applications GTK2.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_81mnu)
 #: qt4/config/qtcurveconfigbase.ui:3830 qt5/config/qtcurveconfigbase.ui:3894
 #, kde-format
 msgid "No menu opacity (and no alpha channel for Gtk2):"
-msgstr "Pas d'opacité de menu (et pas de canal alpha pour Gtk2) :"
+msgstr "Pas d'opacité de menu (et pas de canal alpha pour GTK2) :"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, noMenuBgndOpacityApps)
 #: qt4/config/qtcurveconfigbase.ui:3837 qt5/config/qtcurveconfigbase.ui:3901
@@ -4671,10 +4671,10 @@ msgid ""
 "<i>gtk</i> to disable for all Gtk2 applications.</p>"
 msgstr ""
 "<p>Liste de noms d'applications séparés par des virgules et qui ne devraient "
-"pas utiliser le paramètre d'opacité de menu.</p><p><i>Pour Gtk2, cette "
+"pas utiliser le paramètre d'opacité de menu.</p><p><i>Pour GTK2, cette "
 "option désactive également l'usage du canal alpha pour arrondir sans "
 "crénelage les infos-bulles et les menus contextuels.</i></p><p>Utiliser "
-"<i>gtk</i> pour désactiver ceci pour toutes les applications Gtk2.</p>"
+"<i>gtk</i> pour désactiver ceci pour toutes les applications GTK2.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_82y)
 #: qt4/config/qtcurveconfigbase.ui:3844 qt5/config/qtcurveconfigbase.ui:3908
@@ -4692,7 +4692,7 @@ msgid ""
 msgstr ""
 "<p>Liste de noms d'applications séparés par des virgules et qui ne devraient "
 "pas utiliser le paramètre de bande de menu.</p> <p> Utiliser <i>gtk</i> pour "
-"désactiver ceci pour toutes les applications Gtk2.</p>"
+"désactiver ceci pour toutes les applications GTK2.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_83)
 #: qt4/config/qtcurveconfigbase.ui:3858 qt5/config/qtcurveconfigbase.ui:3922
@@ -4728,7 +4728,7 @@ msgstr ""
 "<p>Liste de noms d'applications KDE4 séparés par des virgules pour "
 "lesquelles QtCurve a besoin de manuellement enregistrer si la barre de menu "
 "est masquée ou non.</p> <p>Utiliser <i>kde</i> pour définir ceci pour toutes "
-"les applications KDE. L'état de la barre de menu des applications Gtk2 est "
+"les applications KDE. L'état de la barre de menu des applications GTK2 est "
 "toujours enregistré manuellement.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_89)
@@ -4749,7 +4749,7 @@ msgstr ""
 "<p>Liste de noms d'applications KDE4 séparés par des virgules et où QtCurve "
 "a besoin d'enregistrer manuellement le fait que la barre d'état est masquée "
 "ou non.</p><p>Utiliser <i>kde</i> pour définir ceci pour toutes les "
-"applications KDE. L'état de la barre d'état des applications Gtk2 est "
+"applications KDE. L'état de la barre d'état des applications GTK2 est "
 "toujours enregistré manuellement.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_89a)
@@ -4771,7 +4771,7 @@ msgstr ""
 "<html><head/><body><p>Liste de noms d'applications KDE / Qt séparés par des "
 "virgules pour lesquelles QtCurve doit indiquer à Qt de ne pas utiliser la "
 "barre de menus native.</p><p>Cette fonctionnalité fonctionne uniquement sur "
-"MacOS X /MacOS, elle est conçue pour les applications spis « KF5 » et "
+"macOS X / macOS, elle est conçue pour les applications spis « KF5 » et "
 "« Qt5 ». Les applications doivent être redémarrées pour que les changements "
 "entrent en vigueur.</p></body></html>"
 
@@ -4794,7 +4794,7 @@ msgstr ""
 "<i><p>Dans les listes qui suivent, vous devez saisir le nom d'un exécutable, "
 "par exemple, pour Google Earth, il s'agit de « googleearth-bin ». Vous "
 "pouvez utiliser « gtk2 » pour désactiver le paramètre pour toutes les "
-"applications Gtk2, ou « kde » pour toutes les applications KDE/Qt.</p>\n"
+"applications GTK2, ou « kde » pour toutes les applications KDE/Qt.</p>\n"
 "<p>Pour déterminer le nom que détectera QtCurve, vous pouvez démarrer une "
 "application depuis une fenêtre de console en utilisant la syntaxe suivante "
 "(l'exemple est pour Firefox):</p>\n"
@@ -5841,7 +5841,7 @@ msgid ""
 "<p>In Gtk, the list that is attached to a combo-box appears in the same "
 "style as a popup-menu. KDE has the ability to mimic this look.</p>"
 msgstr ""
-"<p>Avec Gtk, la liste qui est attachée à une liste déroulante apparaît dans "
+"<p>Avec GTK, la liste qui est attachée à une liste déroulante apparaît dans "
 "le même style qu'un menu contextuel. KDE a la capacité de mimer cet aspect. "
 "</p>"
 
@@ -5881,7 +5881,7 @@ msgstr ""
 "<p>Les boutons auto-défaut sont des boutons qui peuvent devenir des boutons "
 "par défaut - i.e. qui réagiront lorsque l'utilisateur appuiera sur "
 "« Entrée ».</p>\n"
-"<p>Dans les applications Gtk2, la plupart des boutons « auto-défaut » ont "
+"<p>Dans les applications GTK2, la plupart des boutons « auto-défaut » ont "
 "une apparence plus grande que les boutons standards. QtCurve tente de mimer "
 "ceci pour les applications KDE - ceci peut être désactivé en activant cette "
 "option.</p>"
@@ -5914,7 +5914,7 @@ msgstr ""
 "<p>Liste de noms d'applications KDE séparés par des virgules pour lesquelles "
 "QtCurve a besoin de manuellement enregistrer si la barre de menu est masquée "
 "ou non.</p> <p>Utiliser <i>kde</i> pour définir ceci pour toutes les "
-"applications KDE. L'état de la barre de menu des applications Gtk2 est "
+"applications KDE. L'état de la barre de menu des applications GTK2 est "
 "toujours enregistré manuellement.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, statusbarApps)
@@ -5929,7 +5929,7 @@ msgstr ""
 "<p>Liste de noms d'applications KDE séparés par des virgules et où QtCurve a "
 "besoin d'enregistrer manuellement le fait que la barre d'état est masquée ou "
 "non.</p><p>Utiliser <i>kde</i> pour définir ceci pour toutes les "
-"applications KDE. L'état de la barre d'état des applications Gtk2 est "
+"applications KDE. L'état de la barre d'état des applications GTK2 est "
 "toujours enregistré manuellement.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, nonnativeMenubarApps)
