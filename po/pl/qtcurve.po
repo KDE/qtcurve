@@ -16,7 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 23.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1283,13 +1282,13 @@ msgstr "Usuń"
 #: qt6/config/qtcurveconfig.cpp:1749
 #, kde-format
 msgid "Import..."
-msgstr "Zaimportuj..."
+msgstr "Importuj..."
 
 #: qt4/config/qtcurveconfig.cpp:1794 qt5/config/qtcurveconfig.cpp:1751
 #: qt6/config/qtcurveconfig.cpp:1751
 #, kde-format
 msgid "Export..."
-msgstr "Wyeksportuj..."
+msgstr "Eksportuj..."
 
 #: qt4/config/qtcurveconfig.cpp:1798 qt5/config/qtcurveconfig.cpp:1756
 #: qt6/config/qtcurveconfig.cpp:1756
