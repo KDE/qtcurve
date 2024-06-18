@@ -43,7 +43,7 @@ QDialogButtonBox *createDialogButtonBox(QDialog *dialog);
 class InputDialog : public QDialog {
     Q_OBJECT
 public:
-    explicit InputDialog(QWidget *parent=nullptr, Qt::WindowFlags=0);
+    explicit InputDialog(QWidget *parent=nullptr, Qt::WindowFlags={});
 
     void setTitle(const QString &title);
     void setLabelText(const QString &label);
@@ -56,7 +56,7 @@ public:
     static QString getText(QWidget *parent, const QString &title,
                            const QString &label, const QString &text,
                            QValidator *validator=nullptr,
-                           bool *ok=nullptr, Qt::WindowFlags flags=0);
+                           bool *ok=nullptr, Qt::WindowFlags flags={});
 
 private:
     void checkValid(const QString &text);

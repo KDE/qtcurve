@@ -67,8 +67,9 @@ CImagePropertiesDialog::CImagePropertiesDialog(const QString &title,
     }
     fileRequester->setMode(KFile::File | KFile::ExistingOnly |
                            KFile::LocalOnly);
-    fileRequester->setFilter("image/svg+xml image/png image/jpeg image/bmp "
-                             "image/gif image/xpixmap");
+    fileRequester->setMimeTypeFilters({QLatin1String("image/svg+xml"), QLatin1String("image/png"),
+                                QLatin1String("image/jpeg"), QLatin1String("image/bmp"),
+                                QLatin1String("image/gif"), QLatin1String("image/xpixmap")});
 
     if (props & SCALE) {
         scaleWidth->setRange(MIN_SIZE, MAX_SIZE);

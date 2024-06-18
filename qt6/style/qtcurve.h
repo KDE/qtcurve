@@ -37,9 +37,9 @@
 #include <QtGlobal>
 #include <QCommonStyle>
 #ifdef QTC_QT6_ENABLE_KDE
-#include <KConfigCore/KSharedConfig>
-#include <KConfigCore/KConfigGroup>
-#include <KStyle/KStyle>
+#include <KSharedConfig>
+#include <KConfigGroup>
+#include <KStyle>
 using ParentStyleClass = KStyle;
 #else
 using ParentStyleClass = QCommonStyle;

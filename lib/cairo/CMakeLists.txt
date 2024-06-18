@@ -23,4 +23,4 @@ set_target_properties(qtcurve-cairo PROPERTIES
   SOVERSION 1
   COMPILE_FLAGS "-fvisibility=hidden"
   LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}")
-install(TARGETS qtcurve-cairo LIBRARY DESTINATION "${LIB_INSTALL_DIR}")
+install(TARGETS qtcurve-cairo LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}")

@@ -43,7 +43,7 @@
 #include <common/config_file.h>
 
 #ifdef QTC_QT6_ENABLE_KDE
-#include <KWidgetsAddons/KTitleWidget>
+#include <KTitleWidget>
 #endif
 
 namespace QtCurve {

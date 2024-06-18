@@ -28,7 +28,8 @@
 #include <QWindow>
 
 #ifdef QTC_QT6_ENABLE_KDE
-#  include <kwindowsystem.h>
+#  include <KWindowSystem>
+#   include <KX11Extras>
 #endif
 
 namespace QtCurve {
@@ -43,7 +44,7 @@ compositingActive()
     // nothing if X11 is not enabled (either at compile time or at run time).
     return qtcX11CompositingActive();
 #else
-    return KWindowSystem::compositingActive();
+    return KWindowSystem::isPlatformWayland() || (KWindowSystem::isPlatformX11() && KX11Extras::compositingActive());
 #endif
 }
 

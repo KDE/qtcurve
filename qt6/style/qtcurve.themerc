@@ -73,6 +73,6 @@ Comment[uk]=Стиль зі значними можливостями із на�
 Comment[x-test]=xxHighly configurable stylexx
 Comment[zh_CN]=高可配置性的样式
 Comment[zh_TW]=非常可自訂的風格
-ConfigPage=kstyle_qtcurve5_config
+ConfigPage=kstyle_qtcurve6_config
 [KDE]
 WidgetStyle=QtCurve

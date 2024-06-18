@@ -62,8 +62,8 @@
 #include <QMimeType>
 #include <QStyleFactory>
 #include <QCloseEvent>
-#include <QRegExp>
-#include <QRegExpValidator>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
 #include <QMenu>
 #include <QTemporaryDir>
 #include <QTemporaryFile>
@@ -224,7 +224,7 @@ static QString toString(const QSet<QString> &set)
 
 static QSet<QString> toSet(const QString &str)
 {
-    QStringList           list=str.simplified().split(QRegExp("\\s*,\\s*"), Qt::SkipEmptyParts);
+    QStringList           list=str.simplified().split(QRegularExpression("\\s*,\\s*"), Qt::SkipEmptyParts);
     QStringList::Iterator it(list.begin()),
                           end(list.end());
 
@@ -317,9 +317,9 @@ public:
         auto buttonBox = QtCurve::createDialogButtonBox(this);
         auto page = new QFrame(this);
         QBoxLayout *layout = new QBoxLayout(QBoxLayout::TopToBottom, page);
-        layout->setMargin(0);
+        layout->setContentsMargins(0, 0, 0, 0);
         layout->setSpacing(QApplication::style()
-                           ->pixelMetric(QStyle::PM_DefaultLayoutSpacing));
+                           ->pixelMetric(QStyle::PM_LayoutVerticalSpacing));
 
         m_selector = new KCharSelect(page, nullptr);
         m_selector->setCurrentChar(QChar(v));
@@ -427,7 +427,7 @@ void CGradientPreview::paintEvent(QPaintEvent *)
     {
         QtCurve::Style::PreviewOption styleOpt;
 
-        styleOpt.init(this);
+        styleOpt.initFrom(this);
 
         cfg->setOptions(styleOpt.opts);
         styleOpt.opts.appearance=APPEARANCE_CUSTOM1;
@@ -1793,7 +1793,7 @@ void QtCurveConfig::setupPreview()
     QVBoxLayout *layout = new QVBoxLayout(previewFrame);
 
     workSpace = new CWorkspace(previewFrame);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->addWidget(workSpace);
 
     previewControlPressed();
@@ -2282,7 +2282,7 @@ void QtCurveConfig::setupGradientsTab()
     gradPreview=new CGradientPreview(this, previewWidgetContainer);
     QBoxLayout *layout=new QBoxLayout(QBoxLayout::TopToBottom, previewWidgetContainer);
     layout->addWidget(gradPreview);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(0);
     QColor col(palette().color(QPalette::Active, QPalette::Button));
     previewColor->setColor(col);
@@ -2579,8 +2579,8 @@ QString
 QtCurveConfig::getPresetName(const QString &cap, QString label, QString def,
                              QString name)
 {
-    QRegExp exp("\\w+[^\\0042\\0044\\0045\\0046\\0047\\0052\\0057\\0077\\0137\\0140]*");
-    QRegExpValidator validator(exp, this);
+    QRegularExpression exp("\\w+[^\\0042\\0044\\0045\\0046\\0047\\0052\\0057\\0077\\0137\\0140]*");
+    QRegularExpressionValidator validator(exp, this);
 
     while (true) {
         if (name.isEmpty()) {
@@ -2617,11 +2617,7 @@ QtCurveConfig::getPresetName(const QString &cap, QString label, QString def,
                         def = i18n("%1 New", name);
                         name = QString();
                     } else if (name == presetsCombo->currentText() ||
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
                                KMessageBox::warningTwoActions(
-#else
-                               KMessageBox::warningYesNo(
-#endif
                                    this, i18n("<p>A preset named \"%1\" "
                                               "already exists.</p><p>Do you "
                                               "wish to overwrite this?</p>",
@@ -2629,11 +2625,7 @@ QtCurveConfig::getPresetName(const QString &cap, QString label, QString def,
                                    QString(),
                                    KStandardGuiItem::overwrite(),
                                    KStandardGuiItem::cancel())
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
                                == KMessageBox::PrimaryAction) {
-#else
-                               == KMessageBox::Yes) {
-#endif
                         return name;
                     } else {
                         label = i18n("<p>Please enter a new name:</p>");
@@ -2654,11 +2646,7 @@ QtCurveConfig::getPresetName(const QString &cap, QString label, QString def,
 
 void QtCurveConfig::deletePreset()
 {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     if(KMessageBox::PrimaryAction==KMessageBox::warningTwoActions(this,
-#else
-    if(KMessageBox::Yes==KMessageBox::warningYesNo(this,
-#endif
         i18n("<p>Are you sure you wish to delete:</p><p><b>%1</b></p>",
              presetsCombo->currentText()),
         QString(),
@@ -2817,11 +2805,7 @@ void QtCurveConfig::importPreset()
 void QtCurveConfig::exportPreset()
 {
 #ifdef QTC_QT6_STYLE_SUPPORT
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     switch (KMessageBox::questionTwoActionsCancel(
-#else
-    switch (KMessageBox::questionYesNoCancel(
-#endif
                 this, i18n("<p>In which format would you like to export the "
                            "QtCurve settings?<ul><li><i>QtCurve settings "
                            "file</i> - a file to be imported via this config "
@@ -2831,19 +2815,11 @@ void QtCurveConfig::exportPreset()
                 i18n("Export Settings"),
                 KGuiItem(i18n("QtCurve Settings File")),
                 KGuiItem(i18n("Standalone Theme")))) {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     case KMessageBox::SecondaryAction:
-#else
-    case KMessageBox::No:
-#endif
         exportTheme();
     case KMessageBox::Cancel:
         return;
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     case KMessageBox::PrimaryAction:
-#else
-    case KMessageBox::Yes:
-#endif
         break;
     }
 #endif

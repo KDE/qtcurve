@@ -28,7 +28,7 @@
 
 #include <qtcurve-utils/qtutils.h>
 
-#include <KConfigCore/KConfig>
+#include <KConfig>
 
 #include <QDBusConnection>
 
@@ -360,5 +360,3 @@ allocate_config(KConfig *config, QWidget *parent)
 {
     return new QtCurve::KWinConfig(config, parent);
 }
-
-#include "qtcurvekwinconfig.moc"

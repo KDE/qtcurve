@@ -76,12 +76,13 @@
 #include <sys/time.h>
 
 #ifdef QTC_QT6_ENABLE_KDE
-#include <KConfigCore/KSharedConfig>
-#include <KWindowSystem/KWindowSystem>
-#include <KConfigWidgets/KColorScheme>
-#include <KConfigWidgets/KStandardAction>
-#include <KXmlGui/KActionCollection>
-#include <KXmlGui/KXmlGuiWindow>
+#include <KSharedConfig>
+#include <KWindowSystem>
+#include <KX11Extras>
+#include <KColorScheme>
+#include <KStandardAction>
+#include <KActionCollection>
+#include <KXmlGuiWindow>
 #endif
 
 #include <qtcurve-utils/color.h>
@@ -408,7 +409,9 @@ void Style::init(bool initial)
 #endif
             connectDBus();
 #ifdef QTC_QT6_ENABLE_KDE
-            connect(KWindowSystem::self(), &KWindowSystem::compositingChanged, this, &Style::compositingToggled);
+            if (KWindowSystem::self()->isPlatformX11()) {
+                connect(KX11Extras::self(), &KX11Extras::compositingChanged, this, &Style::compositingToggled);
+            }
 #endif
             // prepare the cleanup handler
             if (QCoreApplication::instance()) {
@@ -421,8 +424,10 @@ void Style::init(bool initial)
                             // (like QObject::destroyed) but we can reduce the likelihood that pending
                             // signals will be sent to us post-mortem.
 #ifdef QTC_QT6_ENABLE_KDE
-                            disconnect(KWindowSystem::self(), &KWindowSystem::compositingChanged,
-                                       this, &Style::compositingToggled);
+                            if (KWindowSystem::self()->isPlatformX11()) {
+                                disconnect(KX11Extras::self(), &KX11Extras::compositingChanged,
+                                        this, &Style::compositingToggled);
+                            }
 #endif
                         } );
                 } );

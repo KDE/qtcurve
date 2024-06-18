@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 
 project(QtCurve)
 
+include(GNUInstallDirs)
 include(FeatureSummary)
 
 ## Temporary
@@ -51,16 +52,16 @@ option(QTC_ENABLE_X11 "Enable X11" On)
 option(QTC_INSTALL_PO "Install translation files." On)
 
 if(ENABLE_QT4)
-    qtc_option(QTC_QT4_ENABLE_KDE "Building Qt4 style with KDE4 support." On)
+  qtc_option(QTC_QT4_ENABLE_KDE "Building Qt4 style with KDE4 support." On)
 else()
-    qtc_option(QTC_QT4_ENABLE_KDE "Building Qt4 style with KDE4 support." Off)
+  qtc_option(QTC_QT4_ENABLE_KDE "Building Qt4 style with KDE4 support." Off)
 endif()
 if(ENABLE_QT5)
-    qtc_option(QTC_QT5_ENABLE_KDE
-      "Building Qt5 style with KDE Frameworks 5 support." On)
+  qtc_option(QTC_QT5_ENABLE_KDE
+    "Building Qt5 style with KDE Frameworks 5 support." On)
 else()
-    qtc_option(QTC_QT5_ENABLE_KDE
-      "Building Qt5 style with KDE Frameworks 5 support." Off)
+  qtc_option(QTC_QT5_ENABLE_KDE
+    "Building Qt5 style with KDE Frameworks 5 support." Off)
 endif()
 
 option(QTC_QT4_STYLE_SUPPORT
@@ -107,14 +108,14 @@ else()
 endif()
 
 if(QTC_QT4_ENABLE_KDE)
-    find_package(KDE4 QUIET)
-    set(KDE4_KDECONFIG_EXECUTABLE)
-    find_program(KDE4_KDECONFIG_EXECUTABLE NAMES kde4-config
-      PATHS "${CMAKE_INSTALL_PREFIX}/bin" ${_KDEDIRS} /opt/kde4/bin
-      NO_DEFAULT_PATH)
-    if(NOT KDE4_KDECONFIG_EXECUTABLE)
-      find_program(KDE4_KDECONFIG_EXECUTABLE NAMES kde4-config)
-    endif()
+  find_package(KDE4 QUIET)
+  set(KDE4_KDECONFIG_EXECUTABLE)
+  find_program(KDE4_KDECONFIG_EXECUTABLE NAMES kde4-config
+    PATHS "${CMAKE_INSTALL_PREFIX}/bin" ${_KDEDIRS} /opt/kde4/bin
+    NO_DEFAULT_PATH)
+  if(NOT KDE4_KDECONFIG_EXECUTABLE)
+    find_program(KDE4_KDECONFIG_EXECUTABLE NAMES kde4-config)
+  endif()
 endif()
 
 function(get_cmd_var varname def cmd)
@@ -225,27 +226,23 @@ cmake_c_fix_include_path(lib/utils qtcurve-utils)
 cmake_c_fix_include_path(lib/cairo qtcurve-cairo)
 add_definitions("-D_GNU_SOURCE -pthread")
 
-if(NOT DEFINED LIB_INSTALL_DIR)
-  set(LIB_INSTALL_DIR lib)
-endif()
-
 cmake_c_include_fix_path()
 if(ENABLE_QT4 OR ENABLE_QT5 OR ENABLE_QT6 OR ENABLE_GTK2)
-    add_subdirectory(lib)
-    add_subdirectory(tools)
+  add_subdirectory(lib)
+  add_subdirectory(tools)
 endif()
 if(ENABLE_QT4)
-    add_subdirectory(qt4)
+  add_subdirectory(qt4)
 endif()
 if(ENABLE_QT5)
-    add_subdirectory(qt5)
+  add_subdirectory(qt5)
 endif()
 if(ENABLE_QT6)
-    add_subdirectory(qt6)
+  add_subdirectory(qt6)
 endif()
 
 if(ENABLE_GTK2)
-    add_subdirectory(gtk2)
+  add_subdirectory(gtk2)
 endif()
 if(BUILD_TESTING)
   enable_testing()
@@ -253,11 +250,17 @@ if(BUILD_TESTING)
 endif()
 
 if(QTC_INSTALL_PO)
-    find_package(ECM 1.2.0 REQUIRED NO_MODULE)
-    set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
+  find_package(ECM 1.2.0 REQUIRED NO_MODULE)
+  set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
-    find_package(KF5 REQUIRED COMPONENTS
-      I18n)
-    ki18n_install(po)
+  if (ENABLE_QT6)
+    set(KF_MAJOR_VERSION 6)
+  endif()
+  if (ENABLE_QT5)
+    set(KF_MAJOR_VERSION 5)
+  endif()
+  find_package(KF${KF_MAJOR_VERSION} REQUIRED COMPONENTS
+    I18n)
+  ki18n_install(po)
 endif()
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

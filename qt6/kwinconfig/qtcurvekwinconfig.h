@@ -44,7 +44,7 @@ class KWinConfig: public QWidget, public Ui::QtCurveKWinConfigWidget {
 public:
     KWinConfig(KConfig *config, QWidget *parent);
     ~KWinConfig();
-
+//
     void setNote(const QString &txt);
     void load(KConfig *config);
     void save(KConfig *config);

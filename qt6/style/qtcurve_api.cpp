@@ -72,9 +72,9 @@
 
 #ifdef QTC_QT6_ENABLE_KDE
 #include <QPrintDialog>
-#include <KIconThemes/KIconLoader>
-#include <KWidgetsAddons/KTitleWidget>
-#include <KXmlGui/KAboutApplicationDialog>
+#include <KIconLoader>
+#include <KTitleWidget>
+#include <KAboutApplicationDialog>
 #endif
 
 #include <qtcurve-utils/color.h>
