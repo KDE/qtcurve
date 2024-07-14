@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: QtCurve-KDE4 1.8.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-21 01:41+0000\n"
+"POT-Creation-Date: 2024-07-14 01:43+0000\n"
 "PO-Revision-Date: 2024-04-29 19:48+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1391,7 +1391,7 @@ msgstr "新預設"
 #: qt5/config/qtcurveconfig.cpp:2523 qt5/config/qtcurveconfig.cpp:2608
 #: qt5/config/qtcurveconfig.cpp:2618 qt5/config/qtcurveconfig.cpp:2641
 #: qt6/config/qtcurveconfig.cpp:2522 qt6/config/qtcurveconfig.cpp:2607
-#: qt6/config/qtcurveconfig.cpp:2617 qt6/config/qtcurveconfig.cpp:2640
+#: qt6/config/qtcurveconfig.cpp:2617 qt6/config/qtcurveconfig.cpp:2632
 #, kde-format
 msgid "%1 New"
 msgstr "新%1"
@@ -1423,7 +1423,7 @@ msgid ""
 msgstr "<p>一個名爲“%1”的系統預設已經存在。</p><p>請換一個新名字：<p>"
 
 #: qt4/config/qtcurveconfig.cpp:2627 qt5/config/qtcurveconfig.cpp:2626
-#: qt6/config/qtcurveconfig.cpp:2625
+#: qt6/config/qtcurveconfig.cpp:2621
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>A preset named \"%1\" aleady exists.</p><p>Do you wish to overwrite "
@@ -1434,20 +1434,20 @@ msgid ""
 msgstr "<p>一個名爲“%1”的預設已經存在。</p><p>您確定要覆蓋它嗎？<p>"
 
 #: qt4/config/qtcurveconfig.cpp:2633 qt5/config/qtcurveconfig.cpp:2640
-#: qt6/config/qtcurveconfig.cpp:2639
+#: qt6/config/qtcurveconfig.cpp:2631
 #, fuzzy, kde-format
 #| msgid "<p>Please enter a new name:<p>"
 msgid "<p>Please enter a new name:</p>"
 msgstr "<p>請輸入一個新名字：<p>"
 
 #: qt4/config/qtcurveconfig.cpp:2651 qt5/config/qtcurveconfig.cpp:2663
-#: qt6/config/qtcurveconfig.cpp:2662
+#: qt6/config/qtcurveconfig.cpp:2650
 #, kde-format
 msgid "<p>Are you sure you wish to delete:</p><p><b>%1</b></p>"
 msgstr "<p>您確定要刪除該預設？</p><p><b>%1</b></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2661 qt5/config/qtcurveconfig.cpp:2676
-#: qt6/config/qtcurveconfig.cpp:2675
+#: qt6/config/qtcurveconfig.cpp:2663
 #, kde-format
 msgid "<p>Sorry, failed to remove the preset file:</p><p><i>%1</i></p>"
 msgstr "<p>抱歉，無法刪除以下預設檔案：</p><p><i>%1</i></p>"
@@ -1458,13 +1458,13 @@ msgid "*"
 msgstr ""
 
 #: qt4/config/qtcurveconfig.cpp:2682 qt5/config/qtcurveconfig.cpp:2697
-#: qt6/config/qtcurveconfig.cpp:2696
+#: qt6/config/qtcurveconfig.cpp:2684
 #, kde-format
 msgid "<p>Sorry, failed to load file.</p><p><i>Empty preset name?</i></p>"
 msgstr "<p>抱歉，載入檔案失敗。</p><p><i>預設名爲空？</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2685 qt5/config/qtcurveconfig.cpp:2699
-#: qt6/config/qtcurveconfig.cpp:2698
+#: qt6/config/qtcurveconfig.cpp:2686
 #, kde-format
 msgid ""
 "<p>Sorry, failed to load file.</p><p><i>Cannot have a preset named \"%1\"</"
@@ -1472,13 +1472,13 @@ msgid ""
 msgstr "<p>抱歉，載入檔案失敗。</p><p><i>不能將預設命名爲“%1”。</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2695 qt5/config/qtcurveconfig.cpp:2708
-#: qt6/config/qtcurveconfig.cpp:2707
+#: qt6/config/qtcurveconfig.cpp:2695
 #, kde-format
 msgid "Sorry, failed to open compressed file."
 msgstr "抱歉，打開壓縮檔案失敗。"
 
 #: qt4/config/qtcurveconfig.cpp:2714 qt5/config/qtcurveconfig.cpp:2727
-#: qt6/config/qtcurveconfig.cpp:2726
+#: qt6/config/qtcurveconfig.cpp:2714
 #, kde-format
 msgid ""
 "Invalid compressed settings file.\n"
@@ -1488,7 +1488,7 @@ msgstr ""
 "（找不到配置檔案。）"
 
 #: qt4/config/qtcurveconfig.cpp:2720 qt5/config/qtcurveconfig.cpp:2729
-#: qt6/config/qtcurveconfig.cpp:2728
+#: qt6/config/qtcurveconfig.cpp:2716
 #, kde-format
 msgid ""
 "Invalid compressed settings file.\n"
@@ -1498,19 +1498,19 @@ msgstr ""
 "（無法列出壓縮內容。）"
 
 #: qt4/config/qtcurveconfig.cpp:2729 qt5/config/qtcurveconfig.cpp:2737
-#: qt6/config/qtcurveconfig.cpp:2736
+#: qt6/config/qtcurveconfig.cpp:2724
 #, kde-format
 msgid "Import Preset"
 msgstr "匯入預設"
 
 #: qt4/config/qtcurveconfig.cpp:2800 qt5/config/qtcurveconfig.cpp:2811
-#: qt6/config/qtcurveconfig.cpp:2810
+#: qt6/config/qtcurveconfig.cpp:2798
 #, kde-format
 msgid "Sorry, failed to load file."
 msgstr "抱歉，匯入檔案失敗。"
 
 #: qt4/config/qtcurveconfig.cpp:2811 qt5/config/qtcurveconfig.cpp:2826
-#: qt6/config/qtcurveconfig.cpp:2825
+#: qt6/config/qtcurveconfig.cpp:2809
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>In which format would you like to export the QtCurve settings?"
@@ -1528,25 +1528,25 @@ msgstr ""
 "li></ul></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2816 qt5/config/qtcurveconfig.cpp:2832
-#: qt6/config/qtcurveconfig.cpp:2831
+#: qt6/config/qtcurveconfig.cpp:2815
 #, kde-format
 msgid "Export Settings"
 msgstr "匯出設定"
 
 #: qt4/config/qtcurveconfig.cpp:2817 qt5/config/qtcurveconfig.cpp:2833
-#: qt6/config/qtcurveconfig.cpp:2832
+#: qt6/config/qtcurveconfig.cpp:2816
 #, kde-format
 msgid "QtCurve Settings File"
 msgstr "QtCurve設定檔案"
 
 #: qt4/config/qtcurveconfig.cpp:2818 qt5/config/qtcurveconfig.cpp:2834
-#: qt6/config/qtcurveconfig.cpp:2833
+#: qt6/config/qtcurveconfig.cpp:2817
 #, kde-format
 msgid "Standalone Theme"
 msgstr "獨立主題檔案"
 
 #: qt4/config/qtcurveconfig.cpp:2899 qt5/config/qtcurveconfig.cpp:2922
-#: qt6/config/qtcurveconfig.cpp:2921
+#: qt6/config/qtcurveconfig.cpp:2897
 #, kde-format
 msgid ""
 "Could not write to file:\n"
@@ -6404,18 +6404,18 @@ msgctxt "@action:button"
 msgid "Set"
 msgstr ""
 
-#: qt5/config/qtcurveconfig.cpp:2683 qt6/config/qtcurveconfig.cpp:2682
+#: qt5/config/qtcurveconfig.cpp:2683 qt6/config/qtcurveconfig.cpp:2670
 #, kde-format
 msgid "Open"
 msgstr "開啟"
 
 #: qt5/config/qtcurveconfig.cpp:2684 qt5/config/qtcurveconfig.cpp:2854
-#: qt6/config/qtcurveconfig.cpp:2683 qt6/config/qtcurveconfig.cpp:2853
+#: qt6/config/qtcurveconfig.cpp:2671 qt6/config/qtcurveconfig.cpp:2829
 #, kde-format
 msgid "QtCurve Settings Files (*"
 msgstr "QtCurve 設定檔案 (*"
 
-#: qt5/config/qtcurveconfig.cpp:2853 qt6/config/qtcurveconfig.cpp:2852
+#: qt5/config/qtcurveconfig.cpp:2853 qt6/config/qtcurveconfig.cpp:2828
 #, kde-format
 msgid "Save As"
 msgstr "另存新檔"

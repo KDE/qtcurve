@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-21 01:41+0000\n"
+"POT-Creation-Date: 2024-07-14 01:43+0000\n"
 "PO-Revision-Date: 2024-05-24 19:11+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -1399,7 +1399,7 @@ msgstr "New preset"
 #: qt5/config/qtcurveconfig.cpp:2523 qt5/config/qtcurveconfig.cpp:2608
 #: qt5/config/qtcurveconfig.cpp:2618 qt5/config/qtcurveconfig.cpp:2641
 #: qt6/config/qtcurveconfig.cpp:2522 qt6/config/qtcurveconfig.cpp:2607
-#: qt6/config/qtcurveconfig.cpp:2617 qt6/config/qtcurveconfig.cpp:2640
+#: qt6/config/qtcurveconfig.cpp:2617 qt6/config/qtcurveconfig.cpp:2632
 #, kde-format
 msgid "%1 New"
 msgstr "%1 New"
@@ -1429,7 +1429,7 @@ msgstr ""
 "new name:</p>"
 
 #: qt4/config/qtcurveconfig.cpp:2627 qt5/config/qtcurveconfig.cpp:2626
-#: qt6/config/qtcurveconfig.cpp:2625
+#: qt6/config/qtcurveconfig.cpp:2621
 #, kde-format
 msgid ""
 "<p>A preset named \"%1\" already exists.</p><p>Do you wish to overwrite this?"
@@ -1439,19 +1439,19 @@ msgstr ""
 "</p>"
 
 #: qt4/config/qtcurveconfig.cpp:2633 qt5/config/qtcurveconfig.cpp:2640
-#: qt6/config/qtcurveconfig.cpp:2639
+#: qt6/config/qtcurveconfig.cpp:2631
 #, kde-format
 msgid "<p>Please enter a new name:</p>"
 msgstr "<p>Please enter a new name:</p>"
 
 #: qt4/config/qtcurveconfig.cpp:2651 qt5/config/qtcurveconfig.cpp:2663
-#: qt6/config/qtcurveconfig.cpp:2662
+#: qt6/config/qtcurveconfig.cpp:2650
 #, kde-format
 msgid "<p>Are you sure you wish to delete:</p><p><b>%1</b></p>"
 msgstr "<p>Are you sure you wish to delete:</p><p><b>%1</b></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2661 qt5/config/qtcurveconfig.cpp:2676
-#: qt6/config/qtcurveconfig.cpp:2675
+#: qt6/config/qtcurveconfig.cpp:2663
 #, kde-format
 msgid "<p>Sorry, failed to remove the preset file:</p><p><i>%1</i></p>"
 msgstr "<p>Sorry, failed to remove the preset file:</p><p><i>%1</i></p>"
@@ -1462,13 +1462,13 @@ msgid "*"
 msgstr "*"
 
 #: qt4/config/qtcurveconfig.cpp:2682 qt5/config/qtcurveconfig.cpp:2697
-#: qt6/config/qtcurveconfig.cpp:2696
+#: qt6/config/qtcurveconfig.cpp:2684
 #, kde-format
 msgid "<p>Sorry, failed to load file.</p><p><i>Empty preset name?</i></p>"
 msgstr "<p>Sorry, failed to load file.</p><p><i>Empty preset name?</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2685 qt5/config/qtcurveconfig.cpp:2699
-#: qt6/config/qtcurveconfig.cpp:2698
+#: qt6/config/qtcurveconfig.cpp:2686
 #, kde-format
 msgid ""
 "<p>Sorry, failed to load file.</p><p><i>Cannot have a preset named \"%1\"</"
@@ -1478,13 +1478,13 @@ msgstr ""
 "i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2695 qt5/config/qtcurveconfig.cpp:2708
-#: qt6/config/qtcurveconfig.cpp:2707
+#: qt6/config/qtcurveconfig.cpp:2695
 #, kde-format
 msgid "Sorry, failed to open compressed file."
 msgstr "Sorry, failed to open compressed file."
 
 #: qt4/config/qtcurveconfig.cpp:2714 qt5/config/qtcurveconfig.cpp:2727
-#: qt6/config/qtcurveconfig.cpp:2726
+#: qt6/config/qtcurveconfig.cpp:2714
 #, kde-format
 msgid ""
 "Invalid compressed settings file.\n"
@@ -1494,7 +1494,7 @@ msgstr ""
 "(Could not locate settings file.)"
 
 #: qt4/config/qtcurveconfig.cpp:2720 qt5/config/qtcurveconfig.cpp:2729
-#: qt6/config/qtcurveconfig.cpp:2728
+#: qt6/config/qtcurveconfig.cpp:2716
 #, kde-format
 msgid ""
 "Invalid compressed settings file.\n"
@@ -1504,19 +1504,19 @@ msgstr ""
 "(Could not list ZIP contents.)"
 
 #: qt4/config/qtcurveconfig.cpp:2729 qt5/config/qtcurveconfig.cpp:2737
-#: qt6/config/qtcurveconfig.cpp:2736
+#: qt6/config/qtcurveconfig.cpp:2724
 #, kde-format
 msgid "Import Preset"
 msgstr "Import Preset"
 
 #: qt4/config/qtcurveconfig.cpp:2800 qt5/config/qtcurveconfig.cpp:2811
-#: qt6/config/qtcurveconfig.cpp:2810
+#: qt6/config/qtcurveconfig.cpp:2798
 #, kde-format
 msgid "Sorry, failed to load file."
 msgstr "Sorry, failed to load file."
 
 #: qt4/config/qtcurveconfig.cpp:2811 qt5/config/qtcurveconfig.cpp:2826
-#: qt6/config/qtcurveconfig.cpp:2825
+#: qt6/config/qtcurveconfig.cpp:2809
 #, kde-format
 msgid ""
 "<p>In which format would you like to export the QtCurve settings?"
@@ -1530,25 +1530,25 @@ msgstr ""
 "from the KDE style panel.</li></ul></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2816 qt5/config/qtcurveconfig.cpp:2832
-#: qt6/config/qtcurveconfig.cpp:2831
+#: qt6/config/qtcurveconfig.cpp:2815
 #, kde-format
 msgid "Export Settings"
 msgstr "Export Settings"
 
 #: qt4/config/qtcurveconfig.cpp:2817 qt5/config/qtcurveconfig.cpp:2833
-#: qt6/config/qtcurveconfig.cpp:2832
+#: qt6/config/qtcurveconfig.cpp:2816
 #, kde-format
 msgid "QtCurve Settings File"
 msgstr "QtCurve Settings File"
 
 #: qt4/config/qtcurveconfig.cpp:2818 qt5/config/qtcurveconfig.cpp:2834
-#: qt6/config/qtcurveconfig.cpp:2833
+#: qt6/config/qtcurveconfig.cpp:2817
 #, kde-format
 msgid "Standalone Theme"
 msgstr "Standalone Theme"
 
 #: qt4/config/qtcurveconfig.cpp:2899 qt5/config/qtcurveconfig.cpp:2922
-#: qt6/config/qtcurveconfig.cpp:2921
+#: qt6/config/qtcurveconfig.cpp:2897
 #, kde-format
 msgid ""
 "Could not write to file:\n"
@@ -6516,18 +6516,18 @@ msgctxt "@action:button"
 msgid "Set"
 msgstr "Set"
 
-#: qt5/config/qtcurveconfig.cpp:2683 qt6/config/qtcurveconfig.cpp:2682
+#: qt5/config/qtcurveconfig.cpp:2683 qt6/config/qtcurveconfig.cpp:2670
 #, kde-format
 msgid "Open"
 msgstr "Open"
 
 #: qt5/config/qtcurveconfig.cpp:2684 qt5/config/qtcurveconfig.cpp:2854
-#: qt6/config/qtcurveconfig.cpp:2683 qt6/config/qtcurveconfig.cpp:2853
+#: qt6/config/qtcurveconfig.cpp:2671 qt6/config/qtcurveconfig.cpp:2829
 #, kde-format
 msgid "QtCurve Settings Files (*"
 msgstr "QtCurve Settings Files (*"
 
-#: qt5/config/qtcurveconfig.cpp:2853 qt6/config/qtcurveconfig.cpp:2852
+#: qt5/config/qtcurveconfig.cpp:2853 qt6/config/qtcurveconfig.cpp:2828
 #, kde-format
 msgid "Save As"
 msgstr "Save As"
