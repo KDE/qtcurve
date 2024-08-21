@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-14 01:43+0000\n"
-"PO-Revision-Date: 2024-02-05 23:17+0100\n"
+"PO-Revision-Date: 2024-08-21 00:04+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -6567,12 +6567,10 @@ msgstr "일반 하위 메뉴 항목(&R)"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, menuCloseDelay)
 #: qt6/config/qtcurveconfigbase.ui:3419
-#, fuzzy, kde-format
-#| msgid ""
-#| "Defines the delay before a sub-menu closes. Applicable on Qt5.5 or later"
+#, kde-format
 msgid ""
 "Defines the delay before a sub-menu closes. Applicable on Qt6.5 or later"
-msgstr "하위 메뉴를 닫기 전에 지연시간을 정의합니다. Qt 5.5 이상에 적용 가능"
+msgstr "하위 메뉴를 닫기 전에 지연 시간을 정의합니다. Qt 6.5 이상에 적용 가능"
 
 #~ msgid "Restore"
 #~ msgstr "복원"
