@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-14 01:43+0000\n"
-"PO-Revision-Date: 2024-05-02 16:13+0200\n"
+"PO-Revision-Date: 2024-08-16 14:27+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -1584,7 +1584,7 @@ msgstr "titre"
 #: qt6/config/qtcurveconfigbase.ui:100
 #, kde-format
 msgid "Presets"
-msgstr "Pré-configuration"
+msgstr "Préréglages"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, presetsCombo)
 #: qt4/config/qtcurveconfigbase.ui:110 qt5/config/qtcurveconfigbase.ui:110
@@ -3515,7 +3515,7 @@ msgid ""
 "'dot' or 'check' mark."
 msgstr ""
 "<p>Contrôle la couleur de la partie indicatrice d'une case à cocher ou d'un "
-"bouton radio - ie. le point ou la marque de coche."
+"bouton radio - c'est-à-dire, le point ou la marque de coche."
 
 #. i18n: ectx: property (text), widget (QLabel, label_53)
 #: qt4/config/qtcurveconfigbase.ui:1939 qt5/config/qtcurveconfigbase.ui:2002
@@ -5917,7 +5917,7 @@ msgstr "Élément 8"
 #: qt6/config/stylepreview.ui:474 qt6/config/stylepreview.ui:499
 #, kde-format
 msgid "Sub 4"
-msgstr "Sub 4"
+msgstr "Sous 4"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:329 qt4/config/stylepreview.ui:354
@@ -5934,7 +5934,7 @@ msgstr "Sub 4"
 #: qt6/config/stylepreview.ui:479 qt6/config/stylepreview.ui:504
 #, kde-format
 msgid "Sub 3"
-msgstr "Sub 3"
+msgstr "Sous 3"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:334 qt4/config/stylepreview.ui:359
@@ -5951,7 +5951,7 @@ msgstr "Sub 3"
 #: qt6/config/stylepreview.ui:484 qt6/config/stylepreview.ui:509
 #, kde-format
 msgid "Sub 2"
-msgstr "Sub 2"
+msgstr "Sous 2"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:339 qt4/config/stylepreview.ui:364
@@ -5968,7 +5968,7 @@ msgstr "Sub 2"
 #: qt6/config/stylepreview.ui:489 qt6/config/stylepreview.ui:514
 #, kde-format
 msgid "Sub 1"
-msgstr "Sub 1"
+msgstr "Sous 1"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:345 qt5/config/stylepreview.ui:345
@@ -6359,9 +6359,9 @@ msgid ""
 "titlebar text height. Changing this will affect the height of the titlebar "
 "and its buttons. "
 msgstr ""
-"Contrôle la quantité de padding supplémentaire ajouté au haut et au bas de "
-"la hauteur de texte de la barre de titre. Changer ceci affectera la hauteur "
-"de la barre de titre et ses boutons."
+"Contrôle la quantité de remplissage supplémentaire ajouté au haut et au bas "
+"de la hauteur de texte de la barre de titre. Changer ceci affectera la "
+"hauteur de la barre de titre et ses boutons."
 
 #. i18n: ectx: property (suffix), widget (KIntSpinBox, titleBarPad)
 #. i18n: ectx: property (suffix), widget (KIntSpinBox, edgePad)
@@ -6395,9 +6395,9 @@ msgid ""
 "Controls the amount of extra padding added to the titlebar border. Changing "
 "this will only affect the height of the titlebar, and not the buttons. "
 msgstr ""
-"Contrôle la quantité de padding supplémentaire ajouté au bord de la barre de "
-"titre. Changer ceci affectera la hauteur de la barre de titre mais pas celle "
-"des boutons."
+"Contrôle la quantité de remplissage supplémentaire ajouté au bord de la "
+"barre de titre. Changer ceci affectera la hauteur de la barre de titre mais "
+"pas celle des boutons."
 
 #. i18n: ectx: property (text), widget (QLabel, noteLabel)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:182
@@ -6521,7 +6521,7 @@ msgid ""
 "window manager shadows. This will allow you to specify different shadow "
 "colours, etc, for active and inactive windows."
 msgstr ""
-"Si activé, QtCurve dessinera ses propres ombres - and n'utilisera pas les "
+"Si activé, QtCurve dessinera ses propres ombres - et n'utilisera pas les "
 "ombres génériques du gestionnaire de fenêtres. Cela vous permettra de "
 "spécifier différentes couleurs d'ombres, etc., pour les fenêtres actives et "
 "inactives."
