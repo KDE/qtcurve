@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kde4-qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-14 01:43+0000\n"
-"PO-Revision-Date: 2024-04-23 01:31+0300\n"
+"PO-Revision-Date: 2024-09-23 15:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.07.70\n"
+"X-Generator: Lokalize 24.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -231,7 +231,7 @@ msgstr "Birleşik araç takımı biçemi."
 #: qt6/config/qtcurveconfig.cpp:242
 #, kde-format
 msgid "(C) Craig Drummond, 2003-2011 & Yichao Yu, 2013-2015"
-msgstr "(C) Craig Drummond, 2003-2011 & Yichao Yu, 2013-2015"
+msgstr "© Craig Drummond, 2003–2011 ve Yichao Yu, 2013–2015"
 
 #: qt4/config/qtcurveconfig.cpp:256 qt5/config/qtcurveconfig.cpp:257
 #: qt6/config/qtcurveconfig.cpp:257
