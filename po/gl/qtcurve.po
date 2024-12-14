@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 01:47+0000\n"
-"PO-Revision-Date: 2023-09-03 13:32+0200\n"
+"PO-Revision-Date: 2024-12-13 22:30+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.0\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1682,6 +1682,7 @@ msgstr ""
 msgid "Do not round:"
 msgstr "Non arredondar:"
 
+# skip-rule: trasno-sound_reverse
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareEntry)
 #: qt4/config/qtcurveconfigbase.ui:471 qt5/config/qtcurveconfigbase.ui:480
 #, kde-format
@@ -1698,6 +1699,7 @@ msgstr ""
 msgid "Entry fields"
 msgstr "Campos de entrada."
 
+# skip-rule: trasno-sound_reverse
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareProgress)
 #: qt4/config/qtcurveconfigbase.ui:481 qt5/config/qtcurveconfigbase.ui:490
 #, kde-format
@@ -1708,6 +1710,7 @@ msgstr ""
 "<p>Controla se as barras de progreso respectan a opción xeral de "
 "arredondamento ou son sempre rectangulares.</p>"
 
+# skip-rule: trasno-sound_reverse
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:491 qt5/config/qtcurveconfigbase.ui:500
 #, kde-format
@@ -1758,6 +1761,7 @@ msgstr ""
 msgid "Tab widget frames"
 msgstr "Marcos de trebellos de separadores."
 
+# skip-rule: trasno-sound_reverse
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareFrame)
 #: qt4/config/qtcurveconfigbase.ui:521 qt5/config/qtcurveconfigbase.ui:530
 #, kde-format
