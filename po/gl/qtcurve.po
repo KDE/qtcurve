@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-14 01:43+0000\n"
-"PO-Revision-Date: 2024-12-13 22:30+0100\n"
+"PO-Revision-Date: 2024-12-15 10:41+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -4549,6 +4549,7 @@ msgstr "<p>Active esta opción para reducir a altura dos elementos de menú."
 msgid "Thinner"
 msgstr "Máis finos."
 
+# skip-rule: trasno-empty2_reverse
 #. i18n: ectx: property (toolTip), widget (QCheckBox, menuIcons)
 #: qt4/config/qtcurveconfigbase.ui:3156 qt5/config/qtcurveconfigbase.ui:3220
 #: qt6/config/qtcurveconfigbase.ui:3220
@@ -4559,7 +4560,7 @@ msgid ""
 "there)."
 msgstr ""
 "<p>Se se activa, debuxaranse as iconas asociadas cos elementos de menú, "
-"senón as iconas estarán agochar (pero o espazo que ocuparían seguirá aí, "
+"senón as iconas estarán agochadas (pero o espazo que ocuparían seguirá aí, "
 "baleiro)."
 
 #. i18n: ectx: property (text), widget (QCheckBox, menuIcons)
