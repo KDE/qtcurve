@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 01:47+0000\n"
-"PO-Revision-Date: 2024-12-15 10:41+0100\n"
+"PO-Revision-Date: 2024-12-17 19:00+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -3422,8 +3422,8 @@ msgid ""
 "<p>If enabled, the icon will only be shown at full strength when under the "
 "mouse - otherwise it will be blended with the background."
 msgstr ""
-"<p>Se se activa, a icona só se realzará cando teña o rato por riba, senón a "
-"icona fusiónase co fondo."
+"<p>Se se activa, a icona só se volverá opaca cando teña o rato por riba, "
+"senón a icona fusiónase co fondo."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hoverSymbol)
 #: qt4/config/qtcurveconfigbase.ui:2335 qt5/config/qtcurveconfigbase.ui:2416
@@ -3927,6 +3927,7 @@ msgstr "Compatibilidade con XBar:"
 msgid "Menu items:"
 msgstr "Elementos do menú:"
 
+# skip-rule: trasno-item_reverse
 #. i18n: ectx: property (toolTip), widget (QCheckBox, borderMenuitems)
 #: qt4/config/qtcurveconfigbase.ui:3126 qt5/config/qtcurveconfigbase.ui:3190
 #, kde-format
@@ -3945,6 +3946,7 @@ msgstr ""
 msgid "Border"
 msgstr "Bordo."
 
+# skip-rule: trasno-item_reverse
 #. i18n: ectx: property (toolTip), widget (QCheckBox, useHighlightForMenu)
 #: qt4/config/qtcurveconfigbase.ui:3136 qt5/config/qtcurveconfigbase.ui:3200
 #, kde-format
@@ -3961,6 +3963,7 @@ msgstr ""
 msgid "Use 'highlight' color for active items"
 msgstr "Usar a cor de realce para os elementos activos."
 
+# skip-rule: trasno-item_reverse
 #. i18n: ectx: property (toolTip), widget (QCheckBox, thin_menuitems)
 #: qt4/config/qtcurveconfigbase.ui:3146 qt5/config/qtcurveconfigbase.ui:3210
 #, kde-format
@@ -3973,7 +3976,7 @@ msgstr "<p>Active esta opción para reducir a altura dos elementos de menú."
 msgid "Thinner"
 msgstr "Máis finos."
 
-# skip-rule: trasno-empty2_reverse
+# skip-rule: trasno-empty2_reverse, trasno-item_reverse
 #. i18n: ectx: property (toolTip), widget (QCheckBox, menuIcons)
 #: qt4/config/qtcurveconfigbase.ui:3156 qt5/config/qtcurveconfigbase.ui:3220
 #, kde-format
