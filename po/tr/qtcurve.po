@@ -3,13 +3,13 @@
 #
 # Necmettin Begiter <necmettin.begiter@gmail.com>, 2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2014, 2015.
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kde4-qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 01:47+0000\n"
-"PO-Revision-Date: 2024-09-23 15:30+0300\n"
+"PO-Revision-Date: 2025-03-04 12:56+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1905,8 +1905,8 @@ msgid ""
 msgstr ""
 "<p><b>NOT:</b> <i>Matlık ayarları <b>deneyseldir</b> ve belli uygulamaların "
 "(çoğunlukla Gtk2 olanlar) çökmesine neden olabilir. Çöken bir uygulamanız "
-"varsa &quot;Uygulamalar&quot; sayfasından, o uygulama için olan matlık "
-"ayarlarını kapatabilirsiniz.</i></p>\n"
+"varsa “Uygulamalar” sayfasından, o uygulama için olan matlık ayarlarını "
+"kapatabilirsiniz.</i></p>\n"
 "<p><b>NOT:</b><i>Compiz pencere yöneticisi kullanırken matlık ayarlarını "
 "<b>kullanmayın</b>.</i></p>"
 
