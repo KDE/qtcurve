@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the qtcurve package.
-# SPDX-FileCopyrightText: 2018, 2020, 2021, 2022, 2023, 2024 Paolo Zamponi <feus73@gmail.com>
+# SPDX-FileCopyrightText: 2018, 2020, 2021, 2022, 2023, 2024, 2025 Paolo Zamponi <feus73@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-03 01:47+0000\n"
-"PO-Revision-Date: 2022-10-18 07:49+0200\n"
+"PO-Revision-Date: 2025-05-18 18:19+0200\n"
 "Last-Translator: Paolo Zamponi <feus73@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3322,14 +3322,14 @@ msgid ""
 "<p>If enabled, the configured menubar color will be used for windows that "
 "have menubars."
 msgstr ""
-"<p>Se abilitato, il colore configurato della barra dei menu verrà usato per "
+"<p>Se abilitato, il colore configurato della barra del menu verrà usato per "
 "le finestre che hanno le barre dei menu."
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_menuColor)
 #: qt4/config/qtcurveconfigbase.ui:2233 qt5/config/qtcurveconfigbase.ui:2314
 #, kde-format
 msgid "Use menubar color"
-msgstr "Usa colore della barra dei menu"
+msgstr "Usa colore della barra del menu"
 
 #. i18n: ectx: property (text), widget (QLabel, label_55)
 #: qt4/config/qtcurveconfigbase.ui:2240 qt5/config/qtcurveconfigbase.ui:2321
@@ -3801,7 +3801,7 @@ msgstr "Colori personalizzati (normale/selezionato)"
 #, kde-format
 msgid "<p>Sets the text color of normal menubar items."
 msgstr ""
-"<p>Imposta il colore del testo degli elementi normali nella barra dei menu."
+"<p>Imposta il colore del testo degli elementi normali nella barra del menu."
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, customMenuSelTextColor)
 #: qt4/config/qtcurveconfigbase.ui:3017 qt5/config/qtcurveconfigbase.ui:3098
@@ -3867,7 +3867,7 @@ msgid ""
 "be rounded."
 msgstr ""
 "<p>Se abilitato, verrà arrotondata solo la parte alta (e non quella bassa) "
-"degli elementi selezionati della barra dei menu."
+"degli elementi selezionati della barra del menu."
 
 #. i18n: ectx: property (text), widget (QCheckBox, roundMbTopOnly)
 #: qt4/config/qtcurveconfigbase.ui:3064 qt5/config/qtcurveconfigbase.ui:3145
@@ -3925,7 +3925,7 @@ msgid ""
 "<p>If enabled, the theme will support embedding the menubar of KDE4 "
 "applications in Bespin's XBar."
 msgstr ""
-"<p>Se abilitato, il tema supporterà l'incorporamento della barra dei menu "
+"<p>Se abilitato, il tema supporterà l'incorporamento della barra del menu "
 "delle applicazioni KDE4 nella XBar di Bespin."
 
 #. i18n: ectx: property (text), widget (QLabel, label_72)
@@ -4152,7 +4152,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:3345 qt5/config/qtcurveconfigbase.ui:3392
 #, kde-format
 msgid "Use menubar colour settings:"
-msgstr "Usa le impostazioni di colore per la barra dei menu:"
+msgstr "Usa le impostazioni di colore per la barra del menu:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, buttonStyleMenuSections)
 #: qt4/config/qtcurveconfigbase.ui:3359 qt5/config/qtcurveconfigbase.ui:3406
@@ -4710,9 +4710,9 @@ msgid ""
 "always manually saved.</p>"
 msgstr ""
 "<p>Elenco di valori separati da virgola di nomi di applicazioni KDE4 per cui "
-"QtCurve ha bisogno di salvare manualmente se la barra dei menu debba essere "
+"QtCurve ha bisogno di salvare manualmente se la barra del menu debba essere "
 "nascosta o no.</p><p>Usa <i>kde</i> per impostarlo per tutte le applicazioni "
-"di KDE. Lo stato della barra dei menu delle applicazioni Gtk2 viene sempre "
+"di KDE. Lo stato della barra del menu delle applicazioni Gtk2 viene sempre "
 "salvato manualmente.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_89)
@@ -4753,7 +4753,7 @@ msgid ""
 "effect.</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Elenco separato da virgole di nomi di applicazioni KDE/"
-"Qt per le quali QtCurve deve istruire Qt a non utilizzare la barra dei menu "
+"Qt per le quali QtCurve deve istruire Qt a non utilizzare la barra del menu "
 "nativa.</p><p>Questa funzionalità ha effetto solo in Mac OS X/macOS, ed è "
 "pensata per l'uso con le applicazioni KF5 e Qt5. Le applicazioni devono "
 "essere riavviate affinché le modifiche abbiano effetto.</p></body></html>"
@@ -5339,7 +5339,7 @@ msgstr "Finestra inattiva"
 #: qt4/kwin/qtcurvetogglebutton.cpp:58 qt5/kwin/qtcurvetogglebutton.cpp:58
 #, kde-format
 msgid "Toggle Menubar"
-msgstr "Commuta la barra dei menu"
+msgstr "Commuta la barra del menu"
 
 #: qt4/kwin/qtcurvetogglebutton.cpp:58 qt5/kwin/qtcurvetogglebutton.cpp:58
 #, kde-format
@@ -5899,9 +5899,9 @@ msgid ""
 "always manually saved.</p>"
 msgstr ""
 "<p>Elenco di valori separati da virgola di nomi di applicazioni KDE per cui "
-"QtCurve ha bisogno di salvare manualmente se la barra dei menu debba essere "
+"QtCurve ha bisogno di salvare manualmente se la barra del menu debba essere "
 "nascosta o no.</p><p>Usa <i>kde</i> per impostarlo per tutte le applicazioni "
-"KDE. Lo stato della barra dei menu delle applicazioni Gtk2 viene sempre "
+"KDE. Lo stato della barra del menu delle applicazioni Gtk2 viene sempre "
 "salvato manualmente.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, statusbarApps)
@@ -5932,7 +5932,7 @@ msgid ""
 "body></html>"
 msgstr ""
 "<html><head/><body><p>Elenco separato da virgole di nomi di applicazioni KDE/"
-"Qt per le quali QtCurve deve istruire Qt a non utilizzare la barra dei menu "
+"Qt per le quali QtCurve deve istruire Qt a non utilizzare la barra del menu "
 "nativa.</p><p>Provalo su Mac per applicazioni dove alcuni elementi del menu "
 "non si comportano nel modo atteso quando sono parte della barra di menu di "
 "livello superiore stile Mac, ma si comportano correttamente ad esempio in "
