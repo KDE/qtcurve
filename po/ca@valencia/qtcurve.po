@@ -5489,7 +5489,7 @@ msgstr ""
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:65
 #, kde-format
 msgid "Round all corners"
-msgstr "Totes els cantons arredonits"
+msgstr "Tots els cantons arredonits"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, borderlessMax)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:72
