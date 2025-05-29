@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-14 01:43+0000\n"
-"PO-Revision-Date: 2025-05-18 18:19+0200\n"
+"PO-Revision-Date: 2025-05-24 15:46+0200\n"
 "Last-Translator: Paolo Zamponi <feus73@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -4289,7 +4289,7 @@ msgid ""
 "blended."
 msgstr ""
 "<p>Imposta gli elementi di configurazione pertinenti, in modo che le barre "
-"dei titoli e quelle dei menu della finestra siano fuse."
+"del titolo e quelle dei menu della finestra siano fuse."
 
 #. i18n: ectx: property (text), widget (KPushButton, menubarBlend)
 #. i18n: ectx: property (text), widget (QPushButton, menubarBlend)
