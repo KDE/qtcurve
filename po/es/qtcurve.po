@@ -1,15 +1,15 @@
 # Spanish translations for qtcurve.po package.
-# Copyright (C) 2017 This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-#
+# Copyright (C) 2017-2025 This file is copyright:
+# This file is distributed under the same license as the qtcurve package.
 # Automatically generated, 2017.
-# SPDX-FileCopyrightText: 2017, 2020, 2021, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
+#
+# SPDX-FileCopyrightText: 2017, 2020, 2021, 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-14 01:43+0000\n"
-"PO-Revision-Date: 2024-03-23 11:25+0100\n"
+"PO-Revision-Date: 2025-06-17 19:55+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1284,13 +1284,13 @@ msgstr "Borrar"
 #: qt6/config/qtcurveconfig.cpp:1749
 #, kde-format
 msgid "Import..."
-msgstr "Importar..."
+msgstr "Importar…"
 
 #: qt4/config/qtcurveconfig.cpp:1794 qt5/config/qtcurveconfig.cpp:1751
 #: qt6/config/qtcurveconfig.cpp:1751
 #, kde-format
 msgid "Export..."
-msgstr "Exportar..."
+msgstr "Exportar…"
 
 #: qt4/config/qtcurveconfig.cpp:1798 qt5/config/qtcurveconfig.cpp:1756
 #: qt6/config/qtcurveconfig.cpp:1756
@@ -1707,7 +1707,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:3273 qt6/config/qtcurveconfigbase.ui:3306
 #, kde-format
 msgid "..."
-msgstr "..."
+msgstr "…"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, bgndGrad)
 #: qt4/config/qtcurveconfigbase.ui:268 qt5/config/qtcurveconfigbase.ui:277
@@ -5472,7 +5472,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:4020
 #, kde-format
 msgid "Export colors and fonts for KDE3 applications..."
-msgstr "Exportar colores y tipos de letra para aplicaciones KDE3 ..."
+msgstr "Exportar colores y tipos de letra para aplicaciones KDE3 …"
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, exportQt3Button)
 #. i18n: ectx: property (toolTip), widget (QPushButton, exportQt3Button)
@@ -5494,7 +5494,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:4030
 #, kde-format
 msgid "Export colors and fonts for pure-Qt3 applications..."
-msgstr "Exportar colores y tipos de letra para aplicaciones Qt3 puras..."
+msgstr "Exportar colores y tipos de letra para aplicaciones Qt3 puras…"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, gradCombo)
 #: qt4/config/qtcurveconfigbase.ui:3990 qt5/config/qtcurveconfigbase.ui:4054
