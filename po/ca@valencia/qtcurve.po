@@ -1,16 +1,16 @@
 # Translation of qtcurve.po to Catalan (Valencian)
-# Copyright (C) 2017-2024 This_file_is_part_of_KDE
+# Copyright (C) 2017-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2017, 2018, 2020, 2022.
-# Josep M. Ferrer <txemaq@gmail.com>, 2017, 2018, 2020, 2021, 2024.
+# Josep M. Ferrer <txemaq@gmail.com>, 2017, 2018, 2020, 2021, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:55+0000\n"
-"PO-Revision-Date: 2024-02-29 12:22+0100\n"
+"PO-Revision-Date: 2025-07-06 11:44+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1341,7 +1341,7 @@ msgstr "títol"
 #: qt4/config/qtcurveconfigbase.ui:100 qt5/config/qtcurveconfigbase.ui:100
 #, kde-format
 msgid "Presets"
-msgstr "Valors predefinits"
+msgstr "Valors predeterminats"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, presetsCombo)
 #: qt4/config/qtcurveconfigbase.ui:110 qt5/config/qtcurveconfigbase.ui:110
@@ -1385,8 +1385,8 @@ msgid ""
 "<p>Import a QtCurve settings file - such as one downloaded from www.kde-look."
 "org</p>"
 msgstr ""
-"<p>Importa un fitxer de configuració de QtCurve -com un de descarregat des "
-"de «www.kde-look.org»-.</p>"
+"<p>Importa un fitxer de paràmetres de QtCurve -tal com un descarregat des de "
+"«www.kde-look.org»-.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, exportButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, exportButton)
@@ -1728,7 +1728,6 @@ msgstr ""
 msgid "Scrollable windows"
 msgstr "Finestres amb desplaçament"
 
-# skip-rule: kct-treeview
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareLvSelection)
 #: qt4/config/qtcurveconfigbase.ui:501 qt5/config/qtcurveconfigbase.ui:510
 #, kde-format
@@ -2175,7 +2174,7 @@ msgid ""
 "<p>Controls the color setting of both scrollbar sliders and other sliders.</"
 "p>"
 msgstr ""
-"<p>Controla l'opció del color dels controls lliscants de la barra de "
+"<p>Controla la configuració del color dels controls lliscants de la barra de "
 "desplaçament i altres controls lliscants.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, colorSliderMouseOver)
@@ -2241,8 +2240,8 @@ msgid ""
 "<p>Controls the gradient setting used for the used part of a standard "
 "sliders' groove.</p>"
 msgstr ""
-"<p>Controla l'opció per al degradat emprat per la part utilitzada de la "
-"ranura d'un control lliscant estàndard.</p>"
+"<p>Controla la configuració per al degradat emprat per la part utilitzada de "
+"la ranura d'un control lliscant estàndard.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_30)
 #: qt4/config/qtcurveconfigbase.ui:991 qt5/config/qtcurveconfigbase.ui:1000
@@ -2257,8 +2256,8 @@ msgid ""
 "<p>Controls the gradient setting used for both scrollbar sliders, and other "
 "sliders.</p>"
 msgstr ""
-"<p>Controla l'opció del degradat emprat pels controls lliscants de la barra "
-"de desplaçament i altres controls lliscants.</p>"
+"<p>Controla la configuració del degradat emprat pels controls lliscants de "
+"la barra de desplaçament i altres controls lliscants.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, thinSbarGroove)
 #: qt4/config/qtcurveconfigbase.ui:1005 qt5/config/qtcurveconfigbase.ui:1014
@@ -2591,7 +2590,6 @@ msgstr ""
 msgid "Header appearance:"
 msgstr "Aparença de la capçalera:"
 
-# skip-rule: kct-treeview
 #. i18n: ectx: property (toolTip), widget (QComboBox, lvAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1335 qt5/config/qtcurveconfigbase.ui:1344
 #, kde-format
@@ -2654,7 +2652,6 @@ msgstr "<p>Establix el color personalitzat."
 msgid "Rows:"
 msgstr "Files:"
 
-# skip-rule: kct-treeview
 #. i18n: ectx: property (toolTip), widget (QCheckBox, forceAlternateLvCols)
 #: qt4/config/qtcurveconfigbase.ui:1395 qt5/config/qtcurveconfigbase.ui:1404
 #, kde-format
@@ -2685,7 +2682,6 @@ msgstr "Aparença de la selecció:"
 msgid "<p>Defines the gradient to be used when selecting items."
 msgstr "<p>Definix el degradat que s'emprarà quan se seleccionen els elements."
 
-# skip-rule: kct-treeview
 #. i18n: ectx: property (toolTip), widget (QCheckBox, borderSelection)
 #: qt4/config/qtcurveconfigbase.ui:1422 qt5/config/qtcurveconfigbase.ui:1431
 #, kde-format
@@ -2922,8 +2918,8 @@ msgstr "Vora interior de la pestanya inactiva:"
 msgid ""
 "<p>If enabled, inactive tabs will have a border as per the 'Border' setting."
 msgstr ""
-"<p>Si està marcada, les pestanyes inactives tindran una vora d'acord amb "
-"l'opció «Vora»."
+"<p>Si està marcada, les pestanyes inactives tindran una vora d'acord amb la "
+"configuració «Vora»."
 
 #. i18n: ectx: property (text), widget (QRadioButton, borderInactiveTab)
 #: qt4/config/qtcurveconfigbase.ui:1726 qt5/config/qtcurveconfigbase.ui:1762
@@ -3736,7 +3732,6 @@ msgstr "Mantín per davall:"
 msgid "<p>Defines the gradient used for the background of menubars."
 msgstr "<p>Definix el degradat emprat per al fons de les barres de menú."
 
-# skip-rule: kct-menubar
 #. i18n: ectx: property (toolTip), widget (KPushButton, menubarBlend)
 #. i18n: ectx: property (toolTip), widget (QPushButton, menubarBlend)
 #: qt4/config/qtcurveconfigbase.ui:2919 qt5/config/qtcurveconfigbase.ui:3000
@@ -4316,6 +4311,7 @@ msgstr ""
 "<p>Si està marcada, les barres d'estat es podran ocultar (i tornar a "
 "mostrar), emprant un botó especial en la decoració kwin de QtCurve."
 
+# skip-rule: kct-menubar
 #. i18n: ectx: property (text), widget (QLabel, label_73)
 #: qt4/config/qtcurveconfigbase.ui:3575 qt5/config/qtcurveconfigbase.ui:3639
 #, kde-format
@@ -4454,7 +4450,7 @@ msgid ""
 msgstr ""
 "<p>Si està marcada, les icones de la barra de títol de la finestra acoblada "
 "hauran d'emprar els colors de les icones de les finestres estàndard, en cas "
-"contrari s'emprarà l'opció de color del text."
+"contrari s'emprarà la configuració de color del text."
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtIconColAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3659 qt5/config/qtcurveconfigbase.ui:3723
@@ -4602,8 +4598,8 @@ msgid ""
 "applications.</p>"
 msgstr ""
 "<p>Llista separada per comes dels noms de les aplicacions, les quals no "
-"haurien d'emprar l'opció del degradat del fons.</p><p>Utilitzeu <i>gtk</i> "
-"per a desactivar-ho per a totes les aplicacions Gtk2.</p>"
+"haurien d'emprar la configuració per al degradat del fons.</p><p>Utilitzeu "
+"<i>gtk</i> per a desactivar-ho per a totes les aplicacions Gtk2.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_82)
 #: qt4/config/qtcurveconfigbase.ui:3802 qt5/config/qtcurveconfigbase.ui:3866
@@ -4620,8 +4616,8 @@ msgid ""
 "applications.</p>"
 msgstr ""
 "<p>Llista separada per comes dels noms de les aplicacions, les quals no "
-"haurien d'emprar l'opció de la imatge del fons.</p><p>Utilitzeu <i>gtk</i> "
-"per a desactivar-ho per a totes les aplicacions Gtk2.</p>"
+"haurien d'emprar la configuració per a la imatge del fons.</p><p>Utilitzeu "
+"<i>gtk</i> per a desactivar-ho per a totes les aplicacions Gtk2.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_81b)
 #: qt4/config/qtcurveconfigbase.ui:3816 qt5/config/qtcurveconfigbase.ui:3880
@@ -4638,8 +4634,8 @@ msgid ""
 "applications.</p>"
 msgstr ""
 "<p>Llista separada per comes dels noms de les aplicacions, les quals no "
-"haurien d'emprar l'opció de l'opacitat del fons.</p><p>Utilitzeu <i>gtk</i> "
-"per a desactivar-ho per a totes les aplicacions Gtk2.</p>"
+"haurien d'emprar la configuració per a l'opacitat del fons.</p><p>Utilitzeu "
+"<i>gtk</i> per a desactivar-ho per a totes les aplicacions Gtk2.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_81mnu)
 #: qt4/config/qtcurveconfigbase.ui:3830 qt5/config/qtcurveconfigbase.ui:3894
@@ -4657,9 +4653,9 @@ msgid ""
 "<i>gtk</i> to disable for all Gtk2 applications.</p>"
 msgstr ""
 "<p>Llista separada per comes dels noms de les aplicacions, les quals no "
-"haurien d'emprar l'opció de l'opacitat del menú.</p><p><i>Per a Gtk2, esta "
-"opció també es desactiva emprant un canal alfa per a suavitzar "
-"l'arredoniment dels consells d'eines i dels menús emergents.</i></"
+"haurien d'emprar la configuració per a l'opacitat del menú.</p><p><i>Per a "
+"Gtk2, esta opció també es desactiva emprant un canal alfa per a suavitzar "
+"l'arredoniment dels consells d'eina i dels menús emergents.</i></"
 "p><p>Utilitzeu <i>gtk</i> per a desactivar-ho per a totes les aplicacions "
 "Gtk2.</p>"
 
@@ -4678,8 +4674,8 @@ msgid ""
 "applications.</p>"
 msgstr ""
 "<p>Llista separada per comes dels noms de les aplicacions, les quals no "
-"haurien d'emprar l'opció de ratllar el menú.</p><p>Utilitzeu <i>gtk</i> per "
-"a desactivar-ho per a totes les aplicacions Gtk2.</p>"
+"haurien d'emprar la configuració per a ratllar el menú.</p><p>Utilitzeu "
+"<i>gtk</i> per a desactivar-ho per a totes les aplicacions Gtk2.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_83)
 #: qt4/config/qtcurveconfigbase.ui:3858 qt5/config/qtcurveconfigbase.ui:3922
@@ -5159,7 +5155,6 @@ msgstr "Quadro combinat editable"
 msgid "Tab 2"
 msgstr "Pestanya 2"
 
-# skip-rule: kct-dock
 #. i18n: ectx: property (windowTitle), widget (QDockWidget, dockWidget)
 #: qt4/config/stylepreview.ui:275
 #, kde-format
@@ -5260,8 +5255,6 @@ msgstr "Element 5"
 msgid "Item 1"
 msgstr "Element 1"
 
-# Nota: Estrofa de «Sign Of The Cross» del grup Iron Maiden.
-# http://www.azlyrics.com/lyrics/ironmaiden/signofthecross.html
 #. i18n: ectx: property (plainText), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:534 qt5/config/stylepreview.ui:534
 #, kde-format
@@ -5687,7 +5680,7 @@ msgid ""
 "If enabled, only the titlebar part of the decoration will use the opacity "
 "setting."
 msgstr ""
-"Si està marcada, només emprarà la configuració de l'opacitat a la part de "
+"Si està marcada, només emprarà la configuració de l'opacitat a la part de la "
 "decoració de la barra de títol."
 
 #. i18n: ectx: property (text), widget (QCheckBox, opaqueBorder)
@@ -5919,7 +5912,6 @@ msgstr ""
 "KDE. L'estat de la barra d'estat per a les aplicacions Gtk2 sempre es "
 "guardarà manualment.</p>"
 
-# skip-rule: kct-contextmenu
 #. i18n: ectx: property (toolTip), widget (KLineEdit, nonnativeMenubarApps)
 #: qt5/config/qtcurveconfigbase.ui:3971
 #, kde-format
@@ -5940,7 +5932,6 @@ msgstr ""
 "correctament quan formen part d'un menú emergent/contextual. Cal tornar a "
 "iniciar les aplicacions perquè els canvis tinguen efecte.</p></body></html>"
 
-# skip-rule: kct-radiobutton
 #. i18n: ectx: property (text), widget (QRadioButton, RadioButton1)
 #: qt5/config/stylepreview.ui:79
 #, kde-format
@@ -5953,7 +5944,6 @@ msgstr "Botó d'&opció"
 msgid "Radio &button"
 msgstr "&Botó d'opció"
 
-# skip-rule: kct-dock
 #. i18n: ectx: property (windowTitle), widget (QDockWidget, dockWidget)
 #: qt5/config/stylepreview.ui:275
 #, kde-format
