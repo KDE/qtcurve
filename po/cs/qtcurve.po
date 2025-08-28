@@ -1383,10 +1383,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_75)
 #: qt4/config/qtcurveconfigbase.ui:243 qt4/config/qtcurveconfigbase.ui:3193
 #: qt5/config/qtcurveconfigbase.ui:252 qt5/config/qtcurveconfigbase.ui:3257
-#, fuzzy, kde-format
-#| msgid "Background image:"
+#, kde-format
 msgid "Background appearance:"
-msgstr "Obrázek na pozadí:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, bgndAppearance)
 #: qt4/config/qtcurveconfigbase.ui:252 qt5/config/qtcurveconfigbase.ui:261
@@ -1435,10 +1434,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_29)
 #: qt4/config/qtcurveconfigbase.ui:301 qt5/config/qtcurveconfigbase.ui:310
-#, fuzzy, kde-format
-#| msgid "Appearance:"
+#, kde-format
 msgid "Sunken appearance:"
-msgstr "Vzhled:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, sunkenAppearance)
 #: qt4/config/qtcurveconfigbase.ui:308 qt5/config/qtcurveconfigbase.ui:317
@@ -1452,10 +1450,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_102)
 #: qt4/config/qtcurveconfigbase.ui:315 qt4/config/qtcurveconfigbase.ui:3509
 #: qt5/config/qtcurveconfigbase.ui:324 qt5/config/qtcurveconfigbase.ui:3573
-#, fuzzy, kde-format
-#| msgid "Button:"
+#, kde-format
 msgid "Button effect:"
-msgstr "Tlačítko:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, buttonEffect)
 #: qt4/config/qtcurveconfigbase.ui:322 qt5/config/qtcurveconfigbase.ui:331
@@ -1472,10 +1469,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, thin_buttons)
 #: qt4/config/qtcurveconfigbase.ui:332 qt5/config/qtcurveconfigbase.ui:341
-#, fuzzy, kde-format
-#| msgid "No buttons"
+#, kde-format
 msgid "Thinner buttons"
-msgstr "Žádná tlačítka"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, etchEntry)
 #: qt4/config/qtcurveconfigbase.ui:339 qt5/config/qtcurveconfigbase.ui:348
@@ -1554,10 +1550,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, darkerBorders)
 #: qt4/config/qtcurveconfigbase.ui:409 qt5/config/qtcurveconfigbase.ui:418
-#, fuzzy, kde-format
-#| msgid "Outer border:"
+#, kde-format
 msgid "Darker borders"
-msgstr "Vnější ohraničení:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, fadeLines)
 #: qt4/config/qtcurveconfigbase.ui:416 qt5/config/qtcurveconfigbase.ui:425
@@ -1595,10 +1590,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: qt4/config/qtcurveconfigbase.ui:450 qt5/config/qtcurveconfigbase.ui:459
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgid "General setting:"
-msgstr "Obecné"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, round)
 #: qt4/config/qtcurveconfigbase.ui:457 qt5/config/qtcurveconfigbase.ui:466
@@ -1610,10 +1604,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_93)
 #: qt4/config/qtcurveconfigbase.ui:464 qt5/config/qtcurveconfigbase.ui:473
-#, fuzzy, kde-format
-#| msgid "Do not show"
+#, kde-format
 msgid "Do not round:"
-msgstr "Nezobrazovat"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareEntry)
 #: qt4/config/qtcurveconfigbase.ui:471 qt5/config/qtcurveconfigbase.ui:480
@@ -1647,10 +1640,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:494 qt5/config/qtcurveconfigbase.ui:503
-#, fuzzy, kde-format
-#| msgid "Active windows:"
+#, kde-format
 msgid "Scrollable windows"
-msgstr "Aktivní okna:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareLvSelection)
 #: qt4/config/qtcurveconfigbase.ui:501 qt5/config/qtcurveconfigbase.ui:510
@@ -1690,10 +1682,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareFrame)
 #: qt4/config/qtcurveconfigbase.ui:524 qt5/config/qtcurveconfigbase.ui:533
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgid "General frames"
-msgstr "Obecné"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareSlider)
 #: qt4/config/qtcurveconfigbase.ui:531 qt5/config/qtcurveconfigbase.ui:540
@@ -1802,10 +1793,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_yy)
 #: qt4/config/qtcurveconfigbase.ui:609 qt5/config/qtcurveconfigbase.ui:618
-#, fuzzy, kde-format
-#| msgid "Popup menus"
+#, kde-format
 msgid "Pop-up menus:"
-msgstr "Vyskakovací nabídky"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, menuBgndOpacity)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, menuBgndOpacity)
@@ -1855,10 +1845,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, gbLabel_bold)
 #: qt4/config/qtcurveconfigbase.ui:698 qt5/config/qtcurveconfigbase.ui:707
-#, fuzzy, kde-format
-#| msgid "Bold font"
+#, kde-format
 msgid "Use bold font"
-msgstr "Tučné písmo"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, gbLabel_textPos)
 #: qt4/config/qtcurveconfigbase.ui:705 qt5/config/qtcurveconfigbase.ui:714
@@ -1876,10 +1865,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, gbLabel_centred)
 #: qt4/config/qtcurveconfigbase.ui:715
-#, fuzzy, kde-format
-#| msgid "Centred (KDE only)"
+#, kde-format
 msgid "Centred (KDE4 only)"
-msgstr "Na střed (pouze KDE)"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_46)
 #: qt4/config/qtcurveconfigbase.ui:726 qt5/config/qtcurveconfigbase.ui:735
@@ -1981,10 +1969,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, unifySpinBtns)
 #: qt4/config/qtcurveconfigbase.ui:827 qt5/config/qtcurveconfigbase.ui:836
-#, fuzzy, kde-format
-#| msgid "No buttons"
+#, kde-format
 msgid "Combine both buttons"
-msgstr "Žádná tlačítka"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, unifySpin)
 #: qt4/config/qtcurveconfigbase.ui:834 qt5/config/qtcurveconfigbase.ui:843
@@ -2046,10 +2033,9 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:2929 qt5/config/qtcurveconfigbase.ui:922
 #: qt5/config/qtcurveconfigbase.ui:1293 qt5/config/qtcurveconfigbase.ui:1972
 #: qt5/config/qtcurveconfigbase.ui:2274 qt5/config/qtcurveconfigbase.ui:3010
-#, fuzzy, kde-format
-#| msgid "Color:"
+#, kde-format
 msgid "Coloration:"
-msgstr "Barva:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, shadeSliders)
 #: qt4/config/qtcurveconfigbase.ui:920 qt5/config/qtcurveconfigbase.ui:929
@@ -2148,17 +2134,15 @@ msgstr "Tenký"
 #. i18n: ectx: property (text), widget (QCheckBox, borderSelection)
 #: qt4/config/qtcurveconfigbase.ui:1015 qt4/config/qtcurveconfigbase.ui:1425
 #: qt5/config/qtcurveconfigbase.ui:1024 qt5/config/qtcurveconfigbase.ui:1434
-#, fuzzy, kde-format
-#| msgid "Border"
+#, kde-format
 msgid "Bordered"
-msgstr "Ohraničení"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_14)
 #: qt4/config/qtcurveconfigbase.ui:1022 qt5/config/qtcurveconfigbase.ui:1031
-#, fuzzy, kde-format
-#| msgid "No buttons"
+#, kde-format
 msgid "Scrollbar buttons:"
-msgstr "Žádná tlačítka"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, scrollbarType)
 #: qt4/config/qtcurveconfigbase.ui:1030 qt5/config/qtcurveconfigbase.ui:1039
@@ -2196,10 +2180,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_15)
 #: qt4/config/qtcurveconfigbase.ui:1061 qt5/config/qtcurveconfigbase.ui:1070
-#, fuzzy, kde-format
-#| msgid "Sliders"
+#, kde-format
 msgid "Slider thumbs:"
-msgstr "Posuvníky"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, sliderThumbs)
 #: qt4/config/qtcurveconfigbase.ui:1068 qt5/config/qtcurveconfigbase.ui:1077
@@ -2211,10 +2194,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_15a)
 #: qt4/config/qtcurveconfigbase.ui:1075 qt5/config/qtcurveconfigbase.ui:1084
-#, fuzzy, kde-format
-#| msgid "Sliders"
+#, kde-format
 msgid "Slider width:"
-msgstr "Posuvníky"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, sliderWidth)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, sliderWidth)
@@ -2315,10 +2297,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, borderProgress)
 #: qt4/config/qtcurveconfigbase.ui:1196 qt5/config/qtcurveconfigbase.ui:1205
-#, fuzzy, kde-format
-#| msgid "Border size:"
+#, kde-format
 msgid "Border all sides"
-msgstr "Velikost okraje:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_85)
 #. i18n: ectx: property (text), widget (QLabel, label_86)
@@ -2401,10 +2382,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_8)
 #: qt4/config/qtcurveconfigbase.ui:1301 qt5/config/qtcurveconfigbase.ui:1310
-#, fuzzy, kde-format
-#| msgid "Highlight"
+#, kde-format
 msgid "Highlight by:"
-msgstr "Zvýraznění"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, highlightFactor)
 #: qt4/config/qtcurveconfigbase.ui:1311 qt5/config/qtcurveconfigbase.ui:1320
@@ -2416,10 +2396,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_19)
 #: qt4/config/qtcurveconfigbase.ui:1328 qt5/config/qtcurveconfigbase.ui:1337
-#, fuzzy, kde-format
-#| msgid "Appearance:"
+#, kde-format
 msgid "Header appearance:"
-msgstr "Vzhled:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, lvAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1335 qt5/config/qtcurveconfigbase.ui:1344
@@ -2439,10 +2418,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, lvButton)
 #: qt4/config/qtcurveconfigbase.ui:1351 qt5/config/qtcurveconfigbase.ui:1360
-#, fuzzy, kde-format
-#| msgid "Icon colors"
+#, kde-format
 msgid "Button color"
-msgstr "Barvy ikon"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_65)
 #: qt4/config/qtcurveconfigbase.ui:1358 qt5/config/qtcurveconfigbase.ui:1367
@@ -2495,10 +2473,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_8_2_4)
 #: qt4/config/qtcurveconfigbase.ui:1405 qt5/config/qtcurveconfigbase.ui:1414
-#, fuzzy, kde-format
-#| msgid "Selection Background"
+#, kde-format
 msgid "Selection appearance:"
-msgstr "Pozadí výběru"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, selectionAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1415 qt5/config/qtcurveconfigbase.ui:1424
@@ -2550,17 +2527,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, highlightScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:1466 qt5/config/qtcurveconfigbase.ui:1475
-#, fuzzy, kde-format
-#| msgid "Highlight color"
+#, kde-format
 msgid "Highlight on focus (KDE)"
-msgstr "Barva pro zvýraznění"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_20)
 #: qt4/config/qtcurveconfigbase.ui:1490 qt5/config/qtcurveconfigbase.ui:1499
-#, fuzzy, kde-format
-#| msgid "Appearance:"
+#, kde-format
 msgid "Active tab appearance:"
-msgstr "Vzhled:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, activeTabAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1497 qt5/config/qtcurveconfigbase.ui:1506
@@ -2627,10 +2602,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_49)
 #: qt4/config/qtcurveconfigbase.ui:1555 qt5/config/qtcurveconfigbase.ui:1564
-#, fuzzy, kde-format
-#| msgid "Selected background"
+#, kde-format
 msgid "Alter background by:"
-msgstr "Zvolené pozadí"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KIntSpinBox, tabBgnd)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, tabBgnd)
@@ -2641,10 +2615,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_51)
 #: qt4/config/qtcurveconfigbase.ui:1575 qt5/config/qtcurveconfigbase.ui:1584
-#, fuzzy, kde-format
-#| msgid "Round"
+#, kde-format
 msgid "Round tabs:"
-msgstr "Kolo"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, roundAllTabs_false)
 #: qt4/config/qtcurveconfigbase.ui:1606 qt5/config/qtcurveconfigbase.ui:1624
@@ -2656,10 +2629,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, roundAllTabs_false)
 #: qt4/config/qtcurveconfigbase.ui:1609 qt5/config/qtcurveconfigbase.ui:1627
-#, fuzzy, kde-format
-#| msgid "Selected background"
+#, kde-format
 msgid "Selected only"
-msgstr "Zvolené pozadí"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, roundAllTabs)
 #: qt4/config/qtcurveconfigbase.ui:1619 qt5/config/qtcurveconfigbase.ui:1637
@@ -2708,10 +2680,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_62)
 #: qt4/config/qtcurveconfigbase.ui:1692 qt5/config/qtcurveconfigbase.ui:1719
-#, fuzzy, kde-format
-#| msgid "Inner border:"
+#, kde-format
 msgid "Inactive tab inner border:"
-msgstr "Vnitřní ohraničení:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, borderInactiveTab)
 #: qt4/config/qtcurveconfigbase.ui:1723 qt5/config/qtcurveconfigbase.ui:1759
@@ -2734,10 +2705,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, borderInactiveTab_false)
 #: qt4/config/qtcurveconfigbase.ui:1739 qt5/config/qtcurveconfigbase.ui:1775
-#, fuzzy, kde-format
-#| msgid "Inner border:"
+#, kde-format
 msgid "No inner border"
-msgstr "Vnitřní ohraničení:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_67)
 #: qt4/config/qtcurveconfigbase.ui:1749 qt5/config/qtcurveconfigbase.ui:1785
@@ -2814,17 +2784,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, centerTabText_false)
 #: qt4/config/qtcurveconfigbase.ui:1882 qt5/config/qtcurveconfigbase.ui:1945
-#, fuzzy, kde-format
-#| msgid "Text alignment"
+#, kde-format
 msgid "Left aligned"
-msgstr "Zarovnání textu"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, centerTabText)
 #: qt4/config/qtcurveconfigbase.ui:1892 qt5/config/qtcurveconfigbase.ui:1955
-#, fuzzy, kde-format
-#| msgid "Centred"
+#, kde-format
 msgid "Centre aligned"
-msgstr "Na střed"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, shadeCheckRadio)
 #: qt4/config/qtcurveconfigbase.ui:1916 qt5/config/qtcurveconfigbase.ui:1979
@@ -2929,10 +2897,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, crButton)
 #: qt4/config/qtcurveconfigbase.ui:2077 qt5/config/qtcurveconfigbase.ui:2158
-#, fuzzy, kde-format
-#| msgid "Button"
+#, kde-format
 msgid "Button like"
-msgstr "Tlačítko"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_87)
 #: qt4/config/qtcurveconfigbase.ui:2084 qt5/config/qtcurveconfigbase.ui:2165
@@ -2962,10 +2929,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_23)
 #: qt4/config/qtcurveconfigbase.ui:2123 qt5/config/qtcurveconfigbase.ui:2204
-#, fuzzy, kde-format
-#| msgid "Appearance:"
+#, kde-format
 msgid "Active appearance:"
-msgstr "Vzhled:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, titlebarAppearance)
 #: qt4/config/qtcurveconfigbase.ui:2130 qt5/config/qtcurveconfigbase.ui:2211
@@ -2975,10 +2941,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_28)
 #: qt4/config/qtcurveconfigbase.ui:2137 qt5/config/qtcurveconfigbase.ui:2218
-#, fuzzy, kde-format
-#| msgid "Appearance:"
+#, kde-format
 msgid "Inactive appearance:"
-msgstr "Vzhled:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, inactiveTitlebarAppearance)
 #: qt4/config/qtcurveconfigbase.ui:2144 qt5/config/qtcurveconfigbase.ui:2225
@@ -3004,10 +2969,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_74)
 #: qt4/config/qtcurveconfigbase.ui:2165 qt5/config/qtcurveconfigbase.ui:2246
-#, fuzzy, kde-format
-#| msgid "Text effect"
+#, kde-format
 msgid "Text/icon effect:"
-msgstr "Textový efekt"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, titlebarEffect)
 #: qt4/config/qtcurveconfigbase.ui:2172 qt5/config/qtcurveconfigbase.ui:2253
@@ -3104,10 +3068,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_55b)
 #: qt4/config/qtcurveconfigbase.ui:2257 qt5/config/qtcurveconfigbase.ui:2338
-#, fuzzy, kde-format
-#| msgid "Inactive windows:"
+#, kde-format
 msgid "Draw separator on active windows:"
-msgstr "Neaktivní okna:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_separator)
 #: qt4/config/qtcurveconfigbase.ui:2264 qt5/config/qtcurveconfigbase.ui:2345
@@ -3178,10 +3141,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hoverSymbol)
 #: qt4/config/qtcurveconfigbase.ui:2335 qt5/config/qtcurveconfigbase.ui:2416
-#, fuzzy, kde-format
-#| msgid "Highlight color"
+#, kde-format
 msgid "Highlight symbol on mouse-over"
-msgstr "Barva pro zvýraznění"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_button)
 #: qt4/config/qtcurveconfigbase.ui:2342 qt5/config/qtcurveconfigbase.ui:2423
@@ -3193,10 +3155,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_button)
 #: qt4/config/qtcurveconfigbase.ui:2345 qt5/config/qtcurveconfigbase.ui:2426
-#, fuzzy, kde-format
-#| msgid "Standard font"
+#, kde-format
 msgid "Standard button color"
-msgstr "Standardní písmo"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_custom)
 #: qt4/config/qtcurveconfigbase.ui:2352 qt5/config/qtcurveconfigbase.ui:2433
@@ -3208,10 +3169,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_custom)
 #: qt4/config/qtcurveconfigbase.ui:2355 qt5/config/qtcurveconfigbase.ui:2436
-#, fuzzy, kde-format
-#| msgid "Background colors"
+#, kde-format
 msgid "Use custom background colors"
-msgstr "Barvy pozadí"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_colorOnMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:2362 qt5/config/qtcurveconfigbase.ui:2443
@@ -3247,10 +3207,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_sunkenBackground)
 #: qt4/config/qtcurveconfigbase.ui:2385 qt5/config/qtcurveconfigbase.ui:2466
-#, fuzzy, kde-format
-#| msgid "Menu background"
+#, kde-format
 msgid "Sunken background"
-msgstr "Pozadí nabídky"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_arrowMinMax)
 #: qt4/config/qtcurveconfigbase.ui:2392 qt5/config/qtcurveconfigbase.ui:2473
@@ -3274,10 +3233,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hideOnInactiveWindow)
 #: qt4/config/qtcurveconfigbase.ui:2405 qt5/config/qtcurveconfigbase.ui:2486
-#, fuzzy, kde-format
-#| msgid "Inactive windows:"
+#, kde-format
 msgid "Hide on inactive windows"
-msgstr "Neaktivní okna:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_57)
 #: qt4/config/qtcurveconfigbase.ui:2412 qt5/config/qtcurveconfigbase.ui:2493
@@ -3309,10 +3267,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_colorInactive)
 #: qt4/config/qtcurveconfigbase.ui:2432 qt5/config/qtcurveconfigbase.ui:2513
-#, fuzzy, kde-format
-#| msgid "Inactive windows:"
+#, kde-format
 msgid "Also apply to inactive windows"
-msgstr "Neaktivní okna:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_hoverSymbolFull)
 #: qt4/config/qtcurveconfigbase.ui:2439 qt5/config/qtcurveconfigbase.ui:2520
@@ -3328,10 +3285,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_customIcon)
 #: qt4/config/qtcurveconfigbase.ui:2449 qt5/config/qtcurveconfigbase.ui:2530
-#, fuzzy, kde-format
-#| msgid "Custom colors:"
+#, kde-format
 msgid "Use custom icon colors"
-msgstr "Vlastní barvy:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_95)
 #: qt4/config/qtcurveconfigbase.ui:2469 qt5/config/qtcurveconfigbase.ui:2550
@@ -3491,17 +3447,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, shadeMenubarOnlyWhenActive)
 #: qt4/config/qtcurveconfigbase.ui:2965 qt5/config/qtcurveconfigbase.ui:3046
-#, fuzzy, kde-format
-#| msgid "Active windows:"
+#, kde-format
 msgid "Active window only"
-msgstr "Aktivní okna:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_58)
 #: qt4/config/qtcurveconfigbase.ui:2972 qt5/config/qtcurveconfigbase.ui:3053
-#, fuzzy, kde-format
-#| msgid "Menu items:"
+#, kde-format
 msgid "Menubar text:"
-msgstr "Položky nabídky:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, customMenuTextColor)
 #: qt4/config/qtcurveconfigbase.ui:2985 qt5/config/qtcurveconfigbase.ui:3066
@@ -3531,10 +3485,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_59)
 #: qt4/config/qtcurveconfigbase.ui:3027 qt5/config/qtcurveconfigbase.ui:3108
-#, fuzzy, kde-format
-#| msgid "Menu items:"
+#, kde-format
 msgid "Menubar items:"
-msgstr "Položky nabídky:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, menuitemAppearance)
 #: qt4/config/qtcurveconfigbase.ui:3034 qt5/config/qtcurveconfigbase.ui:3115
@@ -3680,10 +3633,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, thin_menuitems)
 #: qt4/config/qtcurveconfigbase.ui:3149 qt5/config/qtcurveconfigbase.ui:3213
-#, fuzzy, kde-format
-#| msgid "Thin"
+#, kde-format
 msgid "Thinner"
-msgstr "Tenký"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, menuIcons)
 #: qt4/config/qtcurveconfigbase.ui:3156 qt5/config/qtcurveconfigbase.ui:3220
@@ -3716,10 +3668,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_26)
 #: qt4/config/qtcurveconfigbase.ui:3176 qt5/config/qtcurveconfigbase.ui:3240
-#, fuzzy, kde-format
-#| msgid "Menu background"
+#, kde-format
 msgid "Shade background by:"
-msgstr "Pozadí nabídky"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, lighterPopupMenuBgnd)
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, expanderHighlight)
@@ -3757,10 +3708,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_45)
 #: qt4/config/qtcurveconfigbase.ui:3251
-#, fuzzy, kde-format
-#| msgid "Sub-menu close delay:"
+#, kde-format
 msgid "Sub-menu delay:"
-msgstr "Zpoždění zavření pod-nabídky:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, menuDelay)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, menuDelay)
@@ -3815,10 +3765,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_61)
 #: qt4/config/qtcurveconfigbase.ui:3328 qt5/config/qtcurveconfigbase.ui:3375
-#, fuzzy, kde-format
-#| msgid "Popup menus"
+#, kde-format
 msgid "Border popupmenus:"
-msgstr "Vyskakovací nabídky"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, popupBorder)
 #: qt4/config/qtcurveconfigbase.ui:3335 qt5/config/qtcurveconfigbase.ui:3382
@@ -3890,10 +3839,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_4b)
 #: qt4/config/qtcurveconfigbase.ui:3444 qt5/config/qtcurveconfigbase.ui:3508
-#, fuzzy, kde-format
-#| msgid "Buttons:"
+#, kde-format
 msgid "Button style:"
-msgstr "Tlačítka:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tbarBtns)
 #: qt4/config/qtcurveconfigbase.ui:3454 qt5/config/qtcurveconfigbase.ui:3518
@@ -3921,10 +3869,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_78)
 #: qt4/config/qtcurveconfigbase.ui:3495 qt5/config/qtcurveconfigbase.ui:3559
-#, fuzzy, kde-format
-#| msgid "Appearance:"
+#, kde-format
 msgid "Button appearance:"
-msgstr "Vzhled:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tbarBtnAppearance)
 #: qt4/config/qtcurveconfigbase.ui:3502 qt5/config/qtcurveconfigbase.ui:3566
@@ -3981,10 +3928,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_73)
 #: qt4/config/qtcurveconfigbase.ui:3575 qt5/config/qtcurveconfigbase.ui:3639
-#, fuzzy, kde-format
-#| msgid "Appearance:"
+#, kde-format
 msgid "Titlebar appearance:"
-msgstr "Vzhled:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, dwtAppearance)
 #: qt4/config/qtcurveconfigbase.ui:3582 qt5/config/qtcurveconfigbase.ui:3646
@@ -4026,10 +3972,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtBtnAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3609 qt5/config/qtcurveconfigbase.ui:3673
-#, fuzzy, kde-format
-#| msgid "Appearance:"
+#, kde-format
 msgid "Button appearance"
-msgstr "Vzhled:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, dwtColAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3616 qt5/config/qtcurveconfigbase.ui:3680
@@ -4105,10 +4050,9 @@ msgstr "Barvy ikon"
 
 #. i18n: ectx: property (text), widget (QLabel, label_80)
 #: qt4/config/qtcurveconfigbase.ui:3673 qt5/config/qtcurveconfigbase.ui:3737
-#, fuzzy, kde-format
-#| msgid "No buttons"
+#, kde-format
 msgid "Dialog buttons:"
-msgstr "Žádná tlačítka"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gtkButtonOrder)
 #: qt4/config/qtcurveconfigbase.ui:3680 qt5/config/qtcurveconfigbase.ui:3744
@@ -4178,10 +4122,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: qt4/config/qtcurveconfigbase.ui:3728 qt5/config/qtcurveconfigbase.ui:3792
-#, fuzzy, kde-format
-#| msgid "Select Password Character"
+#, kde-format
 msgid "Password character:"
-msgstr "Vyberte znak hesla"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, passwordChar)
 #: qt4/config/qtcurveconfigbase.ui:3741 qt5/config/qtcurveconfigbase.ui:3805
@@ -4211,10 +4154,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_81)
 #: qt4/config/qtcurveconfigbase.ui:3788 qt5/config/qtcurveconfigbase.ui:3852
-#, fuzzy, kde-format
-#| msgid "Background image:"
+#, kde-format
 msgid "No background gradient:"
-msgstr "Obrázek na pozadí:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, noBgndGradientApps)
 #: qt4/config/qtcurveconfigbase.ui:3795 qt5/config/qtcurveconfigbase.ui:3859
@@ -4227,10 +4169,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_82)
 #: qt4/config/qtcurveconfigbase.ui:3802 qt5/config/qtcurveconfigbase.ui:3866
-#, fuzzy, kde-format
-#| msgid "Background image:"
+#, kde-format
 msgid "No background image:"
-msgstr "Obrázek na pozadí:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, noBgndImageApps)
 #: qt4/config/qtcurveconfigbase.ui:3809 qt5/config/qtcurveconfigbase.ui:3873
@@ -4243,10 +4184,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_81b)
 #: qt4/config/qtcurveconfigbase.ui:3816 qt5/config/qtcurveconfigbase.ui:3880
-#, fuzzy, kde-format
-#| msgid "Background image:"
+#, kde-format
 msgid "No background opacity:"
-msgstr "Obrázek na pozadí:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, noBgndOpacityApps)
 #: qt4/config/qtcurveconfigbase.ui:3823 qt5/config/qtcurveconfigbase.ui:3887
@@ -4457,10 +4397,9 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: qt4/config/qtcurveconfigbase.ui:4071 qt5/config/qtcurveconfigbase.ui:4135
-#, fuzzy, kde-format
-#| msgid "Gradients:"
+#, kde-format
 msgid "Gradient Stop"
-msgstr "Přechody:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: qt4/config/qtcurveconfigbase.ui:4095 qt5/config/qtcurveconfigbase.ui:4159
@@ -4531,10 +4470,9 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, customShading)
 #: qt4/config/qtcurveconfigbase.ui:4283 qt5/config/qtcurveconfigbase.ui:4347
-#, fuzzy, kde-format
-#| msgid "Use custom shadows"
+#, kde-format
 msgid "Use Custom Shades"
-msgstr "Použít vlastní stíny"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: qt4/config/qtcurveconfigbase.ui:4310 qt5/config/qtcurveconfigbase.ui:4374
@@ -4561,10 +4499,9 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, customAlphas)
 #: qt4/config/qtcurveconfigbase.ui:4392 qt5/config/qtcurveconfigbase.ui:4456
-#, fuzzy, kde-format
-#| msgid "Use custom shadows"
+#, kde-format
 msgid "Use Custom Alpha Values"
-msgstr "Použít vlastní stíny"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_light_alpha)
 #: qt4/config/qtcurveconfigbase.ui:4401 qt5/config/qtcurveconfigbase.ui:4465
@@ -5049,10 +4986,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, groupingLabel)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:110
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:110
-#, fuzzy, kde-format
-#| msgid "Window Manager"
+#, kde-format
 msgid "Window grouping:"
-msgstr "Správce oken"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, grouping)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:117
@@ -5286,10 +5222,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, inactiveUsesActiveGradients)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:502
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:502
-#, fuzzy, kde-format
-#| msgid "Active windows:"
+#, kde-format
 msgid "As per active windows"
-msgstr "Aktivní okna:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, gbLabel_centred)
 #: qt5/config/qtcurveconfigbase.ui:724
@@ -5313,10 +5248,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_45)
 #: qt5/config/qtcurveconfigbase.ui:3315
-#, fuzzy, kde-format
-#| msgid "Sub-menu close delay:"
+#, kde-format
 msgid "Sub-menu open delay:"
-msgstr "Zpoždění zavření pod-nabídky:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, menuCloseDelay)
 #: qt5/config/qtcurveconfigbase.ui:3419
