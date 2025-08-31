@@ -244,7 +244,7 @@ msgstr "Finestra de vista prèvia"
 #: qt6/config/qtcurveconfig.cpp:313
 #, kde-format
 msgid "Select Password Character"
-msgstr "Seleccioneu el caràcter de la contrasenya"
+msgstr "Trieu el caràcter de la contrasenya"
 
 #. i18n: ectx: property (text), widget (QLabel, label_94)
 #: qt4/config/qtcurveconfig.cpp:525 qt4/config/qtcurveconfig.cpp:984
@@ -1877,7 +1877,7 @@ msgid ""
 "in a more flat style with the active tab colored with the highlight color.</"
 "p>"
 msgstr ""
-"<p>Seleccioneu-ho perquè els botons de la barra lateral de Konqueror, Kate, "
+"<p>Trieu-ho perquè els botons de la barra lateral de Konqueror, Kate, "
 "Kaffeine, Ktorrent, etc., estiguen dibuixats d'acord amb els botons normals -"
 "en cas contrari seran dibuixats en un estil més pla, amb la pestanya activa "
 "amb el color de ressaltat-.</p>"
@@ -3245,7 +3245,7 @@ msgid ""
 "and this creates a 2 pixel gap between tabs."
 msgstr ""
 "<p>Controla l'efecte «En passar-hi el ratolí» aplicat sobre la pestanya "
-"actualment davall el ratolí. Recordeu, si se selecciona «Lluïssor», després "
+"actualment davall el ratolí. Recordeu, si es tria «Lluïssor», després "
 "«Pestanyes arredonides» s'establirà a «Totes» -i açò crearà un espai de 2 "
 "píxels entre les pestanyes-."
 
@@ -3298,8 +3298,8 @@ msgid ""
 "each tab if 'glow' is selected as the general colored mouse over style."
 msgstr ""
 "<p>Si està marcada, totes les pestanyes estaran arredonides -hi haurà un "
-"espai de 2 píxels entre cada pestanya si se selecciona la «lluïssor» com a "
-"l'estil general de donar color en passar-hi el ratolí-."
+"espai de 2 píxels entre cada pestanya si es tria la «lluïssor» com a l'estil "
+"general de donar color en passar-hi el ratolí-."
 
 #. i18n: ectx: property (text), widget (QRadioButton, roundAllTabs)
 #: qt4/config/qtcurveconfigbase.ui:1622 qt5/config/qtcurveconfigbase.ui:1640
@@ -3754,7 +3754,7 @@ msgid ""
 "button."
 msgstr ""
 "<p>Controla si la icona de l'aplicació s'ha de dibuixar sobre la barra de "
-"títol. Si se selecciona «Situa sobre els botons del menú», llavors la icona "
+"títol. Si es tria «Situa sobre els botons del menú», llavors la icona "
 "prendrà el lloc del botó del menú."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_colorTitlebarOnly)
@@ -4347,7 +4347,7 @@ msgid ""
 msgstr ""
 "<p>Si està marcada, llavors les dues caselles de color següents s'empraran "
 "per a establir el color del text que s'emprarà per als elements normals i "
-"seleccionats de la barra de menús."
+"triats de la barra de menús."
 
 #. i18n: ectx: property (text), widget (QCheckBox, customMenuTextColor)
 #: qt4/config/qtcurveconfigbase.ui:2988 qt5/config/qtcurveconfigbase.ui:3069
@@ -5315,7 +5315,7 @@ msgstr ""
 "<p>Llista separada per comes dels noms de les aplicacions, les quals no "
 "haurien d'emprar la configuració per a l'opacitat del menú.</p><p><i>Per a "
 "Gtk2, esta opció també es desactiva emprant un canal alfa per a suavitzar "
-"l'arredoniment dels consells d'eines i dels menús emergents.</i></"
+"l'arredoniment dels consells d'eina i dels menús emergents.</i></"
 "p><p>Utilitzeu <i>gtk</i> per a desactivar-ho per a totes les aplicacions "
 "Gtk2.</p>"
 
@@ -5502,7 +5502,7 @@ msgstr "Exporta els colors i tipus de lletra per a les aplicacions Qt3 pures…"
 #: qt6/config/qtcurveconfigbase.ui:4054
 #, kde-format
 msgid "<p>Select the custom gradient to be configured."
-msgstr "<p>Seleccioneu el degradat personalitzat que voleu configurar."
+msgstr "<p>Trieu el degradat personalitzat que voleu configurar."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_b)
 #: qt4/config/qtcurveconfigbase.ui:4011 qt5/config/qtcurveconfigbase.ui:4075
@@ -6469,7 +6469,7 @@ msgid ""
 "If enabled, only the titlebar part of the decoration will use the opacity "
 "setting."
 msgstr ""
-"Si està marcada, només emprarà la configuració de l'opacitat la part de la "
+"Si està marcada, només emprarà la configuració de l'opacitat a la part de la "
 "decoració de la barra de títol."
 
 #. i18n: ectx: property (text), widget (QCheckBox, opaqueBorder)
