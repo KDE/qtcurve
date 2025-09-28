@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-14 01:43+0000\n"
-"PO-Revision-Date: 2025-05-18 21:44+0400\n"
+"PO-Revision-Date: 2025-09-27 19:14+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -56,13 +56,13 @@ msgstr "المجلّد المقصد:"
 #: qt6/config/exportthemedialog.cpp:56
 #, kde-format
 msgid "QtCurve based theme"
-msgstr ""
+msgstr "سمة قائمة على كيوت كيرف"
 
 #: qt4/config/exportthemedialog.cpp:77 qt5/config/exportthemedialog.cpp:88
 #: qt6/config/exportthemedialog.cpp:88
 #, kde-format
 msgid "Name is empty!"
-msgstr ""
+msgstr "الاسم فارغ!"
 
 #: qt4/config/exportthemedialog.cpp:97 qt5/config/exportthemedialog.cpp:106
 #: qt6/config/exportthemedialog.cpp:106
@@ -71,6 +71,8 @@ msgid ""
 "Successfully created:\n"
 "%1"
 msgstr ""
+"أنشأ بنجاح:\n"
+"%1"
 
 #: qt4/config/exportthemedialog.cpp:100 qt5/config/exportthemedialog.cpp:109
 #: qt6/config/exportthemedialog.cpp:109
@@ -113,7 +115,7 @@ msgstr "الموضع:"
 #: qt6/config/imageproperties.ui:73
 #, kde-format
 msgid "On window border:"
-msgstr ""
+msgstr "على حدود النافذة:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, onBorder)
 #. i18n: ectx: property (text), widget (QCheckBox, lvLines)
@@ -187,21 +189,21 @@ msgstr "أسفل اليمين"
 #: qt6/config/imagepropertiesdialog.cpp:48
 #, kde-format
 msgid "Left middle"
-msgstr ""
+msgstr "اليسار الأوسط"
 
 #: qt4/config/imagepropertiesdialog.cpp:46
 #: qt5/config/imagepropertiesdialog.cpp:49
 #: qt6/config/imagepropertiesdialog.cpp:49
 #, kde-format
 msgid "Right middle"
-msgstr ""
+msgstr "اليمين الأوسط"
 
 #: qt4/config/imagepropertiesdialog.cpp:47
 #: qt5/config/imagepropertiesdialog.cpp:50
 #: qt6/config/imagepropertiesdialog.cpp:50
 #, kde-format
 msgid "Centred"
-msgstr ""
+msgstr "متمركز"
 
 #: qt4/config/imagepropertiesdialog.cpp:60
 #: qt5/config/imagepropertiesdialog.cpp:66
@@ -216,31 +218,31 @@ msgstr "حرّر %1"
 #: qt6/config/qtcurveconfig.cpp:251 qt6/kwin/qtcurveclient.cpp:223
 #, kde-format
 msgid "QtCurve"
-msgstr ""
+msgstr "كيوت كيرف"
 
 #: qt4/config/qtcurveconfig.cpp:237 qt5/config/qtcurveconfig.cpp:240
 #: qt6/config/qtcurveconfig.cpp:240
 #, kde-format
 msgid "Unified widget style."
-msgstr ""
+msgstr "نمط ويدجت موحد."
 
 #: qt4/config/qtcurveconfig.cpp:239 qt5/config/qtcurveconfig.cpp:242
 #: qt6/config/qtcurveconfig.cpp:242
 #, kde-format
 msgid "(C) Craig Drummond, 2003-2011 & Yichao Yu, 2013-2015"
-msgstr ""
+msgstr "(ج) Craig Drummond, 2003-2011 و Yichao Yu, 2013-2015"
 
 #: qt4/config/qtcurveconfig.cpp:256 qt5/config/qtcurveconfig.cpp:257
 #: qt6/config/qtcurveconfig.cpp:257
 #, kde-format
 msgid "Preview Window"
-msgstr ""
+msgstr "نافذة المعاينة"
 
 #: qt4/config/qtcurveconfig.cpp:309 qt5/config/qtcurveconfig.cpp:313
 #: qt6/config/qtcurveconfig.cpp:313
 #, kde-format
 msgid "Select Password Character"
-msgstr ""
+msgstr "اختر حرف كلمة السر"
 
 #. i18n: ectx: property (text), widget (QLabel, label_94)
 #: qt4/config/qtcurveconfig.cpp:525 qt4/config/qtcurveconfig.cpp:984
@@ -286,7 +288,7 @@ msgstr "لا شيء"
 #: qt6/config/qtcurveconfig.cpp:538 qt6/config/qtcurveconfig.cpp:600
 #, kde-format
 msgid "<unknown>"
-msgstr ""
+msgstr "<غير معروف>"
 
 #: qt4/config/qtcurveconfig.cpp:539 qt4/kwinconfig/qtcurvekwinconfig.cpp:50
 #: qt5/config/qtcurveconfig.cpp:540 qt5/kwinconfig/qtcurvekwinconfig.cpp:47
@@ -299,19 +301,19 @@ msgstr "مخصص:"
 #: qt6/config/qtcurveconfig.cpp:542
 #, kde-format
 msgid "Selected background"
-msgstr ""
+msgstr "الخلفية المحددة"
 
 #: qt4/config/qtcurveconfig.cpp:543 qt5/config/qtcurveconfig.cpp:544
 #: qt6/config/qtcurveconfig.cpp:544
 #, kde-format
 msgid "Blended selected background"
-msgstr ""
+msgstr "الخلفية المحددة الممزوجة"
 
 #: qt4/config/qtcurveconfig.cpp:545 qt5/config/qtcurveconfig.cpp:546
 #: qt6/config/qtcurveconfig.cpp:546
 #, kde-format
 msgid "Menu background"
-msgstr ""
+msgstr "خلفية القائمة"
 
 #: qt4/config/qtcurveconfig.cpp:545 qt4/config/qtcurveconfig.cpp:636
 #: qt5/config/qtcurveconfig.cpp:546 qt5/config/qtcurveconfig.cpp:637
@@ -353,67 +355,67 @@ msgstr "مرفوع"
 #: qt6/config/qtcurveconfig.cpp:576
 #, kde-format
 msgid "Dull glass"
-msgstr ""
+msgstr "زجاج باهت"
 
 #: qt4/config/qtcurveconfig.cpp:576 qt5/config/qtcurveconfig.cpp:577
 #: qt6/config/qtcurveconfig.cpp:577
 #, kde-format
 msgid "Shiny glass"
-msgstr ""
+msgstr "زجاج لامع"
 
 #: qt4/config/qtcurveconfig.cpp:577 qt5/config/qtcurveconfig.cpp:578
 #: qt6/config/qtcurveconfig.cpp:578
 #, kde-format
 msgid "Agua"
-msgstr ""
+msgstr "أغوا"
 
 #: qt4/config/qtcurveconfig.cpp:578 qt5/config/qtcurveconfig.cpp:579
 #: qt6/config/qtcurveconfig.cpp:579
 #, kde-format
 msgid "Soft gradient"
-msgstr ""
+msgstr "تدرج ناعم"
 
 #: qt4/config/qtcurveconfig.cpp:579 qt5/config/qtcurveconfig.cpp:580
 #: qt6/config/qtcurveconfig.cpp:580
 #, kde-format
 msgid "Standard gradient"
-msgstr ""
+msgstr "تدرج قياسي"
 
 #: qt4/config/qtcurveconfig.cpp:580 qt5/config/qtcurveconfig.cpp:581
 #: qt6/config/qtcurveconfig.cpp:581
 #, kde-format
 msgid "Harsh gradient"
-msgstr ""
+msgstr "تدرج قاسٍ"
 
 #: qt4/config/qtcurveconfig.cpp:581 qt5/config/qtcurveconfig.cpp:582
 #: qt6/config/qtcurveconfig.cpp:582
 #, kde-format
 msgid "Inverted gradient"
-msgstr ""
+msgstr "تدرج مقلوب"
 
 #: qt4/config/qtcurveconfig.cpp:582 qt5/config/qtcurveconfig.cpp:583
 #: qt6/config/qtcurveconfig.cpp:583
 #, kde-format
 msgid "Dark inverted gradient"
-msgstr ""
+msgstr "تدرج مقلوب داكن"
 
 #: qt4/config/qtcurveconfig.cpp:583 qt5/config/qtcurveconfig.cpp:584
 #: qt6/config/qtcurveconfig.cpp:584
 #, kde-format
 msgid "Split gradient"
-msgstr ""
+msgstr "تدرج مقسوم"
 
 #: qt4/config/qtcurveconfig.cpp:584 qt5/config/qtcurveconfig.cpp:585
 #: qt6/config/qtcurveconfig.cpp:585
 #, kde-format
 msgid "Bevelled"
-msgstr ""
+msgstr "مشطوف الحافة"
 
 #: qt4/config/qtcurveconfig.cpp:589 qt5/config/qtcurveconfig.cpp:590
 #: qt6/config/qtcurveconfig.cpp:590
 #, kde-format
 msgid "Fade out (popup menuitems)"
-msgstr ""
+msgstr "تلاشي (عناصر قائمة منبثقة)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stripedSbar)
 #: qt4/config/qtcurveconfig.cpp:591 qt4/config/qtcurveconfigbase.ui:1098
@@ -421,32 +423,32 @@ msgstr ""
 #: qt6/config/qtcurveconfig.cpp:592 qt6/config/qtcurveconfigbase.ui:1107
 #, kde-format
 msgid "Striped"
-msgstr ""
+msgstr "مخطط"
 
 #: qt4/config/qtcurveconfig.cpp:594 qt4/config/qtcurveconfig.cpp:679
 #: qt5/config/qtcurveconfig.cpp:595 qt5/config/qtcurveconfig.cpp:680
 #: qt6/config/qtcurveconfig.cpp:595 qt6/config/qtcurveconfig.cpp:680
 #, kde-format
 msgid "Same as general setting"
-msgstr ""
+msgstr "نفس الإعداد العام"
 
 #: qt4/config/qtcurveconfig.cpp:597 qt5/config/qtcurveconfig.cpp:598
 #: qt6/config/qtcurveconfig.cpp:598
 #, kde-format
 msgid "Tiled image"
-msgstr ""
+msgstr "صورة مبلطة"
 
 #: qt4/config/qtcurveconfig.cpp:618 qt5/config/qtcurveconfig.cpp:619
 #: qt6/config/qtcurveconfig.cpp:619
 #, kde-format
 msgid "Sunken lines"
-msgstr ""
+msgstr "خطوط غائرة"
 
 #: qt4/config/qtcurveconfig.cpp:619 qt5/config/qtcurveconfig.cpp:620
 #: qt6/config/qtcurveconfig.cpp:620
 #, kde-format
 msgid "Flat lines"
-msgstr ""
+msgstr "خطوط مسطحة"
 
 #: qt4/config/qtcurveconfig.cpp:620 qt5/config/qtcurveconfig.cpp:621
 #: qt6/config/qtcurveconfig.cpp:621
@@ -458,7 +460,7 @@ msgstr "نقاط"
 #: qt6/config/qtcurveconfig.cpp:624
 #, kde-format
 msgid "Single dot"
-msgstr ""
+msgstr "نقطة واحدة"
 
 #: qt4/config/qtcurveconfig.cpp:625 qt5/config/qtcurveconfig.cpp:626
 #: qt6/config/qtcurveconfig.cpp:626
@@ -470,43 +472,43 @@ msgstr "شرطات"
 #: qt6/config/qtcurveconfig.cpp:632
 #, kde-format
 msgid "Corner indicator"
-msgstr ""
+msgstr "مؤشر الزاوية"
 
 #: qt4/config/qtcurveconfig.cpp:632 qt5/config/qtcurveconfig.cpp:633
 #: qt6/config/qtcurveconfig.cpp:633
 #, kde-format
 msgid "Font color thin border"
-msgstr ""
+msgstr "لون خط الحدود الرقيقة"
 
 #: qt4/config/qtcurveconfig.cpp:633 qt5/config/qtcurveconfig.cpp:634
 #: qt6/config/qtcurveconfig.cpp:634
 #, kde-format
 msgid "Selected background thick border"
-msgstr ""
+msgstr "حدود سميكة للخلفية المحددة"
 
 #: qt4/config/qtcurveconfig.cpp:634 qt5/config/qtcurveconfig.cpp:635
 #: qt6/config/qtcurveconfig.cpp:635
 #, kde-format
 msgid "Selected background tinting"
-msgstr ""
+msgstr "تلوين الخلفية المحددة"
 
 #: qt4/config/qtcurveconfig.cpp:635 qt5/config/qtcurveconfig.cpp:636
 #: qt6/config/qtcurveconfig.cpp:636
 #, kde-format
 msgid "A slight glow"
-msgstr ""
+msgstr "توهج طفيف"
 
 #: qt4/config/qtcurveconfig.cpp:637 qt5/config/qtcurveconfig.cpp:638
 #: qt6/config/qtcurveconfig.cpp:638
 #, kde-format
 msgid "Use selected background color"
-msgstr ""
+msgstr "استخدم لون الخلفية المحددة"
 
 #: qt4/config/qtcurveconfig.cpp:638 qt5/config/qtcurveconfig.cpp:639
 #: qt6/config/qtcurveconfig.cpp:639
 #, kde-format
 msgid "No indicator"
-msgstr ""
+msgstr "لا يوجد مؤشر"
 
 #: qt4/config/qtcurveconfig.cpp:643 qt5/config/qtcurveconfig.cpp:644
 #: qt6/config/qtcurveconfig.cpp:644
@@ -548,31 +550,31 @@ msgstr "مربع"
 #: qt6/config/qtcurveconfig.cpp:654
 #, kde-format
 msgid "Slightly rounded"
-msgstr ""
+msgstr "مدوّر قليلاً"
 
 #: qt4/config/qtcurveconfig.cpp:654 qt5/config/qtcurveconfig.cpp:655
 #: qt6/config/qtcurveconfig.cpp:655
 #, kde-format
 msgid "Fully rounded"
-msgstr ""
+msgstr "مدوّر كلياً"
 
 #: qt4/config/qtcurveconfig.cpp:655 qt5/config/qtcurveconfig.cpp:656
 #: qt6/config/qtcurveconfig.cpp:656
 #, kde-format
 msgid "Extra rounded"
-msgstr ""
+msgstr "مدوّر بشكل إضافي"
 
 #: qt4/config/qtcurveconfig.cpp:656 qt5/config/qtcurveconfig.cpp:657
 #: qt6/config/qtcurveconfig.cpp:657
 #, kde-format
 msgid "Max rounded"
-msgstr ""
+msgstr "مدوّر بحد أقصى"
 
 #: qt4/config/qtcurveconfig.cpp:661 qt5/config/qtcurveconfig.cpp:662
 #: qt6/config/qtcurveconfig.cpp:662
 #, kde-format
 msgid "No coloration"
-msgstr ""
+msgstr "لا تلوين"
 
 #: qt4/config/qtcurveconfig.cpp:662 qt5/config/qtcurveconfig.cpp:663
 #: qt6/config/qtcurveconfig.cpp:663
@@ -584,13 +586,13 @@ msgstr "لون حد"
 #: qt6/config/qtcurveconfig.cpp:664
 #, kde-format
 msgid "Thick color border"
-msgstr ""
+msgstr "حدود سميكة ملونة"
 
 #: qt4/config/qtcurveconfig.cpp:664 qt5/config/qtcurveconfig.cpp:665
 #: qt6/config/qtcurveconfig.cpp:665
 #, kde-format
 msgid "Plastik style"
-msgstr ""
+msgstr "نمط بلاستيك"
 
 #: qt4/config/qtcurveconfig.cpp:665 qt4/config/qtcurveconfig.cpp:724
 #: qt5/config/qtcurveconfig.cpp:666 qt5/config/qtcurveconfig.cpp:725
@@ -620,13 +622,13 @@ msgstr "مظلمة"
 #: qt6/config/qtcurveconfig.cpp:674
 #, kde-format
 msgid "Light (all sides)"
-msgstr ""
+msgstr "فاتح (كل الجوانب)"
 
 #: qt4/config/qtcurveconfig.cpp:674 qt5/config/qtcurveconfig.cpp:675
 #: qt6/config/qtcurveconfig.cpp:675
 #, kde-format
 msgid "Dark (all sides)"
-msgstr ""
+msgstr "داكن (كل الجوانب)"
 
 #: qt4/config/qtcurveconfig.cpp:679 qt4/config/qtcurveconfig.cpp:694
 #: qt4/config/qtcurveconfig.cpp:702 qt5/config/qtcurveconfig.cpp:680
@@ -641,7 +643,7 @@ msgstr "خالِص"
 #: qt6/config/qtcurveconfig.cpp:681
 #, kde-format
 msgid "Etched"
-msgstr ""
+msgstr "محفور"
 
 #: qt4/config/qtcurveconfig.cpp:681 qt5/config/qtcurveconfig.cpp:682
 #: qt6/config/qtcurveconfig.cpp:682
@@ -659,19 +661,19 @@ msgstr "بسيط"
 #: qt6/config/qtcurveconfig.cpp:688
 #, kde-format
 msgid "Use HSL color space"
-msgstr ""
+msgstr "استخدم فضاء ألوان HSL"
 
 #: qt4/config/qtcurveconfig.cpp:688 qt5/config/qtcurveconfig.cpp:689
 #: qt6/config/qtcurveconfig.cpp:689
 #, kde-format
 msgid "Use HSV color space"
-msgstr ""
+msgstr "استخدم فضاء ألوان HSV"
 
 #: qt4/config/qtcurveconfig.cpp:689 qt5/config/qtcurveconfig.cpp:690
 #: qt6/config/qtcurveconfig.cpp:690
 #, kde-format
 msgid "Use HCY color space"
-msgstr ""
+msgstr "استخدم فضاء ألوان HCY"
 
 #: qt4/config/qtcurveconfig.cpp:695 qt5/config/qtcurveconfig.cpp:696
 #: qt6/config/qtcurveconfig.cpp:696
@@ -683,13 +685,13 @@ msgstr "خطوط"
 #: qt6/config/qtcurveconfig.cpp:697
 #, kde-format
 msgid "Diagonal stripes"
-msgstr ""
+msgstr "شرائط قطرية"
 
 #: qt4/config/qtcurveconfig.cpp:697 qt5/config/qtcurveconfig.cpp:698
 #: qt6/config/qtcurveconfig.cpp:698
 #, kde-format
 msgid "Faded stripes"
-msgstr ""
+msgstr "شرائط متلاشية"
 
 #: qt4/config/qtcurveconfig.cpp:703 qt5/config/qtcurveconfig.cpp:704
 #: qt6/config/qtcurveconfig.cpp:704
@@ -701,19 +703,19 @@ msgstr "دائري"
 #: qt6/config/qtcurveconfig.cpp:705
 #, kde-format
 msgid "Plain - rotated"
-msgstr ""
+msgstr "عادي - مُدار"
 
 #: qt4/config/qtcurveconfig.cpp:705 qt5/config/qtcurveconfig.cpp:706
 #: qt6/config/qtcurveconfig.cpp:706
 #, kde-format
 msgid "Round - rotated"
-msgstr ""
+msgstr "مدور - مُدار"
 
 #: qt4/config/qtcurveconfig.cpp:706 qt5/config/qtcurveconfig.cpp:707
 #: qt6/config/qtcurveconfig.cpp:707
 #, kde-format
 msgid "Triangular"
-msgstr ""
+msgstr "مثلثي"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_round)
 #: qt4/config/qtcurveconfig.cpp:707 qt4/config/qtcurveconfigbase.ui:2315
@@ -727,7 +729,7 @@ msgstr "دائري"
 #: qt6/config/qtcurveconfig.cpp:713
 #, kde-format
 msgid "Base color"
-msgstr ""
+msgstr "لون القاعدة"
 
 #: qt4/config/qtcurveconfig.cpp:713 qt5/config/qtcurveconfig.cpp:714
 #: qt6/config/qtcurveconfig.cpp:714
@@ -739,13 +741,13 @@ msgstr "لون الخلفية"
 #: qt6/config/qtcurveconfig.cpp:715
 #, kde-format
 msgid "Darkened background color"
-msgstr ""
+msgstr "لون الخلفية المُدكَّن"
 
 #: qt4/config/qtcurveconfig.cpp:719 qt5/config/qtcurveconfig.cpp:720
 #: qt6/config/qtcurveconfig.cpp:720
 #, kde-format
 msgid "Standard (dotted)"
-msgstr ""
+msgstr "قياسي (منقط)"
 
 #: qt4/config/qtcurveconfig.cpp:720 qt5/config/qtcurveconfig.cpp:721
 #: qt6/config/qtcurveconfig.cpp:721
@@ -757,19 +759,19 @@ msgstr "لون الإبراز"
 #: qt6/config/qtcurveconfig.cpp:722
 #, kde-format
 msgid "Highlight color (full size)"
-msgstr ""
+msgstr "لون التظليل (حجم كامل)"
 
 #: qt4/config/qtcurveconfig.cpp:722 qt5/config/qtcurveconfig.cpp:723
 #: qt6/config/qtcurveconfig.cpp:723
 #, kde-format
 msgid "Highlight color, and fill"
-msgstr ""
+msgstr "لون التظليل، والتعبئة"
 
 #: qt4/config/qtcurveconfig.cpp:723 qt5/config/qtcurveconfig.cpp:724
 #: qt6/config/qtcurveconfig.cpp:724
 #, kde-format
 msgid "Line drawn with highlight color"
-msgstr ""
+msgstr "خط مرسوم بلون التظليل"
 
 #: qt4/config/qtcurveconfig.cpp:725 qt5/config/qtcurveconfig.cpp:726
 #: qt6/config/qtcurveconfig.cpp:726
@@ -788,19 +790,19 @@ msgstr "بلا حدود"
 #: qt6/config/qtcurveconfig.cpp:732
 #, kde-format
 msgid "Light border"
-msgstr ""
+msgstr "حدود فاتحة"
 
 #: qt4/config/qtcurveconfig.cpp:732 qt5/config/qtcurveconfig.cpp:733
 #: qt6/config/qtcurveconfig.cpp:733
 #, kde-format
 msgid "3D border (light only)"
-msgstr ""
+msgstr "حدود ثلاثية الأبعاد (فاتحة فقط)"
 
 #: qt4/config/qtcurveconfig.cpp:733 qt5/config/qtcurveconfig.cpp:734
 #: qt6/config/qtcurveconfig.cpp:734
 #, kde-format
 msgid "3D border (dark and light)"
-msgstr ""
+msgstr "حدود ثلاثية الأبعاد (داكنة وفاتحة)"
 
 #: qt4/config/qtcurveconfig.cpp:734 qt5/config/qtcurveconfig.cpp:735
 #: qt6/config/qtcurveconfig.cpp:735
@@ -818,7 +820,7 @@ msgstr "يسار"
 #: qt6/config/qtcurveconfig.cpp:741
 #, kde-format
 msgid "Center (between controls)"
-msgstr ""
+msgstr "المركز (بين عناصر التحكم)"
 
 #: qt4/config/qtcurveconfig.cpp:741 qt5/config/qtcurveconfig.cpp:742
 #: qt6/config/qtcurveconfig.cpp:742
@@ -842,31 +844,31 @@ msgstr "لا تعرض"
 #: qt6/config/qtcurveconfig.cpp:756
 #, kde-format
 msgid "Place on menu button"
-msgstr ""
+msgstr "ضع على زر القائمة"
 
 #: qt4/config/qtcurveconfig.cpp:756 qt5/config/qtcurveconfig.cpp:757
 #: qt6/config/qtcurveconfig.cpp:757
 #, kde-format
 msgid "Place next to title"
-msgstr ""
+msgstr "ضع بجانب العنوان"
 
 #: qt4/config/qtcurveconfig.cpp:761 qt5/config/qtcurveconfig.cpp:762
 #: qt6/config/qtcurveconfig.cpp:762
 #, kde-format
 msgid "Highlight on top"
-msgstr ""
+msgstr "تظليل في الأعلى"
 
 #: qt4/config/qtcurveconfig.cpp:762 qt5/config/qtcurveconfig.cpp:763
 #: qt6/config/qtcurveconfig.cpp:763
 #, kde-format
 msgid "Highlight on bottom"
-msgstr ""
+msgstr "تظليل في الأسفل"
 
 #: qt4/config/qtcurveconfig.cpp:763 qt5/config/qtcurveconfig.cpp:764
 #: qt6/config/qtcurveconfig.cpp:764
 #, kde-format
 msgid "Add a slight glow"
-msgstr ""
+msgstr "أضف توهجًا طفيفًا"
 
 #: qt4/config/qtcurveconfig.cpp:768 qt5/config/qtcurveconfig.cpp:769
 #: qt6/config/qtcurveconfig.cpp:769
@@ -884,31 +886,31 @@ msgstr "من اليسار إلى اليمين"
 #: qt6/config/qtcurveconfig.cpp:777
 #, kde-format
 msgid "New style (KDE and Gtk2 similar)"
-msgstr ""
+msgstr "نمط جديد (كيدي و Gtk2 متشابهان)"
 
 #: qt4/config/qtcurveconfig.cpp:777 qt5/config/qtcurveconfig.cpp:778
 #: qt6/config/qtcurveconfig.cpp:778
 #, kde-format
 msgid "Old style (KDE and Gtk2 different)"
-msgstr ""
+msgstr "نمط قديم (كيدي و Gtk2 مختلفان)"
 
 #: qt4/config/qtcurveconfig.cpp:784 qt5/config/qtcurveconfig.cpp:785
 #: qt6/config/qtcurveconfig.cpp:785
 #, kde-format
 msgid "Bordered rings"
-msgstr ""
+msgstr "حلقات ذات حدود"
 
 #: qt4/config/qtcurveconfig.cpp:785 qt5/config/qtcurveconfig.cpp:786
 #: qt6/config/qtcurveconfig.cpp:786
 #, kde-format
 msgid "Plain rings"
-msgstr ""
+msgstr "حلقات عادية"
 
 #: qt4/config/qtcurveconfig.cpp:786 qt5/config/qtcurveconfig.cpp:787
 #: qt6/config/qtcurveconfig.cpp:787
 #, kde-format
 msgid "Square rings"
-msgstr ""
+msgstr "حلقات مربعة"
 
 #: qt4/config/qtcurveconfig.cpp:787 qt5/config/qtcurveconfig.cpp:788
 #: qt6/config/qtcurveconfig.cpp:788
@@ -920,115 +922,115 @@ msgstr "ملف"
 #: qt6/config/qtcurveconfig.cpp:793
 #, kde-format
 msgid "No glow"
-msgstr ""
+msgstr "بلا توهج"
 
 #: qt4/config/qtcurveconfig.cpp:793 qt5/config/qtcurveconfig.cpp:794
 #: qt6/config/qtcurveconfig.cpp:794
 #, kde-format
 msgid "Add glow at the start"
-msgstr ""
+msgstr "أضف توهجًا في البداية"
 
 #: qt4/config/qtcurveconfig.cpp:794 qt5/config/qtcurveconfig.cpp:795
 #: qt6/config/qtcurveconfig.cpp:795
 #, kde-format
 msgid "Add glow in the middle"
-msgstr ""
+msgstr "أضف توهجًا في المنتصف"
 
 #: qt4/config/qtcurveconfig.cpp:795 qt5/config/qtcurveconfig.cpp:796
 #: qt6/config/qtcurveconfig.cpp:796
 #, kde-format
 msgid "Add glow at the end"
-msgstr ""
+msgstr "أضف توهجًا في النهاية"
 
 #: qt4/config/qtcurveconfig.cpp:800 qt5/config/qtcurveconfig.cpp:801
 #: qt6/config/qtcurveconfig.cpp:801
 #, kde-format
 msgid "Small (%1 pixels)"
-msgstr ""
+msgstr "صغير ($%1$ بكسل)"
 
 #: qt4/config/qtcurveconfig.cpp:801 qt5/config/qtcurveconfig.cpp:802
 #: qt6/config/qtcurveconfig.cpp:802
 #, kde-format
 msgid "Large (%1 pixels)"
-msgstr ""
+msgstr "كبير ($%1$ بكسل)"
 
 #: qt4/config/qtcurveconfig.cpp:816 qt5/config/qtcurveconfig.cpp:817
 #: qt6/config/qtcurveconfig.cpp:817
 #, kde-format
 msgid "Titlebar only"
-msgstr ""
+msgstr "شريط العنوان فقط"
 
 #: qt4/config/qtcurveconfig.cpp:817 qt5/config/qtcurveconfig.cpp:818
 #: qt6/config/qtcurveconfig.cpp:818
 #, kde-format
 msgid "Titlebar and menubar"
-msgstr ""
+msgstr "شريط العنوان وشريط القائمة"
 
 #: qt4/config/qtcurveconfig.cpp:818 qt5/config/qtcurveconfig.cpp:819
 #: qt6/config/qtcurveconfig.cpp:819
 #, kde-format
 msgid "Titlebar, menubar, and toolbars"
-msgstr ""
+msgstr "شريط العنوان، شريط القائمة، وأشرطة الأدوات"
 
 #: qt4/config/qtcurveconfig.cpp:819 qt5/config/qtcurveconfig.cpp:820
 #: qt6/config/qtcurveconfig.cpp:820
 #, kde-format
 msgid "All empty areas"
-msgstr ""
+msgstr "كل المناطق الفارغة"
 
 #: qt4/config/qtcurveconfig.cpp:826 qt5/config/qtcurveconfig.cpp:827
 #: qt6/config/qtcurveconfig.cpp:827
 #, kde-format
 msgid "Standard frame border"
-msgstr ""
+msgstr "حدود إطار قياسية"
 
 #: qt4/config/qtcurveconfig.cpp:827 qt5/config/qtcurveconfig.cpp:828
 #: qt6/config/qtcurveconfig.cpp:828
 #, kde-format
 msgid "Single separator line"
-msgstr ""
+msgstr "خط فاصل مفرد"
 
 #: qt4/config/qtcurveconfig.cpp:828 qt5/config/qtcurveconfig.cpp:829
 #: qt6/config/qtcurveconfig.cpp:829
 #, kde-format
 msgid "Shaded background"
-msgstr ""
+msgstr "خلفية مظللة"
 
 #: qt4/config/qtcurveconfig.cpp:829 qt5/config/qtcurveconfig.cpp:830
 #: qt6/config/qtcurveconfig.cpp:830
 #, kde-format
 msgid "Faded background"
-msgstr ""
+msgstr "خلفية متلاشية"
 
 #: qt4/config/qtcurveconfig.cpp:841 qt5/config/qtcurveconfig.cpp:842
 #: qt6/config/qtcurveconfig.cpp:842
 #, kde-format
 msgid "Outside frame"
-msgstr ""
+msgstr "خارج الإطار"
 
 #: qt4/config/qtcurveconfig.cpp:842 qt5/config/qtcurveconfig.cpp:843
 #: qt6/config/qtcurveconfig.cpp:843
 #, kde-format
 msgid "On frame"
-msgstr ""
+msgstr "على الإطار"
 
 #: qt4/config/qtcurveconfig.cpp:843 qt5/config/qtcurveconfig.cpp:844
 #: qt6/config/qtcurveconfig.cpp:844
 #, kde-format
 msgid "Inside frame"
-msgstr ""
+msgstr "داخل الإطار"
 
 #: qt4/config/qtcurveconfig.cpp:848 qt5/config/qtcurveconfig.cpp:849
 #: qt6/config/qtcurveconfig.cpp:849
 #, kde-format
 msgid "Standard (auto-raise)"
-msgstr ""
+msgstr "قياسي (ارتفاع آلي)"
 
 #: qt4/config/qtcurveconfig.cpp:850 qt5/config/qtcurveconfig.cpp:851
 #: qt6/config/qtcurveconfig.cpp:851
 #, kde-format
 msgid "Raised and joined"
-msgstr ""
+msgstr "مرفوع وموحد"
 
 #. i18n: ectx: property (suffix), widget (KIntNumInput, sliderWidth)
 #. i18n: ectx: property (suffix), widget (QSpinBox, sliderWidth)
@@ -1043,7 +1045,7 @@ msgstr " بكسل"
 #: qt6/config/qtcurveconfig.cpp:991
 #, kde-format
 msgid "Menu Background"
-msgstr ""
+msgstr "خلفية القائمة"
 
 #: qt4/config/qtcurveconfig.cpp:986 qt5/config/qtcurveconfig.cpp:992
 #: qt6/config/qtcurveconfig.cpp:992
@@ -1055,13 +1057,13 @@ msgstr "صورة الخلفية"
 #: qt6/config/qtcurveconfig.cpp:996
 #, kde-format
 msgid "Menu Image"
-msgstr ""
+msgstr "صورة القائمة"
 
 #: qt4/config/qtcurveconfig.cpp:1732 qt5/config/qtcurveconfig.cpp:1668
 #: qt6/config/qtcurveconfig.cpp:1668
 #, kde-format
 msgid "Presets and Preview"
-msgstr ""
+msgstr "الإعدادات المبدئية والمعاينة"
 
 #. i18n: ectx: attribute (title), widget (QWidget, generalTab)
 #: qt4/config/qtcurveconfig.cpp:1733
@@ -1095,31 +1097,31 @@ msgstr "الشّفافيّة"
 #: qt6/config/qtcurveconfig.cpp:1672
 #, kde-format
 msgid "Group Boxes"
-msgstr ""
+msgstr "صناديق المجموعات"
 
 #: qt4/config/qtcurveconfig.cpp:1737 qt5/config/qtcurveconfig.cpp:1673
 #: qt6/config/qtcurveconfig.cpp:1673
 #, kde-format
 msgid "Combos"
-msgstr ""
+msgstr "المركبات"
 
 #: qt4/config/qtcurveconfig.cpp:1738 qt5/config/qtcurveconfig.cpp:1674
 #: qt6/config/qtcurveconfig.cpp:1674
 #, kde-format
 msgid "Spin Buttons"
-msgstr ""
+msgstr "أزرار الدوران"
 
 #: qt4/config/qtcurveconfig.cpp:1739 qt5/config/qtcurveconfig.cpp:1675
 #: qt6/config/qtcurveconfig.cpp:1675
 #, kde-format
 msgid "Splitters"
-msgstr ""
+msgstr "فواصل"
 
 #: qt4/config/qtcurveconfig.cpp:1740 qt5/config/qtcurveconfig.cpp:1676
 #: qt6/config/qtcurveconfig.cpp:1676
 #, kde-format
 msgid "Sliders and Scrollbars"
-msgstr ""
+msgstr "مزالق وأشرطة تمرير"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareProgress)
 #: qt4/config/qtcurveconfig.cpp:1741 qt4/config/qtcurveconfigbase.ui:484
@@ -1127,7 +1129,7 @@ msgstr ""
 #: qt6/config/qtcurveconfig.cpp:1677 qt6/config/qtcurveconfigbase.ui:493
 #, kde-format
 msgid "Progressbars"
-msgstr ""
+msgstr "أشرطة التقدم"
 
 #: qt4/config/qtcurveconfig.cpp:1742 qt5/config/qtcurveconfig.cpp:1678
 #: qt6/config/qtcurveconfig.cpp:1678
@@ -1139,19 +1141,19 @@ msgstr "الزر المبدئيّ"
 #: qt6/config/qtcurveconfig.cpp:1679
 #, kde-format
 msgid "Mouse-over"
-msgstr ""
+msgstr "مرور الفأرة"
 
 #: qt4/config/qtcurveconfig.cpp:1744 qt5/config/qtcurveconfig.cpp:1680
 #: qt6/config/qtcurveconfig.cpp:1680
 #, kde-format
 msgid "Item Views"
-msgstr ""
+msgstr "مشاهد العناصر"
 
 #: qt4/config/qtcurveconfig.cpp:1745 qt5/config/qtcurveconfig.cpp:1681
 #: qt6/config/qtcurveconfig.cpp:1681
 #, kde-format
 msgid "Scrollviews"
-msgstr ""
+msgstr "مشاهد التمرير"
 
 #: qt4/config/qtcurveconfig.cpp:1746 qt5/config/qtcurveconfig.cpp:1682
 #: qt6/config/qtcurveconfig.cpp:1682
@@ -1163,7 +1165,7 @@ msgstr "الألسنة"
 #: qt6/config/qtcurveconfig.cpp:1683
 #, kde-format
 msgid "Checks and Radios"
-msgstr ""
+msgstr "مربعات ومفاتيح اختيار"
 
 #: qt4/config/qtcurveconfig.cpp:1748 qt5/config/qtcurveconfig.cpp:1684
 #: qt6/config/qtcurveconfig.cpp:1684
@@ -1180,6 +1182,9 @@ msgid ""
 "Therefore, these settings will <b>not</b> be reflected in the Preview page.</"
 "i></p>"
 msgstr ""
+"<p><b>ملاحظة:</b><i>تؤثر الإعدادات هنا على الحدود المرسومة حول نوافذ "
+"وتطبيقات الحوار - وليس النوافذ الداخلية (أو MDI). لذلك، لن تنعكس هذه "
+"الإعدادات في صفحة المعاينة <b>.</b></i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:1761 qt5/config/qtcurveconfig.cpp:1696
 #: qt6/config/qtcurveconfig.cpp:1696
@@ -1191,19 +1196,19 @@ msgstr "مدير نوافذ"
 #: qt6/config/qtcurveconfig.cpp:1698
 #, kde-format
 msgid "Window buttons"
-msgstr ""
+msgstr "أزرار النافذة"
 
 #: qt4/config/qtcurveconfig.cpp:1764 qt5/config/qtcurveconfig.cpp:1699
 #: qt6/config/qtcurveconfig.cpp:1699
 #, kde-format
 msgid "Window button colors"
-msgstr ""
+msgstr "ألوان زر النافذة"
 
 #: qt4/config/qtcurveconfig.cpp:1765 qt5/config/qtcurveconfig.cpp:1700
 #: qt6/config/qtcurveconfig.cpp:1700
 #, kde-format
 msgid "Menubars"
-msgstr ""
+msgstr "أشرطة القائمة"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squarePopupMenus)
 #: qt4/config/qtcurveconfig.cpp:1766 qt4/config/qtcurveconfigbase.ui:559
@@ -1223,13 +1228,13 @@ msgstr "أشرطة الأدوات"
 #: qt6/config/qtcurveconfig.cpp:1703
 #, kde-format
 msgid "Statusbars"
-msgstr ""
+msgstr "أشرطة الحالة"
 
 #: qt4/config/qtcurveconfig.cpp:1769 qt5/config/qtcurveconfig.cpp:1704
 #: qt6/config/qtcurveconfig.cpp:1704
 #, kde-format
 msgid "Dock windows"
-msgstr ""
+msgstr "نوافذ الإرساء"
 
 #: qt4/config/qtcurveconfig.cpp:1770 qt5/config/qtcurveconfig.cpp:1705
 #: qt6/config/qtcurveconfig.cpp:1705
@@ -1253,13 +1258,13 @@ msgstr "تراثي"
 #: qt6/config/qtcurveconfig.cpp:1708
 #, kde-format
 msgid "Custom Gradients"
-msgstr ""
+msgstr "تدرجات مخصصة"
 
 #: qt4/config/qtcurveconfig.cpp:1774 qt5/config/qtcurveconfig.cpp:1709
 #: qt6/config/qtcurveconfig.cpp:1709
 #, kde-format
 msgid "Custom Shades"
-msgstr ""
+msgstr "ظلال مخصصة"
 
 #: qt4/config/qtcurveconfig.cpp:1791 qt5/config/qtcurveconfig.cpp:1747
 #: qt6/config/qtcurveconfig.cpp:1747
@@ -1304,6 +1309,7 @@ msgid ""
 "Export your current KDE4 color palette, and font, so that they can be used "
 "by KDE3 applications?"
 msgstr ""
+"صدِّر لوحة ألوانك وخطك الحاليين لـ KDE4، بحيث استخدامها بواسطة تطبيقات KDE3؟"
 
 #: qt4/config/qtcurveconfig.cpp:2134 qt5/config/qtcurveconfig.cpp:2105
 #: qt6/config/qtcurveconfig.cpp:2105
@@ -1312,6 +1318,8 @@ msgid ""
 "Export your current KDE4 color palette, and font, so that they can be used "
 "by pure-Qt3 applications?"
 msgstr ""
+"صدِّر لوحة ألوانك وخطك الحاليين لـ KDE4، بحيث استخدامها بواسطة تطبيقات Qt3 "
+"الخالصة؟"
 
 #: qt4/config/qtcurveconfig.cpp:2187 qt5/config/qtcurveconfig.cpp:2165
 #: qt6/config/qtcurveconfig.cpp:2164
@@ -1323,12 +1331,17 @@ msgid ""
 "li><li>Set menubar coloration to \"%2\"</li><li>Extend window dragging into "
 "menubar</li>"
 msgstr ""
+"<p>اضبط عناصر الإعداد التالية بحيث تظهر أشرطة العنوان وشريط القائمة للنافذة "
+"ممزوجة؟</p><ul><li>اجعل تدرج شريط القائمة، شريط العنوان، وشريط العنوان غير "
+"النشط \"%1\"</li><li>عطِّل \"امزج لون شريط العنوان في لون الخلفية\"</"
+"li><li>اجعل تلوين شريط القائمة \"%2\"</li><li>وسّع سحب النافذة إلى شريط "
+"القائمة</li>"
 
 #: qt4/config/qtcurveconfig.cpp:2260 qt5/config/qtcurveconfig.cpp:2241
 #: qt6/config/qtcurveconfig.cpp:2240
 #, kde-format
 msgid "Reattach"
-msgstr ""
+msgstr "أعِد الإرفاق"
 
 #. i18n: ectx: property (text), widget (QPushButton, previewControlButton)
 #: qt4/config/qtcurveconfig.cpp:2277 qt4/config/qtcurveconfigbase.ui:206
@@ -1342,7 +1355,7 @@ msgstr "افصل"
 #: qt6/config/qtcurveconfig.cpp:2277
 #, kde-format
 msgid "Copy settings from another gradient"
-msgstr ""
+msgstr "انسخ الإعدادات من تدرج آخر"
 
 #: qt4/config/qtcurveconfig.cpp:2310 qt5/config/qtcurveconfig.cpp:2292
 #: qt6/config/qtcurveconfig.cpp:2291
@@ -1372,7 +1385,7 @@ msgstr "احفظ إعداد مسبق"
 #: qt6/config/qtcurveconfig.cpp:2517
 #, kde-format
 msgid "Please enter a name for the preset:"
-msgstr ""
+msgstr "الرجاء أدخل اسمًا للإعداد المبدئي:"
 
 #: qt4/config/qtcurveconfig.cpp:2529 qt5/config/qtcurveconfig.cpp:2520
 #: qt6/config/qtcurveconfig.cpp:2519
@@ -1394,14 +1407,14 @@ msgstr "%1 جديد"
 #: qt6/config/qtcurveconfig.cpp:2525
 #, kde-format
 msgid "Sorry, failed to save preset"
-msgstr ""
+msgstr "عذرًا، فشل حفظ الإعداد المبدئي"
 
 #: qt4/config/qtcurveconfig.cpp:2611 qt5/config/qtcurveconfig.cpp:2606
 #: qt6/config/qtcurveconfig.cpp:2605
 #, kde-format
 msgid ""
 "<p>You cannot use the name \"%1\".</p><p>Please enter a different name:</p>"
-msgstr ""
+msgstr "<p>لا يمكنك استخدام الاسم \"%1\".</p><p>الرجاء أدخل اسمًا مختلفًا:</p>"
 
 #: qt4/config/qtcurveconfig.cpp:2620 qt5/config/qtcurveconfig.cpp:2615
 #: qt6/config/qtcurveconfig.cpp:2614
@@ -1410,6 +1423,8 @@ msgid ""
 "<p>A system defined preset named \"%1\" already exists.</p><p>Please enter a "
 "new name:</p>"
 msgstr ""
+"<p>إعداد مبدئي معرّف بالنظام باسم \"%1\" موجود بالفعل.</p><p>الرجاء أدخل اسمًا "
+"جديدًا:</p>"
 
 #: qt4/config/qtcurveconfig.cpp:2627 qt5/config/qtcurveconfig.cpp:2626
 #: qt6/config/qtcurveconfig.cpp:2621
@@ -1418,6 +1433,8 @@ msgid ""
 "<p>A preset named \"%1\" already exists.</p><p>Do you wish to overwrite this?"
 "</p>"
 msgstr ""
+"<p>إعداد مبدئي باسم \"%1\" موجود بالفعل.</p><p>هل ترغب في الكتابة فوق هذا؟</"
+"p>"
 
 #: qt4/config/qtcurveconfig.cpp:2633 qt5/config/qtcurveconfig.cpp:2640
 #: qt6/config/qtcurveconfig.cpp:2631
@@ -1435,18 +1452,18 @@ msgstr "<p>هل أنت متأكد من حذف:</p><p><b>%1</b></p>"
 #: qt6/config/qtcurveconfig.cpp:2663
 #, kde-format
 msgid "<p>Sorry, failed to remove the preset file:</p><p><i>%1</i></p>"
-msgstr ""
+msgstr "<p>عذرًا، فشل إزالة ملف الإعداد المبدئي:</p><p><i>%1</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2669 qt4/config/qtcurveconfig.cpp:2830
 #, kde-format
 msgid "*"
-msgstr ""
+msgstr "*"
 
 #: qt4/config/qtcurveconfig.cpp:2682 qt5/config/qtcurveconfig.cpp:2697
 #: qt6/config/qtcurveconfig.cpp:2684
 #, kde-format
 msgid "<p>Sorry, failed to load file.</p><p><i>Empty preset name?</i></p>"
-msgstr ""
+msgstr "<p>عذرًا، فشل تحميل الملف.</p><p><i>اسم إعداد مبدئي فارغ؟</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2685 qt5/config/qtcurveconfig.cpp:2699
 #: qt6/config/qtcurveconfig.cpp:2686
@@ -1455,12 +1472,14 @@ msgid ""
 "<p>Sorry, failed to load file.</p><p><i>Cannot have a preset named \"%1\"</"
 "i></p>"
 msgstr ""
+"<p>عذرًا، فشل تحميل الملف.</p><p><i>لا يمكن أن يكون لديك إعداد مبدئي باسم "
+"\"%1\"</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2695 qt5/config/qtcurveconfig.cpp:2708
 #: qt6/config/qtcurveconfig.cpp:2695
 #, kde-format
 msgid "Sorry, failed to open compressed file."
-msgstr ""
+msgstr "عذرًا، فشل فتح الملف المضغوط."
 
 #: qt4/config/qtcurveconfig.cpp:2714 qt5/config/qtcurveconfig.cpp:2727
 #: qt6/config/qtcurveconfig.cpp:2714
@@ -1469,6 +1488,8 @@ msgid ""
 "Invalid compressed settings file.\n"
 "(Could not locate settings file.)"
 msgstr ""
+"ملف إعدادات مضغوط غير صالح.\n"
+"(تعذر تحديد موقع ملف الإعدادات.)"
 
 #: qt4/config/qtcurveconfig.cpp:2720 qt5/config/qtcurveconfig.cpp:2729
 #: qt6/config/qtcurveconfig.cpp:2716
@@ -1477,18 +1498,20 @@ msgid ""
 "Invalid compressed settings file.\n"
 "(Could not list ZIP contents.)"
 msgstr ""
+"ملف إعدادات مضغوط غير صالح.\n"
+"(تعذر سرد محتويات ZIP.)"
 
 #: qt4/config/qtcurveconfig.cpp:2729 qt5/config/qtcurveconfig.cpp:2737
 #: qt6/config/qtcurveconfig.cpp:2724
 #, kde-format
 msgid "Import Preset"
-msgstr ""
+msgstr "استورِد إعداد مبدئي"
 
 #: qt4/config/qtcurveconfig.cpp:2800 qt5/config/qtcurveconfig.cpp:2811
 #: qt6/config/qtcurveconfig.cpp:2798
 #, kde-format
 msgid "Sorry, failed to load file."
-msgstr ""
+msgstr "عذرًا، فشل تحميل الملف."
 
 #: qt4/config/qtcurveconfig.cpp:2811 qt5/config/qtcurveconfig.cpp:2826
 #: qt6/config/qtcurveconfig.cpp:2809
@@ -1499,6 +1522,9 @@ msgid ""
 "dialog.</li><li><i>Standalone theme</i> - a style that user's can select "
 "from the KDE style panel.</li></ul></p>"
 msgstr ""
+"<p>بأي صيغة ترغب في تصدير إعدادات كيوت كيرف؟<ul><li><i>ملف إعدادات كيوت "
+"كيرف</i> - ملف لاستيراده عبر حوار الإعداد هذا.</li><li><i>سمة مستقلة</i> - "
+"نمط اختيار المستخدمين له من لوحة نمط كيدي.</li></ul></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2816 qt5/config/qtcurveconfig.cpp:2832
 #: qt6/config/qtcurveconfig.cpp:2815
@@ -1510,13 +1536,13 @@ msgstr "صدّر الإعدادات"
 #: qt6/config/qtcurveconfig.cpp:2816
 #, kde-format
 msgid "QtCurve Settings File"
-msgstr ""
+msgstr "ملف إعدادات كيوت كيرف"
 
 #: qt4/config/qtcurveconfig.cpp:2818 qt5/config/qtcurveconfig.cpp:2834
 #: qt6/config/qtcurveconfig.cpp:2817
 #, kde-format
 msgid "Standalone Theme"
-msgstr ""
+msgstr "سمة مستقلة"
 
 #: qt4/config/qtcurveconfig.cpp:2899 qt5/config/qtcurveconfig.cpp:2922
 #: qt6/config/qtcurveconfig.cpp:2897
@@ -1525,6 +1551,8 @@ msgid ""
 "Could not write to file:\n"
 "%1"
 msgstr ""
+"تعذر الكتابة إلى الملف:\n"
+"%1"
 
 #. i18n: ectx: property (text), widget (QLabel, titleLabel)
 #: qt4/config/qtcurveconfigbase.ui:23 qt5/config/qtcurveconfigbase.ui:23
@@ -1553,6 +1581,12 @@ msgid ""
 "default style.</li>\n"
 "</ul>"
 msgstr ""
+"<p>يحتوي هذا المركب على قائمة الإعدادات المحددة مسبقًا.\n"
+"<ul>\n"
+"<li><i>(الحالي)</i> تخلَّ عن أية تغييرات، وارجع إلى النمط المحفوظ حاليًا.</li>\n"
+"<li><i>(المبدئي)</i> تخلَّ عن أية تغييرات، وارجع إلى نمط كيوت كيرف المبدئي.</"
+"li>\n"
+"</ul>"
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, saveButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, saveButton)
@@ -1560,7 +1594,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:132
 #, kde-format
 msgid "<p>Save the current settings to be retrieved later.</p>"
-msgstr ""
+msgstr "<p>احفظ الإعدادات الحالية لاسترجاعها لاحقًا.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, deleteButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, deleteButton)
@@ -1568,7 +1602,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:139
 #, kde-format
 msgid "<p>Delete a previously stored setting.</p>"
-msgstr ""
+msgstr "<p>احذف إعدادًا مخزَّنًا سابقًا.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, importButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, importButton)
@@ -1579,6 +1613,8 @@ msgid ""
 "<p>Import a QtCurve settings file - such as one downloaded from www.kde-look."
 "org</p>"
 msgstr ""
+"<p>استورِد ملف إعدادات كيوت كيرف - مثل الملف الذي نزّلته من www.kde-look.org</"
+"p>"
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, exportButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, exportButton)
@@ -1588,7 +1624,7 @@ msgstr ""
 msgid ""
 "<p>Export the currently defined settings to a file, so that these may be "
 "shared with others.</p>"
-msgstr ""
+msgstr "<p>صدِّر الإعدادات المعرّفة حاليًا إلى ملف، بحيث تشاركها مع الآخرين.</p>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, previewGroupBox)
 #. i18n: ectx: property (title), widget (QGroupBox, gradPreviewBox)
@@ -1621,6 +1657,8 @@ msgid ""
 "<p>The setting here affects the general appearance - and will be applied to "
 "buttons, combo boxes, and spin buttons.</p>"
 msgstr ""
+"<p>يؤثر الإعداد هنا على المظهر العام - ويسري على الأزرار، مربعات المركبات، "
+"وأزرار الدوران.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_47)
 #. i18n: ectx: property (text), widget (QLabel, label_75)
@@ -1629,7 +1667,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:252 qt6/config/qtcurveconfigbase.ui:3257
 #, kde-format
 msgid "Background appearance:"
-msgstr ""
+msgstr "مظهر الخلفية:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, bgndAppearance)
 #: qt4/config/qtcurveconfigbase.ui:252 qt5/config/qtcurveconfigbase.ui:261
@@ -1640,6 +1678,8 @@ msgid ""
 "p><p><b>NOTE:</b> This is an experimental option, and will (probably) have a "
 "detrimental effect on performance.</p>"
 msgstr ""
+"<p>اضبط تدرجًا لاستخدامه كخلفية للنوافذ والحوارات.</p><p><b>ملاحظة:</b> هذا "
+"خيار تجريبي، و (من المحتمل) أن يكون له تأثير ضار على الأداء.</p>"
 
 #. i18n: ectx: property (text), widget (QToolButton, bgndAppearance_btn)
 #. i18n: ectx: property (text), widget (QToolButton, bgndImage_btn)
@@ -1653,14 +1693,14 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:3273 qt6/config/qtcurveconfigbase.ui:3306
 #, kde-format
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, bgndGrad)
 #: qt4/config/qtcurveconfigbase.ui:268 qt5/config/qtcurveconfigbase.ui:277
 #: qt6/config/qtcurveconfigbase.ui:277
 #, kde-format
 msgid "<p>Control the orientation of the background gradient.</p>"
-msgstr ""
+msgstr "<p>تحكّم في اتجاه تدرج الخلفية.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_47b)
 #. i18n: ectx: property (text), widget (QLabel, label_xx)
@@ -1681,13 +1721,17 @@ msgid ""
 "rings with borders.</li><li>Plain rings - 'Air' like rings, but without any "
 "border.</li><li>Square rings - 3 simple rounded squares.</li></ul></p>"
 msgstr ""
+"<p>يضيف هذا صورة خلفية إلى الجزء العلوي الأيمن من مربعات الحوار والنوافذ.\n"
+"            <ul><li>بلا - لا توجد صورة.</li><li>حلقات ذات حدود - حلقات شبيهة "
+"بـ 'الهواء' مع حدود.</li><li>حلقات عادية - حلقات شبيهة بـ 'الهواء'، ولكن "
+"بدون أي حد.</li><li>حلقات مربعة - 3 مربعات مدوّرة بسيطة.</li></ul></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_29)
 #: qt4/config/qtcurveconfigbase.ui:301 qt5/config/qtcurveconfigbase.ui:310
 #: qt6/config/qtcurveconfigbase.ui:310
 #, kde-format
 msgid "Sunken appearance:"
-msgstr ""
+msgstr "مظهر غائر:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, sunkenAppearance)
 #: qt4/config/qtcurveconfigbase.ui:308 qt5/config/qtcurveconfigbase.ui:317
@@ -1696,7 +1740,7 @@ msgstr ""
 msgid ""
 "<p>Define the gradient to be used for sunken widgets - e.g. pressed buttons."
 "</p>"
-msgstr ""
+msgstr "<p>عرِّف التدرج لاستخدامه للويدجت الغائرة - مثل الأزرار المضغوطة.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #. i18n: ectx: property (text), widget (QLabel, label_102)
@@ -1705,7 +1749,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:324 qt6/config/qtcurveconfigbase.ui:3573
 #, kde-format
 msgid "Button effect:"
-msgstr ""
+msgstr "تأثير الزر:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, buttonEffect)
 #: qt4/config/qtcurveconfigbase.ui:322 qt5/config/qtcurveconfigbase.ui:331
@@ -1714,20 +1758,21 @@ msgstr ""
 msgid ""
 "<p>Control what effect should be applied to buttons, combo boxes, etc.</p>"
 msgstr ""
+"<p>تحكّم في التأثير الذي يجب تطبيقه على الأزرار، مربعات المركبات، إلخ.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, thin_buttons)
 #: qt4/config/qtcurveconfigbase.ui:329 qt5/config/qtcurveconfigbase.ui:338
 #: qt6/config/qtcurveconfigbase.ui:338
 #, kde-format
 msgid "<p>Make buttons, and other widgets, slightly thinner.</p>"
-msgstr ""
+msgstr "<p>اجعل الأزرار، والويدجت الأخرى، أرق قليلاً.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, thin_buttons)
 #: qt4/config/qtcurveconfigbase.ui:332 qt5/config/qtcurveconfigbase.ui:341
 #: qt6/config/qtcurveconfigbase.ui:341
 #, kde-format
 msgid "Thinner buttons"
-msgstr ""
+msgstr "أزرار أرق"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, etchEntry)
 #: qt4/config/qtcurveconfigbase.ui:339 qt5/config/qtcurveconfigbase.ui:348
@@ -1738,20 +1783,23 @@ msgid ""
 "controls whether line-edits and scrollviews (such as listviews and "
 "treeviews) should have an etched look.</p>"
 msgstr ""
+"<p>عندما يُضبط 'تأثير الزر' على محفور أو مظلل، يتحكّم هذا الخيار فيما إذا كان "
+"يجب أن تبدو تحريرات الأسطر ومشاهد التمرير (مثل مشاهد القوائم ومشاهد الشجرة) "
+"بمظهر محفور.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, etchEntry)
 #: qt4/config/qtcurveconfigbase.ui:342 qt5/config/qtcurveconfigbase.ui:351
 #: qt6/config/qtcurveconfigbase.ui:351
 #, kde-format
 msgid "Etch entries and scrollviews "
-msgstr ""
+msgstr "احفر الإدخالات ومشاهد التمرير"
 
 #. i18n: ectx: property (text), widget (QLabel, label_25)
 #: qt4/config/qtcurveconfigbase.ui:349 qt5/config/qtcurveconfigbase.ui:358
 #: qt6/config/qtcurveconfigbase.ui:358
 #, kde-format
 msgid "Focus rectangle:"
-msgstr ""
+msgstr "مستطيل التركيز:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, focus)
 #: qt4/config/qtcurveconfigbase.ui:356 qt5/config/qtcurveconfigbase.ui:365
@@ -1759,6 +1807,8 @@ msgstr ""
 #, kde-format
 msgid "<p>Controls how QtCurve indicates that a widget has keyboard focus.</p>"
 msgstr ""
+"<p>تحكّم في كيفية إشارة كيوت كيرف إلى أن ويدجت ما لديه تركيز لوحة المفاتيح.</"
+"p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_tt)
 #: qt4/config/qtcurveconfigbase.ui:363 qt5/config/qtcurveconfigbase.ui:372
@@ -1772,7 +1822,7 @@ msgstr "التلميحات:"
 #: qt6/config/qtcurveconfigbase.ui:379
 #, kde-format
 msgid "<p>Controls the appearance of tooltip backgrounds.</p>"
-msgstr ""
+msgstr "<p>تحكّم في مظهر خلفيات تلميحات الأدوات.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, vArrows)
 #: qt4/config/qtcurveconfigbase.ui:386 qt5/config/qtcurveconfigbase.ui:395
@@ -1782,13 +1832,15 @@ msgid ""
 "<p>QtCurve supports 2 arrows types; plain (i.e. triangular) and the more "
 "modern looking 'V' style arrows.</p>"
 msgstr ""
+"<p>يدعم كيوت كيرف نوعين من الأسهم؛ عادي (أي مثلثي) وأسهم نمط 'V' الأكثر "
+"حداثة.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, vArrows)
 #: qt4/config/qtcurveconfigbase.ui:389 qt5/config/qtcurveconfigbase.ui:398
 #: qt6/config/qtcurveconfigbase.ui:398
 #, kde-format
 msgid "'V' style arrows"
-msgstr ""
+msgstr "أسهم نمط 'V'"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stdSidebarButtons)
 #: qt4/config/qtcurveconfigbase.ui:396 qt5/config/qtcurveconfigbase.ui:405
@@ -1800,27 +1852,30 @@ msgid ""
 "in a more flat style with the active tab colored with the highlight color.</"
 "p>"
 msgstr ""
+"<p>اختر هذا ليكون لديك أزرار الشريط الجانبي في كونكيورر، كيت، كافيين، "
+"كيتورنت، إلخ. مرسومة حسب الأزرار العادية - وإلا سترسم بنمط أكثر تسطيحًا بينما "
+"تكون الألسنة النشطة ملونة بلون التظليل.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stdSidebarButtons)
 #: qt4/config/qtcurveconfigbase.ui:399 qt5/config/qtcurveconfigbase.ui:408
 #: qt6/config/qtcurveconfigbase.ui:408
 #, kde-format
 msgid "Standard buttons for sidebars"
-msgstr ""
+msgstr "أزرار قياسية للأشرطة الجانبية"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, darkerBorders)
 #: qt4/config/qtcurveconfigbase.ui:406 qt5/config/qtcurveconfigbase.ui:415
 #: qt6/config/qtcurveconfigbase.ui:415
 #, kde-format
 msgid "<p>Darkens the borders of frames, buttons, etc.</p>"
-msgstr ""
+msgstr "<p>دكِّن حدود الإطارات، الأزرار، إلخ.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, darkerBorders)
 #: qt4/config/qtcurveconfigbase.ui:409 qt5/config/qtcurveconfigbase.ui:418
 #: qt6/config/qtcurveconfigbase.ui:418
 #, kde-format
 msgid "Darker borders"
-msgstr ""
+msgstr "حدود داكنة"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, fadeLines)
 #: qt4/config/qtcurveconfigbase.ui:416 qt5/config/qtcurveconfigbase.ui:425
@@ -1830,13 +1885,14 @@ msgid ""
 "<p>Controls whether horizontal and vertical lines should be drawn with "
 "fading ends.</p>"
 msgstr ""
+"<p>تحكّم فيما إذا كان يجب رسم الخطوط الأفقية والعمودية بنهايات متلاشية.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, fadeLines)
 #: qt4/config/qtcurveconfigbase.ui:419 qt5/config/qtcurveconfigbase.ui:428
 #: qt6/config/qtcurveconfigbase.ui:428
 #, kde-format
 msgid "Draw fading lines"
-msgstr ""
+msgstr "ارسِم خطوطًا متلاشية"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, thin_frames)
 #: qt4/config/qtcurveconfigbase.ui:426 qt5/config/qtcurveconfigbase.ui:435
@@ -1846,27 +1902,28 @@ msgid ""
 "<p>Controls whether the internal 3d part of frames, etc., should be drawn.</"
 "p>"
 msgstr ""
+"<p>تحكّم فيما إذا كان يجب رسم الجزء ثلاثي الأبعاد الداخلي للإطارات، إلخ.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, thin_frames)
 #: qt4/config/qtcurveconfigbase.ui:429 qt5/config/qtcurveconfigbase.ui:438
 #: qt6/config/qtcurveconfigbase.ui:438
 #, kde-format
 msgid "Thinner frames, edit boxes, etc."
-msgstr ""
+msgstr "إطارات أرق، مربعات تحرير، إلخ."
 
 #. i18n: ectx: property (text), widget (QCheckBox, hideShortcutUnderline)
 #: qt4/config/qtcurveconfigbase.ui:436 qt5/config/qtcurveconfigbase.ui:445
 #: qt6/config/qtcurveconfigbase.ui:445
 #, kde-format
 msgid "Hide shortcut underline until 'Alt' key is pressed."
-msgstr ""
+msgstr "أخفِ تسطير الاختصار حتى الضغط على مفتاح 'Alt'."
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: qt4/config/qtcurveconfigbase.ui:450 qt5/config/qtcurveconfigbase.ui:459
 #: qt6/config/qtcurveconfigbase.ui:459
 #, kde-format
 msgid "General setting:"
-msgstr ""
+msgstr "الإعداد العام:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, round)
 #: qt4/config/qtcurveconfigbase.ui:457 qt5/config/qtcurveconfigbase.ui:466
@@ -1876,13 +1933,14 @@ msgid ""
 "<p>Set how 'rounded' widgets can be. The 'max' round setting only applies to "
 "buttons.</p>"
 msgstr ""
+"<p>اضبط مدى 'تدوير' الويدجت. يسري إعداد التدوير 'الأقصى' فقط على الأزرار.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_93)
 #: qt4/config/qtcurveconfigbase.ui:464 qt5/config/qtcurveconfigbase.ui:473
 #: qt6/config/qtcurveconfigbase.ui:473
 #, kde-format
 msgid "Do not round:"
-msgstr ""
+msgstr "لا تدور:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareEntry)
 #: qt4/config/qtcurveconfigbase.ui:471 qt5/config/qtcurveconfigbase.ui:480
@@ -1892,13 +1950,15 @@ msgid ""
 "<p>Controls whether text entry fields should respect the general round "
 "setting, or always be square.</p>"
 msgstr ""
+"<p>تحكّم فيما إذا كان يجب أن تحترم حقول إدخال النص الإعداد العام للتدوير، أو "
+"أن تكون دائمًا مربعة.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareEntry)
 #: qt4/config/qtcurveconfigbase.ui:474 qt5/config/qtcurveconfigbase.ui:483
 #: qt6/config/qtcurveconfigbase.ui:483
 #, kde-format
 msgid "Entry fields"
-msgstr ""
+msgstr "حقول الإدخال"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareProgress)
 #: qt4/config/qtcurveconfigbase.ui:481 qt5/config/qtcurveconfigbase.ui:490
@@ -1908,6 +1968,8 @@ msgid ""
 "<p>Controls whether progress bars should respect the general round setting, "
 "or always be square.</p>"
 msgstr ""
+"<p>تحكّم فيما إذا كان يجب أن تحترم أشرطة التقدم الإعداد العام للتدوير، أو أن "
+"تكون دائمًا مربعة.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:491 qt5/config/qtcurveconfigbase.ui:500
@@ -1917,13 +1979,15 @@ msgid ""
 "<p>Controls whether the frame of a scrollview should respect the general "
 "round setting, or always be square.</p>"
 msgstr ""
+"<p>تحكّم فيما إذا كان يجب أن يحترم إطار مشاهد التمرير الإعداد العام للتدوير، "
+"أو أن يكون دائمًا مربعًا.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:494 qt5/config/qtcurveconfigbase.ui:503
 #: qt6/config/qtcurveconfigbase.ui:503
 #, kde-format
 msgid "Scrollable windows"
-msgstr ""
+msgstr "نوافذ قابلة للتمرير"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareLvSelection)
 #: qt4/config/qtcurveconfigbase.ui:501 qt5/config/qtcurveconfigbase.ui:510
@@ -1933,13 +1997,15 @@ msgid ""
 "<p>If enabled, then selected items in listviews and treeviews will be drawn "
 "with square edges, regardless of the general round setting.</p>"
 msgstr ""
+"<p>إذا فعّلت، ترسم العناصر المحددة في مشاهد القوائم ومشاهد الشجرة بحواف "
+"مربعة، بغض النظر عن إعداد التدوير العام.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareLvSelection)
 #: qt4/config/qtcurveconfigbase.ui:504 qt5/config/qtcurveconfigbase.ui:513
 #: qt6/config/qtcurveconfigbase.ui:513
 #, kde-format
 msgid "Listview selections"
-msgstr ""
+msgstr "تحديدات مشاهد القوائم"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareTabFrame)
 #: qt4/config/qtcurveconfigbase.ui:511 qt5/config/qtcurveconfigbase.ui:520
@@ -1949,13 +2015,15 @@ msgid ""
 "<p>Controls whether the frames of tab widgets should respect the general "
 "round setting, or always be square.</p>"
 msgstr ""
+"<p>تحكّم فيما إذا كان يجب أن تحترم إطارات ويدجت الألسنة الإعداد العام "
+"للتدوير، أو أن تكون دائمًا مربعة.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareTabFrame)
 #: qt4/config/qtcurveconfigbase.ui:514 qt5/config/qtcurveconfigbase.ui:523
 #: qt6/config/qtcurveconfigbase.ui:523
 #, kde-format
 msgid "Tab widget frames"
-msgstr ""
+msgstr "إطارات ويدجت الألسنة"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareFrame)
 #: qt4/config/qtcurveconfigbase.ui:521 qt5/config/qtcurveconfigbase.ui:530
@@ -1965,13 +2033,15 @@ msgid ""
 "<p>Controls whether general frames should respect the general round setting, "
 "or always be square.</p>"
 msgstr ""
+"<p>تحكّم فيما إذا كان يجب أن تحترم الإطارات العامة الإعداد العام للتدوير، أو "
+"أن تكون دائمًا مربعة.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareFrame)
 #: qt4/config/qtcurveconfigbase.ui:524 qt5/config/qtcurveconfigbase.ui:533
 #: qt6/config/qtcurveconfigbase.ui:533
 #, kde-format
 msgid "General frames"
-msgstr ""
+msgstr "إطارات عامة"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareSlider)
 #: qt4/config/qtcurveconfigbase.ui:531 qt5/config/qtcurveconfigbase.ui:540
@@ -1985,14 +2055,14 @@ msgstr "مزالق"
 #: qt6/config/qtcurveconfigbase.ui:547
 #, kde-format
 msgid "Scrollbar sliders"
-msgstr ""
+msgstr "مزالق أشرطة التمرير"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareWindows)
 #: qt4/config/qtcurveconfigbase.ui:545 qt5/config/qtcurveconfigbase.ui:554
 #: qt6/config/qtcurveconfigbase.ui:554
 #, kde-format
 msgid "Window borders (will use slight round)"
-msgstr ""
+msgstr "حدود النافذة (ستستخدم تدويرًا طفيفًا)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareTooltips)
 #: qt4/config/qtcurveconfigbase.ui:552 qt5/config/qtcurveconfigbase.ui:561
@@ -2015,7 +2085,7 @@ msgstr "النوافذ:"
 #, kde-format
 msgid ""
 "<p>Sets the opacity of window backgrounds when using desktop effects.</p>"
-msgstr ""
+msgstr "<p>اضبط عتامة خلفيات النافذة عند استخدام تأثيرات سطح المكتب.</p>"
 
 #. i18n: ectx: property (suffix), widget (KIntNumInput, bgndOpacity)
 #. i18n: ectx: property (suffix), widget (KIntNumInput, dlgOpacity)
@@ -2093,14 +2163,14 @@ msgstr "الحواريات:"
 #, kde-format
 msgid ""
 "<p>Sets the opacity of dialog backgrounds when using desktop effects.</p>"
-msgstr ""
+msgstr "<p>اضبط عتامة خلفيات الحوار عند استخدام تأثيرات سطح المكتب.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_yy)
 #: qt4/config/qtcurveconfigbase.ui:609 qt5/config/qtcurveconfigbase.ui:618
 #: qt6/config/qtcurveconfigbase.ui:618
 #, kde-format
 msgid "Pop-up menus:"
-msgstr ""
+msgstr "القوائم المنبثقة:"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, menuBgndOpacity)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, menuBgndOpacity)
@@ -2108,7 +2178,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:625
 #, kde-format
 msgid "<p>Sets the opacity of popup menus when using desktop effects.</p>"
-msgstr ""
+msgstr "<p>اضبط عتامة القوائم المنبثقة عند استخدام تأثيرات سطح المكتب.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_100)
 #: qt4/config/qtcurveconfigbase.ui:651 qt5/config/qtcurveconfigbase.ui:660
@@ -2122,13 +2192,18 @@ msgid ""
 "<p><b>NOTE:</b> <i><b>DON'T</b> use opacity settings when using the compiz "
 "window manager.</i></p>"
 msgstr ""
+"<p><b>ملاحظة:</b> <i>إعدادات العتامة <b>تجريبية</b> وقد تسبب تعطّل بعض "
+"التطبيقات (تطبيقات Gtk2 بشكل أساسي). إذا كان لديك تطبيق يتعطل، استخدم صفحة "
+"&quot;التطبيقات&quot; لتعطيل إعدادات العتامة لذلك التطبيق.</i></p>\n"
+"<p><b>ملاحظة:</b> <i><b>لا</b> تستخدم إعدادات العتامة عند استخدام مدير نوافذ "
+"compiz.</i></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_98)
 #: qt4/config/qtcurveconfigbase.ui:668 qt5/config/qtcurveconfigbase.ui:677
 #: qt6/config/qtcurveconfigbase.ui:677
 #, kde-format
 msgid "Frame type:"
-msgstr ""
+msgstr "نوع الإطار:"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, gbFactor)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, gbFactor)
@@ -2138,7 +2213,7 @@ msgstr ""
 msgid ""
 "<p>Defines how much a group box's background should be darkened or lightened "
 "by.</p>"
-msgstr ""
+msgstr "<p>عرِّف مقدار تدكين أو تفتيح خلفية صندوق مجموعة ما.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_99)
 #: qt4/config/qtcurveconfigbase.ui:688 qt5/config/qtcurveconfigbase.ui:697
@@ -2153,20 +2228,21 @@ msgstr "اللصيقة:"
 #, kde-format
 msgid "<p>Controls whether group boxes should use a bold for their title.</p>"
 msgstr ""
+"<p>تحكّم فيما إذا كان يجب أن تستخدم صناديق المجموعات خطًا غليظًا لعنوانها.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gbLabel_bold)
 #: qt4/config/qtcurveconfigbase.ui:698 qt5/config/qtcurveconfigbase.ui:707
 #: qt6/config/qtcurveconfigbase.ui:707
 #, kde-format
 msgid "Use bold font"
-msgstr ""
+msgstr "استخدم خطًا غليظًا"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, gbLabel_textPos)
 #: qt4/config/qtcurveconfigbase.ui:705 qt5/config/qtcurveconfigbase.ui:714
 #: qt6/config/qtcurveconfigbase.ui:714
 #, kde-format
 msgid "<p>Specifies the vertical position of a group box's text label.</p>"
-msgstr ""
+msgstr "<p>حدد الموضع العمودي للَصيقَة النصية لصندوق مجموعة.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gbLabel_centred)
 #: qt4/config/qtcurveconfigbase.ui:712 qt5/config/qtcurveconfigbase.ui:721
@@ -2176,12 +2252,14 @@ msgid ""
 "<p>Controls whether a group boxe's label should be centred, or left/right "
 "aligned.</p>"
 msgstr ""
+"<p>يتحكَّم في ما إذا كان عنوان مربع المجموعة يجب أن يكون مركزيًا أو محاذيًا "
+"لليسار/اليمين.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gbLabel_centred)
 #: qt4/config/qtcurveconfigbase.ui:715
 #, kde-format
 msgid "Centred (KDE4 only)"
-msgstr ""
+msgstr "مركزي (كيدي4 فقط)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_46)
 #: qt4/config/qtcurveconfigbase.ui:726 qt5/config/qtcurveconfigbase.ui:735
@@ -2198,6 +2276,8 @@ msgid ""
 "<p>Controls the coloration of the button part (i.e. the part with the arrow) "
 "of combo boxes.</p>"
 msgstr ""
+"<p>يتحكَّم في تلوين جزء الزر (أي الجزء الذي يحتوي على السهم) في مربعات التحرير "
+"والسرد.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, customComboBtnColor)
 #. i18n: ectx: property (toolTip), widget (KColorButton, customSlidersColor)
@@ -2206,7 +2286,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:755 qt6/config/qtcurveconfigbase.ui:942
 #, kde-format
 msgid "<p>Sets the custom color.</p>"
-msgstr ""
+msgstr "<p>يُعيّن اللون المخصص.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, comboSplitter)
 #: qt4/config/qtcurveconfigbase.ui:753 qt5/config/qtcurveconfigbase.ui:762
@@ -2216,20 +2296,22 @@ msgid ""
 "<p>This option controls whether a line is drawn near non-editable combo box "
 "arrow buttons.</p>"
 msgstr ""
+"<p>يتحكَّم هذا الخيار في ما إذا كان يجب رسم خط بالقرب من أزرار سهم مربعات "
+"التحرير والسرد غير القابلة للتحرير.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, comboSplitter)
 #: qt4/config/qtcurveconfigbase.ui:756 qt5/config/qtcurveconfigbase.ui:765
 #: qt6/config/qtcurveconfigbase.ui:765
 #, kde-format
 msgid "Draw splitter"
-msgstr ""
+msgstr "ارسم الفاصل"
 
 #. i18n: ectx: property (text), widget (QLabel, label_64)
 #: qt4/config/qtcurveconfigbase.ui:763 qt5/config/qtcurveconfigbase.ui:772
 #: qt6/config/qtcurveconfigbase.ui:772
 #, kde-format
 msgid "Editable style:"
-msgstr ""
+msgstr "النمط القابل للتحرير:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, unifyCombo)
 #: qt4/config/qtcurveconfigbase.ui:770 qt5/config/qtcurveconfigbase.ui:779
@@ -2239,20 +2321,22 @@ msgid ""
 "<p>Controls whether the combo box button, of editable combos, should appear "
 "as a button or an arrow within the edit field.</p>"
 msgstr ""
+"<p>يتحكَّم في ما إذا كان زر مربع التحرير والسرد، في مربعات التحرير والسرد "
+"القابلة للتحرير، يجب أن يظهر كزر أو سهم داخل حقل التحرير.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, unifyCombo)
 #: qt4/config/qtcurveconfigbase.ui:773 qt5/config/qtcurveconfigbase.ui:782
 #: qt6/config/qtcurveconfigbase.ui:782
 #, kde-format
 msgid "Draw arrow within edit field"
-msgstr ""
+msgstr "ارسم السهم داخل حقل التحرير"
 
 #. i18n: ectx: property (text), widget (QLabel, label_63)
 #: qt4/config/qtcurveconfigbase.ui:780 qt5/config/qtcurveconfigbase.ui:789
 #: qt6/config/qtcurveconfigbase.ui:789
 #, kde-format
 msgid "Non-editable style:"
-msgstr ""
+msgstr "النمط غير القابل للتحرير:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gtkComboMenus)
 #: qt4/config/qtcurveconfigbase.ui:787
@@ -2261,6 +2345,8 @@ msgid ""
 "<p>In Gtk, the list that is attached to a combo-box appears in the same "
 "style as a popup-menu. KDE4 has the ability to mimic this look.</p>"
 msgstr ""
+"<p>في Gtk، تظهر القائمة المرفقة بمربع التحرير والسرد بنفس نمط قائمة منبثقة. "
+"يمتلك كيدي4 القدرة على تقليد هذا المظهر.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gtkComboMenus)
 #: qt4/config/qtcurveconfigbase.ui:790 qt5/config/qtcurveconfigbase.ui:799
@@ -2277,13 +2363,15 @@ msgid ""
 "<p>Controls whether a single down arrow, or a up and down arrow, should be "
 "drawn on non-editable combo boxes.</p>"
 msgstr ""
+"<p>يتحكَّم في ما إذا كان يجب رسم سهم لأسفل واحد، أو سهم لأعلى ولأسفل، على "
+"مربعات التحرير والسرد غير القابلة للتحرير.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, doubleGtkComboArrow)
 #: qt4/config/qtcurveconfigbase.ui:800 qt5/config/qtcurveconfigbase.ui:809
 #: qt6/config/qtcurveconfigbase.ui:809
 #, kde-format
 msgid "Draw double-arrow for Gtk style"
-msgstr ""
+msgstr "ارسم سهمًا مزدوجًا لنمط Gtk"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, unifySpinBtns)
 #: qt4/config/qtcurveconfigbase.ui:824 qt5/config/qtcurveconfigbase.ui:833
@@ -2293,13 +2381,15 @@ msgid ""
 "<p>Controls whether the up and down buttons should appear as individual "
 "buttons, or be combined.</p>"
 msgstr ""
+"<p>يتحكَّم في ما إذا كان يجب أن تظهر أزرار لأعلى ولأسفل كأزرار فردية، أو "
+"ادمجها.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, unifySpinBtns)
 #: qt4/config/qtcurveconfigbase.ui:827 qt5/config/qtcurveconfigbase.ui:836
 #: qt6/config/qtcurveconfigbase.ui:836
 #, kde-format
 msgid "Combine both buttons"
-msgstr ""
+msgstr "ادمِج كلا الزرين"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, unifySpin)
 #: qt4/config/qtcurveconfigbase.ui:834 qt5/config/qtcurveconfigbase.ui:843
@@ -2309,27 +2399,29 @@ msgid ""
 "<p>Controls whether the up and down buttons should appear as buttons, or "
 "just arrows within the edit field.</p>"
 msgstr ""
+"<p>يتحكَّم في ما إذا كان يجب أن تظهر أزرار لأعلى ولأسفل كأزرار، أو مجرد أسهم "
+"داخل حقل التحرير.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, unifySpin)
 #: qt4/config/qtcurveconfigbase.ui:837 qt5/config/qtcurveconfigbase.ui:846
 #: qt6/config/qtcurveconfigbase.ui:846
 #, kde-format
 msgid "Draw arrows within edit field"
-msgstr ""
+msgstr "ارسم الأسهم داخل حقل التحرير"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: qt4/config/qtcurveconfigbase.ui:864 qt5/config/qtcurveconfigbase.ui:873
 #: qt6/config/qtcurveconfigbase.ui:873
 #, kde-format
 msgid "Markings:"
-msgstr ""
+msgstr "العلامات:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, splitters)
 #: qt4/config/qtcurveconfigbase.ui:871 qt5/config/qtcurveconfigbase.ui:880
 #: qt6/config/qtcurveconfigbase.ui:880
 #, kde-format
 msgid "<p>Sets the marking used to indicate that the widget is a splitter.</p>"
-msgstr ""
+msgstr "<p>اضبط العلامة المستخدَمة للإشارة إلى أن الودجة هي فاصل.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_69)
 #. i18n: ectx: property (text), widget (QLabel, label_54)
@@ -2338,7 +2430,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:887 qt6/config/qtcurveconfigbase.ui:2131
 #, kde-format
 msgid "Background mouse-over highlight:"
-msgstr ""
+msgstr "تمييز تظليل الخلفية عند مرور المؤشر:"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, splitterHighlight)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, splitterHighlight)
@@ -2349,6 +2441,8 @@ msgid ""
 "<p>Defines by how much the theme should brighten (or darken) the background "
 "of the splitter when the mouse hovers over.</p>"
 msgstr ""
+"<p>يُعرِّف بمقدار كم يجب على المظهر أن يفتِّح (أو يغمِّق) خلفية الفاصل عند مرور "
+"مؤشر الفأرة عليه.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, sliderAppearance)
 #: qt4/config/qtcurveconfigbase.ui:906 qt5/config/qtcurveconfigbase.ui:915
@@ -2356,7 +2450,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "<p>Controls the appearance of both scrollbar sliders and other sliders.</p>"
-msgstr ""
+msgstr "<p>يتحكَّم في مظهر كل من منزلقات شريط التمرير والمنزلقات الأخرى.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_12)
 #. i18n: ectx: property (text), widget (QLabel, label_18)
@@ -2373,7 +2467,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:3010
 #, kde-format
 msgid "Coloration:"
-msgstr ""
+msgstr "التلوين:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, shadeSliders)
 #: qt4/config/qtcurveconfigbase.ui:920 qt5/config/qtcurveconfigbase.ui:929
@@ -2383,6 +2477,7 @@ msgid ""
 "<p>Controls the color setting of both scrollbar sliders and other sliders.</"
 "p>"
 msgstr ""
+"<p>يتحكَّم في إعداد اللون لكل من منزلقات شريط التمرير والمنزلقات الأخرى.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, colorSliderMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:943 qt5/config/qtcurveconfigbase.ui:952
@@ -2392,13 +2487,15 @@ msgid ""
 "<p>Controls whether the coloration happens all the time, or only when the "
 "mouse hovers over the slider.</p>"
 msgstr ""
+"<p>يتحكَّم في ما إذا كان التلوين يحدث طوال الوقت، أو فقط عند مرور مؤشر الفأرة "
+"على المنزلق.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, colorSliderMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:946 qt5/config/qtcurveconfigbase.ui:955
 #: qt6/config/qtcurveconfigbase.ui:955
 #, kde-format
 msgid "Mouse-over only"
-msgstr ""
+msgstr "عند مرور المؤشر فقط"
 
 #. i18n: ectx: property (text), widget (QLabel, label_13)
 #: qt4/config/qtcurveconfigbase.ui:953 qt5/config/qtcurveconfigbase.ui:962
@@ -2415,13 +2512,15 @@ msgid ""
 "<p>Controls the appearance of standard sliders - i.e. not scrollbar sliders. "
 "'Triangular' is very similar to plastik's sliders.</p>"
 msgstr ""
+"<p>يتحكَّم في مظهر المنزلقات القياسية - أي ليست منزلقات شريط التمرير. "
+"'المثلثي' مشابه جدًا لمنزلقات بلاستيك.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_50)
 #: qt4/config/qtcurveconfigbase.ui:967 qt5/config/qtcurveconfigbase.ui:976
 #: qt6/config/qtcurveconfigbase.ui:976
 #, kde-format
 msgid "Used slider groove:"
-msgstr ""
+msgstr "أخدود المنزلق المستخدَم:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, fillSlider)
 #: qt4/config/qtcurveconfigbase.ui:974 qt5/config/qtcurveconfigbase.ui:983
@@ -2431,6 +2530,8 @@ msgid ""
 "<p>Indicates whether the used part of a slider's groove should be filled or "
 "not. (Does not affect scrollbar sliders).</p>"
 msgstr ""
+"<p>يُشير إلى ما إذا كان الجزء المستخدَم من أخدود المنزلق يجب أن يُملأ أم لا. "
+"(لا يؤثر على منزلقات شريط التمرير).</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, fillSlider)
 #: qt4/config/qtcurveconfigbase.ui:977 qt5/config/qtcurveconfigbase.ui:986
@@ -2447,13 +2548,15 @@ msgid ""
 "<p>Controls the gradient setting used for the used part of a standard "
 "sliders' groove.</p>"
 msgstr ""
+"<p>يتحكَّم في إعداد التدرج المستخدَم للجزء المستخدَم من أخدود المنزلقات القياسية."
+"</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_30)
 #: qt4/config/qtcurveconfigbase.ui:991 qt5/config/qtcurveconfigbase.ui:1000
 #: qt6/config/qtcurveconfigbase.ui:1000
 #, kde-format
 msgid "<p>Groove appearance:</p>"
-msgstr ""
+msgstr "<p>مظهر الأخدود:</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, grooveAppearance)
 #: qt4/config/qtcurveconfigbase.ui:998 qt5/config/qtcurveconfigbase.ui:1007
@@ -2463,6 +2566,8 @@ msgid ""
 "<p>Controls the gradient setting used for both scrollbar sliders, and other "
 "sliders.</p>"
 msgstr ""
+"<p>يتحكَّم في إعداد التدرج المستخدَم لكل من منزلقات شريط التمرير والمنزلقات "
+"الأخرى.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, thinSbarGroove)
 #: qt4/config/qtcurveconfigbase.ui:1005 qt5/config/qtcurveconfigbase.ui:1014
@@ -2473,6 +2578,8 @@ msgid ""
 "the slider, or be thinner (and more like the groove of a standard slider).</"
 "p>"
 msgstr ""
+"<p>يتحكَّم في ما إذا كان يجب أن تكون أخاديد منزلقات شريط التمرير بنفس سماكة "
+"المنزلق، أو أن تكون أرق (وأكثر شبهًا بأخدود منزلق قياسي).</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, thinSbarGroove)
 #: qt4/config/qtcurveconfigbase.ui:1008 qt5/config/qtcurveconfigbase.ui:1017
@@ -2488,14 +2595,14 @@ msgstr "رقيق"
 #: qt6/config/qtcurveconfigbase.ui:1024 qt6/config/qtcurveconfigbase.ui:1434
 #, kde-format
 msgid "Bordered"
-msgstr ""
+msgstr "مُحدَّد بإطار"
 
 #. i18n: ectx: property (text), widget (QLabel, label_14)
 #: qt4/config/qtcurveconfigbase.ui:1022 qt5/config/qtcurveconfigbase.ui:1031
 #: qt6/config/qtcurveconfigbase.ui:1031
 #, kde-format
 msgid "Scrollbar buttons:"
-msgstr ""
+msgstr "أزرار شريط التمرير:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, scrollbarType)
 #: qt4/config/qtcurveconfigbase.ui:1030 qt5/config/qtcurveconfigbase.ui:1039
@@ -2509,6 +2616,11 @@ msgid ""
 "left, none at bottom/right</li><li>None - no buttons, only the slider</li></"
 "ul></p>"
 msgstr ""
+"<p>يتحكَّم هذا في موضع وعدد الأزرار على شريط التمرير.\n"
+"            <ul><li>كيدي - زر واحد في الأعلى/اليسار، واثنان في الأسفل/"
+"اليمين</li><li>ويندوز - زر واحد في كل طرف</li><li>بلاتينيوم - لا أزرار في "
+"الأعلى/اليسار، اثنان في الأسفل/اليمين</li><li>نكست - زران في الأعلى/اليسار، "
+"لا شيء في الأسفل/اليمين</li><li>لا شيء - لا أزرار، فقط المنزلق</li></ul></p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, flatSbarButtons)
 #: qt4/config/qtcurveconfigbase.ui:1037 qt5/config/qtcurveconfigbase.ui:1046
@@ -2517,7 +2629,7 @@ msgstr ""
 msgid ""
 "<p>If enabled, then scrollbar buttons are not drawn and only the arrows will "
 "appear.</p>"
-msgstr ""
+msgstr "<p>إذا فعلت، فلن تُرسَم أزرار شريط التمرير ولن تظهر سوى الأسهم.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_32)
 #: qt4/config/qtcurveconfigbase.ui:1047 qt5/config/qtcurveconfigbase.ui:1056
@@ -2533,14 +2645,14 @@ msgstr "الخلفيّة:"
 msgid ""
 "<p>Configures the background gradient to be used with 'Flat' scrollbar "
 "buttons.</p>"
-msgstr ""
+msgstr "<p>اضبط تدرج الخلفية المستخدَم مع أزرار شريط التمرير 'المسطحة'.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_15)
 #: qt4/config/qtcurveconfigbase.ui:1061 qt5/config/qtcurveconfigbase.ui:1070
 #: qt6/config/qtcurveconfigbase.ui:1070
 #, kde-format
 msgid "Slider thumbs:"
-msgstr ""
+msgstr "إبهامات المنزلق:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, sliderThumbs)
 #: qt4/config/qtcurveconfigbase.ui:1068 qt5/config/qtcurveconfigbase.ui:1077
@@ -2550,13 +2662,15 @@ msgid ""
 "<p>Defines what markings should be placed in the center of scrollbar sliders "
 "(and plain style sliders).</p>"
 msgstr ""
+"<p>يُعرِّف ما هي العلامات التي يجب وضعها في مركز منزلقات شريط التمرير "
+"(والمنزلقات ذات النمط العادي).</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_15a)
 #: qt4/config/qtcurveconfigbase.ui:1075 qt5/config/qtcurveconfigbase.ui:1084
 #: qt6/config/qtcurveconfigbase.ui:1084
 #, kde-format
 msgid "Slider width:"
-msgstr ""
+msgstr "عرض المنزلق:"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, sliderWidth)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, sliderWidth)
@@ -2565,14 +2679,14 @@ msgstr ""
 #, kde-format
 msgid ""
 "<p>Controls the width of scrollbar sliders, and plain style sliders.</p>"
-msgstr ""
+msgstr "<p>يتحكَّم في عرض منزلقات شريط التمرير، والمنزلقات ذات النمط العادي.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stripedSbar)
 #: qt4/config/qtcurveconfigbase.ui:1095 qt5/config/qtcurveconfigbase.ui:1104
 #: qt6/config/qtcurveconfigbase.ui:1104
 #, kde-format
 msgid "<p>If enabled, a fading stripe will be added.</p>"
-msgstr ""
+msgstr "<p>إذا فعلت، أضِف شريطًا متلاشيًا.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_16)
 #: qt4/config/qtcurveconfigbase.ui:1112 qt5/config/qtcurveconfigbase.ui:1121
@@ -2588,7 +2702,7 @@ msgstr "شريط:"
 msgid ""
 "<p>Defines the gradient to be used for the progress part of a progressbar.</"
 "p>"
-msgstr ""
+msgstr "<p>يُعرِّف التدرج المستخدَم لجزء التقدم في شريط التقدم.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, stripedProgress)
 #: qt4/config/qtcurveconfigbase.ui:1126 qt5/config/qtcurveconfigbase.ui:1135
@@ -2597,7 +2711,7 @@ msgstr ""
 msgid ""
 "<p>Defines the stripe type to be used for the progress part of a progressbar."
 "</p>"
-msgstr ""
+msgstr "<p>يُعرِّف نوع الشريط المستخدَم لجزء التقدم في شريط التقدم.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, animatedProgress)
 #: qt4/config/qtcurveconfigbase.ui:1133 qt5/config/qtcurveconfigbase.ui:1142
@@ -2605,7 +2719,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "<p>Determines if the stripes on progressbars should be animated, or not.</p>"
-msgstr ""
+msgstr "<p>يُحدِّد ما إذا كان يجب تحريك الأشرطة على أشرطة التقدم أم لا.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, animatedProgress)
 #: qt4/config/qtcurveconfigbase.ui:1136 qt5/config/qtcurveconfigbase.ui:1145
@@ -2619,7 +2733,7 @@ msgstr "متحركة"
 #: qt6/config/qtcurveconfigbase.ui:1152
 #, kde-format
 msgid "<p>Add a white 'glow' to progressbars.</p>"
-msgstr ""
+msgstr "<p>أضِف 'وهجًا' أبيض إلى أشرطة التقدم.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, fillProgress)
 #: qt4/config/qtcurveconfigbase.ui:1156 qt5/config/qtcurveconfigbase.ui:1165
@@ -2628,14 +2742,14 @@ msgstr ""
 msgid ""
 "<p>Enable this option to remove the 1 pixel border around the filled element."
 "</p>"
-msgstr ""
+msgstr "<p>فعِّل هذا الخيار لإزالة إطار البكسل الواحد حول العنصر المملوء.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, fillProgress)
 #: qt4/config/qtcurveconfigbase.ui:1159 qt5/config/qtcurveconfigbase.ui:1168
 #: qt6/config/qtcurveconfigbase.ui:1168
 #, kde-format
 msgid "Fill groove"
-msgstr ""
+msgstr "املأ الأخدود"
 
 #. i18n: ectx: property (text), widget (QLabel, label_24)
 #: qt4/config/qtcurveconfigbase.ui:1166 qt5/config/qtcurveconfigbase.ui:1175
@@ -2650,7 +2764,7 @@ msgstr "تخدد:"
 #, kde-format
 msgid ""
 "<p>Defines the gradient to be used for the groove part of a progressbar.</p>"
-msgstr ""
+msgstr "<p>يُعرِّف التدرج المستخدَم لجزء الأخدود في شريط التقدم.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, progressGrooveColor)
 #: qt4/config/qtcurveconfigbase.ui:1180 qt5/config/qtcurveconfigbase.ui:1189
@@ -2658,7 +2772,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "<p>Defines the color to be used for the groove part of a progressbar.</p>"
-msgstr ""
+msgstr "<p>يُعرِّف اللون المستخدَم لجزء الأخدود في شريط التقدم.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, borderProgress)
 #: qt4/config/qtcurveconfigbase.ui:1193 qt5/config/qtcurveconfigbase.ui:1202
@@ -2667,14 +2781,14 @@ msgstr ""
 msgid ""
 "<p>Enable this option to have a border around the progress bar groove and "
 "contents.</p>"
-msgstr ""
+msgstr "<p>فعِّل هذا الخيار لوجود إطار حول أخدود شريط التقدم ومحتوياته.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, borderProgress)
 #: qt4/config/qtcurveconfigbase.ui:1196 qt5/config/qtcurveconfigbase.ui:1205
 #: qt6/config/qtcurveconfigbase.ui:1205
 #, kde-format
 msgid "Border all sides"
-msgstr ""
+msgstr "أطِّر جميع الجوانب"
 
 #. i18n: ectx: property (text), widget (QLabel, label_85)
 #. i18n: ectx: property (text), widget (QLabel, label_86)
@@ -2692,7 +2806,7 @@ msgstr "النص:"
 msgid ""
 "<p>If enabled, the text on a progressbar will use the general widget font.</"
 "p>"
-msgstr ""
+msgstr "<p>إذا فعلت، استخدم خط الودجة العام للنص على شريط التقدم.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, boldProgress_false)
 #: qt4/config/qtcurveconfigbase.ui:1227 qt5/config/qtcurveconfigbase.ui:1236
@@ -2706,7 +2820,7 @@ msgstr "الخط القياسي"
 #: qt6/config/qtcurveconfigbase.ui:1243
 #, kde-format
 msgid "<p>If enabled, the text on a progressbar will use a bold font.</p>"
-msgstr ""
+msgstr "<p>إذا فعلت، استخدم خطًا عريضًا للنص على شريط التقدم.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, boldProgress)
 #: qt4/config/qtcurveconfigbase.ui:1237 qt5/config/qtcurveconfigbase.ui:1246
@@ -2720,7 +2834,7 @@ msgstr "خط ثخين"
 #: qt6/config/qtcurveconfigbase.ui:1265
 #, kde-format
 msgid "Indicate with:"
-msgstr ""
+msgstr "أشِر بواسطة:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, defBtnIndicator)
 #: qt4/config/qtcurveconfigbase.ui:1263 qt5/config/qtcurveconfigbase.ui:1272
@@ -2729,7 +2843,7 @@ msgstr ""
 msgid ""
 "<p>Defines the way in which the theme indicates which button is the "
 "'default' button.</p>"
-msgstr ""
+msgstr "<p>يُعرِّف الطريقة التي يُشير بها المظهر إلى أي زر هو الزر 'المبدئي'.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, embolden)
 #: qt4/config/qtcurveconfigbase.ui:1270 qt5/config/qtcurveconfigbase.ui:1279
@@ -2740,13 +2854,15 @@ msgid ""
 "second time will be 1 pixel to the left. This gives it a more 'bold' look.</"
 "p>"
 msgstr ""
+"<p>إذا فعلت، ارسِم نص الزر 'المبدئي' مرتين - ستكون المرة الثانية 1 بكسل إلى "
+"اليسار. يُعطِي هذا مظهرًا أكثر 'جرأة'.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, embolden)
 #: qt4/config/qtcurveconfigbase.ui:1273 qt5/config/qtcurveconfigbase.ui:1282
 #: qt6/config/qtcurveconfigbase.ui:1282
 #, kde-format
 msgid "Embolden text"
-msgstr ""
+msgstr "اجعل النص عريضًا"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, coloredMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:1291 qt5/config/qtcurveconfigbase.ui:1300
@@ -2756,6 +2872,8 @@ msgid ""
 "<p>Defines how the theme can use color to indicate which active widget is "
 "under the mouse.</p>"
 msgstr ""
+"<p>يُعرِّف كيف يمكن للمظهر استخدام اللون للإشارة إلى أي ودجة نشطة تقع أسفل مؤشر "
+"الفأرة.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, textLabel1_8)
 #: qt4/config/qtcurveconfigbase.ui:1298 qt5/config/qtcurveconfigbase.ui:1307
@@ -2765,13 +2883,15 @@ msgid ""
 "<p>This controls the % that widgets will be highlighted by when the mouse "
 "hovers over them.</p>"
 msgstr ""
+"<p>يتحكَّم هذا في النسبة المئوية (%) التي سيُظلَّل بها الودجات عند مرور مؤشر "
+"الفأرة فوقها.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_8)
 #: qt4/config/qtcurveconfigbase.ui:1301 qt5/config/qtcurveconfigbase.ui:1310
 #: qt6/config/qtcurveconfigbase.ui:1310
 #, kde-format
 msgid "Highlight by:"
-msgstr ""
+msgstr "ظلِّل بمقدار:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, highlightFactor)
 #: qt4/config/qtcurveconfigbase.ui:1311 qt5/config/qtcurveconfigbase.ui:1320
@@ -2781,13 +2901,15 @@ msgid ""
 "<p>Defines by how much the theme should brighten (or darken) the color of "
 "the active widget under the mouse.</p>"
 msgstr ""
+"<p>يُعرِّف بمقدار كم يجب على المظهر أن يفتِّح (أو يغمِّق) لون الودجة النشطة أسفل "
+"مؤشر الفأرة.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_19)
 #: qt4/config/qtcurveconfigbase.ui:1328 qt5/config/qtcurveconfigbase.ui:1337
 #: qt6/config/qtcurveconfigbase.ui:1337
 #, kde-format
 msgid "Header appearance:"
-msgstr ""
+msgstr "مظهر الرأس:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, lvAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1335 qt5/config/qtcurveconfigbase.ui:1344
@@ -2796,7 +2918,7 @@ msgstr ""
 msgid ""
 "<p>Defines the gradient to be used in the header of listviews and treeviews."
 "</p>"
-msgstr ""
+msgstr "<p>يُعرِّف التدرج المستخدَم في رأس طرق عرض القائمة وطرق عرض الشجرة.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, lvButton)
 #: qt4/config/qtcurveconfigbase.ui:1348 qt5/config/qtcurveconfigbase.ui:1357
@@ -2806,20 +2928,22 @@ msgid ""
 "<p>If enabled, headers will be drawn using the button color, otherwise the "
 "standard window background color will be used.</p>"
 msgstr ""
+"<p>إذا فعلت، ارسِم الرؤوس باستخدام لون الزر، وإلا استخدِم لون خلفية النافذة "
+"القياسي.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, lvButton)
 #: qt4/config/qtcurveconfigbase.ui:1351 qt5/config/qtcurveconfigbase.ui:1360
 #: qt6/config/qtcurveconfigbase.ui:1360
 #, kde-format
 msgid "Button color"
-msgstr ""
+msgstr "لون الزر"
 
 #. i18n: ectx: property (text), widget (QLabel, label_65)
 #: qt4/config/qtcurveconfigbase.ui:1358 qt5/config/qtcurveconfigbase.ui:1367
 #: qt6/config/qtcurveconfigbase.ui:1367
 #, kde-format
 msgid "Shade header of sorted column:"
-msgstr ""
+msgstr "ظلِّل رأس العمود المرتَّب:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, sortedLv)
 #: qt4/config/qtcurveconfigbase.ui:1365 qt5/config/qtcurveconfigbase.ui:1374
@@ -2828,7 +2952,7 @@ msgstr ""
 msgid ""
 "<p>Controls the coloration to be applied to the header of the currently "
 "sorted column."
-msgstr ""
+msgstr "<p>يتحكَّم في التلوين المراد تطبيقه على رأس العمود المرتَّب حاليًا."
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, customSortedLvColor)
 #. i18n: ectx: property (toolTip), widget (KColorButton, customCheckRadioColor)
@@ -2845,7 +2969,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:3358
 #, kde-format
 msgid "<p>Sets the custom color."
-msgstr ""
+msgstr "<p>اضبط اللون المخصص."
 
 #. i18n: ectx: property (text), widget (QLabel, label_66)
 #: qt4/config/qtcurveconfigbase.ui:1388 qt5/config/qtcurveconfigbase.ui:1397
@@ -2863,27 +2987,29 @@ msgid ""
 "treeviews have alternating row colors - regardless of whether the "
 "application author has enabled this or not."
 msgstr ""
+"<p>إذا فُعِّل هذا، فحاول أن تجعل كل طرق عرض القائمة وطرق عرض الشجرة تحتوي على "
+"ألوان صفوف متبادلة - بغض النظر عما إذا كان مؤلف التطبيق قد فعل هذا أم لا."
 
 #. i18n: ectx: property (text), widget (QCheckBox, forceAlternateLvCols)
 #: qt4/config/qtcurveconfigbase.ui:1398 qt5/config/qtcurveconfigbase.ui:1407
 #: qt6/config/qtcurveconfigbase.ui:1407
 #, kde-format
 msgid "Force alternate colors"
-msgstr ""
+msgstr "اِفرض الألوان المتبادلة"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_8_2_4)
 #: qt4/config/qtcurveconfigbase.ui:1405 qt5/config/qtcurveconfigbase.ui:1414
 #: qt6/config/qtcurveconfigbase.ui:1414
 #, kde-format
 msgid "Selection appearance:"
-msgstr ""
+msgstr "مظهر التحديد:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, selectionAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1415 qt5/config/qtcurveconfigbase.ui:1424
 #: qt6/config/qtcurveconfigbase.ui:1424
 #, kde-format
 msgid "<p>Defines the gradient to be used when selecting items."
-msgstr ""
+msgstr "<p>يُعرِّف التدرج المستخدَم عند تحديد العناصر."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, borderSelection)
 #: qt4/config/qtcurveconfigbase.ui:1422 qt5/config/qtcurveconfigbase.ui:1431
@@ -2893,20 +3019,22 @@ msgid ""
 "<p>If enabled, then selected items in listviews and treeviews will be drawn "
 "with bordered edges - but only if they are set to be rounded as well."
 msgstr ""
+"<p>إذا فعلت، ارسِم العناصر المحددة في طرق عرض القائمة وطرق عرض الشجرة بحواف "
+"مُحدَّدة - ولكن فقط إذا ضُبِطَت لتكون مستديرة أيضًا."
 
 #. i18n: ectx: property (text), widget (QLabel, label_48)
 #: qt4/config/qtcurveconfigbase.ui:1432 qt5/config/qtcurveconfigbase.ui:1441
 #: qt6/config/qtcurveconfigbase.ui:1441
 #, kde-format
 msgid "Lines between items:"
-msgstr ""
+msgstr "خطوط بين العناصر:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, lvLines)
 #: qt4/config/qtcurveconfigbase.ui:1439 qt5/config/qtcurveconfigbase.ui:1448
 #: qt6/config/qtcurveconfigbase.ui:1448
 #, kde-format
 msgid "<p>Controls the style of lines drawn between items in a treeview."
-msgstr ""
+msgstr "<p>يتحكَّم في نمط الخطوط المرسومة بين العناصر في عرض شجرة."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gtkScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:1453 qt5/config/qtcurveconfigbase.ui:1462
@@ -2916,13 +3044,15 @@ msgid ""
 "<p>Controls whether the scrollbars should be detached from the scrollview (i."
 "e. on the outside), or embedded within the scrollview."
 msgstr ""
+"<p>يتحكَّم في ما إذا كان يجب فصل أشرطة التمرير عن عرض التمرير (أي في الخارج)، "
+"أو تضمينها داخل عرض التمرير."
 
 #. i18n: ectx: property (text), widget (QCheckBox, gtkScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:1456 qt5/config/qtcurveconfigbase.ui:1465
 #: qt6/config/qtcurveconfigbase.ui:1465
 #, kde-format
 msgid "Scrollbars on the outside"
-msgstr ""
+msgstr "أشرطة التمرير في الخارج"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, highlightScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:1463 qt5/config/qtcurveconfigbase.ui:1472
@@ -2932,27 +3062,28 @@ msgid ""
 "<p>Controls whether the active scrollview should be highlighted as per line-"
 "edits."
 msgstr ""
+"<p>يتحكَّم في ما إذا كان يجب تمييز عرض التمرير النشط حسب تحريرات الأسطر.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, highlightScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:1466 qt5/config/qtcurveconfigbase.ui:1475
 #: qt6/config/qtcurveconfigbase.ui:1475
 #, kde-format
 msgid "Highlight on focus (KDE)"
-msgstr ""
+msgstr "تظليل عند التركيز (كيدي)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_20)
 #: qt4/config/qtcurveconfigbase.ui:1490 qt5/config/qtcurveconfigbase.ui:1499
 #: qt6/config/qtcurveconfigbase.ui:1499
 #, kde-format
 msgid "Active tab appearance:"
-msgstr ""
+msgstr "مظهر اللسان النشط:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, activeTabAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1497 qt5/config/qtcurveconfigbase.ui:1506
 #: qt6/config/qtcurveconfigbase.ui:1506
 #, kde-format
 msgid "<p>Defines the gradient to be used for the currently active tab."
-msgstr ""
+msgstr "<p>يُعرِّف التدرج المستخدَم لللسان النشط حاليًا."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, highlightTab)
 #: qt4/config/qtcurveconfigbase.ui:1504 qt5/config/qtcurveconfigbase.ui:1513
@@ -2961,7 +3092,7 @@ msgstr ""
 msgid ""
 "<p>This will cause a colored stripe to be drawn at the top/bottom of the "
 "current tab."
-msgstr ""
+msgstr "<p>يُسبِّب هذا رسم شريط ملون في أعلى/أسفل اللسان الحالي."
 
 #. i18n: ectx: property (text), widget (QCheckBox, highlightTab)
 #: qt4/config/qtcurveconfigbase.ui:1507 qt5/config/qtcurveconfigbase.ui:1516
@@ -2979,6 +3110,8 @@ msgid ""
 "<p>Controls the amount of tinting applied to the active tab. The active tab "
 "is tinted by blending the 'highlight' color with the background color."
 msgstr ""
+"<p>يتحكَّم في مقدار التظليل المطبَّق على اللسان النشط. يُظلَّل اللسان النشط عن طريق "
+"مزج لون 'التظليل' بلون الخلفية."
 
 #. i18n: ectx: property (prefix), widget (KIntNumInput, colorSelTab)
 #. i18n: ectx: property (prefix), widget (QSpinBox, colorSelTab)
@@ -2986,28 +3119,28 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:1529
 #, kde-format
 msgid "Tint by "
-msgstr ""
+msgstr "ظلل بـ "
 
 #. i18n: ectx: property (text), widget (QLabel, label_21)
 #: qt4/config/qtcurveconfigbase.ui:1527 qt5/config/qtcurveconfigbase.ui:1536
 #: qt6/config/qtcurveconfigbase.ui:1536
 #, kde-format
 msgid "Inactive tab appearance:"
-msgstr ""
+msgstr "مظهر الألسنة غير النشطة:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tabAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1534 qt5/config/qtcurveconfigbase.ui:1543
 #: qt6/config/qtcurveconfigbase.ui:1543
 #, kde-format
 msgid "<p>Defines the gradient to be used for the inactive tabs."
-msgstr ""
+msgstr "<p>يحدد التدرج الذي يستخدم للألسنة غير النشطة."
 
 #. i18n: ectx: property (text), widget (QLabel, label_33)
 #: qt4/config/qtcurveconfigbase.ui:1541 qt5/config/qtcurveconfigbase.ui:1550
 #: qt6/config/qtcurveconfigbase.ui:1550
 #, kde-format
 msgid "Mouse-over:"
-msgstr ""
+msgstr "مرور الفأرة:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tabMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:1548 qt5/config/qtcurveconfigbase.ui:1557
@@ -3018,13 +3151,16 @@ msgid ""
 "mouse. Note, if 'glow' is selected, then 'Round tabs' will be set to 'All' - "
 "and this creates a 2 pixel gap between tabs."
 msgstr ""
+"<p>يتحكم في تأثير مرور الفأرة الذي يطبق على السن الذي تحت الفأرة حالياً. "
+"لاحظ، إذا اُختير 'توهج'، عندئذٍ يضبط 'الألسنة المستديرة' إلى 'الكل' - وهذا "
+"ينشئ فجوة 2 بكسل بين الألسنة."
 
 #. i18n: ectx: property (text), widget (QLabel, label_49)
 #: qt4/config/qtcurveconfigbase.ui:1555 qt5/config/qtcurveconfigbase.ui:1564
 #: qt6/config/qtcurveconfigbase.ui:1564
 #, kde-format
 msgid "Alter background by:"
-msgstr ""
+msgstr "غيّر الخلفية بـ:"
 
 #. i18n: ectx: property (toolTip), widget (KIntSpinBox, tabBgnd)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, tabBgnd)
@@ -3032,14 +3168,14 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:1571
 #, kde-format
 msgid "<p>Lightens, or darkens, the background of the whole tab widget."
-msgstr ""
+msgstr "<p>افتح، أو اغمق، خلفية ودجت الألسنة بالكامل."
 
 #. i18n: ectx: property (text), widget (QLabel, label_51)
 #: qt4/config/qtcurveconfigbase.ui:1575 qt5/config/qtcurveconfigbase.ui:1584
 #: qt6/config/qtcurveconfigbase.ui:1584
 #, kde-format
 msgid "Round tabs:"
-msgstr ""
+msgstr "ألسنة مستديرة:"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, roundAllTabs_false)
 #: qt4/config/qtcurveconfigbase.ui:1606 qt5/config/qtcurveconfigbase.ui:1624
@@ -3049,13 +3185,14 @@ msgid ""
 "<p>If enabled, only the active tab is rounded - and all the inactive tabs "
 "appear closer together."
 msgstr ""
+"<p>إذا شُغّل، يستدير السن النشط فقط - وتظهر كل الألسنة غير النشطة أقرب لبعضها."
 
 #. i18n: ectx: property (text), widget (QRadioButton, roundAllTabs_false)
 #: qt4/config/qtcurveconfigbase.ui:1609 qt5/config/qtcurveconfigbase.ui:1627
 #: qt6/config/qtcurveconfigbase.ui:1627
 #, kde-format
 msgid "Selected only"
-msgstr ""
+msgstr "المحدد فقط"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, roundAllTabs)
 #: qt4/config/qtcurveconfigbase.ui:1619 qt5/config/qtcurveconfigbase.ui:1637
@@ -3065,6 +3202,8 @@ msgid ""
 "<p>If enabled, all tabs are rounded - there will be a 2 pixel gap between "
 "each tab if 'glow' is selected as the general colored mouse over style."
 msgstr ""
+"<p>إذا شُغّل، تستدير كل الألسنة - ستكون هناك فجوة 2 بكسل بين كل سن إذا اُختير "
+"'توهج' كنمط مرور الفأرة الملون العام."
 
 #. i18n: ectx: property (text), widget (QRadioButton, roundAllTabs)
 #: qt4/config/qtcurveconfigbase.ui:1622 qt5/config/qtcurveconfigbase.ui:1640
@@ -3091,6 +3230,8 @@ msgid ""
 "with a light shade on the top and left, and a dark shade on the bottom and "
 "right."
 msgstr ""
+"<p>إذا شُغّل، سيكون للألسنة وودجت الألسنة حدود بنمط ثلاثي الأبعاد - بتظليل "
+"خفيف على الأعلى واليسار، وتظليل داكن على الأسفل واليمين."
 
 #. i18n: ectx: property (text), widget (QRadioButton, borderTab_false)
 #: qt4/config/qtcurveconfigbase.ui:1669 qt5/config/qtcurveconfigbase.ui:1696
@@ -3107,13 +3248,15 @@ msgid ""
 "<p>If enabled, the tabs and tab widget will have an outer dark border, and a "
 "light inner border."
 msgstr ""
+"<p>إذا شُغّل، سيكون للألسنة وودجت الألسنة حدود داكنة خارجية، وحدود داخلية "
+"خفيفة."
 
 #. i18n: ectx: property (text), widget (QLabel, label_62)
 #: qt4/config/qtcurveconfigbase.ui:1692 qt5/config/qtcurveconfigbase.ui:1719
 #: qt6/config/qtcurveconfigbase.ui:1719
 #, kde-format
 msgid "Inactive tab inner border:"
-msgstr ""
+msgstr "الحد الداخلي للسن غير النشط:"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, borderInactiveTab)
 #: qt4/config/qtcurveconfigbase.ui:1723 qt5/config/qtcurveconfigbase.ui:1759
@@ -3121,35 +3264,35 @@ msgstr ""
 #, kde-format
 msgid ""
 "<p>If enabled, inactive tabs will have a border as per the 'Border' setting."
-msgstr ""
+msgstr "<p>إذا شُغّل، سيكون للألسنة غير النشطة حدود وفقاً لضبط 'الحد'."
 
 #. i18n: ectx: property (text), widget (QRadioButton, borderInactiveTab)
 #: qt4/config/qtcurveconfigbase.ui:1726 qt5/config/qtcurveconfigbase.ui:1762
 #: qt6/config/qtcurveconfigbase.ui:1762
 #, kde-format
 msgid "Same as active tab"
-msgstr ""
+msgstr "مثل السن النشط"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, borderInactiveTab_false)
 #: qt4/config/qtcurveconfigbase.ui:1736 qt5/config/qtcurveconfigbase.ui:1772
 #: qt6/config/qtcurveconfigbase.ui:1772
 #, kde-format
 msgid "<p>If enabled, inactive tabs will have no inner border."
-msgstr ""
+msgstr "<p>إذا شُغّل، لن يكون للألسنة غير النشطة أي حد داخلي."
 
 #. i18n: ectx: property (text), widget (QRadioButton, borderInactiveTab_false)
 #: qt4/config/qtcurveconfigbase.ui:1739 qt5/config/qtcurveconfigbase.ui:1775
 #: qt6/config/qtcurveconfigbase.ui:1775
 #, kde-format
 msgid "No inner border"
-msgstr ""
+msgstr "لا حد داخلي"
 
 #. i18n: ectx: property (text), widget (QLabel, label_67)
 #: qt4/config/qtcurveconfigbase.ui:1749 qt5/config/qtcurveconfigbase.ui:1785
 #: qt6/config/qtcurveconfigbase.ui:1785
 #, kde-format
 msgid "Shade of bottom tabs:"
-msgstr ""
+msgstr "تظليل الألسنة السفلية:"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, invertBotTab_false)
 #: qt4/config/qtcurveconfigbase.ui:1777 qt5/config/qtcurveconfigbase.ui:1822
@@ -3161,13 +3304,17 @@ msgid ""
 "the bottom tabs will go from the background color to light - this can "
 "sometimes give the appearance that the bottom tabs are sticking out."
 msgstr ""
+"<p>إذا شُغّل، تستخدم الألسنة السفلية نفس التدرج الذي تستخدمه الألسنة العلوية. "
+"أي، إذا كانت الألسنة العلوية تتدرج من الفاتح إلى لون الخلفية، عندئذٍ تنتقل "
+"الألسنة السفلية من لون الخلفية إلى الفاتح - يمكن أن يعطي هذا أحياناً مظهر أن "
+"الألسنة السفلية بارزة."
 
 #. i18n: ectx: property (text), widget (QRadioButton, invertBotTab_false)
 #: qt4/config/qtcurveconfigbase.ui:1780 qt5/config/qtcurveconfigbase.ui:1825
 #: qt6/config/qtcurveconfigbase.ui:1825
 #, kde-format
 msgid "Same as top tabs"
-msgstr ""
+msgstr "مثل الألسنة العلوية"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, invertBotTab)
 #: qt4/config/qtcurveconfigbase.ui:1787 qt5/config/qtcurveconfigbase.ui:1832
@@ -3178,6 +3325,9 @@ msgid ""
 "on the top. i.e. if the top tabs shades from light to the background color, "
 "then bottom tabs will go from the background color to dark."
 msgstr ""
+"<p>إذا شُغّل، تستخدم الألسنة السفلية تدرجاً معكوساً للألسنة العلوية. أي، إذا "
+"كانت الألسنة العلوية تتدرج من الفاتح إلى لون الخلفية، عندئذٍ تنتقل الألسنة "
+"السفلية من لون الخلفية إلى الداكن."
 
 #. i18n: ectx: property (text), widget (QRadioButton, invertBotTab)
 #: qt4/config/qtcurveconfigbase.ui:1790 qt5/config/qtcurveconfigbase.ui:1835
@@ -3191,7 +3341,7 @@ msgstr "اعكس"
 #: qt6/config/qtcurveconfigbase.ui:1845
 #, kde-format
 msgid "Tabs within toolbars:"
-msgstr ""
+msgstr "الألسنة ضمن أشرطة الأدوات:"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, toolbarTabs)
 #. i18n: ectx: property (toolTip), widget (QRadioButton, centerTabText_false)
@@ -3200,14 +3350,14 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:1882 qt6/config/qtcurveconfigbase.ui:1942
 #, kde-format
 msgid "<p>If enabled, tabs that are within toolbars will be drawn as normal."
-msgstr ""
+msgstr "<p>إذا شُغّل، ترسم الألسنة التي ضمن أشرطة الأدوات كالمعتاد."
 
 #. i18n: ectx: property (text), widget (QRadioButton, toolbarTabs)
 #: qt4/config/qtcurveconfigbase.ui:1831 qt5/config/qtcurveconfigbase.ui:1885
 #: qt6/config/qtcurveconfigbase.ui:1885
 #, kde-format
 msgid "Draw as standard tabs"
-msgstr ""
+msgstr "ارسم كألسنة معيارية"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, toolbarTabs_false)
 #. i18n: ectx: property (toolTip), widget (QRadioButton, centerTabText)
@@ -3219,27 +3369,28 @@ msgid ""
 "<p>If enabled, tabs that are within toolbars will be drawn the same as "
 "sidebar buttons."
 msgstr ""
+"<p>إذا شُغّل، ترسم الألسنة التي ضمن أشرطة الأدوات مثل أزرار الشريط الجانبي."
 
 #. i18n: ectx: property (text), widget (QRadioButton, toolbarTabs_false)
 #: qt4/config/qtcurveconfigbase.ui:1841 qt5/config/qtcurveconfigbase.ui:1895
 #: qt6/config/qtcurveconfigbase.ui:1895
 #, kde-format
 msgid "Draw as per sidebar button settings"
-msgstr ""
+msgstr "ارسم وفقاً لضبط أزرار الشريط الجانبي"
 
 #. i18n: ectx: property (text), widget (QRadioButton, centerTabText_false)
 #: qt4/config/qtcurveconfigbase.ui:1882 qt5/config/qtcurveconfigbase.ui:1945
 #: qt6/config/qtcurveconfigbase.ui:1945
 #, kde-format
 msgid "Left aligned"
-msgstr ""
+msgstr "بمحاذاة اليسار"
 
 #. i18n: ectx: property (text), widget (QRadioButton, centerTabText)
 #: qt4/config/qtcurveconfigbase.ui:1892 qt5/config/qtcurveconfigbase.ui:1955
 #: qt6/config/qtcurveconfigbase.ui:1955
 #, kde-format
 msgid "Centre aligned"
-msgstr ""
+msgstr "بمحاذاة الوسط"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, shadeCheckRadio)
 #: qt4/config/qtcurveconfigbase.ui:1916 qt5/config/qtcurveconfigbase.ui:1979
@@ -3249,13 +3400,15 @@ msgid ""
 "<p>Controls the color of the indicator part of a check or radio - ie. the "
 "'dot' or 'check' mark."
 msgstr ""
+"<p>يتحكم في لون جزء المؤشر الخاص بصندوق التأشير أو زر المذياع - أي 'النقطة' "
+"أو 'علامة' التأشير."
 
 #. i18n: ectx: property (text), widget (QLabel, label_53)
 #: qt4/config/qtcurveconfigbase.ui:1939 qt5/config/qtcurveconfigbase.ui:2002
 #: qt6/config/qtcurveconfigbase.ui:2002
 #, kde-format
 msgid "Checkmarks:"
-msgstr ""
+msgstr "علامات التأشير:"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, xCheck_false)
 #: qt4/config/qtcurveconfigbase.ui:1970 qt5/config/qtcurveconfigbase.ui:2042
@@ -3264,7 +3417,7 @@ msgstr ""
 msgid ""
 "<p>If enabled, checkboxes will have a 'tick' to indicate that they are "
 "selected."
-msgstr ""
+msgstr "<p>إذا شُغّل، سيكون لصناديق التأشير 'إشارة' لتدل على أنها محددة."
 
 #. i18n: ectx: property (text), widget (QRadioButton, xCheck_false)
 #: qt4/config/qtcurveconfigbase.ui:1973 qt5/config/qtcurveconfigbase.ui:2045
@@ -3281,6 +3434,7 @@ msgid ""
 "<p>If enabled, checkboxes will have a 'cross' (or 'X') to indicate that they "
 "are selected."
 msgstr ""
+"<p>إذا شُغّل، سيكون لصناديق التأشير 'علامة x' (أو 'X') لتدل على أنها محددة."
 
 #. i18n: ectx: property (text), widget (QRadioButton, xCheck)
 #: qt4/config/qtcurveconfigbase.ui:1986 qt5/config/qtcurveconfigbase.ui:2058
@@ -3294,7 +3448,7 @@ msgstr "صليب"
 #: qt6/config/qtcurveconfigbase.ui:2068
 #, kde-format
 msgid "Radio 'dot':"
-msgstr ""
+msgstr "'نقطة' المذياع:"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, smallRadio_false)
 #: qt4/config/qtcurveconfigbase.ui:2027 qt5/config/qtcurveconfigbase.ui:2108
@@ -3303,7 +3457,7 @@ msgstr ""
 msgid ""
 "<p>If enabled, radio buttons will have a large 'dot' to indicate that they "
 "are selected."
-msgstr ""
+msgstr "<p>إذا شُغّل، سيكون لأزرار المذياع 'نقطة' كبيرة لتدل على أنها محددة."
 
 #. i18n: ectx: property (text), widget (QRadioButton, smallRadio_false)
 #: qt4/config/qtcurveconfigbase.ui:2030 qt4/kwinconfig/qtcurvekwinconfig.cpp:59
@@ -3320,7 +3474,7 @@ msgstr "كبير"
 msgid ""
 "<p>If enabled, radio buttons will have a small 'dot' to indicate that they "
 "are selected."
-msgstr ""
+msgstr "<p>إذا شُغّل، سيكون لأزرار المذياع 'نقطة' صغيرة لتدل على أنها محددة."
 
 #. i18n: ectx: property (text), widget (QRadioButton, smallRadio)
 #: qt4/config/qtcurveconfigbase.ui:2040 qt5/config/qtcurveconfigbase.ui:2121
@@ -3339,6 +3493,8 @@ msgid ""
 "of the text associated with a checkbox, or radio button, when the mouse "
 "hovers over it."
 msgstr ""
+"<p>يحدد كم يجب على السمة أن تفتح (أو تغمق) خلفية النص المرتبط بصندوق "
+"التأشير، أو زر المذياع، عندما تحوم الفأرة فوقه."
 
 #. i18n: ectx: property (text), widget (QLabel, label_70)
 #: qt4/config/qtcurveconfigbase.ui:2067 qt5/config/qtcurveconfigbase.ui:2148
@@ -3355,13 +3511,15 @@ msgid ""
 "<p>Controls whether the background of the checkbox, or radio button, should "
 "appear sunken like or button like."
 msgstr ""
+"<p>يتحكم فيما إذا كان يجب أن تظهر خلفية صندوق التأشير، أو زر المذياع، "
+"كمنخفضة أو كزر."
 
 #. i18n: ectx: property (text), widget (QCheckBox, crButton)
 #: qt4/config/qtcurveconfigbase.ui:2077 qt5/config/qtcurveconfigbase.ui:2158
 #: qt6/config/qtcurveconfigbase.ui:2158
 #, kde-format
 msgid "Button like"
-msgstr ""
+msgstr "كزر"
 
 #. i18n: ectx: property (text), widget (QLabel, label_87)
 #: qt4/config/qtcurveconfigbase.ui:2084 qt5/config/qtcurveconfigbase.ui:2165
@@ -3375,7 +3533,7 @@ msgstr "الحجم:"
 #: qt6/config/qtcurveconfigbase.ui:2172
 #, kde-format
 msgid "<p>Configures the size of checkboxes and radio buttons."
-msgstr ""
+msgstr "<p>اضبط حجم صناديق التأشير وأزرار المذياع."
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, crColor)
 #: qt4/config/qtcurveconfigbase.ui:2098 qt5/config/qtcurveconfigbase.ui:2179
@@ -3385,41 +3543,42 @@ msgid ""
 "<p>Sets the color of selected checkboxes and radio buttons when these are "
 "set to 'button like'."
 msgstr ""
+"<p>اضبط لون صناديق التأشير وأزرار المذياع المحددة عندما تُضبط هذه على 'كزر'."
 
 #. i18n: ectx: property (text), widget (QLabel, label_88)
 #: qt4/config/qtcurveconfigbase.ui:2112 qt5/config/qtcurveconfigbase.ui:2193
 #: qt6/config/qtcurveconfigbase.ui:2193
 #, kde-format
 msgid "Selected emblem:"
-msgstr ""
+msgstr "شعار محدد:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_23)
 #: qt4/config/qtcurveconfigbase.ui:2123 qt5/config/qtcurveconfigbase.ui:2204
 #: qt6/config/qtcurveconfigbase.ui:2204
 #, kde-format
 msgid "Active appearance:"
-msgstr ""
+msgstr "المظهر النشط:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, titlebarAppearance)
 #: qt4/config/qtcurveconfigbase.ui:2130 qt5/config/qtcurveconfigbase.ui:2211
 #: qt6/config/qtcurveconfigbase.ui:2211
 #, kde-format
 msgid "<p>Controls the gradient applied to the titlebar of active windows."
-msgstr ""
+msgstr "<p>يتحكم في التدرج المطبق على شريط عنوان النوافذ النشطة."
 
 #. i18n: ectx: property (text), widget (QLabel, label_28)
 #: qt4/config/qtcurveconfigbase.ui:2137 qt5/config/qtcurveconfigbase.ui:2218
 #: qt6/config/qtcurveconfigbase.ui:2218
 #, kde-format
 msgid "Inactive appearance:"
-msgstr ""
+msgstr "المظهر غير النشط:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, inactiveTitlebarAppearance)
 #: qt4/config/qtcurveconfigbase.ui:2144 qt5/config/qtcurveconfigbase.ui:2225
 #: qt6/config/qtcurveconfigbase.ui:2225
 #, kde-format
 msgid "<p>Controls the gradient applied to the titlebar of inactive windows."
-msgstr ""
+msgstr "<p>يتحكم في التدرج المطبق على شريط عنوان النوافذ غير النشطة."
 
 #. i18n: ectx: property (text), widget (QLabel, label_31)
 #: qt4/config/qtcurveconfigbase.ui:2151 qt5/config/qtcurveconfigbase.ui:2232
@@ -3438,13 +3597,16 @@ msgid ""
 "with 'Center (between controls)' the text is centered between the window "
 "controls to the left and right."
 msgstr ""
+"<p>يتحكم في محاذاة نص شريط العنوان. 'توسيط (العرض الكامل)' يعني أن النص موّسط "
+"في منتصف شريط العنوان الكامل، بينما مع 'توسيط (بين أدوات التحكم)'، يُوَسَّط النص "
+"بين أدوات تحكم النافذة إلى اليسار واليمين."
 
 #. i18n: ectx: property (text), widget (QLabel, label_74)
 #: qt4/config/qtcurveconfigbase.ui:2165 qt5/config/qtcurveconfigbase.ui:2246
 #: qt6/config/qtcurveconfigbase.ui:2246
 #, kde-format
 msgid "Text/icon effect:"
-msgstr ""
+msgstr "تأثير النص/الأيقونة:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, titlebarEffect)
 #: qt4/config/qtcurveconfigbase.ui:2172 qt5/config/qtcurveconfigbase.ui:2253
@@ -3453,7 +3615,7 @@ msgstr ""
 msgid ""
 "<p>Controls the 'effect' applied to the text and icons - shadow, etching, or "
 "none."
-msgstr ""
+msgstr "<p>يتحكم في 'التأثير' المطبق على النص والأيقونات - ظل، حفر، أو لا شيء."
 
 #. i18n: ectx: property (text), widget (QLabel, label_43)
 #: qt4/config/qtcurveconfigbase.ui:2179 qt5/config/qtcurveconfigbase.ui:2260
@@ -3471,6 +3633,8 @@ msgid ""
 "'Place on menu button' is selected, then the icon takes place of the menu "
 "button."
 msgstr ""
+"<p>يتحكم في أين يجب أن ترسم أيقونة التطبيق على شريط العنوان. إذا اُختير 'وضع "
+"على زر القائمة'، عندئذٍ تحل الأيقونة محل زر القائمة."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_colorTitlebarOnly)
 #: qt4/config/qtcurveconfigbase.ui:2200 qt5/config/qtcurveconfigbase.ui:2281
@@ -3479,14 +3643,14 @@ msgstr ""
 msgid ""
 "<p>If enabled, only the titlebar, and not the border, of windows will be "
 "colored."
-msgstr ""
+msgstr "<p>إذا شُغّل، يلوّن شريط العنوان فقط، وليس حد النوافذ."
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_colorTitlebarOnly)
 #: qt4/config/qtcurveconfigbase.ui:2203 qt5/config/qtcurveconfigbase.ui:2284
 #: qt6/config/qtcurveconfigbase.ui:2284
 #, kde-format
 msgid "Only color titlebar"
-msgstr ""
+msgstr "لوّن شريط العنوان فقط"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_blend)
 #: qt4/config/qtcurveconfigbase.ui:2210 qt5/config/qtcurveconfigbase.ui:2291
@@ -3495,14 +3659,14 @@ msgstr ""
 msgid ""
 "<p>If enabled, the background color will be used as the last part of the "
 "titlebar gradient."
-msgstr ""
+msgstr "<p>إذا شُغّل، يستخدم لون الخلفية كالجزء الأخير من تدرج شريط العنوان."
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_blend)
 #: qt4/config/qtcurveconfigbase.ui:2213 qt5/config/qtcurveconfigbase.ui:2294
 #: qt6/config/qtcurveconfigbase.ui:2294
 #, kde-format
 msgid "Blend titlebar color into background color"
-msgstr ""
+msgstr "امزج لون شريط العنوان في لون الخلفية"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_fill)
 #: qt4/config/qtcurveconfigbase.ui:2220 qt5/config/qtcurveconfigbase.ui:2301
@@ -3511,14 +3675,14 @@ msgstr ""
 msgid ""
 "<p>If enabled, before drawing the titlebar gradient, it will be filled with "
 "the background colour/gradient."
-msgstr ""
+msgstr "<p>إذا شُغّل، قبل رسم تدرج شريط العنوان، يملأ بلون/تدرج الخلفية."
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_fill)
 #: qt4/config/qtcurveconfigbase.ui:2223 qt5/config/qtcurveconfigbase.ui:2304
 #: qt6/config/qtcurveconfigbase.ui:2304
 #, kde-format
 msgid "Fill titlebar background before applying gradient."
-msgstr ""
+msgstr "املأ خلفية شريط العنوان قبل تطبيق التدرج."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_menuColor)
 #: qt4/config/qtcurveconfigbase.ui:2230 qt5/config/qtcurveconfigbase.ui:2311
@@ -3528,20 +3692,21 @@ msgid ""
 "<p>If enabled, the configured menubar color will be used for windows that "
 "have menubars."
 msgstr ""
+"<p>إذا شُغّل، يستخدم لون شريط القائمة المضبوط للنوافذ التي تحوي أشرطة قوائم."
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_menuColor)
 #: qt4/config/qtcurveconfigbase.ui:2233 qt5/config/qtcurveconfigbase.ui:2314
 #: qt6/config/qtcurveconfigbase.ui:2314
 #, kde-format
 msgid "Use menubar color"
-msgstr ""
+msgstr "استخدم لون شريط القائمة"
 
 #. i18n: ectx: property (text), widget (QLabel, label_55)
 #: qt4/config/qtcurveconfigbase.ui:2240 qt5/config/qtcurveconfigbase.ui:2321
 #: qt6/config/qtcurveconfigbase.ui:2321
 #, kde-format
 msgid "Add a light border:"
-msgstr ""
+msgstr "أضف حداً خفيفاً:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_addLightBorder)
 #: qt4/config/qtcurveconfigbase.ui:2247 qt5/config/qtcurveconfigbase.ui:2328
@@ -3550,28 +3715,28 @@ msgstr ""
 msgid ""
 "<p>If enabled, a 1 pixel light border is added to the top and left of the "
 "window."
-msgstr ""
+msgstr "<p>إذا شُغّل، يضاف حد خفيف بحجم 1 بكسل إلى أعلى ويسار النافذة."
 
 #. i18n: ectx: property (text), widget (QLabel, label_55b)
 #: qt4/config/qtcurveconfigbase.ui:2257 qt5/config/qtcurveconfigbase.ui:2338
 #: qt6/config/qtcurveconfigbase.ui:2338
 #, kde-format
 msgid "Draw separator on active windows:"
-msgstr ""
+msgstr "ارسم فاصلة على النوافذ النشطة:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_separator)
 #: qt4/config/qtcurveconfigbase.ui:2264 qt5/config/qtcurveconfigbase.ui:2345
 #: qt6/config/qtcurveconfigbase.ui:2345
 #, kde-format
 msgid "<p>If enabled, a separator is drawn between the titlebar and window."
-msgstr ""
+msgstr "<p>إذا شُغّل، ترسم فاصلة بين شريط العنوان والنافذة."
 
 #. i18n: ectx: property (text), widget (QLabel, label_92)
 #: qt4/config/qtcurveconfigbase.ui:2274 qt5/config/qtcurveconfigbase.ui:2355
 #: qt6/config/qtcurveconfigbase.ui:2355
 #, kde-format
 msgid "Drag windows from:"
-msgstr ""
+msgstr "اسحب النوافذ من:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_56)
 #: qt4/config/qtcurveconfigbase.ui:2288 qt5/config/qtcurveconfigbase.ui:2369
@@ -3585,7 +3750,7 @@ msgstr "الأزرار:"
 #: qt6/config/qtcurveconfigbase.ui:2376
 #, kde-format
 msgid "<p>Defines the gradient used to fill the titlebar buttons."
-msgstr ""
+msgstr "<p>يحدد التدرج المستخدم لملء أزرار شريط العنوان."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_noFrame)
 #: qt4/config/qtcurveconfigbase.ui:2302 qt5/config/qtcurveconfigbase.ui:2383
@@ -3593,14 +3758,14 @@ msgstr ""
 #, kde-format
 msgid ""
 "<p>If enabled, only the symbol is drawn - and not the button background."
-msgstr ""
+msgstr "<p>إذا شُغّل، يرسم الرمز فقط - وليس خلفية الزر."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_noFrame)
 #: qt4/config/qtcurveconfigbase.ui:2305 qt5/config/qtcurveconfigbase.ui:2386
 #: qt6/config/qtcurveconfigbase.ui:2386
 #, kde-format
 msgid "Only show symbols"
-msgstr ""
+msgstr "أظهر الرموز فقط"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_round)
 #: qt4/config/qtcurveconfigbase.ui:2312 qt5/config/qtcurveconfigbase.ui:2393
@@ -3610,6 +3775,7 @@ msgid ""
 "<p>If enabled, the buttons will have a circular background - regardless of "
 "the general round setting."
 msgstr ""
+"<p>إذا شُغّل، سيكون للأزرار خلفية دائرية - بغض النظر عن ضبط الاستدارة العام."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_hoverFrame)
 #: qt4/config/qtcurveconfigbase.ui:2322 qt5/config/qtcurveconfigbase.ui:2403
@@ -3618,14 +3784,14 @@ msgstr ""
 msgid ""
 "<p>If enabled, the button background (or frame) will only be shown when "
 "under the mouse."
-msgstr ""
+msgstr "<p>إذا شُغّل، تظهر خلفية الزر (أو الإطار) فقط عندما تكون تحت الفأرة."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hoverFrame)
 #: qt4/config/qtcurveconfigbase.ui:2325 qt5/config/qtcurveconfigbase.ui:2406
 #: qt6/config/qtcurveconfigbase.ui:2406
 #, kde-format
 msgid "Show frame on mouse-over"
-msgstr ""
+msgstr "أظهر الإطار عند مرور الفأرة"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_hoverSymbol)
 #: qt4/config/qtcurveconfigbase.ui:2332 qt5/config/qtcurveconfigbase.ui:2413
@@ -3635,13 +3801,15 @@ msgid ""
 "<p>If enabled, the icon will only be shown at full strength when under the "
 "mouse - otherwise it will be blended with the background."
 msgstr ""
+"<p>إذا شُغّل، تظهر الأيقونة بقوتها الكاملة فقط عندما تكون تحت الفأرة - وإلا، "
+"ستُمزَج مع الخلفية."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hoverSymbol)
 #: qt4/config/qtcurveconfigbase.ui:2335 qt5/config/qtcurveconfigbase.ui:2416
 #: qt6/config/qtcurveconfigbase.ui:2416
 #, kde-format
 msgid "Highlight symbol on mouse-over"
-msgstr ""
+msgstr "ميّز الرمز عند مرور الفأرة"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_button)
 #: qt4/config/qtcurveconfigbase.ui:2342 qt5/config/qtcurveconfigbase.ui:2423
@@ -3651,13 +3819,15 @@ msgid ""
 "<p>If enabled, the titlebar buttons will be drawn using the standard button "
 "color - otherwise the titlebar color will be used."
 msgstr ""
+"<p>إذا شُغّل، ترسم أزرار شريط العنوان باستخدام لون الزر المعياري - وإلا، "
+"يستخدم لون شريط العنوان."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_button)
 #: qt4/config/qtcurveconfigbase.ui:2345 qt5/config/qtcurveconfigbase.ui:2426
 #: qt6/config/qtcurveconfigbase.ui:2426
 #, kde-format
 msgid "Standard button color"
-msgstr ""
+msgstr "لون الزر المعياري"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_custom)
 #: qt4/config/qtcurveconfigbase.ui:2352 qt5/config/qtcurveconfigbase.ui:2433
@@ -3667,13 +3837,15 @@ msgid ""
 "<p>If enabled, the titlebar buttons will be drawn using the custom colors "
 "defined in the next page."
 msgstr ""
+"<p>إذا شُغّل، ترسم أزرار شريط العنوان باستخدام الألوان المخصصة المحددة في "
+"الصفحة التالية."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_custom)
 #: qt4/config/qtcurveconfigbase.ui:2355 qt5/config/qtcurveconfigbase.ui:2436
 #: qt6/config/qtcurveconfigbase.ui:2436
 #, kde-format
 msgid "Use custom background colors"
-msgstr ""
+msgstr "استخدم ألوان خلفية مخصصة"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_colorOnMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:2362 qt5/config/qtcurveconfigbase.ui:2443
@@ -3682,55 +3854,55 @@ msgstr ""
 msgid ""
 "<p>If enabled, the colors will only be used when the button is under the "
 "mouse."
-msgstr ""
+msgstr "<p>إذا شُغّل، تستخدم الألوان فقط عندما يكون الزر تحت الفأرة."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_colorOnMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:2365 qt5/config/qtcurveconfigbase.ui:2446
 #: qt6/config/qtcurveconfigbase.ui:2446
 #, kde-format
 msgid "Use color only for mouse-over"
-msgstr ""
+msgstr "استخدم اللون لمرور الفأرة فقط"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_useHover)
 #: qt4/config/qtcurveconfigbase.ui:2372
 #, kde-format
 msgid "<p>If enabled, symbols will use the KDE4 hover color when moused-over."
-msgstr ""
+msgstr "<p>إذا شُغّل، تستخدم الرموز لون تحويم KDE4 عندما تحوم الفأرة فوقها."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_useHover)
 #: qt4/config/qtcurveconfigbase.ui:2375 qt5/config/qtcurveconfigbase.ui:2456
 #: qt6/config/qtcurveconfigbase.ui:2456
 #, kde-format
 msgid "Use hover color for mouse-over of symbols"
-msgstr ""
+msgstr "استخدم لون التحويم لمرور الفأرة فوق الرموز"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_sunkenBackground)
 #: qt4/config/qtcurveconfigbase.ui:2382 qt5/config/qtcurveconfigbase.ui:2463
 #: qt6/config/qtcurveconfigbase.ui:2463
 #, kde-format
 msgid "<p>If enabled, a sunken background is drawn behind the buttons."
-msgstr ""
+msgstr "<p>إذا شُغّل، ترسم خلفية منخفضة خلف الأزرار."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_sunkenBackground)
 #: qt4/config/qtcurveconfigbase.ui:2385 qt5/config/qtcurveconfigbase.ui:2466
 #: qt6/config/qtcurveconfigbase.ui:2466
 #, kde-format
 msgid "Sunken background"
-msgstr ""
+msgstr "خلفية منخفضة"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_arrowMinMax)
 #: qt4/config/qtcurveconfigbase.ui:2392 qt5/config/qtcurveconfigbase.ui:2473
 #: qt6/config/qtcurveconfigbase.ui:2473
 #, kde-format
 msgid "<p>If enabled, arrows are drawn as the icons for min and max buttons."
-msgstr ""
+msgstr "<p>إذا شُغّل، ترسم الأسهم كأيقونات لأزرار التصغير والتكبير."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_arrowMinMax)
 #: qt4/config/qtcurveconfigbase.ui:2395 qt5/config/qtcurveconfigbase.ui:2476
 #: qt6/config/qtcurveconfigbase.ui:2476
 #, kde-format
 msgid "Use arrows for min/max buttons"
-msgstr ""
+msgstr "استخدم الأسهم لأزرار التصغير/التكبير"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_hideOnInactiveWindow)
 #: qt4/config/qtcurveconfigbase.ui:2402 qt5/config/qtcurveconfigbase.ui:2483
@@ -3740,13 +3912,14 @@ msgid ""
 "<p>If enabled, buttons on inactive windows are only drawn when the mouse "
 "hovers over them."
 msgstr ""
+"<p>إذا شُغّل، ترسم الأزرار على النوافذ غير النشطة فقط عندما تحوم الفأرة فوقها."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hideOnInactiveWindow)
 #: qt4/config/qtcurveconfigbase.ui:2405 qt5/config/qtcurveconfigbase.ui:2486
 #: qt6/config/qtcurveconfigbase.ui:2486
 #, kde-format
 msgid "Hide on inactive windows"
-msgstr ""
+msgstr "أخفِ على النوافذ غير النشطة"
 
 #. i18n: ectx: property (text), widget (QLabel, label_57)
 #: qt4/config/qtcurveconfigbase.ui:2412 qt5/config/qtcurveconfigbase.ui:2493
@@ -3763,13 +3936,14 @@ msgid ""
 "<p>If enabled, custom colors will be applied to the symbols, otherwise they "
 "will be applied to the button background."
 msgstr ""
+"<p>إذا شُغّل، تطبق الألوان المخصصة على الرموز، وإلا، تطبق على خلفية الزر."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_colorSymbolsOnly)
 #: qt4/config/qtcurveconfigbase.ui:2422 qt5/config/qtcurveconfigbase.ui:2503
 #: qt6/config/qtcurveconfigbase.ui:2503
 #, kde-format
 msgid "Use only for symbols"
-msgstr ""
+msgstr "استخدم للرموز فقط"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_colorInactive)
 #: qt4/config/qtcurveconfigbase.ui:2429 qt5/config/qtcurveconfigbase.ui:2510
@@ -3779,111 +3953,113 @@ msgid ""
 "<p>If enabled, custom colors will be applied to active and inactive windows, "
 "otherwise they will only be applied to active windows."
 msgstr ""
+"<p>إذا شُغّل، تطبق الألوان المخصصة على النوافذ النشطة وغير النشطة، وإلا، تطبق "
+"على النوافذ النشطة فقط."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_colorInactive)
 #: qt4/config/qtcurveconfigbase.ui:2432 qt5/config/qtcurveconfigbase.ui:2513
 #: qt6/config/qtcurveconfigbase.ui:2513
 #, kde-format
 msgid "Also apply to inactive windows"
-msgstr ""
+msgstr "طبّق على النوافذ غير النشطة أيضاً"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_hoverSymbolFull)
 #: qt4/config/qtcurveconfigbase.ui:2439 qt5/config/qtcurveconfigbase.ui:2520
 #: qt6/config/qtcurveconfigbase.ui:2520
 #, kde-format
 msgid "<p>If enabled, the symbol will not be drawn unless under the mouse."
-msgstr ""
+msgstr "<p>إذا شُغّل، لا يرسم الرمز إلا إذا كان تحت الفأرة."
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hoverSymbolFull)
 #: qt4/config/qtcurveconfigbase.ui:2442 qt5/config/qtcurveconfigbase.ui:2523
 #: qt6/config/qtcurveconfigbase.ui:2523
 #, kde-format
 msgid "Hide symbol until mouse-over"
-msgstr ""
+msgstr "أخفِ الرمز حتى مرور الفأرة"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_customIcon)
 #: qt4/config/qtcurveconfigbase.ui:2449 qt5/config/qtcurveconfigbase.ui:2530
 #: qt6/config/qtcurveconfigbase.ui:2530
 #, kde-format
 msgid "Use custom icon colors"
-msgstr ""
+msgstr "استخدم ألوان أيقونة مخصصة"
 
 #. i18n: ectx: property (text), widget (QLabel, label_95)
 #: qt4/config/qtcurveconfigbase.ui:2469 qt5/config/qtcurveconfigbase.ui:2550
 #: qt6/config/qtcurveconfigbase.ui:2550
 #, kde-format
 msgid "Active Icon"
-msgstr ""
+msgstr "أيقونة نشطة"
 
 #. i18n: ectx: property (text), widget (QLabel, label_96)
 #: qt4/config/qtcurveconfigbase.ui:2476 qt5/config/qtcurveconfigbase.ui:2557
 #: qt6/config/qtcurveconfigbase.ui:2557
 #, kde-format
 msgid "Inactive Icon"
-msgstr ""
+msgstr "أيقونة غير نشطة"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorClose)
 #: qt4/config/qtcurveconfigbase.ui:2489 qt5/config/qtcurveconfigbase.ui:2570
 #: qt6/config/qtcurveconfigbase.ui:2570
 #, kde-format
 msgid "<p>Sets the custom color for 'Close' buttons."
-msgstr ""
+msgstr "<p>اضبط اللون المخصص لأزرار 'إغلاق'."
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorMin)
 #: qt4/config/qtcurveconfigbase.ui:2502 qt5/config/qtcurveconfigbase.ui:2583
 #: qt6/config/qtcurveconfigbase.ui:2583
 #, kde-format
 msgid "<p>Sets the custom color for 'Minimise' buttons."
-msgstr ""
+msgstr "<p>اضبط اللون المخصص لأزرار 'تصغير'."
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorMax)
 #: qt4/config/qtcurveconfigbase.ui:2515 qt5/config/qtcurveconfigbase.ui:2596
 #: qt6/config/qtcurveconfigbase.ui:2596
 #, kde-format
 msgid "<p>Sets the custom color for 'Maximize' and 'Restore' buttons."
-msgstr ""
+msgstr "<p>اضبط اللون المخصص لأزرار 'تكبير' و 'استعادة'."
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorHelp)
 #: qt4/config/qtcurveconfigbase.ui:2528 qt5/config/qtcurveconfigbase.ui:2609
 #: qt6/config/qtcurveconfigbase.ui:2609
 #, kde-format
 msgid "<p>Sets the custom color for 'Help' buttons."
-msgstr ""
+msgstr "<p>اضبط اللون المخصص لأزرار 'مساعدة'."
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorMenu)
 #: qt4/config/qtcurveconfigbase.ui:2541 qt5/config/qtcurveconfigbase.ui:2622
 #: qt6/config/qtcurveconfigbase.ui:2622
 #, kde-format
 msgid "<p>Sets the custom color for 'Menu' buttons."
-msgstr ""
+msgstr "<p>اضبط اللون المخصص لأزرار 'قائمة'."
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorShade)
 #: qt4/config/qtcurveconfigbase.ui:2554 qt5/config/qtcurveconfigbase.ui:2635
 #: qt6/config/qtcurveconfigbase.ui:2635
 #, kde-format
 msgid "<p>Sets the custom color for 'Shade', and 'Un-Shade', buttons."
-msgstr ""
+msgstr "<p>اضبط اللون المخصص لأزرار 'تظليل' و 'إلغاء التظليل'."
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorAllDesktops)
 #: qt4/config/qtcurveconfigbase.ui:2567 qt5/config/qtcurveconfigbase.ui:2648
 #: qt6/config/qtcurveconfigbase.ui:2648
 #, kde-format
 msgid "<p>Sets the custom color for 'On All Desktop' buttons."
-msgstr ""
+msgstr "<p>اضبط اللون المخصص لأزرار 'على كل أسطح المكتب'."
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorKeepAbove)
 #: qt4/config/qtcurveconfigbase.ui:2580 qt5/config/qtcurveconfigbase.ui:2661
 #: qt6/config/qtcurveconfigbase.ui:2661
 #, kde-format
 msgid "<p>Sets the custom color for 'Keep Above' buttons."
-msgstr ""
+msgstr "<p>اضبط اللون المخصص لأزرار 'أبقِ في الأعلى'."
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorKeepBelow)
 #: qt4/config/qtcurveconfigbase.ui:2593 qt5/config/qtcurveconfigbase.ui:2674
 #: qt6/config/qtcurveconfigbase.ui:2674
 #, kde-format
 msgid "<p>Sets the custom color for 'Keep Below' buttons."
-msgstr ""
+msgstr "<p>اضبط اللون المخصص لأزرار 'أبقِ في الأسفل'."
 
 #. i18n: ectx: property (text), widget (QLabel, label_34)
 #: qt4/config/qtcurveconfigbase.ui:2600 qt5/config/qtcurveconfigbase.ui:2681
@@ -3953,7 +4129,7 @@ msgstr "أبقها تحت:"
 #: qt6/config/qtcurveconfigbase.ui:2993
 #, kde-format
 msgid "<p>Defines the gradient used for the background of menubars."
-msgstr ""
+msgstr "<p>يحدد التدرج المستخدم لخلفية أشرطة القوائم."
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, menubarBlend)
 #. i18n: ectx: property (toolTip), widget (QPushButton, menubarBlend)
@@ -3964,6 +4140,8 @@ msgid ""
 "<p>Sets the relevant config items, so that window titlebars and menubars are "
 "blended."
 msgstr ""
+"<p>اضبط عناصر الإعدادات ذات الصلة، بحيث تُدمج أشرطة عناوين النوافذ وأشرطة "
+"القوائم."
 
 #. i18n: ectx: property (text), widget (KPushButton, menubarBlend)
 #. i18n: ectx: property (text), widget (QPushButton, menubarBlend)
@@ -3971,14 +4149,14 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:3003
 #, kde-format
 msgid "Blend with titlebar"
-msgstr ""
+msgstr "امزج مع شريط العنوان"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, shadeMenubars)
 #: qt4/config/qtcurveconfigbase.ui:2939 qt5/config/qtcurveconfigbase.ui:3020
 #: qt6/config/qtcurveconfigbase.ui:3020
 #, kde-format
 msgid "<p>Defines the color applied to the background of menubars."
-msgstr ""
+msgstr "<p>يحدد اللون المطبق على خلفية أشرطة القوائم."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, shadeMenubarOnlyWhenActive)
 #: qt4/config/qtcurveconfigbase.ui:2962 qt5/config/qtcurveconfigbase.ui:3043
@@ -3988,20 +4166,22 @@ msgid ""
 "<p>Defines whether the background coloration should be applied to all "
 "menubars, or just those in active windows."
 msgstr ""
+"<p>يحدد ما إذا كان يجب تطبيق تلوين الخلفية على كل أشرطة القوائم، أو فقط على "
+"تلك الموجودة في النوافذ النشطة."
 
 #. i18n: ectx: property (text), widget (QCheckBox, shadeMenubarOnlyWhenActive)
 #: qt4/config/qtcurveconfigbase.ui:2965 qt5/config/qtcurveconfigbase.ui:3046
 #: qt6/config/qtcurveconfigbase.ui:3046
 #, kde-format
 msgid "Active window only"
-msgstr ""
+msgstr "النافذة النشطة فقط"
 
 #. i18n: ectx: property (text), widget (QLabel, label_58)
 #: qt4/config/qtcurveconfigbase.ui:2972 qt5/config/qtcurveconfigbase.ui:3053
 #: qt6/config/qtcurveconfigbase.ui:3053
 #, kde-format
 msgid "Menubar text:"
-msgstr ""
+msgstr "نص شريط القائمة:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, customMenuTextColor)
 #: qt4/config/qtcurveconfigbase.ui:2985 qt5/config/qtcurveconfigbase.ui:3066
@@ -4011,41 +4191,43 @@ msgid ""
 "<p>If enabled, then the following two color boxes are used to set the text "
 "color to be used for normal and selected menubar items."
 msgstr ""
+"<p>إذا شُغّل، عندئذٍ يستخدم مربعا الألوان التاليان لضبط لون النص الذي يستخدم "
+"لعناصر شريط القائمة العادية والمحددة."
 
 #. i18n: ectx: property (text), widget (QCheckBox, customMenuTextColor)
 #: qt4/config/qtcurveconfigbase.ui:2988 qt5/config/qtcurveconfigbase.ui:3069
 #: qt6/config/qtcurveconfigbase.ui:3069
 #, kde-format
 msgid "Custom colors (normal/selected)"
-msgstr ""
+msgstr "ألوان مخصصة (عادي/محدد)"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, customMenuNormTextColor)
 #: qt4/config/qtcurveconfigbase.ui:3001 qt5/config/qtcurveconfigbase.ui:3082
 #: qt6/config/qtcurveconfigbase.ui:3082
 #, kde-format
 msgid "<p>Sets the text color of normal menubar items."
-msgstr ""
+msgstr "<p>اضبط لون نص عناصر شريط القائمة العادية."
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, customMenuSelTextColor)
 #: qt4/config/qtcurveconfigbase.ui:3017 qt5/config/qtcurveconfigbase.ui:3098
 #: qt6/config/qtcurveconfigbase.ui:3098
 #, kde-format
 msgid "<p>Sets the text color of selected menubar items."
-msgstr ""
+msgstr "<p>اضبط لون نص عناصر شريط القائمة المحددة."
 
 #. i18n: ectx: property (text), widget (QLabel, label_59)
 #: qt4/config/qtcurveconfigbase.ui:3027 qt5/config/qtcurveconfigbase.ui:3108
 #: qt6/config/qtcurveconfigbase.ui:3108
 #, kde-format
 msgid "Menubar items:"
-msgstr ""
+msgstr "عناصر شريط القوائم:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, menuitemAppearance)
 #: qt4/config/qtcurveconfigbase.ui:3034 qt5/config/qtcurveconfigbase.ui:3115
 #: qt6/config/qtcurveconfigbase.ui:3115
 #, kde-format
 msgid "<p>Defines the gradient to be applied to selected menubar items."
-msgstr ""
+msgstr "<p>يحدد التدرج الذي يطبق على عناصر شريط القوائم المحددة."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, menubarMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:3041 qt5/config/qtcurveconfigbase.ui:3122
@@ -4055,13 +4237,15 @@ msgid ""
 "<p>If enabled, menubar items will have their background gradient applied "
 "when the mouse hovers over them."
 msgstr ""
+"<p>إذا فَعَّلت، يطبَق تدرج الخلفية على عناصر شريط القوائم عند مرور مؤشر الفأرة "
+"فوقها."
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:3044 qt5/config/qtcurveconfigbase.ui:3125
 #: qt6/config/qtcurveconfigbase.ui:3125
 #, kde-format
 msgid "Enable mouse-over"
-msgstr ""
+msgstr "فَعِّل مرور مؤشر الفأرة"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, colorMenubarMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:3051 qt5/config/qtcurveconfigbase.ui:3132
@@ -4072,13 +4256,16 @@ msgid ""
 "over' is enabled) then it will also be colored, otherwise it will use a "
 "shade of the background color."
 msgstr ""
+"<p>إذا فُعِّلت، وعندما يمر مؤشر الفأرة فوق عنصر من شريط القوائم (وكان 'تفعيل "
+"مرور مؤشر الفأرة' مُفَعَّلاً)، يلون العنصر أيضاً، وإلا فإنه يستخدم تظليلاً من لون "
+"الخلفية."
 
 #. i18n: ectx: property (text), widget (QCheckBox, colorMenubarMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:3054 qt5/config/qtcurveconfigbase.ui:3135
 #: qt6/config/qtcurveconfigbase.ui:3135
 #, kde-format
 msgid "Color on mouse-over"
-msgstr ""
+msgstr "لون عند مرور مؤشر الفأرة"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, roundMbTopOnly)
 #: qt4/config/qtcurveconfigbase.ui:3061 qt5/config/qtcurveconfigbase.ui:3142
@@ -4088,13 +4275,15 @@ msgid ""
 "<p>If enabled, only the top (and not bottom) of selected menubar items will "
 "be rounded."
 msgstr ""
+"<p>إذا فَعَّلت، قَرِّب فقط الجزء العلوي (وليس السفلي) من عناصر شريط القوائم "
+"المحددة."
 
 #. i18n: ectx: property (text), widget (QCheckBox, roundMbTopOnly)
 #: qt4/config/qtcurveconfigbase.ui:3064 qt5/config/qtcurveconfigbase.ui:3145
 #: qt6/config/qtcurveconfigbase.ui:3145
 #, kde-format
 msgid "Round selected items on top only"
-msgstr ""
+msgstr "قَرِّب العناصر المحددة من الأعلى فقط"
 
 #. i18n: ectx: property (text), widget (QLabel, label_68)
 #. i18n: ectx: property (text), widget (QLabel, label_91)
@@ -4103,7 +4292,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:3152 qt6/config/qtcurveconfigbase.ui:3608
 #, kde-format
 msgid "Hiding:"
-msgstr ""
+msgstr "الإخفاء:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, menubarHiding_keyboard)
 #: qt4/config/qtcurveconfigbase.ui:3078 qt5/config/qtcurveconfigbase.ui:3159
@@ -4113,13 +4302,15 @@ msgid ""
 "<p>If enabled, menubars may be hidden (and re-shown), by using the 'Ctrl-Alt-"
 "M' key combination."
 msgstr ""
+"<p>إذا فَعَّلت، يمكن إخفاء (وإعادة إظهار) أشرطة القوائم، عبر استخدام تركيبة "
+"المفاتيح 'Ctrl-Alt-M'."
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarHiding_keyboard)
 #: qt4/config/qtcurveconfigbase.ui:3081 qt5/config/qtcurveconfigbase.ui:3162
 #: qt6/config/qtcurveconfigbase.ui:3162
 #, kde-format
 msgid "Use Ctrl-Alt-M (experimental)"
-msgstr ""
+msgstr "استخدِم Ctrl-Alt-M (تجريبي)"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, menubarHiding_kwin)
 #: qt4/config/qtcurveconfigbase.ui:3088 qt5/config/qtcurveconfigbase.ui:3169
@@ -4129,6 +4320,8 @@ msgid ""
 "<p>If enabled, menubars may be hidden (and re-shown), by using a special "
 "button in the QtCurve kwin decoration."
 msgstr ""
+"<p>إذا فَعَّلت، يمكن إخفاء (وإعادة إظهار) أشرطة القوائم، عبر استخدام زر خاص في "
+"زخرفة KWin الخاص بـ كيوت كيرف."
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarHiding_kwin)
 #. i18n: ectx: property (text), widget (QCheckBox, statusbarHiding_kwin)
@@ -4137,7 +4330,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:3172 qt6/config/qtcurveconfigbase.ui:3628
 #, kde-format
 msgid "Window titlebar button (experimental)"
-msgstr ""
+msgstr "زر شريط عنوان النافذة (تجريبي)"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, xbar)
 #: qt4/config/qtcurveconfigbase.ui:3098
@@ -4146,19 +4339,21 @@ msgid ""
 "<p>If enabled, the theme will support embedding the menubar of KDE4 "
 "applications in Bespin's XBar."
 msgstr ""
+"<p>إذا فَعَّلت، يدعم النسق تضمين شريط قوائم تطبيقات KDE4 في شريط XBar الخاص بـ "
+"Bespin."
 
 #. i18n: ectx: property (text), widget (QLabel, label_72)
 #: qt4/config/qtcurveconfigbase.ui:3108
 #, kde-format
 msgid "XBar support:"
-msgstr ""
+msgstr "دعم شريط XBar:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_60)
 #: qt4/config/qtcurveconfigbase.ui:3119 qt5/config/qtcurveconfigbase.ui:3183
 #: qt6/config/qtcurveconfigbase.ui:3183
 #, kde-format
 msgid "Menu items:"
-msgstr ""
+msgstr "عناصر القائمة:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, borderMenuitems)
 #: qt4/config/qtcurveconfigbase.ui:3126 qt5/config/qtcurveconfigbase.ui:3190
@@ -4169,6 +4364,8 @@ msgid ""
 "gradient. This will cause them to have a rounded look if the general round "
 "setting is not set to none."
 msgstr ""
+"<p>إذا فَعَّلت، ارسُم عناصر القائمة المحددة بحدود حول التدرج. يتسبب هذا في "
+"ظهورها بمظهر مُدوَّر إذا لم يضبَط الإعداد العام للتقريب على بلا."
 
 #. i18n: ectx: property (text), widget (QCheckBox, borderMenuitems)
 #: qt4/config/qtcurveconfigbase.ui:3129 qt5/config/qtcurveconfigbase.ui:3193
@@ -4185,20 +4382,22 @@ msgid ""
 "<p>If enabled, selected menuitems will be drawn using the 'highlight' color, "
 "otherwise a darkened shade of the background color will be used instead."
 msgstr ""
+"<p>إذا فَعَّلت، ترسم عناصر القائمة المحددة باستخدام لون 'التمييز'، وإلا يستخدم "
+"تظليل داكن من لون الخلفية عوضاً عن ذلك."
 
 #. i18n: ectx: property (text), widget (QCheckBox, useHighlightForMenu)
 #: qt4/config/qtcurveconfigbase.ui:3139 qt5/config/qtcurveconfigbase.ui:3203
 #: qt6/config/qtcurveconfigbase.ui:3203
 #, kde-format
 msgid "Use 'highlight' color for active items"
-msgstr ""
+msgstr "استخدِم لون 'التمييز' للعناصر النشطة"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, thin_menuitems)
 #: qt4/config/qtcurveconfigbase.ui:3146 qt5/config/qtcurveconfigbase.ui:3210
 #: qt6/config/qtcurveconfigbase.ui:3210
 #, kde-format
 msgid "<p>Enable this to reduce the height of menuitems."
-msgstr ""
+msgstr "<p>فَعِّل هذا لتقليل ارتفاع عناصر القائمة."
 
 #. i18n: ectx: property (text), widget (QCheckBox, thin_menuitems)
 #: qt4/config/qtcurveconfigbase.ui:3149 qt5/config/qtcurveconfigbase.ui:3213
@@ -4216,6 +4415,8 @@ msgid ""
 "they will be hidden (but the space they would have occupied will still be "
 "there)."
 msgstr ""
+"<p>إذا فَعَّلت، ارسِم الأيقونات المرتبطة بعناصر القائمة، وإلا اخفِها (لكن تبقى "
+"المساحة التي كان يجب أن تحتلها موجودة)."
 
 #. i18n: ectx: property (text), widget (QCheckBox, menuIcons)
 #: qt4/config/qtcurveconfigbase.ui:3159 qt5/config/qtcurveconfigbase.ui:3223
@@ -4232,20 +4433,22 @@ msgid ""
 "<p>If enabled, checked menu items get only a check mark instead of a "
 "checkbox or radiobutton."
 msgstr ""
+"<p>إذا فَعَّلت، تحصل عناصر القائمة المحددة على علامة صح فقط بدلاً من مربع اختيار "
+"أو زر اختيار."
 
 #. i18n: ectx: property (text), widget (QCheckBox, onlyTicksInMenu)
 #: qt4/config/qtcurveconfigbase.ui:3169 qt5/config/qtcurveconfigbase.ui:3233
 #: qt6/config/qtcurveconfigbase.ui:3233
 #, kde-format
 msgid "Check marks only"
-msgstr ""
+msgstr "علامات صح فقط"
 
 #. i18n: ectx: property (text), widget (QLabel, label_26)
 #: qt4/config/qtcurveconfigbase.ui:3176 qt5/config/qtcurveconfigbase.ui:3240
 #: qt6/config/qtcurveconfigbase.ui:3240
 #, kde-format
 msgid "Shade background by:"
-msgstr ""
+msgstr "ظلل الخلفية بمقدار:"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, lighterPopupMenuBgnd)
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, expanderHighlight)
@@ -4258,21 +4461,21 @@ msgstr ""
 msgid ""
 "<p>Defines the amount by which the popup menu background will be lightened "
 "(or darkened)."
-msgstr ""
+msgstr "<p>يحدد المقدار الذي يفتح به (أو يغمق) لون خلفية القائمة المنبثقة."
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, menuBgndAppearance)
 #: qt4/config/qtcurveconfigbase.ui:3202 qt5/config/qtcurveconfigbase.ui:3266
 #: qt6/config/qtcurveconfigbase.ui:3266
 #, kde-format
 msgid "<p>Defines the gradient applied to the background of the popup menus."
-msgstr ""
+msgstr "<p>يحدد التدرج الذي يطبق على خلفية القوائم المنبثقة."
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, menuBgndGrad)
 #: qt4/config/qtcurveconfigbase.ui:3218 qt5/config/qtcurveconfigbase.ui:3282
 #: qt6/config/qtcurveconfigbase.ui:3282
 #, kde-format
 msgid "<p>Defines background gradient orientation."
-msgstr ""
+msgstr "<p>يحدد اتجاه تدرج الخلفية."
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, menuBgndImage)
 #: qt4/config/qtcurveconfigbase.ui:3235 qt5/config/qtcurveconfigbase.ui:3299
@@ -4284,12 +4487,16 @@ msgid ""
 "rings with borders.</li><li>Plain rings - 'Air' like rings, but without any "
 "border.</li><li>Square rings - 3 simple rounded squares.</li></ul></p>"
 msgstr ""
+"<p>يضيف هذا صورة خلفية إلى القوائم المنبثقة.\n"
+"            <ul><li>بلا - بلا صورة.</li><li>حلقات بحدود - حلقات شبيهة بـ "
+"'Air' ذات حدود.</li><li>حلقات عادية - حلقات شبيهة بـ 'Air'، ولكن بدون حدود.</"
+"li><li>حلقات مربعة - 3 مربعات مدوّرة بسيطة.</li></ul></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_45)
 #: qt4/config/qtcurveconfigbase.ui:3251
 #, kde-format
 msgid "Sub-menu delay:"
-msgstr ""
+msgstr "تأخير القائمة الفرعية:"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, menuDelay)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, menuDelay)
@@ -4297,7 +4504,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:3322
 #, kde-format
 msgid "<p>Defines the delay before a sub-menu appears."
-msgstr ""
+msgstr "<p>يحدد مقدار التأخير قبل ظهور القائمة الفرعية."
 
 #. i18n: ectx: property (suffix), widget (KIntNumInput, menuDelay)
 #. i18n: ectx: property (suffix), widget (KIntNumInput, menuCloseDelay)
@@ -4316,6 +4523,7 @@ msgstr "م‌ث"
 msgid ""
 "<p>Defines the delay before a sub-menu closes. Applicable on Qt 5.5 or later"
 msgstr ""
+"<p>يحدد مقدار التأخير قبل إغلاق القائمة الفرعية. يطبق على كيوت 5.5 أو أحدث"
 
 #. i18n: ectx: property (text), widget (QLabel, label_103)
 #. i18n: ectx: property (text), widget (QLabel, label_72)
@@ -4323,14 +4531,14 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:3429
 #, kde-format
 msgid "Sub-menu close delay:"
-msgstr ""
+msgstr "تأخير إغلاق القائمة الفرعية:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_44)
 #: qt4/config/qtcurveconfigbase.ui:3288 qt5/config/qtcurveconfigbase.ui:3335
 #: qt6/config/qtcurveconfigbase.ui:3335
 #, kde-format
 msgid "Stripe:"
-msgstr ""
+msgstr "الشريط:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, menuStripe)
 #: qt4/config/qtcurveconfigbase.ui:3295 qt5/config/qtcurveconfigbase.ui:3342
@@ -4340,20 +4548,22 @@ msgid ""
 "<p>Defines the coloration of the menu-stripe that will be drawn on the left "
 "of popup menus - but only if this option is not set to 'none'."
 msgstr ""
+"<p>يحدد تلوين شريط القائمة الذي يرسم على يسار القوائم المنبثقة - ولكن فقط "
+"إذا لم يضبَط هذا الخيار على 'بلا'."
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, menuStripeAppearance)
 #: qt4/config/qtcurveconfigbase.ui:3321 qt5/config/qtcurveconfigbase.ui:3368
 #: qt6/config/qtcurveconfigbase.ui:3368
 #, kde-format
 msgid "<p>Defines the gradient to be used for the menu stripe."
-msgstr ""
+msgstr "<p>يحدد التدرج الذي يستخدم لشريط القائمة."
 
 #. i18n: ectx: property (text), widget (QLabel, label_61)
 #: qt4/config/qtcurveconfigbase.ui:3328 qt5/config/qtcurveconfigbase.ui:3375
 #: qt6/config/qtcurveconfigbase.ui:3375
 #, kde-format
 msgid "Border popupmenus:"
-msgstr ""
+msgstr "حدود القوائم المنبثقة:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, popupBorder)
 #: qt4/config/qtcurveconfigbase.ui:3335 qt5/config/qtcurveconfigbase.ui:3382
@@ -4364,13 +4574,15 @@ msgid ""
 "will be drawn. This option should be enabled unless you have also enabled "
 "shadows in your window manager."
 msgstr ""
+"<p>إذا فَعَّلت، يكون للقائمة المنبثقة بأكملها حد، وإلا فلا يرسم أي حد. فَعِّل هذا "
+"الخيار ما لم تكن قد فَعَّلت الظلال في مدير النوافذ الخاص بك."
 
 #. i18n: ectx: property (text), widget (QLabel, label_97)
 #: qt4/config/qtcurveconfigbase.ui:3345 qt5/config/qtcurveconfigbase.ui:3392
 #: qt6/config/qtcurveconfigbase.ui:3392
 #, kde-format
 msgid "Use menubar colour settings:"
-msgstr ""
+msgstr "استخدِم إعدادات ألوان شريط القوائم:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, buttonStyleMenuSections)
 #: qt4/config/qtcurveconfigbase.ui:3359 qt5/config/qtcurveconfigbase.ui:3406
@@ -4381,34 +4593,37 @@ msgid ""
 "buttons.</p><p>When disabled, they are left-aligned under a separator line "
 "and use a bold, underlined typeface.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>عند التفعيل، تبدو عناوين أقسام القائمة كالأزرار قليلاً."
+"</p><p>عند التعطيل، تكون محاذية لليسار تحت خط فاصل وتستخدم خطاً عريضاً ومسطراً."
+"</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, buttonStyleMenuSections)
 #: qt4/config/qtcurveconfigbase.ui:3362 qt5/config/qtcurveconfigbase.ui:3409
 #: qt6/config/qtcurveconfigbase.ui:3409
 #, kde-format
 msgid "Use button-like menu section headers"
-msgstr ""
+msgstr "استخدِم رؤوس أقسام القائمة الشبيهة بالزر"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, toolbarAppearance)
 #: qt4/config/qtcurveconfigbase.ui:3386 qt5/config/qtcurveconfigbase.ui:3450
 #: qt6/config/qtcurveconfigbase.ui:3450
 #, kde-format
 msgid "<p>Defines the gradient used to draw the background of toolbars."
-msgstr ""
+msgstr "<p>يحدد التدرج الذي يرسم خلفية أشرطة الأدوات."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: qt4/config/qtcurveconfigbase.ui:3393 qt5/config/qtcurveconfigbase.ui:3457
 #: qt6/config/qtcurveconfigbase.ui:3457
 #, kde-format
 msgid "Handles:"
-msgstr ""
+msgstr "المقابض:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, handles)
 #: qt4/config/qtcurveconfigbase.ui:3403 qt5/config/qtcurveconfigbase.ui:3467
 #: qt6/config/qtcurveconfigbase.ui:3467
 #, kde-format
 msgid "<p>Defines the look of the toolbar handles."
-msgstr ""
+msgstr "<p>يحدد مظهر مقابض شريط الأدوات."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
 #: qt4/config/qtcurveconfigbase.ui:3410 qt5/config/qtcurveconfigbase.ui:3474
@@ -4422,7 +4637,7 @@ msgstr "الفواصل:"
 #: qt6/config/qtcurveconfigbase.ui:3484
 #, kde-format
 msgid "<p>Defines the style used to draw toolbar separators."
-msgstr ""
+msgstr "<p>يحدد النمط الذي يرسم فواصل شريط الأدوات."
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, toolbarBorders)
 #: qt4/config/qtcurveconfigbase.ui:3437 qt5/config/qtcurveconfigbase.ui:3501
@@ -4432,69 +4647,71 @@ msgid ""
 "<p>Defines the border type drawn around the toolbar. (This setting also "
 "affects menubars)."
 msgstr ""
+"<p>يحدد نوع الحد الذي يرسم حول شريط الأدوات. (يؤثر هذا الإعداد أيضاً على "
+"أشرطة القوائم)."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_4b)
 #: qt4/config/qtcurveconfigbase.ui:3444 qt5/config/qtcurveconfigbase.ui:3508
 #: qt6/config/qtcurveconfigbase.ui:3508
 #, kde-format
 msgid "Button style:"
-msgstr ""
+msgstr "نمط الزر:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tbarBtns)
 #: qt4/config/qtcurveconfigbase.ui:3454 qt5/config/qtcurveconfigbase.ui:3518
 #: qt6/config/qtcurveconfigbase.ui:3518
 #, kde-format
 msgid "<p>Defines the style used for toolbar buttons."
-msgstr ""
+msgstr "<p>يحدد النمط الذي يستخدم لأزرار شريط الأدوات."
 
 #. i18n: ectx: property (text), widget (QLabel, label_84)
 #: qt4/config/qtcurveconfigbase.ui:3461 qt5/config/qtcurveconfigbase.ui:3525
 #: qt6/config/qtcurveconfigbase.ui:3525
 #, kde-format
 msgid "Colored mouse-over:"
-msgstr ""
+msgstr "تلوين عند مرور مؤشر الفأرة:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, coloredTbarMo_false)
 #: qt4/config/qtcurveconfigbase.ui:3479 qt5/config/qtcurveconfigbase.ui:3543
 #: qt6/config/qtcurveconfigbase.ui:3543
 #, kde-format
 msgid "Only for glow mouse-over style"
-msgstr ""
+msgstr "لنمط مرور مؤشر الفأرة المتوهج فقط"
 
 #. i18n: ectx: property (text), widget (QRadioButton, coloredTbarMo)
 #: qt4/config/qtcurveconfigbase.ui:3486 qt5/config/qtcurveconfigbase.ui:3550
 #: qt6/config/qtcurveconfigbase.ui:3550
 #, kde-format
 msgid "For all mouse-over styles"
-msgstr ""
+msgstr "لجميع أنماط مرور مؤشر الفأرة"
 
 #. i18n: ectx: property (text), widget (QLabel, label_78)
 #: qt4/config/qtcurveconfigbase.ui:3495 qt5/config/qtcurveconfigbase.ui:3559
 #: qt6/config/qtcurveconfigbase.ui:3559
 #, kde-format
 msgid "Button appearance:"
-msgstr ""
+msgstr "مظهر الزر:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tbarBtnAppearance)
 #: qt4/config/qtcurveconfigbase.ui:3502 qt5/config/qtcurveconfigbase.ui:3566
 #: qt6/config/qtcurveconfigbase.ui:3566
 #, kde-format
 msgid "<p>Defines the gradient used to draw buttons within toolbars.</p>"
-msgstr ""
+msgstr "<p>يحدد التدرج الذي يرسم الأزرار داخل أشرطة الأدوات.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tbarBtnEffect)
 #: qt4/config/qtcurveconfigbase.ui:3516 qt5/config/qtcurveconfigbase.ui:3580
 #: qt6/config/qtcurveconfigbase.ui:3580
 #, kde-format
 msgid "<p>Control what effect should be applied to buttons in toolbars.</p>"
-msgstr ""
+msgstr "<p>تحكَّم في التأثير الذي يطبَّق على الأزرار في أشرطة الأدوات.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_90)
 #: qt4/config/qtcurveconfigbase.ui:3527 qt5/config/qtcurveconfigbase.ui:3591
 #: qt6/config/qtcurveconfigbase.ui:3591
 #, kde-format
 msgid "Frames around items:"
-msgstr ""
+msgstr "إطارات حول العناصر:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, drawStatusBarFrames)
 #: qt4/config/qtcurveconfigbase.ui:3534 qt5/config/qtcurveconfigbase.ui:3598
@@ -4503,6 +4720,7 @@ msgstr ""
 msgid ""
 "<p>Controls whether QtCurve should draw frames around items in statusbars."
 msgstr ""
+"<p>تحكَّم فيما إذا كان كيوت كيرف يرسم إطارات حول العناصر في أشرطة الحالة."
 
 #. i18n: ectx: property (text), widget (QCheckBox, drawStatusBarFrames)
 #: qt4/config/qtcurveconfigbase.ui:3537 qt5/config/qtcurveconfigbase.ui:3601
@@ -4519,13 +4737,15 @@ msgid ""
 "<p>If enabled, statusbars may be hidden (and re-shown), by using the 'Ctrl-"
 "Alt-S' key combination."
 msgstr ""
+"<p>إذا فَعَّلت، يمكن إخفاء (وإعادة إظهار) أشرطة الحالة، عبر استخدام تركيبة "
+"المفاتيح 'Ctrl-Alt-S'."
 
 #. i18n: ectx: property (text), widget (QCheckBox, statusbarHiding_keyboard)
 #: qt4/config/qtcurveconfigbase.ui:3554 qt5/config/qtcurveconfigbase.ui:3618
 #: qt6/config/qtcurveconfigbase.ui:3618
 #, kde-format
 msgid "Use Ctrl-Alt-S (experimental)"
-msgstr ""
+msgstr "استخدِم Ctrl-Alt-S (تجريبي)"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, statusbarHiding_kwin)
 #: qt4/config/qtcurveconfigbase.ui:3561 qt5/config/qtcurveconfigbase.ui:3625
@@ -4535,13 +4755,15 @@ msgid ""
 "<p>If enabled, statusbars may be hidden (and re-shown), by using a special "
 "button in the QtCurve kwin decoration."
 msgstr ""
+"<p>إذا فَعَّلت، يمكن إخفاء (وإعادة إظهار) أشرطة الحالة، عبر استخدام زر خاص في "
+"زخرفة KWin الخاص بـ كيوت كيرف."
 
 #. i18n: ectx: property (text), widget (QLabel, label_73)
 #: qt4/config/qtcurveconfigbase.ui:3575 qt5/config/qtcurveconfigbase.ui:3639
 #: qt6/config/qtcurveconfigbase.ui:3639
 #, kde-format
 msgid "Titlebar appearance:"
-msgstr ""
+msgstr "مظهر شريط العنوان:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, dwtAppearance)
 #: qt4/config/qtcurveconfigbase.ui:3582 qt5/config/qtcurveconfigbase.ui:3646
@@ -4550,7 +4772,7 @@ msgstr ""
 msgid ""
 "<p>Defines the gradient used to draw the background of the 'title' part of a "
 "dock windows."
-msgstr ""
+msgstr "<p>يحدد التدرج الذي يرسم خلفية جزء 'العنوان' من نوافذ الإرساء."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, dwtRoundTopOnly)
 #: qt4/config/qtcurveconfigbase.ui:3589 qt5/config/qtcurveconfigbase.ui:3653
@@ -4560,20 +4782,22 @@ msgid ""
 "<p>If enabled, only the top (for horizontal dock windows), or left (for "
 "vertical dock windows) will be rounded."
 msgstr ""
+"<p>إذا فَعَّلت، قَرِّب الجزء العلوي فقط (لنوافذ الإرساء الأفقية)، أو الأيسر "
+"(لنوافذ الإرساء العمودية)."
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtRoundTopOnly)
 #: qt4/config/qtcurveconfigbase.ui:3592 qt5/config/qtcurveconfigbase.ui:3656
 #: qt6/config/qtcurveconfigbase.ui:3656
 #, kde-format
 msgid "Round top/left only"
-msgstr ""
+msgstr "قَرِّب الجزء العلوي/الأيسر فقط"
 
 #. i18n: ectx: property (text), widget (QLabel, label_76)
 #: qt4/config/qtcurveconfigbase.ui:3599 qt5/config/qtcurveconfigbase.ui:3663
 #: qt6/config/qtcurveconfigbase.ui:3663
 #, kde-format
 msgid "Use window settings for:"
-msgstr ""
+msgstr "استخدِم إعدادات النافذة من أجل:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, dwtBtnAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3606 qt5/config/qtcurveconfigbase.ui:3670
@@ -4585,13 +4809,16 @@ msgid ""
 "have their symbols drawn until the mouse hovers over (when the button "
 "background will be drawn)."
 msgstr ""
+"<p>إذا فَعَّلت، يكون للأزرار في نوافذ الإرساء مظهر مشابه (وسلوك) لأزرار النوافذ "
+"القياسية، وإلا يرسم رمزها فقط حتى يمر مؤشر الفأرة فوقها (عندها ترسم خلفية "
+"الزر)."
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtBtnAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3609 qt5/config/qtcurveconfigbase.ui:3673
 #: qt6/config/qtcurveconfigbase.ui:3673
 #, kde-format
 msgid "Button appearance"
-msgstr ""
+msgstr "مظهر الزر"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, dwtColAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3616 qt5/config/qtcurveconfigbase.ui:3680
@@ -4602,13 +4829,15 @@ msgid ""
 "color settings of standard windows, otherwise they will use the standard "
 "background color."
 msgstr ""
+"<p>إذا فَعَّلت، استخدم خلفية أشرطة عناوين نوافذ الإرساء إعدادات ألوان النوافذ "
+"القياسية، وإلا استخدم لون الخلفية القياسي."
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtColAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3619 qt5/config/qtcurveconfigbase.ui:3683
 #: qt6/config/qtcurveconfigbase.ui:3683
 #, kde-format
 msgid "Background colors"
-msgstr ""
+msgstr "ألوان الخلفية"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, dwtFontAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3626 qt5/config/qtcurveconfigbase.ui:3690
@@ -4618,6 +4847,8 @@ msgid ""
 "<p>If enabled, the font of dock window titlebars will have use the font "
 "settings of standard windows, otherwise they will use the standard font."
 msgstr ""
+"<p>إذا فَعَّلت، استخدم خط أشرطة عناوين نوافذ الإرساء إعدادات خط النوافذ "
+"القياسية، وإلا استخدم الخط القياسي."
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtFontAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3629 qt5/config/qtcurveconfigbase.ui:3693
@@ -4634,6 +4865,8 @@ msgid ""
 "<p>If enabled, the text of dock window titlebars will have use the text "
 "alignment settings of standard windows, otherwise they will be left aligned."
 msgstr ""
+"<p>إذا فَعَّلت، استخدم نص أشرطة عناوين نوافذ الإرساء إعدادات محاذاة نص النوافذ "
+"القياسية، وإلا حاذِ النص لليسار."
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtTextAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3639 qt5/config/qtcurveconfigbase.ui:3703
@@ -4651,13 +4884,15 @@ msgid ""
 "effect settings of standard windows, otherwise they will be drawn with no "
 "effect."
 msgstr ""
+"<p>إذا فَعَّلت، استخدم نص أشرطة عناوين نوافذ الإرساء إعدادات تأثير نص النوافذ "
+"القياسية، وإلا يرسم النص بلا تأثير."
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtEffectAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3649 qt5/config/qtcurveconfigbase.ui:3713
 #: qt6/config/qtcurveconfigbase.ui:3713
 #, kde-format
 msgid "Text effect"
-msgstr ""
+msgstr "تأثير النص"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, dwtIconColAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3656 qt5/config/qtcurveconfigbase.ui:3720
@@ -4667,20 +4902,22 @@ msgid ""
 "<p>If enabled, the icons of dock window titlebars will have use the colors "
 "of standard window icons, otherwise they will use the text colour setting."
 msgstr ""
+"<p>إذا فَعَّلت، استخدم أيقونات أشرطة عناوين نوافذ الإرساء ألوان أيقونات النوافذ "
+"القياسية، وإلا استخدم إعداد لون النص."
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtIconColAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3659 qt5/config/qtcurveconfigbase.ui:3723
 #: qt6/config/qtcurveconfigbase.ui:3723
 #, kde-format
 msgid "Icon colors"
-msgstr ""
+msgstr "ألوان الأيقونة"
 
 #. i18n: ectx: property (text), widget (QLabel, label_80)
 #: qt4/config/qtcurveconfigbase.ui:3673 qt5/config/qtcurveconfigbase.ui:3737
 #: qt6/config/qtcurveconfigbase.ui:3737
 #, kde-format
 msgid "Dialog buttons:"
-msgstr ""
+msgstr "أزرار الحوار:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gtkButtonOrder)
 #: qt4/config/qtcurveconfigbase.ui:3680 qt5/config/qtcurveconfigbase.ui:3744
@@ -4690,13 +4927,15 @@ msgid ""
 "<p>If enabled, dialogs will use the 'Cancel / OK' button order as used in "
 "the GNOME and OSX desktops, otherwise the 'OK / Cancel' order will be used."
 msgstr ""
+"<p>إذا فَعَّلت، تستخدِم صناديق الحوار ترتيب أزرار 'إلغاء / موافق' كما تستخدَم في "
+"أسطح مكتب GNOME وOSX، وإلا يستخدم ترتيب 'موافق / إلغاء'."
 
 #. i18n: ectx: property (text), widget (QCheckBox, gtkButtonOrder)
 #: qt4/config/qtcurveconfigbase.ui:3683 qt5/config/qtcurveconfigbase.ui:3747
 #: qt6/config/qtcurveconfigbase.ui:3747
 #, kde-format
 msgid "Use Gtk button order"
-msgstr ""
+msgstr "استخدِم ترتيب أزرار Gtk"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, reorderGtkButtons)
 #: qt4/config/qtcurveconfigbase.ui:3690 qt5/config/qtcurveconfigbase.ui:3754
@@ -4707,13 +4946,16 @@ msgid ""
 "attempt to manually set the order of buttons in Gtk dialogs.</p><p><b>NOTE:</"
 "b> This is experimental, and may produce unexpected results!</p>"
 msgstr ""
+"<p>إذا فُعِّل هذا ولم يُفَعَّل 'استخدِم ترتيب أزرار Gtk'، يحاول كيوت كيرف ضبط ترتيب "
+"الأزرار يدوياً في صناديق حوار Gtk.</p><p><b>ملاحظة:</b> هذا تجريبي، وقد ينتج "
+"عنه نتائج غير متوقعة!</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, reorderGtkButtons)
 #: qt4/config/qtcurveconfigbase.ui:3693 qt5/config/qtcurveconfigbase.ui:3757
 #: qt6/config/qtcurveconfigbase.ui:3757
 #, kde-format
 msgid "Manually re-order Gtk buttons"
-msgstr ""
+msgstr "أعد ترتيب أزرار Gtk يدوياً"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stdBtnSizes)
 #: qt4/config/qtcurveconfigbase.ui:3701
@@ -4725,19 +4967,24 @@ msgid ""
 "appearance than standard buttons. QtCurve attempts to mimic this for KDE4 "
 "applications - this may be disabled by enabling this option.</p>"
 msgstr ""
+"<p>الأزرار الافتراضية التلقائية هي أزرار يمكن أن تصبح أزراراً 'مبدئية' - أي "
+"تستجيب لضغط المستخدم على 'إدخال'.</p>\n"
+"<p>في تطبيقات Gtk2، يكون لمعظم الأزرار 'الافتراضية التلقائية' مظهر أطول من "
+"الأزرار القياسية. يحاول كيوت كيرف محاكاة هذا لتطبيقات KDE4 - يمكن تعطيل هذا "
+"بتفعيل هذا الخيار.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stdBtnSizes)
 #: qt4/config/qtcurveconfigbase.ui:3704
 #, kde-format
 msgid "Use standard size for 'auto-default' buttons (KDE4)"
-msgstr ""
+msgstr "استخدِم الحجم القياسي لأزرار 'الافتراض التلقائي' (KDE4)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_79)
 #: qt4/config/qtcurveconfigbase.ui:3711 qt5/config/qtcurveconfigbase.ui:3775
 #: qt6/config/qtcurveconfigbase.ui:3775
 #, kde-format
 msgid "Gtk icons"
-msgstr ""
+msgstr "أيقونات Gtk"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, mapKdeIcons)
 #: qt4/config/qtcurveconfigbase.ui:3718 qt5/config/qtcurveconfigbase.ui:3782
@@ -4747,13 +4994,15 @@ msgid ""
 "<p>Enable this option so that QtCurve can attempt to map from the KDE icon "
 "names to their Gtk equivalent for Gtk applications."
 msgstr ""
+"<p>فَعِّل هذا الخيار ليتمكن كيوت كيرف من محاولة رسم خريطة من أسماء أيقونات كيدي "
+"إلى ما يعادلها في Gtk لتطبيقات Gtk."
 
 #. i18n: ectx: property (text), widget (QCheckBox, mapKdeIcons)
 #: qt4/config/qtcurveconfigbase.ui:3721 qt5/config/qtcurveconfigbase.ui:3785
 #: qt6/config/qtcurveconfigbase.ui:3785
 #, kde-format
 msgid "Use KDE equivalent"
-msgstr ""
+msgstr "استخدِم ما يعادله في كيدي"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: qt4/config/qtcurveconfigbase.ui:3728 qt5/config/qtcurveconfigbase.ui:3792
@@ -4767,21 +5016,21 @@ msgstr "حرف كلمة السر:"
 #: qt6/config/qtcurveconfigbase.ui:3805
 #, kde-format
 msgid "<p>Sets the character used to hide password entries."
-msgstr ""
+msgstr "<p>اضبِط الحرف الذي يستخدم لإخفاء مدخلات كلمة المرور."
 
 #. i18n: ectx: property (text), widget (QLabel, label_77)
 #: qt4/config/qtcurveconfigbase.ui:3748 qt5/config/qtcurveconfigbase.ui:3812
 #: qt6/config/qtcurveconfigbase.ui:3812
 #, kde-format
 msgid "Gtk expander highlight:"
-msgstr ""
+msgstr "تمييز موسع Gtk:"
 
 #. i18n: ectx: property (text), widget (QLabel, shadowSizeLabel)
 #: qt4/config/qtcurveconfigbase.ui:3765 qt5/config/qtcurveconfigbase.ui:3829
 #: qt6/config/qtcurveconfigbase.ui:3829
 #, kde-format
 msgid "Drop shadow size:"
-msgstr ""
+msgstr "حجم ظل الإسقاط:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, dropShadowSize)
 #: qt4/config/qtcurveconfigbase.ui:3772 qt5/config/qtcurveconfigbase.ui:3836
@@ -4791,13 +5040,15 @@ msgid ""
 "<p>Sets the base value used for determining drop shadow sizes.</p><p>X11 "
 "only.</p>"
 msgstr ""
+"<p>اضبط القيمة الأساسية المستخدمة لتقرير أحجام ظلال الإسقاط.</p><p>X11 فقط.</"
+"p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_81)
 #: qt4/config/qtcurveconfigbase.ui:3788 qt5/config/qtcurveconfigbase.ui:3852
 #: qt6/config/qtcurveconfigbase.ui:3852
 #, kde-format
 msgid "No background gradient:"
-msgstr ""
+msgstr "لا يوجد تدرج في الخلفية:"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, noBgndGradientApps)
 #: qt4/config/qtcurveconfigbase.ui:3795 qt5/config/qtcurveconfigbase.ui:3859
@@ -4808,13 +5059,16 @@ msgid ""
 "background gradient setting. </p><p>Use <i>gtk</i> to disable for all Gtk2 "
 "applications.</p>"
 msgstr ""
+"<p>قائمة مفصولة بفواصل من أسماء التطبيقات التي لا ينبغي أن تستخدم إعداد "
+"التدرج في الخلفية. </p><p>استخدم <i>gtk</i> لتعطيل الإعداد لجميع تطبيقات "
+"Gtk2.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_82)
 #: qt4/config/qtcurveconfigbase.ui:3802 qt5/config/qtcurveconfigbase.ui:3866
 #: qt6/config/qtcurveconfigbase.ui:3866
 #, kde-format
 msgid "No background image:"
-msgstr ""
+msgstr "لا توجد صورة في الخلفية:"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, noBgndImageApps)
 #: qt4/config/qtcurveconfigbase.ui:3809 qt5/config/qtcurveconfigbase.ui:3873
@@ -4825,13 +5079,15 @@ msgid ""
 "background image setting. </p><p>Use <i>gtk</i> to disable for all Gtk2 "
 "applications.</p>"
 msgstr ""
+"<p>قائمة مفصولة بفواصل من أسماء التطبيقات التي لا ينبغي أن تستخدم إعداد صورة "
+"الخلفية. </p><p>استخدم <i>gtk</i> لتعطيل الإعداد لجميع تطبيقات Gtk2.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_81b)
 #: qt4/config/qtcurveconfigbase.ui:3816 qt5/config/qtcurveconfigbase.ui:3880
 #: qt6/config/qtcurveconfigbase.ui:3880
 #, kde-format
 msgid "No background opacity:"
-msgstr ""
+msgstr "لا توجد عتامة في الخلفية:"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, noBgndOpacityApps)
 #: qt4/config/qtcurveconfigbase.ui:3823 qt5/config/qtcurveconfigbase.ui:3887
@@ -4842,13 +5098,16 @@ msgid ""
 "background opacity setting. </p><p>Use <i>gtk</i> to disable for all Gtk2 "
 "applications.</p>"
 msgstr ""
+"<p>قائمة مفصولة بفواصل من أسماء التطبيقات التي لا ينبغي أن تستخدم إعداد "
+"عتامة الخلفية. </p><p>استخدم <i>gtk</i> لتعطيل الإعداد لجميع تطبيقات Gtk2.</"
+"p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_81mnu)
 #: qt4/config/qtcurveconfigbase.ui:3830 qt5/config/qtcurveconfigbase.ui:3894
 #: qt6/config/qtcurveconfigbase.ui:3894
 #, kde-format
 msgid "No menu opacity (and no alpha channel for Gtk2):"
-msgstr ""
+msgstr "لا توجد عتامة للقائمة (ولا قناة ألفا لـ Gtk2):"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, noMenuBgndOpacityApps)
 #: qt4/config/qtcurveconfigbase.ui:3837 qt5/config/qtcurveconfigbase.ui:3901
@@ -4860,13 +5119,17 @@ msgid ""
 "alpha-channel to smoothly round tooltips and popup menus.</i></p><p>Use "
 "<i>gtk</i> to disable for all Gtk2 applications.</p>"
 msgstr ""
+"<p>قائمة مفصولة بفواصل من أسماء التطبيقات التي لا ينبغي أن تستخدم إعداد "
+"عتامة القائمة.</p><p><i>بالنسبة إلى Gtk2، هذا الخيار أيضًا يعطّل استخدام قناة "
+"ألفا لتقريب تلميحات الأدوات والقوائم المنبثقة بسلاسة.</i></p><p>استخدم "
+"<i>gtk</i> لتعطيل الإعداد لجميع تطبيقات Gtk2.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_82y)
 #: qt4/config/qtcurveconfigbase.ui:3844 qt5/config/qtcurveconfigbase.ui:3908
 #: qt6/config/qtcurveconfigbase.ui:3908
 #, kde-format
 msgid "No menu stripe:"
-msgstr ""
+msgstr "لا يوجد شريط قائمة:"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, noMenuStripeApps)
 #: qt4/config/qtcurveconfigbase.ui:3851 qt5/config/qtcurveconfigbase.ui:3915
@@ -4877,13 +5140,15 @@ msgid ""
 "menu stripe setting. </p><p>Use <i>gtk</i> to disable for all Gtk2 "
 "applications.</p>"
 msgstr ""
+"<p>قائمة مفصولة بفواصل من أسماء التطبيقات التي لا ينبغي أن تستخدم إعداد شريط "
+"القائمة. </p><p>استخدم <i>gtk</i> لتعطيل الإعداد لجميع تطبيقات Gtk2.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_83)
 #: qt4/config/qtcurveconfigbase.ui:3858 qt5/config/qtcurveconfigbase.ui:3922
 #: qt6/config/qtcurveconfigbase.ui:3922
 #, kde-format
 msgid "Use Qt file dialog:"
-msgstr ""
+msgstr "استخدم مربع حوار ملف كيوت:"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, useQtFileDialogApps)
 #: qt4/config/qtcurveconfigbase.ui:3865
@@ -4892,13 +5157,15 @@ msgid ""
 "<p>Comma separated list of names of Qt4 applications which should not use "
 "the KDE4 file dialog."
 msgstr ""
+"<p>قائمة مفصولة بفواصل من أسماء تطبيقات Qt4 التي لا ينبغي أن تستخدم مربع "
+"حوار ملف KDE4."
 
 #. i18n: ectx: property (text), widget (QLabel, label_83a)
 #: qt4/config/qtcurveconfigbase.ui:3872 qt5/config/qtcurveconfigbase.ui:3936
 #: qt6/config/qtcurveconfigbase.ui:3936
 #, kde-format
 msgid "Save menubar visibility:"
-msgstr ""
+msgstr "احفظ رؤية شريط القوائم:"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, menubarApps)
 #: qt4/config/qtcurveconfigbase.ui:3879
@@ -4909,13 +5176,17 @@ msgid ""
 "set for all KDE applications. The menubar state of Gtk2 applications is "
 "always manually saved.</p>"
 msgstr ""
+"<p>قائمة مفصولة بفواصل من أسماء تطبيقات KDE4 التي تحتاج فيها كيوت كيرف إلى "
+"الحفظ اليدوي لما إذا كان شريط القوائم مخفيًا أم لا.</p><p>استخدم <i>kde</i> "
+"لضبط الإعداد لجميع تطبيقات كيدي. حالة شريط قوائم تطبيقات Gtk2 محفوظة يدويًا "
+"آليًا.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_89)
 #: qt4/config/qtcurveconfigbase.ui:3886 qt5/config/qtcurveconfigbase.ui:3950
 #: qt6/config/qtcurveconfigbase.ui:3950
 #, kde-format
 msgid "Save statusbar visibility:"
-msgstr ""
+msgstr "احفظ رؤية شريط الحالة:"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, statusbarApps)
 #: qt4/config/qtcurveconfigbase.ui:3893
@@ -4926,13 +5197,17 @@ msgid ""
 "to set for all KDE applications. The statusbar state of Gtk2 applications is "
 "always manually saved.</p>"
 msgstr ""
+"<p>قائمة مفصولة بفواصل من أسماء تطبيقات KDE4 التي تحتاج فيها كيوت كيرف إلى "
+"الحفظ اليدوي لما إذا كان شريط الحالة مخفيًا أم لا.</p><p>استخدم <i>kde</i> "
+"لضبط الإعداد لجميع تطبيقات كيدي. حالة شريط حالة تطبيقات Gtk2 محفوظة يدويًا "
+"آليًا.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_89a)
 #: qt4/config/qtcurveconfigbase.ui:3900 qt5/config/qtcurveconfigbase.ui:3964
 #: qt6/config/qtcurveconfigbase.ui:3964
 #, kde-format
 msgid "Force non-native menubar:"
-msgstr ""
+msgstr "افرض شريط قوائم غير أصيل:"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, nonnativeMenubarApps)
 #: qt4/config/qtcurveconfigbase.ui:3907
@@ -4944,6 +5219,11 @@ msgid ""
 "and Qt5 applications. Applications need to be restarted for changes to take "
 "effect.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>قائمة مفصولة بفواصل من أسماء تطبيقات كيدي/كيوت التي "
+"تحتاج فيها كيوت كيرف إلى إرشاد كيوت لعدم استخدام شريط القوائم الأصيل.</"
+"p><p>هذه الميزة نافذة فقط على Mac OS X/macOS وهي مخصصة للاستخدام مع تطبيقات "
+"KF5 و Qt5. يجب إعادة تشغيل التطبيقات لتصبح التغييرات نافذة المفعول.</p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_101)
 #: qt4/config/qtcurveconfigbase.ui:3936 qt5/config/qtcurveconfigbase.ui:4000
@@ -4962,6 +5242,15 @@ msgid ""
 "</p>\n"
 "<p><code>QtCurve: Application name: \"firefox\"</code></p></i>"
 msgstr ""
+"<i><p>في القوائم أعلاه، تحتاج إلى إدخال اسم الملف القابل للتنفيذ. على سبيل "
+"المثال، بالنسبة لـ Google Earth، يكون الاسم في الواقع ”googleearth-bin“. "
+"يمكنك استخدام ”gtk2“ لتعطيل جميع تطبيقات Gtk2، أو ”kde“ لتعطيل جميع تطبيقات "
+"KDE/Qt.</p>\n"
+"<p>لتحديد الاسم الذي سيكتشفه QtCurve، يمكنك تشغيل تطبيق من نافذة كونسول "
+"باستخدام الصيغة التالية (المثال لـ Firefox):</p>\n"
+"<p><code>QTCURVE_DEBUG=1 firefox</code></p>\n"
+"<p>سيؤدي هذا إلى قيام كيوت كيرف بعرض اسم العملية المكتشفة، كما يلي:</p>\n"
+"<p><code>QtCurve: Application name: \"firefox\"</code></p></i>"
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, exportKde3Button)
 #. i18n: ectx: property (toolTip), widget (QPushButton, exportKde3Button)
@@ -4973,6 +5262,8 @@ msgid ""
 "used by KDE3 applications. This creates the relevant entries within the KDE3 "
 "kdeglobals file."
 msgstr ""
+"<p>صدّر لوحة الألوان وإعدادات الخط الحالية لتستخدمها تطبيقات KDE3. هذا يخلق "
+"المدخلات ذات الصلة ضمن ملف kdeglobals الخاص بـ KDE3."
 
 #. i18n: ectx: property (text), widget (KPushButton, exportKde3Button)
 #. i18n: ectx: property (text), widget (QPushButton, exportKde3Button)
@@ -4980,7 +5271,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:4020
 #, kde-format
 msgid "Export colors and fonts for KDE3 applications..."
-msgstr ""
+msgstr "صدّر الألوان والخطوط لتطبيقات KDE3..."
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, exportQt3Button)
 #. i18n: ectx: property (toolTip), widget (QPushButton, exportQt3Button)
@@ -4992,6 +5283,8 @@ msgid ""
 "used by pure-Qt3 applications. This creates the relevant entries within the "
 "Qt3 ~/.qt/qtrc file."
 msgstr ""
+"<p>صدّر لوحة الألوان وإعدادات الخط الحالية لتستخدمها تطبيقات Qt3 النقية. هذا "
+"يخلق المدخلات ذات الصلة ضمن ملف ~/.qt/qtrc الخاص بـ Qt3."
 
 #. i18n: ectx: property (text), widget (KPushButton, exportQt3Button)
 #. i18n: ectx: property (text), widget (QPushButton, exportQt3Button)
@@ -4999,14 +5292,14 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:4030
 #, kde-format
 msgid "Export colors and fonts for pure-Qt3 applications..."
-msgstr ""
+msgstr "صدّر الألوان والخطوط لتطبيقات Qt3 النقية..."
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, gradCombo)
 #: qt4/config/qtcurveconfigbase.ui:3990 qt5/config/qtcurveconfigbase.ui:4054
 #: qt6/config/qtcurveconfigbase.ui:4054
 #, kde-format
 msgid "<p>Select the custom gradient to be configured."
-msgstr ""
+msgstr "<p>اختر التدرج المخصص الذي اضبطه."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_b)
 #: qt4/config/qtcurveconfigbase.ui:4011 qt5/config/qtcurveconfigbase.ui:4075
@@ -5059,13 +5352,28 @@ msgid ""
 "p>\n"
 "\n"
 msgstr ""
+"<p>يعرّف الحدود الداخلية المستخدمة عند رسم الأزرار، إلخ، باستخدام هذا التدرج."
+"</p>\n"
+"<ul>\n"
+"<li><i>لا يوجد حد</i> - لا يرسم أي حد داخلي، وسيمتد التدرج إلى الحواف "
+"الخارجية.</li>\n"
+"<li><i>حد فاتح</i> - يرسم خط 'فاتح' حول جميع الحواف.</li>\n"
+"<li><i>حد ثلاثي الأبعاد (فاتح فقط)</i> - يرسم خط 'فاتح' حول الحواف العلوية "
+"واليسرى.</li>\n"
+"<li><i>حد ثلاثي الأبعاد (داكن وفاتح)</i> - يرسم خط 'فاتح' حول الحواف العلوية "
+"واليسرى، وخط أغمق حول الحواف السفلية واليمنى.</li>\n"
+"<li><i>لمعان</i> - يضاف لمعان إلى الحافة العلوية (أو اليسرى) عند رسم هذا "
+"التدرج على الأزرار أو أشرطة التمرير.</li>\n"
+"</ul>\n"
+"<p><i>ملاحظة: لا يستخدم هذا الإعداد عند رسم المعاينة أدناه.</i></p>\n"
+"\n"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: qt4/config/qtcurveconfigbase.ui:4071 qt5/config/qtcurveconfigbase.ui:4135
 #: qt6/config/qtcurveconfigbase.ui:4135
 #, kde-format
 msgid "Gradient Stop"
-msgstr ""
+msgstr "نقطة توقف التدرج"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: qt4/config/qtcurveconfigbase.ui:4095 qt5/config/qtcurveconfigbase.ui:4159
@@ -5090,6 +5398,8 @@ msgid ""
 "<p>Set the position of the gradient value. 0% means the top of horizontal "
 "gradients, and the left for vertical gradients."
 msgstr ""
+"<p>اضبط موضع قيمة التدرج. 0% تعني أعلى التدرجات الأفقية، واليسار للتدرجات "
+"العمودية."
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, stopValue)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, stopValue)
@@ -5101,6 +5411,8 @@ msgid ""
 "lighten a color by 10%, 90% would darken it by 10%, and 100% would be the "
 "original color."
 msgstr ""
+"<p>اضبط قوة التدرج عند الموضع المعرّف. 110% يفتّح لونًا بنسبة 10%، 90% يغمّقه "
+"بنسبة 10%، و 100% هو اللون الأصلي."
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, stopAlpha)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, stopAlpha)
@@ -5108,7 +5420,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:4217
 #, kde-format
 msgid "<p>Sets the alpha value of the gradient at the defined position."
-msgstr ""
+msgstr "<p>اضبط قيمة ألفا للتدرج عند الموضع المعرّف."
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: qt4/config/qtcurveconfigbase.ui:4210 qt5/config/qtcurveconfigbase.ui:4274
@@ -5121,34 +5433,39 @@ msgid ""
 "<p><i><u>Value</u> has a range of 0% to 200%. A value of 120% implies "
 "lightening by 20%, and a value of 80% implies darkening by 20%</i></p>"
 msgstr ""
+"<p><b>ملاحظة: </b></p>\n"
+"<p><i><u>للموقع</u> نطاق من 0% إلى 100% - 0% تعني الأعلى/اليسار، و 100% تعني "
+"الأسفل/اليمين.</i></p>\n"
+"<p><i><u>للقيمة</u> نطاق من 0% إلى 200%. قيمة 120% تعني التفتيح بنسبة 20%، "
+"وقيمة 80% تعني التغميق بنسبة 20%</i></p>"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, previewColor)
 #: qt4/config/qtcurveconfigbase.ui:4248 qt5/config/qtcurveconfigbase.ui:4312
 #: qt6/config/qtcurveconfigbase.ui:4312
 #, kde-format
 msgid "<p>Set the color to be used in the preview."
-msgstr ""
+msgstr "<p>اضبط اللون ليستخدم في المعاينة."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: qt4/config/qtcurveconfigbase.ui:4263 qt5/config/qtcurveconfigbase.ui:4327
 #: qt6/config/qtcurveconfigbase.ui:4327
 #, kde-format
 msgid "Shading routine:"
-msgstr ""
+msgstr "روتين التظليل:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, shading)
 #: qt4/config/qtcurveconfigbase.ui:4276 qt5/config/qtcurveconfigbase.ui:4340
 #: qt6/config/qtcurveconfigbase.ui:4340
 #, kde-format
 msgid "<p>Sets the color space that is used when shading a color."
-msgstr ""
+msgstr "<p>اضبط مساحة اللون المستخدمة عند تظليل لون."
 
 #. i18n: ectx: property (title), widget (QGroupBox, customShading)
 #: qt4/config/qtcurveconfigbase.ui:4283 qt5/config/qtcurveconfigbase.ui:4347
 #: qt6/config/qtcurveconfigbase.ui:4347
 #, kde-format
 msgid "Use Custom Shades"
-msgstr ""
+msgstr "استخدم ظلال مخصصة"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: qt4/config/qtcurveconfigbase.ui:4310 qt5/config/qtcurveconfigbase.ui:4374
@@ -5173,13 +5490,27 @@ msgid ""
 "<li>Is used as the border of most widgets.</li>\n"
 "</ol></p></i>"
 msgstr ""
+"<i><p>تستخدم كيوت كيرف قيم تظليل مختلفة مشفرة بشدة لرسم عناصر مثل إطارات "
+"الأزرار، الخلفية للأزرار المضغوطة، إلخ. ما يلي هو نظرة عامة موجزة لكيفية "
+"استخدام كل ظل - استخدم هذا كدليل فقط، فالظلال تستخدم لأشياء متنوعة.</p>\n"
+"<p><ol>\n"
+"<li>يستخدم للجزء الفاتح من العناصر ثلاثية الأبعاد - مثل حد وِدْجِتْ ألسنة.</li>\n"
+"<li>يستخدم للظل الأفتح لأشرطة التقدم المخططة.</li>\n"
+"<li>يستخدم للجزء الداكن من العناصر ثلاثية الأبعاد - مثل حد وِدْجِتْ ألسنة.</li>\n"
+"<li>يستخدم للحد المظلل للمربعات المحددة وأزرار الراديو، حدود شريط الأدوات "
+"(عندما يضبط على داكن)، الجزء الداكن من مقابض أشرطة التمرير الغائرة/البارزة، "
+"إلخ.</li>\n"
+"<li>يستخدم لخلفية الوِدْجِتْ المضغوطة، وحد شريط الأدوات (عندما لا يكون داكنًا).</"
+"li>\n"
+"<li>يستخدم كحد لمعظم الوِدْجِتْ.</li>\n"
+"</ol></p></i>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, customAlphas)
 #: qt4/config/qtcurveconfigbase.ui:4392 qt5/config/qtcurveconfigbase.ui:4456
 #: qt6/config/qtcurveconfigbase.ui:4456
 #, kde-format
 msgid "Use Custom Alpha Values"
-msgstr ""
+msgstr "استخدم قيم ألفا مخصصة"
 
 #. i18n: ectx: property (text), widget (QLabel, label_light_alpha)
 #: qt4/config/qtcurveconfigbase.ui:4401 qt5/config/qtcurveconfigbase.ui:4465
@@ -5199,6 +5530,10 @@ msgid ""
 "alpha value set. This behaviour may be overridden, and alpha values always "
 "used, by checking the option above.</i></p>"
 msgstr ""
+"<p><i>تستخدم كيوت كيرف حدودًا داكنة/فاتحة لإنشاء تأثيرات النقش والظل. مبدئيًا، "
+"تحاول كيوت كيرف تفتيح (أو تغميق) خلفية الأصل لتحقيق ذلك - إذا لا يمكن العثور "
+"على أصل، فإنه يستخدم الأبيض/الأسود مع قيمة ألفا مضبوطة. يمكن تجاوز هذا "
+"السلوك، وتستخدم قيم ألفا دائمًا، بتحديد الخيار أعلاه.</i></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_dark_alpha)
 #: qt4/config/qtcurveconfigbase.ui:4440 qt5/config/qtcurveconfigbase.ui:4504
@@ -5317,7 +5652,7 @@ msgstr "لسان 2"
 #: qt4/config/stylepreview.ui:275
 #, kde-format
 msgid "Dock Widget"
-msgstr ""
+msgstr "وِدْجِتْ الإرساء"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:310 qt5/config/stylepreview.ui:310
@@ -5355,7 +5690,7 @@ msgstr "عنصر 8"
 #: qt6/config/stylepreview.ui:474 qt6/config/stylepreview.ui:499
 #, kde-format
 msgid "Sub 4"
-msgstr ""
+msgstr "فرعي 4"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:329 qt4/config/stylepreview.ui:354
@@ -5372,7 +5707,7 @@ msgstr ""
 #: qt6/config/stylepreview.ui:479 qt6/config/stylepreview.ui:504
 #, kde-format
 msgid "Sub 3"
-msgstr ""
+msgstr "فرعي 3"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:334 qt4/config/stylepreview.ui:359
@@ -5389,7 +5724,7 @@ msgstr ""
 #: qt6/config/stylepreview.ui:484 qt6/config/stylepreview.ui:509
 #, kde-format
 msgid "Sub 2"
-msgstr ""
+msgstr "فرعي 2"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:339 qt4/config/stylepreview.ui:364
@@ -5406,7 +5741,7 @@ msgstr ""
 #: qt6/config/stylepreview.ui:489 qt6/config/stylepreview.ui:514
 #, kde-format
 msgid "Sub 1"
-msgstr ""
+msgstr "فرعي 1"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:345 qt5/config/stylepreview.ui:345
@@ -5446,13 +5781,17 @@ msgid ""
 "One in front with a cross held high\n"
 "Come to wash my sins away..."
 msgstr ""
+"أحد عشر رجلًا صالحًا ملفوفًا\n"
+"ظلالهم تقف ضد السماء\n"
+"واحد في المقدمة يحمل صليبًا عاليًا\n"
+"أتوا ليغسلوا ذنوبي بعيدًا..."
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:546 qt5/config/stylepreview.ui:546
 #: qt6/config/stylepreview.ui:546
 #, kde-format
 msgid "&Regular item 1"
-msgstr ""
+msgstr "عنصر عادي 1"
 
 #. i18n: ectx: property (shortcut), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:549 qt5/config/stylepreview.ui:549
@@ -5466,7 +5805,7 @@ msgstr "Ctrl+1"
 #: qt6/config/stylepreview.ui:560
 #, kde-format
 msgid "Regular &item 2"
-msgstr ""
+msgstr "عنصر عادي 2"
 
 #. i18n: ectx: property (shortcut), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:563 qt5/config/stylepreview.ui:563
@@ -5480,34 +5819,34 @@ msgstr "Ctrl+2"
 #: qt6/config/stylepreview.ui:577
 #, kde-format
 msgid "&Checkable item"
-msgstr ""
+msgstr "عنصر قابل للتحقق"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:588 qt5/config/stylepreview.ui:588
 #: qt6/config/stylepreview.ui:588
 #, kde-format
 msgid "&Exclusive item 1"
-msgstr ""
+msgstr "عنصر حصري 1"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:602 qt5/config/stylepreview.ui:602
 #: qt6/config/stylepreview.ui:602
 #, kde-format
 msgid "Exclusive &item 2"
-msgstr ""
+msgstr "عنصر حصري 2"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:613 qt5/config/stylepreview.ui:613
 #: qt6/config/stylepreview.ui:613
 #, kde-format
 msgid "Exclusive item &3"
-msgstr ""
+msgstr "عنصر حصري 3"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:621
 #, kde-format
 msgid "regular submenu item"
-msgstr ""
+msgstr "عنصر قائمة فرعية عادي"
 
 #: qt4/kwin/qtcurveclient.cpp:314 qt5/kwin/qtcurveclient.cpp:314
 #: qt6/kwin/qtcurveclient.cpp:314
@@ -5519,19 +5858,19 @@ msgstr "النّافذة النّشطة"
 #: qt6/kwin/qtcurveclient.cpp:314
 #, kde-format
 msgid "Inactive Window"
-msgstr ""
+msgstr "نافذة غير نشطة"
 
 #: qt4/kwin/qtcurvetogglebutton.cpp:58 qt5/kwin/qtcurvetogglebutton.cpp:58
 #: qt6/kwin/qtcurvetogglebutton.cpp:58
 #, kde-format
 msgid "Toggle Menubar"
-msgstr ""
+msgstr "بدّل شريط القوائم"
 
 #: qt4/kwin/qtcurvetogglebutton.cpp:58 qt5/kwin/qtcurvetogglebutton.cpp:58
 #: qt6/kwin/qtcurvetogglebutton.cpp:58
 #, kde-format
 msgid "Toggle Statusbar"
-msgstr ""
+msgstr "بدّل شريط الحالة"
 
 #: qt4/kwin/qtcurvetogglebutton.cpp:158 qt5/kwin/qtcurvetogglebutton.cpp:158
 #: qt6/kwin/qtcurvetogglebutton.cpp:158
@@ -5585,7 +5924,7 @@ msgstr "لا حدود"
 #: qt6/kwinconfig/qtcurvekwinconfig.cpp:53
 #, kde-format
 msgid "No Side Border"
-msgstr ""
+msgstr "لا يوجد حد جانبي"
 
 #: qt4/kwinconfig/qtcurvekwinconfig.cpp:57
 #: qt5/kwinconfig/qtcurvekwinconfig.cpp:54
@@ -5644,6 +5983,8 @@ msgid ""
 "<h3>Already Open</h3><p>Another QtCurve configuration dialog is already "
 "open. Please close the other before proceeding."
 msgstr ""
+"<h3>نافذة مفتوحة بالفعل</h3><p>مربع حوار إعدادات كيوت كيرف آخر مفتوح بالفعل. "
+"أغلق الآخر قبل المتابعة."
 
 #. i18n: ectx: property (text), widget (QLabel, label_4x)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:38
@@ -5659,7 +6000,7 @@ msgstr "حجم الإطار:"
 #: qt6/kwinconfig/qtcurvekwinconfigwidget.ui:45
 #, kde-format
 msgid "Controls the size of the window borders (bottom, left, and right)."
-msgstr ""
+msgstr "تحكم في حجم حدود النافذة (السفلية واليسرى واليمنى)."
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:55
@@ -5679,6 +6020,8 @@ msgid ""
 "window decoration will be rounded. Otherwise, only the top corners will be "
 "rounded."
 msgstr ""
+"إذا فعلتَ هذا، وضُبط نمط كيوت كيرف على مستدير، فإن جميع زوايا زخرفة النافذة "
+"تصبح مستديرة. وإلا، فإن الزوايا العلوية فقط تصبح مستديرة."
 
 #. i18n: ectx: property (text), widget (QCheckBox, roundBottom)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:65
@@ -5686,7 +6029,7 @@ msgstr ""
 #: qt6/kwinconfig/qtcurvekwinconfigwidget.ui:65
 #, kde-format
 msgid "Round all corners"
-msgstr ""
+msgstr "قرِّب جميع الزوايا"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, borderlessMax)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:72
@@ -5697,6 +6040,8 @@ msgid ""
 "If enabled, all borders (including the titlebar) will be removed from "
 "maximised windows."
 msgstr ""
+"إذا فعلتَ هذا، فإن جميع الحدود (بما في ذلك شريط العنوان) تزَال من النوافذ "
+"المكبرة."
 
 #. i18n: ectx: property (text), widget (QCheckBox, borderlessMax)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:75
@@ -5704,7 +6049,7 @@ msgstr ""
 #: qt6/kwinconfig/qtcurvekwinconfigwidget.ui:75
 #, kde-format
 msgid "Remove from maximised windows"
-msgstr ""
+msgstr "أزِل من النوافذ المكبرة"
 
 #. i18n: ectx: property (text), widget (QLabel, outerBorder_label)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:82
@@ -5712,7 +6057,7 @@ msgstr ""
 #: qt6/kwinconfig/qtcurvekwinconfigwidget.ui:82
 #, kde-format
 msgid "Outer border:"
-msgstr ""
+msgstr "الحد الخارجي:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, outerBorder)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:89
@@ -5723,6 +6068,8 @@ msgid ""
 "Adds 1 pixel border around the outside of windows. This is useful if you are "
 "not using desktop effects."
 msgstr ""
+"يضيف حد 1 بكسل حول الجزء الخارجي من النوافذ. هذا مفيد إذا كنت لا تستخدم "
+"تأثيرات سطح المكتب."
 
 #. i18n: ectx: property (text), widget (QLabel, innerBorder_label)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:96
@@ -5730,7 +6077,7 @@ msgstr ""
 #: qt6/kwinconfig/qtcurvekwinconfigwidget.ui:96
 #, kde-format
 msgid "Inner border:"
-msgstr ""
+msgstr "الحد الداخلي:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, innerBorder)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:103
@@ -5741,6 +6088,8 @@ msgid ""
 "Adds a 1 pixel dark border between the window contents and the decoration. "
 "This is useful if you are using transparent decorations."
 msgstr ""
+"يضيف حد داكن 1 بكسل بين محتويات النافذة والزخرفة. هذا مفيد إذا كنت تستخدم "
+"زخارف شفافة."
 
 #. i18n: ectx: property (text), widget (QLabel, groupingLabel)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:110
@@ -5748,7 +6097,7 @@ msgstr ""
 #: qt6/kwinconfig/qtcurvekwinconfigwidget.ui:110
 #, kde-format
 msgid "Window grouping:"
-msgstr ""
+msgstr "تجميع النوافذ:"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, grouping)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:117
@@ -5759,6 +6108,8 @@ msgid ""
 "If enabled, QtCurve will allow windows to be grouped - causing the titlebar "
 "to act as a kind-of tab-widget."
 msgstr ""
+"إذا فعلتَ هذا، فإن كيوت كيرف تسمح بتجميع النوافذ - مما يجعل شريط العنوان يعمل "
+"كوِدْجِتْ ألسنة."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:127
@@ -5766,7 +6117,7 @@ msgstr ""
 #: qt6/kwinconfig/qtcurvekwinconfigwidget.ui:127
 #, kde-format
 msgid "Titlebar text padding:"
-msgstr ""
+msgstr "حشوة نص شريط العنوان:"
 
 #. i18n: ectx: property (whatsThis), widget (KIntSpinBox, titleBarPad)
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, titleBarPad)
@@ -5779,6 +6130,8 @@ msgid ""
 "titlebar text height. Changing this will affect the height of the titlebar "
 "and its buttons. "
 msgstr ""
+"تحكم في مقدار الحشوة الإضافية المضافة إلى أعلى وأسفل ارتفاع نص شريط العنوان. "
+"تغيير هذا يؤثر على ارتفاع شريط العنوان وأزراره. "
 
 #. i18n: ectx: property (suffix), widget (KIntSpinBox, titleBarPad)
 #. i18n: ectx: property (suffix), widget (KIntSpinBox, edgePad)
@@ -5800,7 +6153,7 @@ msgstr "بكسل"
 #: qt6/kwinconfig/qtcurvekwinconfigwidget.ui:144
 #, kde-format
 msgid "Titlebar border padding:"
-msgstr ""
+msgstr "حشوة حد شريط العنوان:"
 
 #. i18n: ectx: property (whatsThis), widget (KIntSpinBox, edgePad)
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, edgePad)
@@ -5812,6 +6165,8 @@ msgid ""
 "Controls the amount of extra padding added to the titlebar border. Changing "
 "this will only affect the height of the titlebar, and not the buttons. "
 msgstr ""
+"تحكم في مقدار الحشوة الإضافية المضافة إلى حد شريط العنوان. تغيير هذا يؤثر "
+"فقط على ارتفاع شريط العنوان، وليس على الأزرار. "
 
 #. i18n: ectx: property (text), widget (QLabel, noteLabel)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:182
@@ -5825,6 +6180,10 @@ msgid ""
 "gradient, or text alignment, please set the appropriate options in the "
 "widget style.</i></p>"
 msgstr ""
+"<p><b>ملاحظة:</b> <i>تستخدم زخرفة النافذة هذه نمط وِدْجِتْ كيوت كيرف، وتشارك "
+"إعداداتها. الإعدادات التي تستخدم حصريًا بواسطة زخرفة النافذة هي التي تظهر هنا "
+"فقط. لتغيير إعدادات مثل تدرج شريط العنوان، أو محاذاة النص، اضبط الخيارات "
+"المناسبة في نمط الوِدْجِتْ.</i></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:217
@@ -5832,7 +6191,7 @@ msgstr ""
 #: qt6/kwinconfig/qtcurvekwinconfigwidget.ui:217
 #, kde-format
 msgid "Active windows:"
-msgstr ""
+msgstr "النوافذ النشطة:"
 
 #. i18n: ectx: property (whatsThis), widget (KIntNumInput, activeOpacity)
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, activeOpacity)
@@ -5843,7 +6202,7 @@ msgstr ""
 msgid ""
 "Controls the opacity of the active window decoration. 0% would cause the "
 "decoration to be totally translucent."
-msgstr ""
+msgstr "تحكم في عتامة زخرفة النافذة النشطة. 0% يجعل الزخرفة شفافة تمامًا."
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:246
@@ -5862,7 +6221,7 @@ msgstr "النوافذ غير النشطة:"
 msgid ""
 "Controls the opacity of the inactive window decoration. 0% would cause the "
 "decoration to be totally translucent."
-msgstr ""
+msgstr "تحكم في عتامة زخرفة النافذة غير النشطة. 0% يجعل الزخرفة شفافة تمامًا."
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:275
@@ -5870,7 +6229,7 @@ msgstr ""
 #: qt6/kwinconfig/qtcurvekwinconfigwidget.ui:275
 #, kde-format
 msgid "Side and bottom borders:"
-msgstr ""
+msgstr "الحدود الجانبية والسفلية:"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, opaqueBorder)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:282
@@ -5881,6 +6240,7 @@ msgid ""
 "If enabled, only the titlebar part of the decoration will use the opacity "
 "setting."
 msgstr ""
+"إذا فعلتَ هذا، فإن جزء شريط العنوان فقط من الزخرفة يستخدم إعداد العتامة."
 
 #. i18n: ectx: property (text), widget (QCheckBox, opaqueBorder)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:285
@@ -5888,7 +6248,7 @@ msgstr ""
 #: qt6/kwinconfig/qtcurvekwinconfigwidget.ui:285
 #, kde-format
 msgid "Ignore opacity settings"
-msgstr ""
+msgstr "تجاهل إعدادات العتامة"
 
 #. i18n: ectx: property (text), widget (QLabel, noteLabel_2)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:316
@@ -5900,6 +6260,9 @@ msgid ""
 "titlebar (and border) opacity will be controlled by the style's window and "
 "dialog background opacity settings.</i></p>"
 msgstr ""
+"<p><b>ملاحظة:</b> <i>إذا ضبطتَ القيم أعلاه على 100%، فإن عتامة شريط عنوان "
+"النافذة (والحد) تتحكم فيها إعدادات عتامة خلفية النافذة ومربع الحوار للنمط.</"
+"i></p>"
 
 #. i18n: ectx: attribute (title), widget (QWidget, shadowTab)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:343
@@ -5919,6 +6282,9 @@ msgid ""
 "window manager shadows. This will allow you to specify different shadow "
 "colours, etc, for active and inactive windows."
 msgstr ""
+"إذا فعلتَ هذا، فإن كيوت كيرف ترسم ظلالها الخاصة - ولا تستخدم ظلال مدير "
+"النوافذ العامة. هذا يسمح لك بتحديد ألوان ظل مختلفة، إلخ، للنوافذ النشطة وغير "
+"النشطة."
 
 #. i18n: ectx: property (text), widget (QCheckBox, useShadows)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:352
@@ -5926,7 +6292,7 @@ msgstr ""
 #: qt6/kwinconfig/qtcurvekwinconfigwidget.ui:352
 #, kde-format
 msgid "Use custom shadows"
-msgstr ""
+msgstr "استخدم ظلال مخصصة"
 
 #. i18n: ectx: property (title), widget (QGroupBox, activeShadows)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:362
@@ -5934,7 +6300,7 @@ msgstr ""
 #: qt6/kwinconfig/qtcurvekwinconfigwidget.ui:362
 #, kde-format
 msgid "Active Windows"
-msgstr ""
+msgstr "النوافذ النشطة"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #. i18n: ectx: property (text), widget (QLabel, label_10)
@@ -6009,6 +6375,8 @@ msgid ""
 "If enabled, the shadows of inactive windows will be drawn using the same "
 "gradient routine as that used for active windows."
 msgstr ""
+"إذا فعلتَ هذا، فإن ظلال النوافذ غير النشطة ترسم باستخدام روتين التدرج نفسه "
+"المستخدم للنوافذ النشطة."
 
 #. i18n: ectx: property (text), widget (QCheckBox, inactiveUsesActiveGradients)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:502
@@ -6016,7 +6384,7 @@ msgstr ""
 #: qt6/kwinconfig/qtcurvekwinconfigwidget.ui:502
 #, kde-format
 msgid "As per active windows"
-msgstr ""
+msgstr "كما هو الحال بالنسبة للنوافذ النشطة"
 
 #: qt5/config/qtcurveconfig.cpp:2055 qt5/config/qtcurveconfig.cpp:2108
 #: qt6/config/qtcurveconfig.cpp:2055 qt6/config/qtcurveconfig.cpp:2108
@@ -6040,7 +6408,7 @@ msgstr "افتح"
 #: qt6/config/qtcurveconfig.cpp:2671 qt6/config/qtcurveconfig.cpp:2829
 #, kde-format
 msgid "QtCurve Settings Files (*"
-msgstr ""
+msgstr "ملف إعدادات كيوت كيرف (*"
 
 #: qt5/config/qtcurveconfig.cpp:2853 qt6/config/qtcurveconfig.cpp:2828
 #, kde-format
@@ -6051,7 +6419,7 @@ msgstr "احفظ كَ‍"
 #: qt5/config/qtcurveconfigbase.ui:724 qt6/config/qtcurveconfigbase.ui:724
 #, kde-format
 msgid "Centred (KDE only)"
-msgstr ""
+msgstr "متوسط (كيدي فقط)"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gtkComboMenus)
 #: qt5/config/qtcurveconfigbase.ui:796 qt6/config/qtcurveconfigbase.ui:796
@@ -6060,25 +6428,29 @@ msgid ""
 "<p>In Gtk, the list that is attached to a combo-box appears in the same "
 "style as a popup-menu. KDE has the ability to mimic this look.</p>"
 msgstr ""
+"<p>في Gtk، تظهر القائمة المرفقة بمربع التحرير والسرد بنفس نمط القائمة "
+"المنبثقة. يمتلك كيدي القدرة على محاكاة هذا المظهر.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_useHover)
 #: qt5/config/qtcurveconfigbase.ui:2453 qt6/config/qtcurveconfigbase.ui:2453
 #, kde-format
 msgid "<p>If enabled, symbols will use the KDE hover color when moused-over."
 msgstr ""
+"<p>إذا فعلتَ هذا، فإن الرموز تستخدم لون تحويم كيدي عند تمرير مؤشر الفأرة "
+"فوقها."
 
 #. i18n: ectx: property (text), widget (QLabel, label_45)
 #: qt5/config/qtcurveconfigbase.ui:3315 qt6/config/qtcurveconfigbase.ui:3315
 #, kde-format
 msgid "Sub-menu open delay:"
-msgstr ""
+msgstr "تأخير فتح القائمة الفرعية:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, menuCloseDelay)
 #: qt5/config/qtcurveconfigbase.ui:3419
 #, kde-format
 msgid ""
 "Defines the delay before a sub-menu closes. Applicable on Qt5.5 or later"
-msgstr ""
+msgstr "يعرِّف التأخير قبل إغلاق قائمة فرعية. قابل للتطبيق على Qt5.5 أو أحدث"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stdBtnSizes)
 #: qt5/config/qtcurveconfigbase.ui:3765 qt6/config/qtcurveconfigbase.ui:3765
@@ -6090,12 +6462,17 @@ msgid ""
 "appearance than standard buttons. QtCurve attempts to mimic this for KDE "
 "applications - this may be disabled by enabling this option.</p>"
 msgstr ""
+"<p>الأزرار الافتراضية الآلية هي أزرار يمكن أن تصبح أزرار 'مبدئية' - أي "
+"تستجيب لضغط المستخدم على 'إرجاع'.</p>\n"
+"<p>في تطبيقات Gtk2، معظم الأزرار 'الافتراضية الآلية' لها مظهر أطول من "
+"الأزرار القياسية. تحاول كيوت كيرف محاكاة هذا لتطبيقات كيدي - يمكن تعطيل هذا "
+"بتفعيل هذا الخيار.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stdBtnSizes)
 #: qt5/config/qtcurveconfigbase.ui:3768 qt6/config/qtcurveconfigbase.ui:3768
 #, kde-format
 msgid "Use standard size for 'auto-default' buttons (KDE)"
-msgstr ""
+msgstr "استخدم حجم قياسي للأزرار 'الافتراضية الآلية' (كيدي)"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, useQtFileDialogApps)
 #: qt5/config/qtcurveconfigbase.ui:3929 qt6/config/qtcurveconfigbase.ui:3929
@@ -6104,6 +6481,8 @@ msgid ""
 "<p>Comma separated list of names of Qt4 applications which should not use "
 "the KDE file dialog."
 msgstr ""
+"<p>قائمة مفصولة بفواصل من أسماء تطبيقات Qt4 التي لا ينبغي أن تستخدم مربع "
+"حوار ملف كيدي."
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, menubarApps)
 #: qt5/config/qtcurveconfigbase.ui:3943 qt6/config/qtcurveconfigbase.ui:3943
@@ -6114,6 +6493,10 @@ msgid ""
 "set for all KDE applications. The menubar state of Gtk2 applications is "
 "always manually saved.</p>"
 msgstr ""
+"<p>قائمة مفصولة بفواصل من أسماء تطبيقات كيدي التي تحتاج فيها كيوت كيرف إلى "
+"الحفظ اليدوي لما إذا كان شريط القوائم مخفيًا أم لا.</p><p>استخدم <i>kde</i> "
+"لضبط الإعداد لجميع تطبيقات كيدي. حالة شريط قوائم تطبيقات Gtk2 محفوظة يدويًا "
+"آليًا.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, statusbarApps)
 #: qt5/config/qtcurveconfigbase.ui:3957 qt6/config/qtcurveconfigbase.ui:3957
@@ -6124,6 +6507,10 @@ msgid ""
 "to set for all KDE applications. The statusbar state of Gtk2 applications is "
 "always manually saved.</p>"
 msgstr ""
+"<p>قائمة مفصولة بفواصل من أسماء تطبيقات كيدي التي تحتاج فيها كيوت كيرف إلى "
+"الحفظ اليدوي لما إذا كان شريط الحالة مخفيًا أم لا.</p><p>استخدم <i>kde</i> "
+"لضبط الإعداد لجميع تطبيقات كيدي. حالة شريط حالة تطبيقات Gtk2 محفوظة يدويًا "
+"آليًا.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, nonnativeMenubarApps)
 #: qt5/config/qtcurveconfigbase.ui:3971 qt6/config/qtcurveconfigbase.ui:3971
@@ -6137,6 +6524,12 @@ msgid ""
 "menu. Applications need to be restarted for changes to take effect.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>قائمة مفصولة بفواصل من أسماء تطبيقات كيدي/كيوت التي "
+"تحتاج فيها كيوت كيرف إلى إرشاد كيوت لعدم استخدام شريط القوائم الأصيل.</"
+"p><p>جرّب هذا على Mac للتطبيقات التي لا تتصرف فيها عناصر قائمة معينة كما هو "
+"متوقع عندما تكون جزءًا من قوائم شريط قوائم المستوى الأعلى بنمط Mac، ولكن "
+"تتصرف بشكل صحيح على سبيل المثال عندما تكون جزءًا من قائمة منبثقة/سياقية. يجب "
+"إعادة تشغيل التطبيقات لتصبح التغييرات نافذة المفعول.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, RadioButton1)
 #: qt5/config/stylepreview.ui:79 qt6/config/stylepreview.ui:79
@@ -6154,17 +6547,17 @@ msgstr "زر انتقاء"
 #: qt5/config/stylepreview.ui:275 qt6/config/stylepreview.ui:275
 #, kde-format
 msgid "&Dock Widget"
-msgstr ""
+msgstr "وِدْجِتْ الإرساء"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt5/config/stylepreview.ui:621 qt6/config/stylepreview.ui:621
 #, kde-format
 msgid "&regular submenu item"
-msgstr ""
+msgstr "عنصر قائمة فرعية عادي"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, menuCloseDelay)
 #: qt6/config/qtcurveconfigbase.ui:3419
 #, kde-format
 msgid ""
 "Defines the delay before a sub-menu closes. Applicable on Qt6.5 or later"
-msgstr ""
+msgstr "يعرِّف التأخير قبل إغلاق قائمة فرعية. قابل للتطبيق على Qt6.5 أو أحدث"
