@@ -1,5 +1,6 @@
 [Misc]
 Name=QtCurve
+Name[ar]=كيوت كيرف
 Name[bs]=QtCurve
 Name[ca]=QtCurve
 Name[ca@valencia]=QtCurve
@@ -36,6 +37,7 @@ Name[uk]=QtCurve
 Name[zh_CN]=QtCurve
 Name[zh_TW]=QtCurve
 Comment=Highly configurable style
+Comment[ar]=نمط عالي التّخصيص والضّبط
 Comment[bs]=Visoko konfigurabilan stil
 Comment[ca]=Estil altament configurable
 Comment[ca@valencia]=Estil altament configurable
