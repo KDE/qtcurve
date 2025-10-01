@@ -64,5 +64,5 @@ target_link_libraries(kstyle_qtcurve6_config
   KF6::WindowSystem)
 target_link_libraries(kstyle_qtcurve6_config qtcurve-utils)
 
-install(TARGETS kstyle_qtcurve6_config DESTINATION ${_Qt6_PLUGIN_INSTALL_DIR})
+install(TARGETS kstyle_qtcurve6_config DESTINATION ${_Qt6_PLUGIN_INSTALL_DIR}/kstyle_config)
 install(FILES QtCurveui.rc  DESTINATION ${KDE_INSTALL_KXMLGUIDIR}/QtCurve)
