@@ -931,7 +931,7 @@ msgstr "Opacité"
 #: qt4/config/qtcurveconfig.cpp:1736 qt5/config/qtcurveconfig.cpp:1680
 #, kde-format
 msgid "Group Boxes"
-msgstr "Grouper les boîtes"
+msgstr "Grouper les boites"
 
 #: qt4/config/qtcurveconfig.cpp:1737 qt5/config/qtcurveconfig.cpp:1681
 #, kde-format
@@ -1489,7 +1489,7 @@ msgid ""
 "border.</li><li>Square rings - 3 simple rounded squares.</li></ul></p>"
 msgstr ""
 "<p>Ceci ajoute une image d'arrière-plan dans le coin supérieur droit des "
-"boîtes de dialogue et des fenêtres.\n"
+"boites de dialogue et des fenêtres.\n"
 "<ul><li>None - Aucune image.</li><li>Anneaux bordés - Anneaux avec bord "
 "similaire au thème « Air ».</li><li>Anneaux pleins - Anneaux non bordés "
 "similaire au thème « Air ».</li><li>Anneaux carrés - Trois carrés simplement "
@@ -1665,7 +1665,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:429 qt5/config/qtcurveconfigbase.ui:438
 #, kde-format
 msgid "Thinner frames, edit boxes, etc."
-msgstr "Cadres, boîtes d'édition, etc., plus fins."
+msgstr "Cadres, boites d'édition, etc., plus fins."
 
 #. i18n: ectx: property (text), widget (QCheckBox, hideShortcutUnderline)
 #: qt4/config/qtcurveconfigbase.ui:436 qt5/config/qtcurveconfigbase.ui:445
@@ -1893,7 +1893,7 @@ msgstr "Boîtes de dialogues :"
 msgid ""
 "<p>Sets the opacity of dialog backgrounds when using desktop effects.</p>"
 msgstr ""
-"<p>Définit l'opacité des boîtes de dialogues lors de l'usage d'effets de "
+"<p>Définit l'opacité des boites de dialogues lors de l'usage d'effets de "
 "bureau.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_yy)
@@ -1944,7 +1944,7 @@ msgid ""
 "<p>Defines how much a group box's background should be darkened or lightened "
 "by.</p>"
 msgstr ""
-"<p>Définit combien l'arrière plan d'une boîte groupée devrait être assombri "
+"<p>Définit combien l'arrière plan d'une boite groupée devrait être assombri "
 "ou éclairci.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_99)
@@ -1958,7 +1958,7 @@ msgstr "Étiquette :"
 #, kde-format
 msgid "<p>Controls whether group boxes should use a bold for their title.</p>"
 msgstr ""
-"<p>Contrôle si les boîtes groupées devraient utilisées a style gras pour "
+"<p>Contrôle si les boites groupées devraient utilisées a style gras pour "
 "leur titre.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gbLabel_bold)
@@ -1972,7 +1972,7 @@ msgstr "Utilise une police grasse"
 #, kde-format
 msgid "<p>Specifies the vertical position of a group box's text label.</p>"
 msgstr ""
-"<p>Spécifie la position verticale de l'étiquette textuelle d'un boîte "
+"<p>Spécifie la position verticale de l'étiquette textuelle d'un boite "
 "groupée.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gbLabel_centred)
@@ -1982,7 +1982,7 @@ msgid ""
 "<p>Controls whether a group boxe's label should be centred, or left/right "
 "aligned.</p>"
 msgstr ""
-"<p>Contrôle si l'étiquette d'une boîte groupée devrait être centrée, ou "
+"<p>Contrôle si l'étiquette d'une boite groupée devrait être centrée, ou "
 "alignée à gauche ou à droite.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gbLabel_centred)
@@ -2045,7 +2045,7 @@ msgid ""
 "as a button or an arrow within the edit field.</p>"
 msgstr ""
 "<p>Contrôle si les boutons de liste déroulante, des listes déroulantes "
-"éditables, devraient apparaître comme boutons ou comme flèches au sein du "
+"éditables, devraient apparaitre comme boutons ou comme flèches au sein du "
 "champ de saisie.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, unifyCombo)
@@ -2067,7 +2067,7 @@ msgid ""
 "<p>In Gtk, the list that is attached to a combo-box appears in the same "
 "style as a popup-menu. KDE4 has the ability to mimic this look.</p>"
 msgstr ""
-"<p>Avec GTK, la liste qui est attachée à une liste déroulante apparaît dans "
+"<p>Avec GTK, la liste qui est attachée à une liste déroulante apparait dans "
 "le même style qu'un menu contextuel. KDE4 a la capacité de mimer cet aspect. "
 "</p>"
 
@@ -2101,7 +2101,7 @@ msgid ""
 "<p>Controls whether the up and down buttons should appear as individual "
 "buttons, or be combined.</p>"
 msgstr ""
-"<p>Contrôle si les boutons haut et bas devraient apparaître comme boutons "
+"<p>Contrôle si les boutons haut et bas devraient apparaitre comme boutons "
 "individuels, ou être combinés.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, unifySpinBtns)
@@ -2117,7 +2117,7 @@ msgid ""
 "<p>Controls whether the up and down buttons should appear as buttons, or "
 "just arrows within the edit field.</p>"
 msgstr ""
-"<p>Contrôle si les boutons haut et bas devraient apparaître comme boutons, "
+"<p>Contrôle si les boutons haut et bas devraient apparaitre comme boutons, "
 "ou juste comme flèches à l'intérieur du champ d'édition.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, unifySpin)
@@ -2331,7 +2331,7 @@ msgid ""
 "appear.</p>"
 msgstr ""
 "<p>Si activé, alors les boutons de la barre de défilement ne sont pas "
-"dessinés et seule la flèche apparaîtra.</p>"
+"dessinés et seule la flèche apparaitra.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_32)
 #: qt4/config/qtcurveconfigbase.ui:1047 qt5/config/qtcurveconfigbase.ui:1056
@@ -3167,7 +3167,7 @@ msgid ""
 "appear sunken like or button like."
 msgstr ""
 "<p>Contrôle si l'arrière plan d'une case à cocher, ou d'un bouton radio, "
-"doit apparaître creusé ou bien comme un bouton."
+"doit apparaitre creusé ou bien comme un bouton."
 
 #. i18n: ectx: property (text), widget (QCheckBox, crButton)
 #: qt4/config/qtcurveconfigbase.ui:2077 qt5/config/qtcurveconfigbase.ui:2158
@@ -3802,7 +3802,7 @@ msgid ""
 "<p>If enabled, then the following two color boxes are used to set the text "
 "color to be used for normal and selected menubar items."
 msgstr ""
-"<p>Si activé, alors les deux boîtes de couleur suivantes sont utilisées pour "
+"<p>Si activé, alors les deux boites de couleur suivantes sont utilisées pour "
 "définir la couleur de texte utilisée pour les éléments de barre de menu dans "
 "leur état normal ou sélectionné."
 
@@ -4490,7 +4490,7 @@ msgid ""
 "<p>If enabled, dialogs will use the 'Cancel / OK' button order as used in "
 "the GNOME and OSX desktops, otherwise the 'OK / Cancel' order will be used."
 msgstr ""
-"<p>Si activé, les boîtes de dialogues utiliseront l'ordre des boutons "
+"<p>Si activé, les boites de dialogues utiliseront l'ordre des boutons "
 "« Annuler / Ok » tel qu'avec les bureaux GNOME et OSX, autrement l'ordre "
 "« Ok / Annuler » sera utilisé."
 
@@ -4509,7 +4509,7 @@ msgid ""
 "b> This is experimental, and may produce unexpected results!</p>"
 msgstr ""
 "<p>Si ceci est activé et « Utiliser l'ordre des boutons GTK » ne l'est pas, "
-"QtCurve tentera de manuellement définir l'ordre des boutons des boîtes de "
+"QtCurve tentera de manuellement définir l'ordre des boutons des boites de "
 "dialogue GTK.</p><p><b>Remarque :</b> Ceci est expérimental, et peut "
 "produire des résultats indéfinis !</p>"
 
@@ -5841,7 +5841,7 @@ msgid ""
 "<p>In Gtk, the list that is attached to a combo-box appears in the same "
 "style as a popup-menu. KDE has the ability to mimic this look.</p>"
 msgstr ""
-"<p>Avec GTK, la liste qui est attachée à une liste déroulante apparaît dans "
+"<p>Avec GTK, la liste qui est attachée à une liste déroulante apparait dans "
 "le même style qu'un menu contextuel. KDE a la capacité de mimer cet aspect. "
 "</p>"
 
