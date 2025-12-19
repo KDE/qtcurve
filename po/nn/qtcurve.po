@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 05:55+0000\n"
+"POT-Creation-Date: 2025-11-17 16:19+0000\n"
 "PO-Revision-Date: 2020-05-10 20:04+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -1373,8 +1373,8 @@ msgstr "<p>Slett ei tidlegare lagra innstilling.</p>"
 #: qt4/config/qtcurveconfigbase.ui:146 qt5/config/qtcurveconfigbase.ui:146
 #, kde-format
 msgid ""
-"<p>Import a QtCurve settings file - such as one downloaded from www.kde-look."
-"org</p>"
+"<p>Import a QtCurve settings file - such as one downloaded from www.kde-"
+"look.org</p>"
 msgstr ""
 "<p>Importer ei innstillingsfil for QtCurve, for eksempel ei lasta ned frå "
 "https://store.kde.org/.</p>"
@@ -2654,8 +2654,8 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1453 qt5/config/qtcurveconfigbase.ui:1462
 #, kde-format
 msgid ""
-"<p>Controls whether the scrollbars should be detached from the scrollview (i."
-"e. on the outside), or embedded within the scrollview."
+"<p>Controls whether the scrollbars should be detached from the scrollview "
+"(i.e. on the outside), or embedded within the scrollview."
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, gtkScrollViews)
