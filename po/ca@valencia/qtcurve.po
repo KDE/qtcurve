@@ -80,7 +80,7 @@ msgstr ""
 #: qt6/config/exportthemedialog.cpp:109
 #, kde-format
 msgid "Failed to create file: %1"
-msgstr "No s'ha pogut crear el fitxer: %1"
+msgstr "Ha fallat mentre es creava el fitxer: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: qt4/config/imageproperties.ui:17 qt5/config/imageproperties.ui:17
@@ -1415,7 +1415,7 @@ msgstr "%1 nou"
 #: qt6/config/qtcurveconfig.cpp:2525
 #, kde-format
 msgid "Sorry, failed to save preset"
-msgstr "No s'han pogut guardar els valors predeterminats"
+msgstr "Ha fallat mentre es guardaven els valors predeterminats"
 
 #: qt4/config/qtcurveconfig.cpp:2611 qt5/config/qtcurveconfig.cpp:2606
 #: qt6/config/qtcurveconfig.cpp:2605
@@ -1462,8 +1462,8 @@ msgstr "<p>Segur que voleu suprimir:</p><p><b>%1</b></p>"
 #, kde-format
 msgid "<p>Sorry, failed to remove the preset file:</p><p><i>%1</i></p>"
 msgstr ""
-"<p>No s'ha pogut eliminar el fitxer de valors predeterminats:</p><p><i>%1</"
-"i></p>"
+"<p>Ha fallat mentre s'eliminava el fitxer de valors predeterminats:</p><p><i>"
+"%1</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2669 qt4/config/qtcurveconfig.cpp:2830
 #, kde-format
@@ -1475,7 +1475,7 @@ msgstr "*"
 #, kde-format
 msgid "<p>Sorry, failed to load file.</p><p><i>Empty preset name?</i></p>"
 msgstr ""
-"<p>No s'ha pogut carregar el fitxer.</p><p><i>El nom per als valors "
+"<p>Ha fallat mentre es carregava el fitxer.</p><p><i>El nom per als valors "
 "predeterminats està buit?</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2685 qt5/config/qtcurveconfig.cpp:2699
@@ -1485,14 +1485,14 @@ msgid ""
 "<p>Sorry, failed to load file.</p><p><i>Cannot have a preset named \"%1\"</"
 "i></p>"
 msgstr ""
-"<p>No s'ha pogut carregar el fitxer.</p><p><i>No es poden tindre uns valors "
-"predeterminats anomenats «%1»</i></p>"
+"<p>Ha fallat mentre es carregava el fitxer.</p><p><i>No es poden tindre uns "
+"valors predeterminats anomenats «%1»</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2695 qt5/config/qtcurveconfig.cpp:2708
 #: qt6/config/qtcurveconfig.cpp:2695
 #, kde-format
 msgid "Sorry, failed to open compressed file."
-msgstr "No s'ha pogut obrir el fitxer comprimit."
+msgstr "Ha fallat mentre s'obria el fitxer comprimit."
 
 # skip-rule: punctuation-period-no
 #: qt4/config/qtcurveconfig.cpp:2714 qt5/config/qtcurveconfig.cpp:2727
@@ -1526,7 +1526,7 @@ msgstr "Importa els valors predeterminats"
 #: qt6/config/qtcurveconfig.cpp:2798
 #, kde-format
 msgid "Sorry, failed to load file."
-msgstr "No s'ha pogut carregar el fitxer."
+msgstr "Ha fallat mentre es carregava el fitxer."
 
 #: qt4/config/qtcurveconfig.cpp:2811 qt5/config/qtcurveconfig.cpp:2826
 #: qt6/config/qtcurveconfig.cpp:2809
