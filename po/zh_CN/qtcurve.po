@@ -660,19 +660,19 @@ msgstr "简洁"
 #: qt6/config/qtcurveconfig.cpp:688
 #, kde-format
 msgid "Use HSL color space"
-msgstr "使用 HSL 颜色空间"
+msgstr "使用 HSL 色彩空间"
 
 #: qt4/config/qtcurveconfig.cpp:688 qt5/config/qtcurveconfig.cpp:689
 #: qt6/config/qtcurveconfig.cpp:689
 #, kde-format
 msgid "Use HSV color space"
-msgstr "使用 HSV 颜色空间"
+msgstr "使用 HSV 色彩空间"
 
 #: qt4/config/qtcurveconfig.cpp:689 qt5/config/qtcurveconfig.cpp:690
 #: qt6/config/qtcurveconfig.cpp:690
 #, kde-format
 msgid "Use HCY color space"
-msgstr "使用 HCY 颜色空间"
+msgstr "使用 HCY 色彩空间"
 
 #: qt4/config/qtcurveconfig.cpp:695 qt5/config/qtcurveconfig.cpp:696
 #: qt6/config/qtcurveconfig.cpp:696

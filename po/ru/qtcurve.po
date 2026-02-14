@@ -7,21 +7,22 @@
 # Alexander Potashev <aspotashev@gmail.com>, 2014, 2017, 2018.
 # Boris Pek <tehnick-8@yandex.ru>, 2014.
 # Olesya Gerasimenko <translation-team@basealt.ru>, 2022.
+# SPDX-FileCopyrightText: 2026 Alexander Yavorskiy <kekcuha@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ROSA2011\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:01+0000\n"
-"PO-Revision-Date: 2022-10-12 09:19+0300\n"
-"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
-"Language-Team: Basealt Translation Team\n"
+"PO-Revision-Date: 2026-02-13 13:13+0200\n"
+"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.04.3\n"
+"X-Generator: Lokalize 25.12.2\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -5088,13 +5089,7 @@ msgstr "Изменить порядок кнопок Gtk «вручную»"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stdBtnSizes)
 #: qt4/config/qtcurveconfigbase.ui:3701
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Auto-default buttons are buttons that can become 'default' buttons - i."
-#| "e. will react the user pressing 'return'.</p>\n"
-#| "<p>In Gtk2 applications, most 'auto-default' buttons have a taller "
-#| "appearance than standard buttons. QtCurve attempts to mimic this for KDE4 "
-#| "applications - this may be disabled by enabling this option.</p>"
+#, kde-format
 msgid ""
 "<p>Auto-default buttons are buttons that can become 'default' buttons - i.e. "
 "will react to the user pressing 'return'.</p>\n"
@@ -5673,7 +5668,7 @@ msgstr "Светлый тон:"
 #. i18n: ectx: property (text), widget (QLabel, label_4b)
 #: qt4/config/qtcurveconfigbase.ui:4427 qt5/config/qtcurveconfigbase.ui:4491
 #: qt6/config/qtcurveconfigbase.ui:4491
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "<p><i>QtCurve uses dark/light borders to create etch and shadow effects. By "
 "default QtCurve tries to lighten (or darken) the parent's background to "
@@ -5681,12 +5676,12 @@ msgid ""
 "alpha value set. This behaviour may be overridden, and alpha values always "
 "used, by checking the option above.</i></p>"
 msgstr ""
-"<p><i>QtCurve использует тёмные/светлые границы для создания эффектов выемки "
-"и тени. По умолчанию для получения этого эффекта QtCurve пытается осветлить "
-"(или затенить) 'родительский' фон. Если родительского элемента найти нельзя, "
-"тогда используется белый/чёрный с настройкой значения альфа-канала. Это "
-"поведение можно изменить так, чтобы всегда использовались значения альфа-"
-"канала, отметив опцию выше.</i></p>"
+"<p><i>QtCurve использует тёмные/светлые границы для создания эффектов "
+"тиснения и тени. По умолчанию QtCurve пытается осветлить (или затемнить) фон "
+"родительского элемента для достижения этого эффекта — если родительский "
+"элемент не найден, используется белый/чёрный цвет с установленным значением "
+"прозрачности. Это поведение можно переопределить и всегда использовать "
+"значения прозрачности, установив флажок выше.</i></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_dark_alpha)
 #: qt4/config/qtcurveconfigbase.ui:4440 qt5/config/qtcurveconfigbase.ui:4504
@@ -6549,33 +6544,32 @@ msgstr "Как и для активных окон"
 
 #: qt5/config/qtcurveconfig.cpp:2055 qt5/config/qtcurveconfig.cpp:2108
 #: qt6/config/qtcurveconfig.cpp:2055 qt6/config/qtcurveconfig.cpp:2108
-#, fuzzy, kde-format
-#| msgid "Export..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Export"
-msgstr "Экспортировать..."
+msgstr "Экспорт"
 
 #: qt5/config/qtcurveconfig.cpp:2173 qt6/config/qtcurveconfig.cpp:2172
 #, kde-format
 msgctxt "@action:button"
 msgid "Set"
-msgstr ""
+msgstr "Установить"
 
 #: qt5/config/qtcurveconfig.cpp:2683 qt6/config/qtcurveconfig.cpp:2670
 #, kde-format
 msgid "Open"
-msgstr ""
+msgstr "Открыть"
 
 #: qt5/config/qtcurveconfig.cpp:2684 qt5/config/qtcurveconfig.cpp:2854
 #: qt6/config/qtcurveconfig.cpp:2671 qt6/config/qtcurveconfig.cpp:2829
-#, fuzzy, kde-format
+#, kde-format
 msgid "QtCurve Settings Files (*"
-msgstr "Файл настроек QtCurve"
+msgstr "Файлы настроек QtCurve (*"
 
 #: qt5/config/qtcurveconfig.cpp:2853 qt6/config/qtcurveconfig.cpp:2828
-#, fuzzy, kde-format
+#, kde-format
 msgid "Save As"
-msgstr "Сохранить"
+msgstr "Сохранить как"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gbLabel_centred)
 #: qt5/config/qtcurveconfigbase.ui:724 qt6/config/qtcurveconfigbase.ui:724
@@ -6725,13 +6719,11 @@ msgstr "&обычный пункт подменю"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, menuCloseDelay)
 #: qt6/config/qtcurveconfigbase.ui:3419
-#, fuzzy, kde-format
-#| msgid ""
-#| "Defines the delay before a sub-menu closes. Applicable on Qt5.5 or later"
+#, kde-format
 msgid ""
 "Defines the delay before a sub-menu closes. Applicable on Qt6.5 or later"
 msgstr ""
-"<p>Определяет задержку перед закрытием подменю. Применимо на Qt версии 5.5 и "
+"Определяет задержку перед закрытием подменю. Применимо на Qt версии 6.5 и "
 "последующих."
 
 #~ msgid "Restore"
