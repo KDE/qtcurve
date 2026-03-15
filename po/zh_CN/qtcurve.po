@@ -879,7 +879,7 @@ msgstr "从上到下"
 #: qt6/config/qtcurveconfig.cpp:770
 #, kde-format
 msgid "Left to right"
-msgstr "从左到右"
+msgstr "左到右"
 
 #: qt4/config/qtcurveconfig.cpp:776 qt5/config/qtcurveconfig.cpp:777
 #: qt6/config/qtcurveconfig.cpp:777
