@@ -15,12 +15,12 @@ msgstr ""
 "X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Roman Paholík"
 
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "wizzardsk@gmail.com"
@@ -31,12 +31,12 @@ msgid "Export Theme"
 msgstr "Exportovať tému"
 
 #: qt4/config/exportthemedialog.cpp:45 qt5/config/exportthemedialog.cpp:52
-#, fuzzy, kde-format
+#, kde-format
 msgid "Name:"
 msgstr "Názov:"
 
 #: qt4/config/exportthemedialog.cpp:46 qt5/config/exportthemedialog.cpp:53
-#, fuzzy, kde-format
+#, kde-format
 msgid "Comment:"
 msgstr "Komentár:"
 
@@ -48,7 +48,7 @@ msgstr "Cieľový priečinok:"
 #: qt4/config/exportthemedialog.cpp:49 qt5/config/exportthemedialog.cpp:56
 #, kde-format
 msgid "QtCurve based theme"
-msgstr ""
+msgstr "Téma založená na QtCurve"
 
 #: qt4/config/exportthemedialog.cpp:77 qt5/config/exportthemedialog.cpp:88
 #, kde-format
@@ -61,6 +61,8 @@ msgid ""
 "Successfully created:\n"
 "%1"
 msgstr ""
+"Úspešne vytvorené:\n"
+"%1"
 
 #: qt4/config/exportthemedialog.cpp:100 qt5/config/exportthemedialog.cpp:109
 #, fuzzy, kde-format
@@ -69,7 +71,7 @@ msgstr "Zlyhalo vytvorenie súboru."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: qt4/config/imageproperties.ui:17 qt5/config/imageproperties.ui:17
-#, fuzzy, kde-format
+#, kde-format
 msgid "File:"
 msgstr "Súbor"
 
@@ -89,14 +91,13 @@ msgstr "x"
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: qt4/config/imageproperties.ui:62 qt4/config/qtcurveconfigbase.ui:4088
 #: qt5/config/imageproperties.ui:62 qt5/config/qtcurveconfigbase.ui:4152
-#, fuzzy, kde-format
+#, kde-format
 msgid "Position:"
 msgstr "Pozícia:"
 
 #. i18n: ectx: property (text), widget (QLabel, onBorderLabel)
 #: qt4/config/imageproperties.ui:73 qt5/config/imageproperties.ui:73
-#, fuzzy, kde-format
-#| msgid "Inner border:"
+#, kde-format
 msgid "On window border:"
 msgstr "Vnútorný okraj:"
 
@@ -117,7 +118,7 @@ msgstr "Vnútorný okraj:"
 #: qt5/config/qtcurveconfigbase.ui:2331 qt5/config/qtcurveconfigbase.ui:2348
 #: qt5/config/qtcurveconfigbase.ui:3385 qt5/config/qtcurveconfigbase.ui:3399
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:120
-#, fuzzy, kde-format
+#, kde-format
 msgid "Enabled"
 msgstr "Povolené"
 
@@ -141,7 +142,7 @@ msgstr "Vpravo hore"
 
 #: qt4/config/imagepropertiesdialog.cpp:42
 #: qt5/config/imagepropertiesdialog.cpp:49
-#, fuzzy, kde-format
+#, kde-format
 msgid "Bottom left"
 msgstr "Vľavo dole"
 
@@ -153,7 +154,7 @@ msgstr "Dole do stredu"
 
 #: qt4/config/imagepropertiesdialog.cpp:44
 #: qt5/config/imagepropertiesdialog.cpp:51
-#, fuzzy, kde-format
+#, kde-format
 msgid "Bottom right"
 msgstr "Vpravo dole"
 
@@ -161,13 +162,13 @@ msgstr "Vpravo dole"
 #: qt5/config/imagepropertiesdialog.cpp:52
 #, kde-format
 msgid "Left middle"
-msgstr ""
+msgstr "Ľavý stred"
 
 #: qt4/config/imagepropertiesdialog.cpp:46
 #: qt5/config/imagepropertiesdialog.cpp:53
 #, kde-format
 msgid "Right middle"
-msgstr ""
+msgstr "Pravý stred"
 
 #: qt4/config/imagepropertiesdialog.cpp:47
 #: qt5/config/imagepropertiesdialog.cpp:54
@@ -191,12 +192,12 @@ msgstr "QtCurve"
 #: qt4/config/qtcurveconfig.cpp:237 qt5/config/qtcurveconfig.cpp:244
 #, kde-format
 msgid "Unified widget style."
-msgstr ""
+msgstr "Zjednotený štýl prvkov."
 
 #: qt4/config/qtcurveconfig.cpp:239 qt5/config/qtcurveconfig.cpp:246
 #, kde-format
 msgid "(C) Craig Drummond, 2003-2011 & Yichao Yu, 2013-2015"
-msgstr ""
+msgstr "(C) Craig Drummond, 2003-2011 a Yichao Yu, 2013-2015"
 
 #: qt4/config/qtcurveconfig.cpp:256 qt5/config/qtcurveconfig.cpp:261
 #, kde-format
@@ -206,7 +207,7 @@ msgstr "Okno s náhľadom"
 #: qt4/config/qtcurveconfig.cpp:309 qt5/config/qtcurveconfig.cpp:317
 #, kde-format
 msgid "Select Password Character"
-msgstr ""
+msgstr "Vybrať znak hesla"
 
 #. i18n: ectx: property (text), widget (QLabel, label_94)
 #: qt4/config/qtcurveconfig.cpp:525 qt4/config/qtcurveconfig.cpp:984
@@ -224,7 +225,7 @@ msgid "Button"
 msgstr "Tlačidlo"
 
 #: qt4/config/qtcurveconfig.cpp:530 qt5/config/qtcurveconfig.cpp:539
-#, fuzzy, kde-format
+#, kde-format
 msgid "Text"
 msgstr "Text"
 
@@ -235,7 +236,7 @@ msgstr "Text"
 #: qt5/config/qtcurveconfig.cpp:603 qt5/config/qtcurveconfig.cpp:626
 #: qt5/config/qtcurveconfig.cpp:679 qt5/config/qtcurveconfig.cpp:784
 #: qt5/config/qtcurveconfig.cpp:792 qt5/kwinconfig/qtcurvekwinconfig.cpp:67
-#, fuzzy, kde-format
+#, kde-format
 msgid "None"
 msgstr "Žiadne"
 
@@ -243,11 +244,11 @@ msgstr "Žiadne"
 #: qt5/config/qtcurveconfig.cpp:546 qt5/config/qtcurveconfig.cpp:608
 #, kde-format
 msgid "<unknown>"
-msgstr ""
+msgstr "<neznáme>"
 
 #: qt4/config/qtcurveconfig.cpp:539 qt4/kwinconfig/qtcurvekwinconfig.cpp:50
 #: qt5/config/qtcurveconfig.cpp:548 qt5/kwinconfig/qtcurvekwinconfig.cpp:49
-#, fuzzy, kde-format
+#, kde-format
 msgid "Custom:"
 msgstr "Vlastné:"
 
@@ -259,7 +260,7 @@ msgstr "Vybrané pozadie"
 #: qt4/config/qtcurveconfig.cpp:543 qt5/config/qtcurveconfig.cpp:552
 #, kde-format
 msgid "Blended selected background"
-msgstr ""
+msgstr "Zmiešané vybrané pozadie"
 
 #: qt4/config/qtcurveconfig.cpp:545 qt5/config/qtcurveconfig.cpp:554
 #, kde-format
@@ -268,7 +269,7 @@ msgstr "Pozadie ponuky"
 
 #: qt4/config/qtcurveconfig.cpp:545 qt4/config/qtcurveconfig.cpp:636
 #: qt5/config/qtcurveconfig.cpp:554 qt5/config/qtcurveconfig.cpp:645
-#, fuzzy, kde-format
+#, kde-format
 msgid "Darken"
 msgstr "Stmaviť"
 
@@ -287,7 +288,7 @@ msgstr "Vlastný prechod %1"
 #. i18n: ectx: property (text), widget (QCheckBox, flatSbarButtons)
 #: qt4/config/qtcurveconfig.cpp:573 qt4/config/qtcurveconfigbase.ui:1040
 #: qt5/config/qtcurveconfig.cpp:582 qt5/config/qtcurveconfigbase.ui:1049
-#, fuzzy, kde-format
+#, kde-format
 msgid "Flat"
 msgstr "Ploché"
 
@@ -300,70 +301,70 @@ msgstr "Zvýraznený"
 #: qt4/config/qtcurveconfig.cpp:575 qt5/config/qtcurveconfig.cpp:584
 #, kde-format
 msgid "Dull glass"
-msgstr ""
+msgstr "Matné sklo"
 
 #: qt4/config/qtcurveconfig.cpp:576 qt5/config/qtcurveconfig.cpp:585
 #, kde-format
 msgid "Shiny glass"
-msgstr ""
+msgstr "Lesklé sklo"
 
 #: qt4/config/qtcurveconfig.cpp:577 qt5/config/qtcurveconfig.cpp:586
 #, kde-format
 msgid "Agua"
-msgstr ""
+msgstr "Agua"
 
 #: qt4/config/qtcurveconfig.cpp:578 qt5/config/qtcurveconfig.cpp:587
 #, kde-format
 msgid "Soft gradient"
-msgstr ""
+msgstr "Jemný prechod"
 
 #: qt4/config/qtcurveconfig.cpp:579 qt5/config/qtcurveconfig.cpp:588
 #, kde-format
 msgid "Standard gradient"
-msgstr ""
+msgstr "Štandardný prechod"
 
 #: qt4/config/qtcurveconfig.cpp:580 qt5/config/qtcurveconfig.cpp:589
 #, kde-format
 msgid "Harsh gradient"
-msgstr ""
+msgstr "Ostrý prechod"
 
 #: qt4/config/qtcurveconfig.cpp:581 qt5/config/qtcurveconfig.cpp:590
 #, kde-format
 msgid "Inverted gradient"
-msgstr ""
+msgstr "Invertovaný prechod"
 
 #: qt4/config/qtcurveconfig.cpp:582 qt5/config/qtcurveconfig.cpp:591
 #, kde-format
 msgid "Dark inverted gradient"
-msgstr ""
+msgstr "Tmavý invertovaný prechod"
 
 #: qt4/config/qtcurveconfig.cpp:583 qt5/config/qtcurveconfig.cpp:592
 #, kde-format
 msgid "Split gradient"
-msgstr ""
+msgstr "Rozdelený prechod"
 
 #: qt4/config/qtcurveconfig.cpp:584 qt5/config/qtcurveconfig.cpp:593
 #, kde-format
 msgid "Bevelled"
-msgstr ""
+msgstr "Skosené"
 
 #: qt4/config/qtcurveconfig.cpp:589 qt5/config/qtcurveconfig.cpp:598
 #, kde-format
 msgid "Fade out (popup menuitems)"
-msgstr ""
+msgstr "Vyblednutie (položky vyskakovacích ponúk)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stripedSbar)
 #: qt4/config/qtcurveconfig.cpp:591 qt4/config/qtcurveconfigbase.ui:1098
 #: qt5/config/qtcurveconfig.cpp:600 qt5/config/qtcurveconfigbase.ui:1107
 #, kde-format
 msgid "Striped"
-msgstr ""
+msgstr "Pruhované"
 
 #: qt4/config/qtcurveconfig.cpp:594 qt4/config/qtcurveconfig.cpp:679
 #: qt5/config/qtcurveconfig.cpp:603 qt5/config/qtcurveconfig.cpp:688
 #, kde-format
 msgid "Same as general setting"
-msgstr ""
+msgstr "Rovnaké ako všeobecné nastavenie"
 
 #: qt4/config/qtcurveconfig.cpp:597 qt5/config/qtcurveconfig.cpp:606
 #, kde-format
@@ -373,12 +374,12 @@ msgstr "Dláždený obrázok"
 #: qt4/config/qtcurveconfig.cpp:618 qt5/config/qtcurveconfig.cpp:627
 #, kde-format
 msgid "Sunken lines"
-msgstr ""
+msgstr "Zapustené čiary"
 
 #: qt4/config/qtcurveconfig.cpp:619 qt5/config/qtcurveconfig.cpp:628
 #, kde-format
 msgid "Flat lines"
-msgstr ""
+msgstr "Ploché čiary"
 
 #: qt4/config/qtcurveconfig.cpp:620 qt5/config/qtcurveconfig.cpp:629
 #, kde-format
@@ -388,7 +389,7 @@ msgstr "Bodky"
 #: qt4/config/qtcurveconfig.cpp:623 qt5/config/qtcurveconfig.cpp:632
 #, kde-format
 msgid "Single dot"
-msgstr ""
+msgstr "Jedna bodka"
 
 #: qt4/config/qtcurveconfig.cpp:625 qt5/config/qtcurveconfig.cpp:634
 #, kde-format
@@ -398,37 +399,37 @@ msgstr "Pomlčky"
 #: qt4/config/qtcurveconfig.cpp:631 qt5/config/qtcurveconfig.cpp:640
 #, kde-format
 msgid "Corner indicator"
-msgstr ""
+msgstr "Rohový indikátor"
 
 #: qt4/config/qtcurveconfig.cpp:632 qt5/config/qtcurveconfig.cpp:641
 #, kde-format
 msgid "Font color thin border"
-msgstr ""
+msgstr "Tenký okraj vo farbe písma"
 
 #: qt4/config/qtcurveconfig.cpp:633 qt5/config/qtcurveconfig.cpp:642
 #, kde-format
 msgid "Selected background thick border"
-msgstr ""
+msgstr "Hrubý okraj vybraného pozadia"
 
 #: qt4/config/qtcurveconfig.cpp:634 qt5/config/qtcurveconfig.cpp:643
 #, kde-format
 msgid "Selected background tinting"
-msgstr ""
+msgstr "Odtieňovanie vybraného pozadia"
 
 #: qt4/config/qtcurveconfig.cpp:635 qt5/config/qtcurveconfig.cpp:644
 #, kde-format
 msgid "A slight glow"
-msgstr ""
+msgstr "Mierne žiarenie"
 
 #: qt4/config/qtcurveconfig.cpp:637 qt5/config/qtcurveconfig.cpp:646
 #, kde-format
 msgid "Use selected background color"
-msgstr ""
+msgstr "Použiť farbu vybraného pozadia"
 
 #: qt4/config/qtcurveconfig.cpp:638 qt5/config/qtcurveconfig.cpp:647
 #, kde-format
 msgid "No indicator"
-msgstr ""
+msgstr "Žiadny indikátor"
 
 #: qt4/config/qtcurveconfig.cpp:643 qt5/config/qtcurveconfig.cpp:652
 #, kde-format
@@ -441,12 +442,12 @@ msgid "MS Windows"
 msgstr "MS Windows"
 
 #: qt4/config/qtcurveconfig.cpp:645 qt5/config/qtcurveconfig.cpp:654
-#, fuzzy, kde-format
+#, kde-format
 msgid "Platinum"
 msgstr "Platinum"
 
 #: qt4/config/qtcurveconfig.cpp:646 qt5/config/qtcurveconfig.cpp:655
-#, fuzzy, kde-format
+#, kde-format
 msgid "NeXT"
 msgstr "Nasledujúci"
 
@@ -456,34 +457,34 @@ msgid "No buttons"
 msgstr "Žiadne tlačidlá"
 
 #: qt4/config/qtcurveconfig.cpp:652 qt5/config/qtcurveconfig.cpp:661
-#, fuzzy, kde-format
+#, kde-format
 msgid "Square"
 msgstr "Štvorec"
 
 #: qt4/config/qtcurveconfig.cpp:653 qt5/config/qtcurveconfig.cpp:662
 #, kde-format
 msgid "Slightly rounded"
-msgstr ""
+msgstr "Mierne zaoblené"
 
 #: qt4/config/qtcurveconfig.cpp:654 qt5/config/qtcurveconfig.cpp:663
 #, kde-format
 msgid "Fully rounded"
-msgstr ""
+msgstr "Plne zaoblené"
 
 #: qt4/config/qtcurveconfig.cpp:655 qt5/config/qtcurveconfig.cpp:664
 #, kde-format
 msgid "Extra rounded"
-msgstr ""
+msgstr "Extra zaoblené"
 
 #: qt4/config/qtcurveconfig.cpp:656 qt5/config/qtcurveconfig.cpp:665
 #, kde-format
 msgid "Max rounded"
-msgstr ""
+msgstr "Maximálne zaoblené"
 
 #: qt4/config/qtcurveconfig.cpp:661 qt5/config/qtcurveconfig.cpp:670
 #, kde-format
 msgid "No coloration"
-msgstr ""
+msgstr "Bez zafarbenia"
 
 #: qt4/config/qtcurveconfig.cpp:662 qt5/config/qtcurveconfig.cpp:671
 #, kde-format
@@ -493,12 +494,12 @@ msgstr "Farebný okraj"
 #: qt4/config/qtcurveconfig.cpp:663 qt5/config/qtcurveconfig.cpp:672
 #, kde-format
 msgid "Thick color border"
-msgstr ""
+msgstr "Hrubý farebný okraj"
 
 #: qt4/config/qtcurveconfig.cpp:664 qt5/config/qtcurveconfig.cpp:673
 #, kde-format
 msgid "Plastik style"
-msgstr ""
+msgstr "Štýl Plastik"
 
 #: qt4/config/qtcurveconfig.cpp:665 qt4/config/qtcurveconfig.cpp:724
 #: qt5/config/qtcurveconfig.cpp:674 qt5/config/qtcurveconfig.cpp:733
@@ -510,7 +511,7 @@ msgstr "Žiara"
 #: qt4/config/qtcurveconfig.cpp:671 qt4/config/qtcurveconfigbase.ui:1679
 #: qt4/kwinconfig/qtcurvekwinconfig.cpp:70 qt5/config/qtcurveconfig.cpp:680
 #: qt5/config/qtcurveconfigbase.ui:1706 qt5/kwinconfig/qtcurvekwinconfig.cpp:69
-#, fuzzy, kde-format
+#, kde-format
 msgid "Light"
 msgstr "Svetlo"
 
@@ -523,24 +524,24 @@ msgstr "Tmavé"
 #: qt4/config/qtcurveconfig.cpp:673 qt5/config/qtcurveconfig.cpp:682
 #, kde-format
 msgid "Light (all sides)"
-msgstr ""
+msgstr "Svetlé (všetky strany)"
 
 #: qt4/config/qtcurveconfig.cpp:674 qt5/config/qtcurveconfig.cpp:683
 #, kde-format
 msgid "Dark (all sides)"
-msgstr ""
+msgstr "Tmavé (všetky strany)"
 
 #: qt4/config/qtcurveconfig.cpp:679 qt4/config/qtcurveconfig.cpp:694
 #: qt4/config/qtcurveconfig.cpp:702 qt5/config/qtcurveconfig.cpp:688
 #: qt5/config/qtcurveconfig.cpp:703 qt5/config/qtcurveconfig.cpp:711
-#, fuzzy, kde-format
+#, kde-format
 msgid "Plain"
 msgstr "Prostý"
 
 #: qt4/config/qtcurveconfig.cpp:680 qt5/config/qtcurveconfig.cpp:689
 #, kde-format
 msgid "Etched"
-msgstr ""
+msgstr "Leptané"
 
 #: qt4/config/qtcurveconfig.cpp:681 qt5/config/qtcurveconfig.cpp:690
 #, kde-format
@@ -548,24 +549,24 @@ msgid "Shadowed"
 msgstr "Tieňované"
 
 #: qt4/config/qtcurveconfig.cpp:686 qt5/config/qtcurveconfig.cpp:695
-#, fuzzy, kde-format
+#, kde-format
 msgid "Simple"
 msgstr "Jednoduchý"
 
 #: qt4/config/qtcurveconfig.cpp:687 qt5/config/qtcurveconfig.cpp:696
 #, kde-format
 msgid "Use HSL color space"
-msgstr ""
+msgstr "Použiť farebný priestor HSL"
 
 #: qt4/config/qtcurveconfig.cpp:688 qt5/config/qtcurveconfig.cpp:697
 #, kde-format
 msgid "Use HSV color space"
-msgstr ""
+msgstr "Použiť farebný priestor HSV"
 
 #: qt4/config/qtcurveconfig.cpp:689 qt5/config/qtcurveconfig.cpp:698
 #, kde-format
 msgid "Use HCY color space"
-msgstr ""
+msgstr "Použiť farebný priestor HCY"
 
 #: qt4/config/qtcurveconfig.cpp:695 qt5/config/qtcurveconfig.cpp:704
 #, kde-format
@@ -575,12 +576,12 @@ msgstr "Prúžky"
 #: qt4/config/qtcurveconfig.cpp:696 qt5/config/qtcurveconfig.cpp:705
 #, kde-format
 msgid "Diagonal stripes"
-msgstr ""
+msgstr "Diagonálne pruhy"
 
 #: qt4/config/qtcurveconfig.cpp:697 qt5/config/qtcurveconfig.cpp:706
 #, kde-format
 msgid "Faded stripes"
-msgstr ""
+msgstr "Vyblednuté pruhy"
 
 #: qt4/config/qtcurveconfig.cpp:703 qt5/config/qtcurveconfig.cpp:712
 #, kde-format
@@ -590,12 +591,12 @@ msgstr "Okrúhle"
 #: qt4/config/qtcurveconfig.cpp:704 qt5/config/qtcurveconfig.cpp:713
 #, kde-format
 msgid "Plain - rotated"
-msgstr ""
+msgstr "Jednoduché - otočené"
 
 #: qt4/config/qtcurveconfig.cpp:705 qt5/config/qtcurveconfig.cpp:714
 #, kde-format
 msgid "Round - rotated"
-msgstr ""
+msgstr "Okrúhle - otočené"
 
 #: qt4/config/qtcurveconfig.cpp:706 qt5/config/qtcurveconfig.cpp:715
 #, kde-format
@@ -612,7 +613,7 @@ msgstr "Kruhovo"
 #: qt4/config/qtcurveconfig.cpp:712 qt5/config/qtcurveconfig.cpp:721
 #, kde-format
 msgid "Base color"
-msgstr ""
+msgstr "Základná farba"
 
 #: qt4/config/qtcurveconfig.cpp:713 qt5/config/qtcurveconfig.cpp:722
 #, kde-format
@@ -622,12 +623,12 @@ msgstr "Farba pozadia"
 #: qt4/config/qtcurveconfig.cpp:714 qt5/config/qtcurveconfig.cpp:723
 #, kde-format
 msgid "Darkened background color"
-msgstr ""
+msgstr "Stmavená farba pozadia"
 
 #: qt4/config/qtcurveconfig.cpp:719 qt5/config/qtcurveconfig.cpp:728
 #, kde-format
 msgid "Standard (dotted)"
-msgstr ""
+msgstr "Štandardné (bodkované)"
 
 #: qt4/config/qtcurveconfig.cpp:720 qt5/config/qtcurveconfig.cpp:729
 #, kde-format
@@ -637,17 +638,17 @@ msgstr "Farba zvýraznenia"
 #: qt4/config/qtcurveconfig.cpp:721 qt5/config/qtcurveconfig.cpp:730
 #, kde-format
 msgid "Highlight color (full size)"
-msgstr ""
+msgstr "Farba zvýraznenia (plná veľkosť)"
 
 #: qt4/config/qtcurveconfig.cpp:722 qt5/config/qtcurveconfig.cpp:731
 #, kde-format
 msgid "Highlight color, and fill"
-msgstr ""
+msgstr "Farba zvýraznenia a výplň"
 
 #: qt4/config/qtcurveconfig.cpp:723 qt5/config/qtcurveconfig.cpp:732
 #, kde-format
 msgid "Line drawn with highlight color"
-msgstr ""
+msgstr "Čiara nakreslená farbou zvýraznenia"
 
 #: qt4/config/qtcurveconfig.cpp:725 qt5/config/qtcurveconfig.cpp:734
 #, kde-format
@@ -663,32 +664,32 @@ msgstr "Bez orámovania"
 #: qt4/config/qtcurveconfig.cpp:731 qt5/config/qtcurveconfig.cpp:740
 #, kde-format
 msgid "Light border"
-msgstr ""
+msgstr "Svetlý okraj"
 
 #: qt4/config/qtcurveconfig.cpp:732 qt5/config/qtcurveconfig.cpp:741
 #, kde-format
 msgid "3D border (light only)"
-msgstr ""
+msgstr "3D okraj (iba svetlý)"
 
 #: qt4/config/qtcurveconfig.cpp:733 qt5/config/qtcurveconfig.cpp:742
 #, kde-format
 msgid "3D border (dark and light)"
-msgstr ""
+msgstr "3D okraj (tmavý a svetlý)"
 
 #: qt4/config/qtcurveconfig.cpp:734 qt5/config/qtcurveconfig.cpp:743
 #, kde-format
 msgid "Shine"
-msgstr ""
+msgstr "Lesk"
 
 #: qt4/config/qtcurveconfig.cpp:739 qt5/config/qtcurveconfig.cpp:748
-#, fuzzy, kde-format
+#, kde-format
 msgid "Left"
 msgstr "Vľavo"
 
 #: qt4/config/qtcurveconfig.cpp:740 qt5/config/qtcurveconfig.cpp:749
 #, kde-format
 msgid "Center (between controls)"
-msgstr ""
+msgstr "Stred (medzi ovládacími prvkami)"
 
 #: qt4/config/qtcurveconfig.cpp:741 qt5/config/qtcurveconfig.cpp:750
 #, kde-format
@@ -696,7 +697,7 @@ msgid "Center (full width)"
 msgstr "Vycentrovať (plná šírka)"
 
 #: qt4/config/qtcurveconfig.cpp:742 qt5/config/qtcurveconfig.cpp:751
-#, fuzzy, kde-format
+#, kde-format
 msgid "Right"
 msgstr "Vpravo"
 
@@ -708,27 +709,27 @@ msgstr "Nezobrazovať"
 #: qt4/config/qtcurveconfig.cpp:755 qt5/config/qtcurveconfig.cpp:764
 #, kde-format
 msgid "Place on menu button"
-msgstr ""
+msgstr "Umiestniť na tlačidlo ponuky"
 
 #: qt4/config/qtcurveconfig.cpp:756 qt5/config/qtcurveconfig.cpp:765
 #, kde-format
 msgid "Place next to title"
-msgstr ""
+msgstr "Umiestniť vedľa titulku"
 
 #: qt4/config/qtcurveconfig.cpp:761 qt5/config/qtcurveconfig.cpp:770
 #, kde-format
 msgid "Highlight on top"
-msgstr ""
+msgstr "Zvýraznenie navrchu"
 
 #: qt4/config/qtcurveconfig.cpp:762 qt5/config/qtcurveconfig.cpp:771
 #, kde-format
 msgid "Highlight on bottom"
-msgstr ""
+msgstr "Zvýraznenie naspodku"
 
 #: qt4/config/qtcurveconfig.cpp:763 qt5/config/qtcurveconfig.cpp:772
 #, kde-format
 msgid "Add a slight glow"
-msgstr ""
+msgstr "Pridať mierne žiarenie"
 
 #: qt4/config/qtcurveconfig.cpp:768 qt5/config/qtcurveconfig.cpp:777
 #, kde-format
@@ -743,27 +744,27 @@ msgstr "Zľava doprava"
 #: qt4/config/qtcurveconfig.cpp:776 qt5/config/qtcurveconfig.cpp:785
 #, kde-format
 msgid "New style (KDE and Gtk2 similar)"
-msgstr ""
+msgstr "Nový štýl (KDE a Gtk2 podobné)"
 
 #: qt4/config/qtcurveconfig.cpp:777 qt5/config/qtcurveconfig.cpp:786
 #, kde-format
 msgid "Old style (KDE and Gtk2 different)"
-msgstr ""
+msgstr "Starý štýl (KDE a Gtk2 rôzne)"
 
 #: qt4/config/qtcurveconfig.cpp:784 qt5/config/qtcurveconfig.cpp:793
 #, kde-format
 msgid "Bordered rings"
-msgstr ""
+msgstr "Ohraničené krúžky"
 
 #: qt4/config/qtcurveconfig.cpp:785 qt5/config/qtcurveconfig.cpp:794
 #, kde-format
 msgid "Plain rings"
-msgstr ""
+msgstr "Jednoduché krúžky"
 
 #: qt4/config/qtcurveconfig.cpp:786 qt5/config/qtcurveconfig.cpp:795
 #, kde-format
 msgid "Square rings"
-msgstr ""
+msgstr "Štvorcové krúžky"
 
 #: qt4/config/qtcurveconfig.cpp:787 qt5/config/qtcurveconfig.cpp:796
 #, kde-format
@@ -773,30 +774,30 @@ msgstr "Súbor"
 #: qt4/config/qtcurveconfig.cpp:792 qt5/config/qtcurveconfig.cpp:801
 #, kde-format
 msgid "No glow"
-msgstr ""
+msgstr "Žiadne žiarenie"
 
 #: qt4/config/qtcurveconfig.cpp:793 qt5/config/qtcurveconfig.cpp:802
 #, kde-format
 msgid "Add glow at the start"
-msgstr ""
+msgstr "Pridať žiarenie na začiatku"
 
 #: qt4/config/qtcurveconfig.cpp:794 qt5/config/qtcurveconfig.cpp:803
 #, kde-format
 msgid "Add glow in the middle"
-msgstr ""
+msgstr "Pridať žiarenie v strede"
 
 #: qt4/config/qtcurveconfig.cpp:795 qt5/config/qtcurveconfig.cpp:804
 #, kde-format
 msgid "Add glow at the end"
-msgstr ""
+msgstr "Pridať žiarenie na konci"
 
 #: qt4/config/qtcurveconfig.cpp:800 qt5/config/qtcurveconfig.cpp:809
-#, fuzzy, kde-format
+#, kde-format
 msgid "Small (%1 pixels)"
 msgstr "Malá (%1 pixlov):"
 
 #: qt4/config/qtcurveconfig.cpp:801 qt5/config/qtcurveconfig.cpp:810
-#, fuzzy, kde-format
+#, kde-format
 msgid "Large (%1 pixels)"
 msgstr "Väčšia (%1 pixlov):"
 
@@ -818,58 +819,58 @@ msgstr "Záhlavie, ponuka a panely nástrojov"
 #: qt4/config/qtcurveconfig.cpp:819 qt5/config/qtcurveconfig.cpp:828
 #, kde-format
 msgid "All empty areas"
-msgstr ""
+msgstr "Všetky prázdne oblasti"
 
 #: qt4/config/qtcurveconfig.cpp:826 qt5/config/qtcurveconfig.cpp:835
 #, kde-format
 msgid "Standard frame border"
-msgstr ""
+msgstr "Štandardný okraj rámca"
 
 #: qt4/config/qtcurveconfig.cpp:827 qt5/config/qtcurveconfig.cpp:836
 #, kde-format
 msgid "Single separator line"
-msgstr ""
+msgstr "Jeden oddeľovací riadok"
 
 #: qt4/config/qtcurveconfig.cpp:828 qt5/config/qtcurveconfig.cpp:837
 #, kde-format
 msgid "Shaded background"
-msgstr ""
+msgstr "Tieňované pozadie"
 
 #: qt4/config/qtcurveconfig.cpp:829 qt5/config/qtcurveconfig.cpp:838
 #, kde-format
 msgid "Faded background"
-msgstr ""
+msgstr "Vyblednuté pozadie"
 
 #: qt4/config/qtcurveconfig.cpp:841 qt5/config/qtcurveconfig.cpp:850
 #, kde-format
 msgid "Outside frame"
-msgstr ""
+msgstr "Mimo rámca"
 
 #: qt4/config/qtcurveconfig.cpp:842 qt5/config/qtcurveconfig.cpp:851
 #, kde-format
 msgid "On frame"
-msgstr ""
+msgstr "Na rámci"
 
 #: qt4/config/qtcurveconfig.cpp:843 qt5/config/qtcurveconfig.cpp:852
 #, kde-format
 msgid "Inside frame"
-msgstr ""
+msgstr "Vnútri rámca"
 
 #: qt4/config/qtcurveconfig.cpp:848 qt5/config/qtcurveconfig.cpp:857
 #, kde-format
 msgid "Standard (auto-raise)"
-msgstr ""
+msgstr "Štandardné (automatické zdvihnutie)"
 
 #: qt4/config/qtcurveconfig.cpp:850 qt5/config/qtcurveconfig.cpp:859
 #, kde-format
 msgid "Raised and joined"
-msgstr ""
+msgstr "Zdvihnuté a spojené"
 
 #. i18n: ectx: property (suffix), widget (KIntNumInput, sliderWidth)
 #. i18n: ectx: property (suffix), widget (QSpinBox, sliderWidth)
 #: qt4/config/qtcurveconfig.cpp:972 qt4/config/qtcurveconfigbase.ui:1085
 #: qt5/config/qtcurveconfig.cpp:986 qt5/config/qtcurveconfigbase.ui:1094
-#, fuzzy, kde-format
+#, kde-format
 msgid " pixels"
 msgstr " pixely"
 
@@ -891,14 +892,14 @@ msgstr "Obrázok ponuky"
 #: qt4/config/qtcurveconfig.cpp:1732 qt5/config/qtcurveconfig.cpp:1676
 #, kde-format
 msgid "Presets and Preview"
-msgstr ""
+msgstr "Predvoľby a náhľad"
 
 #. i18n: ectx: attribute (title), widget (QWidget, generalTab)
 #: qt4/config/qtcurveconfig.cpp:1733
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:30
 #: qt5/config/qtcurveconfig.cpp:1677
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:30
-#, fuzzy, kde-format
+#, kde-format
 msgid "General"
 msgstr "Všeobecné"
 
@@ -919,34 +920,34 @@ msgstr "Nepriehľadnosť"
 #: qt4/config/qtcurveconfig.cpp:1736 qt5/config/qtcurveconfig.cpp:1680
 #, kde-format
 msgid "Group Boxes"
-msgstr ""
+msgstr "Skupinové rámčeky"
 
 #: qt4/config/qtcurveconfig.cpp:1737 qt5/config/qtcurveconfig.cpp:1681
 #, kde-format
 msgid "Combos"
-msgstr ""
+msgstr "Rozbaľovacie polia"
 
 #: qt4/config/qtcurveconfig.cpp:1738 qt5/config/qtcurveconfig.cpp:1682
 #, kde-format
 msgid "Spin Buttons"
-msgstr ""
+msgstr "Číselníky"
 
 #: qt4/config/qtcurveconfig.cpp:1739 qt5/config/qtcurveconfig.cpp:1683
 #, kde-format
 msgid "Splitters"
-msgstr ""
+msgstr "Rozdeľovače"
 
 #: qt4/config/qtcurveconfig.cpp:1740 qt5/config/qtcurveconfig.cpp:1684
 #, kde-format
 msgid "Sliders and Scrollbars"
-msgstr ""
+msgstr "Posuvníky a posúvače"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareProgress)
 #: qt4/config/qtcurveconfig.cpp:1741 qt4/config/qtcurveconfigbase.ui:484
 #: qt5/config/qtcurveconfig.cpp:1685 qt5/config/qtcurveconfigbase.ui:493
 #, kde-format
 msgid "Progressbars"
-msgstr ""
+msgstr "Indikátory priebehu"
 
 #: qt4/config/qtcurveconfig.cpp:1742 qt5/config/qtcurveconfig.cpp:1686
 #, kde-format
@@ -956,17 +957,17 @@ msgstr "Východzie tlačidlo"
 #: qt4/config/qtcurveconfig.cpp:1743 qt5/config/qtcurveconfig.cpp:1687
 #, kde-format
 msgid "Mouse-over"
-msgstr ""
+msgstr "Prejdenie myšou"
 
 #: qt4/config/qtcurveconfig.cpp:1744 qt5/config/qtcurveconfig.cpp:1688
 #, kde-format
 msgid "Item Views"
-msgstr ""
+msgstr "Zobrazenia položiek"
 
 #: qt4/config/qtcurveconfig.cpp:1745 qt5/config/qtcurveconfig.cpp:1689
 #, kde-format
 msgid "Scrollviews"
-msgstr ""
+msgstr "Posúvacie zobrazenia"
 
 #: qt4/config/qtcurveconfig.cpp:1746 qt5/config/qtcurveconfig.cpp:1690
 #, kde-format
@@ -976,10 +977,10 @@ msgstr "Karty"
 #: qt4/config/qtcurveconfig.cpp:1747 qt5/config/qtcurveconfig.cpp:1691
 #, kde-format
 msgid "Checks and Radios"
-msgstr ""
+msgstr "Zaškrtávacie a prepínacie polia"
 
 #: qt4/config/qtcurveconfig.cpp:1748 qt5/config/qtcurveconfig.cpp:1692
-#, fuzzy, kde-format
+#, kde-format
 msgid "Windows"
 msgstr "Windows"
 
@@ -991,6 +992,9 @@ msgid ""
 "Therefore, these settings will <b>not</b> be reflected in the Preview page.</"
 "i></p>"
 msgstr ""
+"<p><b>POZNÁMKA:</b><i>Nastavenia tu ovplyvňujú okraje kreslené okolo okien a "
+"dialógov aplikácií - a nie vnútorné (alebo MDI) okná. Preto sa tieto "
+"nastavenia <b>nebudú</b> odrážať na stránke Náhľad.</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:1761 qt5/config/qtcurveconfig.cpp:1704
 #, kde-format
@@ -1000,12 +1004,12 @@ msgstr "Správca okien"
 #: qt4/config/qtcurveconfig.cpp:1763 qt5/config/qtcurveconfig.cpp:1706
 #, kde-format
 msgid "Window buttons"
-msgstr ""
+msgstr "Tlačidlá okien"
 
 #: qt4/config/qtcurveconfig.cpp:1764 qt5/config/qtcurveconfig.cpp:1707
 #, kde-format
 msgid "Window button colors"
-msgstr ""
+msgstr "Farby tlačidiel okien"
 
 #: qt4/config/qtcurveconfig.cpp:1765 qt5/config/qtcurveconfig.cpp:1708
 #, kde-format
@@ -1027,15 +1031,15 @@ msgstr "Panely nástrojov"
 #: qt4/config/qtcurveconfig.cpp:1768 qt5/config/qtcurveconfig.cpp:1711
 #, kde-format
 msgid "Statusbars"
-msgstr ""
+msgstr "Stavové riadky"
 
 #: qt4/config/qtcurveconfig.cpp:1769 qt5/config/qtcurveconfig.cpp:1712
 #, kde-format
 msgid "Dock windows"
-msgstr ""
+msgstr "Ukotvovacie okná"
 
 #: qt4/config/qtcurveconfig.cpp:1770 qt5/config/qtcurveconfig.cpp:1713
-#, fuzzy, kde-format
+#, kde-format
 msgid "Advanced Settings"
 msgstr "Pokročilé nastavenia"
 
@@ -1052,12 +1056,12 @@ msgstr "Staršie aplikácie"
 #: qt4/config/qtcurveconfig.cpp:1773 qt5/config/qtcurveconfig.cpp:1716
 #, kde-format
 msgid "Custom Gradients"
-msgstr ""
+msgstr "Vlastné prechody"
 
 #: qt4/config/qtcurveconfig.cpp:1774 qt5/config/qtcurveconfig.cpp:1717
 #, kde-format
 msgid "Custom Shades"
-msgstr ""
+msgstr "Vlastné odtiene"
 
 #: qt4/config/qtcurveconfig.cpp:1791 qt5/config/qtcurveconfig.cpp:1741
 #, kde-format
@@ -1065,7 +1069,7 @@ msgid "Save"
 msgstr "Uložiť"
 
 #: qt4/config/qtcurveconfig.cpp:1792 qt5/config/qtcurveconfig.cpp:1742
-#, fuzzy, kde-format
+#, kde-format
 msgid "Delete"
 msgstr "Vymazať"
 
@@ -1080,12 +1084,12 @@ msgid "Export..."
 msgstr "Exportovať..."
 
 #: qt4/config/qtcurveconfig.cpp:1798 qt5/config/qtcurveconfig.cpp:1750
-#, fuzzy, kde-format
+#, kde-format
 msgid "(Current)"
 msgstr "Aktuálne"
 
 #: qt4/config/qtcurveconfig.cpp:1799 qt5/config/qtcurveconfig.cpp:1751
-#, fuzzy, kde-format
+#, kde-format
 msgid "(Default)"
 msgstr "Predvolené"
 
@@ -1095,6 +1099,8 @@ msgid ""
 "Export your current KDE4 color palette, and font, so that they can be used "
 "by KDE3 applications?"
 msgstr ""
+"Exportovať vašu aktuálnu paletu farieb KDE4 a písmo, aby ich mohli používať "
+"aplikácie KDE3?"
 
 #: qt4/config/qtcurveconfig.cpp:2134 qt5/config/qtcurveconfig.cpp:2086
 #, kde-format
@@ -1102,9 +1108,11 @@ msgid ""
 "Export your current KDE4 color palette, and font, so that they can be used "
 "by pure-Qt3 applications?"
 msgstr ""
+"Exportovať vašu aktuálnu paletu farieb KDE4 a písmo, aby ich mohli používať "
+"čisto Qt3 aplikácie?"
 
 #: qt4/config/qtcurveconfig.cpp:2187 qt5/config/qtcurveconfig.cpp:2139
-#, kde-format
+#, fuzzy, kde-format
 msgid ""
 "<p>Set the following config items so that window titlebar and menubars "
 "appear blended?</p><ul><li>Menubar, titlebar, and inactive titlebar gradient "
@@ -1112,6 +1120,8 @@ msgid ""
 "li><li>Set menubar coloration to \"%2\"</li><li>Extend window dragging into "
 "menubar</li>"
 msgstr ""
+"<p>Nastaviť nasledujúce konfiguračné položky tak, aby sa titulkový pruh okna "
+"a panely ponúk javili ako zmiešané?</p>"
 
 #: qt4/config/qtcurveconfig.cpp:2260 qt5/config/qtcurveconfig.cpp:2212
 #, kde-format
@@ -1128,7 +1138,7 @@ msgstr "Odpojiť"
 #: qt4/config/qtcurveconfig.cpp:2296 qt5/config/qtcurveconfig.cpp:2249
 #, kde-format
 msgid "Copy settings from another gradient"
-msgstr ""
+msgstr "Kopírovať nastavenia z iného prechodu"
 
 #: qt4/config/qtcurveconfig.cpp:2310 qt5/config/qtcurveconfig.cpp:2263
 #, kde-format
@@ -1141,7 +1151,7 @@ msgid "Remove"
 msgstr "Odstrániť"
 
 #: qt4/config/qtcurveconfig.cpp:2312 qt5/config/qtcurveconfig.cpp:2265
-#, fuzzy, kde-format
+#, kde-format
 msgid "Update"
 msgstr "Aktualizovať"
 
@@ -1153,7 +1163,7 @@ msgstr "Uložiť prednastavenie"
 #: qt4/config/qtcurveconfig.cpp:2527 qt5/config/qtcurveconfig.cpp:2489
 #, kde-format
 msgid "Please enter a name for the preset:"
-msgstr ""
+msgstr "Zadajte prosím názov pre predvoľbu:"
 
 #: qt4/config/qtcurveconfig.cpp:2529 qt5/config/qtcurveconfig.cpp:2491
 #, kde-format
@@ -1171,13 +1181,13 @@ msgstr "Nové"
 #: qt4/config/qtcurveconfig.cpp:2535 qt5/config/qtcurveconfig.cpp:2497
 #, kde-format
 msgid "Sorry, failed to save preset"
-msgstr ""
+msgstr "Prepáčte, nepodarilo sa uložiť predvoľbu"
 
 #: qt4/config/qtcurveconfig.cpp:2611 qt5/config/qtcurveconfig.cpp:2577
 #, kde-format
 msgid ""
 "<p>You cannot use the name \"%1\".</p><p>Please enter a different name:</p>"
-msgstr ""
+msgstr "<p>Nemôžete použiť názov \"%1\".</p><p>Zadajte prosím iný názov:</p>"
 
 #: qt4/config/qtcurveconfig.cpp:2620 qt5/config/qtcurveconfig.cpp:2586
 #, kde-format
@@ -1185,6 +1195,8 @@ msgid ""
 "<p>A system defined preset named \"%1\" already exists.</p><p>Please enter a "
 "new name:</p>"
 msgstr ""
+"<p>Systémom definovaná predvoľba s názvom \"%1\" už existuje.</p><p>Zadajte "
+"prosím nový názov:</p>"
 
 #: qt4/config/qtcurveconfig.cpp:2627 qt5/config/qtcurveconfig.cpp:2593
 #, kde-format
@@ -1192,9 +1204,10 @@ msgid ""
 "<p>A preset named \"%1\" already exists.</p><p>Do you wish to overwrite this?"
 "</p>"
 msgstr ""
+"<p>Predvoľba s názvom \"%1\" už existuje.</p><p>Chcete ju prepísať?</p>"
 
 #: qt4/config/qtcurveconfig.cpp:2633 qt5/config/qtcurveconfig.cpp:2599
-#, fuzzy, kde-format
+#, kde-format
 msgid "<p>Please enter a new name:</p>"
 msgstr "Prosím vložte nový názov:"
 
@@ -1207,17 +1220,20 @@ msgstr "<p>Naozaj chcete odstrániť:</p><p><b>%1</b></p>"
 #, kde-format
 msgid "<p>Sorry, failed to remove the preset file:</p><p><i>%1</i></p>"
 msgstr ""
+"<p>Prepáčte, nepodarilo sa odstrániť súbor predvoľby:</p><p><i>%1</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2669 qt4/config/qtcurveconfig.cpp:2830
 #: qt5/config/qtcurveconfig.cpp:2635 qt5/config/qtcurveconfig.cpp:2793
 #, kde-format
 msgid "*"
-msgstr ""
+msgstr "*"
 
 #: qt4/config/qtcurveconfig.cpp:2682 qt5/config/qtcurveconfig.cpp:2648
 #, kde-format
 msgid "<p>Sorry, failed to load file.</p><p><i>Empty preset name?</i></p>"
 msgstr ""
+"<p>Prepáčte, nepodarilo sa načítať súbor.</p><p><i>Prázdny názov predvoľby?</"
+"i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2685 qt5/config/qtcurveconfig.cpp:2650
 #, kde-format
@@ -1225,25 +1241,27 @@ msgid ""
 "<p>Sorry, failed to load file.</p><p><i>Cannot have a preset named \"%1\"</"
 "i></p>"
 msgstr ""
+"<p>Prepáčte, nepodarilo sa načítať súbor.</p><p><i>Predvoľba s názvom \"%1\" "
+"nie je povolená</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2695 qt5/config/qtcurveconfig.cpp:2659
 #, kde-format
 msgid "Sorry, failed to open compressed file."
-msgstr ""
+msgstr "Prepáčte, nepodarilo sa otvoriť komprimovaný súbor."
 
 #: qt4/config/qtcurveconfig.cpp:2714 qt5/config/qtcurveconfig.cpp:2678
-#, kde-format
+#, fuzzy, kde-format
 msgid ""
 "Invalid compressed settings file.\n"
 "(Could not locate settings file.)"
-msgstr ""
+msgstr "Neplatný komprimovaný súbor nastavení.\n"
 
 #: qt4/config/qtcurveconfig.cpp:2720 qt5/config/qtcurveconfig.cpp:2680
-#, kde-format
+#, fuzzy, kde-format
 msgid ""
 "Invalid compressed settings file.\n"
 "(Could not list ZIP contents.)"
-msgstr ""
+msgstr "Neplatný komprimovaný súbor nastavení.\n"
 
 #: qt4/config/qtcurveconfig.cpp:2729 qt5/config/qtcurveconfig.cpp:2688
 #, kde-format
@@ -1253,7 +1271,7 @@ msgstr "Importovať predvoľbu"
 #: qt4/config/qtcurveconfig.cpp:2800 qt5/config/qtcurveconfig.cpp:2762
 #, kde-format
 msgid "Sorry, failed to load file."
-msgstr ""
+msgstr "Prepáčte, nepodarilo sa načítať súbor."
 
 #: qt4/config/qtcurveconfig.cpp:2811 qt5/config/qtcurveconfig.cpp:2773
 #, kde-format
@@ -1263,6 +1281,10 @@ msgid ""
 "dialog.</li><li><i>Standalone theme</i> - a style that user's can select "
 "from the KDE style panel.</li></ul></p>"
 msgstr ""
+"<p>V akom formáte chcete exportovať nastavenia QtCurve?<ul><li><i>Súbor "
+"nastavení QtCurve</i> - súbor na import cez tento konfiguračný dialóg.</"
+"li><li><i>Samostatná téma</i> - štýl, ktorý si používatelia môžu vybrať v "
+"paneli štýlov KDE.</li></ul></p>"
 
 #: qt4/config/qtcurveconfig.cpp:2816 qt5/config/qtcurveconfig.cpp:2779
 #, kde-format
@@ -1272,12 +1294,12 @@ msgstr "Nastavenia exportu"
 #: qt4/config/qtcurveconfig.cpp:2817 qt5/config/qtcurveconfig.cpp:2780
 #, kde-format
 msgid "QtCurve Settings File"
-msgstr ""
+msgstr "Súbor nastavení QtCurve"
 
 #: qt4/config/qtcurveconfig.cpp:2818 qt5/config/qtcurveconfig.cpp:2781
 #, kde-format
 msgid "Standalone Theme"
-msgstr ""
+msgstr "Samostatná téma"
 
 #: qt4/config/qtcurveconfig.cpp:2899 qt5/config/qtcurveconfig.cpp:2862
 #, kde-format
@@ -1290,13 +1312,13 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, titleLabel)
 #: qt4/config/qtcurveconfigbase.ui:23 qt5/config/qtcurveconfigbase.ui:23
-#, fuzzy, kde-format
+#, kde-format
 msgid "title"
 msgstr "titulok"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: qt4/config/qtcurveconfigbase.ui:100 qt5/config/qtcurveconfigbase.ui:100
-#, fuzzy, kde-format
+#, kde-format
 msgid "Presets"
 msgstr "Predvoľby"
 
@@ -1312,20 +1334,27 @@ msgid ""
 "default style.</li>\n"
 "</ul>"
 msgstr ""
+"<p>Toto rozbaľovacie pole obsahuje zoznam preddefinovaných nastavení.\n"
+"<ul>\n"
+"<li><i>(Aktuálne)</i> zahodí všetky zmeny a vráti sa k aktuálne uloženému "
+"štýlu.</li>\n"
+"<li><i>(Predvolené)</i> zahodí všetky zmeny a vráti sa k predvolenému štýlu "
+"QtCurve.</li>\n"
+"</ul>"
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, saveButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, saveButton)
 #: qt4/config/qtcurveconfigbase.ui:132 qt5/config/qtcurveconfigbase.ui:132
 #, kde-format
 msgid "<p>Save the current settings to be retrieved later.</p>"
-msgstr ""
+msgstr "<p>Uložiť aktuálne nastavenia na neskoršie načítanie.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, deleteButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, deleteButton)
 #: qt4/config/qtcurveconfigbase.ui:139 qt5/config/qtcurveconfigbase.ui:139
 #, kde-format
 msgid "<p>Delete a previously stored setting.</p>"
-msgstr ""
+msgstr "<p>Vymazať predtým uložené nastavenie.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, importButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, importButton)
@@ -1335,6 +1364,8 @@ msgid ""
 "<p>Import a QtCurve settings file - such as one downloaded from www.kde-look."
 "org</p>"
 msgstr ""
+"<p>Importovať súbor nastavení QtCurve - napríklad stiahnutý z www.kde-look."
+"org</p>"
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, exportButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, exportButton)
@@ -1344,6 +1375,8 @@ msgid ""
 "<p>Export the currently defined settings to a file, so that these may be "
 "shared with others.</p>"
 msgstr ""
+"<p>Exportovať aktuálne definované nastavenia do súboru, aby sa mohli zdieľať "
+"s ostatnými.</p>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, previewGroupBox)
 #. i18n: ectx: property (title), widget (QGroupBox, gradPreviewBox)
@@ -1372,13 +1405,14 @@ msgid ""
 "<p>The setting here affects the general appearance - and will be applied to "
 "buttons, combo boxes, and spin buttons.</p>"
 msgstr ""
+"<p>Nastavenie tu ovplyvňuje všeobecný vzhľad - a bude aplikované na "
+"tlačidlá, rozbaľovacie polia a číselníky.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_47)
 #. i18n: ectx: property (text), widget (QLabel, label_75)
 #: qt4/config/qtcurveconfigbase.ui:243 qt4/config/qtcurveconfigbase.ui:3193
 #: qt5/config/qtcurveconfigbase.ui:252 qt5/config/qtcurveconfigbase.ui:3257
-#, fuzzy, kde-format
-#| msgid "Background image:"
+#, kde-format
 msgid "Background appearance:"
 msgstr "Obrázok pozadia:"
 
@@ -1390,6 +1424,9 @@ msgid ""
 "p><p><b>NOTE:</b> This is an experimental option, and will (probably) have a "
 "detrimental effect on performance.</p>"
 msgstr ""
+"<p>Nastaví prechod použitý ako pozadie pre okná a dialógy.</p><p><b>POZNÁMKA:"
+"</b> Toto je experimentálna voľba a bude mať (pravdepodobne) nepriaznivý "
+"vplyv na výkon.</p>"
 
 #. i18n: ectx: property (text), widget (QToolButton, bgndAppearance_btn)
 #. i18n: ectx: property (text), widget (QToolButton, bgndImage_btn)
@@ -1401,12 +1438,11 @@ msgstr ""
 #: qt5/config/qtcurveconfigbase.ui:3273 qt5/config/qtcurveconfigbase.ui:3306
 #, kde-format
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, bgndGrad)
 #: qt4/config/qtcurveconfigbase.ui:268 qt5/config/qtcurveconfigbase.ui:277
-#, fuzzy, kde-format
-#| msgid "<p>Controls the appearance of tooltip backgrounds.</p>"
+#, kde-format
 msgid "<p>Control the orientation of the background gradient.</p>"
 msgstr "<p>Ovláda vzhľad pozadia popiskov.</p>"
 
@@ -1427,11 +1463,15 @@ msgid ""
 "rings with borders.</li><li>Plain rings - 'Air' like rings, but without any "
 "border.</li><li>Square rings - 3 simple rounded squares.</li></ul></p>"
 msgstr ""
+"<p>Toto pridá obrázok pozadia do pravého horného rohu dialógov a okien.\n"
+"            <ul><li>Žiadny - Žiadny obrázok.</li><li>Ohraničené krúžky - "
+"krúžky v štýle 'Air' s okrajmi.</li><li>Jednoduché krúžky - krúžky v štýle "
+"'Air', ale bez okraja.</li><li>Štvorcové krúžky - 3 jednoduché zaoblené "
+"štvorce.</li></ul></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_29)
 #: qt4/config/qtcurveconfigbase.ui:301 qt5/config/qtcurveconfigbase.ui:310
-#, fuzzy, kde-format
-#| msgid "Appearance:"
+#, kde-format
 msgid "Sunken appearance:"
 msgstr "Vzhľad:"
 
@@ -1442,13 +1482,14 @@ msgid ""
 "<p>Define the gradient to be used for sunken widgets - e.g. pressed buttons."
 "</p>"
 msgstr ""
+"<p>Definuje prechod použitý pre zapustené widgety - napr. stlačené tlačidlá."
+"</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #. i18n: ectx: property (text), widget (QLabel, label_102)
 #: qt4/config/qtcurveconfigbase.ui:315 qt4/config/qtcurveconfigbase.ui:3509
 #: qt5/config/qtcurveconfigbase.ui:324 qt5/config/qtcurveconfigbase.ui:3573
-#, fuzzy, kde-format
-#| msgid "Button style:"
+#, kde-format
 msgid "Button effect:"
 msgstr "Štýl tlačidla:"
 
@@ -1458,17 +1499,17 @@ msgstr "Štýl tlačidla:"
 msgid ""
 "<p>Control what effect should be applied to buttons, combo boxes, etc.</p>"
 msgstr ""
+"<p>Ovláda aký efekt sa má aplikovať na tlačidlá, rozbaľovacie polia atď.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, thin_buttons)
 #: qt4/config/qtcurveconfigbase.ui:329 qt5/config/qtcurveconfigbase.ui:338
 #, kde-format
 msgid "<p>Make buttons, and other widgets, slightly thinner.</p>"
-msgstr ""
+msgstr "<p>Urobiť tlačidlá a iné widgety o niečo tenšie.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, thin_buttons)
 #: qt4/config/qtcurveconfigbase.ui:332 qt5/config/qtcurveconfigbase.ui:341
-#, fuzzy, kde-format
-#| msgid "No buttons"
+#, kde-format
 msgid "Thinner buttons"
 msgstr "Žiadne tlačidlá"
 
@@ -1480,24 +1521,27 @@ msgid ""
 "controls whether line-edits and scrollviews (such as listviews and "
 "treeviews) should have an etched look.</p>"
 msgstr ""
+"<p>Keď je 'Efekt tlačidla' nastavený na leptaný alebo tieňovaný, táto voľba "
+"ovláda, či by mali mať vstupné polia a posúvacie zobrazenia leptaný vzhľad.</"
+"p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, etchEntry)
 #: qt4/config/qtcurveconfigbase.ui:342 qt5/config/qtcurveconfigbase.ui:351
 #, kde-format
 msgid "Etch entries and scrollviews "
-msgstr ""
+msgstr "Leptané vstupné polia a posúvacie zobrazenia "
 
 #. i18n: ectx: property (text), widget (QLabel, label_25)
 #: qt4/config/qtcurveconfigbase.ui:349 qt5/config/qtcurveconfigbase.ui:358
 #, kde-format
 msgid "Focus rectangle:"
-msgstr ""
+msgstr "Obdĺžnik fokusu:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, focus)
 #: qt4/config/qtcurveconfigbase.ui:356 qt5/config/qtcurveconfigbase.ui:365
 #, kde-format
 msgid "<p>Controls how QtCurve indicates that a widget has keyboard focus.</p>"
-msgstr ""
+msgstr "<p>Ovláda ako QtCurve indikuje, že widget má fokus klávesnice.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_tt)
 #: qt4/config/qtcurveconfigbase.ui:363 qt5/config/qtcurveconfigbase.ui:372
@@ -1518,12 +1562,14 @@ msgid ""
 "<p>QtCurve supports 2 arrows types; plain (i.e. triangular) and the more "
 "modern looking 'V' style arrows.</p>"
 msgstr ""
+"<p>QtCurve podporuje 2 typy šípok; jednoduché (t.j. trojuholníkové) a "
+"modernejšie šípky v štýle 'V'.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, vArrows)
 #: qt4/config/qtcurveconfigbase.ui:389 qt5/config/qtcurveconfigbase.ui:398
 #, kde-format
 msgid "'V' style arrows"
-msgstr ""
+msgstr "Šípky v štýle 'V'"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stdSidebarButtons)
 #: qt4/config/qtcurveconfigbase.ui:396 qt5/config/qtcurveconfigbase.ui:405
@@ -1534,23 +1580,25 @@ msgid ""
 "in a more flat style with the active tab colored with the highlight color.</"
 "p>"
 msgstr ""
+"<p>Vyberte toto, aby sa tlačidlá bočného panela v konquerore, kate, "
+"kaffeine, ktorrent atď. kreslili ako normálne tlačidlá - inak sa nakreslia v "
+"plochejšom štýle s aktívnou kartou zafarbenú farbou zvýraznenia.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stdSidebarButtons)
 #: qt4/config/qtcurveconfigbase.ui:399 qt5/config/qtcurveconfigbase.ui:408
 #, kde-format
 msgid "Standard buttons for sidebars"
-msgstr ""
+msgstr "Štandardné tlačidlá pre bočné panely"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, darkerBorders)
 #: qt4/config/qtcurveconfigbase.ui:406 qt5/config/qtcurveconfigbase.ui:415
 #, kde-format
 msgid "<p>Darkens the borders of frames, buttons, etc.</p>"
-msgstr ""
+msgstr "<p>Stmaví okraje rámcov, tlačidiel atď.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, darkerBorders)
 #: qt4/config/qtcurveconfigbase.ui:409 qt5/config/qtcurveconfigbase.ui:418
-#, fuzzy, kde-format
-#| msgid "Inner border:"
+#, kde-format
 msgid "Darker borders"
 msgstr "Vnútorný okraj:"
 
@@ -1561,12 +1609,14 @@ msgid ""
 "<p>Controls whether horizontal and vertical lines should be drawn with "
 "fading ends.</p>"
 msgstr ""
+"<p>Ovláda, či sa horizontálne a vertikálne čiary majú kresliť s "
+"vybledajúcimi koncami.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, fadeLines)
 #: qt4/config/qtcurveconfigbase.ui:419 qt5/config/qtcurveconfigbase.ui:428
 #, kde-format
 msgid "Draw fading lines"
-msgstr ""
+msgstr "Kresliť vybledajúce čiary"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, thin_frames)
 #: qt4/config/qtcurveconfigbase.ui:426 qt5/config/qtcurveconfigbase.ui:435
@@ -1574,23 +1624,23 @@ msgstr ""
 msgid ""
 "<p>Controls whether the internal 3d part of frames, etc., should be drawn.</"
 "p>"
-msgstr ""
+msgstr "<p>Ovláda, či sa má kresliť vnútorná 3D časť rámcov atď.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, thin_frames)
 #: qt4/config/qtcurveconfigbase.ui:429 qt5/config/qtcurveconfigbase.ui:438
 #, kde-format
 msgid "Thinner frames, edit boxes, etc."
-msgstr ""
+msgstr "Tenšie rámce, editačné polia atď."
 
 #. i18n: ectx: property (text), widget (QCheckBox, hideShortcutUnderline)
 #: qt4/config/qtcurveconfigbase.ui:436 qt5/config/qtcurveconfigbase.ui:445
 #, kde-format
 msgid "Hide shortcut underline until 'Alt' key is pressed."
-msgstr ""
+msgstr "Skryť podčiarknutie skratky, kým nie je stlačená klávesa 'Alt'."
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: qt4/config/qtcurveconfigbase.ui:450 qt5/config/qtcurveconfigbase.ui:459
-#, fuzzy, kde-format
+#, kde-format
 msgid "General setting:"
 msgstr "Všeobecné"
 
@@ -1601,11 +1651,12 @@ msgid ""
 "<p>Set how 'rounded' widgets can be. The 'max' round setting only applies to "
 "buttons.</p>"
 msgstr ""
+"<p>Nastavte, aké 'zaoblené' môžu byť widgety. Nastavenie 'max' zaoblenia sa "
+"vzťahuje iba na tlačidlá.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_93)
 #: qt4/config/qtcurveconfigbase.ui:464 qt5/config/qtcurveconfigbase.ui:473
-#, fuzzy, kde-format
-#| msgid "Do not show"
+#, kde-format
 msgid "Do not round:"
 msgstr "Nezobrazovať"
 
@@ -1616,12 +1667,14 @@ msgid ""
 "<p>Controls whether text entry fields should respect the general round "
 "setting, or always be square.</p>"
 msgstr ""
+"<p>Ovláda, či majú vstupné polia rešpektovať všeobecné nastavenie zaoblenia, "
+"alebo byť vždy hranaté.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareEntry)
 #: qt4/config/qtcurveconfigbase.ui:474 qt5/config/qtcurveconfigbase.ui:483
 #, kde-format
 msgid "Entry fields"
-msgstr ""
+msgstr "Vstupné polia"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareProgress)
 #: qt4/config/qtcurveconfigbase.ui:481 qt5/config/qtcurveconfigbase.ui:490
@@ -1630,6 +1683,8 @@ msgid ""
 "<p>Controls whether progress bars should respect the general round setting, "
 "or always be square.</p>"
 msgstr ""
+"<p>Ovláda, či majú indikátory priebehu rešpektovať všeobecné nastavenie "
+"zaoblenia, alebo byť vždy hranaté.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:491 qt5/config/qtcurveconfigbase.ui:500
@@ -1638,11 +1693,12 @@ msgid ""
 "<p>Controls whether the frame of a scrollview should respect the general "
 "round setting, or always be square.</p>"
 msgstr ""
+"<p>Ovláda, či má rámec posúvacieho zobrazenia rešpektovať všeobecné "
+"nastavenie zaoblenia, alebo byť vždy hranatý.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:494 qt5/config/qtcurveconfigbase.ui:503
-#, fuzzy, kde-format
-#| msgid "Active windows:"
+#, kde-format
 msgid "Scrollable windows"
 msgstr "Aktívne okná:"
 
@@ -1653,12 +1709,14 @@ msgid ""
 "<p>If enabled, then selected items in listviews and treeviews will be drawn "
 "with square edges, regardless of the general round setting.</p>"
 msgstr ""
+"<p>Ak je povolené, vybrané položky v zobrazeniach zoznamov a stromov sa "
+"nakreslia s hranatými okrajmi.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareLvSelection)
 #: qt4/config/qtcurveconfigbase.ui:504 qt5/config/qtcurveconfigbase.ui:513
 #, kde-format
 msgid "Listview selections"
-msgstr ""
+msgstr "Výbery v zobrazení zoznamu"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareTabFrame)
 #: qt4/config/qtcurveconfigbase.ui:511 qt5/config/qtcurveconfigbase.ui:520
@@ -1667,12 +1725,14 @@ msgid ""
 "<p>Controls whether the frames of tab widgets should respect the general "
 "round setting, or always be square.</p>"
 msgstr ""
+"<p>Ovláda, či majú rámce widgetov kariet rešpektovať všeobecné nastavenie "
+"zaoblenia, alebo byť vždy hranaté.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareTabFrame)
 #: qt4/config/qtcurveconfigbase.ui:514 qt5/config/qtcurveconfigbase.ui:523
 #, kde-format
 msgid "Tab widget frames"
-msgstr ""
+msgstr "Rámce widgetu kariet"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, squareFrame)
 #: qt4/config/qtcurveconfigbase.ui:521 qt5/config/qtcurveconfigbase.ui:530
@@ -1681,10 +1741,12 @@ msgid ""
 "<p>Controls whether general frames should respect the general round setting, "
 "or always be square.</p>"
 msgstr ""
+"<p>Ovláda, či majú všeobecné rámce rešpektovať všeobecné nastavenie "
+"zaoblenia, alebo byť vždy hranaté.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareFrame)
 #: qt4/config/qtcurveconfigbase.ui:524 qt5/config/qtcurveconfigbase.ui:533
-#, fuzzy, kde-format
+#, kde-format
 msgid "General frames"
 msgstr "Všeobecné"
 
@@ -1698,13 +1760,13 @@ msgstr "Posuvníky"
 #: qt4/config/qtcurveconfigbase.ui:538 qt5/config/qtcurveconfigbase.ui:547
 #, kde-format
 msgid "Scrollbar sliders"
-msgstr ""
+msgstr "Posuvníky posúvačov"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareWindows)
 #: qt4/config/qtcurveconfigbase.ui:545 qt5/config/qtcurveconfigbase.ui:554
 #, kde-format
 msgid "Window borders (will use slight round)"
-msgstr ""
+msgstr "Okraje okien (použijú mierne zaoblenie)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, squareTooltips)
 #: qt4/config/qtcurveconfigbase.ui:552 qt5/config/qtcurveconfigbase.ui:561
@@ -1714,7 +1776,7 @@ msgstr "Nástrojové tipy"
 
 #. i18n: ectx: property (text), widget (QLabel, label_47a)
 #: qt4/config/qtcurveconfigbase.ui:575 qt5/config/qtcurveconfigbase.ui:584
-#, fuzzy, kde-format
+#, kde-format
 msgid "Windows:"
 msgstr "Windows"
 
@@ -1725,6 +1787,8 @@ msgstr "Windows"
 msgid ""
 "<p>Sets the opacity of window backgrounds when using desktop effects.</p>"
 msgstr ""
+"<p>Nastaví priehľadnosť pozadia okien pri použití efektov pracovnej plochy.</"
+"p>"
 
 #. i18n: ectx: property (suffix), widget (KIntNumInput, bgndOpacity)
 #. i18n: ectx: property (suffix), widget (KIntNumInput, dlgOpacity)
@@ -1777,7 +1841,7 @@ msgstr ""
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:268
 #, no-c-format, kde-format
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, label_47x)
 #: qt4/config/qtcurveconfigbase.ui:592 qt5/config/qtcurveconfigbase.ui:601
@@ -1792,11 +1856,12 @@ msgstr "Dialógy:"
 msgid ""
 "<p>Sets the opacity of dialog backgrounds when using desktop effects.</p>"
 msgstr ""
+"<p>Nastaví priehľadnosť pozadia dialógov pri použití efektov pracovnej "
+"plochy.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_yy)
 #: qt4/config/qtcurveconfigbase.ui:609 qt5/config/qtcurveconfigbase.ui:618
-#, fuzzy, kde-format
-#| msgid "Popup menus"
+#, kde-format
 msgid "Pop-up menus:"
 msgstr "Kontextové menu"
 
@@ -1806,6 +1871,8 @@ msgstr "Kontextové menu"
 #, kde-format
 msgid "<p>Sets the opacity of popup menus when using desktop effects.</p>"
 msgstr ""
+"<p>Nastaví priehľadnosť pozadia vyskakovacích ponúk pri použití efektov "
+"pracovnej plochy.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_100)
 #: qt4/config/qtcurveconfigbase.ui:651 qt5/config/qtcurveconfigbase.ui:660
@@ -1818,12 +1885,18 @@ msgid ""
 "<p><b>NOTE:</b> <i><b>DON'T</b> use opacity settings when using the compiz "
 "window manager.</i></p>"
 msgstr ""
+"<p><b>POZNÁMKA:</b> <i>Nastavenia priehľadnosti sú <b>experimentálne</b> a "
+"môžu spôsobiť pád niektorých aplikácií (hlavne Gtk2). Ak máte aplikáciu, "
+"ktorá padá, použite stránku &quot;Aplikácie&quot; na zakázanie nastavení "
+"priehľadnosti pre danú aplikáciu.</i></p>\n"
+"<p><b>POZNÁMKA:</b> <i><b>NEPOUŽÍVAJTE</b> nastavenia priehľadnosti pri "
+"použití správcu okien compiz.</i></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_98)
 #: qt4/config/qtcurveconfigbase.ui:668 qt5/config/qtcurveconfigbase.ui:677
 #, kde-format
 msgid "Frame type:"
-msgstr ""
+msgstr "Typ rámca:"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, gbFactor)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, gbFactor)
@@ -1833,10 +1906,12 @@ msgid ""
 "<p>Defines how much a group box's background should be darkened or lightened "
 "by.</p>"
 msgstr ""
+"<p>Definuje, o koľko sa má stmaviť alebo zosvetliť pozadie skupinového "
+"rámčeka.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_99)
 #: qt4/config/qtcurveconfigbase.ui:688 qt5/config/qtcurveconfigbase.ui:697
-#, fuzzy, kde-format
+#, kde-format
 msgid "Label:"
 msgstr "Popis:"
 
@@ -1845,11 +1920,11 @@ msgstr "Popis:"
 #, kde-format
 msgid "<p>Controls whether group boxes should use a bold for their title.</p>"
 msgstr ""
+"<p>Ovláda, či majú skupinové rámčeky použiť tučné písmo pre svoj nadpis.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gbLabel_bold)
 #: qt4/config/qtcurveconfigbase.ui:698 qt5/config/qtcurveconfigbase.ui:707
-#, fuzzy, kde-format
-#| msgid "Bold font"
+#, kde-format
 msgid "Use bold font"
 msgstr "Tučné písmo"
 
@@ -1857,7 +1932,7 @@ msgstr "Tučné písmo"
 #: qt4/config/qtcurveconfigbase.ui:705 qt5/config/qtcurveconfigbase.ui:714
 #, kde-format
 msgid "<p>Specifies the vertical position of a group box's text label.</p>"
-msgstr ""
+msgstr "<p>Určuje vertikálnu pozíciu textovej menovky skupinového rámčeka.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gbLabel_centred)
 #: qt4/config/qtcurveconfigbase.ui:712 qt5/config/qtcurveconfigbase.ui:721
@@ -1866,16 +1941,18 @@ msgid ""
 "<p>Controls whether a group boxe's label should be centred, or left/right "
 "aligned.</p>"
 msgstr ""
+"<p>Ovláda, či má byť menovka skupinového rámčeka vycentrovaná, alebo "
+"zarovnaná doľava/doprava.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gbLabel_centred)
 #: qt4/config/qtcurveconfigbase.ui:715
 #, kde-format
 msgid "Centred (KDE4 only)"
-msgstr ""
+msgstr "Vycentrované (iba KDE4)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_46)
 #: qt4/config/qtcurveconfigbase.ui:726 qt5/config/qtcurveconfigbase.ui:735
-#, fuzzy, kde-format
+#, kde-format
 msgid "Button:"
 msgstr "Tlačidlo"
 
@@ -1886,6 +1963,8 @@ msgid ""
 "<p>Controls the coloration of the button part (i.e. the part with the arrow) "
 "of combo boxes.</p>"
 msgstr ""
+"<p>Ovláda zafarbenie časti tlačidla (t.j. časti so šípkou) rozbaľovacích "
+"polí.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, customComboBtnColor)
 #. i18n: ectx: property (toolTip), widget (KColorButton, customSlidersColor)
@@ -1893,7 +1972,7 @@ msgstr ""
 #: qt5/config/qtcurveconfigbase.ui:755 qt5/config/qtcurveconfigbase.ui:942
 #, kde-format
 msgid "<p>Sets the custom color.</p>"
-msgstr ""
+msgstr "<p>Nastaví vlastnú farbu.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, comboSplitter)
 #: qt4/config/qtcurveconfigbase.ui:753 qt5/config/qtcurveconfigbase.ui:762
@@ -1902,18 +1981,20 @@ msgid ""
 "<p>This option controls whether a line is drawn near non-editable combo box "
 "arrow buttons.</p>"
 msgstr ""
+"<p>Táto voľba ovláda, či sa kreslí čiara vedľa tlačidla šípky "
+"needitovateľných rozbaľovacích polí.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, comboSplitter)
 #: qt4/config/qtcurveconfigbase.ui:756 qt5/config/qtcurveconfigbase.ui:765
 #, kde-format
 msgid "Draw splitter"
-msgstr ""
+msgstr "Kresliť rozdeľovač"
 
 #. i18n: ectx: property (text), widget (QLabel, label_64)
 #: qt4/config/qtcurveconfigbase.ui:763 qt5/config/qtcurveconfigbase.ui:772
 #, kde-format
 msgid "Editable style:"
-msgstr ""
+msgstr "Editovateľný štýl:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, unifyCombo)
 #: qt4/config/qtcurveconfigbase.ui:770 qt5/config/qtcurveconfigbase.ui:779
@@ -1922,18 +2003,20 @@ msgid ""
 "<p>Controls whether the combo box button, of editable combos, should appear "
 "as a button or an arrow within the edit field.</p>"
 msgstr ""
+"<p>Ovláda, či sa má tlačidlo rozbaľovacieho poľa editovateľných polí javiť "
+"ako tlačidlo alebo ako šípka v editačnom poli.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, unifyCombo)
 #: qt4/config/qtcurveconfigbase.ui:773 qt5/config/qtcurveconfigbase.ui:782
 #, kde-format
 msgid "Draw arrow within edit field"
-msgstr ""
+msgstr "Kresliť šípku v editačnom poli"
 
 #. i18n: ectx: property (text), widget (QLabel, label_63)
 #: qt4/config/qtcurveconfigbase.ui:780 qt5/config/qtcurveconfigbase.ui:789
 #, kde-format
 msgid "Non-editable style:"
-msgstr ""
+msgstr "Needitovateľný štýl:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gtkComboMenus)
 #: qt4/config/qtcurveconfigbase.ui:787
@@ -1942,6 +2025,8 @@ msgid ""
 "<p>In Gtk, the list that is attached to a combo-box appears in the same "
 "style as a popup-menu. KDE4 has the ability to mimic this look.</p>"
 msgstr ""
+"<p>V Gtk sa zoznam priradený k rozbaľovaciemu poľu zobrazuje v rovnakom "
+"štýle ako vyskakovacie menu. KDE4 má schopnosť napodobniť tento vzhľad.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gtkComboMenus)
 #: qt4/config/qtcurveconfigbase.ui:790 qt5/config/qtcurveconfigbase.ui:799
@@ -1956,12 +2041,14 @@ msgid ""
 "<p>Controls whether a single down arrow, or a up and down arrow, should be "
 "drawn on non-editable combo boxes.</p>"
 msgstr ""
+"<p>Ovláda, či sa na needitovateľných rozbaľovacích poliach má kresliť jedna "
+"šípka nadol, alebo šípka hore a dole.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, doubleGtkComboArrow)
 #: qt4/config/qtcurveconfigbase.ui:800 qt5/config/qtcurveconfigbase.ui:809
 #, kde-format
 msgid "Draw double-arrow for Gtk style"
-msgstr ""
+msgstr "Kresliť dvojitú šípku pre Gtk štýl"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, unifySpinBtns)
 #: qt4/config/qtcurveconfigbase.ui:824 qt5/config/qtcurveconfigbase.ui:833
@@ -1970,11 +2057,12 @@ msgid ""
 "<p>Controls whether the up and down buttons should appear as individual "
 "buttons, or be combined.</p>"
 msgstr ""
+"<p>Ovláda, či sa majú tlačidlá hore a dole zobrazovať ako samostatné "
+"tlačidlá, alebo byť kombinované.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, unifySpinBtns)
 #: qt4/config/qtcurveconfigbase.ui:827 qt5/config/qtcurveconfigbase.ui:836
-#, fuzzy, kde-format
-#| msgid "No buttons"
+#, kde-format
 msgid "Combine both buttons"
 msgstr "Žiadne tlačidlá"
 
@@ -1985,24 +2073,26 @@ msgid ""
 "<p>Controls whether the up and down buttons should appear as buttons, or "
 "just arrows within the edit field.</p>"
 msgstr ""
+"<p>Ovláda, či sa majú tlačidlá hore a dole zobrazovať ako tlačidlá, alebo "
+"iba ako šípky v editačnom poli.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, unifySpin)
 #: qt4/config/qtcurveconfigbase.ui:837 qt5/config/qtcurveconfigbase.ui:846
 #, kde-format
 msgid "Draw arrows within edit field"
-msgstr ""
+msgstr "Kresliť šípky v editačnom poli"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: qt4/config/qtcurveconfigbase.ui:864 qt5/config/qtcurveconfigbase.ui:873
 #, kde-format
 msgid "Markings:"
-msgstr ""
+msgstr "Značky:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, splitters)
 #: qt4/config/qtcurveconfigbase.ui:871 qt5/config/qtcurveconfigbase.ui:880
 #, kde-format
 msgid "<p>Sets the marking used to indicate that the widget is a splitter.</p>"
-msgstr ""
+msgstr "<p>Nastaví značku použitú na označenie, že widget je rozdeľovač.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_69)
 #. i18n: ectx: property (text), widget (QLabel, label_54)
@@ -2010,7 +2100,7 @@ msgstr ""
 #: qt5/config/qtcurveconfigbase.ui:887 qt5/config/qtcurveconfigbase.ui:2131
 #, kde-format
 msgid "Background mouse-over highlight:"
-msgstr ""
+msgstr "Zvýraznenie pozadia pri prejdení myšou:"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, splitterHighlight)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, splitterHighlight)
@@ -2020,11 +2110,12 @@ msgid ""
 "<p>Defines by how much the theme should brighten (or darken) the background "
 "of the splitter when the mouse hovers over.</p>"
 msgstr ""
+"<p>Definuje, o koľko by mala téma zosvetliť (alebo stmaviť) pozadie "
+"rozdeľovača, keď sa nad ním nachádza myš.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, sliderAppearance)
 #: qt4/config/qtcurveconfigbase.ui:906 qt5/config/qtcurveconfigbase.ui:915
-#, fuzzy, kde-format
-#| msgid "<p>Controls the appearance of tooltip backgrounds.</p>"
+#, kde-format
 msgid ""
 "<p>Controls the appearance of both scrollbar sliders and other sliders.</p>"
 msgstr "<p>Ovláda vzhľad pozadia popiskov.</p>"
@@ -2039,8 +2130,7 @@ msgstr "<p>Ovláda vzhľad pozadia popiskov.</p>"
 #: qt4/config/qtcurveconfigbase.ui:2929 qt5/config/qtcurveconfigbase.ui:922
 #: qt5/config/qtcurveconfigbase.ui:1293 qt5/config/qtcurveconfigbase.ui:1972
 #: qt5/config/qtcurveconfigbase.ui:2274 qt5/config/qtcurveconfigbase.ui:3010
-#, fuzzy, kde-format
-#| msgid "Color:"
+#, kde-format
 msgid "Coloration:"
 msgstr "Farba:"
 
@@ -2051,6 +2141,7 @@ msgid ""
 "<p>Controls the color setting of both scrollbar sliders and other sliders.</"
 "p>"
 msgstr ""
+"<p>Ovláda nastavenie farieb posuvníkov posúvačov aj iných posuvníkov.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, colorSliderMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:943 qt5/config/qtcurveconfigbase.ui:952
@@ -2059,12 +2150,14 @@ msgid ""
 "<p>Controls whether the coloration happens all the time, or only when the "
 "mouse hovers over the slider.</p>"
 msgstr ""
+"<p>Ovláda, či k zafarbeniu dochádza neustále, alebo iba keď myš prejde nad "
+"posuvníkom.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, colorSliderMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:946 qt5/config/qtcurveconfigbase.ui:955
 #, kde-format
 msgid "Mouse-over only"
-msgstr ""
+msgstr "Iba pri prejdení myšou"
 
 #. i18n: ectx: property (text), widget (QLabel, label_13)
 #: qt4/config/qtcurveconfigbase.ui:953 qt5/config/qtcurveconfigbase.ui:962
@@ -2079,12 +2172,14 @@ msgid ""
 "<p>Controls the appearance of standard sliders - i.e. not scrollbar sliders. "
 "'Triangular' is very similar to plastik's sliders.</p>"
 msgstr ""
+"<p>Ovláda vzhľad štandardných posuvníkov - t.j. nie posuvníkov posúvačov. "
+"'Trojuholníkový' je veľmi podobný posuvníkom Plastik.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_50)
 #: qt4/config/qtcurveconfigbase.ui:967 qt5/config/qtcurveconfigbase.ui:976
 #, kde-format
 msgid "Used slider groove:"
-msgstr ""
+msgstr "Použitá drážka posuvníka:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, fillSlider)
 #: qt4/config/qtcurveconfigbase.ui:974 qt5/config/qtcurveconfigbase.ui:983
@@ -2093,6 +2188,8 @@ msgid ""
 "<p>Indicates whether the used part of a slider's groove should be filled or "
 "not. (Does not affect scrollbar sliders).</p>"
 msgstr ""
+"<p>Označuje, či by mala byť použitá časť drážky posuvníka vyplnená alebo "
+"nie. (Neovplyvňuje posuvníky posúvačov).</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, fillSlider)
 #: qt4/config/qtcurveconfigbase.ui:977 qt5/config/qtcurveconfigbase.ui:986
@@ -2107,12 +2204,14 @@ msgid ""
 "<p>Controls the gradient setting used for the used part of a standard "
 "sliders' groove.</p>"
 msgstr ""
+"<p>Ovláda nastavenie prechodu použitého pre použitú časť drážky štandardných "
+"posuvníkov.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_30)
 #: qt4/config/qtcurveconfigbase.ui:991 qt5/config/qtcurveconfigbase.ui:1000
 #, kde-format
 msgid "<p>Groove appearance:</p>"
-msgstr ""
+msgstr "<p>Vzhľad drážky:</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, grooveAppearance)
 #: qt4/config/qtcurveconfigbase.ui:998 qt5/config/qtcurveconfigbase.ui:1007
@@ -2121,6 +2220,8 @@ msgid ""
 "<p>Controls the gradient setting used for both scrollbar sliders, and other "
 "sliders.</p>"
 msgstr ""
+"<p>Ovláda nastavenie prechodu použitého pre posuvníky posúvačov aj iné "
+"posuvníky.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, thinSbarGroove)
 #: qt4/config/qtcurveconfigbase.ui:1005 qt5/config/qtcurveconfigbase.ui:1014
@@ -2130,6 +2231,8 @@ msgid ""
 "the slider, or be thinner (and more like the groove of a standard slider).</"
 "p>"
 msgstr ""
+"<p>Ovláda, či majú byť drážky posuvníkov posúvačov rovnako hrubé ako "
+"posuvník, alebo tenšie.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, thinSbarGroove)
 #: qt4/config/qtcurveconfigbase.ui:1008 qt5/config/qtcurveconfigbase.ui:1017
@@ -2141,14 +2244,13 @@ msgstr "Tenké"
 #. i18n: ectx: property (text), widget (QCheckBox, borderSelection)
 #: qt4/config/qtcurveconfigbase.ui:1015 qt4/config/qtcurveconfigbase.ui:1425
 #: qt5/config/qtcurveconfigbase.ui:1024 qt5/config/qtcurveconfigbase.ui:1434
-#, fuzzy, kde-format
+#, kde-format
 msgid "Bordered"
 msgstr "Hranica"
 
 #. i18n: ectx: property (text), widget (QLabel, label_14)
 #: qt4/config/qtcurveconfigbase.ui:1022 qt5/config/qtcurveconfigbase.ui:1031
-#, fuzzy, kde-format
-#| msgid "No buttons"
+#, kde-format
 msgid "Scrollbar buttons:"
 msgstr "Žiadne tlačidlá"
 
@@ -2163,6 +2265,12 @@ msgid ""
 "left, none at bottom/right</li><li>None - no buttons, only the slider</li></"
 "ul></p>"
 msgstr ""
+"<p>Toto ovláda pozíciu a počet tlačidiel na posúvači.\n"
+"            <ul><li>KDE - 1 tlačidlo navrchu/vľavo a dve naspodku/vpravo</"
+"li><li>Windows - 1 tlačidlo na každom konci</li><li>Platinum - žiadne "
+"tlačidlá navrchu/vľavo, dve naspodku/vpravo</li><li>Next - dve tlačidlá "
+"navrchu/vľavo, žiadne naspodku/vpravo</li><li>Žiadne - žiadne tlačidlá, iba "
+"posuvník</li></ul></p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, flatSbarButtons)
 #: qt4/config/qtcurveconfigbase.ui:1037 qt5/config/qtcurveconfigbase.ui:1046
@@ -2171,6 +2279,8 @@ msgid ""
 "<p>If enabled, then scrollbar buttons are not drawn and only the arrows will "
 "appear.</p>"
 msgstr ""
+"<p>Ak je povolené, tlačidlá posúvačov sa nekreslia a zobrazia sa iba šípky.</"
+"p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_32)
 #: qt4/config/qtcurveconfigbase.ui:1047 qt5/config/qtcurveconfigbase.ui:1056
@@ -2185,11 +2295,12 @@ msgid ""
 "<p>Configures the background gradient to be used with 'Flat' scrollbar "
 "buttons.</p>"
 msgstr ""
+"<p>Konfiguruje gradient pozadia použitý s 'Plochými' tlačidlami posúvačov.</"
+"p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_15)
 #: qt4/config/qtcurveconfigbase.ui:1061 qt5/config/qtcurveconfigbase.ui:1070
-#, fuzzy, kde-format
-#| msgid "Slider width:"
+#, kde-format
 msgid "Slider thumbs:"
 msgstr "Šírka ukazovátka:"
 
@@ -2200,6 +2311,8 @@ msgid ""
 "<p>Defines what markings should be placed in the center of scrollbar sliders "
 "(and plain style sliders).</p>"
 msgstr ""
+"<p>Definuje, aké značky by mali byť umiestnené v strede posuvníkov posúvačov."
+"</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_15a)
 #: qt4/config/qtcurveconfigbase.ui:1075 qt5/config/qtcurveconfigbase.ui:1084
@@ -2214,12 +2327,13 @@ msgstr "Šírka ukazovátka:"
 msgid ""
 "<p>Controls the width of scrollbar sliders, and plain style sliders.</p>"
 msgstr ""
+"<p>Ovláda šírku posuvníkov posúvačov a posuvníkov jednoduchého štýlu.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stripedSbar)
 #: qt4/config/qtcurveconfigbase.ui:1095 qt5/config/qtcurveconfigbase.ui:1104
 #, kde-format
 msgid "<p>If enabled, a fading stripe will be added.</p>"
-msgstr ""
+msgstr "<p>Ak je povolené, pridá sa vybledajúci pruh.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_16)
 #: qt4/config/qtcurveconfigbase.ui:1112 qt5/config/qtcurveconfigbase.ui:1121
@@ -2233,7 +2347,7 @@ msgstr "Stĺpec:"
 msgid ""
 "<p>Defines the gradient to be used for the progress part of a progressbar.</"
 "p>"
-msgstr ""
+msgstr "<p>Definuje prechod použitý pre časť priebehu indikátora priebehu.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, stripedProgress)
 #: qt4/config/qtcurveconfigbase.ui:1126 qt5/config/qtcurveconfigbase.ui:1135
@@ -2242,6 +2356,7 @@ msgid ""
 "<p>Defines the stripe type to be used for the progress part of a progressbar."
 "</p>"
 msgstr ""
+"<p>Definuje typ pruhu použitého pre časť priebehu indikátora priebehu.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, animatedProgress)
 #: qt4/config/qtcurveconfigbase.ui:1133 qt5/config/qtcurveconfigbase.ui:1142
@@ -2249,6 +2364,8 @@ msgstr ""
 msgid ""
 "<p>Determines if the stripes on progressbars should be animated, or not.</p>"
 msgstr ""
+"<p>Určuje, či majú byť pruhy na indikátoroch priebehu animované alebo nie.</"
+"p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, animatedProgress)
 #: qt4/config/qtcurveconfigbase.ui:1136 qt5/config/qtcurveconfigbase.ui:1145
@@ -2260,7 +2377,7 @@ msgstr "Animovaný"
 #: qt4/config/qtcurveconfigbase.ui:1143 qt5/config/qtcurveconfigbase.ui:1152
 #, kde-format
 msgid "<p>Add a white 'glow' to progressbars.</p>"
-msgstr ""
+msgstr "<p>Pridať biele 'žiarenie' k indikátorom priebehu.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, fillProgress)
 #: qt4/config/qtcurveconfigbase.ui:1156 qt5/config/qtcurveconfigbase.ui:1165
@@ -2269,12 +2386,14 @@ msgid ""
 "<p>Enable this option to remove the 1 pixel border around the filled element."
 "</p>"
 msgstr ""
+"<p>Povolením tejto voľby odstránite 1 pixelový okraj okolo vyplneného prvku."
+"</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, fillProgress)
 #: qt4/config/qtcurveconfigbase.ui:1159 qt5/config/qtcurveconfigbase.ui:1168
 #, kde-format
 msgid "Fill groove"
-msgstr ""
+msgstr "Vyplniť drážku"
 
 #. i18n: ectx: property (text), widget (QLabel, label_24)
 #: qt4/config/qtcurveconfigbase.ui:1166 qt5/config/qtcurveconfigbase.ui:1175
@@ -2287,14 +2406,14 @@ msgstr "Drážka:"
 #, kde-format
 msgid ""
 "<p>Defines the gradient to be used for the groove part of a progressbar.</p>"
-msgstr ""
+msgstr "<p>Definuje prechod použitý pre časť drážky indikátora priebehu.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, progressGrooveColor)
 #: qt4/config/qtcurveconfigbase.ui:1180 qt5/config/qtcurveconfigbase.ui:1189
 #, kde-format
 msgid ""
 "<p>Defines the color to be used for the groove part of a progressbar.</p>"
-msgstr ""
+msgstr "<p>Definuje farbu použitú pre časť drážky indikátora priebehu.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, borderProgress)
 #: qt4/config/qtcurveconfigbase.ui:1193 qt5/config/qtcurveconfigbase.ui:1202
@@ -2303,11 +2422,12 @@ msgid ""
 "<p>Enable this option to have a border around the progress bar groove and "
 "contents.</p>"
 msgstr ""
+"<p>Povolením tejto voľby sa zobrazí okraj okolo drážky a obsahu indikátora "
+"priebehu.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, borderProgress)
 #: qt4/config/qtcurveconfigbase.ui:1196 qt5/config/qtcurveconfigbase.ui:1205
-#, fuzzy, kde-format
-#| msgid "Border size:"
+#, kde-format
 msgid "Border all sides"
 msgstr "Veľkosť okraja:"
 
@@ -2326,6 +2446,8 @@ msgid ""
 "<p>If enabled, the text on a progressbar will use the general widget font.</"
 "p>"
 msgstr ""
+"<p>Ak je povolené, text na indikátore priebehu bude používať všeobecné písmo "
+"widgetu.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, boldProgress_false)
 #: qt4/config/qtcurveconfigbase.ui:1227 qt5/config/qtcurveconfigbase.ui:1236
@@ -2338,6 +2460,7 @@ msgstr "Štandardné písmo"
 #, kde-format
 msgid "<p>If enabled, the text on a progressbar will use a bold font.</p>"
 msgstr ""
+"<p>Ak je povolené, text na indikátore priebehu bude používať tučné písmo.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, boldProgress)
 #: qt4/config/qtcurveconfigbase.ui:1237 qt5/config/qtcurveconfigbase.ui:1246
@@ -2349,7 +2472,7 @@ msgstr "Tučné písmo"
 #: qt4/config/qtcurveconfigbase.ui:1256 qt5/config/qtcurveconfigbase.ui:1265
 #, kde-format
 msgid "Indicate with:"
-msgstr ""
+msgstr "Indikovať pomocou:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, defBtnIndicator)
 #: qt4/config/qtcurveconfigbase.ui:1263 qt5/config/qtcurveconfigbase.ui:1272
@@ -2358,6 +2481,7 @@ msgid ""
 "<p>Defines the way in which the theme indicates which button is the "
 "'default' button.</p>"
 msgstr ""
+"<p>Definuje spôsob, akým téma indikuje, ktoré tlačidlo je predvolené.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, embolden)
 #: qt4/config/qtcurveconfigbase.ui:1270 qt5/config/qtcurveconfigbase.ui:1279
@@ -2367,12 +2491,14 @@ msgid ""
 "second time will be 1 pixel to the left. This gives it a more 'bold' look.</"
 "p>"
 msgstr ""
+"<p>Ak je povolené, text 'predvoleného' tlačidla bude nakreslený dvakrát - "
+"druhýkrát bude o 1 pixel vľavo. To mu dáva 'tučnejší' vzhľad.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, embolden)
 #: qt4/config/qtcurveconfigbase.ui:1273 qt5/config/qtcurveconfigbase.ui:1282
 #, kde-format
 msgid "Embolden text"
-msgstr ""
+msgstr "Zvýrazniť text tučným"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, coloredMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:1291 qt5/config/qtcurveconfigbase.ui:1300
@@ -2381,6 +2507,8 @@ msgid ""
 "<p>Defines how the theme can use color to indicate which active widget is "
 "under the mouse.</p>"
 msgstr ""
+"<p>Definuje ako môže téma použiť farbu na indikáciu aktívneho widgetu pod "
+"myšou.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, textLabel1_8)
 #: qt4/config/qtcurveconfigbase.ui:1298 qt5/config/qtcurveconfigbase.ui:1307
@@ -2389,10 +2517,12 @@ msgid ""
 "<p>This controls the % that widgets will be highlighted by when the mouse "
 "hovers over them.</p>"
 msgstr ""
+"<p>Toto ovláda %, o koľko budú widgety zvýraznené, keď sa nad nimi nachádza "
+"myš.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_8)
 #: qt4/config/qtcurveconfigbase.ui:1301 qt5/config/qtcurveconfigbase.ui:1310
-#, fuzzy, kde-format
+#, kde-format
 msgid "Highlight by:"
 msgstr "Zvýraznenie"
 
@@ -2403,11 +2533,12 @@ msgid ""
 "<p>Defines by how much the theme should brighten (or darken) the color of "
 "the active widget under the mouse.</p>"
 msgstr ""
+"<p>Definuje, o koľko by mala téma zosvetliť farbu aktívneho widgetu pod "
+"myšou.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_19)
 #: qt4/config/qtcurveconfigbase.ui:1328 qt5/config/qtcurveconfigbase.ui:1337
-#, fuzzy, kde-format
-#| msgid "Appearance:"
+#, kde-format
 msgid "Header appearance:"
 msgstr "Vzhľad:"
 
@@ -2418,6 +2549,7 @@ msgid ""
 "<p>Defines the gradient to be used in the header of listviews and treeviews."
 "</p>"
 msgstr ""
+"<p>Definuje prechod použitý v hlavičke zobrazení zoznamov a stromov.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, lvButton)
 #: qt4/config/qtcurveconfigbase.ui:1348 qt5/config/qtcurveconfigbase.ui:1357
@@ -2426,11 +2558,12 @@ msgid ""
 "<p>If enabled, headers will be drawn using the button color, otherwise the "
 "standard window background color will be used.</p>"
 msgstr ""
+"<p>Ak je povolené, hlavičky budú nakreslené pomocou farby tlačidiel, inak sa "
+"použije štandardná farba pozadia okna.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, lvButton)
 #: qt4/config/qtcurveconfigbase.ui:1351 qt5/config/qtcurveconfigbase.ui:1360
-#, fuzzy, kde-format
-#| msgid "Custom colors:"
+#, kde-format
 msgid "Button color"
 msgstr "Vlastné farby:"
 
@@ -2438,7 +2571,7 @@ msgstr "Vlastné farby:"
 #: qt4/config/qtcurveconfigbase.ui:1358 qt5/config/qtcurveconfigbase.ui:1367
 #, kde-format
 msgid "Shade header of sorted column:"
-msgstr ""
+msgstr "Tieňovať hlavičku zoradeného stĺpca:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, sortedLv)
 #: qt4/config/qtcurveconfigbase.ui:1365 qt5/config/qtcurveconfigbase.ui:1374
@@ -2447,6 +2580,7 @@ msgid ""
 "<p>Controls the coloration to be applied to the header of the currently "
 "sorted column."
 msgstr ""
+"<p>Ovláda zafarbenie aplikované na hlavičku aktuálne zoradeného stĺpca.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, customSortedLvColor)
 #. i18n: ectx: property (toolTip), widget (KColorButton, customCheckRadioColor)
@@ -2460,7 +2594,7 @@ msgstr ""
 #: qt5/config/qtcurveconfigbase.ui:3033 qt5/config/qtcurveconfigbase.ui:3358
 #, kde-format
 msgid "<p>Sets the custom color."
-msgstr ""
+msgstr "<p>Nastaví vlastnú farbu.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_66)
 #: qt4/config/qtcurveconfigbase.ui:1388 qt5/config/qtcurveconfigbase.ui:1397
@@ -2476,17 +2610,18 @@ msgid ""
 "treeviews have alternating row colors - regardless of whether the "
 "application author has enabled this or not."
 msgstr ""
+"<p>Ak je povolené, QtCurve sa pokúsi urobiť všetky zobrazenia so "
+"striedajúcimi sa farbami riadkov.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, forceAlternateLvCols)
 #: qt4/config/qtcurveconfigbase.ui:1398 qt5/config/qtcurveconfigbase.ui:1407
 #, kde-format
 msgid "Force alternate colors"
-msgstr ""
+msgstr "Vynútiť striedanie farieb"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_8_2_4)
 #: qt4/config/qtcurveconfigbase.ui:1405 qt5/config/qtcurveconfigbase.ui:1414
-#, fuzzy, kde-format
-#| msgid "Selection Background"
+#, kde-format
 msgid "Selection appearance:"
 msgstr "Pozadie výberu"
 
@@ -2494,7 +2629,7 @@ msgstr "Pozadie výberu"
 #: qt4/config/qtcurveconfigbase.ui:1415 qt5/config/qtcurveconfigbase.ui:1424
 #, kde-format
 msgid "<p>Defines the gradient to be used when selecting items."
-msgstr ""
+msgstr "<p>Definuje prechod použitý pri vyberaní položiek.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, borderSelection)
 #: qt4/config/qtcurveconfigbase.ui:1422 qt5/config/qtcurveconfigbase.ui:1431
@@ -2503,18 +2638,21 @@ msgid ""
 "<p>If enabled, then selected items in listviews and treeviews will be drawn "
 "with bordered edges - but only if they are set to be rounded as well."
 msgstr ""
+"<p>Ak je povolené, vybrané položky budú nakreslené s ohraničenými okrajmi.</"
+"p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_48)
 #: qt4/config/qtcurveconfigbase.ui:1432 qt5/config/qtcurveconfigbase.ui:1441
 #, kde-format
 msgid "Lines between items:"
-msgstr ""
+msgstr "Čiary medzi položkami:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, lvLines)
 #: qt4/config/qtcurveconfigbase.ui:1439 qt5/config/qtcurveconfigbase.ui:1448
 #, kde-format
 msgid "<p>Controls the style of lines drawn between items in a treeview."
 msgstr ""
+"<p>Ovláda štýl čiar nakreslených medzi položkami v zobrazení stromu.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gtkScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:1453 qt5/config/qtcurveconfigbase.ui:1462
@@ -2523,12 +2661,14 @@ msgid ""
 "<p>Controls whether the scrollbars should be detached from the scrollview (i."
 "e. on the outside), or embedded within the scrollview."
 msgstr ""
+"<p>Ovláda, či by mali byť posúvače oddelené od posúvacieho zobrazenia, alebo "
+"vložené do neho.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gtkScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:1456 qt5/config/qtcurveconfigbase.ui:1465
 #, kde-format
 msgid "Scrollbars on the outside"
-msgstr ""
+msgstr "Posúvače zvonku"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, highlightScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:1463 qt5/config/qtcurveconfigbase.ui:1472
@@ -2537,18 +2677,18 @@ msgid ""
 "<p>Controls whether the active scrollview should be highlighted as per line-"
 "edits."
 msgstr ""
+"<p>Ovláda, či by malo byť aktívne posúvacie zobrazenie zvýraznené ako "
+"vstupné polia.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, highlightScrollViews)
 #: qt4/config/qtcurveconfigbase.ui:1466 qt5/config/qtcurveconfigbase.ui:1475
-#, fuzzy, kde-format
-#| msgid "Highlight color"
+#, kde-format
 msgid "Highlight on focus (KDE)"
 msgstr "Farba zvýraznenia"
 
 #. i18n: ectx: property (text), widget (QLabel, label_20)
 #: qt4/config/qtcurveconfigbase.ui:1490 qt5/config/qtcurveconfigbase.ui:1499
-#, fuzzy, kde-format
-#| msgid "Appearance:"
+#, kde-format
 msgid "Active tab appearance:"
 msgstr "Vzhľad:"
 
@@ -2556,7 +2696,7 @@ msgstr "Vzhľad:"
 #: qt4/config/qtcurveconfigbase.ui:1497 qt5/config/qtcurveconfigbase.ui:1506
 #, kde-format
 msgid "<p>Defines the gradient to be used for the currently active tab."
-msgstr ""
+msgstr "<p>Definuje prechod použitý pre aktuálne aktívnu kartu.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, highlightTab)
 #: qt4/config/qtcurveconfigbase.ui:1504 qt5/config/qtcurveconfigbase.ui:1513
@@ -2565,10 +2705,12 @@ msgid ""
 "<p>This will cause a colored stripe to be drawn at the top/bottom of the "
 "current tab."
 msgstr ""
+"<p>Toto spôsobí nakreslenie farebného pruhu na vrchu/spodku aktuálnej karty."
+"</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, highlightTab)
 #: qt4/config/qtcurveconfigbase.ui:1507 qt5/config/qtcurveconfigbase.ui:1516
-#, fuzzy, kde-format
+#, kde-format
 msgid "Highlight"
 msgstr "Zvýraznenie"
 
@@ -2579,32 +2721,32 @@ msgstr "Zvýraznenie"
 msgid ""
 "<p>Controls the amount of tinting applied to the active tab. The active tab "
 "is tinted by blending the 'highlight' color with the background color."
-msgstr ""
+msgstr "<p>Ovláda mieru odtieňovania aplikovaného na aktívnu kartu.</p>"
 
 #. i18n: ectx: property (prefix), widget (KIntNumInput, colorSelTab)
 #. i18n: ectx: property (prefix), widget (QSpinBox, colorSelTab)
 #: qt4/config/qtcurveconfigbase.ui:1520 qt5/config/qtcurveconfigbase.ui:1529
 #, kde-format
 msgid "Tint by "
-msgstr ""
+msgstr "Odtieňovať o "
 
 #. i18n: ectx: property (text), widget (QLabel, label_21)
 #: qt4/config/qtcurveconfigbase.ui:1527 qt5/config/qtcurveconfigbase.ui:1536
 #, kde-format
 msgid "Inactive tab appearance:"
-msgstr ""
+msgstr "Vzhľad neaktívnej karty:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tabAppearance)
 #: qt4/config/qtcurveconfigbase.ui:1534 qt5/config/qtcurveconfigbase.ui:1543
 #, kde-format
 msgid "<p>Defines the gradient to be used for the inactive tabs."
-msgstr ""
+msgstr "<p>Definuje prechod použitý pre neaktívne karty.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_33)
 #: qt4/config/qtcurveconfigbase.ui:1541 qt5/config/qtcurveconfigbase.ui:1550
 #, kde-format
 msgid "Mouse-over:"
-msgstr ""
+msgstr "Prejdenie myšou:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tabMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:1548 qt5/config/qtcurveconfigbase.ui:1557
@@ -2614,11 +2756,11 @@ msgid ""
 "mouse. Note, if 'glow' is selected, then 'Round tabs' will be set to 'All' - "
 "and this creates a 2 pixel gap between tabs."
 msgstr ""
+"<p>Ovláda efekt prejdenia myšou aplikovaný na kartu aktuálne pod myšou.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_49)
 #: qt4/config/qtcurveconfigbase.ui:1555 qt5/config/qtcurveconfigbase.ui:1564
-#, fuzzy, kde-format
-#| msgid "Selected background"
+#, kde-format
 msgid "Alter background by:"
 msgstr "Vybrané pozadie"
 
@@ -2627,12 +2769,11 @@ msgstr "Vybrané pozadie"
 #: qt4/config/qtcurveconfigbase.ui:1562 qt5/config/qtcurveconfigbase.ui:1571
 #, kde-format
 msgid "<p>Lightens, or darkens, the background of the whole tab widget."
-msgstr ""
+msgstr "<p>Zosvetlí alebo stmaví pozadie celého widgetu kariet.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_51)
 #: qt4/config/qtcurveconfigbase.ui:1575 qt5/config/qtcurveconfigbase.ui:1584
-#, fuzzy, kde-format
-#| msgid "Round"
+#, kde-format
 msgid "Round tabs:"
 msgstr "Okrúhle"
 
@@ -2643,11 +2784,12 @@ msgid ""
 "<p>If enabled, only the active tab is rounded - and all the inactive tabs "
 "appear closer together."
 msgstr ""
+"<p>Ak je povolené, zaoblená je iba aktívna karta - a všetky neaktívne karty "
+"sa javia bližšie pri sebe.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, roundAllTabs_false)
 #: qt4/config/qtcurveconfigbase.ui:1609 qt5/config/qtcurveconfigbase.ui:1627
-#, fuzzy, kde-format
-#| msgid "Selected background"
+#, kde-format
 msgid "Selected only"
 msgstr "Vybrané pozadie"
 
@@ -2658,10 +2800,12 @@ msgid ""
 "<p>If enabled, all tabs are rounded - there will be a 2 pixel gap between "
 "each tab if 'glow' is selected as the general colored mouse over style."
 msgstr ""
+"<p>Ak je povolené, všetky karty sú zaoblené - bude 2 pixelová medzera medzi "
+"každou kartou.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, roundAllTabs)
 #: qt4/config/qtcurveconfigbase.ui:1622 qt5/config/qtcurveconfigbase.ui:1640
-#, fuzzy, kde-format
+#, kde-format
 msgid "All"
 msgstr "Všetko"
 
@@ -2681,10 +2825,11 @@ msgid ""
 "with a light shade on the top and left, and a dark shade on the bottom and "
 "right."
 msgstr ""
+"<p>Ak je povolené, karty a widget kariet budú mať 3D štýlový okraj.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, borderTab_false)
 #: qt4/config/qtcurveconfigbase.ui:1669 qt5/config/qtcurveconfigbase.ui:1696
-#, fuzzy, kde-format
+#, kde-format
 msgid "Standard"
 msgstr "Štandardné"
 
@@ -2695,11 +2840,12 @@ msgid ""
 "<p>If enabled, the tabs and tab widget will have an outer dark border, and a "
 "light inner border."
 msgstr ""
+"<p>Ak je povolené, karty a widget kariet budú mať vonkajší tmavý okraj a "
+"svetlý vnútorný okraj.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_62)
 #: qt4/config/qtcurveconfigbase.ui:1692 qt5/config/qtcurveconfigbase.ui:1719
-#, fuzzy, kde-format
-#| msgid "Inner border:"
+#, kde-format
 msgid "Inactive tab inner border:"
 msgstr "Vnútorný okraj:"
 
@@ -2709,23 +2855,24 @@ msgstr "Vnútorný okraj:"
 msgid ""
 "<p>If enabled, inactive tabs will have a border as per the 'Border' setting."
 msgstr ""
+"<p>Ak je povolené, neaktívne karty budú mať okraj podľa nastavenia 'Okraj'.</"
+"p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, borderInactiveTab)
 #: qt4/config/qtcurveconfigbase.ui:1726 qt5/config/qtcurveconfigbase.ui:1762
 #, kde-format
 msgid "Same as active tab"
-msgstr ""
+msgstr "Rovnaké ako aktívna karta"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, borderInactiveTab_false)
 #: qt4/config/qtcurveconfigbase.ui:1736 qt5/config/qtcurveconfigbase.ui:1772
 #, kde-format
 msgid "<p>If enabled, inactive tabs will have no inner border."
-msgstr ""
+msgstr "<p>Ak je povolené, neaktívne karty nebudú mať vnútorný okraj.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, borderInactiveTab_false)
 #: qt4/config/qtcurveconfigbase.ui:1739 qt5/config/qtcurveconfigbase.ui:1775
-#, fuzzy, kde-format
-#| msgid "Inner border:"
+#, kde-format
 msgid "No inner border"
 msgstr "Vnútorný okraj:"
 
@@ -2733,7 +2880,7 @@ msgstr "Vnútorný okraj:"
 #: qt4/config/qtcurveconfigbase.ui:1749 qt5/config/qtcurveconfigbase.ui:1785
 #, kde-format
 msgid "Shade of bottom tabs:"
-msgstr ""
+msgstr "Odtieň spodných kariet:"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, invertBotTab_false)
 #: qt4/config/qtcurveconfigbase.ui:1777 qt5/config/qtcurveconfigbase.ui:1822
@@ -2744,12 +2891,14 @@ msgid ""
 "the bottom tabs will go from the background color to light - this can "
 "sometimes give the appearance that the bottom tabs are sticking out."
 msgstr ""
+"<p>Ak je povolené, karty naspodku budú používať rovnaký prechod ako karty "
+"navrchu.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, invertBotTab_false)
 #: qt4/config/qtcurveconfigbase.ui:1780 qt5/config/qtcurveconfigbase.ui:1825
 #, kde-format
 msgid "Same as top tabs"
-msgstr ""
+msgstr "Rovnaké ako horné karty"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, invertBotTab)
 #: qt4/config/qtcurveconfigbase.ui:1787 qt5/config/qtcurveconfigbase.ui:1832
@@ -2759,10 +2908,12 @@ msgid ""
 "on the top. i.e. if the top tabs shades from light to the background color, "
 "then bottom tabs will go from the background color to dark."
 msgstr ""
+"<p>Ak je povolené, karty naspodku budú používať invertovaný prechod oproti "
+"kartám navrchu.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, invertBotTab)
 #: qt4/config/qtcurveconfigbase.ui:1790 qt5/config/qtcurveconfigbase.ui:1835
-#, fuzzy, kde-format
+#, kde-format
 msgid "Invert"
 msgstr "Invertovať"
 
@@ -2770,7 +2921,7 @@ msgstr "Invertovať"
 #: qt4/config/qtcurveconfigbase.ui:1800 qt5/config/qtcurveconfigbase.ui:1845
 #, kde-format
 msgid "Tabs within toolbars:"
-msgstr ""
+msgstr "Karty v paneloch nástrojov:"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, toolbarTabs)
 #. i18n: ectx: property (toolTip), widget (QRadioButton, centerTabText_false)
@@ -2779,12 +2930,14 @@ msgstr ""
 #, kde-format
 msgid "<p>If enabled, tabs that are within toolbars will be drawn as normal."
 msgstr ""
+"<p>Ak je povolené, karty v paneloch nástrojov budú nakreslené ako normálne.</"
+"p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, toolbarTabs)
 #: qt4/config/qtcurveconfigbase.ui:1831 qt5/config/qtcurveconfigbase.ui:1885
 #, kde-format
 msgid "Draw as standard tabs"
-msgstr ""
+msgstr "Kresliť ako štandardné karty"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, toolbarTabs_false)
 #. i18n: ectx: property (toolTip), widget (QRadioButton, centerTabText)
@@ -2795,12 +2948,14 @@ msgid ""
 "<p>If enabled, tabs that are within toolbars will be drawn the same as "
 "sidebar buttons."
 msgstr ""
+"<p>Ak je povolené, karty v paneloch nástrojov budú nakreslené rovnako ako "
+"tlačidlá bočného panela.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, toolbarTabs_false)
 #: qt4/config/qtcurveconfigbase.ui:1841 qt5/config/qtcurveconfigbase.ui:1895
 #, kde-format
 msgid "Draw as per sidebar button settings"
-msgstr ""
+msgstr "Kresliť podľa nastavení tlačidiel bočného panela"
 
 #. i18n: ectx: property (text), widget (QRadioButton, centerTabText_false)
 #: qt4/config/qtcurveconfigbase.ui:1882 qt5/config/qtcurveconfigbase.ui:1945
@@ -2810,8 +2965,7 @@ msgstr "Vľavo zarovnané"
 
 #. i18n: ectx: property (text), widget (QRadioButton, centerTabText)
 #: qt4/config/qtcurveconfigbase.ui:1892 qt5/config/qtcurveconfigbase.ui:1955
-#, fuzzy, kde-format
-#| msgid "Left aligned"
+#, kde-format
 msgid "Centre aligned"
 msgstr "Vľavo zarovnané"
 
@@ -2822,12 +2976,14 @@ msgid ""
 "<p>Controls the color of the indicator part of a check or radio - ie. the "
 "'dot' or 'check' mark."
 msgstr ""
+"<p>Ovláda farbu indikátorovej časti zaškrtávacieho alebo prepínacieho poľa.</"
+"p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_53)
 #: qt4/config/qtcurveconfigbase.ui:1939 qt5/config/qtcurveconfigbase.ui:2002
 #, kde-format
 msgid "Checkmarks:"
-msgstr ""
+msgstr "Zaškrtávacie značky:"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, xCheck_false)
 #: qt4/config/qtcurveconfigbase.ui:1970 qt5/config/qtcurveconfigbase.ui:2042
@@ -2836,6 +2992,8 @@ msgid ""
 "<p>If enabled, checkboxes will have a 'tick' to indicate that they are "
 "selected."
 msgstr ""
+"<p>Ak je povolené, zaškrtávacie polia budú mať 'fajku' na indikáciu, že sú "
+"vybrané.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, xCheck_false)
 #: qt4/config/qtcurveconfigbase.ui:1973 qt5/config/qtcurveconfigbase.ui:2045
@@ -2850,6 +3008,8 @@ msgid ""
 "<p>If enabled, checkboxes will have a 'cross' (or 'X') to indicate that they "
 "are selected."
 msgstr ""
+"<p>Ak je povolené, zaškrtávacie polia budú mať 'kríž' na indikáciu, že sú "
+"vybrané.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, xCheck)
 #: qt4/config/qtcurveconfigbase.ui:1986 qt5/config/qtcurveconfigbase.ui:2058
@@ -2861,7 +3021,7 @@ msgstr "Kríž"
 #: qt4/config/qtcurveconfigbase.ui:1996 qt5/config/qtcurveconfigbase.ui:2068
 #, kde-format
 msgid "Radio 'dot':"
-msgstr ""
+msgstr "Bodka prepínača:"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, smallRadio_false)
 #: qt4/config/qtcurveconfigbase.ui:2027 qt5/config/qtcurveconfigbase.ui:2108
@@ -2870,11 +3030,13 @@ msgid ""
 "<p>If enabled, radio buttons will have a large 'dot' to indicate that they "
 "are selected."
 msgstr ""
+"<p>Ak je povolené, prepínacie polia budú mať veľkú 'bodku' na indikáciu, že "
+"sú vybrané.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, smallRadio_false)
 #: qt4/config/qtcurveconfigbase.ui:2030 qt4/kwinconfig/qtcurvekwinconfig.cpp:59
 #: qt5/config/qtcurveconfigbase.ui:2111 qt5/kwinconfig/qtcurvekwinconfig.cpp:58
-#, fuzzy, kde-format
+#, kde-format
 msgid "Large"
 msgstr "Veľké"
 
@@ -2885,10 +3047,12 @@ msgid ""
 "<p>If enabled, radio buttons will have a small 'dot' to indicate that they "
 "are selected."
 msgstr ""
+"<p>Ak je povolené, prepínacie polia budú mať malú 'bodku' na indikáciu, že "
+"sú vybrané.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, smallRadio)
 #: qt4/config/qtcurveconfigbase.ui:2040 qt5/config/qtcurveconfigbase.ui:2121
-#, fuzzy, kde-format
+#, kde-format
 msgid "Small"
 msgstr "Malé"
 
@@ -2901,12 +3065,14 @@ msgid ""
 "of the text associated with a checkbox, or radio button, when the mouse "
 "hovers over it."
 msgstr ""
+"<p>Definuje, o koľko by mala téma zosvetliť pozadie textu spojeného so "
+"zaškrtávacím poľom.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_70)
 #: qt4/config/qtcurveconfigbase.ui:2067 qt5/config/qtcurveconfigbase.ui:2148
 #, kde-format
 msgid "Emblem:"
-msgstr ""
+msgstr "Emblém:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, crButton)
 #: qt4/config/qtcurveconfigbase.ui:2074 qt5/config/qtcurveconfigbase.ui:2155
@@ -2915,11 +3081,12 @@ msgid ""
 "<p>Controls whether the background of the checkbox, or radio button, should "
 "appear sunken like or button like."
 msgstr ""
+"<p>Ovláda, či sa má pozadie zaškrtávacieho alebo prepínacieho poľa javiť "
+"zapustene alebo ako tlačidlo.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, crButton)
 #: qt4/config/qtcurveconfigbase.ui:2077 qt5/config/qtcurveconfigbase.ui:2158
-#, fuzzy, kde-format
-#| msgid "Button style:"
+#, kde-format
 msgid "Button like"
 msgstr "Štýl tlačidla:"
 
@@ -2933,7 +3100,7 @@ msgstr "Veľkosť:"
 #: qt4/config/qtcurveconfigbase.ui:2091 qt5/config/qtcurveconfigbase.ui:2172
 #, kde-format
 msgid "<p>Configures the size of checkboxes and radio buttons."
-msgstr ""
+msgstr "<p>Konfiguruje veľkosť zaškrtávacích a prepínacích polí.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, crColor)
 #: qt4/config/qtcurveconfigbase.ui:2098 qt5/config/qtcurveconfigbase.ui:2179
@@ -2941,18 +3108,17 @@ msgstr ""
 msgid ""
 "<p>Sets the color of selected checkboxes and radio buttons when these are "
 "set to 'button like'."
-msgstr ""
+msgstr "<p>Nastaví farbu vybraných zaškrtávacích a prepínacích polí.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_88)
 #: qt4/config/qtcurveconfigbase.ui:2112 qt5/config/qtcurveconfigbase.ui:2193
 #, kde-format
 msgid "Selected emblem:"
-msgstr ""
+msgstr "Vybraný emblém:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_23)
 #: qt4/config/qtcurveconfigbase.ui:2123 qt5/config/qtcurveconfigbase.ui:2204
-#, fuzzy, kde-format
-#| msgid "Appearance:"
+#, kde-format
 msgid "Active appearance:"
 msgstr "Vzhľad:"
 
@@ -2960,12 +3126,11 @@ msgstr "Vzhľad:"
 #: qt4/config/qtcurveconfigbase.ui:2130 qt5/config/qtcurveconfigbase.ui:2211
 #, kde-format
 msgid "<p>Controls the gradient applied to the titlebar of active windows."
-msgstr ""
+msgstr "<p>Ovláda prechod aplikovaný na titulkový pruh aktívnych okien.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_28)
 #: qt4/config/qtcurveconfigbase.ui:2137 qt5/config/qtcurveconfigbase.ui:2218
-#, fuzzy, kde-format
-#| msgid "Appearance:"
+#, kde-format
 msgid "Inactive appearance:"
 msgstr "Vzhľad:"
 
@@ -2973,7 +3138,7 @@ msgstr "Vzhľad:"
 #: qt4/config/qtcurveconfigbase.ui:2144 qt5/config/qtcurveconfigbase.ui:2225
 #, kde-format
 msgid "<p>Controls the gradient applied to the titlebar of inactive windows."
-msgstr ""
+msgstr "<p>Ovláda prechod aplikovaný na titulkový pruh neaktívnych okien.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_31)
 #: qt4/config/qtcurveconfigbase.ui:2151 qt5/config/qtcurveconfigbase.ui:2232
@@ -2989,12 +3154,11 @@ msgid ""
 "that the text is centered in the middle of the complete titlebar, whereas "
 "with 'Center (between controls)' the text is centered between the window "
 "controls to the left and right."
-msgstr ""
+msgstr "<p>Ovláda zarovnanie textu titulkového pruhu.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_74)
 #: qt4/config/qtcurveconfigbase.ui:2165 qt5/config/qtcurveconfigbase.ui:2246
-#, fuzzy, kde-format
-#| msgid "Text effect"
+#, kde-format
 msgid "Text/icon effect:"
 msgstr "Textový efekt"
 
@@ -3005,6 +3169,8 @@ msgid ""
 "<p>Controls the 'effect' applied to the text and icons - shadow, etching, or "
 "none."
 msgstr ""
+"<p>Ovláda 'efekt' aplikovaný na text a ikony - tieň, leptanie, alebo žiadny."
+"</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_43)
 #: qt4/config/qtcurveconfigbase.ui:2179 qt5/config/qtcurveconfigbase.ui:2260
@@ -3019,7 +3185,7 @@ msgid ""
 "<p>Controls where the application's icon should be drawn on the titlebar. If "
 "'Place on menu button' is selected, then the icon takes place of the menu "
 "button."
-msgstr ""
+msgstr "<p>Ovláda, kde sa má kresliť ikona aplikácie na titulkovom pruhu.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_colorTitlebarOnly)
 #: qt4/config/qtcurveconfigbase.ui:2200 qt5/config/qtcurveconfigbase.ui:2281
@@ -3028,12 +3194,13 @@ msgid ""
 "<p>If enabled, only the titlebar, and not the border, of windows will be "
 "colored."
 msgstr ""
+"<p>Ak je povolené, iba titulkový pruh, a nie okraj okien, bude zafarbený.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_colorTitlebarOnly)
 #: qt4/config/qtcurveconfigbase.ui:2203 qt5/config/qtcurveconfigbase.ui:2284
 #, kde-format
 msgid "Only color titlebar"
-msgstr ""
+msgstr "Zafarbiť iba titulkový pruh"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_blend)
 #: qt4/config/qtcurveconfigbase.ui:2210 qt5/config/qtcurveconfigbase.ui:2291
@@ -3042,12 +3209,14 @@ msgid ""
 "<p>If enabled, the background color will be used as the last part of the "
 "titlebar gradient."
 msgstr ""
+"<p>Ak je povolené, farba pozadia sa použije ako posledná časť prechodu "
+"titulkového pruhu.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_blend)
 #: qt4/config/qtcurveconfigbase.ui:2213 qt5/config/qtcurveconfigbase.ui:2294
 #, kde-format
 msgid "Blend titlebar color into background color"
-msgstr ""
+msgstr "Vmiešať farbu titulkového pruhu do farby pozadia"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_fill)
 #: qt4/config/qtcurveconfigbase.ui:2220 qt5/config/qtcurveconfigbase.ui:2301
@@ -3056,12 +3225,14 @@ msgid ""
 "<p>If enabled, before drawing the titlebar gradient, it will be filled with "
 "the background colour/gradient."
 msgstr ""
+"<p>Ak je povolené, pred kreslením prechodu titulkového pruhu bude vyplnený "
+"farbou pozadia.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_fill)
 #: qt4/config/qtcurveconfigbase.ui:2223 qt5/config/qtcurveconfigbase.ui:2304
 #, kde-format
 msgid "Fill titlebar background before applying gradient."
-msgstr ""
+msgstr "Vyplniť pozadie titulkového pruhu pred aplikovaním prechodu."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_menuColor)
 #: qt4/config/qtcurveconfigbase.ui:2230 qt5/config/qtcurveconfigbase.ui:2311
@@ -3070,18 +3241,20 @@ msgid ""
 "<p>If enabled, the configured menubar color will be used for windows that "
 "have menubars."
 msgstr ""
+"<p>Ak je povolené, nakonfigurovaná farba panela ponúk sa použije pre okná s "
+"panelmi ponúk.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, windowBorder_menuColor)
 #: qt4/config/qtcurveconfigbase.ui:2233 qt5/config/qtcurveconfigbase.ui:2314
 #, kde-format
 msgid "Use menubar color"
-msgstr ""
+msgstr "Použiť farbu panela ponúk"
 
 #. i18n: ectx: property (text), widget (QLabel, label_55)
 #: qt4/config/qtcurveconfigbase.ui:2240 qt5/config/qtcurveconfigbase.ui:2321
 #, kde-format
 msgid "Add a light border:"
-msgstr ""
+msgstr "Pridať svetlý okraj:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_addLightBorder)
 #: qt4/config/qtcurveconfigbase.ui:2247 qt5/config/qtcurveconfigbase.ui:2328
@@ -3090,11 +3263,12 @@ msgid ""
 "<p>If enabled, a 1 pixel light border is added to the top and left of the "
 "window."
 msgstr ""
+"<p>Ak je povolené, na vrch a ľavú stranu okna sa pridá 1 pixelový svetlý "
+"okraj.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_55b)
 #: qt4/config/qtcurveconfigbase.ui:2257 qt5/config/qtcurveconfigbase.ui:2338
-#, fuzzy, kde-format
-#| msgid "Inactive windows:"
+#, kde-format
 msgid "Draw separator on active windows:"
 msgstr "Neaktívne okná:"
 
@@ -3103,12 +3277,13 @@ msgstr "Neaktívne okná:"
 #, kde-format
 msgid "<p>If enabled, a separator is drawn between the titlebar and window."
 msgstr ""
+"<p>Ak je povolené, medzi titulkovým pruhom a oknom sa nakreslí oddeľovač.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_92)
 #: qt4/config/qtcurveconfigbase.ui:2274 qt5/config/qtcurveconfigbase.ui:2355
 #, kde-format
 msgid "Drag windows from:"
-msgstr ""
+msgstr "Ťahať okná z:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_56)
 #: qt4/config/qtcurveconfigbase.ui:2288 qt5/config/qtcurveconfigbase.ui:2369
@@ -3121,6 +3296,7 @@ msgstr "Tlačidlá:"
 #, kde-format
 msgid "<p>Defines the gradient used to fill the titlebar buttons."
 msgstr ""
+"<p>Definuje prechod použitý na vyplnenie tlačidiel titulkového pruhu.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_noFrame)
 #: qt4/config/qtcurveconfigbase.ui:2302 qt5/config/qtcurveconfigbase.ui:2383
@@ -3128,12 +3304,13 @@ msgstr ""
 msgid ""
 "<p>If enabled, only the symbol is drawn - and not the button background."
 msgstr ""
+"<p>Ak je povolené, nakreslí sa iba symbol - a nie pozadie tlačidla.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_noFrame)
 #: qt4/config/qtcurveconfigbase.ui:2305 qt5/config/qtcurveconfigbase.ui:2386
 #, kde-format
 msgid "Only show symbols"
-msgstr ""
+msgstr "Zobraziť iba symboly"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_round)
 #: qt4/config/qtcurveconfigbase.ui:2312 qt5/config/qtcurveconfigbase.ui:2393
@@ -3141,7 +3318,7 @@ msgstr ""
 msgid ""
 "<p>If enabled, the buttons will have a circular background - regardless of "
 "the general round setting."
-msgstr ""
+msgstr "<p>Ak je povolené, tlačidlá budú mať kruhové pozadie.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_hoverFrame)
 #: qt4/config/qtcurveconfigbase.ui:2322 qt5/config/qtcurveconfigbase.ui:2403
@@ -3150,12 +3327,13 @@ msgid ""
 "<p>If enabled, the button background (or frame) will only be shown when "
 "under the mouse."
 msgstr ""
+"<p>Ak je povolené, pozadie tlačidla sa zobrazí iba keď je pod myšou.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hoverFrame)
 #: qt4/config/qtcurveconfigbase.ui:2325 qt5/config/qtcurveconfigbase.ui:2406
 #, kde-format
 msgid "Show frame on mouse-over"
-msgstr ""
+msgstr "Zobraziť rámec pri prejdení myšou"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_hoverSymbol)
 #: qt4/config/qtcurveconfigbase.ui:2332 qt5/config/qtcurveconfigbase.ui:2413
@@ -3164,11 +3342,11 @@ msgid ""
 "<p>If enabled, the icon will only be shown at full strength when under the "
 "mouse - otherwise it will be blended with the background."
 msgstr ""
+"<p>Ak je povolené, ikona sa zobrazí v plnej sile iba keď je pod myšou.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hoverSymbol)
 #: qt4/config/qtcurveconfigbase.ui:2335 qt5/config/qtcurveconfigbase.ui:2416
-#, fuzzy, kde-format
-#| msgid "Highlight color"
+#, kde-format
 msgid "Highlight symbol on mouse-over"
 msgstr "Farba zvýraznenia"
 
@@ -3179,11 +3357,12 @@ msgid ""
 "<p>If enabled, the titlebar buttons will be drawn using the standard button "
 "color - otherwise the titlebar color will be used."
 msgstr ""
+"<p>Ak je povolené, tlačidlá titulkového pruhu budú nakreslené štandardnou "
+"farbou tlačidiel.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_button)
 #: qt4/config/qtcurveconfigbase.ui:2345 qt5/config/qtcurveconfigbase.ui:2426
-#, fuzzy, kde-format
-#| msgid "Standard font"
+#, kde-format
 msgid "Standard button color"
 msgstr "Štandardné písmo"
 
@@ -3194,11 +3373,12 @@ msgid ""
 "<p>If enabled, the titlebar buttons will be drawn using the custom colors "
 "defined in the next page."
 msgstr ""
+"<p>Ak je povolené, tlačidlá titulkového pruhu budú nakreslené vlastnými "
+"farbami.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_custom)
 #: qt4/config/qtcurveconfigbase.ui:2355 qt5/config/qtcurveconfigbase.ui:2436
-#, fuzzy, kde-format
-#| msgid "Background colors"
+#, kde-format
 msgid "Use custom background colors"
 msgstr "Farby pozadia"
 
@@ -3208,36 +3388,37 @@ msgstr "Farby pozadia"
 msgid ""
 "<p>If enabled, the colors will only be used when the button is under the "
 "mouse."
-msgstr ""
+msgstr "<p>Ak je povolené, farby sa použijú iba keď je tlačidlo pod myšou.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_colorOnMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:2365 qt5/config/qtcurveconfigbase.ui:2446
 #, kde-format
 msgid "Use color only for mouse-over"
-msgstr ""
+msgstr "Použiť farbu iba pri prejdení myšou"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_useHover)
 #: qt4/config/qtcurveconfigbase.ui:2372
 #, kde-format
 msgid "<p>If enabled, symbols will use the KDE4 hover color when moused-over."
 msgstr ""
+"<p>Ak je povolené, symboly budú používať farbu podržania KDE4 pri prejdení "
+"myšou.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_useHover)
 #: qt4/config/qtcurveconfigbase.ui:2375 qt5/config/qtcurveconfigbase.ui:2456
 #, kde-format
 msgid "Use hover color for mouse-over of symbols"
-msgstr ""
+msgstr "Použiť farbu podržania pre symboly pri prejdení myšou"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_sunkenBackground)
 #: qt4/config/qtcurveconfigbase.ui:2382 qt5/config/qtcurveconfigbase.ui:2463
 #, kde-format
 msgid "<p>If enabled, a sunken background is drawn behind the buttons."
-msgstr ""
+msgstr "<p>Ak je povolené, za tlačidlami sa nakreslí zapustené pozadie.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_sunkenBackground)
 #: qt4/config/qtcurveconfigbase.ui:2385 qt5/config/qtcurveconfigbase.ui:2466
-#, fuzzy, kde-format
-#| msgid "Menu background"
+#, kde-format
 msgid "Sunken background"
 msgstr "Pozadie ponuky"
 
@@ -3246,12 +3427,13 @@ msgstr "Pozadie ponuky"
 #, kde-format
 msgid "<p>If enabled, arrows are drawn as the icons for min and max buttons."
 msgstr ""
+"<p>Ak je povolené, šípky sa nakreslia ako ikony pre tlačidlá min a max.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_arrowMinMax)
 #: qt4/config/qtcurveconfigbase.ui:2395 qt5/config/qtcurveconfigbase.ui:2476
 #, kde-format
 msgid "Use arrows for min/max buttons"
-msgstr ""
+msgstr "Použiť šípky pre tlačidlá min/max"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_hideOnInactiveWindow)
 #: qt4/config/qtcurveconfigbase.ui:2402 qt5/config/qtcurveconfigbase.ui:2483
@@ -3260,11 +3442,12 @@ msgid ""
 "<p>If enabled, buttons on inactive windows are only drawn when the mouse "
 "hovers over them."
 msgstr ""
+"<p>Ak je povolené, tlačidlá na neaktívnych oknách sa nakreslia iba keď sa "
+"nad nimi nachádza myš.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hideOnInactiveWindow)
 #: qt4/config/qtcurveconfigbase.ui:2405 qt5/config/qtcurveconfigbase.ui:2486
-#, fuzzy, kde-format
-#| msgid "Inactive windows:"
+#, kde-format
 msgid "Hide on inactive windows"
 msgstr "Neaktívne okná:"
 
@@ -3281,12 +3464,14 @@ msgid ""
 "<p>If enabled, custom colors will be applied to the symbols, otherwise they "
 "will be applied to the button background."
 msgstr ""
+"<p>Ak je povolené, vlastné farby sa aplikujú na symboly, inak na pozadie "
+"tlačidla.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_colorSymbolsOnly)
 #: qt4/config/qtcurveconfigbase.ui:2422 qt5/config/qtcurveconfigbase.ui:2503
 #, kde-format
 msgid "Use only for symbols"
-msgstr ""
+msgstr "Použiť iba pre symboly"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_colorInactive)
 #: qt4/config/qtcurveconfigbase.ui:2429 qt5/config/qtcurveconfigbase.ui:2510
@@ -3295,11 +3480,12 @@ msgid ""
 "<p>If enabled, custom colors will be applied to active and inactive windows, "
 "otherwise they will only be applied to active windows."
 msgstr ""
+"<p>Ak je povolené, vlastné farby sa aplikujú na aktívne aj neaktívne okná.</"
+"p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_colorInactive)
 #: qt4/config/qtcurveconfigbase.ui:2432 qt5/config/qtcurveconfigbase.ui:2513
-#, fuzzy, kde-format
-#| msgid "Inactive windows:"
+#, kde-format
 msgid "Also apply to inactive windows"
 msgstr "Neaktívne okná:"
 
@@ -3307,32 +3493,29 @@ msgstr "Neaktívne okná:"
 #: qt4/config/qtcurveconfigbase.ui:2439 qt5/config/qtcurveconfigbase.ui:2520
 #, kde-format
 msgid "<p>If enabled, the symbol will not be drawn unless under the mouse."
-msgstr ""
+msgstr "<p>Ak je povolené, symbol sa nenakreslí, pokiaľ nie je pod myšou.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_hoverSymbolFull)
 #: qt4/config/qtcurveconfigbase.ui:2442 qt5/config/qtcurveconfigbase.ui:2523
 #, kde-format
 msgid "Hide symbol until mouse-over"
-msgstr ""
+msgstr "Skryť symbol do prejdenia myšou"
 
 #. i18n: ectx: property (text), widget (QCheckBox, titlebarButtons_customIcon)
 #: qt4/config/qtcurveconfigbase.ui:2449 qt5/config/qtcurveconfigbase.ui:2530
-#, fuzzy, kde-format
-#| msgid "Custom colors:"
+#, kde-format
 msgid "Use custom icon colors"
 msgstr "Vlastné farby:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_95)
 #: qt4/config/qtcurveconfigbase.ui:2469 qt5/config/qtcurveconfigbase.ui:2550
-#, fuzzy, kde-format
-#| msgid "Active Window"
+#, kde-format
 msgid "Active Icon"
 msgstr "Aktívne okno"
 
 #. i18n: ectx: property (text), widget (QLabel, label_96)
 #: qt4/config/qtcurveconfigbase.ui:2476 qt5/config/qtcurveconfigbase.ui:2557
-#, fuzzy, kde-format
-#| msgid "Inactive Window"
+#, kde-format
 msgid "Inactive Icon"
 msgstr "Neaktívne okno"
 
@@ -3340,59 +3523,59 @@ msgstr "Neaktívne okno"
 #: qt4/config/qtcurveconfigbase.ui:2489 qt5/config/qtcurveconfigbase.ui:2570
 #, kde-format
 msgid "<p>Sets the custom color for 'Close' buttons."
-msgstr ""
+msgstr "<p>Nastaví vlastnú farbu pre tlačidlá 'Zavrieť'.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorMin)
 #: qt4/config/qtcurveconfigbase.ui:2502 qt5/config/qtcurveconfigbase.ui:2583
 #, kde-format
 msgid "<p>Sets the custom color for 'Minimise' buttons."
-msgstr ""
+msgstr "<p>Nastaví vlastnú farbu pre tlačidlá 'Minimalizovať'.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorMax)
 #: qt4/config/qtcurveconfigbase.ui:2515 qt5/config/qtcurveconfigbase.ui:2596
 #, kde-format
 msgid "<p>Sets the custom color for 'Maximize' and 'Restore' buttons."
-msgstr ""
+msgstr "<p>Nastaví vlastnú farbu pre tlačidlá 'Maximalizovať' a 'Obnoviť'.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorHelp)
 #: qt4/config/qtcurveconfigbase.ui:2528 qt5/config/qtcurveconfigbase.ui:2609
 #, kde-format
 msgid "<p>Sets the custom color for 'Help' buttons."
-msgstr ""
+msgstr "<p>Nastaví vlastnú farbu pre tlačidlá 'Pomocník'.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorMenu)
 #: qt4/config/qtcurveconfigbase.ui:2541 qt5/config/qtcurveconfigbase.ui:2622
 #, kde-format
 msgid "<p>Sets the custom color for 'Menu' buttons."
-msgstr ""
+msgstr "<p>Nastaví vlastnú farbu pre tlačidlá 'Ponuka'.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorShade)
 #: qt4/config/qtcurveconfigbase.ui:2554 qt5/config/qtcurveconfigbase.ui:2635
 #, kde-format
 msgid "<p>Sets the custom color for 'Shade', and 'Un-Shade', buttons."
-msgstr ""
+msgstr "<p>Nastaví vlastnú farbu pre tlačidlá 'Stiahnuť' a 'Rozvinúť'.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorAllDesktops)
 #: qt4/config/qtcurveconfigbase.ui:2567 qt5/config/qtcurveconfigbase.ui:2648
 #, kde-format
 msgid "<p>Sets the custom color for 'On All Desktop' buttons."
-msgstr ""
+msgstr "<p>Nastaví vlastnú farbu pre tlačidlá 'Na všetkých plochách'.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorKeepAbove)
 #: qt4/config/qtcurveconfigbase.ui:2580 qt5/config/qtcurveconfigbase.ui:2661
 #, kde-format
 msgid "<p>Sets the custom color for 'Keep Above' buttons."
-msgstr ""
+msgstr "<p>Nastaví vlastnú farbu pre tlačidlá 'Udržať navrchu'.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, titlebarButtons_colorKeepBelow)
 #: qt4/config/qtcurveconfigbase.ui:2593 qt5/config/qtcurveconfigbase.ui:2674
 #, kde-format
 msgid "<p>Sets the custom color for 'Keep Below' buttons."
-msgstr ""
+msgstr "<p>Nastaví vlastnú farbu pre tlačidlá 'Udržať naspodku'.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_34)
 #: qt4/config/qtcurveconfigbase.ui:2600 qt5/config/qtcurveconfigbase.ui:2681
-#, fuzzy, kde-format
+#, kde-format
 msgid "Close:"
 msgstr "Zavrieť"
 
@@ -3400,13 +3583,13 @@ msgstr "Zavrieť"
 #: qt4/config/qtcurveconfigbase.ui:2610 qt5/config/qtcurveconfigbase.ui:2691
 #, kde-format
 msgid "Minimise:"
-msgstr ""
+msgstr "Minimalizovať:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_36)
 #: qt4/config/qtcurveconfigbase.ui:2620 qt5/config/qtcurveconfigbase.ui:2701
 #, kde-format
 msgid "Maximise:"
-msgstr ""
+msgstr "Maximalizovať:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_37)
 #: qt4/config/qtcurveconfigbase.ui:2630 qt5/config/qtcurveconfigbase.ui:2711
@@ -3448,7 +3631,7 @@ msgstr "Držať pod:"
 #: qt4/config/qtcurveconfigbase.ui:2912 qt5/config/qtcurveconfigbase.ui:2993
 #, kde-format
 msgid "<p>Defines the gradient used for the background of menubars."
-msgstr ""
+msgstr "<p>Definuje prechod použitý pre pozadie panelov ponúk.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, menubarBlend)
 #. i18n: ectx: property (toolTip), widget (QPushButton, menubarBlend)
@@ -3458,19 +3641,21 @@ msgid ""
 "<p>Sets the relevant config items, so that window titlebars and menubars are "
 "blended."
 msgstr ""
+"<p>Nastaví relevantné konfiguračné položky, aby sa titulkové pruhy a panely "
+"ponúk javili ako zmiešané.</p>"
 
 #. i18n: ectx: property (text), widget (KPushButton, menubarBlend)
 #. i18n: ectx: property (text), widget (QPushButton, menubarBlend)
 #: qt4/config/qtcurveconfigbase.ui:2922 qt5/config/qtcurveconfigbase.ui:3003
 #, kde-format
 msgid "Blend with titlebar"
-msgstr ""
+msgstr "Vmiešať s titulkovým pruhom"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, shadeMenubars)
 #: qt4/config/qtcurveconfigbase.ui:2939 qt5/config/qtcurveconfigbase.ui:3020
 #, kde-format
 msgid "<p>Defines the color applied to the background of menubars."
-msgstr ""
+msgstr "<p>Definuje farbu aplikovanú na pozadie panelov ponúk.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, shadeMenubarOnlyWhenActive)
 #: qt4/config/qtcurveconfigbase.ui:2962 qt5/config/qtcurveconfigbase.ui:3043
@@ -3479,18 +3664,18 @@ msgid ""
 "<p>Defines whether the background coloration should be applied to all "
 "menubars, or just those in active windows."
 msgstr ""
+"<p>Definuje, či sa má zafarbenie pozadia aplikovať na všetky panely ponúk, "
+"alebo iba na tie v aktívnych oknách.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, shadeMenubarOnlyWhenActive)
 #: qt4/config/qtcurveconfigbase.ui:2965 qt5/config/qtcurveconfigbase.ui:3046
-#, fuzzy, kde-format
-#| msgid "Active windows:"
+#, kde-format
 msgid "Active window only"
 msgstr "Aktívne okná:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_58)
 #: qt4/config/qtcurveconfigbase.ui:2972 qt5/config/qtcurveconfigbase.ui:3053
-#, fuzzy, kde-format
-#| msgid "Menubars"
+#, kde-format
 msgid "Menubar text:"
 msgstr "Panely ponuky"
 
@@ -3501,29 +3686,30 @@ msgid ""
 "<p>If enabled, then the following two color boxes are used to set the text "
 "color to be used for normal and selected menubar items."
 msgstr ""
+"<p>Ak je povolené, nasledujúce dva farebné polia sa použijú na nastavenie "
+"farby textu pre položky panela ponúk.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, customMenuTextColor)
 #: qt4/config/qtcurveconfigbase.ui:2988 qt5/config/qtcurveconfigbase.ui:3069
 #, kde-format
 msgid "Custom colors (normal/selected)"
-msgstr ""
+msgstr "Vlastné farby (normálne/vybrané)"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, customMenuNormTextColor)
 #: qt4/config/qtcurveconfigbase.ui:3001 qt5/config/qtcurveconfigbase.ui:3082
 #, kde-format
 msgid "<p>Sets the text color of normal menubar items."
-msgstr ""
+msgstr "<p>Nastaví farbu textu normálnych položiek panela ponúk.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, customMenuSelTextColor)
 #: qt4/config/qtcurveconfigbase.ui:3017 qt5/config/qtcurveconfigbase.ui:3098
 #, kde-format
 msgid "<p>Sets the text color of selected menubar items."
-msgstr ""
+msgstr "<p>Nastaví farbu textu vybraných položiek panela ponúk.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_59)
 #: qt4/config/qtcurveconfigbase.ui:3027 qt5/config/qtcurveconfigbase.ui:3108
-#, fuzzy, kde-format
-#| msgid "Menubars"
+#, kde-format
 msgid "Menubar items:"
 msgstr "Panely ponuky"
 
@@ -3531,7 +3717,7 @@ msgstr "Panely ponuky"
 #: qt4/config/qtcurveconfigbase.ui:3034 qt5/config/qtcurveconfigbase.ui:3115
 #, kde-format
 msgid "<p>Defines the gradient to be applied to selected menubar items."
-msgstr ""
+msgstr "<p>Definuje prechod aplikovaný na vybrané položky panela ponúk.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, menubarMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:3041 qt5/config/qtcurveconfigbase.ui:3122
@@ -3540,12 +3726,14 @@ msgid ""
 "<p>If enabled, menubar items will have their background gradient applied "
 "when the mouse hovers over them."
 msgstr ""
+"<p>Ak je povolené, položky panela ponúk budú mať aplikovaný gradient pozadia "
+"pri prejdení myšou.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:3044 qt5/config/qtcurveconfigbase.ui:3125
 #, kde-format
 msgid "Enable mouse-over"
-msgstr ""
+msgstr "Povoliť prejdenie myšou"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, colorMenubarMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:3051 qt5/config/qtcurveconfigbase.ui:3132
@@ -3555,12 +3743,14 @@ msgid ""
 "over' is enabled) then it will also be colored, otherwise it will use a "
 "shade of the background color."
 msgstr ""
+"<p>Ak je povolené, pri prejdení myšou nad položkou panela ponúk bude tiež "
+"zafarbená.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, colorMenubarMouseOver)
 #: qt4/config/qtcurveconfigbase.ui:3054 qt5/config/qtcurveconfigbase.ui:3135
 #, kde-format
 msgid "Color on mouse-over"
-msgstr ""
+msgstr "Zafarbiť pri prejdení myšou"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, roundMbTopOnly)
 #: qt4/config/qtcurveconfigbase.ui:3061 qt5/config/qtcurveconfigbase.ui:3142
@@ -3569,12 +3759,14 @@ msgid ""
 "<p>If enabled, only the top (and not bottom) of selected menubar items will "
 "be rounded."
 msgstr ""
+"<p>Ak je povolené, iba vrch vybraných položiek panela ponúk bude zaoblený.</"
+"p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, roundMbTopOnly)
 #: qt4/config/qtcurveconfigbase.ui:3064 qt5/config/qtcurveconfigbase.ui:3145
 #, kde-format
 msgid "Round selected items on top only"
-msgstr ""
+msgstr "Zaobliť vybrané položky iba navrchu"
 
 #. i18n: ectx: property (text), widget (QLabel, label_68)
 #. i18n: ectx: property (text), widget (QLabel, label_91)
@@ -3582,7 +3774,7 @@ msgstr ""
 #: qt5/config/qtcurveconfigbase.ui:3152 qt5/config/qtcurveconfigbase.ui:3608
 #, kde-format
 msgid "Hiding:"
-msgstr ""
+msgstr "Skrývanie:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, menubarHiding_keyboard)
 #: qt4/config/qtcurveconfigbase.ui:3078 qt5/config/qtcurveconfigbase.ui:3159
@@ -3591,12 +3783,14 @@ msgid ""
 "<p>If enabled, menubars may be hidden (and re-shown), by using the 'Ctrl-Alt-"
 "M' key combination."
 msgstr ""
+"<p>Ak je povolené, panely ponúk môžu byť skryté pomocou klávesovej "
+"kombinácie.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarHiding_keyboard)
 #: qt4/config/qtcurveconfigbase.ui:3081 qt5/config/qtcurveconfigbase.ui:3162
 #, kde-format
 msgid "Use Ctrl-Alt-M (experimental)"
-msgstr ""
+msgstr "Použiť Ctrl-Alt-M (experimentálne)"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, menubarHiding_kwin)
 #: qt4/config/qtcurveconfigbase.ui:3088 qt5/config/qtcurveconfigbase.ui:3169
@@ -3605,6 +3799,8 @@ msgid ""
 "<p>If enabled, menubars may be hidden (and re-shown), by using a special "
 "button in the QtCurve kwin decoration."
 msgstr ""
+"<p>Ak je povolené, panely ponúk môžu byť skryté pomocou špeciálneho tlačidla "
+"v dekorácii QtCurve.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, menubarHiding_kwin)
 #. i18n: ectx: property (text), widget (QCheckBox, statusbarHiding_kwin)
@@ -3612,7 +3808,7 @@ msgstr ""
 #: qt5/config/qtcurveconfigbase.ui:3172 qt5/config/qtcurveconfigbase.ui:3628
 #, kde-format
 msgid "Window titlebar button (experimental)"
-msgstr ""
+msgstr "Tlačidlo titulkového pruhu okna (experimentálne)"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, xbar)
 #: qt4/config/qtcurveconfigbase.ui:3098
@@ -3621,17 +3817,18 @@ msgid ""
 "<p>If enabled, the theme will support embedding the menubar of KDE4 "
 "applications in Bespin's XBar."
 msgstr ""
+"<p>Ak je povolené, téma bude podporovať vloženie panela ponúk aplikácií KDE4 "
+"do XBar.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_72)
 #: qt4/config/qtcurveconfigbase.ui:3108
 #, kde-format
 msgid "XBar support:"
-msgstr ""
+msgstr "Podpora XBar:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_60)
 #: qt4/config/qtcurveconfigbase.ui:3119 qt5/config/qtcurveconfigbase.ui:3183
-#, fuzzy, kde-format
-#| msgid "Menu:"
+#, kde-format
 msgid "Menu items:"
 msgstr "Ponuka:"
 
@@ -3643,10 +3840,12 @@ msgid ""
 "gradient. This will cause them to have a rounded look if the general round "
 "setting is not set to none."
 msgstr ""
+"<p>Ak je povolené, vybrané položky ponuky budú nakreslené s okrajom okolo "
+"prechodu.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, borderMenuitems)
 #: qt4/config/qtcurveconfigbase.ui:3129 qt5/config/qtcurveconfigbase.ui:3193
-#, fuzzy, kde-format
+#, kde-format
 msgid "Border"
 msgstr "Hranica"
 
@@ -3657,23 +3856,24 @@ msgid ""
 "<p>If enabled, selected menuitems will be drawn using the 'highlight' color, "
 "otherwise a darkened shade of the background color will be used instead."
 msgstr ""
+"<p>Ak je povolené, vybrané položky ponuky budú nakreslené farbou zvýraznenia."
+"</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, useHighlightForMenu)
 #: qt4/config/qtcurveconfigbase.ui:3139 qt5/config/qtcurveconfigbase.ui:3203
 #, kde-format
 msgid "Use 'highlight' color for active items"
-msgstr ""
+msgstr "Použiť farbu 'zvýraznenia' pre aktívne položky"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, thin_menuitems)
 #: qt4/config/qtcurveconfigbase.ui:3146 qt5/config/qtcurveconfigbase.ui:3210
 #, kde-format
 msgid "<p>Enable this to reduce the height of menuitems."
-msgstr ""
+msgstr "<p>Povolením tohto sa zníži výška položiek ponuky.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, thin_menuitems)
 #: qt4/config/qtcurveconfigbase.ui:3149 qt5/config/qtcurveconfigbase.ui:3213
-#, fuzzy, kde-format
-#| msgid "Thin"
+#, kde-format
 msgid "Thinner"
 msgstr "Tenké"
 
@@ -3684,7 +3884,7 @@ msgid ""
 "<p>If enabled, then icons associated with menuitems will be drawn, otherwise "
 "they will be hidden (but the space they would have occupied will still be "
 "there)."
-msgstr ""
+msgstr "<p>Ak je povolené, ikony spojené s položkami ponuky sa nakreslia.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, menuIcons)
 #: qt4/config/qtcurveconfigbase.ui:3159 qt5/config/qtcurveconfigbase.ui:3223
@@ -3699,17 +3899,18 @@ msgid ""
 "<p>If enabled, checked menu items get only a check mark instead of a "
 "checkbox or radiobutton."
 msgstr ""
+"<p>Ak je povolené, zaškrtnuté položky ponuky dostanú iba zaškrtávaciu značku."
+"</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, onlyTicksInMenu)
 #: qt4/config/qtcurveconfigbase.ui:3169 qt5/config/qtcurveconfigbase.ui:3233
 #, kde-format
 msgid "Check marks only"
-msgstr ""
+msgstr "Iba zaškrtávacie značky"
 
 #. i18n: ectx: property (text), widget (QLabel, label_26)
 #: qt4/config/qtcurveconfigbase.ui:3176 qt5/config/qtcurveconfigbase.ui:3240
-#, fuzzy, kde-format
-#| msgid "Menu background"
+#, kde-format
 msgid "Shade background by:"
 msgstr "Pozadie ponuky"
 
@@ -3724,18 +3925,20 @@ msgid ""
 "<p>Defines the amount by which the popup menu background will be lightened "
 "(or darkened)."
 msgstr ""
+"<p>Definuje mieru, o ktorú bude pozadie vyskakovacej ponuky zosvetlené "
+"(alebo stmavené).</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, menuBgndAppearance)
 #: qt4/config/qtcurveconfigbase.ui:3202 qt5/config/qtcurveconfigbase.ui:3266
 #, kde-format
 msgid "<p>Defines the gradient applied to the background of the popup menus."
-msgstr ""
+msgstr "<p>Definuje prechod aplikovaný na pozadie vyskakovacích ponúk.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, menuBgndGrad)
 #: qt4/config/qtcurveconfigbase.ui:3218 qt5/config/qtcurveconfigbase.ui:3282
 #, kde-format
 msgid "<p>Defines background gradient orientation."
-msgstr ""
+msgstr "<p>Definuje orientáciu prechodu pozadia.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, menuBgndImage)
 #: qt4/config/qtcurveconfigbase.ui:3235 qt5/config/qtcurveconfigbase.ui:3299
@@ -3746,11 +3949,15 @@ msgid ""
 "rings with borders.</li><li>Plain rings - 'Air' like rings, but without any "
 "border.</li><li>Square rings - 3 simple rounded squares.</li></ul></p>"
 msgstr ""
+"<p>Toto pridá obrázok pozadia do vyskakovacích ponúk.\n"
+"            <ul><li>Žiadny - Žiadny obrázok.</li><li>Ohraničené krúžky - "
+"krúžky v štýle 'Air' s okrajmi.</li><li>Jednoduché krúžky - krúžky v štýle "
+"'Air', ale bez okraja.</li><li>Štvorcové krúžky - 3 jednoduché zaoblené "
+"štvorce.</li></ul></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_45)
 #: qt4/config/qtcurveconfigbase.ui:3251
-#, fuzzy, kde-format
-#| msgid "&Submenu"
+#, kde-format
 msgid "Sub-menu delay:"
 msgstr "Podponuka"
 
@@ -3759,7 +3966,7 @@ msgstr "Podponuka"
 #: qt4/config/qtcurveconfigbase.ui:3258 qt5/config/qtcurveconfigbase.ui:3322
 #, kde-format
 msgid "<p>Defines the delay before a sub-menu appears."
-msgstr ""
+msgstr "<p>Definuje oneskorenie pred zobrazením podponuky.</p>"
 
 #. i18n: ectx: property (suffix), widget (KIntNumInput, menuDelay)
 #. i18n: ectx: property (suffix), widget (KIntNumInput, menuCloseDelay)
@@ -3777,17 +3984,19 @@ msgstr "ms"
 msgid ""
 "<p>Defines the delay before a sub-menu closes. Applicable on Qt 5.5 or later"
 msgstr ""
+"<p>Definuje oneskorenie pred zatvorením podponuky. Aplikovateľné na Qt 5.5 "
+"alebo novšom.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_103)
 #. i18n: ectx: property (text), widget (QLabel, label_72)
 #: qt4/config/qtcurveconfigbase.ui:3281 qt5/config/qtcurveconfigbase.ui:3429
 #, kde-format
 msgid "Sub-menu close delay:"
-msgstr ""
+msgstr "Oneskorenie zatvorenia podponuky:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_44)
 #: qt4/config/qtcurveconfigbase.ui:3288 qt5/config/qtcurveconfigbase.ui:3335
-#, fuzzy, kde-format
+#, kde-format
 msgid "Stripe:"
 msgstr "pásik"
 
@@ -3797,18 +4006,17 @@ msgstr "pásik"
 msgid ""
 "<p>Defines the coloration of the menu-stripe that will be drawn on the left "
 "of popup menus - but only if this option is not set to 'none'."
-msgstr ""
+msgstr "<p>Definuje zafarbenie pruhu ponuky.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, menuStripeAppearance)
 #: qt4/config/qtcurveconfigbase.ui:3321 qt5/config/qtcurveconfigbase.ui:3368
 #, kde-format
 msgid "<p>Defines the gradient to be used for the menu stripe."
-msgstr ""
+msgstr "<p>Definuje prechod použitý pre pruh ponuky.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_61)
 #: qt4/config/qtcurveconfigbase.ui:3328 qt5/config/qtcurveconfigbase.ui:3375
-#, fuzzy, kde-format
-#| msgid "Popup menus"
+#, kde-format
 msgid "Border popupmenus:"
 msgstr "Kontextové menu"
 
@@ -3819,13 +4027,13 @@ msgid ""
 "<p>If enabled, the whole popup menu will have a border, otherwise no border "
 "will be drawn. This option should be enabled unless you have also enabled "
 "shadows in your window manager."
-msgstr ""
+msgstr "<p>Ak je povolené, celá vyskakovacia ponuka bude mať okraj.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_97)
 #: qt4/config/qtcurveconfigbase.ui:3345 qt5/config/qtcurveconfigbase.ui:3392
 #, kde-format
 msgid "Use menubar colour settings:"
-msgstr ""
+msgstr "Použiť nastavenia farieb panela ponúk:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, buttonStyleMenuSections)
 #: qt4/config/qtcurveconfigbase.ui:3359 qt5/config/qtcurveconfigbase.ui:3406
@@ -3835,30 +4043,33 @@ msgid ""
 "buttons.</p><p>When disabled, they are left-aligned under a separator line "
 "and use a bold, underlined typeface.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Keď je povolené, nadpisy sekcií ponuky vyzerajú ako "
+"tlačidlá.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, buttonStyleMenuSections)
 #: qt4/config/qtcurveconfigbase.ui:3362 qt5/config/qtcurveconfigbase.ui:3409
 #, kde-format
 msgid "Use button-like menu section headers"
-msgstr ""
+msgstr "Použiť hlavičky sekcií ponúk ako tlačidlá"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, toolbarAppearance)
 #: qt4/config/qtcurveconfigbase.ui:3386 qt5/config/qtcurveconfigbase.ui:3450
 #, kde-format
 msgid "<p>Defines the gradient used to draw the background of toolbars."
 msgstr ""
+"<p>Definuje prechod použitý na kreslenie pozadia panelov nástrojov.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: qt4/config/qtcurveconfigbase.ui:3393 qt5/config/qtcurveconfigbase.ui:3457
 #, kde-format
 msgid "Handles:"
-msgstr ""
+msgstr "Úchytky:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, handles)
 #: qt4/config/qtcurveconfigbase.ui:3403 qt5/config/qtcurveconfigbase.ui:3467
 #, kde-format
 msgid "<p>Defines the look of the toolbar handles."
-msgstr ""
+msgstr "<p>Definuje vzhľad úchytiek panelov nástrojov.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
 #: qt4/config/qtcurveconfigbase.ui:3410 qt5/config/qtcurveconfigbase.ui:3474
@@ -3871,6 +4082,7 @@ msgstr "Oddeľovače:"
 #, kde-format
 msgid "<p>Defines the style used to draw toolbar separators."
 msgstr ""
+"<p>Definuje štýl použitý na kreslenie oddeľovačov panelov nástrojov.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, toolbarBorders)
 #: qt4/config/qtcurveconfigbase.ui:3437 qt5/config/qtcurveconfigbase.ui:3501
@@ -3878,7 +4090,7 @@ msgstr ""
 msgid ""
 "<p>Defines the border type drawn around the toolbar. (This setting also "
 "affects menubars)."
-msgstr ""
+msgstr "<p>Definuje typ okraja nakresleného okolo panela nástrojov.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_4b)
 #: qt4/config/qtcurveconfigbase.ui:3444 qt5/config/qtcurveconfigbase.ui:3508
@@ -3890,30 +4102,29 @@ msgstr "Štýl tlačidla:"
 #: qt4/config/qtcurveconfigbase.ui:3454 qt5/config/qtcurveconfigbase.ui:3518
 #, kde-format
 msgid "<p>Defines the style used for toolbar buttons."
-msgstr ""
+msgstr "<p>Definuje štýl použitý pre tlačidlá panelov nástrojov.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_84)
 #: qt4/config/qtcurveconfigbase.ui:3461 qt5/config/qtcurveconfigbase.ui:3525
 #, kde-format
 msgid "Colored mouse-over:"
-msgstr ""
+msgstr "Farebné prejdenie myšou:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, coloredTbarMo_false)
 #: qt4/config/qtcurveconfigbase.ui:3479 qt5/config/qtcurveconfigbase.ui:3543
 #, kde-format
 msgid "Only for glow mouse-over style"
-msgstr ""
+msgstr "Iba pre štýl žiariaceho prejdenia myšou"
 
 #. i18n: ectx: property (text), widget (QRadioButton, coloredTbarMo)
 #: qt4/config/qtcurveconfigbase.ui:3486 qt5/config/qtcurveconfigbase.ui:3550
 #, kde-format
 msgid "For all mouse-over styles"
-msgstr ""
+msgstr "Pre všetky štýly prejdenia myšou"
 
 #. i18n: ectx: property (text), widget (QLabel, label_78)
 #: qt4/config/qtcurveconfigbase.ui:3495 qt5/config/qtcurveconfigbase.ui:3559
-#, fuzzy, kde-format
-#| msgid "Appearance:"
+#, kde-format
 msgid "Button appearance:"
 msgstr "Vzhľad:"
 
@@ -3922,18 +4133,20 @@ msgstr "Vzhľad:"
 #, kde-format
 msgid "<p>Defines the gradient used to draw buttons within toolbars.</p>"
 msgstr ""
+"<p>Definuje prechod použitý na kreslenie tlačidiel v paneloch nástrojov.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, tbarBtnEffect)
 #: qt4/config/qtcurveconfigbase.ui:3516 qt5/config/qtcurveconfigbase.ui:3580
 #, kde-format
 msgid "<p>Control what effect should be applied to buttons in toolbars.</p>"
 msgstr ""
+"<p>Ovláda aký efekt sa má aplikovať na tlačidlá v paneloch nástrojov.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_90)
 #: qt4/config/qtcurveconfigbase.ui:3527 qt5/config/qtcurveconfigbase.ui:3591
 #, kde-format
 msgid "Frames around items:"
-msgstr ""
+msgstr "Rámce okolo položiek:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, drawStatusBarFrames)
 #: qt4/config/qtcurveconfigbase.ui:3534 qt5/config/qtcurveconfigbase.ui:3598
@@ -3941,10 +4154,12 @@ msgstr ""
 msgid ""
 "<p>Controls whether QtCurve should draw frames around items in statusbars."
 msgstr ""
+"<p>Ovláda, či by mal QtCurve kresliť rámce okolo položiek v stavových "
+"riadkoch.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, drawStatusBarFrames)
 #: qt4/config/qtcurveconfigbase.ui:3537 qt5/config/qtcurveconfigbase.ui:3601
-#, fuzzy, kde-format
+#, kde-format
 msgid "Visible"
 msgstr "Viditeľný"
 
@@ -3955,12 +4170,14 @@ msgid ""
 "<p>If enabled, statusbars may be hidden (and re-shown), by using the 'Ctrl-"
 "Alt-S' key combination."
 msgstr ""
+"<p>Ak je povolené, stavové riadky môžu byť skryté pomocou klávesovej "
+"kombinácie.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, statusbarHiding_keyboard)
 #: qt4/config/qtcurveconfigbase.ui:3554 qt5/config/qtcurveconfigbase.ui:3618
 #, kde-format
 msgid "Use Ctrl-Alt-S (experimental)"
-msgstr ""
+msgstr "Použiť Ctrl-Alt-S (experimentálne)"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, statusbarHiding_kwin)
 #: qt4/config/qtcurveconfigbase.ui:3561 qt5/config/qtcurveconfigbase.ui:3625
@@ -3969,11 +4186,12 @@ msgid ""
 "<p>If enabled, statusbars may be hidden (and re-shown), by using a special "
 "button in the QtCurve kwin decoration."
 msgstr ""
+"<p>Ak je povolené, stavové riadky môžu byť skryté pomocou špeciálneho "
+"tlačidla.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_73)
 #: qt4/config/qtcurveconfigbase.ui:3575 qt5/config/qtcurveconfigbase.ui:3639
-#, fuzzy, kde-format
-#| msgid "Titlebar and menubar"
+#, kde-format
 msgid "Titlebar appearance:"
 msgstr "Záhlavie a ponuka"
 
@@ -3984,6 +4202,8 @@ msgid ""
 "<p>Defines the gradient used to draw the background of the 'title' part of a "
 "dock windows."
 msgstr ""
+"<p>Definuje prechod použitý na kreslenie pozadia časti nadpisu ukotvovacích "
+"okien.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, dwtRoundTopOnly)
 #: qt4/config/qtcurveconfigbase.ui:3589 qt5/config/qtcurveconfigbase.ui:3653
@@ -3992,18 +4212,20 @@ msgid ""
 "<p>If enabled, only the top (for horizontal dock windows), or left (for "
 "vertical dock windows) will be rounded."
 msgstr ""
+"<p>Ak je povolené, zaoblený bude iba vrch alebo ľavá strana ukotvovacích "
+"okien.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtRoundTopOnly)
 #: qt4/config/qtcurveconfigbase.ui:3592 qt5/config/qtcurveconfigbase.ui:3656
 #, kde-format
 msgid "Round top/left only"
-msgstr ""
+msgstr "Zaobliť iba vrch/ľavú stranu"
 
 #. i18n: ectx: property (text), widget (QLabel, label_76)
 #: qt4/config/qtcurveconfigbase.ui:3599 qt5/config/qtcurveconfigbase.ui:3663
 #, kde-format
 msgid "Use window settings for:"
-msgstr ""
+msgstr "Použiť nastavenia okien pre:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, dwtBtnAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3606 qt5/config/qtcurveconfigbase.ui:3670
@@ -4014,11 +4236,12 @@ msgid ""
 "have their symbols drawn until the mouse hovers over (when the button "
 "background will be drawn)."
 msgstr ""
+"<p>Ak je povolené, tlačidlá na ukotovacích oknách budú mať podobný vzhľad "
+"ako na štandardných oknách.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtBtnAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3609 qt5/config/qtcurveconfigbase.ui:3673
-#, fuzzy, kde-format
-#| msgid "Appearance:"
+#, kde-format
 msgid "Button appearance"
 msgstr "Vzhľad:"
 
@@ -4030,6 +4253,8 @@ msgid ""
 "color settings of standard windows, otherwise they will use the standard "
 "background color."
 msgstr ""
+"<p>Ak je povolené, pozadie titulkových pruhov ukotvovacích okien bude "
+"používať nastavenia farieb štandardných okien.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtColAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3619 qt5/config/qtcurveconfigbase.ui:3683
@@ -4044,6 +4269,8 @@ msgid ""
 "<p>If enabled, the font of dock window titlebars will have use the font "
 "settings of standard windows, otherwise they will use the standard font."
 msgstr ""
+"<p>Ak je povolené, písmo titulkových pruhov ukotvovacích okien bude používať "
+"nastavenia písma štandardných okien.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtFontAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3629 qt5/config/qtcurveconfigbase.ui:3693
@@ -4058,6 +4285,8 @@ msgid ""
 "<p>If enabled, the text of dock window titlebars will have use the text "
 "alignment settings of standard windows, otherwise they will be left aligned."
 msgstr ""
+"<p>Ak je povolené, text titulkových pruhov ukotvovacích okien bude zarovnaný "
+"podľa nastavení štandardných okien.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtTextAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3639 qt5/config/qtcurveconfigbase.ui:3703
@@ -4073,6 +4302,8 @@ msgid ""
 "effect settings of standard windows, otherwise they will be drawn with no "
 "effect."
 msgstr ""
+"<p>Ak je povolené, text titulkových pruhov ukotvovacích okien bude používať "
+"textový efekt štandardných okien.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtEffectAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3649 qt5/config/qtcurveconfigbase.ui:3713
@@ -4087,18 +4318,18 @@ msgid ""
 "<p>If enabled, the icons of dock window titlebars will have use the colors "
 "of standard window icons, otherwise they will use the text colour setting."
 msgstr ""
+"<p>Ak je povolené, ikony titulkových pruhov ukotovacích okien budú používať "
+"farby štandardných ikon okien.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtIconColAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3659 qt5/config/qtcurveconfigbase.ui:3723
-#, fuzzy, kde-format
-#| msgid "Background colors"
+#, kde-format
 msgid "Icon colors"
 msgstr "Farby pozadia"
 
 #. i18n: ectx: property (text), widget (QLabel, label_80)
 #: qt4/config/qtcurveconfigbase.ui:3673 qt5/config/qtcurveconfigbase.ui:3737
-#, fuzzy, kde-format
-#| msgid "No buttons"
+#, kde-format
 msgid "Dialog buttons:"
 msgstr "Žiadne tlačidlá"
 
@@ -4109,12 +4340,14 @@ msgid ""
 "<p>If enabled, dialogs will use the 'Cancel / OK' button order as used in "
 "the GNOME and OSX desktops, otherwise the 'OK / Cancel' order will be used."
 msgstr ""
+"<p>Ak je povolené, dialógy budú používať poradie tlačidiel 'Zrušiť / OK' ako "
+"v GNOME a OSX.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, gtkButtonOrder)
 #: qt4/config/qtcurveconfigbase.ui:3683 qt5/config/qtcurveconfigbase.ui:3747
 #, kde-format
 msgid "Use Gtk button order"
-msgstr ""
+msgstr "Použiť poradie tlačidiel Gtk"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, reorderGtkButtons)
 #: qt4/config/qtcurveconfigbase.ui:3690 qt5/config/qtcurveconfigbase.ui:3754
@@ -4124,12 +4357,14 @@ msgid ""
 "attempt to manually set the order of buttons in Gtk dialogs.</p><p><b>NOTE:</"
 "b> This is experimental, and may produce unexpected results!</p>"
 msgstr ""
+"<p>Ak je toto povolené, QtCurve sa pokúsi manuálne nastaviť poradie "
+"tlačidiel v Gtk dialógoch.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, reorderGtkButtons)
 #: qt4/config/qtcurveconfigbase.ui:3693 qt5/config/qtcurveconfigbase.ui:3757
 #, kde-format
 msgid "Manually re-order Gtk buttons"
-msgstr ""
+msgstr "Manuálne preusporiadať tlačidlá Gtk"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stdBtnSizes)
 #: qt4/config/qtcurveconfigbase.ui:3701
@@ -4141,17 +4376,21 @@ msgid ""
 "appearance than standard buttons. QtCurve attempts to mimic this for KDE4 "
 "applications - this may be disabled by enabling this option.</p>"
 msgstr ""
+"<p>Automaticky predvolené tlačidlá sú tlačidlá, ktoré sa môžu stať "
+"'predvolenými' - t.j. budú reagovať na stlačenie 'Enter'.</p>\n"
+"<p>V aplikáciách Gtk2 majú väčšina 'automaticky predvolených' tlačidiel "
+"vyšší vzhľad ako štandardné tlačidlá. QtCurve sa to pokúša napodobniť pre "
+"aplikácie KDE4 - toto je možné zakázať povolením tejto voľby.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stdBtnSizes)
 #: qt4/config/qtcurveconfigbase.ui:3704
 #, kde-format
 msgid "Use standard size for 'auto-default' buttons (KDE4)"
-msgstr ""
+msgstr "Použiť štandardnú veľkosť pre 'automaticky predvolené' tlačidlá (KDE4)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_79)
 #: qt4/config/qtcurveconfigbase.ui:3711 qt5/config/qtcurveconfigbase.ui:3775
-#, fuzzy, kde-format
-#| msgid "Show icons"
+#, kde-format
 msgid "Gtk icons"
 msgstr "Zobraziť ikony"
 
@@ -4162,12 +4401,13 @@ msgid ""
 "<p>Enable this option so that QtCurve can attempt to map from the KDE icon "
 "names to their Gtk equivalent for Gtk applications."
 msgstr ""
+"<p>QtCurve sa pokúsi mapovať z názvov ikon KDE na ich ekvivalent Gtk.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, mapKdeIcons)
 #: qt4/config/qtcurveconfigbase.ui:3721 qt5/config/qtcurveconfigbase.ui:3785
 #, kde-format
 msgid "Use KDE equivalent"
-msgstr ""
+msgstr "Použiť ekvivalent KDE"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: qt4/config/qtcurveconfigbase.ui:3728 qt5/config/qtcurveconfigbase.ui:3792
@@ -4179,19 +4419,19 @@ msgstr "Znak pre heslo:"
 #: qt4/config/qtcurveconfigbase.ui:3741 qt5/config/qtcurveconfigbase.ui:3805
 #, kde-format
 msgid "<p>Sets the character used to hide password entries."
-msgstr ""
+msgstr "<p>Nastaví znak použitý na skrytie zadaní hesiel.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_77)
 #: qt4/config/qtcurveconfigbase.ui:3748 qt5/config/qtcurveconfigbase.ui:3812
 #, kde-format
 msgid "Gtk expander highlight:"
-msgstr ""
+msgstr "Zvýraznenie rozbaľovača Gtk:"
 
 #. i18n: ectx: property (text), widget (QLabel, shadowSizeLabel)
 #: qt4/config/qtcurveconfigbase.ui:3765 qt5/config/qtcurveconfigbase.ui:3829
 #, kde-format
 msgid "Drop shadow size:"
-msgstr ""
+msgstr "Veľkosť vrhnutého tieňa:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, dropShadowSize)
 #: qt4/config/qtcurveconfigbase.ui:3772 qt5/config/qtcurveconfigbase.ui:3836
@@ -4200,11 +4440,12 @@ msgid ""
 "<p>Sets the base value used for determining drop shadow sizes.</p><p>X11 "
 "only.</p>"
 msgstr ""
+"<p>Nastaví základnú hodnotu použitú na určenie veľkostí vrhnutých tieňov.</"
+"p><p>Iba X11.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_81)
 #: qt4/config/qtcurveconfigbase.ui:3788 qt5/config/qtcurveconfigbase.ui:3852
-#, fuzzy, kde-format
-#| msgid "Background image:"
+#, kde-format
 msgid "No background gradient:"
 msgstr "Obrázok pozadia:"
 
@@ -4216,11 +4457,12 @@ msgid ""
 "background gradient setting. </p><p>Use <i>gtk</i> to disable for all Gtk2 "
 "applications.</p>"
 msgstr ""
+"<p>Čiarkou oddelený zoznam názvov aplikácií, ktoré by nemali používať "
+"nastavenie prechodu pozadia.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_82)
 #: qt4/config/qtcurveconfigbase.ui:3802 qt5/config/qtcurveconfigbase.ui:3866
-#, fuzzy, kde-format
-#| msgid "Background image:"
+#, kde-format
 msgid "No background image:"
 msgstr "Obrázok pozadia:"
 
@@ -4232,11 +4474,12 @@ msgid ""
 "background image setting. </p><p>Use <i>gtk</i> to disable for all Gtk2 "
 "applications.</p>"
 msgstr ""
+"<p>Čiarkou oddelený zoznam názvov aplikácií, ktoré by nemali používať "
+"nastavenie obrázka pozadia.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_81b)
 #: qt4/config/qtcurveconfigbase.ui:3816 qt5/config/qtcurveconfigbase.ui:3880
-#, fuzzy, kde-format
-#| msgid "Background image:"
+#, kde-format
 msgid "No background opacity:"
 msgstr "Obrázok pozadia:"
 
@@ -4248,12 +4491,14 @@ msgid ""
 "background opacity setting. </p><p>Use <i>gtk</i> to disable for all Gtk2 "
 "applications.</p>"
 msgstr ""
+"<p>Čiarkou oddelený zoznam názvov aplikácií, ktoré by nemali používať "
+"nastavenie priehľadnosti pozadia.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_81mnu)
 #: qt4/config/qtcurveconfigbase.ui:3830 qt5/config/qtcurveconfigbase.ui:3894
 #, kde-format
 msgid "No menu opacity (and no alpha channel for Gtk2):"
-msgstr ""
+msgstr "Žiadna priehľadnosť ponuky (a žiadny alfa kanál pre Gtk2):"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, noMenuBgndOpacityApps)
 #: qt4/config/qtcurveconfigbase.ui:3837 qt5/config/qtcurveconfigbase.ui:3901
@@ -4264,12 +4509,14 @@ msgid ""
 "alpha-channel to smoothly round tooltips and popup menus.</i></p><p>Use "
 "<i>gtk</i> to disable for all Gtk2 applications.</p>"
 msgstr ""
+"<p>Čiarkou oddelený zoznam názvov aplikácií, ktoré by nemali používať "
+"nastavenie priehľadnosti ponuky.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_82y)
 #: qt4/config/qtcurveconfigbase.ui:3844 qt5/config/qtcurveconfigbase.ui:3908
 #, kde-format
 msgid "No menu stripe:"
-msgstr ""
+msgstr "Žiadny pruh ponuky:"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, noMenuStripeApps)
 #: qt4/config/qtcurveconfigbase.ui:3851 qt5/config/qtcurveconfigbase.ui:3915
@@ -4279,12 +4526,14 @@ msgid ""
 "menu stripe setting. </p><p>Use <i>gtk</i> to disable for all Gtk2 "
 "applications.</p>"
 msgstr ""
+"<p>Čiarkou oddelený zoznam názvov aplikácií, ktoré by nemali používať "
+"nastavenie pruhu ponuky.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_83)
 #: qt4/config/qtcurveconfigbase.ui:3858 qt5/config/qtcurveconfigbase.ui:3922
 #, kde-format
 msgid "Use Qt file dialog:"
-msgstr ""
+msgstr "Použiť dialóg súborov Qt:"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, useQtFileDialogApps)
 #: qt4/config/qtcurveconfigbase.ui:3865
@@ -4293,12 +4542,14 @@ msgid ""
 "<p>Comma separated list of names of Qt4 applications which should not use "
 "the KDE4 file dialog."
 msgstr ""
+"<p>Čiarkou oddelený zoznam názvov aplikácií Qt4, ktoré by nemali používať "
+"dialóg súborov KDE4.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_83a)
 #: qt4/config/qtcurveconfigbase.ui:3872 qt5/config/qtcurveconfigbase.ui:3936
 #, kde-format
 msgid "Save menubar visibility:"
-msgstr ""
+msgstr "Uložiť viditeľnosť panela ponúk:"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, menubarApps)
 #: qt4/config/qtcurveconfigbase.ui:3879
@@ -4309,12 +4560,14 @@ msgid ""
 "set for all KDE applications. The menubar state of Gtk2 applications is "
 "always manually saved.</p>"
 msgstr ""
+"<p>Čiarkou oddelený zoznam názvov aplikácií KDE4, kde QtCurve potrebuje "
+"uložiť stav panela ponúk.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_89)
 #: qt4/config/qtcurveconfigbase.ui:3886 qt5/config/qtcurveconfigbase.ui:3950
 #, kde-format
 msgid "Save statusbar visibility:"
-msgstr ""
+msgstr "Uložiť viditeľnosť stavového riadka:"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, statusbarApps)
 #: qt4/config/qtcurveconfigbase.ui:3893
@@ -4325,12 +4578,14 @@ msgid ""
 "to set for all KDE applications. The statusbar state of Gtk2 applications is "
 "always manually saved.</p>"
 msgstr ""
+"<p>Čiarkou oddelený zoznam názvov aplikácií KDE4, kde QtCurve potrebuje "
+"uložiť stav stavového riadka.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_89a)
 #: qt4/config/qtcurveconfigbase.ui:3900 qt5/config/qtcurveconfigbase.ui:3964
 #, kde-format
 msgid "Force non-native menubar:"
-msgstr ""
+msgstr "Vynútiť nenatívny panel ponúk:"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, nonnativeMenubarApps)
 #: qt4/config/qtcurveconfigbase.ui:3907
@@ -4342,6 +4597,8 @@ msgid ""
 "and Qt5 applications. Applications need to be restarted for changes to take "
 "effect.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Čiarkou oddelený zoznam názvov aplikácií, kde QtCurve "
+"inštruuje Qt nepoužívať natívny panel ponúk.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_101)
 #: qt4/config/qtcurveconfigbase.ui:3936 qt5/config/qtcurveconfigbase.ui:4000
@@ -4359,6 +4616,15 @@ msgid ""
 "</p>\n"
 "<p><code>QtCurve: Application name: \"firefox\"</code></p></i>"
 msgstr ""
+"<i><p>V hore uvedených zoznamoch musíte zadať názov spustiteľného súboru. "
+"Napr. pre Google Earth je to vlastne \"googleearth-bin\". Môžete použiť "
+"\"gtk2\" na zakázanie pre všetky aplikácie Gtk2, alebo \"kde\" pre všetky "
+"aplikácie KDE/Qt.</p>\n"
+"<p>Na určenie názvu, ktorý QtCurve detekuje, môžete spustiť aplikáciu z okna "
+"konsoly pomocou nasledujúcej syntaxe (príklad je pre Firefox):</p>\n"
+"<p><code>QTCURVE_DEBUG=1 firefox</code></p>\n"
+"<p>To spôsobí, že QtCurve zobrazí detekovaný názov procesu nasledovne:</p>\n"
+"<p><code>QtCurve: Application name: \"firefox\"</code></p></i>"
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, exportKde3Button)
 #. i18n: ectx: property (toolTip), widget (QPushButton, exportKde3Button)
@@ -4369,13 +4635,15 @@ msgid ""
 "used by KDE3 applications. This creates the relevant entries within the KDE3 "
 "kdeglobals file."
 msgstr ""
+"<p>Exportuje vašu aktuálnu paletu farieb a nastavenia písma pre aplikácie "
+"KDE3.</p>"
 
 #. i18n: ectx: property (text), widget (KPushButton, exportKde3Button)
 #. i18n: ectx: property (text), widget (QPushButton, exportKde3Button)
 #: qt4/config/qtcurveconfigbase.ui:3956 qt5/config/qtcurveconfigbase.ui:4020
 #, kde-format
 msgid "Export colors and fonts for KDE3 applications..."
-msgstr ""
+msgstr "Exportovať farby a písma pre aplikácie KDE3..."
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, exportQt3Button)
 #. i18n: ectx: property (toolTip), widget (QPushButton, exportQt3Button)
@@ -4386,35 +4654,37 @@ msgid ""
 "used by pure-Qt3 applications. This creates the relevant entries within the "
 "Qt3 ~/.qt/qtrc file."
 msgstr ""
+"<p>Exportuje vašu aktuálnu paletu farieb a nastavenia písma pre čisto Qt3 "
+"aplikácie.</p>"
 
 #. i18n: ectx: property (text), widget (KPushButton, exportQt3Button)
 #. i18n: ectx: property (text), widget (QPushButton, exportQt3Button)
 #: qt4/config/qtcurveconfigbase.ui:3966 qt5/config/qtcurveconfigbase.ui:4030
 #, kde-format
 msgid "Export colors and fonts for pure-Qt3 applications..."
-msgstr ""
+msgstr "Exportovať farby a písma pre čisto Qt3 aplikácie..."
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, gradCombo)
 #: qt4/config/qtcurveconfigbase.ui:3990 qt5/config/qtcurveconfigbase.ui:4054
 #, kde-format
 msgid "<p>Select the custom gradient to be configured."
-msgstr ""
+msgstr "<p>Vyberte vlastný prechod, ktorý sa má nakonfigurovať.</p>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_b)
 #: qt4/config/qtcurveconfigbase.ui:4011 qt5/config/qtcurveconfigbase.ui:4075
-#, fuzzy, kde-format
+#, kde-format
 msgid "Settings"
 msgstr "Nastavenia"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, gradStops)
 #: qt4/config/qtcurveconfigbase.ui:4030 qt5/config/qtcurveconfigbase.ui:4094
-#, fuzzy, no-c-format, kde-format
+#, no-c-format, kde-format
 msgid "Position (%)"
 msgstr "Pozícia"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, gradStops)
 #: qt4/config/qtcurveconfigbase.ui:4035 qt5/config/qtcurveconfigbase.ui:4099
-#, fuzzy, no-c-format, kde-format
+#, no-c-format, kde-format
 msgid "Value (%)"
 msgstr "Hodnota:"
 
@@ -4446,11 +4716,26 @@ msgid ""
 "p>\n"
 "\n"
 msgstr ""
+"<p>Definuje vnútorný okraj použitý pri kreslení tlačidiel atď. s týmto "
+"prechodom.</p>\n"
+"<ul>\n"
+"<li><i>Žiadny okraj</i> - nenakreslí sa žiadny vnútorný okraj a prechod sa "
+"rozšíri na vonkajšie okraje.</li>\n"
+"<li><i>Svetlý okraj</i> - 'svetlá' čiara sa nakreslí okolo všetkých okrajov."
+"</li>\n"
+"<li><i>3D okraj (iba svetlý)</i> - 'svetlá' čiara sa nakreslí okolo horného "
+"a ľavého okraja.</li>\n"
+"<li><i>3D okraj (tmavý a svetlý)</i> - 'svetlá' čiara sa nakreslí okolo "
+"horného a ľavého okraja a tmavšia okolo spodného a pravého okraja.</li>\n"
+"<li><i>Lesk</i> - lesk sa pridá na horný (alebo ľavý) okraj, keď sa tento "
+"prechod kreslí na tlačidlách alebo posúvačoch.</li>\n"
+"</ul>\n"
+"<p><i>Poznámka: Toto nastavenie sa nepoužíva pri kreslení náhľadu nižšie.</"
+"i></p>\n"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: qt4/config/qtcurveconfigbase.ui:4071 qt5/config/qtcurveconfigbase.ui:4135
-#, fuzzy, kde-format
-#| msgid "Gradients:"
+#, kde-format
 msgid "Gradient Stop"
 msgstr "Prechody:"
 
@@ -4473,7 +4758,7 @@ msgstr "Alfa:"
 msgid ""
 "<p>Set the position of the gradient value. 0% means the top of horizontal "
 "gradients, and the left for vertical gradients."
-msgstr ""
+msgstr "<p>Nastavte pozíciu hodnoty prechodu.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, stopValue)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, stopValue)
@@ -4483,48 +4768,47 @@ msgid ""
 "<p>Sets the strength of the gradient at the defined position. 110% would "
 "lighten a color by 10%, 90% would darken it by 10%, and 100% would be the "
 "original color."
-msgstr ""
+msgstr "<p>Nastaví silu prechodu na definovanej pozícii.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, stopAlpha)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, stopAlpha)
 #: qt4/config/qtcurveconfigbase.ui:4153 qt5/config/qtcurveconfigbase.ui:4217
 #, kde-format
 msgid "<p>Sets the alpha value of the gradient at the defined position."
-msgstr ""
+msgstr "<p>Nastaví hodnotu alfa prechodu na definovanej pozícii.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: qt4/config/qtcurveconfigbase.ui:4210 qt5/config/qtcurveconfigbase.ui:4274
-#, no-c-format, kde-format
+#, fuzzy, no-c-format, kde-format
 msgid ""
 "<p><b>NOTE: </b></p>\n"
 "<p><i><u>Position</u> has a range of 0% to 100% - 0% being top/left, and "
 "100% being bottom/right.</i></p>\n"
 "<p><i><u>Value</u> has a range of 0% to 200%. A value of 120% implies "
 "lightening by 20%, and a value of 80% implies darkening by 20%</i></p>"
-msgstr ""
+msgstr "<p><b>POZNÁMKA: </b></p>\n"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, previewColor)
 #: qt4/config/qtcurveconfigbase.ui:4248 qt5/config/qtcurveconfigbase.ui:4312
 #, kde-format
 msgid "<p>Set the color to be used in the preview."
-msgstr ""
+msgstr "<p>Nastavte farbu, ktorá sa má použiť v náhľade.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: qt4/config/qtcurveconfigbase.ui:4263 qt5/config/qtcurveconfigbase.ui:4327
 #, kde-format
 msgid "Shading routine:"
-msgstr ""
+msgstr "Rutina tieňovania:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, shading)
 #: qt4/config/qtcurveconfigbase.ui:4276 qt5/config/qtcurveconfigbase.ui:4340
 #, kde-format
 msgid "<p>Sets the color space that is used when shading a color."
-msgstr ""
+msgstr "<p>Nastaví farebný priestor používaný pri tieňovaní farby.</p>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, customShading)
 #: qt4/config/qtcurveconfigbase.ui:4283 qt5/config/qtcurveconfigbase.ui:4347
-#, fuzzy, kde-format
-#| msgid "Use custom shadows"
+#, kde-format
 msgid "Use Custom Shades"
 msgstr "Použiť vlastné tiene"
 
@@ -4550,17 +4834,31 @@ msgid ""
 "<li>Is used as the border of most widgets.</li>\n"
 "</ol></p></i>"
 msgstr ""
+"<i><p>QtCurve používa rôzne pevne zakódované hodnoty tieňovania na kreslenie "
+"prvkov ako rámce tlačidiel, pozadie stlačených tlačidiel atď. Nasleduje "
+"stručný prehľad ako sa každý odtieň používa - použite to iba ako návod, "
+"pretože odtiene sa používajú na rôzne veci.</p>\n"
+"<p><ol>\n"
+"<li>Používa sa pre svetlú časť 3D prvkov - ako okraj widgetov kariet.</li>\n"
+"<li>Používa sa pre svetlejší odtieň pruhovaných indikátorov priebehu.</li>\n"
+"<li>Používa sa pre tmavú časť 3D prvkov - ako okraj widgetov kariet.</li>\n"
+"<li>Používa sa pre tieňovaný okraj zaškrtávacích a prepínacích polí, okraje "
+"panelov nástrojov (keď sú nastavené na tmavé), tmavú časť zapustených/"
+"zdvihnutých úchytiek posuvníkov atď.</li>\n"
+"<li>Používa sa pre pozadie stlačených widgetov a okraj panelov nástrojov "
+"(keď nie sú tmavé).</li>\n"
+"<li>Používa sa ako okraj väčšiny widgetov.</li>\n"
+"</ol></p></i>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, customAlphas)
 #: qt4/config/qtcurveconfigbase.ui:4392 qt5/config/qtcurveconfigbase.ui:4456
-#, fuzzy, kde-format
-#| msgid "Use custom shadows"
+#, kde-format
 msgid "Use Custom Alpha Values"
 msgstr "Použiť vlastné tiene"
 
 #. i18n: ectx: property (text), widget (QLabel, label_light_alpha)
 #: qt4/config/qtcurveconfigbase.ui:4401 qt5/config/qtcurveconfigbase.ui:4465
-#, fuzzy, kde-format
+#, kde-format
 msgid "Light:"
 msgstr "Svetlo"
 
@@ -4574,6 +4872,8 @@ msgid ""
 "alpha value set. This behaviour maybe overridden, and alpha values always "
 "used, by checking the option above.</i></p>"
 msgstr ""
+"<p><i>QtCurve používa tmavé/svetlé okraje na vytvorenie leptaných a "
+"tieňových efektov.</i></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_dark_alpha)
 #: qt4/config/qtcurveconfigbase.ui:4440 qt5/config/qtcurveconfigbase.ui:4504
@@ -4620,7 +4920,7 @@ msgstr "Prepínač"
 
 #. i18n: ectx: property (text), widget (QCheckBox, CheckBox1)
 #: qt4/config/stylepreview.ui:106 qt5/config/stylepreview.ui:106
-#, fuzzy, kde-format
+#, kde-format
 msgid "Checkbox"
 msgstr "Zaškrtávacie pole"
 
@@ -4676,7 +4976,7 @@ msgstr "Karta 2"
 #: qt4/config/stylepreview.ui:275
 #, kde-format
 msgid "Dock Widget"
-msgstr ""
+msgstr "Widget doku"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:310 qt5/config/stylepreview.ui:310
@@ -4781,12 +5081,16 @@ msgid ""
 "One in front with a cross held high\n"
 "Come to wash my sins away..."
 msgstr ""
+"Jedenásť svätých zahalených mužov\n"
+"Siluety stoja oproti oblohe\n"
+"Jeden vpredu s krížom vysoko zdvihnutým\n"
+"Prichádzajú zmyť moje hriechy..."
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:546 qt5/config/stylepreview.ui:546
 #, kde-format
 msgid "&Regular item 1"
-msgstr ""
+msgstr "&Bežná položka 1"
 
 #. i18n: ectx: property (shortcut), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:549 qt5/config/stylepreview.ui:549
@@ -4798,7 +5102,7 @@ msgstr "Ctrl+1"
 #: qt4/config/stylepreview.ui:560 qt5/config/stylepreview.ui:560
 #, kde-format
 msgid "Regular &item 2"
-msgstr ""
+msgstr "Bežná &položka 2"
 
 #. i18n: ectx: property (shortcut), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:563 qt5/config/stylepreview.ui:563
@@ -4810,31 +5114,31 @@ msgstr "Ctrl+2"
 #: qt4/config/stylepreview.ui:577 qt5/config/stylepreview.ui:577
 #, kde-format
 msgid "&Checkable item"
-msgstr ""
+msgstr "&Zaškrtávateľná položka"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:588 qt5/config/stylepreview.ui:588
 #, kde-format
 msgid "&Exclusive item 1"
-msgstr ""
+msgstr "&Exkluzívna položka 1"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:602 qt5/config/stylepreview.ui:602
 #, kde-format
 msgid "Exclusive &item 2"
-msgstr ""
+msgstr "Exkluzívna &položka 2"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:613 qt5/config/stylepreview.ui:613
 #, kde-format
 msgid "Exclusive item &3"
-msgstr ""
+msgstr "Exkluzívna položka &3"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:621
 #, kde-format
 msgid "regular submenu item"
-msgstr ""
+msgstr "bežná položka podponuky"
 
 #: qt4/kwin/qtcurveclient.cpp:314 qt5/kwin/qtcurveclient.cpp:314
 #, kde-format
@@ -4849,20 +5153,20 @@ msgstr "Neaktívne okno"
 #: qt4/kwin/qtcurvetogglebutton.cpp:58 qt5/kwin/qtcurvetogglebutton.cpp:58
 #, kde-format
 msgid "Toggle Menubar"
-msgstr ""
+msgstr "Prepnúť panel ponúk"
 
 #: qt4/kwin/qtcurvetogglebutton.cpp:58 qt5/kwin/qtcurvetogglebutton.cpp:58
 #, kde-format
 msgid "Toggle Statusbar"
-msgstr ""
+msgstr "Prepnúť stavový riadok"
 
 #: qt4/kwin/qtcurvetogglebutton.cpp:158 qt5/kwin/qtcurvetogglebutton.cpp:158
-#, fuzzy, kde-format
+#, kde-format
 msgid "M"
 msgstr "M"
 
 #: qt4/kwin/qtcurvetogglebutton.cpp:158 qt5/kwin/qtcurvetogglebutton.cpp:158
-#, fuzzy, kde-format
+#, kde-format
 msgid "S"
 msgstr "S"
 
@@ -4904,37 +5208,37 @@ msgstr "Bez bočného okraja"
 
 #: qt4/kwinconfig/qtcurvekwinconfig.cpp:57
 #: qt5/kwinconfig/qtcurvekwinconfig.cpp:56
-#, fuzzy, kde-format
+#, kde-format
 msgid "Tiny"
 msgstr "Drobná"
 
 #: qt4/kwinconfig/qtcurvekwinconfig.cpp:58
 #: qt5/kwinconfig/qtcurvekwinconfig.cpp:57
-#, fuzzy, kde-format
+#, kde-format
 msgid "Normal"
 msgstr "Normálne"
 
 #: qt4/kwinconfig/qtcurvekwinconfig.cpp:60
 #: qt5/kwinconfig/qtcurvekwinconfig.cpp:59
-#, fuzzy, kde-format
+#, kde-format
 msgid "Very Large"
 msgstr "Veľmi veľká"
 
 #: qt4/kwinconfig/qtcurvekwinconfig.cpp:61
 #: qt5/kwinconfig/qtcurvekwinconfig.cpp:60
-#, fuzzy, kde-format
+#, kde-format
 msgid "Huge"
 msgstr "Obrovská"
 
 #: qt4/kwinconfig/qtcurvekwinconfig.cpp:62
 #: qt5/kwinconfig/qtcurvekwinconfig.cpp:61
-#, fuzzy, kde-format
+#, kde-format
 msgid "Very Huge"
 msgstr "Veľmi obrovská"
 
 #: qt4/kwinconfig/qtcurvekwinconfig.cpp:63
 #: qt5/kwinconfig/qtcurvekwinconfig.cpp:62
-#, fuzzy, kde-format
+#, kde-format
 msgid "Oversized"
 msgstr "Nadmerná"
 
@@ -4951,6 +5255,8 @@ msgid ""
 "<h3>Already Open</h3><p>Another QtCurve configuration dialog is already "
 "open. Please close the other before proceeding."
 msgstr ""
+"<h3>Už otvorené</h3><p>Ďalší konfiguračný dialóg QtCurve je už otvorený. "
+"Zatvorte prosím druhý pred pokračovaním.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4x)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:38
@@ -4964,7 +5270,7 @@ msgstr "Veľkosť okraja:"
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:45
 #, kde-format
 msgid "Controls the size of the window borders (bottom, left, and right)."
-msgstr ""
+msgstr "Ovláda veľkosť okrajov okien (spodný, ľavý a pravý)."
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:55
@@ -4981,14 +5287,14 @@ msgid ""
 "If enabled, and the QtCurve style is set to rounded, then all corners of the "
 "window decoration will be rounded. Otherwise, only the top corners will be "
 "rounded."
-msgstr ""
+msgstr "Ak je povolené, všetky rohy dekorácie okna budú zaoblené."
 
 #. i18n: ectx: property (text), widget (QCheckBox, roundBottom)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:65
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:65
 #, kde-format
 msgid "Round all corners"
-msgstr ""
+msgstr "Zaobliť všetky rohy"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, borderlessMax)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:72
@@ -4998,19 +5304,19 @@ msgid ""
 "If enabled, all borders (including the titlebar) will be removed from "
 "maximised windows."
 msgstr ""
+"Ak je povolené, všetky okraje budú odstránené z maximalizovaných okien."
 
 #. i18n: ectx: property (text), widget (QCheckBox, borderlessMax)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:75
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:75
 #, kde-format
 msgid "Remove from maximised windows"
-msgstr ""
+msgstr "Odstrániť z maximalizovaných okien"
 
 #. i18n: ectx: property (text), widget (QLabel, outerBorder_label)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:82
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:82
-#, fuzzy, kde-format
-#| msgid "Inner border:"
+#, kde-format
 msgid "Outer border:"
 msgstr "Vnútorný okraj:"
 
@@ -5021,7 +5327,7 @@ msgstr "Vnútorný okraj:"
 msgid ""
 "Adds 1 pixel border around the outside of windows. This is useful if you are "
 "not using desktop effects."
-msgstr ""
+msgstr "Pridá 1 pixelový okraj okolo vonkajšej strany okien."
 
 #. i18n: ectx: property (text), widget (QLabel, innerBorder_label)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:96
@@ -5037,7 +5343,7 @@ msgstr "Vnútorný okraj:"
 msgid ""
 "Adds a 1 pixel dark border between the window contents and the decoration. "
 "This is useful if you are using transparent decorations."
-msgstr ""
+msgstr "Pridá 1 pixelový tmavý okraj medzi obsahom okna a dekoráciou."
 
 #. i18n: ectx: property (text), widget (QLabel, groupingLabel)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:110
@@ -5053,14 +5359,14 @@ msgstr "Zoskupovanie okien:"
 msgid ""
 "If enabled, QtCurve will allow windows to be grouped - causing the titlebar "
 "to act as a kind-of tab-widget."
-msgstr ""
+msgstr "Ak je povolené, QtCurve umožní zoskupovanie okien."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:127
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:127
 #, kde-format
 msgid "Titlebar text padding:"
-msgstr ""
+msgstr "Odsadenie textu titulkového pruhu:"
 
 #. i18n: ectx: property (whatsThis), widget (KIntSpinBox, titleBarPad)
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, titleBarPad)
@@ -5071,7 +5377,7 @@ msgid ""
 "Controls the amount of extra padding added to the top and bottom of the "
 "titlebar text height. Changing this will affect the height of the titlebar "
 "and its buttons. "
-msgstr ""
+msgstr "Ovláda množstvo extra odsadenia pridaného k textu titulkového pruhu."
 
 #. i18n: ectx: property (suffix), widget (KIntSpinBox, titleBarPad)
 #. i18n: ectx: property (suffix), widget (KIntSpinBox, edgePad)
@@ -5081,7 +5387,7 @@ msgstr ""
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:154
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:137
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:154
-#, fuzzy, kde-format
+#, kde-format
 msgid "px"
 msgstr "px"
 
@@ -5090,7 +5396,7 @@ msgstr "px"
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:144
 #, kde-format
 msgid "Titlebar border padding:"
-msgstr ""
+msgstr "Odsadenie okraja titulkového pruhu:"
 
 #. i18n: ectx: property (whatsThis), widget (KIntSpinBox, edgePad)
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, edgePad)
@@ -5100,7 +5406,7 @@ msgstr ""
 msgid ""
 "Controls the amount of extra padding added to the titlebar border. Changing "
 "this will only affect the height of the titlebar, and not the buttons. "
-msgstr ""
+msgstr "Ovláda množstvo extra odsadenia pridaného k okraju titulkového pruhu. "
 
 #. i18n: ectx: property (text), widget (QLabel, noteLabel)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:182
@@ -5113,6 +5419,8 @@ msgid ""
 "gradient, or text alignment, please set the appropriate options in the "
 "widget style.</i></p>"
 msgstr ""
+"<p><b>POZNÁMKA:</b> <i>Táto dekorácia okna používa štýl widgetov QtCurve a "
+"zdieľa jeho konfiguráciu.</i></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:217
@@ -5129,7 +5437,7 @@ msgstr "Aktívne okná:"
 msgid ""
 "Controls the opacity of the active window decoration. 0% would cause the "
 "decoration to be totally translucent."
-msgstr ""
+msgstr "Ovláda priehľadnosť dekorácie aktívneho okna."
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:246
@@ -5146,14 +5454,14 @@ msgstr "Neaktívne okná:"
 msgid ""
 "Controls the opacity of the inactive window decoration. 0% would cause the "
 "decoration to be totally translucent."
-msgstr ""
+msgstr "Ovláda priehľadnosť dekorácie neaktívneho okna."
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:275
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:275
 #, kde-format
 msgid "Side and bottom borders:"
-msgstr ""
+msgstr "Bočné a spodné okraje:"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, opaqueBorder)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:282
@@ -5163,13 +5471,15 @@ msgid ""
 "If enabled, only the titlebar part of the decoration will use the opacity "
 "setting."
 msgstr ""
+"Ak je povolené, iba časť titulkového pruhu bude používať nastavenie "
+"priehľadnosti."
 
 #. i18n: ectx: property (text), widget (QCheckBox, opaqueBorder)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:285
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:285
 #, kde-format
 msgid "Ignore opacity settings"
-msgstr ""
+msgstr "Ignorovať nastavenia priehľadnosti"
 
 #. i18n: ectx: property (text), widget (QLabel, noteLabel_2)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:316
@@ -5180,6 +5490,8 @@ msgid ""
 "titlebar (and border) opacity will be controlled by the style's window and "
 "dialog background opacity settings.</i></p>"
 msgstr ""
+"<p><b>POZNÁMKA:</b> <i>Ak nastavíte vyššie uvedené hodnoty na 100%, "
+"priehľadnosť bude riadená nastaveniami štýlu.</i></p>"
 
 #. i18n: ectx: attribute (title), widget (QWidget, shadowTab)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:343
@@ -5196,7 +5508,7 @@ msgid ""
 "If enabled, QtCurve will draw its own shadows - and not use the generic "
 "window manager shadows. This will allow you to specify different shadow "
 "colours, etc, for active and inactive windows."
-msgstr ""
+msgstr "Ak je povolené, QtCurve bude kresliť svoje vlastné tiene."
 
 #. i18n: ectx: property (text), widget (QCheckBox, useShadows)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:352
@@ -5218,7 +5530,7 @@ msgstr "Aktívne okná"
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:436
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:368
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:436
-#, fuzzy, kde-format
+#, kde-format
 msgid "Size: "
 msgstr "Veľkosť: "
 
@@ -5274,12 +5586,13 @@ msgid ""
 "If enabled, the shadows of inactive windows will be drawn using the same "
 "gradient routine as that used for active windows."
 msgstr ""
+"Ak je povolené, tiene neaktívnych okien budú nakreslené rovnakou rutinou ako "
+"aktívne okná."
 
 #. i18n: ectx: property (text), widget (QCheckBox, inactiveUsesActiveGradients)
 #: qt4/kwinconfig/qtcurvekwinconfigwidget.ui:502
 #: qt5/kwinconfig/qtcurvekwinconfigwidget.ui:502
-#, fuzzy, kde-format
-#| msgid "Active windows:"
+#, kde-format
 msgid "As per active windows"
 msgstr "Aktívne okná:"
 
@@ -5287,7 +5600,7 @@ msgstr "Aktívne okná:"
 #: qt5/config/qtcurveconfigbase.ui:724
 #, kde-format
 msgid "Centred (KDE only)"
-msgstr ""
+msgstr "Vycentrované (iba KDE)"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, gtkComboMenus)
 #: qt5/config/qtcurveconfigbase.ui:796
@@ -5296,18 +5609,22 @@ msgid ""
 "<p>In Gtk, the list that is attached to a combo-box appears in the same "
 "style as a popup-menu. KDE has the ability to mimic this look.</p>"
 msgstr ""
+"<p>V Gtk sa zoznam priradený k rozbaľovaciemu poľu zobrazuje v rovnakom "
+"štýle ako vyskakovacie menu. KDE má schopnosť napodobniť tento vzhľad.</p>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_useHover)
 #: qt5/config/qtcurveconfigbase.ui:2453
 #, kde-format
 msgid "<p>If enabled, symbols will use the KDE hover color when moused-over."
 msgstr ""
+"<p>Ak je povolené, symboly budú používať farbu podržania KDE pri prejdení "
+"myšou.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_45)
 #: qt5/config/qtcurveconfigbase.ui:3315
 #, kde-format
 msgid "Sub-menu open delay:"
-msgstr ""
+msgstr "Oneskorenie otvorenia podponuky:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, menuCloseDelay)
 #: qt5/config/qtcurveconfigbase.ui:3419
@@ -5315,6 +5632,8 @@ msgstr ""
 msgid ""
 "Defines the delay before a sub-menu closes. Applicable on Qt5.5 or later"
 msgstr ""
+"Definuje oneskorenie pred zatvorením podponuky. Aplikovateľné na Qt5.5 alebo "
+"novšom."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stdBtnSizes)
 #: qt5/config/qtcurveconfigbase.ui:3765
@@ -5326,12 +5645,17 @@ msgid ""
 "appearance than standard buttons. QtCurve attempts to mimic this for KDE "
 "applications - this may be disabled by enabling this option.</p>"
 msgstr ""
+"<p>Automaticky predvolené tlačidlá sú tlačidlá, ktoré sa môžu stať "
+"'predvolenými' - t.j. budú reagovať na stlačenie 'Enter'.</p>\n"
+"<p>V aplikáciách Gtk2 majú väčšina 'automaticky predvolených' tlačidiel "
+"vyšší vzhľad ako štandardné tlačidlá. QtCurve sa to pokúša napodobniť pre "
+"aplikácie KDE4 - toto je možné zakázať povolením tejto voľby.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stdBtnSizes)
 #: qt5/config/qtcurveconfigbase.ui:3768
 #, kde-format
 msgid "Use standard size for 'auto-default' buttons (KDE)"
-msgstr ""
+msgstr "Použiť štandardnú veľkosť pre 'automaticky predvolené' tlačidlá (KDE)"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, useQtFileDialogApps)
 #: qt5/config/qtcurveconfigbase.ui:3929
@@ -5340,6 +5664,8 @@ msgid ""
 "<p>Comma separated list of names of Qt4 applications which should not use "
 "the KDE file dialog."
 msgstr ""
+"<p>Čiarkou oddelený zoznam názvov aplikácií Qt4, ktoré by nemali používať "
+"dialóg súborov KDE.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, menubarApps)
 #: qt5/config/qtcurveconfigbase.ui:3943
@@ -5350,6 +5676,8 @@ msgid ""
 "set for all KDE applications. The menubar state of Gtk2 applications is "
 "always manually saved.</p>"
 msgstr ""
+"<p>Čiarkou oddelený zoznam názvov aplikácií KDE, kde QtCurve potrebuje "
+"uložiť stav panela ponúk.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, statusbarApps)
 #: qt5/config/qtcurveconfigbase.ui:3957
@@ -5360,6 +5688,8 @@ msgid ""
 "to set for all KDE applications. The statusbar state of Gtk2 applications is "
 "always manually saved.</p>"
 msgstr ""
+"<p>Čiarkou oddelený zoznam názvov aplikácií KDE, kde QtCurve potrebuje "
+"uložiť stav stavového riadka.</p>"
 
 #. i18n: ectx: property (toolTip), widget (KLineEdit, nonnativeMenubarApps)
 #: qt5/config/qtcurveconfigbase.ui:3971
@@ -5373,16 +5703,18 @@ msgid ""
 "menu. Applications need to be restarted for changes to take effect.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Čiarkou oddelený zoznam názvov aplikácií, kde QtCurve "
+"inštruuje Qt nepoužívať natívny panel ponúk.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, RadioButton1)
 #: qt5/config/stylepreview.ui:79
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Radio button"
 msgstr "Prepínač"
 
 #. i18n: ectx: property (text), widget (QRadioButton, RadioButton2)
 #: qt5/config/stylepreview.ui:89
-#, fuzzy, kde-format
+#, kde-format
 msgid "Radio &button"
 msgstr "Prepínač"
 
@@ -5390,10 +5722,10 @@ msgstr "Prepínač"
 #: qt5/config/stylepreview.ui:275
 #, kde-format
 msgid "&Dock Widget"
-msgstr ""
+msgstr "&Widget doku"
 
 #. i18n: ectx: property (text), widget (QPlainTextEdit, plainTextEdit)
 #: qt5/config/stylepreview.ui:621
 #, kde-format
 msgid "&regular submenu item"
-msgstr ""
+msgstr "&bežná položka podponuky"
