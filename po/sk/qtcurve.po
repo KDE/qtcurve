@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -65,9 +65,9 @@ msgstr ""
 "%1"
 
 #: qt4/config/exportthemedialog.cpp:100 qt5/config/exportthemedialog.cpp:109
-#, fuzzy, kde-format
+#, kde-format
 msgid "Failed to create file: %1"
-msgstr "Zlyhalo vytvorenie súboru."
+msgstr "Zlyhalo vytvorenie súboru: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: qt4/config/imageproperties.ui:17 qt5/config/imageproperties.ui:17
@@ -1112,7 +1112,7 @@ msgstr ""
 "čisto Qt3 aplikácie?"
 
 #: qt4/config/qtcurveconfig.cpp:2187 qt5/config/qtcurveconfig.cpp:2139
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "<p>Set the following config items so that window titlebar and menubars "
 "appear blended?</p><ul><li>Menubar, titlebar, and inactive titlebar gradient "
@@ -1120,8 +1120,11 @@ msgid ""
 "li><li>Set menubar coloration to \"%2\"</li><li>Extend window dragging into "
 "menubar</li>"
 msgstr ""
-"<p>Nastaviť nasledujúce konfiguračné položky tak, aby sa titulkový pruh okna "
-"a panely ponúk javili ako zmiešané?</p>"
+"<p>Nastaviť nasledujúce konfiguračné položky so that window titlebar and "
+"menubars appear blkonieced?</p><ul><li>Menubar, titlebar, and inactive "
+"titlebar gradient to \"%1\"</li><li>Disable \"Blkoniec titlebar color into "
+"background color\"</li><li>Set menubar coloration to \"%2\"</"
+"li><li>Extkoniec window dragging into menubar</li>"
 
 #: qt4/config/qtcurveconfig.cpp:2260 qt5/config/qtcurveconfig.cpp:2212
 #, kde-format
@@ -1174,9 +1177,9 @@ msgstr "Nové prednastavenia"
 #: qt4/config/qtcurveconfig.cpp:2623 qt4/config/qtcurveconfig.cpp:2634
 #: qt5/config/qtcurveconfig.cpp:2494 qt5/config/qtcurveconfig.cpp:2579
 #: qt5/config/qtcurveconfig.cpp:2589 qt5/config/qtcurveconfig.cpp:2600
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 New"
-msgstr "Nové"
+msgstr "%1 Nové"
 
 #: qt4/config/qtcurveconfig.cpp:2535 qt5/config/qtcurveconfig.cpp:2497
 #, kde-format
@@ -1250,18 +1253,18 @@ msgid "Sorry, failed to open compressed file."
 msgstr "Prepáčte, nepodarilo sa otvoriť komprimovaný súbor."
 
 #: qt4/config/qtcurveconfig.cpp:2714 qt5/config/qtcurveconfig.cpp:2678
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Invalid compressed settings file.\n"
 "(Could not locate settings file.)"
-msgstr "Neplatný komprimovaný súbor nastavení.\n"
+msgstr "Neplatný komprimovaný súbor nastavení."
 
 #: qt4/config/qtcurveconfig.cpp:2720 qt5/config/qtcurveconfig.cpp:2680
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Invalid compressed settings file.\n"
 "(Could not list ZIP contents.)"
-msgstr "Neplatný komprimovaný súbor nastavení.\n"
+msgstr "Neplatný komprimovaný súbor nastavení."
 
 #: qt4/config/qtcurveconfig.cpp:2729 qt5/config/qtcurveconfig.cpp:2688
 #, kde-format
@@ -4779,14 +4782,14 @@ msgstr "<p>Nastaví hodnotu alfa prechodu na definovanej pozícii.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: qt4/config/qtcurveconfigbase.ui:4210 qt5/config/qtcurveconfigbase.ui:4274
-#, fuzzy, no-c-format, kde-format
+#, no-c-format, kde-format
 msgid ""
 "<p><b>NOTE: </b></p>\n"
 "<p><i><u>Position</u> has a range of 0% to 100% - 0% being top/left, and "
 "100% being bottom/right.</i></p>\n"
 "<p><i><u>Value</u> has a range of 0% to 200%. A value of 120% implies "
 "lightening by 20%, and a value of 80% implies darkening by 20%</i></p>"
-msgstr "<p><b>POZNÁMKA: </b></p>\n"
+msgstr "<p><b>POZNÁMKA: </b></p>"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, previewColor)
 #: qt4/config/qtcurveconfigbase.ui:4248 qt5/config/qtcurveconfigbase.ui:4312
@@ -4936,9 +4939,9 @@ msgstr "Rozbaľovací zoznam"
 #: qt4/config/stylepreview.ui:183 qt4/config/stylepreview.ui:210
 #: qt4/config/stylepreview.ui:470 qt5/config/stylepreview.ui:183
 #: qt5/config/stylepreview.ui:210 qt5/config/stylepreview.ui:470
-#, fuzzy, kde-format
+#, kde-format
 msgid "Item 2"
-msgstr "%1 položka"
+msgstr "Item 2"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, ComboBox1)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBox)
@@ -4946,9 +4949,9 @@ msgstr "%1 položka"
 #: qt4/config/stylepreview.ui:188 qt4/config/stylepreview.ui:215
 #: qt4/config/stylepreview.ui:445 qt5/config/stylepreview.ui:188
 #: qt5/config/stylepreview.ui:215 qt5/config/stylepreview.ui:445
-#, fuzzy, kde-format
+#, kde-format
 msgid "Item 3"
-msgstr "%1 položka"
+msgstr "Item 3"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, ComboBox1)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBox)
@@ -4956,9 +4959,9 @@ msgstr "%1 položka"
 #: qt4/config/stylepreview.ui:193 qt4/config/stylepreview.ui:220
 #: qt4/config/stylepreview.ui:420 qt5/config/stylepreview.ui:193
 #: qt5/config/stylepreview.ui:220 qt5/config/stylepreview.ui:420
-#, fuzzy, kde-format
+#, kde-format
 msgid "Item 4"
-msgstr "%1 položka"
+msgstr "Item 4"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBox)
 #: qt4/config/stylepreview.ui:205 qt5/config/stylepreview.ui:205
@@ -4992,9 +4995,9 @@ msgstr "Stĺpec 2"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:320 qt5/config/stylepreview.ui:320
-#, fuzzy, kde-format
+#, kde-format
 msgid "Item 8"
-msgstr "%1 položka"
+msgstr "Item 8"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:324 qt4/config/stylepreview.ui:349
@@ -5050,27 +5053,27 @@ msgstr "Pod 1"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:345 qt5/config/stylepreview.ui:345
-#, fuzzy, kde-format
+#, kde-format
 msgid "Item 7"
-msgstr "%1 položka"
+msgstr "Item 7"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:370 qt5/config/stylepreview.ui:370
-#, fuzzy, kde-format
+#, kde-format
 msgid "Item 6"
-msgstr "%1 položka"
+msgstr "Item 6"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:395 qt5/config/stylepreview.ui:395
-#, fuzzy, kde-format
+#, kde-format
 msgid "Item 5"
-msgstr "%1 položka"
+msgstr "Item 5"
 
 #. i18n: ectx: property (text), item, widget (QTreeWidget, treeWidget)
 #: qt4/config/stylepreview.ui:495 qt5/config/stylepreview.ui:495
-#, fuzzy, kde-format
+#, kde-format
 msgid "Item 1"
-msgstr "%1 položka"
+msgstr "Item 1"
 
 #. i18n: ectx: property (plainText), widget (QPlainTextEdit, plainTextEdit)
 #: qt4/config/stylepreview.ui:534 qt5/config/stylepreview.ui:534
