@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:01+0000\n"
-"PO-Revision-Date: 2019-11-18 13:02+0100\n"
+"PO-Revision-Date: 2026-04-10 12:00+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
@@ -5018,6 +5018,12 @@ msgid ""
 "appearance than standard buttons. QtCurve attempts to mimic this for KDE4 "
 "applications - this may be disabled by enabling this option.</p>"
 msgstr ""
+"<p>Automaticky predvolené tlačidlá sú tlačidlá, ktoré sa môžu stať "
+"'predvolenými' tlačidlami - t.j. budú reagovať na stlačenie 'enter' "
+"používateľom.</p>\n"
+"<p>V aplikáciách Gtk2 majú väčšina 'automaticky predvolených' tlačidiel "
+"vyšší vzhľad ako štandardné tlačidlá. QtCurve sa pokúša napodobniť toto pre "
+"aplikácie KDE4 - toto je možné zakázať povolením tejto voľby.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stdBtnSizes)
 #: qt4/config/qtcurveconfigbase.ui:3704
@@ -5557,6 +5563,11 @@ msgid ""
 "alpha value set. This behaviour may be overridden, and alpha values always "
 "used, by checking the option above.</i></p>"
 msgstr ""
+"<p><i>QtCurve používa tmavé/svetlé okraje na vytvorenie efektov leptania a "
+"tieňov. V predvolenom nastavení sa QtCurve pokúša zosvetliť (alebo stmaviť) "
+"pozadie rodiča na dosiahnutie tohto efektu - ak sa rodič nenájde, použije sa "
+"biela/čierna s nastavenou hodnotou alfa. Toto správanie je možné prepísať a "
+"vždy používať hodnoty alfa zaškrtnutím voľby vyššie.</i></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_dark_alpha)
 #: qt4/config/qtcurveconfigbase.ui:4440 qt5/config/qtcurveconfigbase.ui:4504
@@ -6413,7 +6424,7 @@ msgstr "Otvoriť"
 #: qt6/config/qtcurveconfig.cpp:2671 qt6/config/qtcurveconfig.cpp:2829
 #, kde-format
 msgid "QtCurve Settings Files (*"
-msgstr ""
+msgstr "Súbory nastavení QtCurve (*"
 
 #: qt5/config/qtcurveconfig.cpp:2853 qt6/config/qtcurveconfig.cpp:2828
 #, kde-format
@@ -6560,3 +6571,4 @@ msgstr "&bežná položka podponuky"
 msgid ""
 "Defines the delay before a sub-menu closes. Applicable on Qt6.5 or later"
 msgstr ""
+"Definuje oneskorenie pred zatvorením podponuky. Platí pre Qt6.5 alebo novšie"
