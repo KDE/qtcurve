@@ -1403,7 +1403,7 @@ msgstr ""
 msgid ""
 "<p>You cannot use the name \"%1\".</p><p>Please enter a different name:</p>"
 msgstr ""
-"<p>Sie können den Namen „%1“ nicht benutzen</p><p>Geben Sie bitte einen "
+"<p>Sie können den Namen „%1“ nicht verwenden</p><p>Geben Sie bitte einen "
 "anderen Namen ein:</p>"
 
 #: qt4/config/qtcurveconfig.cpp:2620 qt5/config/qtcurveconfig.cpp:2615
@@ -3737,7 +3737,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:2476
 #, kde-format
 msgid "Use arrows for min/max buttons"
-msgstr "Pfeile für die Knöpfe Minimieren/Maximieren benutzen"
+msgstr "Pfeile für die Knöpfe Minimieren/Maximieren verwenden"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_hideOnInactiveWindow)
 #: qt4/config/qtcurveconfigbase.ui:2402 qt5/config/qtcurveconfigbase.ui:2483
