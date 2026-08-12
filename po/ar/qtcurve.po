@@ -467,12 +467,12 @@ msgstr "مربع"
 #: qt4/config/qtcurveconfig.cpp:653 qt5/config/qtcurveconfig.cpp:662
 #, kde-format
 msgid "Slightly rounded"
-msgstr "مدوّر قليلاً"
+msgstr "مدوّر قليلًا"
 
 #: qt4/config/qtcurveconfig.cpp:654 qt5/config/qtcurveconfig.cpp:663
 #, kde-format
 msgid "Fully rounded"
-msgstr "مدوّر كلياً"
+msgstr "مدوّر كليًا"
 
 #: qt4/config/qtcurveconfig.cpp:655 qt5/config/qtcurveconfig.cpp:664
 #, kde-format
@@ -1504,7 +1504,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:329 qt5/config/qtcurveconfigbase.ui:338
 #, kde-format
 msgid "<p>Make buttons, and other widgets, slightly thinner.</p>"
-msgstr "<p>اجعل الأزرار، والويدجت الأخرى، أرق قليلاً.</p>"
+msgstr "<p>اجعل الأزرار، والويدجت الأخرى، أرق قليلًا.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, thin_buttons)
 #: qt4/config/qtcurveconfigbase.ui:332 qt5/config/qtcurveconfigbase.ui:341
@@ -2726,7 +2726,7 @@ msgid ""
 "mouse. Note, if 'glow' is selected, then 'Round tabs' will be set to 'All' - "
 "and this creates a 2 pixel gap between tabs."
 msgstr ""
-"<p>يتحكم في تأثير مرور الفأرة الذي يطبق على السن الذي تحت الفأرة حالياً. "
+"<p>يتحكم في تأثير مرور الفأرة الذي يطبق على السن الذي تحت الفأرة حاليًا. "
 "لاحظ، إذا اُختير 'توهج'، عندئذٍ يضبط 'الألسنة المستديرة' إلى 'الكل' - وهذا "
 "ينشئ فجوة 2 بكسل بين الألسنة."
 
@@ -2826,7 +2826,7 @@ msgstr "الحد الداخلي للسن غير النشط:"
 #, kde-format
 msgid ""
 "<p>If enabled, inactive tabs will have a border as per the 'Border' setting."
-msgstr "<p>إذا شُغّل، سيكون للألسنة غير النشطة حدود وفقاً لضبط 'الحد'."
+msgstr "<p>إذا شُغّل، سيكون للألسنة غير النشطة حدود وفقًا لضبط 'الحد'."
 
 #. i18n: ectx: property (text), widget (QRadioButton, borderInactiveTab)
 #: qt4/config/qtcurveconfigbase.ui:1726 qt5/config/qtcurveconfigbase.ui:1762
@@ -2863,7 +2863,7 @@ msgid ""
 msgstr ""
 "<p>إذا شُغّل، تستخدم الألسنة السفلية نفس التدرج الذي تستخدمه الألسنة العلوية. "
 "أي، إذا كانت الألسنة العلوية تتدرج من الفاتح إلى لون الخلفية، عندئذٍ تنتقل "
-"الألسنة السفلية من لون الخلفية إلى الفاتح - يمكن أن يعطي هذا أحياناً مظهر أن "
+"الألسنة السفلية من لون الخلفية إلى الفاتح - يمكن أن يعطي هذا أحيانًا مظهر أن "
 "الألسنة السفلية بارزة."
 
 #. i18n: ectx: property (text), widget (QRadioButton, invertBotTab_false)
@@ -2880,7 +2880,7 @@ msgid ""
 "on the top. i.e. if the top tabs shades from light to the background color, "
 "then bottom tabs will go from the background color to dark."
 msgstr ""
-"<p>إذا شُغّل، تستخدم الألسنة السفلية تدرجاً معكوساً للألسنة العلوية. أي، إذا "
+"<p>إذا شُغّل، تستخدم الألسنة السفلية تدرجًا معكوسًا للألسنة العلوية. أي، إذا "
 "كانت الألسنة العلوية تتدرج من الفاتح إلى لون الخلفية، عندئذٍ تنتقل الألسنة "
 "السفلية من لون الخلفية إلى الداكن."
 
@@ -2925,7 +2925,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:1841 qt5/config/qtcurveconfigbase.ui:1895
 #, kde-format
 msgid "Draw as per sidebar button settings"
-msgstr "ارسم وفقاً لضبط أزرار الشريط الجانبي"
+msgstr "ارسم وفقًا لضبط أزرار الشريط الجانبي"
 
 #. i18n: ectx: property (text), widget (QRadioButton, centerTabText_false)
 #: qt4/config/qtcurveconfigbase.ui:1882 qt5/config/qtcurveconfigbase.ui:1945
@@ -3215,7 +3215,7 @@ msgstr "استخدم لون شريط القائمة"
 #: qt4/config/qtcurveconfigbase.ui:2240 qt5/config/qtcurveconfigbase.ui:2321
 #, kde-format
 msgid "Add a light border:"
-msgstr "أضف حداً خفيفاً:"
+msgstr "أضف حدًا خفيفًا:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, windowBorder_addLightBorder)
 #: qt4/config/qtcurveconfigbase.ui:2247 qt5/config/qtcurveconfigbase.ui:2328
@@ -3439,7 +3439,7 @@ msgstr ""
 #: qt4/config/qtcurveconfigbase.ui:2432 qt5/config/qtcurveconfigbase.ui:2513
 #, kde-format
 msgid "Also apply to inactive windows"
-msgstr "طبّق على النوافذ غير النشطة أيضاً"
+msgstr "طبّق على النوافذ غير النشطة أيضًا"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, titlebarButtons_hoverSymbolFull)
 #: qt4/config/qtcurveconfigbase.ui:2439 qt5/config/qtcurveconfigbase.ui:2520
@@ -3696,7 +3696,7 @@ msgid ""
 "shade of the background color."
 msgstr ""
 "<p>إذا فُعِّلت، وعندما يمر مؤشر الفأرة فوق عنصر من شريط القوائم (وكان 'تفعيل "
-"مرور مؤشر الفأرة' مُفَعَّلاً)، يلون العنصر أيضاً، وإلا فإنه يستخدم تظليلاً من لون "
+"مرور مؤشر الفأرة' مُفَعَّلًا)، يلون العنصر أيضًا، وإلا فإنه يستخدم تظليلًا من لون "
 "الخلفية."
 
 #. i18n: ectx: property (text), widget (QCheckBox, colorMenubarMouseOver)
@@ -3810,7 +3810,7 @@ msgid ""
 "otherwise a darkened shade of the background color will be used instead."
 msgstr ""
 "<p>إذا فَعَّلت، ترسم عناصر القائمة المحددة باستخدام لون 'التمييز'، وإلا يستخدم "
-"تظليل داكن من لون الخلفية عوضاً عن ذلك."
+"تظليل داكن من لون الخلفية عوضًا عن ذلك."
 
 #. i18n: ectx: property (text), widget (QCheckBox, useHighlightForMenu)
 #: qt4/config/qtcurveconfigbase.ui:3139 qt5/config/qtcurveconfigbase.ui:3203
@@ -3854,7 +3854,7 @@ msgid ""
 "<p>If enabled, checked menu items get only a check mark instead of a "
 "checkbox or radiobutton."
 msgstr ""
-"<p>إذا فَعَّلت، تحصل عناصر القائمة المحددة على علامة صح فقط بدلاً من مربع اختيار "
+"<p>إذا فَعَّلت، تحصل عناصر القائمة المحددة على علامة صح فقط بدلًا من مربع اختيار "
 "أو زر اختيار."
 
 #. i18n: ectx: property (text), widget (QCheckBox, onlyTicksInMenu)
@@ -3998,8 +3998,8 @@ msgid ""
 "buttons.</p><p>When disabled, they are left-aligned under a separator line "
 "and use a bold, underlined typeface.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>عند التفعيل، تبدو عناوين أقسام القائمة كالأزرار قليلاً."
-"</p><p>عند التعطيل، تكون محاذية لليسار تحت خط فاصل وتستخدم خطاً عريضاً ومسطراً."
+"<html><head/><body><p>عند التفعيل، تبدو عناوين أقسام القائمة كالأزرار قليلًا."
+"</p><p>عند التعطيل، تكون محاذية لليسار تحت خط فاصل وتستخدم خطًا عريضًا ومسطرًا."
 "</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, buttonStyleMenuSections)
@@ -4045,7 +4045,7 @@ msgid ""
 "<p>Defines the border type drawn around the toolbar. (This setting also "
 "affects menubars)."
 msgstr ""
-"<p>يحدد نوع الحد الذي يرسم حول شريط الأدوات. (يؤثر هذا الإعداد أيضاً على "
+"<p>يحدد نوع الحد الذي يرسم حول شريط الأدوات. (يؤثر هذا الإعداد أيضًا على "
 "أشرطة القوائم)."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_4b)
@@ -4310,14 +4310,14 @@ msgid ""
 "b> This is experimental, and may produce unexpected results!</p>"
 msgstr ""
 "<p>إذا فُعِّل هذا ولم يُفَعَّل 'استخدِم ترتيب أزرار Gtk'، يحاول كيوت كيرف ضبط ترتيب "
-"الأزرار يدوياً في صناديق حوار Gtk.</p><p><b>ملاحظة:</b> هذا تجريبي، وقد ينتج "
+"الأزرار يدويًا في صناديق حوار Gtk.</p><p><b>ملاحظة:</b> هذا تجريبي، وقد ينتج "
 "عنه نتائج غير متوقعة!</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, reorderGtkButtons)
 #: qt4/config/qtcurveconfigbase.ui:3693 qt5/config/qtcurveconfigbase.ui:3757
 #, kde-format
 msgid "Manually re-order Gtk buttons"
-msgstr "أعد ترتيب أزرار Gtk يدوياً"
+msgstr "أعد ترتيب أزرار Gtk يدويًا"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, stdBtnSizes)
 #: qt4/config/qtcurveconfigbase.ui:3701
@@ -4329,7 +4329,7 @@ msgid ""
 "appearance than standard buttons. QtCurve attempts to mimic this for KDE4 "
 "applications - this may be disabled by enabling this option.</p>"
 msgstr ""
-"<p>الأزرار الافتراضية التلقائية هي أزرار يمكن أن تصبح أزراراً 'مبدئية' - أي "
+"<p>الأزرار الافتراضية التلقائية هي أزرار يمكن أن تصبح أزرارًا 'مبدئية' - أي "
 "تستجيب لضغط المستخدم على 'إدخال'.</p>\n"
 "<p>في تطبيقات Gtk2، يكون لمعظم الأزرار 'الافتراضية التلقائية' مظهر أطول من "
 "الأزرار القياسية. يحاول كيوت كيرف محاكاة هذا لتطبيقات KDE4 - يمكن تعطيل هذا "
