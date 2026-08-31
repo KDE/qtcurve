@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: None
+# SPDX-License-Identifier: CC0-1.0
+
+include:
+  - project: sysadmin/ci-utilities
+    file:
+      - /gitlab-templates/linux-qt6.yml
+      - /gitlab-templates/linux-qt6-next.yml
+      - /gitlab-templates/freebsd-qt6.yml
+      - /gitlab-templates/xml-lint.yml
+      - /gitlab-templates/yaml-lint.yml
+
+build_qt5_ubuntu_26_04:
+  stage: build
+  image: ubuntu:26.04
+  tags:
+    - Linux
+  rules:
+    - !reference [.default_rules, rules]
+  before_script:
+    - sed -i 's/ deb/ deb deb-src/' /etc/apt/sources.list.d/ubuntu.sources
+    - apt-get update
+    - apt-get install --yes eatmydata
+    - eatmydata apt-get build-dep --yes --no-install-recommends  kde-style-oxygen-qt5
+    - eatmydata apt-get install --yes --no-install-recommends ninja-build
+  script:
+    - mkdir -p build
+    - cmake -B build -G Ninja
+    - cmake --build build
+    - ctest --test-dir build --output-on-failure --output-junit JUnitTestResults.xml
+  artifacts:
+    reports:
+      junit: build/JUnitTestResults.xml
