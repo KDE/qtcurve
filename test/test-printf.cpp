@@ -69,10 +69,9 @@ main()
 
     Str::Buff<10> buff8(11);
     assert(!buff8.is_static() && buff8.size() == 11);
-    char *old_p8 = buff8.get();
     char *m_res8 = buff8.printf(TEST_FORMAT);
     assert(buff8.get() == m_res8);
-    assert(buff8.get() != old_p8);
+    assert(buff8.size() > strlen(m_res8));
 
     Str::Buff<10> buff9(1024);
     assert(!buff9.is_static() && buff9.size() == 1024);

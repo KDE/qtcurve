@@ -26,7 +26,7 @@ endif()
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 
 if(QTC_ENABLE_X11)
-  set(qtcurve_utils_LINKS ${qtcurve_utils_LINKS} ${QTC_X11_LIBRARIES})
+  set(qtcurve_utils_LINKS ${qtcurve_utils_LINKS} ${QTC_X11_LINK_LIBRARIES})
 endif()
 
 add_definitions("-DQTC_UTILS_INTERNAL -pthread")

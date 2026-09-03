@@ -79,7 +79,7 @@ add_dependencies(qtcurve-gtk2 qtc_gtk2_check_on_hdr qtc_gtk2_check_x_on_hdr
 
 target_link_libraries(qtcurve-gtk2
   ${GTK2_LDFLAGS}
-  ${GTK2_LIBRARIES}
+  ${GTK2_LINK_LIBRARIES}
   qtcurve-utils qtcurve-cairo m)
 
 install(TARGETS qtcurve-gtk2 LIBRARY DESTINATION

@@ -12,7 +12,7 @@ pkg_check_modules(CAIRO
   REQUIRED cairo
   REQUIRED pangocairo)
 include_directories(${CAIRO_INCLUDE_DIRS})
-set(qtcurve_cairo_LINKS qtcurve-utils ${CAIRO_LDFLAGSF} ${CAIRO_LIBRARIES})
+set(qtcurve_cairo_LINKS qtcurve-utils ${CAIRO_LINK_LIBRARIES})
 add_definitions("-DQTC_UTILS_INTERNAL" ${CAIRO_CFLAGS})
 
 add_library(qtcurve-cairo SHARED ${qtcurve_cairo_SRCS})
