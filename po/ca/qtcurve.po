@@ -1,16 +1,16 @@
 # Translation of qtcurve.po to Catalan
-# Copyright (C) 2017-2024 This_file_is_part_of_KDE
+# Copyright (C) 2017-2026 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # SPDX-FileCopyrightText: 2017-2018, 2020, 2022 Antoni Bella Pérez <antonibella5@yahoo.com>
-# SPDX-FileCopyrightText: 2017-2018, 2020-2024 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2017-2018, 2020-2024, 2026 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:01+0000\n"
-"PO-Revision-Date: 2024-03-21 11:39+0100\n"
+"PO-Revision-Date: 2026-09-06 20:54+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -4563,7 +4563,7 @@ msgstr "Empra el color de «ressaltat» per als elements actius"
 #: qt6/config/qtcurveconfigbase.ui:3210
 #, kde-format
 msgid "<p>Enable this to reduce the height of menuitems."
-msgstr "<p>Activeu-ho per a reduir l'alçada dels elements del menú."
+msgstr "<p>Activeu-ho per a reduir l'altura dels elements del menú."
 
 #. i18n: ectx: property (text), widget (QCheckBox, thin_menuitems)
 #: qt4/config/qtcurveconfigbase.ui:3149 qt5/config/qtcurveconfigbase.ui:3213
@@ -6356,8 +6356,8 @@ msgid ""
 "and its buttons. "
 msgstr ""
 "Controla la quantitat de farciment addicional afegit a la part superior i "
-"inferior de l'alçada del text de la barra de títol. El canvi d'això afectarà "
-"l'alçada de la barra de títol i els seus botons."
+"inferior de l'altura del text de la barra de títol. El canvi d'això afectarà "
+"l'altura de la barra de títol i els seus botons."
 
 #. i18n: ectx: property (suffix), widget (KIntSpinBox, titleBarPad)
 #. i18n: ectx: property (suffix), widget (KIntSpinBox, edgePad)
@@ -6392,7 +6392,7 @@ msgid ""
 "this will only affect the height of the titlebar, and not the buttons. "
 msgstr ""
 "Controla la quantitat de farciment addicional afegit a la vora de la barra "
-"de títol. El canvi d'això només afectarà l'alçada de la barra de títol i no "
+"de títol. El canvi d'això només afectarà l'altura de la barra de títol i no "
 "la dels botons."
 
 #. i18n: ectx: property (text), widget (QLabel, noteLabel)
