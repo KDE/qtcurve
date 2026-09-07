@@ -1884,7 +1884,7 @@ msgstr "%"
 #: qt4/config/qtcurveconfigbase.ui:592 qt5/config/qtcurveconfigbase.ui:601
 #, kde-format
 msgid "Dialogs:"
-msgstr "Boîtes de dialogues :"
+msgstr "Boites de dialogues :"
 
 #. i18n: ectx: property (toolTip), widget (KIntNumInput, dlgOpacity)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, dlgOpacity)
@@ -5110,7 +5110,7 @@ msgstr "&Sous-menu"
 #: qt4/config/stylepreview.ui:73 qt5/config/stylepreview.ui:73
 #, kde-format
 msgid "Group Box"
-msgstr "Boîte de groupe"
+msgstr "Boite de groupe"
 
 #. i18n: ectx: property (text), widget (QRadioButton, RadioButton1)
 #. i18n: ectx: property (text), widget (QRadioButton, RadioButton2)
