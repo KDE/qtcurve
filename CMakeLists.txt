@@ -253,10 +253,17 @@ if(QTC_INSTALL_PO)
   find_package(ECM 1.2.0 REQUIRED NO_MODULE)
   set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
-  if (ENABLE_QT6)
+  # Take a framework version that the build already needs. A style that
+  # has KDE support finds its own KF version and the I18n component.
+  # Each KDE branch also tests its ENABLE_QT option, because
+  # qt5/CMakeLists.txt can turn ENABLE_QT5 off when it does not find Qt 5.
+  if (ENABLE_QT6 AND QTC_QT6_ENABLE_KDE)
     set(KF_MAJOR_VERSION 6)
-  endif()
-  if (ENABLE_QT5)
+  elseif (ENABLE_QT5 AND QTC_QT5_ENABLE_KDE)
+    set(KF_MAJOR_VERSION 5)
+  elseif (ENABLE_QT6)
+    set(KF_MAJOR_VERSION 6)
+  elseif (ENABLE_QT5)
     set(KF_MAJOR_VERSION 5)
   endif()
   find_package(KF${KF_MAJOR_VERSION} REQUIRED COMPONENTS
