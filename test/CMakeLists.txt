@@ -56,3 +56,15 @@ add_test(NAME test-oneof COMMAND test-oneof)
 add_executable(test-containerof test-containerof.cpp)
 target_link_libraries(test-containerof qtcurve-utils)
 add_test(NAME test-containerof COMMAND test-containerof)
+
+# The two themerc files install to one path and must stay identical.
+add_test(NAME test-themerc-identical
+  COMMAND ${CMAKE_COMMAND} -E compare_files
+  "${PROJECT_SOURCE_DIR}/qt5/style/qtcurve.themerc"
+  "${PROJECT_SOURCE_DIR}/qt6/style/qtcurve.themerc")
+
+# The two QtCurveui.rc files install to one path and must stay identical.
+add_test(NAME test-rc-identical
+  COMMAND ${CMAKE_COMMAND} -E compare_files
+  "${PROJECT_SOURCE_DIR}/qt5/config/QtCurveui.rc"
+  "${PROJECT_SOURCE_DIR}/qt6/config/QtCurveui.rc")

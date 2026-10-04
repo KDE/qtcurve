@@ -48,6 +48,9 @@ include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 ki18n_wrap_ui(kstyle_qtcurve6_config_PART_SRCS ${kstyle_qtcurve6_config_UIS})
 
 add_library(kstyle_qtcurve6_config MODULE ${kstyle_qtcurve6_config_PART_SRCS})
+# The themerc files of both dialects name this file.
+set_target_properties(kstyle_qtcurve6_config PROPERTIES
+  OUTPUT_NAME "kstyle_qtcurve_config")
 
 target_link_libraries(kstyle_qtcurve6_config Qt6::Core Qt6::Gui Qt6::Widgets Qt6::Svg)
 target_link_libraries(kstyle_qtcurve6_config

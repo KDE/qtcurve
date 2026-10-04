@@ -78,12 +78,6 @@ endif()
 install(TARGETS qtcurve-qt6 LIBRARY DESTINATION ${QTCURVE_STYLE_DIR})
 
 if(QTC_QT6_ENABLE_KDE)
-  foreach(dir DATA_INSTALL_DIR KDE_INSTALL_DATADIR CMAKE_INSTALL_DATADIR
-      SHARE_INSTALL_PREFIX KDE_INSTALL_DATAROOTDIR CMAKE_INSTALL_DATAROOTDIR)
-    unset(${dir})
-    unset(${dir} CACHE)
-  endforeach()
-  include(KDEInstallDirs)
   install(FILES qtcurve.themerc
     DESTINATION ${KDE_INSTALL_DATADIR}/kstyle/themes)
 endif()
