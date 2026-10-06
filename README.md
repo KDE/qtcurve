@@ -77,13 +77,6 @@
 
      (Default: `On`)
 
-11. `QTC_QT6_ENABLE_KDE`:
-
-     Compile QtCurve qt6 style with KDE Frameworks 6 support and dependencies.
-
-     (Default: `On` if ECM and the KDE Frameworks 6 components are found,
-     `Off` otherwise)
-
 ## Deprecated and temporary options.
 These compile options were used to turn on/off some experimental features or
 work around for certain hardware/software/drivers. It is not guaranteed that

@@ -82,7 +82,8 @@ target_link_libraries(qtcurve-gtk2
   ${GTK2_LINK_LIBRARIES}
   qtcurve-utils qtcurve-cairo m)
 
-install(TARGETS qtcurve-gtk2 LIBRARY DESTINATION ${QTC_GTK2_ENGINE_DIR})
+install(TARGETS qtcurve-gtk2 LIBRARY DESTINATION
+  ${GTK2_LIBDIR}/gtk-2.0/${GTK2_BIN_VERSION}/engines)
 install(PROGRAMS map_kde_icons.pl DESTINATION ${GTK2_THEME_DIR}/gtk-2.0)
 install(FILES gtkrc icons3 icons4 kdeglobals
   DESTINATION ${GTK2_THEME_DIR}/gtk-2.0)

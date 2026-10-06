@@ -60,10 +60,8 @@ else()
   set(qtcurve_MOC_SRCS)
 endif()
 add_library(qtcurve-qt5 MODULE ${qtcurve_SRCS} ${qtcurve_MOC_SRCS})
-# By default, below a prefix other than the Qt 5 prefix, the Qt 6 style
-# installs as qtcurve into the same directory.
 set_target_properties(qtcurve-qt5 PROPERTIES
-  OUTPUT_NAME "qtcurve5"
+  OUTPUT_NAME "qtcurve"
   LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
   PREFIX "")
 add_dependencies(qtcurve-qt5 qtc_qt5_check_on_hdr qtc_qt5_check_x_on_hdr
@@ -83,7 +81,13 @@ if(QTC_QT5_ENABLE_KDE)
 endif()
 install(TARGETS qtcurve-qt5 LIBRARY DESTINATION ${QTCURVE_STYLE_DIR})
 
-if(QTC_QT5_ENABLE_KDE AND NOT _QTC_QT6_KDE)
+if(QTC_QT5_ENABLE_KDE)
+  foreach(dir DATA_INSTALL_DIR KDE_INSTALL_DATADIR CMAKE_INSTALL_DATADIR
+      SHARE_INSTALL_PREFIX KDE_INSTALL_DATAROOTDIR CMAKE_INSTALL_DATAROOTDIR)
+    unset(${dir})
+    unset(${dir} CACHE)
+  endforeach()
+  include(KDEInstallDirs)
   install(FILES qtcurve.themerc
     DESTINATION ${KDE_INSTALL_DATADIR}/kstyle/themes)
 endif()

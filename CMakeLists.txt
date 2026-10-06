@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 
 project(QtCurve)
 
+include(GNUInstallDirs)
 include(FeatureSummary)
 
 ## Temporary
@@ -44,7 +45,7 @@ qtc_option(ENABLE_QT4 "Building Qt4 theme." On)
 qtc_option(ENABLE_QT5 "Building Qt5 theme." On)
 qtc_option(ENABLE_QT6 "Building Qt6 theme." On)
 qtc_option(ENABLE_GTK2 "Building Gtk2 theme." On)
-qtc_option(QTC_QT6_ENABLE_KDE "Building Qt6 style with KDE Frameworks 6 support." On)
+qtc_option(QTC_QT6_ENABLE_KDE "Building Qt6 style with KDE Frameworks 6 support." Off)
 # option(ENABLE_GTK3 "Building Gtk3 theme." On)
 option(BUILD_TESTING "Enable testing." On)
 option(QTC_ENABLE_X11 "Enable X11" On)
@@ -65,31 +66,6 @@ endif()
 
 option(QTC_QT4_STYLE_SUPPORT
   "Qt4 support for creating a style for each QtCurve theme." Off)
-
-# Keep this block above include(GNUInstallDirs) and equal to the libdir rule
-# of ECM in KDEInstallDirsCommon.cmake.
-if(NOT CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT AND
-    NOT CMAKE_INSTALL_PREFIX MATCHES "^/usr/?$" AND (ENABLE_QT6 OR ENABLE_QT5)
-    AND NOT DEFINED CACHE{CMAKE_INSTALL_LIBDIR})
-  set(_QTC_LIBDIR lib)
-  if(KDE_INSTALL_LIBDIR)
-    set(_QTC_LIBDIR "${KDE_INSTALL_LIBDIR}")
-  elseif((CMAKE_SYSTEM_NAME MATCHES "Linux|kFreeBSD" OR
-      CMAKE_SYSTEM_NAME STREQUAL "GNU") AND NOT CMAKE_CROSSCOMPILING AND
-      NOT EXISTS "/etc/arch-release" AND NOT DEFINED ENV{FLATPAK_ID} AND
-      NOT EXISTS "/etc/NIXOS")
-    if(EXISTS "/etc/debian_version")
-      if(CMAKE_LIBRARY_ARCHITECTURE)
-        set(_QTC_LIBDIR "lib/${CMAKE_LIBRARY_ARCHITECTURE}")
-      endif()
-    elseif(CMAKE_SIZEOF_VOID_P EQUAL 8)
-      set(_QTC_LIBDIR lib64)
-    endif()
-  endif()
-  set(CMAKE_INSTALL_LIBDIR "${_QTC_LIBDIR}" CACHE PATH
-    "Object code libraries (LIBDIR)")
-endif()
-include(GNUInstallDirs)
 
 ## Common settings.
 # support an infix argument to have different qtcurve-utils libraries, e.g. for
@@ -129,22 +105,6 @@ if(NOT APPLE)
   cmake_c_add_flags(CMAKE_MODULE_LINKER_FLAGS -Wl,--as-needed -Wl,--no-undefined)
 else()
   cmake_c_add_flags(CMAKE_CXX_FLAGS -std=c++11)
-endif()
-
-# Keep this rule above the first target, because CMake fixes the install rpath
-# of a target at its creation.
-if(UNIX AND NOT KDE_SKIP_RPATH_SETTINGS)
-  list(FIND CMAKE_PLATFORM_IMPLICIT_LINK_DIRECTORIES
-    "${CMAKE_INSTALL_FULL_LIBDIR}" _QTC_RPATH_PLATFORM)
-  list(FIND CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES
-    "${CMAKE_INSTALL_FULL_LIBDIR}" _QTC_RPATH_CXX)
-  list(FIND CMAKE_C_IMPLICIT_LINK_DIRECTORIES
-    "${CMAKE_INSTALL_FULL_LIBDIR}" _QTC_RPATH_C)
-  if(_QTC_RPATH_PLATFORM EQUAL -1 AND _QTC_RPATH_CXX EQUAL -1 AND
-      _QTC_RPATH_C EQUAL -1)
-    set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_FULL_LIBDIR}")
-  endif()
-  set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 endif()
 
 if(QTC_QT4_ENABLE_KDE)
@@ -247,26 +207,16 @@ if(ENABLE_GTK2)
   find_package(PkgConfig REQUIRED)
   unset(__pkg_config_checked_GTK2 CACHE)
   pkg_check_modules(GTK2 REQUIRED gtk+-2.0)
-  _pkgconfig_invoke(gtk+-2.0 GTK2 BIN_VERSION "" --variable=gtk_binary_version)
-  # Gtk2 loads an engine below the libdir of its own prefix, and a theme below
-  # the share directory of a prefix. pkg-config gives an empty name for a
-  # module file that declares no prefix or no libdir, and no full path for a
-  # relative libdir. A module file can also put the libdir outside its prefix,
-  # and the relative name then starts with two dots. QTC_GTK2_LIBDIR_NAME stays
-  # below the install prefix.
-  set(QTC_GTK2_LIBDIR_NAME lib)
-  if(GTK2_PREFIX AND GTK2_LIBDIR AND
-      IS_ABSOLUTE "${GTK2_PREFIX}" AND IS_ABSOLUTE "${GTK2_LIBDIR}")
-    file(RELATIVE_PATH _QTC_GTK2_LIBDIR_REL "${GTK2_PREFIX}" "${GTK2_LIBDIR}")
-    if(NOT _QTC_GTK2_LIBDIR_REL MATCHES "^\\.\\.")
-      set(QTC_GTK2_LIBDIR_NAME "${_QTC_GTK2_LIBDIR_REL}")
-    endif()
+  if(GTK2_THEME_PREFIX)
+    set(GTK2_PREFIX "${GTK2_THEME_PREFIX}")
+  elseif(NOT GTK2_PREFIX)
+    set(GTK2_PREFIX "${CMAKE_INSTALL_PREFIX}")
   endif()
-  qtc_option(QTC_GTK2_ENGINE_DIR "Absolute directory of the Gtk2 engines."
-    "${CMAKE_INSTALL_PREFIX}/${QTC_GTK2_LIBDIR_NAME}/gtk-2.0/${GTK2_BIN_VERSION}/engines")
-  qtc_option(QTC_GTK2_THEMES_DIR "Absolute directory of the Gtk2 themes."
-    "${CMAKE_INSTALL_PREFIX}/share/themes")
-  set(GTK2_THEME_DIR "${QTC_GTK2_THEMES_DIR}/QtCurve")
+  if(NOT GTK2_LIBDIR)
+    set(GTK2_LIBDIR "${GTK2_PREFIX}/lib")
+  endif()
+  _pkgconfig_invoke(gtk+-2.0 GTK2 BIN_VERSION "" --variable=gtk_binary_version)
+  set(GTK2_THEME_DIR ${GTK2_PREFIX}/share/themes/QtCurve)
 endif()
 
 configure_file(config.h.in config.h @ONLY)
@@ -284,12 +234,11 @@ endif()
 if(ENABLE_QT4)
   add_subdirectory(qt4)
 endif()
-# Keep qt6 above qt5.
-if(ENABLE_QT6)
-  add_subdirectory(qt6)
-endif()
 if(ENABLE_QT5)
   add_subdirectory(qt5)
+endif()
+if(ENABLE_QT6)
+  add_subdirectory(qt6)
 endif()
 
 if(ENABLE_GTK2)
