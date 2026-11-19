@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kde4-qtcurve\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-08 04:38+0000\n"
-"PO-Revision-Date: 2026-11-10 21:42+0300\n"
+"PO-Revision-Date: 2026-11-18 18:24+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -237,7 +237,7 @@ msgstr "© Craig Drummond, 2003–2011 ve Yichao Yu, 2013–2015"
 #: qt6/config/qtcurveconfig.cpp:257
 #, kde-format
 msgid "Preview Window"
-msgstr "Önizleme Penceresi"
+msgstr "Ön İzleme Penceresi"
 
 #: qt4/config/qtcurveconfig.cpp:309 qt5/config/qtcurveconfig.cpp:313
 #: qt6/config/qtcurveconfig.cpp:313
@@ -479,7 +479,7 @@ msgstr "Köşe göstergesi"
 #: qt6/config/qtcurveconfig.cpp:633
 #, kde-format
 msgid "Font color thin border"
-msgstr "Yazıtipi ince kenarlık rengi"
+msgstr "Yazı tipi ince kenarlık rengi"
 
 #: qt4/config/qtcurveconfig.cpp:633 qt5/config/qtcurveconfig.cpp:634
 #: qt6/config/qtcurveconfig.cpp:634
@@ -1185,7 +1185,7 @@ msgid ""
 msgstr ""
 "<p><b>NOT:</b><i>Buradaki ayarlar, iç (veya MDI) pencereler <b>değil</b> "
 "uygulama pencereleri ve diyaloglar çevresinde çizilen sınırları etkiler. Bu "
-"nedenle, bu ayarlar Önizleme sayfasına yansıtılmayacaktır.</i></p>"
+"nedenle, bu ayarlar ön izleme sayfasına yansıtılmayacaktır.</i></p>"
 
 #: qt4/config/qtcurveconfig.cpp:1761 qt5/config/qtcurveconfig.cpp:1696
 #: qt6/config/qtcurveconfig.cpp:1696
@@ -1311,7 +1311,7 @@ msgid ""
 "by KDE3 applications?"
 msgstr ""
 "KDE3 uygulamaları tarafından da kullanılabilecekleri için geçerli KDE4 renk "
-"paletinizi ve yazıtipinizi dışa aktarın?"
+"paletinizi ve yazı tipinizi dışa aktarın?"
 
 #: qt4/config/qtcurveconfig.cpp:2134 qt5/config/qtcurveconfig.cpp:2105
 #: qt6/config/qtcurveconfig.cpp:2105
@@ -1321,7 +1321,7 @@ msgid ""
 "by pure-Qt3 applications?"
 msgstr ""
 "saf-Qt3 uygulamaları tarafından da kullanılabilecekleri için geçerli KDE4 "
-"renk paletinizi ve yazıtipinizi dışa aktarın?"
+"renk paletinizi ve yazı tipinizi dışa aktarın?"
 
 #: qt4/config/qtcurveconfig.cpp:2187 qt5/config/qtcurveconfig.cpp:2165
 #: qt6/config/qtcurveconfig.cpp:2164
@@ -1644,7 +1644,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:171 qt6/config/qtcurveconfigbase.ui:4297
 #, kde-format
 msgid "Preview"
-msgstr "Önizleme"
+msgstr "Ön İzleme"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #. i18n: ectx: property (text), widget (QLabel, label_11)
@@ -2261,7 +2261,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:707
 #, kde-format
 msgid "Use bold font"
-msgstr "Kalın yazıtipi kullan"
+msgstr "Kalın yazı tipi kullan"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, gbLabel_textPos)
 #: qt4/config/qtcurveconfigbase.ui:705 qt5/config/qtcurveconfigbase.ui:714
@@ -2856,14 +2856,14 @@ msgid ""
 "p>"
 msgstr ""
 "<p>Etkinleştirilirse ilerleme çubuğunun üstündeki metin, genel araç takımı "
-"yazıtipi ile kullanılacaktır.</p>"
+"yazı tipi ile kullanılacaktır.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, boldProgress_false)
 #: qt4/config/qtcurveconfigbase.ui:1227 qt5/config/qtcurveconfigbase.ui:1236
 #: qt6/config/qtcurveconfigbase.ui:1236
 #, kde-format
 msgid "Standard font"
-msgstr "Standart yazıtipi"
+msgstr "Standart yazı tipi"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, boldProgress)
 #: qt4/config/qtcurveconfigbase.ui:1234 qt5/config/qtcurveconfigbase.ui:1243
@@ -2871,7 +2871,7 @@ msgstr "Standart yazıtipi"
 #, kde-format
 msgid "<p>If enabled, the text on a progressbar will use a bold font.</p>"
 msgstr ""
-"<p>Etkinleştirilirse ilerleme çubuğunun üstündeki metin kalın yazıtipi "
+"<p>Etkinleştirilirse ilerleme çubuğunun üstündeki metin kalın yazı tipi "
 "olacaktır.</p>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, boldProgress)
@@ -2879,7 +2879,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:1246
 #, kde-format
 msgid "Bold font"
-msgstr "Kalın yazıtipi"
+msgstr "Kalın yazı tipi"
 
 #. i18n: ectx: property (text), widget (QLabel, label_17)
 #: qt4/config/qtcurveconfigbase.ui:1256 qt5/config/qtcurveconfigbase.ui:1265
@@ -4711,7 +4711,7 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Menü bölümü başlıkları düğmelere biraz benzerler.</"
 "p><p>Devre dışı bırakıldıklarında, ayırıcı çizginin altında sola "
-"hizalanırlar ve koyu, altı çizili bir yazıtipi kullanın.</p></body></html>"
+"hizalanırlar ve koyu, altı çizili bir yazı tipi kullanın.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, buttonStyleMenuSections)
 #: qt4/config/qtcurveconfigbase.ui:3362 qt5/config/qtcurveconfigbase.ui:3409
@@ -4975,16 +4975,16 @@ msgid ""
 "<p>If enabled, the font of dock window titlebars will have use the font "
 "settings of standard windows, otherwise they will use the standard font."
 msgstr ""
-"<p>Etkinleştirilirse rıhtım penceresi, başlık çubuklarının yazıtipi standart "
-"pencerelerin yazıtipi ayarlarını kullanır, aksi halde standart yazıtipini "
-"kullanır."
+"<p>Etkinleştirilirse rıhtım penceresi, başlık çubuklarının yazı tipi "
+"standart pencerelerin yazı tipi ayarlarını kullanır, aksi halde standart "
+"yazı tipini kullanır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, dwtFontAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3629 qt5/config/qtcurveconfigbase.ui:3693
 #: qt6/config/qtcurveconfigbase.ui:3693
 #, kde-format
 msgid "Font"
-msgstr "Yazıtipi"
+msgstr "Yazı tipi"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, dwtTextAsPerTitleBar)
 #: qt4/config/qtcurveconfigbase.ui:3636 qt5/config/qtcurveconfigbase.ui:3700
@@ -5402,9 +5402,9 @@ msgid ""
 "used by KDE3 applications. This creates the relevant entries within the KDE3 "
 "kdeglobals file."
 msgstr ""
-"<p>Geçerli renk paleti ve yazıtipi ayarlarınızı dışa aktarır, böylece bunlar "
-"KDE3 uygulamaları tarafından da kullanılabilir. Bu, ilgili girdileri KDE3 "
-"kdeglobals dosyasında oluşturur."
+"<p>Geçerli renk paleti ve yazı tipi ayarlarınızı dışa aktarır, böylece "
+"bunlar KDE3 uygulamaları tarafından da kullanılabilir. Bu, ilgili girdileri "
+"KDE3 kdeglobals dosyasında oluşturur."
 
 #. i18n: ectx: property (text), widget (KPushButton, exportKde3Button)
 #. i18n: ectx: property (text), widget (QPushButton, exportKde3Button)
@@ -5412,7 +5412,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:4020
 #, kde-format
 msgid "Export colors and fonts for KDE3 applications..."
-msgstr "KDE3 uygulamaları için renkleri ve yazıtiplerini dışa aktar..."
+msgstr "KDE3 uygulamaları için renkleri ve yazı tiplerini dışa aktar..."
 
 #. i18n: ectx: property (toolTip), widget (KPushButton, exportQt3Button)
 #. i18n: ectx: property (toolTip), widget (QPushButton, exportQt3Button)
@@ -5424,9 +5424,9 @@ msgid ""
 "used by pure-Qt3 applications. This creates the relevant entries within the "
 "Qt3 ~/.qt/qtrc file."
 msgstr ""
-"<p>Geçerli renk paleti ve yazıtipi ayarlarınızı dışa aktarır, böylece bunlar "
-"saf-Qt3 uygulamaları tarafından da kullanılabilir. Bu, ilgili girdileri Qt3 "
-"~/.qt/qtrc dosyasında oluşturur."
+"<p>Geçerli renk paleti ve yazı tipi ayarlarınızı dışa aktarır, böylece "
+"bunlar saf-Qt3 uygulamaları tarafından da kullanılabilir. Bu, ilgili "
+"girdileri Qt3 ~/.qt/qtrc dosyasında oluşturur."
 
 #. i18n: ectx: property (text), widget (KPushButton, exportQt3Button)
 #. i18n: ectx: property (text), widget (QPushButton, exportQt3Button)
@@ -5434,7 +5434,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:4030
 #, kde-format
 msgid "Export colors and fonts for pure-Qt3 applications..."
-msgstr "Saf-Qt4 uygulamalarının renk ve yazıtiplerini dışa aktar..."
+msgstr "Saf-Qt4 uygulamalarının renk ve yazı tiplerini dışa aktar..."
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, gradCombo)
 #: qt4/config/qtcurveconfigbase.ui:3990 qt5/config/qtcurveconfigbase.ui:4054
@@ -5506,7 +5506,7 @@ msgstr ""
 "<li><i>Parlama</i> - Bir parlaklık, düğmelere veya sarma çubuklarına geçiş "
 "çizildiğinde, üst (veya sol) kenara eklenir.</li>\n"
 "</ul>\n"
-"<p><i>Not: Bu ayar, aşağıda çizilen önizlemeden kullanılmaz.</i></p>\n"
+"<p><i>Not: Bu ayar, aşağıda çizilen ön izlemeden kullanılmaz.</i></p>\n"
 "\n"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
@@ -5587,7 +5587,7 @@ msgstr ""
 #: qt6/config/qtcurveconfigbase.ui:4312
 #, kde-format
 msgid "<p>Set the color to be used in the preview."
-msgstr "<p>Önizlemede kullanılacak olan rengi ayarla."
+msgstr "<p>Ön izlemede kullanılacak olan rengi ayarlayın."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: qt4/config/qtcurveconfigbase.ui:4263 qt5/config/qtcurveconfigbase.ui:4327
